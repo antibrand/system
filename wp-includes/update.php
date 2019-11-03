@@ -147,11 +147,8 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	$response = wp_remote_post( $url, $options );
 	if ( $ssl && is_wp_error( $response ) ) {
 		trigger_error(
-			sprintf(
-				/* translators: %s: support forums URL */
-				__( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
-				__( 'https://wordpress.org/support/' )
-			) . ' ' . __( '(WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.)' ),
+			/* translators: %s: support forums URL */
+			__( 'An unexpected error occurred. Please contact your server administrator.' ),
 			headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 		);
 		$response = wp_remote_post( $http_url, $options );
@@ -592,7 +589,7 @@ function wp_get_translation_updates() {
  * @return array
  */
 function wp_get_update_data() {
-	$counts = array( 'plugins' => 0, 'themes' => 0, 'wordpress' => 0, 'translations' => 0 );
+	$counts = array( 'plugins' => 0, 'themes' => 0, 'app_core' => 0, 'translations' => 0 );
 
 	if ( $plugins = current_user_can( 'update_plugins' ) ) {
 		$update_plugins = get_site_transient( 'update_plugins' );
@@ -607,27 +604,27 @@ function wp_get_update_data() {
 	}
 
 	if ( ( $core = current_user_can( 'update_core' ) ) && function_exists( 'get_core_updates' ) ) {
-		$update_wordpress = get_core_updates( array('dismissed' => false) );
+		$update_app_core = get_core_updates( array('dismissed' => false) );
 
 		/**
 		 * Core update disabled in the count.
 		 *
 		 * Set is `1` to restore the core count for your repository updates:
-		 * $counts['wordpress'] = 1;
+		 * $counts['app_core'] = 1;
 		 */
-		if ( ! empty( $update_wordpress ) && ! in_array( $update_wordpress[0]->response, array('development', 'latest') ) && current_user_can('update_core') ) {
-			$counts['wordpress'] = null;
+		if ( ! empty( $update_app_core ) && ! in_array( $update_app_core[0]->response, array('development', 'latest') ) && current_user_can('update_core') ) {
+			$counts['app_core'] = null;
 		}
 	}
 
 	if ( ( $core || $plugins || $themes ) && wp_get_translation_updates() )
 		$counts['translations'] = 1;
 
-	$counts['total'] = $counts['plugins'] + $counts['themes'] + $counts['wordpress'] + $counts['translations'];
+	$counts['total'] = $counts['plugins'] + $counts['themes'] + $counts['app_core'] + $counts['translations'];
 	$titles = array();
-	if ( $counts['wordpress'] ) {
-		/* translators: 1: Number of updates available to WordPress */
-		$titles['wordpress'] = sprintf( __( '%d WordPress Update'), $counts['wordpress'] );
+	if ( $counts['app_core'] ) {
+		/* translators: 1: Number of updates available to the application */
+		$titles['app_core'] = sprintf( __( '%d WordPress Update'), $counts['app_core'] );
 	}
 	if ( $counts['plugins'] ) {
 		/* translators: 1: Number of updates available to plugins */

@@ -57,30 +57,50 @@ function list_core_update( $update ) {
 		$message = __('You are using a development version of WordPress. You can update to the latest nightly build automatically:');
 	} else {
 		if ( $current ) {
-			$message = sprintf( __( 'If you need to re-install version %s, you can do so here:' ), $version_string );
-			$submit = __('Re-install Now');
+			$message     = sprintf( __( 'If you need to re-install version %s, you can do so here:' ), $version_string );
+			$submit      = __( 'Re-install Now' );
 			$form_action = 'update-core.php?action=do-core-reinstall';
 		} else {
-			$php_compat     = version_compare( $php_version, $update->php_version, '>=' );
-			if ( file_exists( WP_CONTENT_DIR . '/db.php' ) && empty( $wpdb->is_mysql ) )
+			$php_compat = version_compare( $php_version, $update->php_version, '>=' );
+			if ( file_exists( WP_CONTENT_DIR . '/db.php' ) && empty( $wpdb->is_mysql ) ) {
 				$mysql_compat = true;
-			else
+			} else {
 				$mysql_compat = version_compare( $mysql_version, $update->mysql_version, '>=' );
+			}
 
-			if ( !$mysql_compat && !$php_compat )
-				/* translators: 1: WordPress version number, 2: Minimum required PHP version number, 3: Minimum required MySQL version number, 4: Current PHP version number, 5: Current MySQL version number */
-				$message = sprintf( __('You cannot update because <a href="https://codex.wordpress.org/Version_%1$s">WordPress %1$s</a> requires PHP version %2$s or higher and MySQL version %3$s or higher. You are running PHP version %4$s and MySQL version %5$s.'), $update->current, $update->php_version, $update->mysql_version, $php_version, $mysql_version );
-			elseif ( !$php_compat )
-				/* translators: 1: WordPress version number, 2: Minimum required PHP version number, 3: Current PHP version number */
-				$message = sprintf( __('You cannot update because <a href="https://codex.wordpress.org/Version_%1$s">WordPress %1$s</a> requires PHP version %2$s or higher. You are running version %3$s.'), $update->current, $update->php_version, $php_version );
-			elseif ( !$mysql_compat )
-				/* translators: 1: WordPress version number, 2: Minimum required MySQL version number, 3: Current MySQL version number */
-				$message = sprintf( __('You cannot update because <a href="https://codex.wordpress.org/Version_%1$s">WordPress %1$s</a> requires MySQL version %2$s or higher. You are running version %3$s.'), $update->current, $update->mysql_version, $mysql_version );
-			else
-				/* translators: 1: WordPress version number, 2: WordPress version number including locale if necessary */
-				$message = 	sprintf(__('You can update to <a href="https://codex.wordpress.org/Version_%1$s">WordPress %2$s</a> automatically:'), $update->current, $version_string);
-			if ( !$mysql_compat || !$php_compat )
+			if ( ! $mysql_compat && ! $php_compat ) {
+				$message = sprintf(
+					__( 'You cannot update because %1s requires PHP version %2s or higher and MySQL version %3s or higher. You are running PHP version %4s and MySQL version %5s.' ),
+					APP_NAME,
+					$update->php_version,
+					$update->mysql_version,
+					$php_version,
+					$mysql_version
+				);
+			} elseif ( ! $php_compat ) {
+				$message = sprintf(
+					__( 'You cannot update because %1s requires PHP version %2s or higher. You are running version %3s.' ),
+					APP_NAME,
+					$update->php_version,
+					$php_version
+				);
+			} elseif ( ! $mysql_compat ) {
+				$message = sprintf(
+					__( 'You cannot update because %1s requires MySQL version %2s or higher. You are running version %3s.' ),
+					APP_NAME,
+					$update->mysql_version,
+					$mysql_version
+				);
+			} else {
+				$message = 	sprintf(
+					__( 'You can update %1s automatically:' ),
+					APP_NAME
+				);
+			}
+
+			if ( !$mysql_compat || !$php_compat ) {
 				$show_buttons = false;
+			}
 		}
 	}
 
@@ -180,12 +200,15 @@ function core_upgrade_preamble() {
 		echo '</h2>';
 	} else {
 		echo '<div class="notice notice-warning"><p>';
-		_e('<strong>Important:</strong> before updating, please <a href="https://codex.wordpress.org/WordPress_Backups">back up your database and files</a>. For help with updates, visit the <a href="https://codex.wordpress.org/Updating_WordPress">Updating WordPress</a> Codex page.');
+		_e('<strong>Important:</strong> Before updating, please back up your database and files.');
 		echo '</p></div>';
 
-		echo '<h2 class="response">';
-		_e( 'An updated version of WordPress is available.' );
-		echo '</h2>';
+		echo sprintf(
+			'<h2 class="response">%1s %2s %3s</h2>',
+			__( 'An updated version of' ),
+			APP_NAME,
+			__( 'is available.' )
+		);
 	}
 
 	if ( isset( $updates[0] ) && $updates[0]->response == 'development' ) {
@@ -210,7 +233,7 @@ function core_upgrade_preamble() {
 		echo '<p>' . __( 'While your site is being updated, it will be in maintenance mode. As soon as your updates are complete, your site will return to normal.' ) . '</p>';
 	} elseif ( ! $updates ) {
 		list( $normalized_version ) = explode( '-', $wp_version );
-		echo '<p>' . sprintf( __( '<a href="%s">Learn more about WordPress %s</a>.' ), esc_url( self_admin_url( 'about.php' ) ), $normalized_version ) . '</p>';
+		echo '<p>' . sprintf( __( '<a href="%s">Learn more</a>.' ), esc_url( self_admin_url( 'about.php' ) ) ) . '</p>';
 	}
 	dismissed_updates();
 }
@@ -258,7 +281,7 @@ function list_plugin_updates() {
 			if ( ! empty( $plugin_data->update->icons[ $preferred_icon ] ) ) {
 				$icon = '<img src="' . esc_url( $plugin_data->update->icons[ $preferred_icon ] ) . '" alt="" />';
 				break;
-			}			
+			}
 		}
 
 		// Get plugin compat for running version of WordPress.
@@ -355,7 +378,7 @@ function list_theme_updates() {
 ?>
 <h2><?php _e( 'Themes' ); ?></h2>
 <p><?php _e( 'The following themes have new versions available. Check the ones you want to update and then click &#8220;Update Themes&#8221;.' ); ?></p>
-<p><?php printf( __( '<strong>Please Note:</strong> Any customizations you have made to theme files will be lost. Please consider using <a href="%s">child themes</a> for modifications.' ), __( 'https://codex.wordpress.org/Child_Themes' ) ); ?></p>
+<p><?php printf( __( '<strong>Please Note:</strong> Any customizations you have made to theme files will be lost. Please consider using child themes for modifications.' ) ); ?></p>
 <form method="post" action="<?php echo esc_url( $form_action ); ?>" name="upgrade-themes" class="upgrade">
 <?php wp_nonce_field('upgrade-core'); ?>
 <p><input id="upgrade-themes" class="button" type="submit" value="<?php esc_attr_e('Update Themes'); ?>" name="upgrade" /></p>
@@ -615,7 +638,8 @@ if ( 'upgrade-core' == $action ) {
 	echo '</p>';
 
 	if ( current_user_can( 'update_core' ) ) {
-		core_upgrade_preamble();
+		// Uncomment to print the update markup.
+		// core_upgrade_preamble();
 	}
 	if ( current_user_can( 'update_plugins' ) ) {
 		list_plugin_updates();
