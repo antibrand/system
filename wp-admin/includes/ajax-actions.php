@@ -358,12 +358,6 @@ function wp_ajax_dashboard_widgets() {
 	if ( $pagenow === 'dashboard-user' || $pagenow === 'dashboard-network' || $pagenow === 'dashboard' ) {
 		set_current_screen( $pagenow );
 	}
-
-	switch ( $_GET['widget'] ) {
-		case 'dashboard_primary' :
-			wp_dashboard_primary();
-			break;
-	}
 	wp_die();
 }
 
