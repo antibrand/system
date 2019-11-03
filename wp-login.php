@@ -8,10 +8,10 @@
  * @package WMS
  */
 
-/** Make sure that the WordPress bootstrap has run before continuing. */
+// Make sure that the website management system bootstrap has run before continuing.
 require( dirname(__FILE__) . '/wp-load.php' );
 
-// Redirect to https login if forced to use SSL
+// Redirect to https login if forced to use SSL.
 if ( force_ssl_admin() && ! is_ssl() ) {
 	if ( 0 === strpos($_SERVER['REQUEST_URI'], 'http') ) {
 		wp_safe_redirect( set_url_scheme( $_SERVER['REQUEST_URI'], 'https' ) );
@@ -25,12 +25,13 @@ if ( force_ssl_admin() && ! is_ssl() ) {
 /**
  * Output the login page header.
  *
- * @param string   $title    Optional. WordPress login Page title to display in the `<title>` element.
+ * @param string   $title    Optional. Login Page title to display in the `<title>` element.
  *                           Default 'Log In'.
  * @param string   $message  Optional. Message to display in header. Default empty.
  * @param WP_Error $wp_error Optional. The error to pass. Default is a WP_Error instance.
  */
 function login_header( $title = 'Log In', $message = '', $wp_error = null ) {
+
 	global $error, $interim_login, $action;
 
 	// Don't index any of these forms
@@ -56,22 +57,26 @@ function login_header( $title = 'Log In', $message = '', $wp_error = null ) {
 	if ( $shake_error_codes && $wp_error->get_error_code() && in_array( $wp_error->get_error_code(), $shake_error_codes ) )
 		add_action( 'login_head', 'wp_shake_js', 12 );
 
-	$login_title = get_bloginfo( 'name', 'display' );
+		$login_title = get_bloginfo( 'name', 'display' );
 
-	/* translators: Login screen title. 1: Login screen name, 2: Network or site name */
-	$login_title = sprintf( __( '%1$s &lsaquo; %2$s &#8212; WordPress' ), $title, $login_title );
+		// Switch the title direction for RTL languages.
+		if ( is_rtl() ) {
+			$login_title = sprintf(
+				__( '%1$s &lsaquo; %2$s' ),
+				$login_title,
+				$title
+			);
+		} else {
+			$login_title = sprintf(
+				__( '%1$s &rsaquo; %2$s' ),
+				$title,
+				$login_title
+			);
+		}
 
-	/**
-	 * Filters the title tag content for login page.
-	 *
-	 * @since 4.9.0
-	 *
-	 * @param string $login_title The page title, with extra context added.
-	 * @param string $title       The original page title.
-	 */
-	$login_title = apply_filters( 'login_title', $login_title, $title );
+		$login_title = apply_filters( 'login_title', $login_title, $title );
 
-	?><!DOCTYPE html>
+	?><!doctype html>
 	<!--[if IE 8]>
 		<html xmlns="http://www.w3.org/1999/xhtml" class="ie8" <?php language_attributes(); ?>>
 	<![endif]-->
@@ -79,11 +84,10 @@ function login_header( $title = 'Log In', $message = '', $wp_error = null ) {
 		<html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
 	<!--<![endif]-->
 	<head>
-	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
-	<title><?php echo $login_title; ?></title>
-	<?php
-
-	wp_enqueue_style( 'login' );
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
+		<title><?php echo $login_title; ?></title>
+		<?php wp_enqueue_style( 'login' );
 
 	/*
 	 * Remove all stored post data on logging out.
@@ -114,8 +118,8 @@ function login_header( $title = 'Log In', $message = '', $wp_error = null ) {
 		$login_header_url   = network_home_url();
 		$login_header_title = get_network()->site_name;
 	} else {
-		$login_header_url   = __( 'https://wordpress.org/' );
-		$login_header_title = __( 'Powered by WordPress' );
+		$login_header_url   = site_url();
+		$login_header_title = get_bloginfo( 'name' );
 	}
 
 	/**
@@ -857,13 +861,13 @@ case 'confirmaction' :
 	if ( is_wp_error( $result ) ) {
 		wp_die( $result );
 	}
-	
+
 	/**
 	 * Fires an action hook when the account action has been confirmed by the user.
-	 * 
+	 *
 	 * Using this you can assume the user has agreed to perform the action by
 	 * clicking on the link in the confirmation email.
-	 * 
+	 *
 	 * After firing this action hook the page will redirect to wp-login a callback
 	 * redirects or exits first.
 	 *
@@ -915,15 +919,23 @@ default:
 	$user = wp_signon( array(), $secure_cookie );
 
 	if ( empty( $_COOKIE[ LOGGED_IN_COOKIE ] ) ) {
+
 		if ( headers_sent() ) {
-			/* translators: 1: Browser cookie documentation URL, 2: Support forums URL */
-			$user = new WP_Error( 'test_cookie', sprintf( __( '<strong>ERROR</strong>: Cookies are blocked due to unexpected output. For help, please see <a href="%1$s">this documentation</a> or try the <a href="%2$s">support forums</a>.' ),
-				__( 'https://codex.wordpress.org/Cookies' ), __( 'https://wordpress.org/support/' ) ) );
+
+			$user = new WP_Error(
+				'test_cookie', sprintf(
+					__( '<strong>ERROR</strong>: Cookies are blocked due to unexpected output.' )
+				)
+			);
+
 		} elseif ( isset( $_POST['testcookie'] ) && empty( $_COOKIE[ TEST_COOKIE ] ) ) {
-			// If cookies are disabled we can't log in even with a valid user+pass
-			/* translators: 1: Browser cookie documentation URL */
-			$user = new WP_Error( 'test_cookie', sprintf( __( '<strong>ERROR</strong>: Cookies are blocked or not supported by your browser. You must <a href="%s">enable cookies</a> to use WordPress.' ),
-				__( 'https://codex.wordpress.org/Cookies' ) ) );
+
+			// If cookies are disabled we can't log in even with a valid user+pass.
+			$user = new WP_Error(
+				'test_cookie', sprintf(
+					__( '<strong>ERROR</strong>: Cookies are blocked or not supported by your browser. You must enable cookies to use this application.' )
+				)
+			);
 		}
 	}
 
@@ -981,18 +993,18 @@ default:
 			$errors->add( 'expired', __( 'Your session has expired. Please log in to continue where you left off.' ), 'message' );
 	} else {
 		// Some parts of this script use the main login form to display a message
-		if		( isset($_GET['loggedout']) && true == $_GET['loggedout'] )
+		if ( isset($_GET['loggedout']) && true == $_GET['loggedout'] )
 			$errors->add('loggedout', __('You are now logged out.'), 'message');
-		elseif	( isset($_GET['registration']) && 'disabled' == $_GET['registration'] )
+		elseif ( isset($_GET['registration']) && 'disabled' == $_GET['registration'] )
 			$errors->add('registerdisabled', __('User registration is currently not allowed.'));
-		elseif	( isset($_GET['checkemail']) && 'confirm' == $_GET['checkemail'] )
+		elseif ( isset($_GET['checkemail']) && 'confirm' == $_GET['checkemail'] )
 			$errors->add('confirm', __('Check your email for the confirmation link.'), 'message');
-		elseif	( isset($_GET['checkemail']) && 'newpass' == $_GET['checkemail'] )
+		elseif ( isset($_GET['checkemail']) && 'newpass' == $_GET['checkemail'] )
 			$errors->add('newpass', __('Check your email for your new password.'), 'message');
-		elseif	( isset($_GET['checkemail']) && 'registered' == $_GET['checkemail'] )
+		elseif ( isset($_GET['checkemail']) && 'registered' == $_GET['checkemail'] )
 			$errors->add('registered', __('Registration complete. Please check your email.'), 'message');
 		elseif ( strpos( $redirect_to, 'about.php?updated' ) )
-			$errors->add('updated', __( '<strong>You have successfully updated WordPress!</strong> Please log back in to see what&#8217;s new.' ), 'message' );
+			$errors->add('updated', __( '<strong>You have successfully updated the website management system.</strong> Please log back in to see what&#8217;s new.' ), 'message' );
 	}
 
 	/**
