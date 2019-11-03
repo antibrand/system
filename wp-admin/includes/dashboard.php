@@ -1561,9 +1561,19 @@ function wp_dashboard_empty() {}
  * @since 3.3.0
  */
 function wp_welcome_panel() {
+
+	// App version.
+	$version = get_bloginfo( 'version' );
 	?>
 	<div class="welcome-panel-content">
-	<h2><?php _e( 'Welcome to WordPress!' ); ?></h2>
+	<h2>
+	<?php echo sprintf(
+		'%1s %2s %3s',
+		__( 'Welcome to' ),
+		APP_NAME,
+		$version
+	); ?>
+	</h2>
 	<p class="about-description"><?php _e( 'We&#8217;ve assembled some links to get you started:' ); ?></p>
 	<div class="welcome-panel-column-container">
 	<div class="welcome-panel-column">
@@ -1612,7 +1622,6 @@ function wp_welcome_panel() {
 		<?php if ( current_user_can( 'manage_options' ) ) : ?>
 			<li><?php printf( '<a href="%s" class="welcome-icon welcome-comments">' . __( 'Turn comments on or off' ) . '</a>', admin_url( 'options-discussion.php' ) ); ?></li>
 		<?php endif; ?>
-			<li><?php printf( '<a href="%s" class="welcome-icon welcome-learn-more">' . __( 'Learn more about getting started' ) . '</a>', __( 'https://codex.wordpress.org/First_Steps_With_WordPress' ) ); ?></li>
 		</ul>
 	</div>
 	</div>
