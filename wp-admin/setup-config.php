@@ -15,6 +15,11 @@ define( 'WP_INSTALLING', true );
 // We are unaware of anything.
 define( 'WP_SETUP_CONFIG', true );
 
+// Define the application name.
+if ( ! defined( 'APP_NAME' ) ) {
+	define( 'APP_NAME', 'App Name' );
+}
+
 /**
  * Disable error reporting
  *
@@ -186,7 +191,15 @@ switch( $step ) {
 	?>
 <h1><?php _e( 'Database Connection' ) ?></h1>
 <form method="post" action="setup-config.php?step=2">
-	<p><?php _e( 'Below you should enter your database connection details. If you&#8217;re not sure about these, contact your host.' ); ?></p>
+	<p><?php _e( 'Enter an application name to be used throughout the website management system. This allows you to "white label" the application and can be changed at any time in the <code>app-config</code> file.' ); ?></p>
+	<table class="form-table">
+		<tr>
+			<th scope="row"><label for="appname"><?php _e( 'Application Name' ); ?></label></th>
+			<td><input name="appname" id="appname" type="text" size="25" value="App Name" /></td>
+			<td><?php _e( 'Enter the name to use for your application.' ); ?></td>
+		</tr>
+	</table>
+	<p><?php _e( 'Enter your database connection details below. If you&#8217;re not sure about these, contact your host.' ); ?></p>
 	<table class="form-table">
 		<tr>
 			<th scope="row"><label for="dbname"><?php _e( 'Database Name' ); ?></label></th>
@@ -234,11 +247,12 @@ switch( $step ) {
 	load_default_textdomain( $language );
 	$GLOBALS['wp_locale'] = new WP_Locale();
 
-	$dbname = trim( wp_unslash( $_POST['dbname'] ) );
-	$uname  = trim( wp_unslash( $_POST['uname'] ) );
-	$pwd    = trim( wp_unslash( $_POST['pwd'] ) );
-	$dbhost = trim( wp_unslash( $_POST['dbhost'] ) );
-	$prefix = trim( wp_unslash( $_POST['prefix'] ) );
+	$appname = trim( wp_unslash( $_POST['appname'] ) );
+	$dbname  = trim( wp_unslash( $_POST['dbname'] ) );
+	$uname   = trim( wp_unslash( $_POST['uname'] ) );
+	$pwd     = trim( wp_unslash( $_POST['pwd'] ) );
+	$dbhost  = trim( wp_unslash( $_POST['dbhost'] ) );
+	$prefix  = trim( wp_unslash( $_POST['prefix'] ) );
 
 	$step_1  = 'setup-config.php?step=1';
 	$install = 'install.php';

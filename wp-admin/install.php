@@ -47,6 +47,13 @@ nocache_headers();
 
 $step = isset( $_GET['step'] ) ? (int) $_GET['step'] : 0;
 
+// Application name.
+if ( defined( 'APP_NAME' ) ) {
+	$app_name = APP_NAME;
+} else {
+	$app_name = 'App Name';
+}
+
 /**
  * Display installation header.
  *

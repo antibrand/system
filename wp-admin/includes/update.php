@@ -6,6 +6,11 @@
  * @subpackage Administration
  */
 
+// Define the application name.
+if ( ! defined( 'APP_NAME' ) ) {
+	define( 'APP_NAME', 'App Name' );
+}
+
 /**
  * Selects the first update version from the update_core option.
  *
@@ -240,26 +245,28 @@ function update_nag() {
 
 	if ( current_user_can( 'update_core' ) ) {
 		$msg = sprintf(
-			/* translators: 1: Codex URL to release notes, 2: new WordPress version, 3: URL to network admin, 4: accessibility text */
-			__( '<a href="%1$s">WordPress %2$s</a> is available! <a href="%3$s" aria-label="%4$s">Please update now</a>.' ),
+			/* translators: 1: Codex URL to release notes, 2: new version, 3: URL to network admin, 4: accessibility text */
+			__( '<a href="%1$s">%2$s %3$s</a> is available. <a href="%4$s" aria-label="%5$s">Please update now</a>.' ),
 			sprintf(
-				/* translators: %s: WordPress version */
+				/* translators: %s: version */
 				esc_url( __( 'https://codex.wordpress.org/Version_%s' ) ),
 				$cur->current
 			),
+			APP_NAME,
 			$cur->current,
 			network_admin_url( 'update-core.php' ),
-			esc_attr__( 'Please update WordPress now' )
+			esc_attr__( 'Please update now' )
 		);
 	} else {
 		$msg = sprintf(
-			/* translators: 1: Codex URL to release notes, 2: new WordPress version */
-			__( '<a href="%1$s">WordPress %2$s</a> is available! Please notify the site administrator.' ),
+			/* translators: 1: Codex URL to release notes, 2: new version */
+			__( '<a href="%1$s">%2$s %3$s</a> is available. Please notify the site administrator.' ),
 			sprintf(
-				/* translators: %s: WordPress version */
+				/* translators: %s: version */
 				esc_url( __( 'https://codex.wordpress.org/Version_%s' ) ),
 				$cur->current
 			),
+			APP_NAME,
 			$cur->current
 		);
 	}
