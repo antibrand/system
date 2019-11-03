@@ -1030,11 +1030,11 @@ class wpdb {
 			if ( ! did_action( 'template_redirect' ) ) {
 				wp_load_translations_early();
 
-				$message = '<h1>' . __( 'Can&#8217;t select database' ) . "</h1>\n";
+				$message = '<h1>' . __( 'Can&#8217;t select a database' ) . "</h1>\n";
 
 				$message .= '<p>' . sprintf(
 					/* translators: %s: database name */
-					__( 'We were able to connect to the database server (which means your username and password is okay) but not able to select the %s database.' ),
+					__( 'We were able to connect to the database server (which means your username and password is okay) but not able to select the "%s" database.' ),
 					'<code>' . htmlspecialchars( $db, ENT_QUOTES ) . '</code>'
 				) . "</p>\n";
 
@@ -1058,8 +1058,7 @@ class wpdb {
 
 				$message .= '<p>' . sprintf(
 					/* translators: %s: support forums URL */
-					__( 'If you don&#8217;t know how to set up a database you should <strong>contact your host</strong>. If all else fails you may find help at the <a href="%s">WordPress Support Forums</a>.' ),
-					__( 'https://wordpress.org/support/' )
+					__( 'If you don&#8217;t know how to set up a database you should <strong>contact your host</strong>.' )
 				) . "</p>\n";
 
 				$this->bail( $message, 'db_select_fail' );
