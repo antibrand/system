@@ -312,10 +312,7 @@ switch($step) {
 
 		display_header();
 ?>
-<h1><?php _e( 'Welcome' ); ?></h1>
-<p><?php _e( 'Fill in the information below.' ); ?></p>
-
-<h2><?php _e( 'Information Needed' ); ?></h2>
+<h1><?php _e( 'Information Needed' ); ?></h1>
 <p><?php _e( 'Please provide the following information. You can always change these settings later.' ); ?></p>
 
 <?php
