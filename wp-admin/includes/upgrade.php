@@ -201,12 +201,11 @@ function wp_install_defaults( $user_id ) {
 		$first_comment = get_site_option( 'first_comment' );
 	}
 
-	$first_comment_author = ! empty( $first_comment_author ) ? $first_comment_author : __( 'A WordPress Commenter' );
-	$first_comment_email = ! empty( $first_comment_email ) ? $first_comment_email : 'wapuu@wordpress.example';
-	$first_comment_url = ! empty( $first_comment_url ) ? $first_comment_url : 'https://wordpress.org/';
+	$first_comment_author = ! empty( $first_comment_author ) ? $first_comment_author : __( 'Sample Commenter' );
+	$first_comment_email = ! empty( $first_comment_email ) ? $first_comment_email : 'no-reply@example.org';
+	$first_comment_url = ! empty( $first_comment_url ) ? $first_comment_url : 'http://example.org/';
 	$first_comment = ! empty( $first_comment ) ? $first_comment :  __( 'Hi, this is a comment.
-To get started with moderating, editing, and deleting comments, please visit the Comments screen in the dashboard.
-Commenter avatars come from <a href="https://gravatar.com">Gravatar</a>.' );
+To get started with moderating, editing, and deleting comments, please visit the Comments page in the dashboard.' );
 	$wpdb->insert( $wpdb->comments, array(
 		'comment_post_ID' => 1,
 		'comment_author' => $first_comment_author,
