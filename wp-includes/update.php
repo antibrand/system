@@ -608,8 +608,16 @@ function wp_get_update_data() {
 
 	if ( ( $core = current_user_can( 'update_core' ) ) && function_exists( 'get_core_updates' ) ) {
 		$update_wordpress = get_core_updates( array('dismissed' => false) );
-		if ( ! empty( $update_wordpress ) && ! in_array( $update_wordpress[0]->response, array('development', 'latest') ) && current_user_can('update_core') )
-			$counts['wordpress'] = 1;
+
+		/**
+		 * Core update disabled in the count.
+		 *
+		 * Set is `1` to restore the core count for your repository updates:
+		 * $counts['wordpress'] = 1;
+		 */
+		if ( ! empty( $update_wordpress ) && ! in_array( $update_wordpress[0]->response, array('development', 'latest') ) && current_user_can('update_core') ) {
+			$counts['wordpress'] = null;
+		}
 	}
 
 	if ( ( $core || $plugins || $themes ) && wp_get_translation_updates() )
