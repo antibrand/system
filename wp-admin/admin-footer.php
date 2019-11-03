@@ -7,8 +7,14 @@
  */
 
 // don't load directly
-if ( !defined('ABSPATH') )
-	die('-1');
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '-1' );
+}
+
+// Define the application name.
+if ( ! defined( 'APP_NAME' ) ) {
+	define( 'APP_NAME', 'WebsiteApp' );
+}
 
 /**
  * @global string $hook_suffix
@@ -31,7 +37,11 @@ global $hook_suffix;
 	?>
 	<p id="footer-left" class="alignleft">
 		<?php
-		$text = sprintf( __( 'Thank you for creating with <a href="%s">WordPress</a>.' ), __( 'https://wordpress.org/' ) );
+		$text = sprintf(
+			'%1s %2s',
+			__( 'This website is managed by' ),
+			APP_NAME
+		);
 		/**
 		 * Filters the "Thank you" text displayed in the admin footer.
 		 *
