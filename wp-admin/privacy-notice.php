@@ -19,7 +19,14 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 ?>
 <div class="wrap not-using__about-wrap not-using__full-width-layout">
 
-	<h1><?php printf( __( 'Welcome' ) ); ?></h1>
+<h1>
+	<?php echo sprintf(
+		'%1s %2s %3s',
+		APP_NAME,
+		$version,
+		__( 'Privacy Notice' )
+	); ?>
+	</h1>
 	<p class="description not-using__about-text"><?php printf( __( '' ) ); ?></p>
 
 	<h2 class="nav-tab-wrapper wp-clearfix">
