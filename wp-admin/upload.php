@@ -61,11 +61,7 @@ if ( 'grid' === $mode ) {
 			'<p>' . __( 'You can also delete individual items and access the extended edit screen from the details dialog.' ) . '</p>'
 	) );
 
-	get_current_screen()->set_help_sidebar(
-		'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-		'<p>' . __( '<a href="https://codex.wordpress.org/Media_Library_Screen">Documentation on Media Library</a>' ) . '</p>' .
-		'<p>' . __( '<a href="https://wordpress.org/support/">Support Forums</a>' ) . '</p>'
-	);
+	get_current_screen()->set_help_sidebar( '' );
 
 	$title = __('Media Library');
 	$parent_file = 'upload.php';
@@ -207,11 +203,7 @@ get_current_screen()->add_help_tab( array(
 	'<p>' . __( 'If a media file has not been attached to any content, you will see that in the Uploaded To column, and can click on Attach to launch a small popup that will allow you to search for existing content and attach the file.' ) . '</p>'
 ) );
 
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://codex.wordpress.org/Media_Library_Screen">Documentation on Media Library</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/">Support Forums</a>' ) . '</p>'
-);
+get_current_screen()->set_help_sidebar( '' );
 
 get_current_screen()->set_screen_reader_content( array(
 	'heading_views'      => __( 'Filter media items list' ),

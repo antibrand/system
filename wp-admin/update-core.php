@@ -580,11 +580,7 @@ get_current_screen()->add_help_tab( array(
 	'content' => $updates_howto
 ) );
 
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __('For more information:') . '</strong></p>' .
-	'<p>' . __( '<a href="https://codex.wordpress.org/Dashboard_Updates_Screen">Documentation on Updating WordPress</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/">Support Forums</a>' ) . '</p>'
-);
+get_current_screen()->set_help_sidebar( '' );
 
 if ( 'upgrade-core' == $action ) {
 	// Force a update check when requested

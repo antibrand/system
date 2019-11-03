@@ -113,11 +113,7 @@ if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' )
 	) );
 } // edit_theme_options && customize
 
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://codex.wordpress.org/Using_Themes">Documentation on Using Themes</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/">Support Forums</a>' ) . '</p>'
-);
+get_current_screen()->set_help_sidebar( '' );
 
 if ( current_user_can( 'switch_themes' ) ) {
 	$themes = wp_prepare_themes_for_js();
