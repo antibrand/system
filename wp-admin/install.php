@@ -51,7 +51,7 @@ $step = isset( $_GET['step'] ) ? (int) $_GET['step'] : 0;
 if ( defined( 'APP_NAME' ) ) {
 	$app_name = APP_NAME;
 } else {
-	$app_name = 'App Name';
+	$app_name = 'WebsiteApp';
 }
 
 /**

@@ -29,7 +29,7 @@ if ( ! WP_NETWORK_ADMIN && ! WP_USER_ADMIN ) {
 
 // Define the application name.
 if ( ! defined( 'APP_NAME' ) ) {
-	define( 'APP_NAME', 'App Name' );
+	define( 'APP_NAME', 'WebsiteApp' );
 }
 
 if ( isset( $_GET['import'] ) && ! defined( 'WP_LOAD_IMPORTERS' ) ) {

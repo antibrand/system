@@ -71,7 +71,7 @@ $table_prefix  = 'app_';
  * This constant is used throughout the website management system
  * and allows you to "white label" the application.
  */
-define( 'APP_NAME', 'App Name' );
+define( 'APP_NAME', 'WebsiteApp' );
 
 /**
  * For developers: debugging mode.

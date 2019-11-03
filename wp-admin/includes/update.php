@@ -8,7 +8,7 @@
 
 // Define the application name.
 if ( ! defined( 'APP_NAME' ) ) {
-	define( 'APP_NAME', 'App Name' );
+	define( 'APP_NAME', 'WebsiteApp' );
 }
 
 /**
