@@ -57,26 +57,9 @@
 
 /* WordPress Version Badge */
 
-.wp-badge {
-	background: #0073aa url(../images/w-logo-white.png?ver=20160308) no-repeat;
-	background-position: center 25px;
-	background-size: 80px 80px;
-	color: #fff;
-	font-size: 14px;
-	text-align: center;
-	font-weight: 600;
-	margin: 5px 0 0;
-	padding-top: 120px;
-	height: 40px;
-	display: inline-block;
-	width: 140px;
-	text-rendering: optimizeLegibility;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-}
+.wp-badge {}
 
-.svg .wp-badge {
-	background-image: url(../images/wordpress-logo-white.svg?ver=20160308);
-}
+.svg .wp-badge {}
 
 .about-wrap .wp-badge {
 	position: absolute;
