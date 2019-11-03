@@ -370,9 +370,9 @@ switch($step) {
 			$result = wp_install( $weblog_title, $user_name, $admin_email, $public, '', wp_slash( $admin_password ), $loaded_language );
 ?>
 
-<h1><?php _e( 'Success!' ); ?></h1>
+<h1><?php _e( 'Installation Successful' ); ?></h1>
 
-<p><?php _e( 'The website management system has been installed.' ); ?></p>
+<p><?php _e( 'The website management system has been installed and you can now log in.' ); ?></p>
 
 <table class="form-table install-success">
 	<tr>

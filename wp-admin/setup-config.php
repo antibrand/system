@@ -184,7 +184,7 @@ switch( $step ) {
 
 		setup_config_display_header();
 	?>
-<h1 class="screen-reader-text"><?php _e( 'Set up your database connection' ) ?></h1>
+<h1><?php _e( 'Database Connection' ) ?></h1>
 <form method="post" action="setup-config.php?step=2">
 	<p><?php _e( 'Below you should enter your database connection details. If you&#8217;re not sure about these, contact your host.' ); ?></p>
 	<table class="form-table">
@@ -418,7 +418,7 @@ if ( ! /iPad|iPod|iPhone/.test( navigator.userAgent ) ) {
 		chmod( $path_to_wp_config, 0666 );
 		setup_config_display_header();
 ?>
-<h1 class="screen-reader-text"><?php _e( 'Successful database connection' ) ?></h1>
+<h1><?php _e( 'Successful Database Connection' ) ?></h1>
 <p><?php _e( 'The website management system can now communicate with your database. If you are ready&hellip;' ); ?></p>
 
 <p class="step"><a href="<?php echo $install; ?>" class="button button-large"><?php _e( 'Run the installation' ); ?></a></p>
