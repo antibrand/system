@@ -13,7 +13,7 @@
  * @link https://codex.wordpress.org/Plugins/WordPress_Widgets WordPress Widgets
  * @link https://codex.wordpress.org/Plugins/WordPress_Widgets_Api Widgets API
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Widgets
  * @since 2.2.0
  */

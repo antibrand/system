@@ -2,7 +2,7 @@
 /**
  * The custom header image script.
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Administration
  */
 

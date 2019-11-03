@@ -2,7 +2,7 @@
 /**
  * Edit Term Administration Screen.
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Administration
  * @since 4.5.0
  */

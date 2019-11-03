@@ -9,7 +9,7 @@
  * feed links. It will have to be added manually for browsers and users to pick
  * up that this file exists.
  *
- * @package WordPress
+ * @package WMS
  */
 
 require_once( dirname( __FILE__ ) . '/wp-load.php' );

@@ -2,7 +2,7 @@
 /**
  * WordPress Customize Panel classes
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Customize
  * @since 4.0.0
  */

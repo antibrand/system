@@ -2,7 +2,7 @@
 /**
  * Install plugin administration panel.
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Administration
  */
 // TODO route this pages via a specific iframe handler instead of the do_action below

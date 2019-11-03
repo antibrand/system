@@ -2,7 +2,7 @@
 /**
  * Core User API
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Users
  */
 

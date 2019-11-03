@@ -2,7 +2,7 @@
 /**
  * Edit Site Users Administration Screen
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Multisite
  * @since 3.1.0
  */

@@ -2,7 +2,7 @@
 /**
  * Main WordPress API
  *
- * @package WordPress
+ * @package WMS
  */
 
 require( ABSPATH . WPINC . '/option.php' );

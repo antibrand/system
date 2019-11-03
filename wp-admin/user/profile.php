@@ -2,7 +2,7 @@
 /**
  * User Profile Administration Screen.
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Administration
  * @since 3.1.0
  */

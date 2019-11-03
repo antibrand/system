@@ -3,7 +3,7 @@
  *
  * @version 4.2.0
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Administration
  */
 

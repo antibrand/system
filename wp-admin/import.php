@@ -2,7 +2,7 @@
 /**
  * Import WordPress Administration Screen
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Administration
  */
 

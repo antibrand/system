@@ -2,7 +2,7 @@
 /**
  * Post revision functions.
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Post_Revisions
  */
 

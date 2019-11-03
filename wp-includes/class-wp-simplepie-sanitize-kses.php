@@ -2,7 +2,7 @@
 /**
  * Feed API: WP_SimplePie_Sanitize_KSES class
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Feed
  * @since 4.7.0
  */

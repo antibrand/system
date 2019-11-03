@@ -2,7 +2,7 @@
 /**
  * WordPress core upgrade functionality.
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Administration
  * @since 2.7.0
  */

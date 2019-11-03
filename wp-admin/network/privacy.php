@@ -2,7 +2,7 @@
 /**
  * Network Privacy administration panel.
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Multisite
  * @since 4.9.0
  */

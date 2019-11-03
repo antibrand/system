@@ -7,7 +7,7 @@
  *
  * @link https://codex.wordpress.org/The_Loop More information on The Loop.
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Query
  */
 

@@ -2,7 +2,7 @@
 /**
  * Feed API: WP_SimplePie_File class
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Feed
  * @since 4.7.0
  */

@@ -4,7 +4,7 @@
  *
  * @since 4.7.0
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Dependencies
  */
 

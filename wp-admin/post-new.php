@@ -2,7 +2,7 @@
 /**
  * New Post Administration Screen.
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Administration
  */
 

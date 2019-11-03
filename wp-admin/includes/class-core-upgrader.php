@@ -2,7 +2,7 @@
 /**
  * Upgrade API: Core_Upgrader class
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Upgrader
  * @since 4.6.0
  */

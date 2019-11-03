@@ -25,7 +25,7 @@
  *
  * @link https://codex.wordpress.org/Shortcode_API
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Shortcodes
  * @since 2.5.0
  */

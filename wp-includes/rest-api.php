@@ -2,7 +2,7 @@
 /**
  * REST API functions.
  *
- * @package WordPress
+ * @package WMS
  * @subpackage REST_API
  * @since 4.4.0
  */

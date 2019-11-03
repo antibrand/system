@@ -2,7 +2,7 @@
 /**
  * Core Administration API
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Administration
  * @since 2.3.0
  */

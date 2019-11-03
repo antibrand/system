@@ -13,7 +13,7 @@
  * The HTTP request to this file will not slow down the visitor who happens to
  * visit when the cron job is needed to run.
  *
- * @package WordPress
+ * @package WMS
  */
 
 ignore_user_abort(true);

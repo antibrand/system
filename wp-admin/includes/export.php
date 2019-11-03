@@ -2,7 +2,7 @@
 /**
  * WordPress Export Administration API
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Administration
  */
 

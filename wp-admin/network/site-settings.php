@@ -2,7 +2,7 @@
 /**
  * Edit Site Settings Administration Screen
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Multisite
  * @since 3.1.0
  */

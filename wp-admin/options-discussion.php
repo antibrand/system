@@ -2,7 +2,7 @@
 /**
  * Discussion settings administration panel.
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Administration
  */
 /** WordPress Administration Bootstrap */

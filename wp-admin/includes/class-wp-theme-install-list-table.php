@@ -2,7 +2,7 @@
 /**
  * List Table API: WP_Theme_Install_List_Table class
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Administration
  * @since 3.1.0
  */

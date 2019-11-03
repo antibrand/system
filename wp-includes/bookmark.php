@@ -2,7 +2,7 @@
 /**
  * Link/Bookmark API
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Bookmark
  */
 

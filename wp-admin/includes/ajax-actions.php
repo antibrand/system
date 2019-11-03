@@ -2,7 +2,7 @@
 /**
  * Administration API: Core Ajax handlers
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Administration
  * @since 2.1.0
  */

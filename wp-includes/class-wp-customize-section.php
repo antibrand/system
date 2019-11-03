@@ -2,7 +2,7 @@
 /**
  * WordPress Customize Section classes
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Customize
  * @since 3.4.0
  */

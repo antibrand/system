@@ -2,7 +2,7 @@
 /**
  * Theme editor administration panel.
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Administration
  */
 

@@ -2,7 +2,7 @@
 /**
  * REST API: WP_REST_Terms_Controller class
  *
- * @package WordPress
+ * @package WMS
  * @subpackage REST_API
  * @since 4.7.0
  */

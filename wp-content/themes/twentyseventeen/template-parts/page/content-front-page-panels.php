@@ -2,7 +2,7 @@
 /**
  * Template part for displaying pages on front page
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Twenty_Seventeen
  * @since 1.0
  * @version 1.0

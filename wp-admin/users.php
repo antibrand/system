@@ -2,7 +2,7 @@
 /**
  * User administration panel
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Administration
  * @since 1.0.0
  */

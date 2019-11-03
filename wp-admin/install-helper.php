@@ -30,7 +30,7 @@
  *         ++$error_count;
  *     }
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Plugin
  */
 

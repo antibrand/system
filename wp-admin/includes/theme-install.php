@@ -2,7 +2,7 @@
 /**
  * WordPress Theme Installation Administration API
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Administration
  */
 

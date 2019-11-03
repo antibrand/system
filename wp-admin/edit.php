@@ -2,7 +2,7 @@
 /**
  * Edit Posts Administration Screen.
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Administration
  */
 

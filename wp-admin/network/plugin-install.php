@@ -2,7 +2,7 @@
 /**
  * Install plugin network administration panel.
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Multisite
  * @since 3.1.0
  */

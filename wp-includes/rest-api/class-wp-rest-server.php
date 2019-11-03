@@ -2,7 +2,7 @@
 /**
  * REST API: WP_REST_Server class
  *
- * @package WordPress
+ * @package WMS
  * @subpackage REST_API
  * @since 4.4.0
  */

@@ -2,7 +2,7 @@
 /**
  * WordPress Administration Media API.
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Administration
  */
 

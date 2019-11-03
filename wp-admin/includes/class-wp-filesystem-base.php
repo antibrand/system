@@ -2,7 +2,7 @@
 /**
  * Base WordPress Filesystem
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Filesystem
  */
 

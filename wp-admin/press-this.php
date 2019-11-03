@@ -2,7 +2,7 @@
 /**
  * Press This Display and Handler.
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Press_This
  */
 

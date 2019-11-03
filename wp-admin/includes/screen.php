@@ -2,7 +2,7 @@
 /**
  * WordPress Administration Screen API.
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Administration
  */
 

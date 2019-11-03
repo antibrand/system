@@ -2,7 +2,7 @@
 /**
  * Permalink Settings Administration Screen.
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Administration
  */
 

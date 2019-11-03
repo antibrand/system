@@ -2,7 +2,7 @@
 /**
  * oEmbed API: Top-level oEmbed functionality
  *
- * @package WordPress
+ * @package WMS
  * @subpackage oEmbed
  * @since 4.4.0
  */

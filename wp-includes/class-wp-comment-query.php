@@ -2,7 +2,7 @@
 /**
  * Comment API: WP_Comment_Query class
  *
- * @package WordPress
+ * @package WMS
  * @subpackage Comments
  * @since 4.4.0
  */
