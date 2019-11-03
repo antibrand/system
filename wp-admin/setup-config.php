@@ -119,7 +119,8 @@ switch( $step ) {
 	case -1:
 		if ( wp_can_install_language_pack() && empty( $language ) && ( $languages = wp_get_available_translations() ) ) {
 			setup_config_display_header( 'language-chooser' );
-			echo '<h1 class="screen-reader-text">Select a default language</h1>';
+			echo '<h1>Begin Installation</h1>';
+			echo '<p>Select a default language.</p>';
 			echo '<form id="setup" method="post" action="?step=0">';
 			wp_install_language_form( $languages );
 			echo '</form>';
@@ -148,7 +149,7 @@ switch( $step ) {
 			$step_1 .= '&amp;language=' . $loaded_language;
 		}
 ?>
-<h1 class="screen-reader-text"><?php _e( 'Before getting started' ) ?></h1>
+<h1><?php _e( 'Begin Installation' ) ?></h1>
 <p><?php _e( 'Before getting started we need some information on the database. You will need to know the following items before proceeding.' ) ?></p>
 <ol>
 	<li><?php _e( 'Database name' ); ?></li>
