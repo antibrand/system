@@ -125,11 +125,10 @@ add_action( 'load-themes.php', 'wp_theme_update_rows', 20 ); // After wp_update_
  *
  * Restore if you are updating from your own repository.
  *
- * add_action( 'admin_notices', 'update_nag',      3  );
+ * add_action( 'admin_notices', 'update_nag', 3  );
+ * add_filter( 'update_footer', 'core_update_footer' );
  */
 add_action( 'admin_notices', 'maintenance_nag', 10 );
-
-add_filter( 'update_footer', 'core_update_footer' );
 
 // Update Core hooks.
 add_action( '_core_updated_successfully', '_redirect_to_about_wordpress' );

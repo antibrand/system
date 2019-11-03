@@ -52,21 +52,13 @@ global $hook_suffix;
 		echo apply_filters( 'admin_footer_text', '<span id="footer-thankyou">' . $text . '</span>' );
 		?>
 	</p>
-	<p id="footer-upgrade" class="alignright">
+	<p id="footer-right" class="alignright">
 		<?php
-		/**
-		 * Filters the version/update text displayed in the admin footer.
-		 *
-		 * WordPress prints the current version and update information,
-		 * using core_update_footer() at priority 10.
-		 *
-		 * @since 2.3.0
-		 *
-		 * @see core_update_footer()
-		 *
-		 * @param string $content The content that will be printed.
-		 */
-		echo apply_filters( 'update_footer', '' );
+		// Formerly filtered the version/update text displayed in the admin footer.
+		// echo apply_filters( 'update_footer', '' );
+
+		// New filter.
+		echo apply_filters( 'admin_footer_text_supplement', '' );
 		?>
 	</p>
 	<div class="clear"></div>
