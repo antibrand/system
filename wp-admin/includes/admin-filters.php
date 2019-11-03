@@ -120,7 +120,13 @@ add_action( 'personal_options_update', 'send_confirmation_on_profile_email' );
 add_action( 'load-plugins.php', 'wp_plugin_update_rows', 20 ); // After wp_update_plugins() is called.
 add_action( 'load-themes.php', 'wp_theme_update_rows', 20 ); // After wp_update_themes() is called.
 
-add_action( 'admin_notices', 'update_nag',      3  );
+/**
+ * Disabled update nag
+ *
+ * Restore if you are updating from your own repository.
+ *
+ * add_action( 'admin_notices', 'update_nag',      3  );
+ */
 add_action( 'admin_notices', 'maintenance_nag', 10 );
 
 add_filter( 'update_footer', 'core_update_footer' );
