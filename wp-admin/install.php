@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Installer
+ * Website management system installer
  *
  * @package WMS
  * @subpackage Administration
@@ -9,23 +9,22 @@
 // Sanity check.
 if ( false ) {
 ?>
-<!DOCTYPE html>
+<!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Error: PHP is not running</title>
 </head>
 <body class="wp-core-ui">
-	<p id="logo"><a href="https://wordpress.org/">WordPress</a></p>
 	<h1>Error: PHP is not running</h1>
-	<p>WordPress requires that your web server is running PHP. Your server does not have PHP installed, or PHP is turned off.</p>
+	<p>The website management system requires that your web server is running PHP. Your server does not have PHP installed, or PHP is turned off.</p>
 </body>
 </html>
 <?php
 }
 
 /**
- * We are installing WordPress.
+ * We are installing the website management system.
  *
  * @since 1.5.1
  * @var bool
@@ -64,20 +63,19 @@ function display_header( $body_classes = '' ) {
 		$body_classes = ' ' . $body_classes;
 	}
 ?>
-<!DOCTYPE html>
+<!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
 <head>
-	<meta name="viewport" content="width=device-width" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="robots" content="noindex,nofollow" />
-	<title><?php _e( 'WordPress &rsaquo; Installation' ); ?></title>
+	<title><?php _e( 'Installation' ); ?></title>
 	<?php
 		wp_admin_css( 'install', true );
 		wp_admin_css( 'dashicons', true );
 	?>
 </head>
 <body class="wp-core-ui<?php echo $body_classes ?>">
-<p id="logo"><a href="<?php echo esc_url( __( 'https://wordpress.org/' ) ); ?>" tabindex="-1"><?php _e( 'WordPress' ); ?></a></p>
 
 <?php
 } // end display_header()
@@ -87,7 +85,7 @@ function display_header( $body_classes = '' ) {
  *
  * @since 2.8.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb Database abstraction object.
  *
  * @param string|null $error
  */
@@ -204,7 +202,7 @@ function display_setup_form( $error = null ) {
 			</td>
 		</tr>
 	</table>
-	<p class="step"><?php submit_button( __( 'Install WordPress' ), 'large', 'Submit', false, array( 'id' => 'submit' ) ); ?></p>
+	<p class="step"><?php submit_button( __( 'Install' ), 'large', 'Submit', false, array( 'id' => 'submit' ) ); ?></p>
 	<input type="hidden" name="language" value="<?php echo isset( $_REQUEST['language'] ) ? esc_attr( $_REQUEST['language'] ) : ''; ?>" />
 </form>
 <?php
@@ -215,7 +213,7 @@ if ( is_blog_installed() ) {
 	display_header();
 	die(
 		'<h1>' . __( 'Already Installed' ) . '</h1>' .
-		'<p>' . __( 'You appear to have already installed WordPress. To reinstall please clear your old database tables first.' ) . '</p>' .
+		'<p>' . __( 'You appear to have already installed the website management system. To reinstall please clear your old database tables first.' ) . '</p>' .
 		'<p class="step"><a href="' . esc_url( wp_login_url() ) . '" class="button button-large">' . __( 'Log In' ) . '</a></p>' .
 		'</body></html>'
 	);
@@ -234,18 +232,18 @@ $mysql_version  = $wpdb->db_version();
 $php_compat     = version_compare( $php_version, $required_php_version, '>=' );
 $mysql_compat   = version_compare( $mysql_version, $required_mysql_version, '>=' ) || file_exists( WP_CONTENT_DIR . '/db.php' );
 
-if ( !$mysql_compat && !$php_compat ) {
-	/* translators: 1: WordPress version number, 2: Minimum required PHP version number, 3: Minimum required MySQL version number, 4: Current PHP version number, 5: Current MySQL version number */
-	$compat = sprintf( __( 'You cannot install because <a href="https://codex.wordpress.org/Version_%1$s">WordPress %1$s</a> requires PHP version %2$s or higher and MySQL version %3$s or higher. You are running PHP version %4$s and MySQL version %5$s.' ), $wp_version, $required_php_version, $required_mysql_version, $php_version, $mysql_version );
-} elseif ( !$php_compat ) {
-	/* translators: 1: WordPress version number, 2: Minimum required PHP version number, 3: Current PHP version number */
-	$compat = sprintf( __( 'You cannot install because <a href="https://codex.wordpress.org/Version_%1$s">WordPress %1$s</a> requires PHP version %2$s or higher. You are running version %3$s.' ), $wp_version, $required_php_version, $php_version );
-} elseif ( !$mysql_compat ) {
-	/* translators: 1: WordPress version number, 2: Minimum required MySQL version number, 3: Current MySQL version number */
-	$compat = sprintf( __( 'You cannot install because <a href="https://codex.wordpress.org/Version_%1$s">WordPress %1$s</a> requires MySQL version %2$s or higher. You are running version %3$s.' ), $wp_version, $required_mysql_version, $mysql_version );
+if ( ! $mysql_compat && !$php_compat ) {
+	/* translators: 1: app version number, 2: Minimum required PHP version number, 3: Minimum required MySQL version number, 4: Current PHP version number, 5: Current MySQL version number */
+	$compat = sprintf( __( 'You cannot install because %1$s %2$s requires PHP version %3$s or higher and MySQL version %4$s or higher. You are running PHP version %4$s and MySQL version %5$s.' ), APP_NAME, $app_version, $required_php_version, $required_mysql_version, $php_version, $mysql_version );
+} elseif ( ! $php_compat ) {
+	/* translators: 1: app version number, 2: Minimum required PHP version number, 3: Current PHP version number */
+	$compat = sprintf( __( 'You cannot install because %1$s %2$s requires PHP version %3$s or higher. You are running version %4$s.' ), APP_NAME, $app_version, $required_php_version, $php_version );
+} elseif ( ! $mysql_compat ) {
+	/* translators: 1: app version number, 2: Minimum required MySQL version number, 3: Current MySQL version number */
+	$compat = sprintf( __( 'You cannot install because %1$s %2$s requires MySQL version %3$s or higher. You are running version %4$s.' ), APP_NAME, $app_version, $required_mysql_version, $mysql_version );
 }
 
-if ( !$mysql_compat || !$php_compat ) {
+if ( ! $mysql_compat || ! $php_compat ) {
 	display_header();
 	die( '<h1>' . __( 'Insufficient Requirements' ) . '</h1><p>' . $compat . '</p></body></html>' );
 }
@@ -269,7 +267,7 @@ if ( defined( 'DO_NOT_UPGRADE_GLOBAL_TABLES' ) ) {
 		'<h1>' . __( 'Configuration Error' ) . '</h1>' .
 		'<p>' . sprintf(
 			/* translators: %s: DO_NOT_UPGRADE_GLOBAL_TABLES */
-			__( 'The constant %s cannot be defined when installing WordPress.' ),
+			__( 'The constant %s cannot be defined when installing the website management system.' ),
 			'<code>DO_NOT_UPGRADE_GLOBAL_TABLES</code>'
 		) . '</p></body></html>'
 	);
@@ -314,36 +312,38 @@ switch($step) {
 
 		display_header();
 ?>
-<h1><?php _ex( 'Welcome', 'Howdy' ); ?></h1>
-<p><?php _e( 'Welcome to the famous five-minute WordPress installation process! Just fill in the information below and you&#8217;ll be on your way to using the most extendable and powerful personal publishing platform in the world.' ); ?></p>
+<h1><?php _e( 'Welcome' ); ?></h1>
+<p><?php _e( 'Fill in the information below.' ); ?></p>
 
-<h2><?php _e( 'Information needed' ); ?></h2>
-<p><?php _e( 'Please provide the following information. Don&#8217;t worry, you can always change these settings later.' ); ?></p>
+<h2><?php _e( 'Information Needed' ); ?></h2>
+<p><?php _e( 'Please provide the following information. You can always change these settings later.' ); ?></p>
 
 <?php
 		display_setup_form();
 		break;
 	case 2:
 		if ( ! empty( $language ) && load_default_textdomain( $language ) ) {
-			$loaded_language = $language;
+			$loaded_language      = $language;
 			$GLOBALS['wp_locale'] = new WP_Locale();
 		} else {
 			$loaded_language = 'en_US';
 		}
 
-		if ( ! empty( $wpdb->error ) )
+		if ( ! empty( $wpdb->error ) ) {
 			wp_die( $wpdb->error->get_error_message() );
+		}
 
 		$scripts_to_print[] = 'user-profile';
 
 		display_header();
-		// Fill in the data we gathered
-		$weblog_title = isset( $_POST['weblog_title'] ) ? trim( wp_unslash( $_POST['weblog_title'] ) ) : '';
-		$user_name = isset($_POST['user_name']) ? trim( wp_unslash( $_POST['user_name'] ) ) : '';
-		$admin_password = isset($_POST['admin_password']) ? wp_unslash( $_POST['admin_password'] ) : '';
-		$admin_password_check = isset($_POST['admin_password2']) ? wp_unslash( $_POST['admin_password2'] ) : '';
-		$admin_email  = isset( $_POST['admin_email'] ) ?trim( wp_unslash( $_POST['admin_email'] ) ) : '';
-		$public       = isset( $_POST['blog_public'] ) ? (int) $_POST['blog_public'] : 1;
+
+		// Fill in the data we gathered.
+		$weblog_title         = isset( $_POST['weblog_title'] ) ? trim( wp_unslash( $_POST['weblog_title'] ) ) : '';
+		$user_name            = isset( $_POST['user_name'] ) ? trim( wp_unslash( $_POST['user_name'] ) ) : '';
+		$admin_password       = isset( $_POST['admin_password'] ) ? wp_unslash( $_POST['admin_password'] ) : '';
+		$admin_password_check = isset( $_POST['admin_password2'] ) ? wp_unslash( $_POST['admin_password2'] ) : '';
+		$admin_email          = isset( $_POST['admin_email'] ) ?trim( wp_unslash( $_POST['admin_email'] ) ) : '';
+		$public               = isset( $_POST['blog_public'] ) ? (int) $_POST['blog_public'] : 1;
 
 		// Check email address.
 		$error = false;
@@ -375,7 +375,7 @@ switch($step) {
 
 <h1><?php _e( 'Success!' ); ?></h1>
 
-<p><?php _e( 'WordPress has been installed. Thank you, and enjoy!' ); ?></p>
+<p><?php _e( 'The website management system has been installed.' ); ?></p>
 
 <table class="form-table install-success">
 	<tr>
