@@ -286,11 +286,19 @@ function update_right_now_message() {
 		$cur = get_preferred_from_update_core();
 
 		if ( isset( $cur->response ) && $cur->response == 'upgrade' )
-			$msg .= '<a href="' . network_admin_url( 'update-core.php' ) . '" class="button" aria-describedby="wp-version">' . sprintf( __( 'Update to %s' ), $cur->current ? $cur->current : __( 'Latest' ) ) . '</a> ';
+			$msg .= '<a href="' . network_admin_url( 'update-core.php' ) . '" class="button" aria-describedby="wp-version">' . __( 'Update' ) . '</a> ';
 	}
 
 	/* translators: 1: version number, 2: theme name */
 	$content = __( 'WordPress %1$s running %2$s theme.' );
+	$content = sprintf(
+		'%1s %2s %3s %4s',
+		APP_NAME,
+		get_bloginfo( 'version' ),
+		__( 'using the' ),
+		$theme_name,
+		__( 'theme.' )
+	);
 
 	/**
 	 * Filters the text displayed in the 'At a Glance' dashboard widget.
