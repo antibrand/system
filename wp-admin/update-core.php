@@ -6,7 +6,7 @@
  * @subpackage Administration
  */
 
-/** WordPress Administration Bootstrap */
+/** Load Administration Bootstrap */
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 wp_enqueue_style( 'plugin-install' );
@@ -54,7 +54,7 @@ function list_core_update( $update ) {
 	$mysql_version  = $wpdb->db_version();
 	$show_buttons = true;
 	if ( 'development' == $update->response ) {
-		$message = __('You are using a development version of WordPress. You can update to the latest nightly build automatically:');
+		$message = __('You are using a development version of the website management system. You can update to the latest nightly build automatically:');
 	} else {
 		if ( $current ) {
 			$message     = sprintf( __( 'If you need to re-install version %s, you can do so here:' ), $version_string );
@@ -130,7 +130,7 @@ function list_core_update( $update ) {
 	    echo '<p class="hint">'.__('This localized version contains both the translation and various other localization fixes. You can skip upgrading if you want to keep your current translation.').'</p>';
 	// Partial builds don't need language-specific warnings.
 	elseif ( 'en_US' == $update->locale && get_locale() != 'en_US' && ( ! $update->packages->partial && $wp_version == $update->partial_version ) ) {
-	    echo '<p class="hint">'.sprintf( __('You are about to install WordPress %s <strong>in English (US).</strong> There is a chance this update will break your translation. You may prefer to wait for the localized version to be released.'), $update->response != 'development' ? $update->current : '' ).'</p>';
+	    echo '<p class="hint">'. __( 'You are about to install the website management <strong>in English (US).</strong> There is a chance this update will break your translation. You may prefer to wait for the localized version to be released.' ) .'</p>';
 	}
 	echo '</form>';
 
@@ -167,7 +167,7 @@ function dismissed_updates() {
 }
 
 /**
- * Display upgrade WordPress for downloading latest or upgrading automatically form.
+ * Display upgrade for downloading latest or upgrading automatically form.
  *
  * @since 2.7.0
  *
@@ -182,7 +182,11 @@ function core_upgrade_preamble() {
 
 	if ( !isset($updates[0]->response) || 'latest' == $updates[0]->response ) {
 		echo '<h2>';
-		_e('You have the latest version of WordPress.');
+		echo sprintf(
+			'%1s %2s',
+			__( 'You have the latest version of' ),
+			APP_NAME
+		);
 
 		if ( wp_http_supports( array( 'ssl' ) ) ) {
 			require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
@@ -284,24 +288,24 @@ function list_plugin_updates() {
 			}
 		}
 
-		// Get plugin compat for running version of WordPress.
+		// Get plugin compat for running version.
 		if ( isset($plugin_data->update->tested) && version_compare($plugin_data->update->tested, $cur_wp_version, '>=') ) {
-			$compat = '<br />' . sprintf(__('Compatibility with WordPress %1$s: 100%% (according to its author)'), $cur_wp_version);
+			$compat = '<br />' . sprintf(__('Compatibility with %1s %2s: 100%% (according to its author)'), APP_NAME, $cur_wp_version);
 		} elseif ( isset($plugin_data->update->compatibility->{$cur_wp_version}) ) {
 			$compat = $plugin_data->update->compatibility->{$cur_wp_version};
-			$compat = '<br />' . sprintf(__('Compatibility with WordPress %1$s: %2$d%% (%3$d "works" votes out of %4$d total)'), $cur_wp_version, $compat->percent, $compat->votes, $compat->total_votes);
+			$compat = '<br />' . sprintf(__('Compatibility with %1s %2s: %2$d%% (%3$d "works" votes out of %4$d total)'), APP_NAME, $cur_wp_version, $compat->percent, $compat->votes, $compat->total_votes);
 		} else {
-			$compat = '<br />' . sprintf(__('Compatibility with WordPress %1$s: Unknown'), $cur_wp_version);
+			$compat = '<br />' . sprintf(__('Compatibility with %1s %2s: Unknown'), APP_NAME, $cur_wp_version);
 		}
-		// Get plugin compat for updated version of WordPress.
+		// Get plugin compat for updated version.
 		if ( $core_update_version ) {
 			if ( isset( $plugin_data->update->tested ) && version_compare( $plugin_data->update->tested, $core_update_version, '>=' ) ) {
-				$compat .= '<br />' . sprintf( __( 'Compatibility with WordPress %1$s: 100%% (according to its author)' ), $core_update_version );
+				$compat .= '<br />' . sprintf( __( 'Compatibility with %1s %2s: 100%% (according to its author)' ), APP_NAME, $core_update_version );
 			} elseif ( isset( $plugin_data->update->compatibility->{$core_update_version} ) ) {
 				$update_compat = $plugin_data->update->compatibility->{$core_update_version};
-				$compat .= '<br />' . sprintf(__('Compatibility with WordPress %1$s: %2$d%% (%3$d "works" votes out of %4$d total)'), $core_update_version, $update_compat->percent, $update_compat->votes, $update_compat->total_votes);
+				$compat .= '<br />' . sprintf(__('Compatibility with %1s %2s: %2$d%% (%3$d "works" votes out of %4$d total)'), APP_NAME, $core_update_version, $update_compat->percent, $update_compat->votes, $update_compat->total_votes);
 			} else {
-				$compat .= '<br />' . sprintf(__('Compatibility with WordPress %1$s: Unknown'), $core_update_version);
+				$compat .= '<br />' . sprintf(__('Compatibility with %1s %2s: Unknown'), APP_NAME, $core_update_version);
 			}
 		}
 		// Get the upgrade notice for the new plugin version.
@@ -459,7 +463,7 @@ function list_translation_updates() {
 }
 
 /**
- * Upgrade WordPress core display.
+ * Upgrade core display.
  *
  * @since 2.7.0
  *
@@ -490,7 +494,11 @@ function do_core_upgrade( $reinstall = false ) {
 
 ?>
 	<div class="wrap">
-	<h1><?php _e( 'Update WordPress' ); ?></h1>
+	<?php echo sprintf(
+		'<h1>%1s %2s</h1>',
+		__( 'Update' ),
+		APP_NAME
+	); ?>
 <?php
 
 	if ( false === ( $credentials = request_filesystem_credentials( $url, '', false, ABSPATH, array( 'version', 'locale' ), $allow_relaxed_file_ownership ) ) ) {
@@ -530,9 +538,9 @@ function do_core_upgrade( $reinstall = false ) {
 		return;
 	}
 
-	show_message( __('WordPress updated successfully') );
-	show_message( '<span class="hide-if-no-js">' . sprintf( __( 'Welcome to WordPress %1$s. You will be redirected to the About WordPress screen. If not, click <a href="%2$s">here</a>.' ), $result, esc_url( self_admin_url( 'about.php?updated' ) ) ) . '</span>' );
-	show_message( '<span class="hide-if-js">' . sprintf( __( 'Welcome to WordPress %1$s. <a href="%2$s">Learn more</a>.' ), $result, esc_url( self_admin_url( 'about.php?updated' ) ) ) . '</span>' );
+	show_message( APP_NAME . __( ' updated successfully' ) );
+	show_message( '<span class="hide-if-no-js">' . sprintf( __( 'You will be redirected to the About page. If not, click <a href="%1$s">here</a>.' ), esc_url( self_admin_url( 'about.php?updated' ) ) ) . '</span>' );
+	show_message( '<span class="hide-if-js">' . sprintf( __( 'Visit the <a href="%2$s">About page</a>.' ), esc_url( self_admin_url( 'about.php?updated' ) ) ) . '</span>' );
 	?>
 	</div>
 	<script type="text/javascript">
@@ -578,10 +586,10 @@ if ( ( 'do-theme-upgrade' == $action || ( 'do-plugin-upgrade' == $action && ! is
 	$action = 'upgrade-core';
 }
 
-$title = __('WordPress Updates');
+$title = __('Manage Updates');
 $parent_file = 'index.php';
 
-$updates_overview  = '<p>' . __( 'On this screen, you can update to the latest version of WordPress, as well as update your themes, plugins, and translations from the WordPress.org repositories.' ) . '</p>';
+$updates_overview  = '<p>' . __( 'On this screen, you can update to the latest version of of the website management system, as well as update your themes, plugins, and translations from the source repositories.' ) . '</p>';
 $updates_overview .= '<p>' . __( 'If an update is available, you&#8127;ll see a notification appear in the Toolbar and navigation menu.' ) . ' ' . __( 'Keeping your site updated is important for security. It also makes the internet a safer place for you and your readers.' ) . '</p>';
 
 get_current_screen()->add_help_tab( array(
@@ -590,11 +598,11 @@ get_current_screen()->add_help_tab( array(
 	'content' => $updates_overview
 ) );
 
-$updates_howto  = '<p>' . __( '<strong>WordPress</strong> &mdash; Updating your WordPress installation is a simple one-click procedure: just <strong>click on the &#8220;Update Now&#8221; button</strong> when you are notified that a new version is available.' ) . ' ' . __( 'In most cases, WordPress will automatically apply maintenance and security updates in the background for you.' ) . '</p>';
+$updates_howto  = '<p>' . __( 'Updating your installation is a simple one-click procedure: just <strong>click on the &#8220;Update Now&#8221; button</strong> when you are notified that a new version is available.' ) . ' ' . __( 'In most cases, the website management system will automatically apply maintenance and security updates in the background for you.' ) . '</p>';
 $updates_howto .= '<p>' . __( '<strong>Themes and Plugins</strong> &mdash; To update individual themes or plugins from this screen, use the checkboxes to make your selection, then <strong>click on the appropriate &#8220;Update&#8221; button</strong>. To update all of your themes or plugins at once, you can check the box at the top of the section to select all before clicking the update button.' ) . '</p>';
 
 if ( 'en_US' != get_locale() ) {
-	$updates_howto .= '<p>' . __( '<strong>Translations</strong> &mdash; The files translating WordPress into your language are updated for you whenever any other updates occur. But if these files are out of date, you can <strong>click the &#8220;Update Translations&#8221;</strong> button.' ) . '</p>';
+	$updates_howto .= '<p>' . __( '<strong>Translations</strong> &mdash; The files translating the website management system into your language are updated for you whenever any other updates occur. But if these files are out of date, you can <strong>click the &#8220;Update Translations&#8221;</strong> button.' ) . '</p>';
 }
 
 get_current_screen()->add_help_tab( array(
@@ -613,7 +621,7 @@ if ( 'upgrade-core' == $action ) {
 	require_once(ABSPATH . 'wp-admin/admin-header.php');
 	?>
 	<div class="wrap">
-	<h1><?php _e( 'WordPress Updates' ); ?></h1>
+	<h1><?php _e( 'Manage Updates' ); ?></h1>
 	<?php
 	if ( $upgrade_error ) {
 		echo '<div class="error"><p>';
@@ -787,7 +795,7 @@ if ( 'upgrade-core' == $action ) {
 
 } else {
 	/**
-	 * Fires for each custom update action on the WordPress Updates screen.
+	 * Fires for each custom update action on the Manage Updates screen.
 	 *
 	 * The dynamic portion of the hook name, `$action`, refers to the
 	 * passed update action. The hook fires in lieu of all available
