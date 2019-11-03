@@ -31,13 +31,13 @@ if ( false ) {
  */
 define( 'WP_INSTALLING', true );
 
-/** Load WordPress Bootstrap */
+/** Load the website management system */
 require_once( dirname( dirname( __FILE__ ) ) . '/wp-load.php' );
 
-/** Load WordPress Administration Upgrade API */
+/** Load Administration Upgrade API */
 require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 
-/** Load WordPress Translation Install API */
+/** Load Translation Install API */
 require_once( ABSPATH . 'wp-admin/includes/translation-install.php' );
 
 /** Load wpdb */

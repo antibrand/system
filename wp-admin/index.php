@@ -6,10 +6,10 @@
  * @subpackage Administration
  */
 
-/** Load WordPress Bootstrap */
+/** Load the website management system */
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
-/** Load WordPress dashboard API */
+/** Load dashboard API */
 require_once(ABSPATH . 'wp-admin/includes/dashboard.php');
 
 wp_dashboard_setup();
