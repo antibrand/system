@@ -2,7 +2,7 @@
 /**
  * Content for theme options page More Information help tab
  *
- * @package    WebApp
+ * @package    WebsiteApp
  * @subpackage UB_Theme
  * @since      1.0.0
  */

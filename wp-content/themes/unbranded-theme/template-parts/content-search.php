@@ -2,7 +2,7 @@
 /**
  * Template part for displaying results in search pages
  *
- * @package    WebApp
+ * @package    WebsiteApp
  * @subpackage UB_Theme
  * @since      1.0.0
  */

@@ -1,8 +1,8 @@
 <?php
 /**
- * WordPress Query API
+ * Query API
  *
- * The query API attempts to get which part of WordPress the user is on. It
+ * The query API attempts to get which part the user is on. It
  * also provides functionality for getting URL query information.
  *
  * @link https://codex.wordpress.org/The_Loop More information on The Loop.
@@ -84,7 +84,7 @@ function set_query_var( $var, $value ) {
  * more performant options for modifying the main query such as via the {@see 'pre_get_posts'}
  * action within WP_Query.
  *
- * This must not be used within the WordPress Loop.
+ * This must not be used within the Loop.
  *
  * @since 1.5.0
  *
@@ -754,7 +754,7 @@ function is_main_query() {
  */
 
 /**
- * Whether current WordPress query has results to loop over.
+ * Whether current query has results to loop over.
  *
  * @since 1.5.0
  *
@@ -922,7 +922,7 @@ function wp_old_slug_redirect() {
  * @since 4.9.3
  * @access private
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb Database abstraction object.
  *
  * @param string $post_type The current post type based on the query vars.
  * @return int $id The Post ID.
@@ -957,7 +957,7 @@ function _find_post_by_old_slug( $post_type ) {
  * @since 4.9.3
  * @access private
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb Database abstraction object.
  *
  * @param string $post_type The current post type based on the query vars.
  * @return int $id The Post ID.

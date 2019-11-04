@@ -1,6 +1,6 @@
 <?php
 /**
- * Base WordPress Image Editor
+ * Base Image Editor
  *
  * @package WMS
  * @subpackage Image_Editor

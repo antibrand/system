@@ -1,7 +1,7 @@
 <?php
 /**
- * WordPress API for creating bbcode-like tags or what WordPress calls
- * "shortcodes". The tag and attribute parsing or regular expression code is
+ * API for creating bbcode-like tags or what are called "shortcodes".
+ * The tag and attribute parsing or regular expression code is
  * based on the Textpattern tag parser.
  *
  * A few examples are below:
@@ -15,7 +15,7 @@
  * shortcode parser in your function to account for that.
  *
  * {@internal
- * Please be aware that the above note was made during the beta of WordPress 2.6
+ * Please be aware that the above note was made during the beta of 2.6
  * and in the future may not be accurate. Please update the note when it is no
  * longer the case.}}
  *

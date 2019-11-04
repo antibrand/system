@@ -19,7 +19,7 @@ if ( ! class_exists( 'Requests' ) ) {
  *
  * This class is used to consistently make outgoing HTTP requests easy for developers
  * while still being compatible with the many PHP configurations under which
- * WordPress runs.
+ * the application runs.
  *
  * Debugging includes several actions, which pass different variables for debugging the HTTP API.
  *

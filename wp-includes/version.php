@@ -1,13 +1,13 @@
 <?php
 /**
- * The WordPress version string
+ * The version string
  *
  * @global string $wp_version
  */
 $wp_version = '1.0.0';
 
 /**
- * Holds the WordPress DB revision, increments when changes are made to the WordPress DB schema.
+ * Holds the DB revision, increments when changes are made to the DB schema.
  *
  * @global int $wp_db_version
  */

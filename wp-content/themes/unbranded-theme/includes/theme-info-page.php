@@ -2,7 +2,7 @@
 /**
  * Theme info page
  *
- * @package    WebApp
+ * @package    WebsiteApp
  * @subpackage UB_Theme
  * @since      1.0.0
  */

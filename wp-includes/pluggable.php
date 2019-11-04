@@ -6,13 +6,18 @@
  * @package WMS
  */
 
+// Define the application name.
+if ( ! defined( 'APP_NAME' ) ) {
+	define( 'APP_NAME', 'WebsiteApp' );
+}
+
 if ( !function_exists('wp_set_current_user') ) :
 /**
  * Changes the current user by ID or name.
  *
  * Set $id to null and specify a name if you do not know a user's ID.
  *
- * Some WordPress functionality is based on the current user and not based on
+ * Some functionality is based on the current user and not based on
  * the signed in user. Therefore, it opens the ability to edit and perform
  * actions on users who aren't signed in.
  *
@@ -114,7 +119,7 @@ if ( !function_exists('cache_users') ) :
  *
  * @since 3.0.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb Database abstraction object.
  *
  * @param array $user_ids User ID numbers list
  */
@@ -315,8 +320,9 @@ function wp_mail( $to, $subject, $message, $headers = '', $attachments = array()
 
 	// From email and name
 	// If we don't have a name from the input headers
-	if ( !isset( $from_name ) )
-		$from_name = 'WordPress';
+	if ( ! isset( $from_name ) ) {
+		$from_name = APP_NAME;
+	}
 
 	/* If we don't have an email from the input headers default to wordpress@$sitename
 	 * Some hosts will block outgoing mail from this address if it doesn't exist but
@@ -1581,7 +1587,7 @@ if ( !function_exists('wp_notify_moderator') ) :
  *
  * @since 1.0.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb DSatabase abstraction object.
  *
  * Uses the {@see 'notify_moderator'} filter to determine whether the site moderator
  * should be notified, overriding the site setting.
@@ -1804,7 +1810,7 @@ if ( !function_exists('wp_new_user_notification') ) :
  * @since 4.3.1 The `$plaintext_pass` parameter was deprecated. `$notify` added as a third parameter.
  * @since 4.6.0 The `$notify` parameter accepts 'user' for sending notification only to the user created.
  *
- * @global wpdb         $wpdb      WordPress database object for queries.
+ * @global wpdb         $wpdb      Database object for queries.
  * @global PasswordHash $wp_hasher Portable PHP password hashing framework instance.
  *
  * @param int    $user_id    User ID.
@@ -2096,7 +2102,7 @@ function wp_salt( $scheme = 'auth' ) {
 	static $cached_salts = array();
 	if ( isset( $cached_salts[ $scheme ] ) ) {
 		/**
-		 * Filters the WordPress salt.
+		 * Filters the salt.
 		 *
 		 * @since 2.5.0
 		 *
@@ -2397,7 +2403,7 @@ if ( !function_exists('wp_set_password') ) :
  *
  * @since 2.5.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb Database abstraction object.
  *
  * @param string $password The plaintext new user password
  * @param int    $user_id  User ID

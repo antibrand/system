@@ -8,7 +8,7 @@
  */
 
 /**
- * Core class used to implement the WordPress REST API server.
+ * Core class used to implement the REST API server.
  *
  * @since 4.4.0
  */

@@ -2,7 +2,7 @@
 /**
  * The sidebar containing the main widget area
  *
- * @package    WebApp
+ * @package    WebsiteApp
  * @subpackage UB_Theme
  * @since      1.0.0
  */

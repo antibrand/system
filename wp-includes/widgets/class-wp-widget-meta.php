@@ -60,7 +60,7 @@ class WP_Widget_Meta extends WP_Widget {
 			<li><a href="<?php echo esc_url( get_bloginfo( 'comments_rss2_url' ) ); ?>"><?php _e('Comments <abbr title="Really Simple Syndication">RSS</abbr>'); ?></a></li>
 			<?php
 			/**
-			 * Filters the "Powered by WordPress" text in the Meta widget.
+			 * Filters text in the Meta widget.
 			 *
 			 * @since 3.6.0
 			 * @since 4.9.0 Added the `$instance` parameter.
@@ -68,10 +68,8 @@ class WP_Widget_Meta extends WP_Widget {
 			 * @param string $title_text Default title text for the wordpress.org link.
 			 * @param array  $instance   Array of settings for the current widget.
 			 */
-			echo apply_filters( 'widget_meta_poweredby', sprintf( '<li><a href="%s" title="%s">%s</a></li>',
-				esc_url( __( 'https://wordpress.org/' ) ),
-				esc_attr__( 'Powered by WordPress, state-of-the-art semantic personal publishing platform.' ),
-				_x( 'wordpress.org', 'meta widget link text' )
+			echo apply_filters( 'widget_meta_poweredby', sprintf( '<li>>%s</li>',
+				APP_NAME
 			), $instance );
 
 			wp_meta();

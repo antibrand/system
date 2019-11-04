@@ -27,7 +27,7 @@ $charset_collate = $wpdb->get_charset_collate();
  *
  * @since 3.3.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  *
  * @param string $scope Optional. The tables for which to retrieve SQL. Can be all, global, ms_global, or blog tables. Defaults to all.
  * @param int $blog_id Optional. The site ID for which to retrieve SQL. Default is the current site ID.
@@ -343,7 +343,7 @@ $wp_queries = wp_get_db_schema( 'all' );
  *
  * @since 1.5.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  * @global int  $wp_db_version
  * @global int  $wp_current_db_version
  */

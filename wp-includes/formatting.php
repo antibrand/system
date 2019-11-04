@@ -1,6 +1,6 @@
 <?php
 /**
- * Main WordPress Formatting API.
+ * Main Formatting API.
  *
  * Handles many functions for formatting output.
  *
@@ -3761,7 +3761,7 @@ function _deep_replace( $search, $subject ) {
  *
  * @since 2.8.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  *
  * @param string|array $data Unescaped data
  * @return string|array Escaped data
@@ -4056,7 +4056,7 @@ function wp_make_link_relative( $link ) {
  *
  * @since 2.0.5
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  *
  * @param string $option The name of the option.
  * @param string $value  The unsanitised value.
@@ -4183,7 +4183,7 @@ function sanitize_option( $option, $value ) {
 				if ( preg_match( '#http(s?)://(.+)#i', $value ) ) {
 					$value = esc_url_raw( $value );
 				} else {
-					$error = __( 'The WordPress address you entered did not appear to be a valid URL. Please enter a valid URL.' );
+					$error = __( 'The address you entered did not appear to be a valid URL. Please enter a valid URL.' );
 				}
 			}
 			break;
@@ -4396,7 +4396,7 @@ function wp_pre_kses_less_than_callback( $matches ) {
 }
 
 /**
- * WordPress implementation of PHP sprintf() with filters.
+ * Implementation of PHP sprintf() with filters.
  *
  * @since 2.5.0
  * @link https://secure.php.net/sprintf
@@ -4788,34 +4788,6 @@ function _sanitize_text_fields( $str, $keep_newlines = false ) {
  */
 function wp_basename( $path, $suffix = '' ) {
 	return urldecode( basename( str_replace( array( '%2F', '%5C' ), '/', urlencode( $path ) ), $suffix ) );
-}
-
-/**
- * Forever eliminate "Wordpress" from the planet (or at least the little bit we can influence).
- *
- * Violating our coding standards for a good function name.
- *
- * @since 3.0.0
- *
- * @staticvar string|false $dblq
- *
- * @param string $text The text to be modified.
- * @return string The modified text.
- */
-function capital_P_dangit( $text ) {
-	// Simple replacement for titles
-	$current_filter = current_filter();
-	if ( 'the_title' === $current_filter || 'wp_title' === $current_filter )
-		return str_replace( 'Wordpress', 'WordPress', $text );
-	// Still here? Use the more judicious replacement
-	static $dblq = false;
-	if ( false === $dblq ) {
-		$dblq = _x( '&#8220;', 'opening curly double quote' );
-	}
-	return str_replace(
-		array( ' Wordpress', '&#8216;Wordpress', $dblq . 'Wordpress', '>Wordpress', '(Wordpress' ),
-		array( ' WordPress', '&#8216;WordPress', $dblq . 'WordPress', '>WordPress', '(WordPress' ),
-	$text );
 }
 
 /**
@@ -5307,7 +5279,7 @@ function wp_staticize_emoji_for_email( $mail ) {
  * @access private
  *
  * @param string $type Optional. Which array type to return. Accepts 'partials' or 'entities', default 'entities'.
- * @return array An array to match all emoji that WordPress recognises.
+ * @return array An array to match all emoji recognised.
  */
 function _wp_emoji_list( $type = 'entities' ) {
 	// Do not remove the START/END comments - they're used to find where to insert the arrays.

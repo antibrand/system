@@ -2,7 +2,7 @@
 /**
  * The template for displaying the footer
  *
- * @package    WebApp
+ * @package    WebsiteApp
  * @subpackage UB_Theme
  * @since      1.0.0
  */

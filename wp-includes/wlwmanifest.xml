@@ -3,15 +3,15 @@
 <manifest xmlns="http://schemas.microsoft.com/wlw/manifest/weblog">
 
   <options>
-    <clientType>WordPress</clientType>
+    <clientType></clientType>
 	<supportsKeywords>Yes</supportsKeywords>
 	<supportsGetTags>Yes</supportsGetTags>
   </options>
 
   <weblog>
-    <serviceName>WordPress</serviceName>
-    <imageUrl>images/wlw/wp-icon.png</imageUrl>
-    <watermarkImageUrl>images/wlw/wp-watermark.png</watermarkImageUrl>
+    <serviceName></serviceName>
+    <imageUrl></imageUrl>
+    <watermarkImageUrl></watermarkImageUrl>
     <homepageLinkText>View site</homepageLinkText>
     <adminLinkText>Dashboard</adminLinkText>
     <adminUrl>

@@ -1,13 +1,13 @@
 <?php
 /**
- * WordPress GD Image Editor
+ * GD Image Editor
  *
  * @package WMS
  * @subpackage Image_Editor
  */
 
 /**
- * WordPress Image Editor Class for Image Manipulation through GD
+ * Image Editor Class for Image Manipulation through GD
  *
  * @since 3.5.0
  *

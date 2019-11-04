@@ -1,16 +1,16 @@
 <?php
 /**
- * Creates common globals for the rest of WordPress
+ * Creates common globals
  *
  * Sets $pagenow global which is the current page. Checks
  * for the browser to set which one is currently being used.
  *
- * Detects which user environment WordPress is being used on.
+ * Detects which user environment is being used on.
  * Only attempts to check for Apache, Nginx and IIS -- three web
  * servers with known pretty permalink capability.
  *
- * Note: Though Nginx is detected, WordPress does not currently
- * generate rewrite rules for it. See https://codex.wordpress.org/Nginx
+ * Note: Though Nginx is detected, the application does not currently
+ * generate rewrite rules for it.
  *
  * @package WMS
  */

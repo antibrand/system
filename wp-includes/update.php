@@ -7,14 +7,14 @@
  */
 
 /**
- * Check WordPress version against the newest version.
+ * Check version against the newest version.
  *
- * The WordPress version, PHP version, and Locale is sent. Checks against the
- * WordPress server at api.wordpress.org server. Will only check if WordPress
+ * The version, PHP version, and Locale is sent. Checks against the
+ * server at api.wordpress.org server. Will only check if the application
  * isn't installing.
  *
  * @since 2.3.0
- * @global string $wp_version Used to check against the newest WordPress version.
+ * @global string $wp_version Used to check against the newest version.
  * @global wpdb   $wpdb
  * @global string $wp_local_package
  *
@@ -55,7 +55,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	}
 
 	/**
-	 * Filters the locale requested for WordPress core translations.
+	 * Filters the locale requested for core translations.
 	 *
 	 * @since 2.8.0
 	 *
@@ -106,17 +106,17 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	 * @since 4.9.0
 	 *
 	 * @param array $query {
-	 *     Version check query arguments. 
+	 *     Version check query arguments.
 	 *
-	 *     @type string $version            WordPress version number.
+	 *     @type string $version            Version number.
 	 *     @type string $php                PHP version number.
 	 *     @type string $locale             The locale to retrieve updates for.
 	 *     @type string $mysql              MySQL version number.
 	 *     @type string $local_package      The value of the $wp_local_package global, when set.
-	 *     @type int    $blogs              Number of sites on this WordPress installation.
-	 *     @type int    $users              Number of users on this WordPress installation.
-	 *     @type int    $multisite_enabled  Whether this WordPress installation uses Multisite.
-	 *     @type int    $initial_db_version Database version of WordPress at time of installation.
+	 *     @type int    $blogs              Number of sites on this installation.
+	 *     @type int    $users              Number of users on this installation.
+	 *     @type int    $multisite_enabled  Whether this installation uses Multisite.
+	 *     @type int    $initial_db_version Database version at time of installation.
 	 * }
 	 */
 	$query = apply_filters( 'core_version_check_query_args', $query );
@@ -208,12 +208,12 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 /**
  * Check plugin versions against the latest versions hosted on wordpress.org.
  *
- * The WordPress version, PHP version, and Locale is sent along with a list of
- * all plugins installed. Checks against the WordPress server at
- * api.wordpress.org. Will only check if WordPress isn't installing.
+ * The version, PHP version, and Locale is sent along with a list of
+ * all plugins installed. Checks against the server at
+ * api.wordpress.org. Will only check if the application isn't installing.
  *
  * @since 2.3.0
- * @global string $wp_version Used to notify the WordPress version.
+ * @global string $wp_version Used to notify the version.
  *
  * @param array $extra_stats Extra statistics to report to the wordpress.org API.
  */
@@ -340,7 +340,7 @@ function wp_update_plugins( $extra_stats = array() ) {
 				/* translators: %s: support forums URL */
 				__( 'An unexpected error occurred. Something may be wrong with wordpress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
 				__( 'https://wordpress.org/support/' )
-			) . ' ' . __( '(WordPress could not establish a secure connection to wordpress.org. Please contact your server administrator.)' ),
+			) . ' ' . __( '(Could not establish a secure connection to wordpress.org. Please contact your server administrator.)' ),
 			headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 		);
 		$raw_response = wp_remote_post( $http_url, $options );
@@ -384,7 +384,7 @@ function wp_update_plugins( $extra_stats = array() ) {
  * Check theme versions against the latest versions hosted on wordpress.org.
  *
  * A list of all themes installed in sent to WP. Checks against the
- * WordPress server at api.wordpress.org. Will only check if WordPress isn't
+ * WordPress server at api.wordpress.org. Will only check if the application isn't
  * installing.
  *
  * @since 2.7.0
@@ -522,7 +522,7 @@ function wp_update_themes( $extra_stats = array() ) {
 				/* translators: %s: support forums URL */
 				__( 'An unexpected error occurred. Something may be wrong with wordpress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
 				__( 'https://wordpress.org/support/' )
-			) . ' ' . __( '(WordPress could not establish a secure connection to wordpress.org. Please contact your server administrator.)' ),
+			) . ' ' . __( '(Could not establish a secure connection to wordpress.org. Please contact your server administrator.)' ),
 			headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 		);
 		$raw_response = wp_remote_post( $http_url, $options );
@@ -547,7 +547,7 @@ function wp_update_themes( $extra_stats = array() ) {
 }
 
 /**
- * Performs WordPress automatic background updates.
+ * Performs automatic background updates.
  *
  * @since 3.7.0
  */
@@ -624,7 +624,7 @@ function wp_get_update_data() {
 	$titles = array();
 	if ( $counts['app_core'] ) {
 		/* translators: 1: Number of updates available to the application */
-		$titles['app_core'] = sprintf( __( '%d WordPress Update'), $counts['app_core'] );
+		$titles['app_core'] = sprintf( __( '%d Update'), $counts['app_core'] );
 	}
 	if ( $counts['plugins'] ) {
 		/* translators: 1: Number of updates available to plugins */
@@ -642,14 +642,14 @@ function wp_get_update_data() {
 
 	$update_data = array( 'counts' => $counts, 'title' => $update_title );
 	/**
-	 * Filters the returned array of update data for plugins, themes, and WordPress core.
+	 * Filters the returned array of update data for plugins, themes, and core.
 	 *
 	 * @since 3.5.0
 	 *
 	 * @param array $update_data {
 	 *     Fetched update data.
 	 *
-	 *     @type array   $counts       An array of counts for available plugin, theme, and WordPress updates.
+	 *     @type array   $counts       An array of counts for available plugin, theme, and application updates.
 	 *     @type string  $update_title Titles of available updates.
 	 * }
 	 * @param array $titles An array of update counts and UI strings for available updates.
@@ -680,7 +680,7 @@ function _maybe_update_core() {
 /**
  * Check the last time plugins were run before checking plugin versions.
  *
- * This might have been backported to WordPress 2.6.1 for performance reasons.
+ * This might have been backported to 2.6.1 for performance reasons.
  * This is used for the wp-admin to check only so often instead of every page
  * load.
  *

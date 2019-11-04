@@ -2,7 +2,7 @@
 /**
  * The template for displaying archive pages
  *
- * @package    WebApp
+ * @package    WebsiteApp
  * @subpackage UB_Theme
  * @since      1.0.0
  */

@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress scripts and styles default loader.
+ * Scripts and styles default loader.
  *
  * Several constants are used to manage the loading, concatenating and compression of scripts and CSS:
  * define('SCRIPT_DEBUG', true); loads the development (non-minified) versions of all scripts and CSS, and disables compression and concatenation,
@@ -16,26 +16,26 @@
  * @package WMS
  */
 
-/** WordPress Dependency Class */
+/** Dependency Class */
 require( ABSPATH . WPINC . '/class-wp-dependency.php' );
 
-/** WordPress Dependencies Class */
+/** Dependencies Class */
 require( ABSPATH . WPINC . '/class.wp-dependencies.php' );
 
-/** WordPress Scripts Class */
+/** Scripts Class */
 require( ABSPATH . WPINC . '/class.wp-scripts.php' );
 
-/** WordPress Scripts Functions */
+/** Scripts Functions */
 require( ABSPATH . WPINC . '/functions.wp-scripts.php' );
 
-/** WordPress Styles Class */
+/** Styles Class */
 require( ABSPATH . WPINC . '/class.wp-styles.php' );
 
-/** WordPress Styles Functions */
+/** Styles Functions */
 require( ABSPATH . WPINC . '/functions.wp-styles.php' );
 
 /**
- * Register all WordPress scripts.
+ * Register all scripts.
  *
  * Localizes some of them.
  * args order: `$scripts->add( 'handle', 'url', 'dependencies', 'query-string', 1 );`
@@ -177,7 +177,7 @@ function wp_default_scripts( &$scripts ) {
 
 	$scripts->add( 'wp-lists', "/wp-includes/js/wp-lists$suffix.js", array( 'wp-ajax-response', 'jquery-color' ), false, 1 );
 
-	// WordPress no longer uses or bundles Prototype or script.aculo.us. These are now pulled from an external source.
+	// No longer uses or bundles Prototype or script.aculo.us. These are now pulled from an external source.
 	$scripts->add( 'prototype', 'https://ajax.googleapis.com/ajax/libs/prototype/1.7.1.0/prototype.js', array(), '1.7.1');
 	$scripts->add( 'scriptaculous-root', 'https://ajax.googleapis.com/ajax/libs/scriptaculous/1.9.0/scriptaculous.js', array('prototype'), '1.9.0');
 	$scripts->add( 'scriptaculous-builder', 'https://ajax.googleapis.com/ajax/libs/scriptaculous/1.9.0/builder.js', array('scriptaculous-root'), '1.9.0');
@@ -1109,7 +1109,7 @@ function wp_just_in_time_script_localization() {
  *
  * @link https://api.jqueryui.com/datepicker/#options
  *
- * @global WP_Locale $wp_locale The WordPress date and time locale object.
+ * @global WP_Locale $wp_locale The date and time locale object.
  */
 function wp_localize_jquery_ui_datepicker() {
 	global $wp_locale;

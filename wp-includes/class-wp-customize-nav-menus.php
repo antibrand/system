@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Customize Nav Menus classes
+ * Customize Nav Menus classes
  *
  * @package WMS
  * @subpackage Customize

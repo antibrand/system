@@ -3,7 +3,7 @@ window.wp = window.wp || {};
 
 (function ($) {
 	/**
-	 * Create the WordPress Backbone namespace.
+	 * Create the Backbone namespace.
 	 *
 	 * @namespace wp.Backbone
 	 */

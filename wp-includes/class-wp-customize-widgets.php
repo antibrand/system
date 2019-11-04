@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Customize Widgets classes
+ * Customize Widgets classes
  *
  * @package WMS
  * @subpackage Customize
@@ -345,7 +345,7 @@ final class WP_Customize_Widgets {
 	/**
 	 * Ensures widgets are available for all types of previews.
 	 *
-	 * When in preview, hook to {@see 'customize_register'} for settings after WordPress is loaded
+	 * When in preview, hook to {@see 'customize_register'} for settings after loaded
 	 * so that all filters have been initialized (e.g. Widget Visibility).
 	 *
 	 * @since 3.9.0

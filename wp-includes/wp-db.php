@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress DB Class
+ * DB Class
  *
  * Original code from {@link http://php.justinvincent.com Justin Vincent (justin@visunet.ie)}
  *
@@ -36,7 +36,7 @@ define( 'ARRAY_A', 'ARRAY_A' );
 define( 'ARRAY_N', 'ARRAY_N' );
 
 /**
- * WordPress Database Access Abstraction Object
+ * Database Access Abstraction Object
  *
  * It is possible to replace this class with your own
  * by setting the $wpdb global variable in wp-content/db.php
@@ -191,9 +191,9 @@ class wpdb {
 	protected $reconnect_retries = 5;
 
 	/**
-	 * WordPress table prefix
+	 * Table prefix
 	 *
-	 * You can set this to have multiple WordPress installations
+	 * You can set this to have multiple installations
 	 * in a single database. The second reason is for possible
 	 * security precautions.
 	 *
@@ -203,7 +203,7 @@ class wpdb {
 	public $prefix = '';
 
 	/**
-	 * WordPress base table prefix.
+	 * Base table prefix.
 	 *
 	 * @since 3.0.0
 	 * @var string
@@ -235,7 +235,7 @@ class wpdb {
 	public $siteid = 0;
 
 	/**
-	 * List of WordPress per-blog tables
+	 * List of per-blog tables
 	 *
 	 * @since 2.5.0
 	 * @see wpdb::tables()
@@ -245,7 +245,7 @@ class wpdb {
 		'terms', 'term_taxonomy', 'term_relationships', 'termmeta', 'commentmeta' );
 
 	/**
-	 * List of deprecated WordPress tables
+	 * List of deprecated tables
 	 *
 	 * categories, post2cat, and link2cat were deprecated in 2.3.0, db version 5539
 	 *
@@ -256,7 +256,7 @@ class wpdb {
 	var $old_tables = array( 'categories', 'post2cat', 'link2cat' );
 
 	/**
-	 * List of WordPress global tables
+	 * List of global tables
 	 *
 	 * @since 3.0.0
 	 * @see wpdb::tables()
@@ -275,7 +275,7 @@ class wpdb {
 		'sitecategories', 'registration_log', 'blog_versions' );
 
 	/**
-	 * WordPress Comments table
+	 * omments table
 	 *
 	 * @since 1.5.0
 	 * @var string
@@ -283,7 +283,7 @@ class wpdb {
 	public $comments;
 
 	/**
-	 * WordPress Comment Metadata table
+	 * Comment Metadata table
 	 *
 	 * @since 2.9.0
 	 * @var string
@@ -291,7 +291,7 @@ class wpdb {
 	public $commentmeta;
 
 	/**
-	 * WordPress Links table
+	 * Links table
 	 *
 	 * @since 1.5.0
 	 * @var string
@@ -299,7 +299,7 @@ class wpdb {
 	public $links;
 
 	/**
-	 * WordPress Options table
+	 * Options table
 	 *
 	 * @since 1.5.0
 	 * @var string
@@ -307,7 +307,7 @@ class wpdb {
 	public $options;
 
 	/**
-	 * WordPress Post Metadata table
+	 * Post Metadata table
 	 *
 	 * @since 1.5.0
 	 * @var string
@@ -315,7 +315,7 @@ class wpdb {
 	public $postmeta;
 
 	/**
-	 * WordPress Posts table
+	 * Posts table
 	 *
 	 * @since 1.5.0
 	 * @var string
@@ -323,7 +323,7 @@ class wpdb {
 	public $posts;
 
 	/**
-	 * WordPress Terms table
+	 * Terms table
 	 *
 	 * @since 2.3.0
 	 * @var string
@@ -331,7 +331,7 @@ class wpdb {
 	public $terms;
 
 	/**
-	 * WordPress Term Relationships table
+	 * Term Relationships table
 	 *
 	 * @since 2.3.0
 	 * @var string
@@ -339,7 +339,7 @@ class wpdb {
 	public $term_relationships;
 
 	/**
-	 * WordPress Term Taxonomy table
+	 * Term Taxonomy table
 	 *
 	 * @since 2.3.0
 	 * @var string
@@ -347,7 +347,7 @@ class wpdb {
 	public $term_taxonomy;
 
 	/**
-	 * WordPress Term Meta table.
+	 * Term Meta table.
 	 *
 	 * @since 4.4.0
 	 * @var string
@@ -359,7 +359,7 @@ class wpdb {
 	//
 
 	/**
-	 * WordPress User Metadata table
+	 * User Metadata table
 	 *
 	 * @since 2.3.0
 	 * @var string
@@ -367,7 +367,7 @@ class wpdb {
 	public $usermeta;
 
 	/**
-	 * WordPress Users table
+	 * Users table
 	 *
 	 * @since 1.5.0
 	 * @var string
@@ -513,7 +513,7 @@ class wpdb {
 	 * Whether MySQL is used as the database engine.
 	 *
 	 * Set in WPDB::db_connect() to true, by default. This is used when checking
-	 * against the required MySQL version for WordPress. Normally, a replacement
+	 * against the required MySQL version. Normally, a replacement
 	 * database drop-in (db.php) will skip these checks, but setting this to true
 	 * will force the checks to occur.
 	 *
@@ -777,7 +777,7 @@ class wpdb {
 	}
 
 	/**
-	 * Change the current SQL mode, and ensure its WordPress compatibility.
+	 * Change the current SQL mode, and ensure its compatibility.
 	 *
 	 * If no modes are passed, it will ensure the current MySQL server
 	 * modes are compatible.
@@ -842,7 +842,7 @@ class wpdb {
 	}
 
 	/**
-	 * Sets the table prefix for the WordPress tables.
+	 * Sets the table prefix for the tables.
 	 *
 	 * @since 2.5.0
 	 *
@@ -930,10 +930,10 @@ class wpdb {
 	}
 
 	/**
-	 * Returns an array of WordPress tables.
+	 * Returns an array of tables.
 	 *
 	 * Also allows for the CUSTOM_USER_TABLE and CUSTOM_USER_META_TABLE to
-	 * override the WordPress users and usermeta tables that would otherwise
+	 * override the users and usermeta tables that would otherwise
 	 * be determined by the prefix.
 	 *
 	 * The scope argument can take one of the following:
@@ -1359,10 +1359,10 @@ class wpdb {
 
 		if ( $caller = $this->get_caller() ) {
 			/* translators: 1: Database error message, 2: SQL query, 3: Name of the calling function */
-			$error_str = sprintf( __( 'WordPress database error %1$s for query %2$s made by %3$s' ), $str, $this->last_query, $caller );
+			$error_str = sprintf( __( 'Database error %1$s for query %2$s made by %3$s' ), $str, $this->last_query, $caller );
 		} else {
 			/* translators: 1: Database error message, 2: SQL query */
-			$error_str = sprintf( __( 'WordPress database error %1$s for query %2$s' ), $str, $this->last_query );
+			$error_str = sprintf( __( 'Database error %1$s for query %2$s' ), $str, $this->last_query );
 		}
 
 		error_log( $error_str );
@@ -1375,7 +1375,7 @@ class wpdb {
 		if ( is_multisite() ) {
 			$msg = sprintf(
 				"%s [%s]\n%s\n",
-				__( 'WordPress database error:' ),
+				__( 'Database error:' ),
 				$str,
 				$this->last_query
 			);
@@ -1392,7 +1392,7 @@ class wpdb {
 
 			printf(
 				'<div id="error"><p class="wpdberror"><strong>%s</strong> [%s]<br /><code>%s</code></p></div>',
-				__( 'WordPress database error:' ),
+				__( 'Database error:' ),
 				$str,
 				$query
 			);
@@ -1590,8 +1590,7 @@ class wpdb {
 
 			$message .= '<p>' . sprintf(
 				/* translators: %s: support forums URL */
-				__( 'If you&#8217;re unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href="%s">WordPress Support Forums</a>.' ),
-				__( 'https://wordpress.org/support/' )
+				__( 'If you&#8217;re unsure what these terms mean you should probably contact your host.' )
 			) . "</p>\n";
 
 			$this->bail( $message, 'db_connect_fail' );
@@ -1748,8 +1747,7 @@ class wpdb {
 
 		$message .= '<p>' . sprintf(
 			/* translators: %s: support forums URL */
-			__( 'If you&#8217;re unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href="%s">WordPress Support Forums</a>.' ),
-			__( 'https://wordpress.org/support/' )
+			__( 'If you&#8217;re unsure what these terms mean you should probably contact your host.' )
 		) . "</p>\n";
 
 		// We weren't able to reconnect, so we better bail.
@@ -3306,15 +3304,15 @@ class wpdb {
 		global $wp_version, $required_mysql_version;
 		// Make sure the server has the required MySQL version
 		if ( version_compare($this->db_version(), $required_mysql_version, '<') ) {
-			/* translators: 1: WordPress version number, 2: Minimum required MySQL version number */
-			return new WP_Error('database_version', sprintf( __( '<strong>ERROR</strong>: WordPress %1$s requires MySQL %2$s or higher' ), $wp_version, $required_mysql_version ));
+			/* translators: 1: version number, 2: Minimum required MySQL version number */
+			return new WP_Error('database_version', sprintf( __( '<strong>ERROR</strong>: Version %1$s requires MySQL %2$s or higher' ), $wp_version, $required_mysql_version ));
 		}
 	}
 
 	/**
 	 * Whether the database supports collation.
 	 *
-	 * Called when WordPress is generating the table scheme.
+	 * Called when the application is generating the table scheme.
 	 *
 	 * Use `wpdb::has_cap( 'collation' )`.
 	 *

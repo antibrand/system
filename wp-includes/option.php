@@ -21,7 +21,7 @@
  *
  * @since 1.5.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  *
  * @param string $option  Name of option to retrieve. Expected to not be SQL-escaped.
  * @param mixed  $default Optional. Default value to return if the option does not exist.
@@ -149,7 +149,7 @@ function get_option( $option, $default = false ) {
 }
 
 /**
- * Protect WordPress special option from being modified.
+ * Protect special option from being modified.
  *
  * Will die if $option is in protected list. Protected options are 'alloptions'
  * and 'notoptions' options.
@@ -179,7 +179,7 @@ function form_option( $option ) {
  *
  * @since 2.2.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  *
  * @return array List of all options.
  */
@@ -232,7 +232,7 @@ function wp_load_alloptions() {
  *
  * @since 3.0.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  *
  * @param int $network_id Optional site ID for which to query the options. Defaults to the current site.
  */
@@ -272,11 +272,11 @@ function wp_load_core_site_options( $network_id = null ) {
  * @since 1.0.0
  * @since 4.2.0 The `$autoload` parameter was added.
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  *
  * @param string      $option   Option name. Expected to not be SQL-escaped.
  * @param mixed       $value    Option value. Must be serializable if non-scalar. Expected to not be SQL-escaped.
- * @param string|bool $autoload Optional. Whether to load the option when WordPress starts up. For existing options,
+ * @param string|bool $autoload Optional. Whether to load the option when the application starts up. For existing options,
  *                              `$autoload` can only be updated using `update_option()` if `$value` is also changed.
  *                              Accepts 'yes'|true to enable or 'no'|false to disable. For non-existent options,
  *                              the default value is 'yes'. Default null.
@@ -422,17 +422,17 @@ function update_option( $option, $value, $autoload = null ) {
  *
  * You can create options without values and then update the values later.
  * Existing options will not be updated and checks are performed to ensure that you
- * aren't adding a protected WordPress option. Care should be taken to not name
+ * aren't adding a protected option. Care should be taken to not name
  * options the same as the ones which are protected.
  *
  * @since 1.0.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  *
  * @param string         $option      Name of option to add. Expected to not be SQL-escaped.
  * @param mixed          $value       Optional. Option value. Must be serializable if non-scalar. Expected to not be SQL-escaped.
  * @param string         $deprecated  Optional. Description. Not used anymore.
- * @param string|bool    $autoload    Optional. Whether to load the option when WordPress starts up.
+ * @param string|bool    $autoload    Optional. Whether to load the option when the application starts up.
  *                                    Default is enabled. Accepts 'no' to disable for legacy reasons.
  * @return bool False if option was not added and true if option was added.
  */
@@ -520,11 +520,11 @@ function add_option( $option, $value = '', $deprecated = '', $autoload = 'yes' )
 }
 
 /**
- * Removes option by name. Prevents removal of protected WordPress options.
+ * Removes option by name. Prevents removal of protected options.
  *
  * @since 1.2.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  *
  * @param string $option Name of option to remove. Expected to not be SQL-escaped.
  * @return bool True, if option is successfully deleted. False on failure.
@@ -1810,10 +1810,10 @@ function set_site_transient( $transient, $value, $expiration = 0 ) {
 }
 
 /**
- * Register default settings available in WordPress.
+ * Register default settings available
  *
  * The settings registered here are primarily useful for the REST API, so this
- * does not encompass all settings available in WordPress.
+ * does not encompass all settings available.
  *
  * @since 4.7.0
  */
@@ -1891,7 +1891,7 @@ function register_initial_settings() {
 			'name' => 'language',
 		),
 		'type'         => 'string',
-		'description'  => __( 'WordPress locale code.' ),
+		'description'  => __( 'Locale code.' ),
 		'default'      => 'en_US',
 	) );
 

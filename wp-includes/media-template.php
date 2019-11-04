@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress media templates.
+ * Media templates.
  *
  * @package WMS
  * @subpackage Media

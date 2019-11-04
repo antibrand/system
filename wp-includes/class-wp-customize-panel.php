@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Customize Panel classes
+ * Customize Panel classes
  *
  * @package WMS
  * @subpackage Customize

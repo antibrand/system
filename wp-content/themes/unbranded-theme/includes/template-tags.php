@@ -2,7 +2,7 @@
 /**
  * Template tags
  *
- * @package    WebApp
+ * @package    WebsiteApp
  * @subpackage UB_Theme
  * @since      1.0.0
  */
@@ -16,15 +16,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Check if WordPress is 5.0 or greater.
+ * Check if the application version is 5.0 or greater.
  *
  * @since  1.0.0
  * @access public
- * @return bool Returns true if the WordPress version is 5.0 or greater.
+ * @return bool Returns true if the version is 5.0 or greater.
  */
 function theme_new_cms() {
 
-	// Get the WordPress version.
+	// Get the version.
 	$version = get_bloginfo( 'version' );
 
 	if ( $version >= 5.0 ) {

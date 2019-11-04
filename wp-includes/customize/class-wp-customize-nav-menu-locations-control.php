@@ -48,9 +48,7 @@ class WP_Customize_Nav_Menu_Locations_Control extends WP_Customize_Control {
 								<?php
 								printf(
 									/* translators: 1: Codex URL, 2: additional link attributes, 3: accessibility text */
-									_x( '(If you plan to use a menu <a href="%1$s" %2$s>widget%3$s</a>, skip this step.)', 'menu locations' ),
-									__( 'https://codex.wordpress.org/WordPress_Widgets' ),
-									' class="external-link" target="_blank"',
+									_x( '(If you plan to use a menu widget%1$s, skip this step.)', 'menu locations' ),
 									sprintf( '<span class="screen-reader-text"> %s</span>',
 										/* translators: accessibility text */
 										__( '(opens in a new window)' )

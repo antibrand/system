@@ -164,7 +164,7 @@ final class WP_Comment {
 	 * @since 4.4.0
 	 * @static
 	 *
-	 * @global wpdb $wpdb WordPress database abstraction object.
+	 * @global wpdb $wpdb Database abstraction object.
 	 *
 	 * @param int $id Comment ID.
 	 * @return WP_Comment|false Comment object, otherwise false.

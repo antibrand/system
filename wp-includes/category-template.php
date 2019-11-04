@@ -217,10 +217,10 @@ function get_the_category_list( $separator = '', $parents = '', $post_id = false
  * The given categories are checked against the post's categories' term_ids, names and slugs.
  * Categories given as integers will only be checked against the post's categories' term_ids.
  *
- * Prior to v2.5 of WordPress, category names were not supported.
+ * Prior to v2.5, category names were not supported.
  * Prior to v2.7, category slugs were not supported.
  * Prior to v2.7, only one category could be compared: in_category( $single_category ).
- * Prior to v2.7, this function could only be used in the WordPress Loop.
+ * Prior to v2.7, this function could only be used in the Loop.
  * As of 2.7, the function can be used anywhere if it is provided a post ID or post object.
  *
  * @since 1.2.0
@@ -1331,7 +1331,7 @@ function get_term_parents_list( $term_id, $taxonomy, $args = array() ) {
  * @param string $before Optional. Before list.
  * @param string $sep Optional. Separate items using this.
  * @param string $after Optional. After list.
- * @return false|void False on WordPress error.
+ * @return false|void False on error.
  */
 function the_terms( $id, $taxonomy, $before = '', $sep = ', ', $after = '' ) {
 	$term_list = get_the_term_list( $id, $taxonomy, $before, $sep, $after );
@@ -1373,8 +1373,8 @@ function has_category( $category = '', $post = null ) {
  * Tags given as integers will only be checked against the post's tags' term_ids.
  * If no tags are given, determines if post has any tags.
  *
- * Prior to v2.7 of WordPress, tags given as integers would also be checked against the post's tags' names and slugs (in addition to term_ids)
- * Prior to v2.7, this function could only be used in the WordPress Loop.
+ * Prior to v2.7, tags given as integers would also be checked against the post's tags' names and slugs (in addition to term_ids)
+ * Prior to v2.7, this function could only be used in the Loop.
  * As of 2.7, the function can be used anywhere if it is provided a post ID or post object.
  *
  * @since 2.6.0

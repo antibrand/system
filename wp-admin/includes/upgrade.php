@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Upgrade API
+ * Upgrade API
  *
  * Most of the functions are pluggable and can be overwritten.
  *
@@ -15,7 +15,7 @@ if ( file_exists(WP_CONTENT_DIR . '/install.php') )
 /** Administration API */
 require_once(ABSPATH . 'wp-admin/includes/admin.php');
 
-/** WordPress Schema API */
+/** Schema API */
 require_once(ABSPATH . 'wp-admin/includes/schema.php');
 
 if ( !function_exists('wp_install') ) :
@@ -329,7 +329,7 @@ endif;
  *
  * @since 4.2.0
  *
- * @global WP_Rewrite $wp_rewrite WordPress rewrite component.
+ * @global WP_Rewrite $wp_rewrite Rewrite component.
  *
  * @return bool Whether pretty permalinks are enabled. False otherwise.
  */
@@ -365,7 +365,7 @@ function wp_install_maybe_enable_pretty_permalinks() {
 
 		$test_url = '';
 
-		// Test against a real WordPress Post
+		// Test against a real Post
 		$first_post = get_page_by_path( sanitize_title( _x( 'hello-world', 'Default post slug' ) ), OBJECT, 'post' );
 		if ( $first_post ) {
 			$test_url = get_permalink( $first_post->ID );
@@ -417,7 +417,7 @@ function wp_new_blog_notification($blog_title, $blog_url, $user_id, $password) {
 	$name = $user->user_login;
 	$login_url = wp_login_url();
 	/* translators: New site notification email. 1: New site URL, 2: User login, 3: User password or password reset link, 4: Login URL */
-	$message = sprintf( __( "Your new WordPress site has been successfully set up at:
+	$message = sprintf( __( "Your new site has been successfully set up at:
 
 %1\$s
 
@@ -427,19 +427,16 @@ Username: %2\$s
 Password: %3\$s
 Log in here: %4\$s
 
-We hope you enjoy your new site. Thanks!
-
---The WordPress Team
-https://wordpress.org/
+Enjoy your new site.
 "), $blog_url, $name, $password, $login_url );
 
-	@wp_mail($email, __('New WordPress Site'), $message);
+	@wp_mail($email, __('New Website'), $message);
 }
 endif;
 
 if ( !function_exists('wp_upgrade') ) :
 /**
- * Runs WordPress Upgrade functions.
+ * Runs Upgrade functions.
  *
  * Upgrades the database if needed during a site update.
  *
@@ -447,7 +444,7 @@ if ( !function_exists('wp_upgrade') ) :
  *
  * @global int  $wp_current_db_version
  * @global int  $wp_db_version
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  */
 function wp_upgrade() {
 	global $wp_current_db_version, $wp_db_version, $wpdb;
@@ -615,12 +612,12 @@ function upgrade_all() {
 }
 
 /**
- * Execute changes made in WordPress 1.0.
+ * Execute changes made in 1.0.
  *
  * @ignore
  * @since 1.0.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  */
 function upgrade_100() {
 	global $wpdb;
@@ -674,12 +671,12 @@ function upgrade_100() {
 }
 
 /**
- * Execute changes made in WordPress 1.0.1.
+ * Execute changes made in 1.0.1.
  *
  * @ignore
  * @since 1.0.1
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  */
 function upgrade_101() {
 	global $wpdb;
@@ -695,12 +692,12 @@ function upgrade_101() {
 }
 
 /**
- * Execute changes made in WordPress 1.2.
+ * Execute changes made in 1.2.
  *
  * @ignore
  * @since 1.2.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  */
 function upgrade_110() {
 	global $wpdb;
@@ -758,12 +755,12 @@ function upgrade_110() {
 }
 
 /**
- * Execute changes made in WordPress 1.5.
+ * Execute changes made in 1.5.
  *
  * @ignore
  * @since 1.5.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  */
 function upgrade_130() {
 	global $wpdb;
@@ -845,12 +842,12 @@ function upgrade_130() {
 }
 
 /**
- * Execute changes made in WordPress 2.0.
+ * Execute changes made in 2.0.
  *
  * @ignore
  * @since 2.0.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  * @global int  $wp_current_db_version
  */
 function upgrade_160() {
@@ -932,12 +929,12 @@ function upgrade_160() {
 }
 
 /**
- * Execute changes made in WordPress 2.1.
+ * Execute changes made in 2.1.
  *
  * @ignore
  * @since 2.1.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  * @global int  $wp_current_db_version
  */
 function upgrade_210() {
@@ -980,12 +977,12 @@ function upgrade_210() {
 }
 
 /**
- * Execute changes made in WordPress 2.3.
+ * Execute changes made in 2.3.
  *
  * @ignore
  * @since 2.3.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  * @global int  $wp_current_db_version
  */
 function upgrade_230() {
@@ -1165,7 +1162,7 @@ function upgrade_230() {
  * @ignore
  * @since 2.3.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  */
 function upgrade_230_options_table() {
 	global $wpdb;
@@ -1182,7 +1179,7 @@ function upgrade_230_options_table() {
  * @ignore
  * @since 2.3.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  */
 function upgrade_230_old_tables() {
 	global $wpdb;
@@ -1197,7 +1194,7 @@ function upgrade_230_old_tables() {
  * @ignore
  * @since 2.2.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  */
 function upgrade_old_slugs() {
 	// Upgrade people who were using the Redirect Old Slugs plugin.
@@ -1206,7 +1203,7 @@ function upgrade_old_slugs() {
 }
 
 /**
- * Execute changes made in WordPress 2.5.0.
+ * Execute changes made in 2.5.0.
  *
  * @ignore
  * @since 2.5.0
@@ -1223,12 +1220,12 @@ function upgrade_250() {
 }
 
 /**
- * Execute changes made in WordPress 2.5.2.
+ * Execute changes made in 2.5.2.
  *
  * @ignore
  * @since 2.5.2
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  */
 function upgrade_252() {
 	global $wpdb;
@@ -1237,7 +1234,7 @@ function upgrade_252() {
 }
 
 /**
- * Execute changes made in WordPress 2.6.
+ * Execute changes made in 2.6.
  *
  * @ignore
  * @since 2.6.0
@@ -1252,12 +1249,12 @@ function upgrade_260() {
 }
 
 /**
- * Execute changes made in WordPress 2.7.
+ * Execute changes made in 2.7.
  *
  * @ignore
  * @since 2.7.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  * @global int  $wp_current_db_version
  */
 function upgrade_270() {
@@ -1272,13 +1269,13 @@ function upgrade_270() {
 }
 
 /**
- * Execute changes made in WordPress 2.8.
+ * Execute changes made in 2.8.
  *
  * @ignore
  * @since 2.8.0
  *
  * @global int  $wp_current_db_version
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  */
 function upgrade_280() {
 	global $wp_current_db_version, $wpdb;
@@ -1303,7 +1300,7 @@ function upgrade_280() {
 }
 
 /**
- * Execute changes made in WordPress 2.9.
+ * Execute changes made in 2.9.
  *
  * @ignore
  * @since 2.9.0
@@ -1323,13 +1320,13 @@ function upgrade_290() {
 }
 
 /**
- * Execute changes made in WordPress 3.0.
+ * Execute changes made in 3.0.
  *
  * @ignore
  * @since 3.0.0
  *
  * @global int  $wp_current_db_version
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  */
 function upgrade_300() {
 	global $wp_current_db_version, $wpdb;
@@ -1369,7 +1366,7 @@ function upgrade_300() {
 }
 
 /**
- * Execute changes made in WordPress 3.3.
+ * Execute changes made in 3.3.
  *
  * @ignore
  * @since 3.3.0
@@ -1444,7 +1441,7 @@ function upgrade_330() {
 }
 
 /**
- * Execute changes made in WordPress 3.4.
+ * Execute changes made in 3.4.
  *
  * @ignore
  * @since 3.4.0
@@ -1481,7 +1478,7 @@ function upgrade_340() {
 }
 
 /**
- * Execute changes made in WordPress 3.5.
+ * Execute changes made in 3.5.
  *
  * @ignore
  * @since 3.5.0
@@ -1512,7 +1509,7 @@ function upgrade_350() {
 }
 
 /**
- * Execute changes made in WordPress 3.7.
+ * Execute changes made in 3.7.
  *
  * @ignore
  * @since 3.7.0
@@ -1526,7 +1523,7 @@ function upgrade_370() {
 }
 
 /**
- * Execute changes made in WordPress 3.7.2.
+ * Execute changes made in 3.7.2.
  *
  * @ignore
  * @since 3.7.2
@@ -1541,7 +1538,7 @@ function upgrade_372() {
 }
 
 /**
- * Execute changes made in WordPress 3.8.0.
+ * Execute changes made in 3.8.0.
  *
  * @ignore
  * @since 3.8.0
@@ -1556,7 +1553,7 @@ function upgrade_380() {
 }
 
 /**
- * Execute changes made in WordPress 4.0.0.
+ * Execute changes made in 4.0.0.
  *
  * @ignore
  * @since 4.0.0
@@ -1577,7 +1574,7 @@ function upgrade_400() {
 }
 
 /**
- * Execute changes made in WordPress 4.2.0.
+ * Execute changes made in 4.2.0.
  *
  * @ignore
  * @since 4.2.0
@@ -1588,13 +1585,13 @@ function upgrade_400() {
 function upgrade_420() {}
 
 /**
- * Executes changes made in WordPress 4.3.0.
+ * Executes changes made in 4.3.0.
  *
  * @ignore
  * @since 4.3.0
  *
  * @global int  $wp_current_db_version Current version.
- * @global wpdb $wpdb                  WordPress database abstraction object.
+ * @global wpdb $wpdb Database abstraction object.
  */
 function upgrade_430() {
 	global $wp_current_db_version, $wpdb;
@@ -1627,13 +1624,13 @@ function upgrade_430() {
 }
 
 /**
- * Executes comments changes made in WordPress 4.3.0.
+ * Executes comments changes made in 4.3.0.
  *
  * @ignore
  * @since 4.3.0
  *
  * @global int  $wp_current_db_version Current version.
- * @global wpdb $wpdb                  WordPress database abstraction object.
+ * @global wpdb $wpdb Database abstraction object.
  */
 function upgrade_430_fix_comments() {
 	global $wp_current_db_version, $wpdb;
@@ -1677,7 +1674,7 @@ function upgrade_430_fix_comments() {
 }
 
 /**
- * Executes changes made in WordPress 4.3.1.
+ * Executes changes made in 4.3.1.
  *
  * @ignore
  * @since 4.3.1
@@ -1692,13 +1689,13 @@ function upgrade_431() {
 }
 
 /**
- * Executes changes made in WordPress 4.4.0.
+ * Executes changes made in 4.4.0.
  *
  * @ignore
  * @since 4.4.0
  *
  * @global int  $wp_current_db_version Current version.
- * @global wpdb $wpdb                  WordPress database abstraction object.
+ * @global wpdb $wpdb Database abstraction object.
  */
 function upgrade_440() {
 	global $wp_current_db_version, $wpdb;
@@ -1717,13 +1714,13 @@ function upgrade_440() {
 }
 
 /**
- * Executes changes made in WordPress 4.5.0.
+ * Executes changes made in 4.5.0.
  *
  * @ignore
  * @since 4.5.0
  *
  * @global int  $wp_current_db_version Current database version.
- * @global wpdb $wpdb                  WordPress database abstraction object.
+ * @global wpdb $wpdb Database abstraction object.
  */
 function upgrade_450() {
 	global $wp_current_db_version, $wpdb;
@@ -1742,7 +1739,7 @@ function upgrade_450() {
 }
 
 /**
- * Executes changes made in WordPress 4.6.0.
+ * Executes changes made in 4.6.0.
  *
  * @ignore
  * @since 4.6.0
@@ -2815,7 +2812,7 @@ function maybe_disable_automattic_widgets() {
  * @since 3.5.0
  *
  * @global int  $wp_current_db_version
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  */
 function maybe_disable_link_manager() {
 	global $wp_current_db_version, $wpdb;
@@ -2830,7 +2827,7 @@ function maybe_disable_link_manager() {
  * @since 2.9.0
  *
  * @global int  $wp_current_db_version
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb database abstraction object.
  */
 function pre_schema_upgrade() {
 	global $wp_current_db_version, $wpdb;
@@ -2917,14 +2914,14 @@ endif;
  * Determine if global tables should be upgraded.
  *
  * This function performs a series of checks to ensure the environment allows
- * for the safe upgrading of global WordPress database tables. It is necessary
+ * for the safe upgrading of global database tables. It is necessary
  * because global tables will commonly grow to millions of rows on large
  * installations, and the ability to control their upgrade routines can be
  * critical to the operation of large networks.
  *
  * In a future iteration, this function may use `wp_is_large_network()` to more-
  * intelligently prevent global table upgrades. Until then, we make sure
- * WordPress is on the main site of the main network, to avoid running queries
+ * the application is on the main site of the main network, to avoid running queries
  * more than once in multi-site or multi-network environments.
  *
  * @since 4.3.0

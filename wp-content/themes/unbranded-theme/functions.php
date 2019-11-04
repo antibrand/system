@@ -4,7 +4,7 @@
  *
  * A basic starter theme for your website management system.
  *
- * @package    WebApp
+ * @package    WebsiteApp
  * @subpackage UB_Theme
  * @author     Controlled Chaos Design <greg@ccdzine.com>
  * @link       https://github.com/ControlledChaos/unbranded
