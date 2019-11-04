@@ -523,17 +523,10 @@ if ( is_multisite() && is_network_admin() && ! IS_PROFILE_PAGE && current_user_c
 	<td>
 		<?php echo get_avatar( $user_id ); ?>
 		<p class="description"><?php
-			if ( IS_PROFILE_PAGE ) {
-				/* translators: %s: Gravatar URL */
-				$description = sprintf( __( 'You can change your profile picture on <a href="%s">Gravatar</a>.' ),
-					__( 'https://en.gravatar.com/' )
-				);
-			} else {
-				$description = '';
-			}
+			$description = '';
 
 			/**
-			 * Filters the user profile picture description displayed under the Gravatar.
+			 * Filters the user profile picture description displayed under the avatar.
 			 *
 			 * @since 4.4.0
 			 * @since 4.7.0 Added the `$profileuser` parameter.

@@ -183,8 +183,6 @@ printf( __('Comments should be displayed with the %s comments at the top of each
 <p><?php _e('An avatar is an image that follows you from weblog to weblog appearing beside your name when you comment on avatar enabled sites. Here you can enable the display of avatars for people who comment on your site.'); ?></p>
 
 <?php
-// the above would be a good place to link to codex documentation on the gravatar functions, for putting it in themes. anything like that?
-
 $show_avatars = get_option( 'show_avatars' );
 ?>
 
@@ -223,19 +221,14 @@ endforeach;
 </tr>
 <tr class="avatar-settings<?php if ( ! $show_avatars ) echo ' hide-if-js'; ?>">
 <th scope="row"><?php _e('Default Avatar'); ?></th>
-<td class="defaultavatarpicker"><fieldset><legend class="screen-reader-text"><span><?php _e('Default Avatar'); ?></span></legend>
+<td class="defaultavatarpicker"><fieldset><legend class="screen-reader-text"><span><?php _e( 'Default Avatar' ); ?></span></legend>
 
-<?php _e('For users without a custom avatar of their own, you can either display a generic logo or a generated one based on their email address.'); ?><br />
+<?php _e('For users without a custom avatar of their own a generic logo can be displayed.'); ?><br />
 
 <?php
 $avatar_defaults = array(
-	'mystery' => __('Mystery Person'),
-	'blank' => __('Blank'),
-	'gravatar_default' => __('Gravatar Logo'),
-	'identicon' => __('Identicon (Generated)'),
-	'wavatar' => __('Wavatar (Generated)'),
-	'monsterid' => __('MonsterID (Generated)'),
-	'retro' => __('Retro (Generated)')
+	'mystery' => __( 'Mystery Person' ),
+	'blank'   => __( 'Blank' )
 );
 /**
  * Filters the default avatars.

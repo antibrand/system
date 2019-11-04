@@ -3733,7 +3733,7 @@ function the_shortlink( $text = '', $title = '', $before = '', $after = '' ) {
  *
  * @since 4.2.0
  *
- * @param mixed $id_or_email The Gravatar to retrieve a URL for. Accepts a user_id, gravatar md5 hash,
+ * @param mixed $id_or_email The Gravatar to retrieve a URL for. Accepts a user_id, avatar md5 hash,
  *                           user email, WP_User object, WP_Post object, or WP_Comment object.
  * @param array $args {
  *     Optional. Arguments to return instead of the default arguments.
@@ -3765,7 +3765,7 @@ function get_avatar_url( $id_or_email, $args = null ) {
  *
  * @since 4.2.0
  *
- * @param mixed $id_or_email The Gravatar to retrieve. Accepts a user_id, gravatar md5 hash,
+ * @param mixed $id_or_email The avatar to retrieve. Accepts a user_id,
  *                            user email, WP_User object, WP_Post object, or WP_Comment object.
  * @param array $args {
  *     Optional. Arguments to return instead of the default arguments.
@@ -3774,14 +3774,10 @@ function get_avatar_url( $id_or_email, $args = null ) {
  *     @type int    $height         Display height of the avatar in pixels. Defaults to $size.
  *     @type int    $width          Display width of the avatar in pixels. Defaults to $size.
  *     @type string $default        URL for the default image or a default type. Accepts '404' (return
- *                                  a 404 instead of a default image), 'retro' (8bit), 'monsterid' (monster),
- *                                  'wavatar' (cartoon face), 'indenticon' (the "quilt"), 'mystery', 'mm',
- *                                  or 'mysteryman' (The Oyster Man), 'blank' (transparent GIF), or
- *                                  'gravatar_default' (the Gravatar logo). Default is the value of the
+ *                                  a 404 instead of a default image), 'mystery', 'mm', or 'mysteryman'
+ *                                  (The Oyster Man), or 'blank' (transparent GIF). Default is the value of the
  *                                  'avatar_default' option, with a fallback of 'mystery'.
- *     @type bool   $force_default  Whether to always show the default image, never the Gravatar. Default false.
- *     @type string $rating         What rating to display avatars up to. Accepts 'G', 'PG', 'R', 'X', and are
- *                                  judged in that order. Default is the value of the 'avatar_rating' option.
+ *     @type bool   $force_default  Whether to always show the default image. Default false.
  *     @type string $scheme         URL scheme to use. See set_url_scheme() for accepted values.
  *                                  Default null.
  *     @type array  $processed_args When the function returns, the value will be the processed/sanitized $args
@@ -3803,7 +3799,6 @@ function get_avatar_data( $id_or_email, $args = null ) {
 		'width'          => null,
 		'default'        => get_option( 'avatar_default', 'mystery' ),
 		'force_default'  => false,
-		'rating'         => get_option( 'avatar_rating' ),
 		'scheme'         => null,
 		'processed_args' => null, // if used, should be a reference
 		'extra_attr'     => '',
@@ -3846,16 +3841,10 @@ function get_avatar_data( $id_or_email, $args = null ) {
 		case 'mysteryman' :
 			$args['default'] = 'mm';
 			break;
-		case 'gravatar_default' :
-			$args['default'] = false;
-			break;
 	}
 
 	$args['force_default'] = (bool) $args['force_default'];
-
-	$args['rating'] = strtolower( $args['rating'] );
-
-	$args['found_avatar'] = false;
+	$args['found_avatar']  = false;
 
 	/**
 	 * Filters whether to retrieve the avatar URL early.
@@ -3867,7 +3856,7 @@ function get_avatar_data( $id_or_email, $args = null ) {
 	 * @since 4.2.0
 	 *
 	 * @param array  $args        Arguments passed to get_avatar_data(), after processing.
-	 * @param mixed  $id_or_email The Gravatar to retrieve. Accepts a user_id, gravatar md5 hash,
+	 * @param mixed  $id_or_email The avatar to retrieve. Accepts a user_id,
 	 *                            user email, WP_User object, WP_Post object, or WP_Comment object.
 	 */
 	$args = apply_filters( 'pre_get_avatar_data', $args, $id_or_email );
@@ -3877,7 +3866,6 @@ function get_avatar_data( $id_or_email, $args = null ) {
 		return apply_filters( 'get_avatar_data', $args, $id_or_email );
 	}
 
-	$email_hash = '';
 	$user = $email = false;
 
 	if ( is_object( $id_or_email ) && isset( $id_or_email->comment_ID ) ) {
@@ -3888,13 +3876,7 @@ function get_avatar_data( $id_or_email, $args = null ) {
 	if ( is_numeric( $id_or_email ) ) {
 		$user = get_user_by( 'id', absint( $id_or_email ) );
 	} elseif ( is_string( $id_or_email ) ) {
-		if ( strpos( $id_or_email, '@md5.gravatar.com' ) ) {
-			// md5 hash
-			list( $email_hash ) = explode( '@', $id_or_email );
-		} else {
-			// email address
-			$email = $id_or_email;
-		}
+		$email = $id_or_email;
 	} elseif ( $id_or_email instanceof WP_User ) {
 		// User Object
 		$user = $id_or_email;
@@ -3924,34 +3906,16 @@ function get_avatar_data( $id_or_email, $args = null ) {
 		}
 	}
 
-	if ( ! $email_hash ) {
-		if ( $user ) {
-			$email = $user->user_email;
-		}
-
-		if ( $email ) {
-			$email_hash = md5( strtolower( trim( $email ) ) );
-		}
-	}
-
-	if ( $email_hash ) {
-		$args['found_avatar'] = true;
-		$gravatar_server = hexdec( $email_hash[0] ) % 3;
-	} else {
-		$gravatar_server = rand( 0, 2 );
-	}
-
 	$url_args = array(
 		's' => $args['size'],
 		'd' => $args['default'],
-		'f' => $args['force_default'] ? 'y' : false,
-		'r' => $args['rating'],
+		'f' => $args['force_default'] ? 'y' : false
 	);
 
-	if ( is_ssl() ) {
-		$url = 'https://secure.gravatar.com/avatar/' . $email_hash;
+	if ( ( 'mm' ) == $args['default'] ) {
+		$url = site_url( '/wp-includes/images/default-profile-image.png' );
 	} else {
-		$url = sprintf( 'http://%d.gravatar.com/avatar/%s', $gravatar_server, $email_hash );
+		$url = site_url( '/wp-includes/images/blank.png' );
 	}
 
 	$url = add_query_arg(
@@ -3965,7 +3929,7 @@ function get_avatar_data( $id_or_email, $args = null ) {
 	 * @since 4.2.0
 	 *
 	 * @param string $url         The URL of the avatar.
-	 * @param mixed  $id_or_email The Gravatar to retrieve. Accepts a user_id, gravatar md5 hash,
+	 * @param mixed  $id_or_email The avatar to retrieve. Accepts a user_id,
 	 *                            user email, WP_User object, WP_Post object, or WP_Comment object.
 	 * @param array  $args        Arguments passed to get_avatar_data(), after processing.
 	 */
@@ -3977,7 +3941,7 @@ function get_avatar_data( $id_or_email, $args = null ) {
 	 * @since 4.2.0
 	 *
 	 * @param array  $args        Arguments passed to get_avatar_data(), after processing.
-	 * @param mixed  $id_or_email The Gravatar to retrieve. Accepts a user_id, gravatar md5 hash,
+	 * @param mixed  $id_or_email The avatar to retrieve. Accepts a user_id,
 	 *                            user email, WP_User object, WP_Post object, or WP_Comment object.
 	 */
 	return apply_filters( 'get_avatar_data', $args, $id_or_email );
