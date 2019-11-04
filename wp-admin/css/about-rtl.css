@@ -55,18 +55,6 @@
 	margin-bottom: 0;
 }
 
-/* WordPress Version Badge */
-
-.wp-badge {}
-
-.svg .wp-badge {}
-
-.about-wrap .wp-badge {
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
 /* Tabs */
 
 .about-wrap .nav-tab {
