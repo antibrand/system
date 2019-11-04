@@ -6,3 +6,4 @@ The following is a log of the development sessions for this project. It is recor
 * 11/3/2019 12:00:13 PM - 11/3/2019 5:00:37 PM
 * 11/3/2019 5:33:44 PM - 11/3/2019 9:01:51 PM
 * 11/4/2019 8:00:46 AM - 11/4/2019 10:00:10 AM
+* 11/4/2019 10:31:35 AM - 11/4/2019 11:59:10 AM
