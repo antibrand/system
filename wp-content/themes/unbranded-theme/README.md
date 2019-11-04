@@ -1,6 +1,6 @@
 # theme
 
-A basic starter theme for your website management system.
+A basic starter theme for your website management system. This included as the default the in the [unbranded website management system](https://github.com/ControlledChaos/unbranded-wms).
 
 ![theme screenshot](https://raw.githubusercontent.com/ControlledChaos/unbranded-theme/master/screenshot.jpg)
 
