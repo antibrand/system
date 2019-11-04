@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress User Administration Bootstrap
+ * User Administration Bootstrap
  *
  * @package WMS
  * @subpackage Administration

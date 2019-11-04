@@ -1,6 +1,6 @@
 <?php
 /**
- * Loads the WordPress environment and template.
+ * Loads the application environment and template.
  *
  * @package WMS
  */
@@ -9,10 +9,10 @@ if ( !isset($wp_did_header) ) {
 
 	$wp_did_header = true;
 
-	// Load the WordPress library.
+	// Load the application library.
 	require_once( dirname(__FILE__) . '/wp-load.php' );
 
-	// Set up the WordPress query.
+	// Set up the query.
 	wp();
 
 	// Load the theme template.

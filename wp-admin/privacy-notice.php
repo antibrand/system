@@ -4,8 +4,6 @@
  *
  * @package WMS
  * @subpackage Administration
- *
- * @todo Edit text when connection to WordPress is complete.
  */
 
 /** Administration Bootstrap */
