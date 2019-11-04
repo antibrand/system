@@ -1,0 +1,66 @@
+/**
+ * Blocks on front end
+ *
+ * This describes classes set by colors args in the functions file.
+ *
+ * @see functions.php/setup
+ */
+@import '_variables';
+
+// Block editor background color classes.
+.has-ub-text-background-color {
+	background-color: $text;
+}
+
+.has-ub-light-gray-background-color {
+	background-color: $light_gray;
+}
+
+.has-ub-pale-gray-background-color {
+	background-color: $pale_gray;
+}
+
+.has-ub-white-background-color {
+	background-color: $white;
+}
+
+.has-ub-error-background-color {
+	background-color: $error;
+}
+
+.has-ub-warning-background-color {
+	background-color: $warning;
+}
+
+.has-ub-success-background-color {
+	background-color: $success;
+}
+
+// Block editor text color classes.
+.has-ub-text-color {
+	color: $text;
+}
+
+.has-ub-light-gray-color {
+	color: $light_gray;
+}
+
+.has-ub-pale-gray-color {
+	color: $pale_gray;
+}
+
+.has-ub-white-color {
+	color: $white;
+}
+
+.has-ub-error-color {
+	color: $error;
+}
+
+.has-ub-warning-color {
+	color: $warning;
+}
+
+.has-ub-success-color {
+	color: $success;
+}

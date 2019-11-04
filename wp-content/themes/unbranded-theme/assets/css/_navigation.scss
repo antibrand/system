@@ -1,0 +1,122 @@
+/**
+ * Navigation
+ */
+.main-navigation {
+	clear: both;
+	display: block;
+	width: 100%;
+	margin-top: 1em;
+
+	ul {
+		display: none;
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+		background-color: inherit;
+
+		ul {
+			position: absolute;
+			top: 100%;
+			left: -999em;
+			z-index: 99999;
+			width: 100%;
+			min-width: 160px;
+			background-color: #fff;
+			-webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+					box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+
+			ul {
+				left: -999em;
+				top: 0;
+			}
+
+			li:hover > ul,
+			li.focus > ul {
+				left: 0;
+			}
+
+			li {
+
+				a {
+					width: 100%;
+					padding: 0.25em 0.75em;
+
+					&:hover,
+					&:focus {
+						background: $pale_gray;
+					}
+				}
+			}
+		}
+	}
+
+	li {
+		overflow: visible;
+
+		&:hover > ul,
+		&:focus > ul,
+		&.focus > ul {
+			left: 0;
+		}
+	}
+
+	a {
+		display: inline-block;
+		text-decoration: none;
+	}
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+	font-size: 1.25em;
+}
+
+.site-main .comment-navigation, .site-main
+.posts-navigation, .site-main
+.post-navigation {
+	margin: 0 0 1.5em;
+	overflow: hidden;
+}
+
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+	float: left;
+	width: 50%;
+}
+
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+	float: right;
+	text-align: right;
+	width: 50%;
+}
+
+// Non-mobile menu.
+@media screen and (min-width: 37.5em) {
+	.menu-toggle {
+		display: none;
+	}
+
+	.main-navigation {
+
+		ul {
+			display: flex;
+
+			& > li {
+				position: relative;
+
+				&:not(:last-of-type) {
+					margin-right: 1em;
+				}
+			}
+
+			ul {
+				display: block;
+			}
+		}
+	}
+}

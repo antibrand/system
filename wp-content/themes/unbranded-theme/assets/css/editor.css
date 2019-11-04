@@ -1,0 +1,26 @@
+/**
+ * TinyMCE Editor Styles
+ */
+/**
+ * SASS/SCSS variables
+ *
+ * The following variables are used in other .scss files.
+ * Make sure that this files is called early in style,scss.
+ *
+ * @link https://sass-lang.com/documentation/variables
+ */
+/**
+ * Colors
+ *
+ * Some variables use colors set by args in the functions file.
+ *
+ * @see functions.php/setup
+ */
+/**
+ * Font sizes
+ *
+ * The font size variables presume a browser default of 16px,
+ * in which case the variable number is equivelent to a px number.
+ *
+ * SASS compiler may not like variables beginning with a numeral.
+ */

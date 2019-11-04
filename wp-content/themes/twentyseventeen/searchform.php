@@ -2,7 +2,7 @@
 /**
  * Template for displaying search forms in Twenty Seventeen
  *
- * @package WMS
+ * @package WordPress
  * @subpackage Twenty_Seventeen
  * @since 1.0
  * @version 1.0
@@ -10,7 +10,7 @@
 
 ?>
 
-<?php $unique_id = esc_attr( uniqid( 'search-form-' ) ); ?>
+<?php $unique_id = esc_attr( twentyseventeen_unique_id( 'search-form-' ) ); ?>
 
 <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 	<label for="<?php echo $unique_id; ?>">

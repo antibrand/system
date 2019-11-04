@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package WMS
+ * @package WordPress
  * @subpackage Twenty_Seventeen
  * @since 1.0
  * @version 1.0
