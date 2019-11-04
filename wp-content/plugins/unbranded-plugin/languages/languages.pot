@@ -1,5 +1,4 @@
 # Translation of Plugin
-# This file is distributed under the same license as WordPress.
 msgid ""
 msgstr ""
 "Project-Id-Version: Plugin 1.0.0\n"

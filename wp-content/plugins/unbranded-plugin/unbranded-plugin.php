@@ -301,26 +301,6 @@ function ubp_deactivate_plugin() {
 }
 
 /**
- * Check if WordPress is 5.0 or greater.
- *
- * @since  1.0.0
- * @access public
- * @return bool Returns true if the WordPress version is 5.0 or greater.
- */
-function ubp_new_cms() {
-
-	// Get the WordPress version.
-	$version = get_bloginfo( 'version' );
-
-	if ( $version >= 5.0 ) {
-		return true;
-	} else {
-		return false;
-	}
-
-}
-
-/**
  * Check for Advanced Custom Fields.
  *
  * @since  1.0.0
