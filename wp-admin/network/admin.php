@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Network Administration Bootstrap
+ * Network Administration Bootstrap
  *
  * @package WMS
  * @subpackage Multisite

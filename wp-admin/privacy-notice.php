@@ -8,7 +8,7 @@
  * @todo Edit text when connection to WordPress is complete.
  */
 
-/** WordPress Administration Bootstrap */
+/** Administration Bootstrap */
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 $title   = __( 'Privacy Notice' );

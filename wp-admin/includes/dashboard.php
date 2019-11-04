@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Dashboard Widget Administration Screen API
+ * Dashboard Widget Administration Screen API
  *
  * @package WMS
  * @subpackage Administration
@@ -1122,7 +1122,7 @@ function wp_dashboard_quota() {
 function wp_dashboard_empty() {}
 
 /**
- * Displays a welcome panel to introduce users to WordPress.
+ * Displays a welcome panel to introduce users to the application.
  *
  * @since 3.3.0
  */

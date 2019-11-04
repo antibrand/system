@@ -1,6 +1,6 @@
 <?php
 /**
- * Deprecated admin functions from past WordPress versions. You shouldn't use these
+ * Deprecated admin functions from past versions. You shouldn't use these
  * functions and look for the alternatives instead. The functions will be removed
  * in a later version.
  *
@@ -222,7 +222,7 @@ function use_codepress() {
  *
  * @deprecated 3.1.0 Use get_users()
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb Database abstraction object.
  *
  * @return array List of user IDs.
  */
@@ -243,7 +243,7 @@ function get_author_user_ids() {
  *
  * @deprecated 3.1.0 Use get_users()
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb Database abstraction object.
  *
  * @param int $user_id User ID.
  * @return array|bool List of editable authors. False if no editable users.
@@ -270,7 +270,7 @@ function get_editable_authors( $user_id ) {
  *
  * @deprecated 3.1.0 Use get_users()
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb Database abstraction object.
  *
  * @param int  $user_id       User ID.
  * @param bool $exclude_zeros Optional. Whether to exclude zeroes. Default true.
@@ -309,7 +309,7 @@ function get_editable_user_ids( $user_id, $exclude_zeros = true, $post_type = 'p
  *
  * @deprecated 3.1.0 Use get_users()
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb Database abstraction object.
  */
 function get_nonauthor_user_ids() {
 	_deprecated_function( __FUNCTION__, '3.1.0', 'get_users()' );
@@ -326,7 +326,7 @@ function get_nonauthor_user_ids() {
 
 if ( ! class_exists( 'WP_User_Search', false ) ) :
 /**
- * WordPress User Search class.
+ * User Search class.
  *
  * @since 2.1.0
  * @deprecated 3.1.0 Use WP_User_Query
@@ -672,7 +672,7 @@ endif;
  * @deprecated 3.1.0 Use get_posts()
  * @see get_posts()
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb Database abstraction object.
  *
  * @param int    $user_id User ID to not retrieve posts from.
  * @param string $type    Optional. Post type to retrieve. Accepts 'draft', 'pending' or 'any' (all).
@@ -1237,7 +1237,7 @@ function screen_icon() {
  */
 function get_screen_icon() {
 	_deprecated_function( __FUNCTION__, '3.8.0' );
-	return '<!-- Screen icons are no longer used as of WordPress 3.8. -->';
+	return '<!-- Screen icons are no longer used. -->';
 }
 
 /**
@@ -1304,88 +1304,6 @@ function wp_dashboard_secondary() {}
  * @deprecated 3.8.0
  */
 function wp_dashboard_secondary_control() {}
-
-/**
- * Display plugins text for the WordPress news widget.
- *
- * @since 2.5.0
- * @deprecated 4.8.0
- *
- * @param string $rss  The RSS feed URL.
- * @param array  $args Array of arguments for this RSS feed.
- */
-function wp_dashboard_plugins_output( $rss, $args = array() ) {
-	_deprecated_function( __FUNCTION__, '4.8.0' );
-
-	// Plugin feeds plus link to install them
-	$popular = fetch_feed( $args['url']['popular'] );
-
-	if ( false === $plugin_slugs = get_transient( 'plugin_slugs' ) ) {
-		$plugin_slugs = array_keys( get_plugins() );
-		set_transient( 'plugin_slugs', $plugin_slugs, DAY_IN_SECONDS );
-	}
-
-	echo '<ul>';
-
-	foreach ( array( $popular ) as $feed ) {
-		if ( is_wp_error( $feed ) || ! $feed->get_item_quantity() )
-			continue;
-
-		$items = $feed->get_items(0, 5);
-
-		// Pick a random, non-installed plugin
-		while ( true ) {
-			// Abort this foreach loop iteration if there's no plugins left of this type
-			if ( 0 == count($items) )
-				continue 2;
-
-			$item_key = array_rand($items);
-			$item = $items[$item_key];
-
-			list($link, $frag) = explode( '#', $item->get_link() );
-
-			$link = esc_url($link);
-			if ( preg_match( '|/([^/]+?)/?$|', $link, $matches ) )
-				$slug = $matches[1];
-			else {
-				unset( $items[$item_key] );
-				continue;
-			}
-
-			// Is this random plugin's slug already installed? If so, try again.
-			reset( $plugin_slugs );
-			foreach ( $plugin_slugs as $plugin_slug ) {
-				if ( $slug == substr( $plugin_slug, 0, strlen( $slug ) ) ) {
-					unset( $items[$item_key] );
-					continue 2;
-				}
-			}
-
-			// If we get to this point, then the random plugin isn't installed and we can stop the while().
-			break;
-		}
-
-		// Eliminate some common badly formed plugin descriptions
-		while ( ( null !== $item_key = array_rand($items) ) && false !== strpos( $items[$item_key]->get_description(), 'Plugin Name:' ) )
-			unset($items[$item_key]);
-
-		if ( !isset($items[$item_key]) )
-			continue;
-
-		$raw_title = $item->get_title();
-
-		$ilink = wp_nonce_url('plugin-install.php?tab=plugin-information&plugin=' . $slug, 'install-plugin_' . $slug) . '&amp;TB_iframe=true&amp;width=600&amp;height=800';
-		echo '<li class="dashboard-news-plugin"><span>' . __( 'Popular Plugin' ) . ':</span> ' . esc_html( $raw_title ) .
-			'&nbsp;<a href="' . $ilink . '" class="thickbox open-plugin-details-modal" aria-label="' .
-			/* translators: %s: plugin name */
-			esc_attr( sprintf( __( 'Install %s' ), $raw_title ) ) . '">(' . __( 'Install' ) . ')</a></li>';
-
-		$feed->__destruct();
-		unset( $feed );
-	}
-
-	echo '</ul>';
-}
 
 /**
  * This was once used to move child posts to a new parent.

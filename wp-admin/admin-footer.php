@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Administration Template Footer
+ * Administration Template Footer
  *
  * @package WMS
  * @subpackage Administration

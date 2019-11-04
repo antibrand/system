@@ -6,7 +6,7 @@
  * @subpackage Administration
  */
 
-/** WordPress Administration Bootstrap */
+/** Administration Bootstrap */
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 if ( is_multisite() && ! is_network_admin() ) {

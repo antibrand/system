@@ -18,7 +18,7 @@
  * @global wpdb   $wpdb
  * @global string $wp_local_package
  *
- * @param array $extra_stats Extra statistics to report to the WordPress.org API.
+ * @param array $extra_stats Extra statistics to report to the wordpress.org API.
  * @param bool  $force_check Whether to bypass the transient cache and force a fresh update check. Defaults to false, true if $extra_stats is set.
  */
 function wp_version_check( $extra_stats = array(), $force_check = false ) {
@@ -206,7 +206,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 }
 
 /**
- * Check plugin versions against the latest versions hosted on WordPress.org.
+ * Check plugin versions against the latest versions hosted on wordpress.org.
  *
  * The WordPress version, PHP version, and Locale is sent along with a list of
  * all plugins installed. Checks against the WordPress server at
@@ -215,7 +215,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
  * @since 2.3.0
  * @global string $wp_version Used to notify the WordPress version.
  *
- * @param array $extra_stats Extra statistics to report to the WordPress.org API.
+ * @param array $extra_stats Extra statistics to report to the wordpress.org API.
  */
 function wp_update_plugins( $extra_stats = array() ) {
 	if ( wp_installing() ) {
@@ -338,9 +338,9 @@ function wp_update_plugins( $extra_stats = array() ) {
 		trigger_error(
 			sprintf(
 				/* translators: %s: support forums URL */
-				__( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
+				__( 'An unexpected error occurred. Something may be wrong with wordpress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
 				__( 'https://wordpress.org/support/' )
-			) . ' ' . __( '(WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.)' ),
+			) . ' ' . __( '(WordPress could not establish a secure connection to wordpress.org. Please contact your server administrator.)' ),
 			headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 		);
 		$raw_response = wp_remote_post( $http_url, $options );
@@ -381,7 +381,7 @@ function wp_update_plugins( $extra_stats = array() ) {
 }
 
 /**
- * Check theme versions against the latest versions hosted on WordPress.org.
+ * Check theme versions against the latest versions hosted on wordpress.org.
  *
  * A list of all themes installed in sent to WP. Checks against the
  * WordPress server at api.wordpress.org. Will only check if WordPress isn't
@@ -389,7 +389,7 @@ function wp_update_plugins( $extra_stats = array() ) {
  *
  * @since 2.7.0
  *
- * @param array $extra_stats Extra statistics to report to the WordPress.org API.
+ * @param array $extra_stats Extra statistics to report to the wordpress.org API.
  */
 function wp_update_themes( $extra_stats = array() ) {
 	if ( wp_installing() ) {
@@ -520,9 +520,9 @@ function wp_update_themes( $extra_stats = array() ) {
 		trigger_error(
 			sprintf(
 				/* translators: %s: support forums URL */
-				__( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
+				__( 'An unexpected error occurred. Something may be wrong with wordpress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
 				__( 'https://wordpress.org/support/' )
-			) . ' ' . __( '(WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.)' ),
+			) . ' ' . __( '(WordPress could not establish a secure connection to wordpress.org. Please contact your server administrator.)' ),
 			headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 		);
 		$raw_response = wp_remote_post( $http_url, $options );

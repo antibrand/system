@@ -7,6 +7,11 @@
  * @since 4.6.0
  */
 
+// Define the application name.
+if ( ! defined( 'APP_NAME' ) ) {
+	define( 'APP_NAME', 'WebsiteApp' );
+}
+
 /**
  * Core class used for updating/installing language packs (translations)
  * for plugins, themes, and core.
@@ -350,7 +355,7 @@ class Language_Pack_Upgrader extends WP_Upgrader {
 	public function get_name_for_update( $update ) {
 		switch ( $update->type ) {
 			case 'core':
-				return 'WordPress'; // Not translated
+				return APP_NAME; // Not translated
 
 			case 'theme':
 				$theme = wp_get_theme( $update->slug );

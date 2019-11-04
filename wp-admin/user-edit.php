@@ -6,7 +6,7 @@
  * @subpackage Administration
  */
 
-/** WordPress Administration Bootstrap */
+/** Administration Bootstrap */
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 wp_reset_vars( array( 'action', 'user_id', 'wp_http_referer' ) );

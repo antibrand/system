@@ -8,7 +8,7 @@
 
 define( 'WP_INSTALLING', true );
 
-/** Sets up the WordPress Environment. */
+/** Sets up the application environment. */
 require( dirname(__FILE__) . '/wp-load.php' );
 
 require( dirname( __FILE__ ) . '/wp-blog-header.php' );

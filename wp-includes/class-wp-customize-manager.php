@@ -4824,7 +4824,7 @@ final class WP_Customize_Manager {
 		$this->add_panel( new WP_Customize_Themes_Panel( $this, 'themes', array(
 			'title'       => $this->theme()->display( 'Name' ),
 			'description' => (
-				'<p>' . __( 'Looking for a theme? You can search or browse the WordPress.org theme directory, install and preview themes, then activate them right here.' ) . '</p>' .
+				'<p>' . __( 'Looking for a theme? You can search or browse the wordpress.org theme directory, install and preview themes, then activate them right here.' ) . '</p>' .
 				'<p>' . __( 'While previewing a new theme, you can continue to tailor things like widgets and menus, and explore theme-specific options.' ) . '</p>'
 			),
 			'capability'  => 'switch_themes',
@@ -4841,7 +4841,7 @@ final class WP_Customize_Manager {
 
 		if ( ! is_multisite() ) {
 			$this->add_section( new WP_Customize_Themes_Section( $this, 'wporg_themes', array(
-				'title'       => __( 'WordPress.org themes' ),
+				'title'       => __( 'wordpress.org themes' ),
 				'action'      => 'wporg',
 				'filter_type' => 'remote',
 				'capability'  => 'install_themes',
@@ -5410,7 +5410,7 @@ final class WP_Customize_Manager {
 
 		} elseif ( 'wporg' === $theme_action ) {
 
-			// Load WordPress.org themes from the .org API and normalize data to match installed theme objects.
+			// Load wordpress.org themes from the .org API and normalize data to match installed theme objects.
 			if ( ! current_user_can( 'install_themes' ) ) {
 				wp_die( -1 );
 			}
@@ -5429,7 +5429,7 @@ final class WP_Customize_Manager {
 					'num_ratings' => true,
 					'tags' => true,
 					'parent' => true,
-					// 'extended_author' => true, @todo: WordPress.org throws a 500 server error when this is here.
+					// 'extended_author' => true, @todo: wordpress.org throws a 500 server error when this is here.
 				),
 			);
 
@@ -5463,7 +5463,7 @@ final class WP_Customize_Manager {
 			}
 			$update_php = network_admin_url( 'update.php?action=install-theme' );
 
-			// Set up properties for themes available on WordPress.org.
+			// Set up properties for themes available on wordpress.org.
 			foreach ( $themes->themes as &$theme ) {
 				$theme->install_url = add_query_arg( array(
 					'theme'    => $theme->slug,
@@ -5515,7 +5515,7 @@ final class WP_Customize_Manager {
 		 *
 		 * This allows theme data to be loading from an external source,
 		 * or modification of data loaded from `wp_prepare_themes_for_js()`
-		 * or WordPress.org via `themes_api()`.
+		 * or wordpress.org via `themes_api()`.
 		 *
 		 * @since 4.9.0
 		 *

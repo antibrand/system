@@ -503,7 +503,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 			) . '</p>';
 		} elseif ( 'top' === $which && 'dropins' === $status ) {
 			/* translators: %s: wp-content directory name */
-			echo '<p>' . sprintf( __( 'Drop-ins are advanced plugins in the %s directory that replace WordPress functionality when present.' ),
+			echo '<p>' . sprintf( __( 'Drop-ins are advanced plugins in the %s directory that replace core functionality when present.' ),
 				'<code>' . str_replace( ABSPATH, '', WP_CONTENT_DIR ) . '</code>'
 			) . '</p>';
 		}

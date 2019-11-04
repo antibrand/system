@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Ajax Process Execution
+ * Ajax Process Execution
  *
  * @package WMS
  * @subpackage Administration
@@ -31,7 +31,7 @@ if ( empty( $_REQUEST['action'] ) )
 /** Load Administration APIs */
 require_once( ABSPATH . 'wp-admin/includes/admin.php' );
 
-/** Load Ajax Handlers for WordPress Core */
+/** Load Ajax Handlers for Core */
 require_once( ABSPATH . 'wp-admin/includes/ajax-actions.php' );
 
 @header( 'Content-Type: text/html; charset=' . get_option( 'blog_charset' ) );

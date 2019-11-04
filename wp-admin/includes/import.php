@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Administration Importer API.
+ * Administration Importer API.
  *
  * @package WMS
  * @subpackage Administration
@@ -39,7 +39,7 @@ function _usort_by_first_member( $a, $b ) {
 }
 
 /**
- * Register importer for WordPress.
+ * Register importer
  *
  * @since 2.0.0
  *
@@ -116,7 +116,7 @@ function wp_import_handle_upload() {
 }
 
 /**
- * Returns a list from WordPress.org of popular importer plugins.
+ * Returns a list from wordpress.org of popular importer plugins.
  *
  * @since 3.5.0
  *

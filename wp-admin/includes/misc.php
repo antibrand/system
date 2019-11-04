@@ -1,6 +1,6 @@
 <?php
 /**
- * Misc WordPress Administration API.
+ * Misc Administration API.
  *
  * @package WMS
  * @subpackage Administration

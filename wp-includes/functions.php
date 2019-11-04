@@ -5803,7 +5803,7 @@ All at ###SITENAME###
 /**
  * Return an anonymized IPv4 or IPv6 address.
  *
- * @since 4.9.6 Abstracted from `WP_Community_Events::get_unsafe_client_ip()`.
+ * @since 4.9.6
  *
  * @param  string $ip_addr        The IPv4 or IPv6 address to be anonymized.
  * @param  bool   $ipv6_fallback  Optional. Whether to return the original IPv6 address if the needed functions

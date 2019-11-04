@@ -12,7 +12,7 @@
 if ( file_exists(WP_CONTENT_DIR . '/install.php') )
 	require (WP_CONTENT_DIR . '/install.php');
 
-/** WordPress Administration API */
+/** Administration API */
 require_once(ABSPATH . 'wp-admin/includes/admin.php');
 
 /** WordPress Schema API */

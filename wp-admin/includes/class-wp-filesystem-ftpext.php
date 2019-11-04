@@ -1,13 +1,13 @@
 <?php
 /**
- * WordPress FTP Filesystem.
+ * FTP Filesystem.
  *
  * @package WMS
  * @subpackage Filesystem
  */
 
 /**
- * WordPress Filesystem Class for implementing FTP.
+ * Filesystem Class for implementing FTP.
  *
  * @since 2.5.0
  *

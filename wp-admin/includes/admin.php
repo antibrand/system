@@ -16,70 +16,70 @@ if ( ! defined('WP_ADMIN') ) {
 	load_textdomain( 'default', WP_LANG_DIR . '/admin-' . get_locale() . '.mo' );
 }
 
-/** WordPress Administration Hooks */
+/** Administration Hooks */
 require_once(ABSPATH . 'wp-admin/includes/admin-filters.php');
 
-/** WordPress Bookmark Administration API */
+/** Bookmark Administration API */
 require_once(ABSPATH . 'wp-admin/includes/bookmark.php');
 
-/** WordPress Comment Administration API */
+/** Comment Administration API */
 require_once(ABSPATH . 'wp-admin/includes/comment.php');
 
-/** WordPress Administration File API */
+/** Administration File API */
 require_once(ABSPATH . 'wp-admin/includes/file.php');
 
-/** WordPress Image Administration API */
+/** Image Administration API */
 require_once(ABSPATH . 'wp-admin/includes/image.php');
 
-/** WordPress Media Administration API */
+/** Media Administration API */
 require_once(ABSPATH . 'wp-admin/includes/media.php');
 
-/** WordPress Import Administration API */
+/** Import Administration API */
 require_once(ABSPATH . 'wp-admin/includes/import.php');
 
-/** WordPress Misc Administration API */
+/** Misc Administration API */
 require_once(ABSPATH . 'wp-admin/includes/misc.php');
 
-/** WordPress Options Administration API */
+/** Options Administration API */
 require_once(ABSPATH . 'wp-admin/includes/options.php');
 
-/** WordPress Plugin Administration API */
+/** Plugin Administration API */
 require_once(ABSPATH . 'wp-admin/includes/plugin.php');
 
-/** WordPress Post Administration API */
+/** Post Administration API */
 require_once(ABSPATH . 'wp-admin/includes/post.php');
 
-/** WordPress Administration Screen API */
+/** Administration Screen API */
 require_once(ABSPATH . 'wp-admin/includes/class-wp-screen.php');
 require_once(ABSPATH . 'wp-admin/includes/screen.php');
 
-/** WordPress Taxonomy Administration API */
+/** Taxonomy Administration API */
 require_once(ABSPATH . 'wp-admin/includes/taxonomy.php');
 
-/** WordPress Template Administration API */
+/** Template Administration API */
 require_once(ABSPATH . 'wp-admin/includes/template.php');
 
-/** WordPress List Table Administration API and base class */
+/** List Table Administration API and base class */
 require_once(ABSPATH . 'wp-admin/includes/class-wp-list-table.php');
 require_once(ABSPATH . 'wp-admin/includes/class-wp-list-table-compat.php');
 require_once(ABSPATH . 'wp-admin/includes/list-table.php');
 
-/** WordPress Theme Administration API */
+/** Theme Administration API */
 require_once(ABSPATH . 'wp-admin/includes/theme.php');
 
-/** WordPress User Administration API */
+/** User Administration API */
 require_once(ABSPATH . 'wp-admin/includes/user.php');
 
-/** WordPress Site Icon API */
+/** Site Icon API */
 require_once(ABSPATH . 'wp-admin/includes/class-wp-site-icon.php');
 
-/** WordPress Update Administration API */
+/** Update Administration API */
 require_once(ABSPATH . 'wp-admin/includes/update.php');
 
-/** WordPress Deprecated Administration API */
+/** Deprecated Administration API */
 require_once(ABSPATH . 'wp-admin/includes/deprecated.php');
 
-/** WordPress Multisite support API */
+/** Multisite support API */
 if ( is_multisite() ) {
 	require_once(ABSPATH . 'wp-admin/includes/ms-admin-filters.php');
 	require_once(ABSPATH . 'wp-admin/includes/ms.php');

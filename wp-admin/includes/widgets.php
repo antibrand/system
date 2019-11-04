@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Widgets Administration API
+ * Widgets Administration API
  *
  * @package WMS
  * @subpackage Administration

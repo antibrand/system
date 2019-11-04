@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Administration Screen API.
+ * Administration Screen API.
  *
  * @package WMS
  * @subpackage Administration

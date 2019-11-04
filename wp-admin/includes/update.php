@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Administration Update API
+ * Administration Update API
  *
  * @package WMS
  * @subpackage Administration
@@ -66,7 +66,7 @@ function get_core_updates( $options = array() ) {
 }
 
 /**
- * Gets the best available (and enabled) Auto-Update for WordPress Core.
+ * Gets the best available (and enabled) Auto-Update for Core.
  *
  * If there's 1.2.3 and 1.3 on offer, it'll choose 1.3 if the installation allows it, else, 1.2.3
  *
@@ -97,7 +97,7 @@ function find_core_auto_update() {
 }
 
 /**
- * Gets and caches the checksums for the given version of WordPress.
+ * Gets and caches the checksums for the given version.
  *
  * @since 3.7.0
  *
@@ -120,9 +120,9 @@ function get_core_checksums( $version, $locale ) {
 		trigger_error(
 			sprintf(
 				/* translators: %s: support forums URL */
-				__( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
+				__( 'An unexpected error occurred. Something may be wrong with wordpress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
 				__( 'https://wordpress.org/support/' )
-			) . ' ' . __( '(WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.)' ),
+			) . ' ' . __( '(Could not establish a secure connection to wordpress.org. Please contact your server administrator.)' ),
 			headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 		);
 		$response = wp_remote_get( $http_url, $options );
@@ -212,7 +212,7 @@ function core_update_footer( $msg = '' ) {
 
 	switch ( $cur->response ) {
 	case 'development' :
-		/* translators: 1: WordPress version number, 2: WordPress updates admin screen URL */
+		/* translators: 1: version number, 2: updates admin screen URL */
 		return sprintf( __( 'You are using a development version (%1$s). Cool! Please <a href="%2$s">stay updated</a>.' ), get_bloginfo( 'version', 'display' ), network_admin_url( 'update-core.php' ) );
 
 	case 'upgrade' :
@@ -290,7 +290,6 @@ function update_right_now_message() {
 	}
 
 	/* translators: 1: version number, 2: theme name */
-	$content = __( 'WordPress %1$s running %2$s theme.' );
 	$content = sprintf(
 		'%1s %2s %3s %4s',
 		APP_NAME,
@@ -580,7 +579,7 @@ function wp_theme_update_row( $theme_key, $theme ) {
 	 * row of the themes list table.
 	 *
 	 * The dynamic portion of the hook name, `$theme_key`, refers to
-	 * the theme slug as found in the WordPress.org themes repository.
+	 * the theme slug as found in the wordpress.org themes repository.
 	 *
 	 * @since 3.1.0
 	 *
@@ -628,9 +627,9 @@ function maintenance_nag() {
 		return false;
 
 	if ( current_user_can('update_core') )
-		$msg = sprintf( __('An automated WordPress update has failed to complete - <a href="%s">please attempt the update again now</a>.'), 'update-core.php' );
+		$msg = sprintf( __('An automated update has failed to complete - <a href="%s">please attempt the update again now</a>.'), 'update-core.php' );
 	else
-		$msg = __('An automated WordPress update has failed to complete! Please notify the site administrator.');
+		$msg = __('An automated update has failed to complete! Please notify the site administrator.');
 
 	echo "<div class='update-nag'>$msg</div>";
 }

@@ -1,13 +1,13 @@
 <?php
 /**
- * WordPress Direct Filesystem.
+ * Direct Filesystem.
  *
  * @package WMS
  * @subpackage Filesystem
  */
 
 /**
- * WordPress Filesystem Class for direct PHP file and folder manipulation.
+ * Filesystem Class for direct PHP file and folder manipulation.
  *
  * @since 2.5.0
  *

@@ -8,7 +8,7 @@
  * @subpackage Administration
  */
 
-/** WordPress Administration Bootstrap */
+/** Administration Bootstrap */
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 $parent_file = 'edit.php';

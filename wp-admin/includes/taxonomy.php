@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Taxonomy Administration API.
+ * Taxonomy Administration API.
  *
  * @package WMS
  * @subpackage Administration

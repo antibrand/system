@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Options Administration API.
+ * Options Administration API.
  *
  * @package WMS
  * @subpackage Administration

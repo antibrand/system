@@ -1,6 +1,6 @@
 <?php
 /**
- * The User Interface "Skins" for the WordPress File Upgrader
+ * The User Interface "Skins" for the File Upgrader
  *
  * @package WMS
  * @subpackage Upgrader

@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Options Header.
+ * Options Header.
  *
  * Displays updated message, if updated variable is part of the URL query.
  *

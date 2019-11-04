@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Administration Revisions API
+ * Administration Revisions API
  *
  * @package WMS
  * @subpackage Administration
