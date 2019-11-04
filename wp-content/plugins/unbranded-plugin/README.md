@@ -1,6 +1,6 @@
-# Plugin
+# plugin
 
-A basic starter plugin for your website management system.
+A basic starter plugin for your website management system. This included as a default the in the [unbranded website management system](https://github.com/ControlledChaos/unbranded-wms).
 
 ![PHP tested on version 7.3](https://img.shields.io/badge/PHP-tested%207.3-8892bf.svg?style=flat-square)
 ![ACF Pro Ready](https://img.shields.io/badge/ACF%20Pro-ready-00d3ae.svg?style=flat-square)
