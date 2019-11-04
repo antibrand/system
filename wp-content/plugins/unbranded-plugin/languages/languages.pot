@@ -1,0 +1,10 @@
+# Translation of Plugin
+# This file is distributed under the same license as WordPress.
+msgid ""
+msgstr ""
+"Project-Id-Version: Plugin 1.0.0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: None\n"
+"Language: en_US\n"
