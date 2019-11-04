@@ -61,8 +61,8 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 		if ( 'search' === $tab )
 			$tabs['search']	= __( 'Search Results' );
 		$tabs['upload'] = __( 'Upload' );
-		$tabs['featured'] = _x( 'Featured', 'themes' );
-		// $tabs['popular']  = _x( 'Popular', 'themes' );
+		// $tabs['featured']  is disabled.
+		$tabs['popular']  = _x( 'Popular', 'themes' );
 		$tabs['new']      = _x( 'Latest', 'themes' );
 		$tabs['updated']  = _x( 'Recently Updated', 'themes' );
 
@@ -111,8 +111,8 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 				add_action( 'install_themes_table_header', 'install_theme_search_form', 10, 0 );
 				break;
 
-			case 'featured':
-			// case 'popular':
+			// case 'featured' is disabled.
+			case 'popular':
 			case 'new':
 			case 'updated':
 				$args['browse'] = $tab;

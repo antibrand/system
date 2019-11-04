@@ -158,6 +158,7 @@ include(ABSPATH . 'wp-admin/admin-header.php');
 		</div>
 
 		<ul class="filter-links">
+			<!-- Featured tab has been removed -->
 			<li><a href="#" data-sort="popular"><?php _ex( 'Popular', 'themes' ); ?></a></li>
 			<li><a href="#" data-sort="new"><?php _ex( 'Latest', 'themes' ); ?></a></li>
 			<li><a href="#" data-sort="favorites"><?php _ex( 'Favorites', 'themes' ); ?></a></li>
