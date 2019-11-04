@@ -1389,7 +1389,7 @@ themes.view.Search = wp.Backbone.View.extend({
 /**
  * Navigate router.
  *
- * @since 4.9.0
+ * @since WP-4.9.0
  *
  * @param {string} url - URL to navigate to.
  * @param {object} state - State.
@@ -1769,7 +1769,7 @@ themes.view.Installer = themes.view.Appearance.extend({
 		this.collection.query( request );
 	},
 
-	// Save the user's wordpress.org username and get his favorite themes.
+	// Save the user's WordPress.org username and get his favorite themes.
 	saveUsername: function ( event ) {
 		var username = $( '#wporg-username-input' ).val(),
 			nonce = $( '#wporg-username-nonce' ).val(),
@@ -1916,7 +1916,7 @@ themes.RunInstaller = {
 		// Set up the view
 		// Passes the default 'section' as an option
 		this.view = new themes.view.Installer({
-			section: 'featured',
+			section: 'popular',
 			SearchView: themes.view.InstallerSearch
 		});
 
@@ -1982,11 +1982,11 @@ themes.RunInstaller = {
 
 		// Handles sorting / browsing routes
 		// Also handles the root URL triggering a sort request
-		// for `featured`, the default view
+		// for `popular`, the default view
 		themes.router.on( 'route:sort', function( sort ) {
 			if ( ! sort ) {
-				sort = 'featured';
-				themes.router.navigate( themes.router.baseUrl( '?browse=featured' ), { replace: true } );
+				sort = 'popular';
+				themes.router.navigate( themes.router.baseUrl( '?browse=popular' ), { replace: true } );
 			}
 			self.view.sort( sort );
 
