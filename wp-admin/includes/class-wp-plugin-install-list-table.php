@@ -104,11 +104,16 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 			$tabs['search'] = __( 'Search Results' );
 		}
 		if ( $tab === 'beta' || false !== strpos( get_bloginfo( 'version' ), '-' ) ) {
-			$tabs['beta'] = _x( 'Beta Testing', 'Plugin Installer' );
+			// $tabs['beta'] = _x( 'Beta Testing', 'Plugin Installer' );
 		}
-		$tabs['featured']    = _x( 'Featured', 'Plugin Installer' );
+
+		// Disabled featured plugins tab. Uncomment to enable.
+		// $tabs['featured']    = _x( 'Featured', 'Plugin Installer' );
+
 		$tabs['popular']     = _x( 'Popular', 'Plugin Installer' );
-		$tabs['recommended'] = _x( 'Recommended', 'Plugin Installer' );
+
+		// Disabled recommended plugins tab. Uncomment to enable.
+		// $tabs['recommended'] = _x( 'Recommended', 'Plugin Installer' );
 		$tabs['favorites']   = _x( 'Favorites', 'Plugin Installer' );
 		if ( current_user_can( 'upload_plugins' ) ) {
 			// No longer a real tab. Here for filter compatibility.
