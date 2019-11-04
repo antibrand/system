@@ -74,6 +74,16 @@ $table_prefix  = 'app_';
 define( 'APP_NAME', 'WebsiteApp' );
 
 /**
+ * Disable automatic updates.
+ *
+ * This will prevent WordPress overwriting files.
+ *
+ * @todo Review this if updates are removed entirely.
+ */
+define( 'automatic_updater_disabled', true );
+define( 'wp_auto_update_core', false );
+
+/**
  * For developers: debugging mode.
  *
  * Change this to true to enable the display of notices during development.
