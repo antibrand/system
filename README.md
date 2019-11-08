@@ -14,7 +14,7 @@ I created this to demonstrate that one can "fork" WordPress in relatively short 
 
 Also, as I am developing a highly modified fork of WordPress formerly known as IntegratePress, I need a management system to blog about its development. I don't want to use WordPress for the interim site, to use ClassicPress or calmPress would feel odd, and other systems are out of the question for similar reason.
 
-So this system will be used on the [integratepress.org](integratepress.org) website for the time being.
+So this system will be used on the [http://integratepress.org](integratepress.org) website for the time being.
 
 ## Name, and No Name
 
