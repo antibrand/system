@@ -6,7 +6,7 @@ A generic website management system forked from WordPress 4.9.8
 ![WordPress compatible](https://img.shields.io/badge/WordPress-compatible-0073aa.svg?style=flat-square)
 ![PHP tested on version 7.3](https://img.shields.io/badge/PHP-Tested%207.3-8892bf.svg?style=flat-square)
 
-![cover image](https://raw.githubusercontent.com/antibrand/unbranded-wms/master/wms.jpg)
+![cover image](https://raw.githubusercontent.com/antibrand/system/master/cover.jpg)
 
 ## Overview
 
