@@ -10,17 +10,13 @@ A generic website management system forked from WordPress 4.9.8
 
 ## Overview
 
-I created this to demonstrate that one can "fork" WordPress in relatively short time. There have been comments made by influential folks in the WordPress organization, particularly the most influential individual, that are condescending, dismissive and passive-aggressive, daring others to fork WordPress. Hopefully this little experiment will prove that taking that challenge is relatively easy, albeit tedious.
-
-Also, as I am developing a highly modified fork of WordPress formerly known as IntegratePress, I need a management system to blog about its development. I don't want to use WordPress for the interim site, to use ClassicPress or calmPress would feel odd, and other systems are out of the question for similar reason.
-
-So this system will be used on the [integratepress.org](integratepress.org) website for the time being.
+This was created to demonstrate that one can "fork" WordPress in relatively short time. There have been comments made by influential folks in the WordPress organization, particularly the most influential individual, that are condescending, dismissive and passive-aggressive, daring others to fork WordPress. Hopefully this little experiment will prove that taking that challenge is relatively easy, albeit tedious.
 
 ## Name, and No Name
 
-The type of software commonly called "content management system" have come a long way since therm was coined. This product is being referred to as a website management system (WMS) because it, like the software from whence it was derived, does far more than manage content, even out of the box. And the term "website management system" is particularly accurate when in multi-site mode. I started calling IntegratePress a website management system so this to shall be called such.
+The type of software commonly called "content management system" have come a long way since therm was coined. This product is being referred to as a website management system (WMS) because it, like the software from whence it was derived, does far more than manage content, even out of the box. And the term "website management system" is particularly accurate when in multi-site mode.
 
-This product has no brand. It has no trademarked logo, no copyrighted slogan. The reason for this is the same as the reason for removing the brand name from what was called IntegratePress, and which will be discussed on the aforementioned website that will distribute it.
+This product has no brand. It has no trademarked logo, no copyrighted slogan. The reason for this will be described here at some point.
 
 For the time being, suffice it to say that this and the other WMS can be white labeled. Your brand can be added during the installation process and can be changed at any time in the root config file.
 
@@ -36,7 +32,7 @@ When adding a theme or plugin one will not see the featured offerings, giving we
 
 ## User Avatars
 
-Connection to the Gravatar website has been disabled. A local copy of the "mystery man" image is used as the default avatar. Thus far there is no interface for users to upload their own avatar but I have successfully tested a could of avatar plugins.
+Connection to the Gravatar website has been disabled. A local copy of the "mystery man" image is used as the default avatar. Thus far there is no interface for users to upload their own avatar but avatar plugins have been successfully tested.
 
 ## Languages
 
@@ -52,14 +48,14 @@ Also included is a nonfunctional starter plugin that is used for testing. One ca
 
 The theme and plugin, also not branded, can be found separately at the following links:
 
-Theme: [https://github.com/ControlledChaos/unbranded-theme](https://github.com/ControlledChaos/unbranded-theme)  
-Plugin: [https://github.com/ControlledChaos/unbranded-plugin](https://github.com/ControlledChaos/unbranded-plugin)
+Theme: [https://github.com/antibrand/theme](https://github.com/antibrand/theme)  
+Plugin: [https://github.com/antibrand/plugin](https://github.com/antibrand/plugin)
 
 ## Development
 
-This project is simply an experiment and a demonstration. I don't necessarily want it to be something that folks expect to be expanded. However, issues and bug/breakage reports are welcome.
+This project is simply an experiment and a demonstration. Don't expect it to be expanded. However, dissconection from WordPress will continue.
 
-I have not yet tested this in multisite mode.
+This has not yet been tested in multisite mode.
 
 ## Distribution
 
@@ -69,7 +65,7 @@ This product, including images, graphical vector markup, documentation, and any 
 
 The following is a log of the development sessions for this project. It is recorded as encouragement to others in creating their own fork of WordPress, to show that it can be done in relatively short time if no major changes are implemented.
 
-This also includes renaming/modifying the packaged theme, renaming the packaged plugin, and setting up a simple [GitHub page](https://controlledchaos.github.io/unbranded-wms/).
+This also includes renaming/modifying the packaged theme, renaming the packaged plugin, and setting up a simple [GitHub page](https://antibrand.github.io/system/).
 
 * 11/3/2019 7:33:20 AM - 11/3/2019 10:59:22 AM: 3.5 hours
 * 11/3/2019 12:00:13 PM - 11/3/2019 5:00:37 PM: 5 hours
