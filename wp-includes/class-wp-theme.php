@@ -45,7 +45,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @var array
 	 */
 	private static $default_themes = array(
-		'unbranded-theme' => 'Theme'
+		'theme' => 'theme'
 	);
 
 	/**

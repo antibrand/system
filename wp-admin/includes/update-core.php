@@ -799,7 +799,7 @@ $_old_files = array(
 global $_new_bundled_files;
 
 $_new_bundled_files = array(
-	'themes/unbranded-theme/' => '1.0.0',
+	'themes/theme/' => '1.0.0',
 );
 
 /**
