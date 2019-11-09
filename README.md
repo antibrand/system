@@ -18,7 +18,7 @@ The type of software commonly called "content management system" have come a lon
 
 This product has no brand. It has no trademarked logo, no copyrighted slogan. The reason for this will be described here at some point.
 
-For the time being, suffice it to say that this and the other WMS can be white labeled. Your brand can be added during the installation process and can be changed at any time in the root config file.
+For the time being, suffice it to say that this system can be white labeled. Your brand can be added during the installation process and can be changed at any time in the root config file.
 
 ## WordPress Removed, Mostly
 
