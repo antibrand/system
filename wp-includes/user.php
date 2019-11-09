@@ -1420,7 +1420,7 @@ function validate_username( $username ) {
  *                                             False if not empty.
  *     @type string|bool $comment_shortcuts    Whether to enable comment moderation keyboard
  *                                             shortcuts for the user. Default false.
- *     @type string      $admin_color          Admin color scheme for the user. Default 'fresh'.
+ *     @type string      $admin_color          Admin color scheme for the user. Default 'default.
  *     @type bool        $use_ssl              Whether the user should always access the admin over
  *                                             https. Default false.
  *     @type string      $user_registered      Date the user registered. Format is 'Y-m-d H:i:s'.
@@ -1635,7 +1635,7 @@ function wp_insert_user( $userdata ) {
 
 	$meta['comment_shortcuts'] = empty( $userdata['comment_shortcuts'] ) || 'false' === $userdata['comment_shortcuts'] ? 'false' : 'true';
 
-	$admin_color = empty( $userdata['admin_color'] ) ? 'fresh' : $userdata['admin_color'];
+	$admin_color = empty( $userdata['admin_color'] ) ? 'default' : $userdata['admin_color'];
 	$meta['admin_color'] = preg_replace( '|[^a-z0-9 _.\-@]|i', '', $admin_color );
 
 	$meta['use_ssl'] = empty( $userdata['use_ssl'] ) ? 0 : $userdata['use_ssl'];
@@ -1722,7 +1722,7 @@ function wp_insert_user( $userdata ) {
 	 *     @type bool     $rich_editing         Whether to enable the rich-editor for the user. False if not empty.
 	 *     @type bool     $syntax_highlighting  Whether to enable the rich code editor for the user. False if not empty.
 	 *     @type bool     $comment_shortcuts    Whether to enable keyboard shortcuts for the user. Default false.
-	 *     @type string   $admin_color          The color scheme for a user's admin screen. Default 'fresh'.
+	 *     @type string   $admin_color          The color scheme for a user's admin screen. Default 'default'.
 	 *     @type int|bool $use_ssl              Whether to force SSL on the user's admin area. 0|false if SSL is
 	 *                                          not forced.
 	 *     @type bool     $show_admin_bar_front Whether to show the admin bar on the front end for the user.
