@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Define the application name.
 if ( ! defined( 'APP_NAME' ) ) {
-	define( 'APP_NAME', 'WebsiteApp' );
+	define( 'APP_NAME', 'system' );
 }
 
 /**

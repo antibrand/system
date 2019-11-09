@@ -8,7 +8,7 @@
 
 // Define the application name.
 if ( ! defined( 'APP_NAME' ) ) {
-	define( 'APP_NAME', 'WebsiteApp' );
+	define( 'APP_NAME', 'system' );
 }
 
 if ( !function_exists('wp_set_current_user') ) :

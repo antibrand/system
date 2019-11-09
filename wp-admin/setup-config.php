@@ -17,7 +17,7 @@ define( 'WP_SETUP_CONFIG', true );
 
 // Define the application name.
 if ( ! defined( 'APP_NAME' ) ) {
-	define( 'APP_NAME', 'WebsiteApp' );
+	define( 'APP_NAME', 'system' );
 }
 
 /**
@@ -195,7 +195,7 @@ switch( $step ) {
 	<table class="form-table">
 		<tr>
 			<th scope="row"><label for="appname"><?php _e( 'Application Name' ); ?></label></th>
-			<td><input name="appname" id="appname" type="text" size="25" value="WebsiteApp" /></td>
+			<td><input name="appname" id="appname" type="text" size="25" value="system" /></td>
 			<td><?php _e( 'Enter the name to use for your application.' ); ?></td>
 		</tr>
 	</table>
