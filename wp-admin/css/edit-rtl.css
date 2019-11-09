@@ -1433,7 +1433,7 @@ table.links-table {
 }
 
 @media screen and ( max-width: 782px ) {
-	.wp-core-ui .edit-tag-actions .button-primary {
+	.app-core-ui .edit-tag-actions .button-primary {
 		margin-bottom: 0;
 	}
 
@@ -1479,8 +1479,8 @@ table.links-table {
 		line-height: 280%;
 	}
 
-	.wp-core-ui .save-post-visibility,
-	.wp-core-ui .save-timestamp {
+	.app-core-ui .save-post-visibility,
+	.app-core-ui .save-timestamp {
 		vertical-align: middle;
 		margin-left: 15px;
 	}

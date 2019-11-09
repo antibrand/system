@@ -32,13 +32,13 @@ input[type=radio]:checked:before {
   background: #dd823b;
 }
 
-.wp-core-ui input[type="reset"]:hover,
-.wp-core-ui input[type="reset"]:active {
+.app-core-ui input[type="reset"]:hover,
+.app-core-ui input[type="reset"]:active {
   color: #0096dd;
 }
 
 /* Core UI */
-.wp-core-ui .button-primary {
+.app-core-ui .button-primary {
   background: #dd823b;
   border-color: #c36922 #ad5d1e #ad5d1e;
   color: #fff;
@@ -46,66 +46,66 @@ input[type=radio]:checked:before {
   text-shadow: 0 -1px 1px #ad5d1e, 1px 0 1px #ad5d1e, 0 1px 1px #ad5d1e, -1px 0 1px #ad5d1e;
 }
 
-.wp-core-ui .button-primary:hover, .wp-core-ui .button-primary:focus {
+.app-core-ui .button-primary:hover, .app-core-ui .button-primary:focus {
   background: #df8a48;
   border-color: #ad5d1e;
   color: #fff;
   box-shadow: 0 1px 0 #ad5d1e;
 }
 
-.wp-core-ui .button-primary:focus {
+.app-core-ui .button-primary:focus {
   box-shadow: inset 0 1px 0 #c36922, 0 0 2px 1px #33b3db;
 }
 
-.wp-core-ui .button-primary:active, .wp-core-ui .button-primary.active, .wp-core-ui .button-primary.active:focus, .wp-core-ui .button-primary.active:hover {
+.app-core-ui .button-primary:active, .app-core-ui .button-primary.active, .app-core-ui .button-primary.active:focus, .app-core-ui .button-primary.active:hover {
   background: #c36922;
   border-color: #ad5d1e;
   box-shadow: inset 0 2px 0 #ad5d1e;
 }
 
-.wp-core-ui .button-primary[disabled], .wp-core-ui .button-primary:disabled, .wp-core-ui .button-primary.button-primary-disabled, .wp-core-ui .button-primary.disabled {
+.app-core-ui .button-primary[disabled], .app-core-ui .button-primary:disabled, .app-core-ui .button-primary.button-primary-disabled, .app-core-ui .button-primary.disabled {
   color: #d1cbc7 !important;
   background: #cc6d23 !important;
   border-color: #ad5d1e !important;
   text-shadow: none !important;
 }
 
-.wp-core-ui .button-primary.button-hero {
+.app-core-ui .button-primary.button-hero {
   box-shadow: 0 2px 0 #ad5d1e !important;
 }
 
-.wp-core-ui .button-primary.button-hero:active {
+.app-core-ui .button-primary.button-hero:active {
   box-shadow: inset 0 3px 0 #ad5d1e !important;
 }
 
-.wp-core-ui .wp-ui-primary {
+.app-core-ui .wp-ui-primary {
   color: #fff;
   background-color: #cf4944;
 }
 
-.wp-core-ui .wp-ui-text-primary {
+.app-core-ui .wp-ui-text-primary {
   color: #cf4944;
 }
 
-.wp-core-ui .wp-ui-highlight {
+.app-core-ui .wp-ui-highlight {
   color: #fff;
   background-color: #dd823b;
 }
 
-.wp-core-ui .wp-ui-text-highlight {
+.app-core-ui .wp-ui-text-highlight {
   color: #dd823b;
 }
 
-.wp-core-ui .wp-ui-notification {
+.app-core-ui .wp-ui-notification {
   color: #fff;
   background-color: #ccaf0b;
 }
 
-.wp-core-ui .wp-ui-text-notification {
+.app-core-ui .wp-ui-text-notification {
   color: #ccaf0b;
 }
 
-.wp-core-ui .wp-ui-text-icon {
+.app-core-ui .wp-ui-text-icon {
   color: #f3f1f1;
 }
 

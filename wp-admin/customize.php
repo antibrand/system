@@ -128,7 +128,7 @@ do_action( 'customize_controls_enqueue_scripts' );
 wp_user_settings();
 _wp_admin_html_begin();
 
-$body_class = 'wp-core-ui wp-customizer js';
+$body_class = 'app-core-ui wp-customizer js';
 
 if ( wp_is_mobile() ) :
 	$body_class .= ' mobile';

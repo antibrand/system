@@ -1495,7 +1495,7 @@ body.full-overlay-active {
 }
 
 /* Collapse Button */
-.wp-core-ui .wp-full-overlay .collapse-sidebar {
+.app-core-ui .wp-full-overlay .collapse-sidebar {
 	position: fixed;
 	bottom: 0;
 	left: 0;
@@ -1510,8 +1510,8 @@ body.full-overlay-active {
 	border-radius: 0 !important;
 }
 
-.wp-core-ui .wp-full-overlay .collapse-sidebar:hover,
-.wp-core-ui .wp-full-overlay .collapse-sidebar:focus {
+.app-core-ui .wp-full-overlay .collapse-sidebar:hover,
+.app-core-ui .wp-full-overlay .collapse-sidebar:focus {
 	color: #0073aa;
 }
 
@@ -1556,7 +1556,7 @@ body.full-overlay-active {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.wp-core-ui .wp-full-overlay.collapsed .collapse-sidebar {
+.app-core-ui .wp-full-overlay.collapsed .collapse-sidebar {
 	padding: 9px 10px;
 }
 
@@ -1714,10 +1714,10 @@ body.full-overlay-active {
 
 .no-customize-support .hide-if-no-customize,
 .customize-support .hide-if-customize,
-.no-customize-support.wp-core-ui .hide-if-no-customize,
-.no-customize-support .wp-core-ui .hide-if-no-customize,
-.customize-support.wp-core-ui .hide-if-customize,
-.customize-support .wp-core-ui .hide-if-customize {
+.no-customize-support.app-core-ui .hide-if-no-customize,
+.no-customize-support .app-core-ui .hide-if-no-customize,
+.customize-support.app-core-ui .hide-if-customize,
+.customize-support .app-core-ui .hide-if-customize {
 	display: none;
 }
 

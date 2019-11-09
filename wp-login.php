@@ -150,7 +150,7 @@ function login_header( $title = 'Log In', $message = '', $wp_error = null ) {
 		$login_header_text = $login_header_title;
 	}
 
-	$classes = array( 'login-action-' . $action, 'wp-core-ui' );
+	$classes = array( 'login-action-' . $action, 'app-core-ui' );
 	if ( is_rtl() )
 		$classes[] = 'rtl';
 	if ( $interim_login ) {

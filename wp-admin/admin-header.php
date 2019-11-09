@@ -185,7 +185,7 @@ $admin_body_class .= ' no-customize-support no-svg';
  * in two important ways:
  *
  * 1. `$classes` is a space-separated string of class names instead of an array.
- * 2. Not all core admin classes are filterable, notably: wp-admin, wp-core-ui,
+ * 2. Not all core admin classes are filterable, notably: wp-admin, app-core-ui,
  *    and no-js cannot be removed.
  *
  * @since 2.3.0
@@ -194,7 +194,7 @@ $admin_body_class .= ' no-customize-support no-svg';
  */
 $admin_body_classes = apply_filters( 'admin_body_class', '' );
 ?>
-<body class="wp-admin wp-core-ui no-js <?php echo $admin_body_classes . ' ' . $admin_body_class; ?>">
+<body class="wp-admin app-core-ui no-js <?php echo $admin_body_classes . ' ' . $admin_body_class; ?>">
 <script type="text/javascript">
 	document.body.className = document.body.className.replace('no-js','js');
 </script>

@@ -239,7 +239,7 @@
 }
 
 /* higher specificity */
-.wp-core-ui .media-modal-icon {
+.app-core-ui .media-modal-icon {
 	background-image: url(../images/uploader-icons.png);
 	background-repeat: no-repeat;
 }
@@ -804,7 +804,7 @@
 /**
  * Attachments
  */
-.wp-core-ui .attachments {
+.app-core-ui .attachments {
 	margin: 0;
 	-webkit-overflow-scrolling: touch;
 }
@@ -812,7 +812,7 @@
 /**
  * Attachment
  */
-.wp-core-ui .attachment {
+.app-core-ui .attachment {
 	position: relative;
 	float: left;
 	padding: 8px;
@@ -829,28 +829,28 @@
 	box-sizing: border-box;
 }
 
-.wp-core-ui .attachment:focus,
-.wp-core-ui .selected.attachment:focus,
-.wp-core-ui .attachment.details:focus {
+.app-core-ui .attachment:focus,
+.app-core-ui .selected.attachment:focus,
+.app-core-ui .attachment.details:focus {
 	box-shadow:
 		inset 0 0 2px 3px #fff,
 		inset 0 0 0 7px #5b9dd9;
 	outline: none;
 }
 
-.wp-core-ui .selected.attachment {
+.app-core-ui .selected.attachment {
 	box-shadow:
 		inset 0 0 0 5px #fff,
 		inset 0 0 0 7px #ccc;
 }
 
-.wp-core-ui .attachment.details {
+.app-core-ui .attachment.details {
 	box-shadow:
 		inset 0 0 0 3px #fff,
 		inset 0 0 0 7px #0073aa;
 }
 
-.wp-core-ui .attachment-preview {
+.app-core-ui .attachment-preview {
 	position: relative;
 	box-shadow:
 		inset 0 0 15px rgba( 0, 0, 0, 0.1 ),
@@ -859,18 +859,18 @@
 	cursor: pointer;
 }
 
-.wp-core-ui .attachment-preview:before {
+.app-core-ui .attachment-preview:before {
 	content: "";
 	display: block;
 	padding-top: 100%;
 }
 
-.wp-core-ui .attachment .icon {
+.app-core-ui .attachment .icon {
 	margin: 0 auto;
 	overflow: hidden;
 }
 
-.wp-core-ui .attachment .thumbnail {
+.app-core-ui .attachment .thumbnail {
 	overflow: hidden;
 	position: absolute;
 	top: 0;
@@ -881,15 +881,15 @@
 	transition: opacity .1s;
 }
 
-.wp-core-ui .attachment .portrait img {
+.app-core-ui .attachment .portrait img {
 	max-width: 100%;
 }
 
-.wp-core-ui .attachment .landscape img {
+.app-core-ui .attachment .landscape img {
 	max-height: 100%;
 }
 
-.wp-core-ui .attachment .thumbnail:after {
+.app-core-ui .attachment .thumbnail:after {
 	content: "";
 	display: block;
 	position: absolute;
@@ -901,12 +901,12 @@
 	overflow: hidden;
 }
 
-.wp-core-ui .attachment .thumbnail img {
+.app-core-ui .attachment .thumbnail img {
 	top: 0;
 	left: 0;
 }
 
-.wp-core-ui .attachment .thumbnail .centered {
+.app-core-ui .attachment .thumbnail .centered {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -916,22 +916,22 @@
 	transform: translate( 50%, 50% );
 }
 
-.wp-core-ui .attachment .thumbnail .centered img {
+.app-core-ui .attachment .thumbnail .centered img {
 	-webkit-transform: translate( -50%, -50% );
 	transform: translate( -50%, -50% );
 }
 
-.wp-core-ui .attachments-browser .attachment .thumbnail .centered img.icon {
+.app-core-ui .attachments-browser .attachment .thumbnail .centered img.icon {
 	-webkit-transform: translate( -50%, -70% );
 	transform: translate( -50%, -70% );
 }
 
-.ie8 .wp-core-ui .attachment img.icon {
+.ie8 .app-core-ui .attachment img.icon {
 	top: 20%;
 	position: relative;
 }
 
-.wp-core-ui .attachment .filename {
+.app-core-ui .attachment .filename {
 	position: absolute;
 	left: 0;
 	right: 0;
@@ -945,15 +945,15 @@
 	box-shadow: inset 0 0 0 1px rgba( 0, 0, 0, 0.15 );
 }
 
-.wp-core-ui .attachment .filename div {
+.app-core-ui .attachment .filename div {
 	padding: 5px 10px;
 }
 
-.wp-core-ui .attachment .thumbnail img {
+.app-core-ui .attachment .thumbnail img {
 	position: absolute;
 }
 
-.wp-core-ui .attachment-close {
+.app-core-ui .attachment-close {
 	display: block;
 	position: absolute;
 	top: 5px;
@@ -968,12 +968,12 @@
 	transition: none;
 }
 
-.wp-core-ui .attachment-close:hover,
-.wp-core-ui .attachment-close:focus {
+.app-core-ui .attachment-close:hover,
+.app-core-ui .attachment-close:focus {
 	background-position: -36px 4px;
 }
 
-.wp-core-ui .attachment .check {
+.app-core-ui .attachment .check {
 	display: none;
 	height: 24px;
 	width: 24px;
@@ -989,7 +989,7 @@
 	box-shadow: 0 0 0 1px #fff, 0 0 0 2px rgba( 0, 0, 0, 0.15 );
 }
 
-.wp-core-ui .attachment .check .media-modal-icon {
+.app-core-ui .attachment .check .media-modal-icon {
 	display: block;
 	background-position: -1px 0;
 	height: 15px;
@@ -997,35 +997,35 @@
 	margin: 5px;
 }
 
-.wp-core-ui .attachment .check:hover .media-modal-icon {
+.app-core-ui .attachment .check:hover .media-modal-icon {
 	background-position: -40px 0;
 }
 
-.wp-core-ui .attachment.selected .check {
+.app-core-ui .attachment.selected .check {
 	display: block;
 }
 
-.wp-core-ui .attachment.details .check,
-.wp-core-ui .attachment.selected .check:focus,
-.wp-core-ui .media-frame.mode-grid .attachment.selected .check {
+.app-core-ui .attachment.details .check,
+.app-core-ui .attachment.selected .check:focus,
+.app-core-ui .media-frame.mode-grid .attachment.selected .check {
 	background-color: #0073aa;
 	box-shadow:
 		0 0 0 1px #fff,
 		0 0 0 2px #0073aa;
 }
 
-.wp-core-ui .attachment.details .check .media-modal-icon,
-.wp-core-ui .media-frame.mode-grid .attachment.selected .check .media-modal-icon {
+.app-core-ui .attachment.details .check .media-modal-icon,
+.app-core-ui .media-frame.mode-grid .attachment.selected .check .media-modal-icon {
 	background-position: -21px 0;
 }
 
-.wp-core-ui .attachment.details .check:hover .media-modal-icon,
-.wp-core-ui .attachment.selected .check:focus .media-modal-icon,
-.wp-core-ui .media-frame.mode-grid .attachment.selected .check:hover .media-modal-icon {
+.app-core-ui .attachment.details .check:hover .media-modal-icon,
+.app-core-ui .attachment.selected .check:focus .media-modal-icon,
+.app-core-ui .media-frame.mode-grid .attachment.selected .check:hover .media-modal-icon {
 	background-position: -60px 0;
 }
 
-.wp-core-ui .media-frame .attachment .describe {
+.app-core-ui .media-frame .attachment .describe {
 	position: relative;
 	display: block;
 	width: 100%;
@@ -1483,19 +1483,19 @@
 	background: none;
 }
 
-.wp-core-ui .media-selection .attachment:focus,
-.wp-core-ui .media-selection .selected.attachment:focus,
-.wp-core-ui .media-selection .attachment.details:focus {
+.app-core-ui .media-selection .attachment:focus,
+.app-core-ui .media-selection .selected.attachment:focus,
+.app-core-ui .media-selection .attachment.details:focus {
 	box-shadow:
 		0 0 0 1px #fff,
 		0 0 2px 3px #5b9dd9;
 }
 
-.wp-core-ui .media-selection .selected.attachment {
+.app-core-ui .media-selection .selected.attachment {
 	box-shadow: none;
 }
 
-.wp-core-ui .media-selection .attachment.details {
+.app-core-ui .media-selection .attachment.details {
 	box-shadow:
 		0 0 0 1px #fff,
 		0 0 0 3px #0073aa;
@@ -1763,9 +1763,9 @@
 }
 
 /* higher specificity than media.css */
-.wp-core-ui.media-modal .image-editor .imgedit-help-toggle,
-.wp-core-ui.media-modal .image-editor .imgedit-help-toggle:hover,
-.wp-core-ui.media-modal .image-editor .imgedit-help-toggle:active {
+.app-core-ui.media-modal .image-editor .imgedit-help-toggle,
+.app-core-ui.media-modal .image-editor .imgedit-help-toggle:hover,
+.app-core-ui.media-modal .image-editor .imgedit-help-toggle:active {
 	border: 1px solid transparent;
 	margin: 0;
 	padding: 0;
@@ -1778,18 +1778,18 @@
 	box-shadow: none;
 }
 
-.wp-core-ui.media-modal .image-editor .imgedit-help-toggle:focus {
+.app-core-ui.media-modal .image-editor .imgedit-help-toggle:focus {
 	color: #0074a2;
 	border-color: #5b9dd9;
 	outline: none;
 	box-shadow: 0 0 3px rgba( 0, 115, 170, .8 );
 }
 
-.wp-core-ui.media-modal .imgedit-group-top .dashicons-arrow-down.imgedit-help-toggle {
+.app-core-ui.media-modal .imgedit-group-top .dashicons-arrow-down.imgedit-help-toggle {
 	margin-top: -3px;
 }
 
-.wp-core-ui.media-modal .image-editor h3 .imgedit-help-toggle {
+.app-core-ui.media-modal .image-editor h3 .imgedit-help-toggle {
 	margin-top: -2px;
 }
 
@@ -2539,7 +2539,7 @@
 		height: 40px;
 	}
 
-	.wp-core-ui.wp-customizer .media-button {
+	.app-core-ui.wp-customizer .media-button {
 		margin-top: 13px;
 	}
 
@@ -2574,7 +2574,7 @@
   (-webkit-min-device-pixel-ratio: 1.25),
   (min-resolution: 120dpi) {
 
-	.wp-core-ui .media-modal-icon {
+	.app-core-ui .media-modal-icon {
 		background-image: url(../images/uploader-icons-2x.png);
 		background-size: 134px 15px;
 	}

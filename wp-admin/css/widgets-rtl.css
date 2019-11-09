@@ -58,9 +58,9 @@
 }
 
 /* Media Widgets */
-.wp-core-ui .media-widget-control.selected .placeholder,
-.wp-core-ui .media-widget-control.selected .not-selected,
-.wp-core-ui .media-widget-control .selected {
+.app-core-ui .media-widget-control.selected .placeholder,
+.app-core-ui .media-widget-control.selected .not-selected,
+.app-core-ui .media-widget-control .selected {
 	display: none;
 }
 

@@ -55,7 +55,7 @@ body {
 	top: 25px;
 }
 
-.wp-core-ui.wp-customizer .customize-changeset-locked-message a.button {
+.app-core-ui.wp-customizer .customize-changeset-locked-message a.button {
 	margin-right: 10px;
 	margin-top: 0;
 }
@@ -2427,7 +2427,7 @@ body.cheatin p {
  * Widgets and Menus common styles
  */
 
-/* higher specificity than .wp-core-ui .button */
+/* higher specificity than .app-core-ui .button */
 #customize-theme-controls .add-new-widget,
 #customize-theme-controls .add-new-menu-item {
 	cursor: pointer;
@@ -2839,7 +2839,7 @@ body.adding-widget .add-new-widget:before,
 		margin-top: 12px;
 	}
 
-	.wp-core-ui .themes-filter-bar .feature-filter-toggle {
+	.app-core-ui .themes-filter-bar .feature-filter-toggle {
 		margin: 3px 0 3px 25px;
 	}
 }
@@ -2916,7 +2916,7 @@ body.adding-widget .add-new-widget:before,
 		display: block;
 	}
 
-	.wp-core-ui.wp-customizer .button {
+	.app-core-ui.wp-customizer .button {
 		padding: 6px 14px;
 		line-height: normal;
 		font-size: 14px;
@@ -2993,7 +2993,7 @@ body.adding-widget .add-new-widget:before,
 		padding: 8px;
 	}
 
-	.wp-core-ui .themes-filter-bar .feature-filter-toggle {
+	.app-core-ui .themes-filter-bar .feature-filter-toggle {
 		margin: 0;
 	}
 

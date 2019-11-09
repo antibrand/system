@@ -22,7 +22,7 @@ header( 'Content-Type: text/html; charset=utf-8' );
 	wp_admin_css( 'install', true );
 	?>
 </head>
-<body class="wp-core-ui">
+<body class="app-core-ui">
 
 <?php
 

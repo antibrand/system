@@ -152,12 +152,12 @@ td.charmap, #charmap a {width:18px; height:18px; color:#000; border:1px solid #A
 .tabs a {text-decoration:none; font-family:Verdana, Arial; font-size:10px;}
 .tabs a:link, .tabs a:visited, .tabs a:hover {color:black;}
 
-.wp-core-ui #tabs {
+.app-core-ui #tabs {
 	padding-bottom: 5px;
 	background-color: transparent;
 }
 
-.wp-core-ui #tabs a {
+.app-core-ui #tabs a {
 	padding: 6px 10px;
 	margin: 0 2px;
 }

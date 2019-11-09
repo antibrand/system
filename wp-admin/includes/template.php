@@ -1686,7 +1686,7 @@ $admin_body_classes = apply_filters( 'admin_body_class', '' );
 /**
  * @global string $body_id
  */
-if ( isset($GLOBALS['body_id']) ) echo ' id="' . $GLOBALS['body_id'] . '"'; ?> class="wp-admin wp-core-ui no-js iframe <?php echo $admin_body_classes . ' ' . $admin_body_class; ?>">
+if ( isset($GLOBALS['body_id']) ) echo ' id="' . $GLOBALS['body_id'] . '"'; ?> class="wp-admin app-core-ui no-js iframe <?php echo $admin_body_classes . ' ' . $admin_body_class; ?>">
 <script type="text/javascript">
 (function(){
 var c = document.body.className;

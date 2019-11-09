@@ -177,7 +177,7 @@
 	transition: all .1s ease-in-out;
 }
 
-.wp-core-ui .welcome-panel .button.button-hero {
+.app-core-ui .welcome-panel .button.button-hero {
 	margin: 15px 0 3px 13px;
 	padding: 12px 36px;
 	height: auto;
@@ -1101,7 +1101,7 @@ a.rsswidget {
 
 	#community-events-submit {
 		margin-bottom: 0;
-		/* Override .wp-core-ui .button */
+		/* Override .app-core-ui .button */
 		vertical-align: top;
 	}
 

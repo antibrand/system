@@ -16,7 +16,7 @@ if ( false ) {
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Error: PHP is not running</title>
 </head>
-<body class="wp-core-ui">
+<body class="app-core-ui">
 	<h1>Error: PHP is not running</h1>
 	<p>The website management system requires that your web server is running PHP. Your server does not have PHP installed, or PHP is turned off.</p>
 </body>
@@ -83,7 +83,7 @@ function display_header( $body_classes = '' ) {
 		wp_admin_css( 'dashicons', true );
 	?>
 </head>
-<body class="wp-core-ui<?php echo $body_classes ?>">
+<body class="app-core-ui<?php echo $body_classes ?>">
 
 <?php
 } // end display_header()

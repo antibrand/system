@@ -67,7 +67,7 @@ else
 	wp_admin_css( 'ie', true );
 	?>
 </head>
-<body class="wp-core-ui">
+<body class="app-core-ui">
 
 <?php if ( get_option( 'db_version' ) == $wp_db_version || !is_blog_installed() ) : ?>
 

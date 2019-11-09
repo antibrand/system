@@ -527,7 +527,7 @@ if ( is_string( $content_func ) ) {
 }
 ?>
 </head>
-<body<?php if ( isset($GLOBALS['body_id']) ) echo ' id="' . $GLOBALS['body_id'] . '"'; ?> class="wp-core-ui no-js">
+<body<?php if ( isset($GLOBALS['body_id']) ) echo ' id="' . $GLOBALS['body_id'] . '"'; ?> class="app-core-ui no-js">
 <script type="text/javascript">
 document.body.className = document.body.className.replace('no-js', 'js');
 </script>

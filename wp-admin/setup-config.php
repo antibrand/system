@@ -92,7 +92,7 @@ $step = isset( $_GET['step'] ) ? (int) $_GET['step'] : -1;
 function setup_config_display_header( $body_classes = [] ) {
 
 	$body_classes   = (array) $body_classes;
-	$body_classes[] = 'wp-core-ui';
+	$body_classes[] = 'app-core-ui';
 	if ( is_rtl() ) {
 		$body_classes[] = 'rtl';
 	}

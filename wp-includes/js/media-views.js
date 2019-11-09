@@ -2792,7 +2792,7 @@ MediaFrame = Frame.extend(/** @lends wp.media.view.MediaFrame.prototype */{
 		});
 
 		// Ensure core UI is enabled.
-		this.$el.addClass('wp-core-ui');
+		this.$el.addClass('app-core-ui');
 
 		// Initialize modal container view.
 		if ( this.options.modal ) {

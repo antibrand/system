@@ -138,7 +138,7 @@ function wp_underscore_video_template() {
  */
 function wp_print_media_templates() {
 	global $is_IE;
-	$class = 'media-modal wp-core-ui';
+	$class = 'media-modal app-core-ui';
 	if ( $is_IE && strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7') !== false )
 		$class .= ' ie7';
 	?>

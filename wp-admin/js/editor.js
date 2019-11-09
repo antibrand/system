@@ -1256,7 +1256,7 @@ window.wp = window.wp || {};
 			var $textarea = $( '#' + id );
 
 			var $wrap = $( '<div>' ).attr( {
-					'class': 'wp-core-ui wp-editor-wrap tmce-active',
+					'class': 'app-core-ui wp-editor-wrap tmce-active',
 					id: 'wp-' + id + '-wrap'
 				} );
 

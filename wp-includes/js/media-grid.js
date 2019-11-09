@@ -178,7 +178,7 @@ Manage = MediaFrame.extend(/** @lends wp.media.view.MediaFrame.Manage.prototype 
 		this.$window.on( 'scroll resize', _.debounce( _.bind( this.fixPosition, this ), 15 ) );
 
 		// Ensure core and media grid view UI is enabled.
-		this.$el.addClass('wp-core-ui');
+		this.$el.addClass('app-core-ui');
 
 		// Force the uploader off if the upload limit has been exceeded or
 		// if the browser isn't supported.

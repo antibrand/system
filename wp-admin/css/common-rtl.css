@@ -161,10 +161,10 @@
 .js .closed .inside,
 .js .hide-if-js,
 .no-js .hide-if-no-js,
-.js.wp-core-ui .hide-if-js,
-.js .wp-core-ui .hide-if-js,
-.no-js.wp-core-ui .hide-if-no-js,
-.no-js .wp-core-ui .hide-if-no-js {
+.js.app-core-ui .hide-if-js,
+.js .app-core-ui .hide-if-js,
+.no-js.app-core-ui .hide-if-no-js,
+.no-js .app-core-ui .hide-if-no-js {
 	display: none;
 }
 
@@ -1388,7 +1388,7 @@ div.error p,
 	font-size: 18px;
 }
 
-.wp-core-ui .notice.is-dismissible {
+.app-core-ui .notice.is-dismissible {
 	padding-left: 38px;
 	position: relative;
 }
@@ -3728,7 +3728,7 @@ img {
 		line-height: 175%;
 	}
 
-	.wp-core-ui .notice.is-dismissible {
+	.app-core-ui .notice.is-dismissible {
 		padding-left: 46px;
 	}
 
