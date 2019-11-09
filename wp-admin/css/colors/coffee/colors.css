@@ -1,4 +1,3 @@
-/*! This file is auto-generated */
 /*
  * Button mixin- creates 3d-ish button effect with correct
  * highlights/shadows, based on a base color.
@@ -42,7 +41,8 @@ input[type=radio]:checked:before {
   background: #c7a589;
   border-color: #b78b66 #ae7d55 #ae7d55;
   color: #fff;
-  box-shadow: 0 1px 0 #ae7d55;
+  -webkit-box-shadow: 0 1px 0 #ae7d55;
+          box-shadow: 0 1px 0 #ae7d55;
   text-shadow: 0 -1px 1px #ae7d55, 1px 0 1px #ae7d55, 0 1px 1px #ae7d55, -1px 0 1px #ae7d55;
 }
 
@@ -50,17 +50,20 @@ input[type=radio]:checked:before {
   background: #ccad93;
   border-color: #ae7d55;
   color: #fff;
-  box-shadow: 0 1px 0 #ae7d55;
+  -webkit-box-shadow: 0 1px 0 #ae7d55;
+          box-shadow: 0 1px 0 #ae7d55;
 }
 
 .app-core-ui .button-primary:focus {
-  box-shadow: inset 0 1px 0 #b78b66, 0 0 2px 1px #33b3db;
+  -webkit-box-shadow: inset 0 1px 0 #b78b66, 0 0 2px 1px #33b3db;
+          box-shadow: inset 0 1px 0 #b78b66, 0 0 2px 1px #33b3db;
 }
 
 .app-core-ui .button-primary:active, .app-core-ui .button-primary.active, .app-core-ui .button-primary.active:focus, .app-core-ui .button-primary.active:hover {
   background: #b78b66;
   border-color: #ae7d55;
-  box-shadow: inset 0 2px 0 #ae7d55;
+  -webkit-box-shadow: inset 0 2px 0 #ae7d55;
+          box-shadow: inset 0 2px 0 #ae7d55;
 }
 
 .app-core-ui .button-primary[disabled], .app-core-ui .button-primary:disabled, .app-core-ui .button-primary.button-primary-disabled, .app-core-ui .button-primary.disabled {
@@ -71,11 +74,13 @@ input[type=radio]:checked:before {
 }
 
 .app-core-ui .button-primary.button-hero {
-  box-shadow: 0 2px 0 #ae7d55 !important;
+  -webkit-box-shadow: 0 2px 0 #ae7d55 !important;
+          box-shadow: 0 2px 0 #ae7d55 !important;
 }
 
 .app-core-ui .button-primary.button-hero:active {
-  box-shadow: inset 0 3px 0 #ae7d55 !important;
+  -webkit-box-shadow: inset 0 3px 0 #ae7d55 !important;
+          box-shadow: inset 0 3px 0 #ae7d55 !important;
 }
 
 .app-core-ui .wp-ui-primary {
@@ -414,16 +419,19 @@ ul#adminmenu > li.current > a.current:after {
 }
 
 .details.attachment {
-  box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 7px #c7a589;
+  -webkit-box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 7px #c7a589;
+          box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 7px #c7a589;
 }
 
 .attachment.details .check {
   background-color: #c7a589;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #c7a589;
+  -webkit-box-shadow: 0 0 0 1px #fff, 0 0 0 2px #c7a589;
+          box-shadow: 0 0 0 1px #fff, 0 0 0 2px #c7a589;
 }
 
 .media-selection .attachment.selection.details .thumbnail {
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #c7a589;
+  -webkit-box-shadow: 0 0 0 1px #fff, 0 0 0 3px #c7a589;
+          box-shadow: 0 0 0 1px #fff, 0 0 0 3px #c7a589;
 }
 
 /* Themes */

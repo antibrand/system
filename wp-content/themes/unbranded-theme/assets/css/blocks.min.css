@@ -1,1 +1,85 @@
-.has-ub-text-background-color{background-color:#333}.has-ub-light-gray-background-color{background-color:#888}.has-ub-pale-gray-background-color{background-color:#ccc}.has-ub-white-background-color{background-color:#fff}.has-ub-error-background-color{background-color:#dc3232}.has-ub-warning-background-color{background-color:#ffb900}.has-ub-success-background-color{background-color:#46b450}.has-ub-text-color{color:#333}.has-ub-light-gray-color{color:#888}.has-ub-pale-gray-color{color:#ccc}.has-ub-white-color{color:#fff}.has-ub-error-color{color:#dc3232}.has-ub-warning-color{color:#ffb900}.has-ub-success-color{color:#46b450}
+/**
+ * Blocks on front end
+ *
+ * This describes classes set by colors args in the functions file.
+ *
+ * @see functions.php/setup
+ */
+/**
+ * SASS/SCSS variables
+ *
+ * The following variables are used in other .scss files.
+ * Make sure that this files is called early in style,scss.
+ *
+ * @link https://sass-lang.com/documentation/variables
+ */
+/**
+ * Colors
+ *
+ * Some variables use colors set by args in the functions file.
+ *
+ * @see functions.php/setup
+ */
+/**
+ * Font sizes
+ *
+ * The font size variables presume a browser default of 16px,
+ * in which case the variable number is equivelent to a px number.
+ *
+ * SASS compiler may not like variables beginning with a numeral.
+ */
+.has-ub-text-background-color {
+  background-color: #333333;
+}
+
+.has-ub-light-gray-background-color {
+  background-color: #888888;
+}
+
+.has-ub-pale-gray-background-color {
+  background-color: #cccccc;
+}
+
+.has-ub-white-background-color {
+  background-color: #ffffff;
+}
+
+.has-ub-error-background-color {
+  background-color: #dc3232;
+}
+
+.has-ub-warning-background-color {
+  background-color: #ffb900;
+}
+
+.has-ub-success-background-color {
+  background-color: #46b450;
+}
+
+.has-ub-text-color {
+  color: #333333;
+}
+
+.has-ub-light-gray-color {
+  color: #888888;
+}
+
+.has-ub-pale-gray-color {
+  color: #cccccc;
+}
+
+.has-ub-white-color {
+  color: #ffffff;
+}
+
+.has-ub-error-color {
+  color: #dc3232;
+}
+
+.has-ub-warning-color {
+  color: #ffb900;
+}
+
+.has-ub-success-color {
+  color: #46b450;
+}
