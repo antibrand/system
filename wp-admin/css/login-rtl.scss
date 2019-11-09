@@ -24,19 +24,17 @@ p {
 .login .message,
 .login .success,
 .login #login_error {
-	border-right: 4px solid #00a0d2;
-	padding: 12px;
-	margin-right: 0;
-	margin-bottom: 20px;
-	background-color: #fff;
+	margin: 1em 0;
+	font-size: 1.2em;
+	font-style: italic;
 }
 
 .login .success {
-	border-right-color: #46b450;
+	color: #ee0000;
 }
 
 .login #login_error {
-	border-right-color: #dc3232;
+	color: #44aa00;
 }
 
 #loginform p.submit,
@@ -108,12 +106,12 @@ p {
 }
 
 .login h1 {
+	font-size: 2rem;
 
 	a {
 		color: #444;
-		font-size: 20px;
 		line-height: 1.3em;
-		margin: 0 auto 25px;
+		margin: 0 auto 2em;
 		padding: 0;
 		text-decoration: none;
 	}
@@ -142,18 +140,6 @@ p {
 .login #backtoblog a {
 	text-decoration: none;
 	color: #555d66;
-}
-
-.login #nav a:hover,
-.login #backtoblog a:hover,
-.login h1 a:hover {
-	color: #00a0d2;
-}
-
-.login #nav a:focus,
-.login #backtoblog a:focus,
-.login h1 a:focus {
-	color: #124964;
 }
 
 .login .privacy-policy-page-link {
@@ -209,7 +195,7 @@ body.interim-login {
 
 .interim-login #login_error,
 .interim-login.login .message {
-	margin: 0 0 16px;
+	margin: 1em 0;
 }
 
 .interim-login.login form {

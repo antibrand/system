@@ -23,19 +23,17 @@ p {
 .login .message,
 .login .success,
 .login #login_error {
-  border-right: 4px solid #00a0d2;
-  padding: 12px;
-  margin-right: 0;
-  margin-bottom: 20px;
-  background-color: #fff;
+  margin: 1em 0;
+  font-size: 1.2em;
+  font-style: italic;
 }
 
 .login .success {
-  border-right-color: #46b450;
+  color: #ee0000;
 }
 
 .login #login_error {
-  border-right-color: #dc3232;
+  color: #44aa00;
 }
 
 #loginform p.submit,
@@ -107,11 +105,14 @@ p {
   line-height: 19px;
 }
 
+.login h1 {
+  font-size: 2rem;
+}
+
 .login h1 a {
   color: #444;
-  font-size: 20px;
   line-height: 1.3em;
-  margin: 0 auto 25px;
+  margin: 0 auto 2em;
   padding: 0;
   text-decoration: none;
 }
@@ -207,7 +208,7 @@ body.interim-login {
 
 .interim-login #login_error,
 .interim-login.login .message {
-  margin: 0 0 16px;
+  margin: 1em 0;
 }
 
 .interim-login.login form {
