@@ -833,7 +833,8 @@ function admin_color_scheme_picker( $user_id ) {
 	ksort( $_wp_admin_css_colors );
 
 	if ( isset( $_wp_admin_css_colors['default'] ) ) {
-		// Set Default ('default') and Light should go first.
+
+		// Set Default ('default') and Classic should go first.
 		$_wp_admin_css_colors = array_filter( array_merge( array( 'default' => '', 'fresh' => '' ), $_wp_admin_css_colors ) );
 	}
 
