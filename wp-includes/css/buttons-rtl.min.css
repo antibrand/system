@@ -198,7 +198,7 @@ TABLE OF CONTENTS:
   3.0 - Primary Button Style
 ---------------------------------------------------------------------------- */
 .app-core-ui .button-primary {
-  background: #666666;
+  background: #777777;
   color: #fff;
   text-decoration: none;
 }
@@ -207,7 +207,7 @@ TABLE OF CONTENTS:
 .app-core-ui .button-primary:hover,
 .app-core-ui .button-primary.focus,
 .app-core-ui .button-primary:focus {
-  background: #888888;
+  background: #aeaeae;
   color: #fff;
 }
 
@@ -215,7 +215,7 @@ TABLE OF CONTENTS:
 .app-core-ui .button-primary.active:hover,
 .app-core-ui .button-primary.active:focus,
 .app-core-ui .button-primary:active {
-  background: #888888;
+  background: #aeaeae;
   vertical-align: top;
 }
 
