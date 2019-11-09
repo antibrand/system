@@ -845,7 +845,7 @@ function admin_color_scheme_picker( $user_id ) {
 
 	?>
 	<fieldset id="color-picker" class="scheme-list">
-		<legend class="screen-reader-text"><span><?php _e( 'Admin Color Scheme' ); ?></span></legend>
+		<legend class="screen-reader-text"><span><?php _e( 'User Color Scheme' ); ?></span></legend>
 		<?php
 		wp_nonce_field( 'save-color-scheme', 'color-nonce', false );
 		foreach ( $_wp_admin_css_colors as $color => $color_info ) :
