@@ -57,38 +57,6 @@ label {
   cursor: pointer;
 }
 
-#logo {
-  margin: 6px 0 14px 0;
-  padding: 0 0 7px 0;
-  border-bottom: none;
-  text-align: center;
-}
-
-#logo a {
-  background-size: 84px;
-  background-position: center top;
-  background-repeat: no-repeat;
-  color: #444;
-  /* same as login.css */
-  height: 84px;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 1.3em;
-  margin: -130px auto 25px;
-  padding: 0;
-  text-decoration: none;
-  width: 84px;
-  text-indent: -9999px;
-  outline: none;
-  overflow: hidden;
-  display: block;
-}
-
-#logo a:focus {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
 .step {
   margin: 20px 0 15px 0;
 }
@@ -314,9 +282,6 @@ body.rtl,
 @media only screen and (max-width: 799px) {
   body {
     margin-top: 115px;
-  }
-  #logo a {
-    margin: -125px auto 30px;
   }
 }
 
