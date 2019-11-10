@@ -426,6 +426,10 @@ $document.ready( function() {
 			if ( $adminmenu.data('wp-responsive') ) {
 				return;
 			}
+
+			if ( ! $( e.target ).closest( '#adminmenu' ).length ) {
+				$adminmenu.find( 'li.opensub' ).removeClass( 'opensub' );
+			}
 		});
 
 		$adminmenu.find( 'a.wp-has-submenu' ).on( mobileEvent + '.wp-mobile-hover', function( event ) {
@@ -433,6 +437,16 @@ $document.ready( function() {
 
 			if ( $adminmenu.data( 'wp-responsive' ) ) {
 				return;
+			}
+
+			// Show the sub instead of following the link if:
+			//	- the submenu is not open
+			//	- the submenu is not shown inline or the menu is not folded
+			if ( ! $menuItem.hasClass( 'opensub' ) && ( ! $menuItem.hasClass( 'wp-menu-open' ) || $menuItem.width() < 40 ) ) {
+				event.preventDefault();
+				adjustSubmenu( $menuItem );
+				$adminmenu.find( 'li.opensub' ).removeClass( 'opensub' );
+				$menuItem.addClass('opensub');
 			}
 		});
 	}
@@ -452,12 +466,18 @@ $document.ready( function() {
 					// The menu is in responsive mode, bail
 					return;
 				}
+
+				adjustSubmenu( $menuItem );
+				$adminmenu.find( 'li.opensub' ).removeClass( 'opensub' );
+				$menuItem.addClass( 'opensub' );
 			},
 			out: function(){
 				if ( $adminmenu.data( 'wp-responsive' ) ) {
 					// The menu is in responsive mode, bail
 					return;
 				}
+
+				$( this ).removeClass( 'opensub' ).find( '.wp-submenu' ).css( 'margin-top', '' );
 			},
 			timeout: 200,
 			sensitivity: 7,
@@ -470,11 +490,13 @@ $document.ready( function() {
 				return;
 			}
 
+			$( event.target ).closest( 'li.menu-top' ).addClass( 'opensub' );
 		}).on( 'blur.adminmenu', '.wp-submenu a', function( event ) {
 			if ( $adminmenu.data( 'wp-responsive' ) ) {
 				return;
 			}
 
+			$( event.target ).closest( 'li.menu-top' ).removeClass( 'opensub' );
 		}).find( 'li.wp-has-submenu.wp-not-current-submenu' ).on( 'focusin.adminmenu', function() {
 			adjustSubmenu( $( this ) );
 		});

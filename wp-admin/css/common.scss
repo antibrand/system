@@ -149,7 +149,7 @@
 	font-weight: 600;
 	padding: 15px 23px 14px;
 	background: #f1f1f1;
-	color: #0073aa;
+	color: #ffee00;
 	z-index: 100000;
 	line-height: normal;
 	box-shadow: 0 0 2px 2px rgba(0,0,0,.6);
@@ -319,14 +319,14 @@ h6 {
 }
 
 h1 {
-	color: #23282d;
+	color: #222;
 	font-size: 2em;
 	margin: .67em 0;
 }
 
 h2,
 h3 {
-	color: #23282d;
+	color: #222;
 	font-size: 1.3em;
 	margin: 1em 0;
 }
@@ -604,7 +604,7 @@ code {
 	font-weight: 600;
 	font-size: 13px;
 	line-height: normal; /* IE8-IE11 need this for buttons */
-	color: #0073aa; /* some of these controls are button elements and don't inherit from links */
+	color: #ffee00; /* some of these controls are button elements and don't inherit from links */
 	cursor: pointer;
 	outline: 0;
 }
@@ -676,10 +676,10 @@ ul.striped > :nth-child(odd),
 
 .wp-ui-primary {
 	color: #fff;
-	background-color: #32373c;
+	background-color: #333;
 }
 .wp-ui-text-primary {
-	color: #32373c;
+	color: #333;
 }
 
 .wp-ui-highlight {
@@ -740,7 +740,7 @@ img.emoji {
 .widget .widget-top,
 .menu-item-handle {
 	background: #fafafa;
-	color: #23282d;
+	color: #222;
 }
 
 .postbox .hndle,
@@ -788,7 +788,7 @@ img.emoji {
 .tagchecklist .ntdelbutton .remove-tag-icon:before {
 	margin-left: 2px;
 	border-radius: 50%;
-	color: #0073aa;
+	color: #ffee00;
 	/* vertically center the icon cross browsers */
 	line-height: 1.28;
 }
@@ -1038,7 +1038,7 @@ th.action-links {
 .filter-links .current {
 	box-shadow: none;
 	border-bottom: 4px solid #666;
-	color: #23282d;
+	color: #222;
 }
 
 .filter-links li > a:hover,
@@ -1380,7 +1380,7 @@ div.error p,
 
 .notice-title {
 	display: inline-block;
-	color: #23282d;
+	color: #222;
 	font-size: 18px;
 }
 
@@ -1672,7 +1672,7 @@ form.upgrade .hint {
 #screen-meta-links .show-settings:hover,
 #screen-meta-links .show-settings:active,
 #screen-meta-links .show-settings:focus {
-	color: #32373c;
+	color: #333;
 }
 
 #screen-meta-links .show-settings:active {
@@ -1843,7 +1843,7 @@ form.upgrade .hint {
 }
 
 .contextual-help-tabs a:hover {
-	color: #32373c;
+	color: #333;
 }
 
 .contextual-help-tabs .active {
@@ -1856,7 +1856,7 @@ form.upgrade .hint {
 
 .contextual-help-tabs .active a {
 	border-color: #e1e1e1;
-	color: #32373c;
+	color: #333;
 }
 
 .contextual-help-tabs-wrap {
@@ -1910,7 +1910,7 @@ html.wp-toolbar {
 .widefat thead tr td,
 .widefat tfoot tr th,
 .widefat tfoot tr td {
-	color: #32373c;
+	color: #333;
 }
 
 .widefat td p {
@@ -1920,7 +1920,7 @@ html.wp-toolbar {
 .widefat p,
 .widefat ol,
 .widefat ul {
-	color: #32373c;
+	color: #333;
 }
 
 .widefat .column-comment p {
@@ -2104,7 +2104,7 @@ html.wp-toolbar {
 #ed_reply_toolbar #ed_reply_strong,
 .item-controls .item-order a,
 .feature-filter .feature-name {
-	font-weight: 600;
+	font-weight: 700;
 }
 
 /*------------------------------------------------------------------------------
@@ -2246,7 +2246,7 @@ h1.nav-tab-wrapper, /* Back-compat for pre-4.4 */
 .metabox-holder .postbox > h3, /* Back-compat for pre-4.4 */
 .metabox-holder h3.hndle, /* Back-compat for pre-4.4 */
 .metabox-holder h2.hndle {
-	font-size: 14px;
+	font-size: 1rem;
 	padding: 8px 12px;
 	margin: 0;
 	line-height: 1.4;
@@ -2589,7 +2589,7 @@ div.action-links {
 	border: 1px solid #ddd;
 	border-bottom-color: #fff;
 	padding-top: 8px;
-	color: #32373c;
+	color: #333;
 }
 
 #plugin-information-tabs.with-banner a.current {
@@ -3343,7 +3343,7 @@ img {
 .item-edit:focus,
 .sidebar-name:hover .toggle-indicator,
 .accordion-section-title:hover:after {
-	color: #23282d;
+	color: #222;
 }
 
 .widget-top .widget-action:focus .toggle-indicator:before {
@@ -3459,7 +3459,7 @@ img {
 .js .control-section .accordion-section-title:hover,
 .js .control-section.open .accordion-section-title,
 .js .control-section .accordion-section-title:focus {
-	color: #23282d;
+	color: #222;
 	background: #f5f5f5;
 }
 

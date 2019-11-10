@@ -178,7 +178,7 @@ submit {
 #pass-strength-result {
   background-color: #eee;
   border: 1px solid #ddd;
-  color: #23282d;
+  color: #222;
   margin: -2px 5px 5px 0px;
   padding: 3px 5px;
   text-align: center;
@@ -335,7 +335,7 @@ body.language-chooser {
   display: block;
   border: 1px solid #ddd;
   background-color: #fff;
-  color: #32373c;
+  color: #333;
   font-size: 16px;
   font-family: Arial, sans-serif;
   font-weight: 400;

@@ -25,7 +25,7 @@ select,
 textarea {
 	border: 1px solid #ddd;
 	background-color: #fff;
-	color: #32373c;
+	color: #333;
 	outline: none;
 	transition: 0.05s border-color ease-in-out;
 }
@@ -450,7 +450,7 @@ fieldset label,
 #pass-strength-result {
 	background-color: #eee;
 	border: 1px solid #ddd;
-	color: #23282d;
+	color: #222;
 	margin: -2px 1px 5px 5px;
 	padding: 3px 5px;
 	text-align: center;
@@ -589,7 +589,7 @@ ul#add-to-blog-users {
 
 /* Colors for the tags autocomplete. */
 .wp-tags-autocomplete .ui-state-focus {
-	background-color: #0073aa;
+	background-color: #ffee00;
 	color: #fff;
 }
 
@@ -620,7 +620,7 @@ ul#add-to-blog-users {
 
 .form-table th,
 .form-wrap label {
-	color: #23282d;
+	color: #222;
 	font-weight: 400;
 	text-shadow: none;
 	vertical-align: baseline;
@@ -813,7 +813,7 @@ table.form-table td .updated p {
 	display: inline-block;
 	position: relative;
 	cursor: move;
-	color: #32373c;
+	color: #333;
 	background: #e5e5e5;
 	border-radius: 5px;
 	border: 1px solid #b4b9be;

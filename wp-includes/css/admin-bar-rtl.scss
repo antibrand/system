@@ -88,7 +88,7 @@ html:lang(he-il) .rtl #wpadminbar *  {
 	width: 100%;
 	min-width: 600px; /* match the min-width of the body in wp-admin.css */
 	z-index: 99999;
-	background: #23282d;
+	background: 222;
 }
 
 #wpadminbar .ab-sub-wrapper,
@@ -142,7 +142,7 @@ html:lang(he-il) .rtl #wpadminbar *  {
 	margin: 0;
 	padding: 0;
 	box-shadow: 0 3px 5px rgba(0,0,0,0.2);
-	background: #32373c;
+	background: #333;
 	display: none;
 	position: absolute;
 	float: none;
@@ -216,7 +216,7 @@ html:lang(he-il) .rtl #wpadminbar *  {
 #wpadminbar.nojq .quicklinks .ab-top-menu > li > .ab-item:focus,
 #wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
 #wpadminbar .ab-top-menu > li.hover > .ab-item {
-	background: #32373c;
+	background: #333;
 	color: #00b9eb;
 }
 
@@ -357,7 +357,7 @@ html:lang(he-il) .rtl #wpadminbar *  {
 
 #wpadminbar .quicklinks a span#ab-updates {
 	background: #eee;
-	color: #32373c;
+	color: #333;
 	display: inline;
 	padding: 2px 5px;
 	font-size: 10px;
@@ -700,7 +700,7 @@ html:lang(he-il) .rtl #wpadminbar *  {
 	font-weight: 600;
 	padding: 15px 23px 14px;
 	background: #f1f1f1;
-	color: #0073aa;
+	color: #ffee00;
 	z-index: 100000;
 	line-height: normal;
 	text-decoration: none;

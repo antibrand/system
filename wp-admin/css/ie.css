@@ -139,10 +139,6 @@
 	margin-bottom: -2px;
 }
 
-#adminmenu .wp-menu-arrow {
-	display: none !important;
-}
-
 .js.folded #adminmenu li.menu-top {
 	display: block;
 	zoom: 100%;
@@ -258,10 +254,6 @@ table.fixed td {
 #editcat,
 #addcat {
 	zoom: 100%;
-}
-
-.wp-menu-arrow {
-	height: 28px;
 }
 
 .submitbox {
