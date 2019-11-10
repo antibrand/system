@@ -73,6 +73,15 @@ $table_prefix  = 'app_';
  */
 define( 'APP_NAME', 'system' );
 
+// Allow WordPress to automatically repair your database.
+define( 'WP_ALLOW_REPAIR', false );
+
+// Don't make database upgrades on global tables.
+define( 'DO_NOT_UPGRADE_GLOBAL_TABLES', true );
+
+// Disable WordPress cron in favor of server cron.
+define( 'DISABLE_WP_CRON', true );
+
 /**
  * Disable automatic updates.
  *
@@ -83,17 +92,71 @@ define( 'APP_NAME', 'system' );
 define( 'automatic_updater_disabled', true );
 define( 'wp_auto_update_core', false );
 
+// PHP memory limit for this site.
+define( 'WP_MEMORY_LIMIT', '256M' );
+
+// Increase admin-side memory limit.
+define( 'WP_MAX_MEMORY_LIMIT', '256M' );
+
 /**
- * For developers: debugging mode.
+ * Site development
  *
- * Change this to true to enable the display of notices during development.
  * It is strongly recommended that plugin and theme developers use WP_DEBUG
  * in their development environments.
  */
 define( 'WP_DEBUG', true );
+define( 'WP_DEBUG_LOG', true );
+define( 'WP_DEBUG_DISPLAY', true );
 
-// Multisite definitions.
-define( 'WP_ALLOW_MULTISITE', false );
+// Magic switch for local dev
+define( 'WP_LOCAL_DEV', true );
+
+/**
+ * Multisite network
+ *
+ * This is provided for reference. To begin network
+ * activation change `WP_ALLOW_MULTISITE` to `true`.
+ *
+ * Once acivated the user interface will provide
+ * definitions with which to replace those
+ * following `WP_ALLOW_MULTISITE`.
+ */
+define( 'WP_ALLOW_MULTISITE', true );
+define( 'MULTISITE', false );
+// define( 'SUBDOMAIN_INSTALL', '' );
+// define( 'DOMAIN_CURRENT_SITE', '' );
+// define( 'PATH_CURRENT_SITE', '' );
+// define( 'SITE_ID_CURRENT_SITE', 1 );
+// define( 'BLOG_ID_CURRENT_SITE', 1 );
+
+// Force SSL for registration & login only.
+// define( 'FORCE_SSL_LOGIN', false );
+
+// Force SSL for the entire admin.
+// define( 'FORCE_SSL_ADMIN', false );
+
+// Disable the file editors.
+// define( 'DISALLOW_FILE_EDIT', true );
+
+// Don't allow users to update core, plugins, or themes.
+// define( 'DISALLOW_FILE_MODS', true );
+
+// Allow editing images to replace the originals.
+// define( 'IMAGE_EDIT_OVERWRITE', true );
+
+// Set false to load scripts & styles separately.
+define( 'CONCATENATE_SCRIPTS', true );
+
+// Use unminified scripts.
+// define( 'SCRIPT_DEBUG', true );
+
+// Require analyzing the global $wpdb object.
+// define( 'SAVEQUERIES', true );
+
+// Site compression.
+define( 'COMPRESS_SCRIPTS', false );
+define( 'COMPRESS_CSS', false );
+define( 'ENFORCE_GZIP', false );
 
 /**
  * End customization
@@ -105,6 +168,21 @@ define( 'WP_ALLOW_MULTISITE', false );
 if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
 }
+
+/**
+ * System translation
+ *
+ * The following two translation definitions
+ * are provided for reference while local
+ * translations are worked out. The were
+ * deprecated in WP 4.0.0.
+ */
+
+// Default language.
+// define( 'WPLANG', 'en_US' );
+
+// Default language directory.
+// define( 'WP_LANG_DIR', ABSPATH . 'wp-content/languages' );
 
 // Sets up vars and included files.
 require_once( ABSPATH . 'wp-settings.php' );
