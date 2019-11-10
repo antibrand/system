@@ -142,18 +142,6 @@ p {
   color: #555d66;
 }
 
-.login #nav a:hover,
-.login #backtoblog a:hover,
-.login h1 a:hover {
-  color: #00a0d2;
-}
-
-.login #nav a:focus,
-.login #backtoblog a:focus,
-.login h1 a:focus {
-  color: #124964;
-}
-
 .login .privacy-policy-page-link {
   text-align: center;
   width: 100%;

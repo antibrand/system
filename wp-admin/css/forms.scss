@@ -719,12 +719,11 @@ table.form-table td .updated p {
 	padding: 5px 15px 15px;
 	box-sizing: border-box;
 	margin-bottom: 3px;
+	border: solid 2px transparent;
 }
 
 .color-option:hover,
-.color-option.selected {
-	background: #ddd;
-}
+.color-option.selected {}
 
 .color-palette {
 	width: 100%;
@@ -732,9 +731,17 @@ table.form-table td .updated p {
 	border-collapse: collapse;
 }
 .color-palette td {
-	height: 20px;
+	display: inline-block;
+	margin: 0;
+	width: 40px;
+	height: 40px;
 	padding: 0;
 	border: none;
+	border-radius: 50%;
+
+	&:not(:last-child) {
+		margin-right: 0.5em;
+	}
 }
 
 .color-option {
