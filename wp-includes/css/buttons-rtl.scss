@@ -115,9 +115,12 @@ TABLE OF CONTENTS:
 
 .app-core-ui .button,
 .app-core-ui .button-secondary {
-	background: #777777;
-	color: #fff;
- 	vertical-align: top;
+	vertical-align: top;
+	background: inherit;
+	color: #333;
+	font-weight: bold;
+	font-weight: 700;
+	border: solid 1px #888;
 }
 
 .app-core-ui p .button {
@@ -130,8 +133,7 @@ TABLE OF CONTENTS:
 .app-core-ui .button.focus,
 .app-core-ui .button:focus,
 .app-core-ui .button-secondary:focus {
-	background: #aeaeae;
-	color: #fff;
+	background: #ccc;
 }
 
 .app-core-ui .button.focus,
@@ -203,8 +205,6 @@ TABLE OF CONTENTS:
 ---------------------------------------------------------------------------- */
 
 .app-core-ui .button-primary {
-	background: #777777;
-	color: #fff;
 	text-decoration: none;
 }
 
@@ -212,8 +212,7 @@ TABLE OF CONTENTS:
 .app-core-ui .button-primary:hover,
 .app-core-ui .button-primary.focus,
 .app-core-ui .button-primary:focus {
-	background: #aeaeae;
-	color: #fff;
+	background: #ccc;
 }
 
 .app-core-ui .button-primary.focus,
