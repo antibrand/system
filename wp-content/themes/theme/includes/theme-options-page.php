@@ -18,19 +18,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 $title = sprintf(
 	'<h1 class="wp-heading-inline">%1s %2s</h1>',
 	get_bloginfo( 'name' ),
-	__( 'Display Options', 'unbranded' )
+	__( 'Display Options', 'antibrand' )
 );
 
 // Page description.
 $description = sprintf(
 	'<p class="description">%1s</p>',
-	__( 'This is a starter/example page. Use it or remove it.', 'unbranded' )
+	__( 'This is a starter/example page. Use it or remove it.', 'antibrand' )
 );
 
 // Begin page output.
 ?>
 
-<div class="wrap unbranded-options-page">
+<div class="wrap antibrand-options-page">
 	<?php echo $title; ?>
 	<?php echo $description; ?>
 	<hr />

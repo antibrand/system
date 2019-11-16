@@ -166,7 +166,7 @@ final class Functions {
 		 *
 		 * @since 1.0.0
 		 */
-		load_theme_textdomain( 'unbranded' );
+		load_theme_textdomain( 'antibrand' );
 
 		/**
 		 * Add theme support
@@ -202,37 +202,37 @@ final class Functions {
 		 */
 		$color_args = [
 			[
-				'name'  => __( 'Text', 'unbranded' ),
+				'name'  => __( 'Text', 'antibrand' ),
 				'slug'  => 'ub-text',
 				'color' => '#333333',
 			],
 			[
-				'name'  => __( 'Light Gray', 'unbranded' ),
+				'name'  => __( 'Light Gray', 'antibrand' ),
 				'slug'  => 'ub-light-gray',
 				'color' => '#888888',
 			],
 			[
-				'name'  => __( 'Pale Gray', 'unbranded' ),
+				'name'  => __( 'Pale Gray', 'antibrand' ),
 				'slug'  => 'ub-pale-gray',
 				'color' => '#cccccc',
 			],
 			[
-				'name'  => __( 'White', 'unbranded' ),
+				'name'  => __( 'White', 'antibrand' ),
 				'slug'  => 'ub-white',
 				'color' => '#ffffff',
 			],
 			[
-				'name'  => __( 'Error Red', 'unbranded' ),
+				'name'  => __( 'Error Red', 'antibrand' ),
 				'slug'  => 'ub-error',
 				'color' => '#dc3232',
 			],
 			[
-				'name'  => __( 'Warning Yellow', 'unbranded' ),
+				'name'  => __( 'Warning Yellow', 'antibrand' ),
 				'slug'  => 'ub-warning',
 				'color' => '#ffb900',
 			],
 			[
-				'name'  => __( 'Success Green', 'unbranded' ),
+				'name'  => __( 'Success Green', 'antibrand' ),
 				'slug'  => 'ub-success',
 				'color' => '#46b450',
 			]
@@ -293,14 +293,14 @@ final class Functions {
 		add_image_size( __( 'xlarge-thumbnail', 'beeline-theme' ), 320, 320, true );
 
 		// 16:9 HD Video.
-		add_image_size( __( 'large-video', 'unbranded' ), 1280, 720, true );
-		add_image_size( __( 'medium-video', 'unbranded' ), 960, 540, true );
-		add_image_size( __( 'small-video', 'unbranded' ), 640, 360, true );
+		add_image_size( __( 'large-video', 'antibrand' ), 1280, 720, true );
+		add_image_size( __( 'medium-video', 'antibrand' ), 960, 540, true );
+		add_image_size( __( 'small-video', 'antibrand' ), 640, 360, true );
 
 		// 21:9 Cinemascope.
-		add_image_size( __( 'large-banner', 'unbranded' ), 1280, 549, true );
-		add_image_size( __( 'medium-banner', 'unbranded' ), 960, 411, true );
-		add_image_size( __( 'small-banner', 'unbranded' ), 640, 274, true );
+		add_image_size( __( 'large-banner', 'antibrand' ), 1280, 549, true );
+		add_image_size( __( 'medium-banner', 'antibrand' ), 960, 411, true );
+		add_image_size( __( 'small-banner', 'antibrand' ), 640, 274, true );
 
 		/**
 		 * Custom header
@@ -317,7 +317,7 @@ final class Functions {
 			'default-image' => [
 				'url'           => '%s/assets/images/default-header.jpg',
 				'thumbnail_url' => '%s/assets/images/default-header.jpg',
-				'description'   => __( 'Default Header Image', 'unbranded' ),
+				'description'   => __( 'Default Header Image', 'antibrand' ),
 			],
 		] );
 
@@ -362,9 +362,9 @@ final class Functions {
 		 * @since  1.0.0
 		 */
 		register_nav_menus( [
-			'main'   => __( 'Main Menu', 'unbranded' ),
-			'footer' => __( 'Footer Menu', 'unbranded' ),
-			'social' => __( 'Social Menu', 'unbranded' )
+			'main'   => __( 'Main Menu', 'antibrand' ),
+			'footer' => __( 'Footer Menu', 'antibrand' ),
+			'social' => __( 'Social Menu', 'antibrand' )
 		] );
 
 		/**
@@ -435,9 +435,9 @@ final class Functions {
 
 		// Register sidebar widget area.
 		register_sidebar( [
-			'name'          => esc_html__( 'Sidebar', 'unbranded' ),
+			'name'          => esc_html__( 'Sidebar', 'antibrand' ),
 			'id'            => 'sidebar',
-			'description'   => esc_html__( 'Add widgets here.', 'unbranded' ),
+			'description'   => esc_html__( 'Add widgets here.', 'antibrand' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h3 class="widget-title">',
@@ -494,11 +494,11 @@ final class Functions {
 		wp_enqueue_script( 'test-navigation', get_theme_file_uri( '/assets/js/navigation.min.js' ), [], null, true );
 
 		// Skip link focus, for accessibility.
-		wp_enqueue_script( 'unbranded-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix.min.js' ), [], null, true );
+		wp_enqueue_script( 'antibrand-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix.min.js' ), [], null, true );
 
 		// FitVids for responsive video embeds.
-		wp_enqueue_script( 'bs-fitvids', get_theme_file_uri( '/assets/js/jquery.fitvids.min.js' ), [ 'jquery' ], null, true );
-		wp_add_inline_script( 'bs-fitvids', 'jQuery(document).ready(function($){ $( ".entry-content" ).fitVids(); });', true );
+		wp_enqueue_script( 'ab-fitvids', get_theme_file_uri( '/assets/js/jquery.fitvids.min.js' ), [ 'jquery' ], null, true );
+		wp_add_inline_script( 'ab-fitvids', 'jQuery(document).ready(function($){ $( ".entry-content" ).fitVids(); });', true );
 
 		// Comments scripts.
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -526,7 +526,7 @@ final class Functions {
 	public function frontend_styles() {
 
 		// Google fonts.
-		// wp_enqueue_style( 'unbranded-google-fonts', 'add-url-here', [], '', 'screen' );
+		// wp_enqueue_style( 'antibrand-google-fonts', 'add-url-here', [], '', 'screen' );
 
 		/**
 		 * Theme sylesheet
@@ -535,22 +535,22 @@ final class Functions {
 		 * The main stylesheet, in the root directory, only contains the theme header but
 		 * it is necessary for theme activation. DO NOT delete the main stylesheet!
 		 */
-		wp_enqueue_style( 'unbranded', get_theme_file_uri( '/assets/css/style.min.css' ), [], '' );
+		wp_enqueue_style( 'antibrand', get_theme_file_uri( '/assets/css/style.min.css' ), [], '' );
 
 		// Add right-to-left styles if needed.
 		if ( is_rtl() ) {
-			wp_enqueue_style( 'bs-blocks', get_theme_file_uri( '/assets/css/rtl.min.css' ), [ 'unbranded' ], '' );
+			wp_enqueue_style( 'ab-blocks', get_theme_file_uri( '/assets/css/rtl.min.css' ), [ 'antibrand' ], '' );
 		}
 
 		// Block styles.
 		if ( function_exists( 'has_blocks' ) ) {
 			if ( has_blocks() ) {
-				wp_enqueue_style( 'bs-blocks', get_theme_file_uri( '/assets/css/blocks.min.css' ), [ 'unbranded' ], '' );
+				wp_enqueue_style( 'ab-blocks', get_theme_file_uri( '/assets/css/blocks.min.css' ), [ 'antibrand' ], '' );
 			}
 		}
 
 		// Print styles.
-		wp_enqueue_style( 'bs-print', get_theme_file_uri( '/assets/css/print.min.css' ), [], '', 'print' );
+		wp_enqueue_style( 'ab-print', get_theme_file_uri( '/assets/css/print.min.css' ), [], '', 'print' );
 
 	}
 
@@ -563,7 +563,7 @@ final class Functions {
 	 */
 	public function admin_styles() {
 
-		wp_enqueue_style( 'bs-admin', get_theme_file_uri( '/assets/css/admin.min.css' ), [], '' );
+		wp_enqueue_style( 'ab-admin', get_theme_file_uri( '/assets/css/admin.min.css' ), [], '' );
 
 	}
 
@@ -579,7 +579,7 @@ final class Functions {
 	public function toolbar_styles() {
 
 		if ( is_user_logged_in() && is_admin_bar_showing() ) {
-			wp_enqueue_style( 'bs-toolbar', get_theme_file_uri( '/assets/css/toolbar.min.css' ), [], '' );
+			wp_enqueue_style( 'ab-toolbar', get_theme_file_uri( '/assets/css/toolbar.min.css' ), [], '' );
 		}
 
 	}
@@ -624,10 +624,10 @@ final class Functions {
 		// Add a submenu page under Themes.
 		$this->help_theme_options = add_submenu_page(
 			'themes.php',
-			__( 'Theme Options', 'unbranded' ),
-			__( 'Theme Options', 'unbranded' ),
+			__( 'Theme Options', 'antibrand' ),
+			__( 'Theme Options', 'antibrand' ),
 			'manage_options',
-			'unbranded-options',
+			'antibrand-options',
 			[ $this, 'theme_options_output' ]
 		);
 
@@ -667,7 +667,7 @@ final class Functions {
 		// More information tab.
 		$screen->add_help_tab( [
 			'id'       => 'help_theme_options_info',
-			'title'    => __( 'More Information', 'unbranded' ),
+			'title'    => __( 'More Information', 'antibrand' ),
 			'content'  => null,
 			'callback' => [ $this, 'help_theme_options_info' ]
 		] );
@@ -701,22 +701,22 @@ final class Functions {
      */
     public function help_theme_options_sidebar() {
 
-        $html  = sprintf( '<h4>%1s</h4>', __( 'Author Credits', 'unbranded' ) );
+        $html  = sprintf( '<h4>%1s</h4>', __( 'Author Credits', 'antibrand' ) );
         $html .= sprintf(
             '<p>%1s %2s.</p>',
-            __( 'This theme was created by', 'unbranded' ),
+            __( 'This theme was created by', 'antibrand' ),
             'Your Name'
         );
         $html .= sprintf(
             '<p>%1s <br /><a href="%2s" target="_blank">%3s</a> <br />%4s</p>',
-            __( 'Visit', 'unbranded' ),
+            __( 'Visit', 'antibrand' ),
             'https://example.com/',
             'Example Site',
-            __( 'for more details.', 'unbranded' )
+            __( 'for more details.', 'antibrand' )
         );
         $html .= sprintf(
             '<p>%1s</p>',
-            __( 'Change this sidebar to give yourself credit for the hard work you did customizing this theme.', 'unbranded' )
+            __( 'Change this sidebar to give yourself credit for the hard work you did customizing this theme.', 'antibrand' )
          );
 
 		return $html;
@@ -735,10 +735,10 @@ final class Functions {
 		// Add a submenu page under Themes.
 		add_submenu_page(
 			'themes.php',
-			__( 'Theme Info', 'unbranded' ),
-			__( 'Theme Info', 'unbranded' ),
+			__( 'Theme Info', 'antibrand' ),
+			__( 'Theme Info', 'antibrand' ),
 			'manage_options',
-			'unbranded-info',
+			'antibrand-info',
 			[ $this, 'theme_info_output' ]
 		);
 

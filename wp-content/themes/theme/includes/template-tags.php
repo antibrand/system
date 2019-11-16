@@ -165,7 +165,7 @@ function posted_on() {
 
 	$posted_on = sprintf(
 		/* translators: %s: post date. */
-		esc_html_x( 'Posted on %s', 'post date', 'unbranded' ),
+		esc_html_x( 'Posted on %s', 'post date', 'antibrand' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 
@@ -185,7 +185,7 @@ function posted_on() {
 function posted_by() {
 
 	$byline = sprintf(
-		esc_html_x( 'by %s', 'post author', 'unbranded' ),
+		esc_html_x( 'by %s', 'post author', 'antibrand' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
@@ -207,15 +207,15 @@ function entry_footer() {
 	// Hide category and tag text for pages.
 	if ( 'post' === get_post_type() ) {
 
-		$categories_list = get_the_category_list( esc_html__( ', ', 'unbranded' ) );
+		$categories_list = get_the_category_list( esc_html__( ', ', 'antibrand' ) );
 		if ( $categories_list ) {
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'unbranded' ) . '</span>', $categories_list );
+			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'antibrand' ) . '</span>', $categories_list );
 		}
 
-		$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'unbranded' ) );
+		$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'antibrand' ) );
 
 		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'unbranded' ) . '</span>', $tags_list );
+			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'antibrand' ) . '</span>', $tags_list );
 		}
 
 	}
@@ -226,7 +226,7 @@ function entry_footer() {
 		comments_popup_link(
 			sprintf(
 				wp_kses(
-					__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'unbranded' ),
+					__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'antibrand' ),
 					[
 						'span' => [
 							'class' => [],
@@ -242,7 +242,7 @@ function entry_footer() {
 	edit_post_link(
 		sprintf(
 			wp_kses(
-				__( ' Edit <span class="screen-reader-text">%s</span>', 'unbranded' ),
+				__( ' Edit <span class="screen-reader-text">%s</span>', 'antibrand' ),
 				[
 					'span' => [
 						'class' => [],

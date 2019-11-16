@@ -28,7 +28,7 @@
 		the_content();
 
 		wp_link_pages( [
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'unbranded' ),
+			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'antibrand' ),
 			'after'  => '</div>',
 		] );
 		?>
@@ -40,7 +40,7 @@
 			edit_post_link(
 				sprintf(
 					wp_kses(
-						__( 'Edit <span class="screen-reader-text">%s</span>', 'unbranded' ),
+						__( 'Edit <span class="screen-reader-text">%s</span>', 'antibrand' ),
 						[
 							'span' => [
 								'class' => [],

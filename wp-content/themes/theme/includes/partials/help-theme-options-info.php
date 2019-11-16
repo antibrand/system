@@ -16,6 +16,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<h3><?php _e( 'More information about this theme', 'unbranded' ); ?></h3>
+<h3><?php _e( 'More information about this theme', 'antibrand' ); ?></h3>
 
-<p><?php _e( 'Start your info here.', 'unbranded' ); ?></p>
+<p><?php _e( 'Start your info here.', 'antibrand' ); ?></p>

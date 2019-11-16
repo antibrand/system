@@ -27,12 +27,12 @@ if ( post_password_required() ) {
 			$ub_theme_comment_count = get_comments_number();
 			if ( '1' === $ub_theme_comment_count ) {
 				printf(
-					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'unbranded' ),
+					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'antibrand' ),
 					'<span>' . get_the_title() . '</span>'
 				);
 			} else {
 				printf(
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $ub_theme_comment_count, 'comments title', 'unbranded' ) ),
+					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $ub_theme_comment_count, 'comments title', 'antibrand' ) ),
 					number_format_i18n( $ub_theme_comment_count ),
 					'<span>' . get_the_title() . '</span>'
 				);
@@ -57,7 +57,7 @@ if ( post_password_required() ) {
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() ) :
 			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'unbranded' ); ?></p>
+			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'antibrand' ); ?></p>
 			<?php
 		endif;
 

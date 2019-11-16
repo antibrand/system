@@ -35,7 +35,7 @@
 		<?php
 		the_content( sprintf(
 			wp_kses(
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'unbranded' ),
+				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'antibrand' ),
 				[
 					'span' => [
 						'class' => [],
@@ -46,7 +46,7 @@
 		) );
 
 		wp_link_pages( [
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'unbranded' ),
+			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'antibrand' ),
 			'after'  => '</div>',
 		] );
 		?>
