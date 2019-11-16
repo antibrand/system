@@ -16,7 +16,7 @@
  ol { list-style-type: decimal; }
  ol ol { list-style-type: lower-alpha; }
  input { line-height: normal; }
- input, textarea, select { border: solid 1px #ccc; }
+ input, textarea, select, button { border: solid 1px #ccc; }
  input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button { height: auto; }
  input[type="search"] { -webkit-appearance: textfield; -moz-appearance: textfield; appearance: textfield; }
  input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; appearance: none; }

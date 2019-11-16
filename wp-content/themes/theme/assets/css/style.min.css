@@ -93,7 +93,7 @@ input {
   line-height: normal;
 }
 
-input, textarea, select {
+input, textarea, select, button {
   border: solid 1px #ccc;
 }
 
@@ -421,7 +421,7 @@ form * + * {
 fieldset {
   margin-top: 1em;
   padding: 1em 1.5em;
-  border: solid 1px #ccc;
+  border: solid 1px #cccccc;
 }
 
 legend {
@@ -431,12 +431,20 @@ legend {
 input,
 textarea,
 select,
-form button {
+button {
   width: 100%;
   max-width: 640px;
   padding: 1rem;
   font: inherit;
-  background: #fff;
+  background: #ffffff;
+  border: solid 1px #cccccc;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  border-color: #888888;
 }
 
 label + input:not([type="checkbox"]):not([type="radio"]),
@@ -449,6 +457,10 @@ label + select,
 label ~ select {
   margin-top: 0;
   display: block;
+}
+
+input[type="search"] + button {
+  border-left: none;
 }
 
 input[type="radio"],
@@ -465,8 +477,7 @@ input[type="reset"],
 input[type="image"] {
   width: auto;
   cursor: pointer;
-  background: #888888;
-  color: #ffffff;
+  font-weight: bold;
 }
 
 button svg,
@@ -493,20 +504,6 @@ input[type="reset"]:focus,
 input[type="image"]:hover,
 input[type="image"]:focus {
   background: #cccccc;
-}
-
-button:hover svg, button:focus svg,
-button[type="submit"]:hover svg,
-button[type="submit"]:focus svg,
-input[type="submit"]:hover svg,
-input[type="submit"]:focus svg,
-input[type="button"]:hover svg,
-input[type="button"]:focus svg,
-input[type="reset"]:hover svg,
-input[type="reset"]:focus svg,
-input[type="image"]:hover svg,
-input[type="image"]:focus svg {
-  fill: #888888;
 }
 
 button.menu-toggle,
@@ -568,7 +565,7 @@ select {
 *::-moz-placeholder,
 *:-ms-input-placeholder,
 *::-webkit-input-placeholder {
-  color: #888 !important;
+  color: #888888 !important;
 }
 
 *::-webkit-input-placeholder,
@@ -576,7 +573,7 @@ select {
 *::-moz-placeholder,
 *:-ms-input-placeholder,
 *::placeholder {
-  color: #888 !important;
+  color: #888888 !important;
 }
 
 /* Search form */

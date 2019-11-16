@@ -8,7 +8,7 @@
 fieldset {
 	margin-top: 1em;
 	padding: 1em 1.5em;
-	border: solid 1px #ccc;
+	border: solid 1px $pale_gray;
 }
 
 legend {
@@ -20,12 +20,17 @@ label {}
 input,
 textarea,
 select,
-form button {
+button {
 	width: 100%;
 	max-width: 640px;
 	padding: 1rem;
 	font: inherit;
-	background: #fff;
+	background: $white;
+	border: solid 1px $pale_gray;
+
+	&:focus {
+		border-color: $light_gray;
+	}
 }
 
 label + input:not([type="checkbox"]):not([type="radio"]),
@@ -47,7 +52,12 @@ input[type="password"],
 input[type="url"],
 input[type="tel"] {}
 
-input[type="search"] {}
+input[type="search"] {
+
+	&+button {
+		border-left: none;
+	}
+}
 
 input[type="radio"],
 input[type="checkbox"] {
@@ -63,8 +73,7 @@ input[type="reset"],
 input[type="image"] {
 	width: auto;
 	cursor: pointer;
-	background: $light_gray;
-	color: $white;
+	font-weight: bold;
 
 	svg {
 		width: 24px;
@@ -76,10 +85,6 @@ input[type="image"] {
 	&:hover,
 	&:focus {
 		background: $pale_gray;
-
-		svg {
-			fill: $light_gray;
-		}
 	}
 
 	&.menu-toggle {
@@ -136,7 +141,7 @@ option {}
 *::-moz-placeholder,
 *:-ms-input-placeholder,
 *::-webkit-input-placeholder {
-	color: #888 !important;
+	color: $light_gray !important;
 }
 
 *::-webkit-input-placeholder,
@@ -144,7 +149,7 @@ option {}
 *::-moz-placeholder,
 *:-ms-input-placeholder,
 *::placeholder {
-	color: #888 !important;
+	color: $light_gray !important;
 }
 
 /* Search form */

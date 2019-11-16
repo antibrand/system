@@ -2,11 +2,10 @@
 Theme Name: Greg Sweet
 */
 
-
 /**
  * General
  */
-body {
+ body {
 	direction: rtl;
 	unicode-bidi: embed;
 }
@@ -53,6 +52,10 @@ figure.alignright {
 .search-label {
 	margin: 0 0 0 0.3em;
 }
+
+input[type="search"] + button {
+	border-right: none;
+  }
 
 /**
  * Navigation
