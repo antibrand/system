@@ -834,8 +834,8 @@ function admin_color_scheme_picker( $user_id ) {
 
 	if ( isset( $_wp_admin_css_colors['default'] ) ) {
 
-		// Set Default ('default') and Classic should go first.
-		$_wp_admin_css_colors = array_filter( array_merge( array( 'default' => '', 'fresh' => '' ), $_wp_admin_css_colors ) );
+		// Set Default ('default') and Dark should go first.
+		$_wp_admin_css_colors = array_filter( array_merge( array( 'default' => '', 'dark' => '' ), $_wp_admin_css_colors ) );
 	}
 
 	$current_color = get_user_option( 'admin_color', $user_id );

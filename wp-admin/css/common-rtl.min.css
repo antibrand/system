@@ -108,6 +108,10 @@
   clear: both;
 }
 
+.avatar {
+  border-radius: 50%;
+}
+
 /* modern clearfix */
 .wp-clearfix:after {
   content: "";

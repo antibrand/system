@@ -3889,7 +3889,13 @@ function register_admin_color_schemes() {
 		return;
 	}
 
-	wp_admin_css_color( 'fresh', _x( 'Classic', 'admin color scheme' ),
+	wp_admin_css_color( 'dark', _x( 'Dark', 'admin color scheme' ),
+		admin_url( "css/colors/dark/colors$suffix.css" ),
+		array( '#1e1e1e', '#333333', '#ffee00', '#3ad4fb' ),
+		array( 'base' => '#999999', 'focus' => '#cccccc', 'current' => '#cccccc' )
+	);
+
+	wp_admin_css_color( 'fresh', _x( 'Fresh (Classic)', 'admin color scheme' ),
 		admin_url( "css/colors/fresh/colors$suffix.css" ),
 		array( '#222222', '#333333', '#0073aa', '#00a0d2' ),
 		array( 'base' => '#82878c', 'focus' => '#00a0d2', 'current' => '#ffffff' )

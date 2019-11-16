@@ -405,6 +405,10 @@ html:lang(he-il) .rtl #wpadminbar * {
   margin-left: 0;
 }
 
+.avatar {
+  border-radius: 50% !important;
+}
+
 #wp-admin-bar-my-account.with-avatar > .ab-item:before {
   display: none;
   content: none;
