@@ -1,11 +1,9 @@
-/*
-Theme Name: Greg Sweet
-*/
-
 /**
  * General
  */
- body {
+@import '_variables';
+
+body {
 	direction: rtl;
 	unicode-bidi: embed;
 }
@@ -38,12 +36,15 @@ figure.alignright {
 	margin: 1em 1em 0 0;
 }
 
-.entry-content p img.alignleft {
-	margin: 0 0 1em 1em;
-}
+.entry-content p {
 
-.entry-content p img.alignright {
-	margin: 0 1em 1em 0;
+	img.alignleft {
+		margin: 0 0 1em 1em;
+	}
+
+	img.alignright {
+		margin: 0 1em 1em 0;
+	}
 }
 
 /**
@@ -53,45 +54,53 @@ figure.alignright {
 	margin: 0 0 0 0.3em;
 }
 
-input[type="search"] + button {
-	border-right: none;
-  }
+input[type="search"] {
+
+	&+button {
+		border-left: solid 1px $pale_gray;
+		border-right: none;
+
+		&:focus {
+			border-color: $light_gray;
+		}
+	  }
+}
 
 /**
  * Navigation
  */
 .main-navigation {
 	float: right;
-}
 
-.main-navigation ul {
-	padding-right: 0;
-}
+	ul {
+		padding-right: 0;
 
-.main-navigation ul ul {
-	float: right;
-	left: auto;
-	right: -999em;
-}
+		ul {
+			float: right;
+			left: auto;
+			right: -999em;
 
-.main-navigation ul ul ul {
-	left: auto;
-	right: -999em;
-}
+			ul {
+				left: auto;
+				right: -999em;
+			}
 
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
-	left: auto;
-	right: 100%;
-}
+			li:hover > ul,
+			li.focus > ul {
+				left: auto;
+				right: 100%;
+			}
 
-.main-navigation ul ul a {
-	width: 200px;
-}
+			a {
+				width: 200px;
+			}
+		}
 
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
-	right: auto;
+		li:hover > ul,
+		li.focus > ul {
+			right: auto;
+		}
+	}
 }
 
 /* Small menu. */

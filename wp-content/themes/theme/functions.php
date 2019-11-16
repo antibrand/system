@@ -537,6 +537,11 @@ final class Functions {
 		 */
 		wp_enqueue_style( 'unbranded', get_theme_file_uri( '/assets/css/style.min.css' ), [], '' );
 
+		// Add right-to-left styles if needed.
+		if ( is_rtl() ) {
+			wp_enqueue_style( 'bs-blocks', get_theme_file_uri( '/assets/css/rtl.min.css' ), [ 'unbranded' ], '' );
+		}
+
 		// Block styles.
 		if ( function_exists( 'has_blocks' ) ) {
 			if ( has_blocks() ) {
