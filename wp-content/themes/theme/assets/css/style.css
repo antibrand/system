@@ -850,9 +850,17 @@ figure.alignnone {
   margin: 1em auto;
 }
 
-.blog .post-thumbnail,
-.archive .post-thumbnail {
+.post-thumbnail {
   margin-top: 1em;
+}
+
+.post-thumbnail img {
+  max-width: 100%;
+}
+
+.single .post-thumbnail img,
+.page .post-thumbnail img {
+  width: 100%;
 }
 
 .entry-content p img.alignleft {

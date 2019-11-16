@@ -273,30 +273,35 @@ function post_thumbnail() {
 		return;
 	}
 
+	// Check for the large 16:9 video image size.
+	if ( has_image_size( 'image-name' ) ) {
+		$size = 'large-video';
+	} else {
+		$size = 'post-thumbnail';
+	}
+
+	// Thumbnail image arguments.
+	$args = [
+		'alt'  => '',
+		'role' => 'presentation'
+	];
+
+
 	if ( is_singular() ) :
 		?>
 
 		<div class="post-thumbnail">
-		<?php
-		the_post_thumbnail( 'post-thumbnail', [
-			'alt'  => '',
-			'role' => 'presentation'
-		] );
-		?>
+			<?php the_post_thumbnail( $size, $args ); ?>
 		</div>
 
-	<?php else : ?>
-
-	<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 		<?php
-		the_post_thumbnail( 'post-thumbnail', [
-			'alt'  => '',
-			'role' => 'presentation'
-		] );
-		?>
-	</a>
+	else : ?>
 
-	<?php
+		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+			<?php the_post_thumbnail( $size, $args ); ?>
+		</a>
+
+		<?php
 	endif;
 }
 
