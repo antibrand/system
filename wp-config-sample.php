@@ -73,7 +73,16 @@ $table_prefix  = 'app_';
  */
 define( 'APP_NAME', 'system' );
 
-// Allow WordPress to automatically repair your database.
+/**
+ * User login directory
+ *
+ * The default login directory is `/login`. You can
+ * rename the directory and define the directory
+ * name here.
+ */
+define( 'APP_LOGIN', 'login' );
+
+// Allow automatic database repair.
 define( 'WP_ALLOW_REPAIR', false );
 
 // Don't make database upgrades on global tables.
