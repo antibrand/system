@@ -179,3 +179,33 @@ h2 + .search-form {
 }
 
 .search-submit {}
+
+.dark-mode {
+
+	input,
+	textarea,
+	select,
+	button {
+		background: $dark_gray;
+		border-color: $medium_gray;
+		color: $white;
+
+		&:focus {
+			border-color: $light_gray;
+		}
+	}
+
+	button,
+	button[type="submit"],
+	input[type="submit"],
+	input[type="button"],
+	input[type="reset"],
+	input[type="image"] {
+
+		&:hover,
+		&:focus {
+			background: $medium_gray;
+			border-color: $light_gray;
+		}
+	}
+}

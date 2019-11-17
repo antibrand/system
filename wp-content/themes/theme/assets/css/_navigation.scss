@@ -21,7 +21,7 @@
 			z-index: 99999;
 			width: 100%;
 			min-width: 160px;
-			background-color: #fff;
+			background-color: $white;
 			-webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 					box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 
@@ -95,6 +95,25 @@
 	width: 50%;
 }
 
+.dark-mode {
+	.main-navigation {
+		ul {
+			ul {
+				background: $dark_gray;
+
+				li {
+					a {
+						&:hover,
+						&:focus {
+							background: $medium_gray;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 // Non-mobile menu.
 @media screen and (min-width: 37.5em) {
 	.menu-toggle {
@@ -106,7 +125,7 @@
 		ul {
 			display: flex;
 
-			& > li {
+			li {
 				position: relative;
 
 				&:not(:last-of-type) {
@@ -116,6 +135,12 @@
 
 			ul {
 				display: block;
+
+				li {
+					&:not(:last-of-type) {
+						margin-right: 0;
+					}
+				}
 			}
 		}
 	}

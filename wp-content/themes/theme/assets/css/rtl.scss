@@ -112,6 +112,22 @@ input[type="search"] {
 	}
 }
 
+@media screen and (min-width: 48em) {
+
+	.site-content {
+
+		.content-area {
+			padding-right: 0;
+			padding-left: $px30;
+		}
+
+		.widget-area {
+			margin-right: 0;
+			margin-left: $px30;
+		}
+	}
+}
+
 .comment-navigation .nav-previous,
 .posts-navigation .nav-previous,
 .post-navigation .nav-previous {

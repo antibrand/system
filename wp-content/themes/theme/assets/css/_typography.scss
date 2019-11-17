@@ -2,10 +2,40 @@
  * Typography
  */
 body {
-	background: #fff;
+	background: $white;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 	line-height: 1.5;
 	color: $text;
+
+	&.dark-mode {
+		background: $dark_bg;
+		color: $white;
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		p,
+		ul,
+		ol,
+		li,
+		a,
+		a:visited {
+			color: $white;
+		}
+
+		#wpadminbar,
+		#wpadminbar .ab-top-menu > li.hover > .ab-item,
+		#wpadminbar.nojq .quicklinks .ab-top-menu > li > .ab-item:focus,
+		#wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
+		#wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus,
+		#wpadminbar .menupop .ab-sub-wrapper,
+		#wpadminbar .shortlink-input {
+			background: $dark_gray;
+		}
+	}
 }
 
 .serif {

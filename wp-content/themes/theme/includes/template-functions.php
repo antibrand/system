@@ -59,3 +59,48 @@ function pingback_header() {
 
 }
 add_action( 'wp_head', 'AB_Theme\Includes\pingback_header' );
+
+/**
+ * Theme toggle script
+ *
+ * Toggles a body class and toggles the
+ * text of the toggle button.
+ *
+ * @since  1.0.0
+ * @access public
+ * @return mixed
+ */
+function theme_mode_script() {
+
+	?>
+<script>jQuery(document).ready(function(e){var t=e('#theme-toggle');localStorage.theme?(e('body').addClass(localStorage.theme),e(t).text(localStorage.text)):(e('body').addClass('light-mode'),e(t).text('<?php esc_html_e( 'Dark Theme', 'antibrand' ); ?>')),e(t).click(function(){e('body').hasClass('light-mode')?(e('body').removeClass('light-mode').addClass('dark-mode'),e(t).text('<?php esc_html_e( 'Light Theme', 'antibrand' ); ?>'),localStorage.theme='dark-mode',localStorage.text='<?php esc_html_e( 'Light Theme', 'antibrand' ); ?>'):(e('body').removeClass('dark-mode').addClass('light-mode'),e(t).text('<?php esc_html_e( 'Dark Theme', 'antibrand' ); ?>'),localStorage.theme='light-mode',localStorage.text='<?php esc_html_e( 'Dark Theme', 'antibrand' ); ?>')})});</script>
+<?php
+
+}
+
+/**
+ * Theme toggle funcionality
+ *
+ * Prints the toggle button and adds the
+ * toggle script to the footer.
+ *
+ * @since  1.0.0
+ * @access public
+ * @return mixed
+ */
+function theme_mode() {
+
+	// Add the toggle script to the footer.
+	add_action( 'wp_footer', 'AB_Theme\Includes\theme_mode_script' );
+
+	// Toggle button markup.
+	$button = sprintf(
+		'<button id="theme-toggle" type="button" name="dark_light" title="%1s">%2s</button>',
+		esc_html__( 'Toggle light/dark theme', 'antibrand' ),
+		esc_html__( 'Light Theme', 'antibrand' )
+	);
+
+	// Print the toggle button.
+	echo $button;
+
+}

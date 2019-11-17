@@ -125,6 +125,17 @@ input[type="search"] + button:focus {
   }
 }
 
+@media screen and (min-width: 48em) {
+  .site-content .content-area {
+    padding-right: 0;
+    padding-left: 1.875rem;
+  }
+  .site-content .widget-area {
+    margin-right: 0;
+    margin-left: 1.875rem;
+  }
+}
+
 .comment-navigation .nav-previous,
 .posts-navigation .nav-previous,
 .post-navigation .nav-previous {

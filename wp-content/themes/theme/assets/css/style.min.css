@@ -291,10 +291,40 @@ b, strong, optgroup {
  * Typography
  */
 body {
-  background: #fff;
+  background: #ffffff;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   line-height: 1.5;
   color: #333333;
+}
+
+body.dark-mode {
+  background: #222222;
+  color: #ffffff;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode ul,
+body.dark-mode ol,
+body.dark-mode li,
+body.dark-mode a,
+body.dark-mode a:visited {
+  color: #ffffff;
+}
+
+body.dark-mode #wpadminbar,
+body.dark-mode #wpadminbar .ab-top-menu > li.hover > .ab-item,
+body.dark-mode #wpadminbar.nojq .quicklinks .ab-top-menu > li > .ab-item:focus,
+body.dark-mode #wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
+body.dark-mode #wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus,
+body.dark-mode #wpadminbar .menupop .ab-sub-wrapper,
+body.dark-mode #wpadminbar .shortlink-input {
+  background: #333333;
 }
 
 .serif {
@@ -409,6 +439,23 @@ main article {
 .site-content:after,
 .site-footer:after {
   clear: both;
+}
+
+@media screen and (min-width: 48em) {
+  .site-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .site-content .content-area {
+    width: 100%;
+    padding-right: 1.875rem;
+  }
+  .site-content .widget-area {
+    width: 100%;
+    max-width: 30%;
+    margin-left: 1.875rem;
+  }
 }
 
 /**
@@ -601,6 +648,37 @@ h2 + .search-form {
   margin-right: 0.3em;
 }
 
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select,
+.dark-mode button {
+  background: #333333;
+  border-color: #555555;
+  color: #ffffff;
+}
+
+.dark-mode input:focus,
+.dark-mode textarea:focus,
+.dark-mode select:focus,
+.dark-mode button:focus {
+  border-color: #888888;
+}
+
+.dark-mode button:hover, .dark-mode button:focus,
+.dark-mode button[type="submit"]:hover,
+.dark-mode button[type="submit"]:focus,
+.dark-mode input[type="submit"]:hover,
+.dark-mode input[type="submit"]:focus,
+.dark-mode input[type="button"]:hover,
+.dark-mode input[type="button"]:focus,
+.dark-mode input[type="reset"]:hover,
+.dark-mode input[type="reset"]:focus,
+.dark-mode input[type="image"]:hover,
+.dark-mode input[type="image"]:focus {
+  background: #555555;
+  border-color: #888888;
+}
+
 /**
  * Header
  */
@@ -647,7 +725,7 @@ h2 + .search-form {
   z-index: 99999;
   width: 100%;
   min-width: 160px;
-  background-color: #fff;
+  background-color: #ffffff;
   -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 }
@@ -715,6 +793,14 @@ h2 + .search-form {
   width: 50%;
 }
 
+.dark-mode .main-navigation ul ul {
+  background: #333333;
+}
+
+.dark-mode .main-navigation ul ul li a:hover, .dark-mode .main-navigation ul ul li a:focus {
+  background: #555555;
+}
+
 @media screen and (min-width: 37.5em) {
   .menu-toggle {
     display: none;
@@ -724,14 +810,17 @@ h2 + .search-form {
     display: -ms-flexbox;
     display: flex;
   }
-  .main-navigation ul > li {
+  .main-navigation ul li {
     position: relative;
   }
-  .main-navigation ul > li:not(:last-of-type) {
+  .main-navigation ul li:not(:last-of-type) {
     margin-right: 1em;
   }
   .main-navigation ul ul {
     display: block;
+  }
+  .main-navigation ul ul li:not(:last-of-type) {
+    margin-right: 0;
   }
 }
 
