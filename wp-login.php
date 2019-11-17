@@ -9,11 +9,11 @@
  */
 
 // Make sure that the website management system bootstrap has run before continuing.
-require( dirname(__FILE__) . '/wp-load.php' );
+require( dirname( __FILE__ ) . '/wp-load.php' );
 
 // Redirect to https login if forced to use SSL.
 if ( force_ssl_admin() && ! is_ssl() ) {
-	if ( 0 === strpos($_SERVER['REQUEST_URI'], 'http') ) {
+	if ( 0 === strpos( $_SERVER['REQUEST_URI'], 'http' ) ) {
 		wp_safe_redirect( set_url_scheme( $_SERVER['REQUEST_URI'], 'https' ) );
 		exit();
 	} else {
@@ -34,7 +34,7 @@ function login_header( $title = 'Log In', $message = '', $wp_error = null ) {
 
 	global $error, $interim_login, $action;
 
-	// Don't index any of these forms
+	// Don't index any of these forms.
 	add_action( 'login_head', 'wp_no_robots' );
 
 	add_action( 'login_head', 'wp_login_viewport_meta' );
@@ -76,7 +76,8 @@ function login_header( $title = 'Log In', $message = '', $wp_error = null ) {
 
 		$login_title = apply_filters( 'login_title', $login_title, $title );
 
-	?><!doctype html>
+	?>
+	<!doctype html>
 	<!--[if IE 8]>
 		<html xmlns="http://www.w3.org/1999/xhtml" class="ie8" <?php language_attributes(); ?>>
 	<![endif]-->
@@ -89,15 +90,9 @@ function login_header( $title = 'Log In', $message = '', $wp_error = null ) {
 		<title><?php echo $login_title; ?></title>
 		<?php wp_enqueue_style( 'login' );
 
-	/*
-	 * Remove all stored post data on logging out.
-	 * This could be added by add_action('login_head'...) like wp_shake_js(),
-	 * but maybe better if it's not removable by plugins
-	 */
+	// Remove all stored post data on logging out.
 	if ( 'loggedout' == $wp_error->get_error_code() ) {
-		?>
-		<script>if("sessionStorage" in window){try{for(var key in sessionStorage){if(key.indexOf("wp-autosave-")!=-1){sessionStorage.removeItem(key)}}}catch(e){}};</script>
-		<?php
+		add_action( 'login_head', 'app_logout_remove_data' );
 	}
 
 	/**
@@ -280,6 +275,19 @@ function login_footer($input_id = '') {
 	</body>
 	</html>
 	<?php
+}
+
+/**
+ * Logout remove stored post data
+ *
+ * This is not added by add_action( 'login_head' ) lin WordPress,
+ * but here it is removable by plugins.
+ */
+function app_logout_remove_data() {
+
+	$script = '<script>if("sessionStorage" in window){try{for(var key in sessionStorage){if(key.indexOf("wp-autosave-")!=-1){sessionStorage.removeItem(key)}}}catch(e){}};</script>';
+
+	echo $script;
 }
 
 /**
