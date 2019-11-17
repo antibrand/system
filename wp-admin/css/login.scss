@@ -3,18 +3,36 @@
 
 html,
 body {
+	box-sizing: border-box;
 	height: 100%;
 	margin: 0;
 	padding: 0;
 }
 
 body {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	   -moz-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	   -moz-box-pack: center;
+	    -ms-flex-pack: center;
+			justify-content: center;
+	padding: 2rem;
 	background: #fff;
 	min-width: 0;
 	color: #444;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 13px;
 	line-height: 1.4em;
+
+	* {
+		box-sizing: inherit;
+	}
 }
 
 p {
@@ -114,9 +132,9 @@ p {
 }
 
 #login {
-	width: 320px;
-	padding: 8% 0 0;
-	margin: auto;
+	width: 100%;
+	max-width: 480px;
+	padding: 0;
 }
 
 .login #nav,
@@ -164,7 +182,8 @@ p {
 }
 
 .login-action-rp input[type="text"] {
-	box-shadow: none;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
 	margin: 0;
 }
 
@@ -202,13 +221,12 @@ body.interim-login {
 	width: device-width;
 }
 
-@media screen and ( max-height: 550px ) {
-	#login {
-		padding: 20px 0;
-	}
-}
+@media screen and (min-width: 37.5em) {
 
-@media screen and ( max-width: 782px ) {
+	#login {
+		margin-right: 25vw;
+	}
+
 	.interim-login input[type=checkbox] {
 		height: 16px;
 		width: 16px;
@@ -218,5 +236,25 @@ body.interim-login {
 		width: 16px;
 		font: normal 21px/1 dashicons;
 		margin: -3px 0 0 -4px;
+	}
+}
+
+// When CSS Flexbox is not supported.
+@supports not ( ( display: flex ) or ( display: flexbox ) ) {
+
+	body {
+		display: block;
+	}
+
+	#login {
+		width: 320px;
+		padding: 8% 0 0;
+		margin: auto;
+	}
+
+	@media screen and (min-width: 37.5em) {
+		#login {
+			margin-right: auto;
+		}
 	}
 }
