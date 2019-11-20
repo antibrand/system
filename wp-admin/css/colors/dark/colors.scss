@@ -1,4 +1,5 @@
 $base-color: #1c1c1c;
+$medium_color: #555;
 $icon-color: #999;
 $text-color: #e5e5e5;
 $highlight-color: #3ad4fb;
@@ -60,6 +61,13 @@ textarea,
 #screen-meta-links .show-settings:after,
 .widefat th,
 .widefat td,
+.widefat thead tr th,
+.widefat thead tr td,
+.widefat tfoot tr th,
+.widefat tfoot tr td,
+.widefat p,
+.widefat ol,
+.widefat ul,
 .subsubsub a .count,
 .subsubsub a.current .count,
 .theme-overlay .theme-name,
@@ -68,10 +76,6 @@ textarea,
 .theme-overlay .theme-description,
 .theme-overlay .theme-tags span,
 .theme-overlay .theme-tags,
-.widefat thead tr th,
-.widefat thead tr td,
-.widefat tfoot tr th,
-.widefat tfoot tr td,
 .importer-title,
 .ac_match,
 .subsubsub a.current,
@@ -256,7 +260,9 @@ p.popular-tags,
 .taxonomydiv div.tabs-panel,
 .wp-tab-panel,
 #contextual-help-back,
-.contextual-help-tabs .active a {
+.contextual-help-tabs .active a,
+.widefat thead th,
+.widefat thead td {
 	background: $menu-submenu-background;
 	border-color: $base-color;
 }
@@ -373,4 +379,9 @@ ul.striped > :nth-child(2n+1), .alternate,
 .media-modal .untrash-attachment,
 .button-link-delete {
 	color: #f00;
+}
+
+.plugins .active td,
+.plugins .active th {
+	background-color: $medium_color;
 }
