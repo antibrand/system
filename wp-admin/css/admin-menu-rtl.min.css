@@ -209,6 +209,7 @@
 
 .js #adminmenu .sub-open,
 #adminmenu a.menu-top:focus + .wp-submenu,
+#adminmenu li.wp-has-submenu:hover .wp-submenu,
 .no-js li.wp-has-submenu:hover .wp-submenu {
   top: -1px;
 }
