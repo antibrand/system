@@ -307,6 +307,38 @@ function wp_logout_url($redirect = '') {
 }
 
 /**
+ * Retrieves the logout URL.
+ *
+ * Returns the URL that allows the user to log out of the site.
+ *
+ * @since 2.7.0
+ *
+ * @param string $redirect Path to redirect to on logout.
+ * @return string The logout URL. Note: HTML-encoded via esc_html() in wp_nonce_url().
+ */
+function app_logout_url( $redirect = '' ) {
+
+	$args = array( 'action' => 'logout' );
+
+	if ( ! empty( $redirect ) ) {
+		$args['redirect_to'] = urlencode( $redirect );
+	}
+
+	$logout_url = site_url( APP_LOGIN . '?loggedout=true' );
+	$logout_url = wp_nonce_url( $logout_url, 'log-out' );
+
+	/**
+	 * Filters the logout URL.
+	 *
+	 * @since 2.8.0
+	 *
+	 * @param string $logout_url The HTML-encoded logout URL.
+	 * @param string $redirect   Path to redirect to on logout.
+	 */
+	return apply_filters( 'logout_url', $logout_url, $redirect );
+}
+
+/**
  * Retrieves the login URL.
  *
  * @since 2.7.0
@@ -506,6 +538,33 @@ function wp_lostpassword_url( $redirect = '' ) {
 	 * @param string $redirect         The path to redirect to on login.
 	 */
 	return apply_filters( 'lostpassword_url', $lostpassword_url, $redirect );
+}
+
+/**
+ * Returns the URL that allows the user to retrieve the lost password
+ *
+ * @since 2.8.0
+ *
+ * @param string $redirect Path to redirect to on login.
+ * @return string Lost password URL.
+ */
+function app_lostpassword_url( $redirect = '' ) {
+	$args = array( 'action' => 'lostpassword' );
+	if ( !empty($redirect) ) {
+		$args['redirect_to'] = urlencode( $redirect );
+	}
+
+	$lostpassword_url = add_query_arg( $args, network_site_url( APP_LOGIN, 'login' ) );
+
+	/**
+	 * Filters the Lost Password URL.
+	 *
+	 * @since 2.8.0
+	 *
+	 * @param string $lostpassword_url The lost password page URL.
+	 * @param string $redirect         The path to redirect to on login.
+	 */
+	return apply_filters( 'app_lostpassword_url', $lostpassword_url, $redirect );
 }
 
 /**
