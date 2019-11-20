@@ -73,8 +73,6 @@ $table_prefix  = 'app_';
  */
 define( 'APP_NAME', 'system' );
 
-<<<<<<< HEAD
-=======
 /**
  * User login directory
  *
@@ -84,7 +82,6 @@ define( 'APP_NAME', 'system' );
  */
 define( 'APP_LOGIN', 'login' );
 
->>>>>>> bdb4c679c311c728e1b96c6281ae0c5246454bfa
 // Allow automatic database repair.
 define( 'WP_ALLOW_REPAIR', false );
 
