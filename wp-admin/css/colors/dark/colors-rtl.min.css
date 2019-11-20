@@ -623,6 +623,7 @@ textarea.disabled {
 .app-core-ui .button.button-primary,
 .app-core-ui .button-secondary,
 #adminmenu li.current a.menu-top,
+#adminmenu li.wp-has-submenu:hover > a,
 #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,
 #adminmenu li.wp-has-current-submenu .wp-submenu .wp-submenu-head,
 .folded #adminmenu li.current.menu-top,
