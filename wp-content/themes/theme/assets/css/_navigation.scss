@@ -96,6 +96,27 @@
 }
 
 .dark-mode {
+
+	.main-navigation {
+		ul {
+			ul {
+				background: $dark_gray;
+
+				li {
+					a {
+						&:hover,
+						&:focus {
+							background: $medium_gray;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media ( prefers-color-scheme: dark ) {
+
 	.main-navigation {
 		ul {
 			ul {

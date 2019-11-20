@@ -400,6 +400,36 @@ a:visited {
   /* Above WP toolbar. */
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #222222;
+    color: #ffffff;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  li,
+  a,
+  a:visited {
+    color: #ffffff;
+  }
+  #wpadminbar,
+  #wpadminbar .ab-top-menu > li.hover > .ab-item,
+  #wpadminbar.nojq .quicklinks .ab-top-menu > li > .ab-item:focus,
+  #wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
+  #wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus,
+  #wpadminbar .menupop .ab-sub-wrapper,
+  #wpadminbar .shortlink-input {
+    background: #333333;
+  }
+}
+
 .site {
   max-width: 1280px;
   margin: 0 auto;
@@ -648,35 +678,109 @@ h2 + .search-form {
   margin-right: 0.3em;
 }
 
-.dark-mode input,
-.dark-mode textarea,
-.dark-mode select,
-.dark-mode button {
-  background: #333333;
-  border-color: #555555;
+.theme-toggle {
+  display: inline-block;
+}
+
+.no-js .theme-toggle {
+  display: none;
+}
+
+.theme-toggle-button {
+  position: relative;
+  margin: 0;
+  font-size: 1rem;
+  padding: 0;
+  background: none;
+  border: none;
+  color: #333333;
+}
+
+.theme-toggle-button:hover, .theme-toggle-button:focus {
+  background: none;
+  border: none;
+  color: #333333;
+}
+
+.theme-toggle-button:hover svg, .theme-toggle-button:focus svg {
+  fill: currentColor;
+}
+
+.theme-toggle-button span {
+  display: inline-block;
+}
+
+.theme-toggle-button span:first-of-type {
+  -webkit-transform: translateY(0.3em);
+          transform: translateY(0.3em);
+}
+
+.theme-toggle-button svg {
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  vertical-align: middle;
+  fill: currentColor;
+  border-radius: 50%;
+  background-image: radial-gradient(circle, yellow 0%, white 70%);
+}
+
+.dark-mode .theme-toggle-button {
+  background: none;
+  border: none;
   color: #ffffff;
 }
 
-.dark-mode input:focus,
-.dark-mode textarea:focus,
-.dark-mode select:focus,
-.dark-mode button:focus {
-  border-color: #888888;
+.dark-mode .theme-toggle-button:hover, .dark-mode .theme-toggle-button:focus {
+  background: none;
+  border: none;
 }
 
-.dark-mode button:hover, .dark-mode button:focus,
-.dark-mode button[type="submit"]:hover,
-.dark-mode button[type="submit"]:focus,
-.dark-mode input[type="submit"]:hover,
-.dark-mode input[type="submit"]:focus,
-.dark-mode input[type="button"]:hover,
-.dark-mode input[type="button"]:focus,
-.dark-mode input[type="reset"]:hover,
-.dark-mode input[type="reset"]:focus,
-.dark-mode input[type="image"]:hover,
-.dark-mode input[type="image"]:focus {
-  background: #555555;
-  border-color: #888888;
+.dark-mode .theme-toggle-button svg {
+  fill: currentColor;
+  background: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  input,
+  textarea,
+  select,
+  button {
+    background: #333333;
+    border-color: #555555;
+    color: #ffffff;
+  }
+  input:focus,
+  textarea:focus,
+  select:focus,
+  button:focus {
+    border-color: #888888;
+  }
+  button:hover, button:focus,
+  button[type="submit"]:hover,
+  button[type="submit"]:focus,
+  input[type="submit"]:hover,
+  input[type="submit"]:focus,
+  input[type="button"]:hover,
+  input[type="button"]:focus,
+  input[type="reset"]:hover,
+  input[type="reset"]:focus,
+  input[type="image"]:hover,
+  input[type="image"]:focus {
+    background: #555555;
+    border-color: #888888;
+  }
+  .theme-toggle {
+    background: none;
+    border: none;
+  }
+  .theme-toggle:hover, .theme-toggle:focus {
+    background: none;
+    border: none;
+  }
+  .theme-toggle svg {
+    fill: #ffee00;
+  }
 }
 
 /**
@@ -799,6 +903,15 @@ h2 + .search-form {
 
 .dark-mode .main-navigation ul ul li a:hover, .dark-mode .main-navigation ul ul li a:focus {
   background: #555555;
+}
+
+@media (prefers-color-scheme: dark) {
+  .main-navigation ul ul {
+    background: #333333;
+  }
+  .main-navigation ul ul li a:hover, .main-navigation ul ul li a:focus {
+    background: #555555;
+  }
 }
 
 @media screen and (min-width: 37.5em) {

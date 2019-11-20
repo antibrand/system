@@ -180,7 +180,80 @@ h2 + .search-form {
 
 .search-submit {}
 
+.theme-toggle {
+	display: inline-block;
+}
+
+.no-js .theme-toggle {
+	display: none;
+}
+
+// Theme toggle button element.
+.theme-toggle-button {
+	position: relative;
+	margin: 0;
+	font-size: $px16;
+	padding: 0;
+	background: none;
+	border: none;
+	color: $text;
+
+	&:hover,
+	&:focus {
+		background: none;
+		border: none;
+		color: $text;
+
+		svg {
+			fill: currentColor;
+		}
+	}
+
+	span {
+		display: inline-block;
+
+		&:first-of-type {
+			transform: translateY(0.3em);
+		}
+	}
+
+	svg {
+		display: inline-block;
+		width: 2em;
+		height: 2em;
+		vertical-align: middle;
+		fill: currentColor;
+		border-radius: 50%;
+		background-image: radial-gradient(
+			circle,
+			yellow 0%,
+			white 70%
+		);
+	}
+}
+
 .dark-mode {
+
+	// Theme toggle button element.
+	.theme-toggle-button {
+		background: none;
+		border: none;
+		color: $white;
+
+		&:hover,
+		&:focus {
+			background: none;
+			border: none;
+		}
+
+		svg {
+			fill: currentColor;
+			background: none;
+		}
+	}
+}
+
+@media ( prefers-color-scheme: dark ) {
 
 	input,
 	textarea,
@@ -206,6 +279,22 @@ h2 + .search-form {
 		&:focus {
 			background: $medium_gray;
 			border-color: $light_gray;
+		}
+	}
+
+	// Theme toggle button element.
+	.theme-toggle {
+		background: none;
+		border: none;
+
+		&:hover,
+		&:focus {
+			background: none;
+			border: none;
+		}
+
+		svg {
+			fill: #ffee00;
 		}
 	}
 }
