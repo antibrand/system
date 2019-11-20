@@ -73,7 +73,7 @@ $table_prefix  = 'app_';
  */
 define( 'APP_NAME', 'system' );
 
-// Allow WordPress to automatically repair your database.
+// Allow automatic database repair.
 define( 'WP_ALLOW_REPAIR', false );
 
 // Don't make database upgrades on global tables.
@@ -93,10 +93,10 @@ define( 'automatic_updater_disabled', true );
 define( 'wp_auto_update_core', false );
 
 // PHP memory limit for this site.
-define( 'WP_MEMORY_LIMIT', '256M' );
+// define( 'WP_MEMORY_LIMIT', '256M' );
 
 // Increase admin-side memory limit.
-define( 'WP_MAX_MEMORY_LIMIT', '256M' );
+// define( 'WP_MAX_MEMORY_LIMIT', '256M' );
 
 /**
  * Site development
@@ -104,12 +104,12 @@ define( 'WP_MAX_MEMORY_LIMIT', '256M' );
  * It is strongly recommended that plugin and theme developers use WP_DEBUG
  * in their development environments.
  */
-define( 'WP_DEBUG', true );
-define( 'WP_DEBUG_LOG', true );
-define( 'WP_DEBUG_DISPLAY', true );
+// define( 'WP_DEBUG', true );
+// define( 'WP_DEBUG_LOG', true );
+// define( 'WP_DEBUG_DISPLAY', true );
 
-// Magic switch for local dev
-define( 'WP_LOCAL_DEV', true );
+// Switch for local dev
+// define( 'WP_LOCAL_DEV', true );
 
 /**
  * Multisite network
@@ -121,8 +121,8 @@ define( 'WP_LOCAL_DEV', true );
  * definitions with which to replace those
  * following `WP_ALLOW_MULTISITE`.
  */
-define( 'WP_ALLOW_MULTISITE', true );
-define( 'MULTISITE', false );
+// define( 'WP_ALLOW_MULTISITE', true );
+// define( 'MULTISITE', false );
 // define( 'SUBDOMAIN_INSTALL', '' );
 // define( 'DOMAIN_CURRENT_SITE', '' );
 // define( 'PATH_CURRENT_SITE', '' );
@@ -145,7 +145,7 @@ define( 'MULTISITE', false );
 // define( 'IMAGE_EDIT_OVERWRITE', true );
 
 // Set false to load scripts & styles separately.
-define( 'CONCATENATE_SCRIPTS', true );
+// define( 'CONCATENATE_SCRIPTS', true );
 
 // Use unminified scripts.
 // define( 'SCRIPT_DEBUG', true );
@@ -154,9 +154,9 @@ define( 'CONCATENATE_SCRIPTS', true );
 // define( 'SAVEQUERIES', true );
 
 // Site compression.
-define( 'COMPRESS_SCRIPTS', false );
-define( 'COMPRESS_CSS', false );
-define( 'ENFORCE_GZIP', false );
+// define( 'COMPRESS_SCRIPTS', false );
+// define( 'COMPRESS_CSS', false );
+// define( 'ENFORCE_GZIP', false );
 
 /**
  * End customization
@@ -168,6 +168,15 @@ define( 'ENFORCE_GZIP', false );
 if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
 }
+
+/**
+ * User login path
+ *
+ * The default login directory is `/login`. You can
+ * rename the directory and define the directory
+ * name here.
+ */
+define( 'APP_LOGIN', '/' . 'login' . '/' );
 
 /**
  * System translation
