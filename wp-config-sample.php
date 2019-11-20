@@ -73,6 +73,18 @@ $table_prefix  = 'app_';
  */
 define( 'APP_NAME', 'system' );
 
+<<<<<<< HEAD
+=======
+/**
+ * User login directory
+ *
+ * The default login directory is `/login`. You can
+ * rename the directory and define the directory
+ * name here.
+ */
+define( 'APP_LOGIN', 'login' );
+
+>>>>>>> bdb4c679c311c728e1b96c6281ae0c5246454bfa
 // Allow automatic database repair.
 define( 'WP_ALLOW_REPAIR', false );
 
