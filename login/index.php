@@ -11,6 +11,11 @@
 // Make sure that the website management system bootstrap has run before continuing.
 require( dirname( dirname( __FILE__ ) ) . '/wp-load.php' );
 
+// Check for defined user login directory.
+if ( ! defined( 'APP_LOGIN' ) ) {
+	define( 'APP_LOGIN', '/' . 'login' . '/' );
+}
+
 // Redirect to https login if forced to use SSL.
 if ( force_ssl_admin() && ! is_ssl() ) {
 	if ( 0 === strpos( $_SERVER['REQUEST_URI'], 'http' ) ) {
@@ -496,7 +501,7 @@ case 'logout' :
 	if ( ! empty( $_REQUEST['redirect_to'] ) ) {
 		$redirect_to = $requested_redirect_to = $_REQUEST['redirect_to'];
 	} else {
-		$redirect_to = 'wp-login.php?loggedout=true';
+		$redirect_to = APP_LOGIN . '/index.php?loggedout=true';
 		$requested_redirect_to = '';
 	}
 
@@ -807,7 +812,7 @@ case 'register' :
 <p id="nav">
 <a href="<?php echo esc_url( wp_login_url() ); ?>"><?php _e( 'Log in' ); ?></a>
 <?php echo esc_html( $login_link_separator ); ?>
-<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php _e( 'Lost your password?' ); ?></a>
+<a href="<?php echo esc_url( app_lostpassword_url() ); ?>"><?php _e( 'Lost your password?' ); ?></a>
 </p>
 
 <?php
@@ -1009,7 +1014,7 @@ default:
 	}
 ?>
 
-<form name="loginform" id="loginform" action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>" method="post">
+<form name="loginform" id="loginform" action="<?php echo esc_url( site_url( APP_LOGIN . 'index.php', 'login_post' ) ); ?>" method="post">
 	<p>
 		<label for="user_login"><?php _e( 'Username or Email Address' ); ?><br />
 		<input type="text" name="log" id="user_login"<?php echo $aria_describedby_error; ?> class="input" value="<?php echo esc_attr( $user_login ); ?>" size="20" /></label>
@@ -1053,7 +1058,7 @@ default:
 		echo esc_html( $login_link_separator );
 	endif;
 	?>
-	<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php _e( 'Lost your password?' ); ?></a>
+	<a href="<?php echo esc_url( app_lostpassword_url() ); ?>"><?php _e( 'Lost your password?' ); ?></a>
 <?php endif; ?>
 </p>
 <?php } ?>
