@@ -105,7 +105,7 @@ echo esc_html( $title );
 
 <?php
 if ( current_user_can( 'upload_files' ) ) { ?>
-	<a href="media-new.php" class="page-title-action"><?php echo esc_html_x('Add New', 'file'); ?></a>
+	<a href="media-new.php" class="button page-title-action"><?php echo esc_html_x('Add New', 'file'); ?></a>
 <?php } ?>
 
 <hr class="wp-header-end">

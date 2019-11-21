@@ -219,7 +219,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
 <?php
 if ( current_user_can( 'upload_files' ) ) { ?>
-	<a href="<?php echo admin_url( 'media-new.php' ); ?>" class="page-title-action"><?php echo esc_html_x( 'Add New', 'file' ); ?></a><?php
+	<a href="<?php echo admin_url( 'media-new.php' ); ?>" class="button page-title-action"><?php echo esc_html_x( 'Add New', 'file' ); ?></a><?php
 }
 
 if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {

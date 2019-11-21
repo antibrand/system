@@ -79,7 +79,7 @@ if ( ! current_user_can('manage_links') )
 echo esc_html( $title );
 ?></h1>
 
-<a href="link-add.php" class="page-title-action"><?php echo esc_html_x( 'Add New', 'link' ); ?></a>
+<a href="link-add.php" class="button page-title-action"><?php echo esc_html_x( 'Add New', 'link' ); ?></a>
 
 <?php
 if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {

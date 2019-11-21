@@ -596,39 +596,19 @@ code {
   line-height: 1;
 }
 
-.wrap .add-new-h2,
-.wrap .add-new-h2:active,
-.wrap .page-title-action,
-.wrap .page-title-action:active {
+.app-core-ui .button.page-title-action,
+.app-core-ui .button.page-title-action:active {
   margin-right: 4px;
-  padding: 4px 8px;
+  padding: 5px 8px 4px;
   position: relative;
-  top: -3px;
+  vertical-align: text-bottom;
   text-decoration: none;
-  border: none;
-  border: 1px solid #ccc;
-  border-radius: 2px;
-  background: #f7f7f7;
-  text-shadow: none;
-  font-weight: 600;
-  font-size: 13px;
   line-height: normal;
-  /* IE8-IE11 need this for buttons */
-  color: #ffee00;
-  /* some of these controls are button elements and don't inherit from links */
   cursor: pointer;
-  outline: 0;
 }
 
 .wrap .wp-heading-inline + .page-title-action {
   margin-right: 0;
-}
-
-.wrap .add-new-h2:hover,
-.wrap .page-title-action:hover {
-  border-color: #008EC2;
-  background: #00a0d2;
-  color: #fff;
 }
 
 /* lower specificity: color needs to be overridden by :hover and :active */

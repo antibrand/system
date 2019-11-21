@@ -70,7 +70,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 echo esc_html( $title );
 ?></h1>
 
-<a href="link-add.php" class="page-title-action"><?php echo esc_html_x( 'Add New', 'link' ); ?></a>
+<a href="link-add.php" class="button page-title-action"><?php echo esc_html_x( 'Add New', 'link' ); ?></a>
 
 <hr class="wp-header-end">
 
