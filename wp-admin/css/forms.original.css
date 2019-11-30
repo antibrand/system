@@ -736,7 +736,7 @@ table.form-table td .updated p {
 	border-spacing: 0;
 	border-collapse: collapse;
 }
-.color-palette td {
+.color-palette li {
 	height: 20px;
 	padding: 0;
 	border: none;
@@ -1321,7 +1321,7 @@ table.form-table td .updated p {
 		margin-bottom: 0;
 	}
 
-	.form-table .color-palette td {
+	.form-table .color-palette  li {
 		display: table-cell;
 		width: 15px;
 	}

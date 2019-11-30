@@ -2,7 +2,7 @@
 input,
 textarea {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 input[type="text"],
@@ -241,7 +241,7 @@ textarea[readonly] {
 .form-invalid select, .form-invalid select:focus {
   border-color: #dc3232 !important;
   -webkit-box-shadow: 0 0 2px rgba(204, 0, 0, 0.8);
-          box-shadow: 0 0 2px rgba(204, 0, 0, 0.8);
+  box-shadow: 0 0 2px rgba(204, 0, 0, 0.8);
 }
 
 .form-table .form-required.form-invalid td:after {
@@ -286,7 +286,7 @@ input[type="range"]:disabled,
 input[type="range"].disabled {
   background: none;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   cursor: default;
 }
 
@@ -460,7 +460,7 @@ fieldset label,
   text-align: center;
   width: 25em;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   opacity: 0;
 }
 
@@ -720,29 +720,44 @@ table.form-table td .updated p {
   width: 24%;
   padding: 5px 15px 15px;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin-bottom: 3px;
   border: solid 2px transparent;
 }
 
 .color-palette {
-  width: 100%;
-  border-spacing: 0;
-  border-collapse: collapse;
+  list-style: none;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(calc( 25% - 2px), 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(calc( 25% - 2px), 1fr));
+  grid-auto-rows: 1fr;
+  grid-gap: 2px;
 }
 
-.color-palette td {
-  display: inline-block;
-  margin: 0;
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  border: none;
+.color-palette:before {
+  content: '';
+  width: 0;
+  padding-bottom: 100%;
+  -ms-grid-row: 1;
+  grid-row: 1 / 1;
+  -ms-grid-column: 1;
+  grid-column: 1 / 1;
+}
+
+.color-palette > * {
   border-radius: 50%;
 }
 
-.color-palette td:not(:last-child) {
-  margin-right: 0.5em;
+.color-palette > *:first-child {
+  -ms-grid-row: 1;
+  grid-row: 1 / 1;
+  -ms-grid-column: 1;
+  grid-column: 1 / 1;
+}
+
+.color-palette li {
+  margin: 0;
 }
 
 .color-option {
@@ -780,7 +795,7 @@ table.form-table td .updated p {
   max-width: 520px;
   border: 1px solid #e5e5e5;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
-          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
   background: #fff;
 }
 
@@ -1112,7 +1127,7 @@ table.form-table td .updated p {
 
 .privacy_requests tbody .has-request-results th {
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 .privacy_requests tbody .request-results th .notice {
@@ -1125,7 +1140,7 @@ table.form-table td .updated p {
 
 .privacy_requests tbody .has-request-results td {
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 .privacy_requests .next_steps .button {
@@ -1283,7 +1298,7 @@ table.form-table td .updated p {
   }
   .form-table {
     -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
   }
   .form-table th,
   .form-table td,
@@ -1297,10 +1312,6 @@ table.form-table td .updated p {
   }
   .export-filters li {
     margin-bottom: 0;
-  }
-  .form-table .color-palette td {
-    display: table-cell;
-    width: 15px;
   }
   .form-table table.color-palette {
     margin-right: 10px;
@@ -1323,7 +1334,7 @@ table.form-table td .updated p {
     display: block;
     max-width: none;
     -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
   }
   .form-table .form-required.form-invalid td:after {
     float: right;
@@ -1348,7 +1359,7 @@ table.form-table td .updated p {
   #pass-strength-result {
     width: 100%;
     -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     padding: 8px;
   }
   p.search-box {
@@ -1425,7 +1436,7 @@ table.form-table td .updated p {
     background: transparent;
     border: none;
     -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
     line-height: 2;
     margin: 0;
     padding: 5px 10px;

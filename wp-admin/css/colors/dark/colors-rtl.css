@@ -806,7 +806,7 @@ ul.striped > :nth-child(2n+1), .alternate,
   border-color: #1c1c1c;
 }
 
-.color-palette td {
+.color-palette li {
   border: solid 1px #e5e5e5;
 }
 

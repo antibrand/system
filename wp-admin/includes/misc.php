@@ -846,7 +846,8 @@ function admin_color_scheme_picker( $user_id ) {
 
 	?>
 	<fieldset id="color-picker" class="scheme-list">
-		<legend class="screen-reader-text"><span><?php _e( 'User Color Scheme' ); ?></span></legend>
+		<legend class="screen-reader-text"><span><?php _e( 'User Color Palette' ); ?></span></legend>
+		<div class="user-color-options">
 		<?php
 		wp_nonce_field( 'save-color-scheme', 'color-nonce', false );
 		foreach ( $_wp_admin_css_colors as $color => $color_info ) :
@@ -857,25 +858,21 @@ function admin_color_scheme_picker( $user_id ) {
 				<input type="hidden" class="css_url" value="<?php echo esc_url( $color_info->url ); ?>" />
 				<input type="hidden" class="icon_colors" value="<?php echo esc_attr( wp_json_encode( array( 'icons' => $color_info->icon_colors ) ) ); ?>" />
 				<label for="admin_color_<?php echo esc_attr( $color ); ?>"><?php echo esc_html( $color_info->name ); ?></label>
-				<table class="color-palette">
-					<tr>
-					<?php
 
-					foreach ( $color_info->colors as $html_color ) {
-						?>
-						<td style="background-color: <?php echo esc_attr( $html_color ); ?>">&nbsp;</td>
-						<?php
-					}
+				<ul class="color-palette">
+				<?php
 
+				foreach ( $color_info->colors as $html_color ) {
 					?>
-					</tr>
-				</table>
+					<li style="background-color: <?php echo esc_attr( $html_color ); ?>"><span class="screen-reader-text"><?php echo __( 'Color hex code: ' ) . esc_attr( $html_color ); ?></span></li>
+					<?php
+				}
+
+				?>
+				</ul>
 			</div>
-			<?php
-
-		endforeach;
-
-	?>
+			<?php endforeach; ?>
+		</div>
 	</fieldset>
 	<?php
 }
