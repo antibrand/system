@@ -25,7 +25,7 @@ button {
 	max-width: 640px;
 	padding: 1rem;
 	font: inherit;
-	background: $white;
+	background: inherit;
 	border: solid 1px $pale_gray;
 
 	&:focus {
@@ -234,6 +234,33 @@ h2 + .search-form {
 
 .dark-mode {
 
+	input,
+	textarea,
+	select,
+	button {
+		background: $dark_gray;
+		border-color: $medium_gray;
+		color: $white;
+
+		&:focus {
+			border-color: $light_gray;
+		}
+	}
+
+	button,
+	button[type="submit"],
+	input[type="submit"],
+	input[type="button"],
+	input[type="reset"],
+	input[type="image"] {
+
+		&:hover,
+		&:focus {
+			background: $medium_gray;
+			border-color: $light_gray;
+		}
+	}
+
 	// Theme toggle button element.
 	.theme-toggle-button {
 		background: none;
@@ -283,7 +310,7 @@ h2 + .search-form {
 	}
 
 	// Theme toggle button element.
-	.theme-toggle {
+	.theme-toggle-button {
 		background: none;
 		border: none;
 

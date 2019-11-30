@@ -24,16 +24,16 @@ if ( post_password_required() ) {
 	<?php if ( have_comments() ) : ?>
 		<h2 class="comments-title">
 			<?php
-			$ub_theme_comment_count = get_comments_number();
-			if ( '1' === $ub_theme_comment_count ) {
+			$ab_theme_comment_count = get_comments_number();
+			if ( '1' === $ab_theme_comment_count ) {
 				printf(
 					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'antibrand' ),
 					'<span>' . get_the_title() . '</span>'
 				);
 			} else {
 				printf(
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $ub_theme_comment_count, 'comments title', 'antibrand' ) ),
-					number_format_i18n( $ub_theme_comment_count ),
+					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $ab_theme_comment_count, 'comments title', 'antibrand' ) ),
+					number_format_i18n( $ab_theme_comment_count ),
 					'<span>' . get_the_title() . '</span>'
 				);
 			}

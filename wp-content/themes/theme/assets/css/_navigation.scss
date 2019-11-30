@@ -52,6 +52,8 @@
 
 	li {
 		overflow: visible;
+		font-size: $px18;
+		font-weight: bold;
 
 		&:hover > ul,
 		&:focus > ul,
@@ -63,6 +65,19 @@
 	a {
 		display: inline-block;
 		text-decoration: none;
+	}
+
+	button {
+		background: none;
+		border: none;
+		color: inherit;
+
+		svg {
+			width: auto;
+			height: 1em;
+			vertical-align: baseline;
+			fill: currentColor;
+		}
 	}
 }
 

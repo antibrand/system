@@ -61,6 +61,29 @@ function pingback_header() {
 add_action( 'wp_head', 'AB_Theme\Includes\pingback_header' );
 
 /**
+ * Main menu fallback
+ *
+ * @since  1.0.0
+ * @access public
+ * @return mixed
+ */
+function main_menu_fallback() {
+
+	$customize_link = site_url();
+
+?>
+<div class="main-menu-wrap">
+	<ul class="main-menu">
+		<li><a href="<?php echo admin_url( '/customize.php?url=' . esc_url( $customize_link ) . '&autofocus[panel]=nav_menus' ); ?>"><?php esc_html_e( 'Set Up Menu', 'antibrand' ); ?></a></li>
+		<li><a href="<?php echo admin_url( 'themes.php?page=theme-options' ) ?>"><?php esc_html_e( 'Theme Options', 'antibrand' ); ?></a></li>
+		<li><a href="<?php echo admin_url( 'themes.php?page=theme-info' ) ?>"><?php esc_html_e( 'Theme Info', 'antibrand' ) ?></a></li>
+	</ul>
+</div>
+<?php
+
+}
+
+/**
  * Theme toggle script
  *
  * Toggles a body class and toggles the
@@ -81,7 +104,7 @@ function theme_mode_script() {
 	$bulb_on .= sprintf(
 		'<title id="%1s">%2s</title>',
 		'theme-toggle-title',
-		esc_html__( 'Lights on', 'antibrand' )
+		esc_html__( 'Turn lights off', 'antibrand' )
 	);
 	$bulb_on .= sprintf(
 		'<desc id="%1s">%2s</desc>',
@@ -109,7 +132,7 @@ function theme_mode_script() {
 	$bulb_off .= sprintf(
 		'<title id="%1s">%2s</title>',
 		'theme-toggle-title',
-		esc_html__( 'Lights off', 'antibrand' )
+		esc_html__( 'Turn lights on', 'antibrand' )
 	);
 	$bulb_off .= sprintf(
 		'<desc id="%1s">%2s</desc>',

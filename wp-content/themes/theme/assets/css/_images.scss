@@ -7,6 +7,8 @@
 
 img,
 figure {
+	max-width: 100%;
+	height: auto;
 
 	&.alignright {
 		margin: 1em 0 0 1em;

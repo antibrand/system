@@ -64,10 +64,17 @@ a:visited {
 	color: $visited;
 }
 
+.entry-title {
+
+	a {
+		text-decoration: none;
+	}
+}
+
 .entry-content ul,
-.sidebar-widgets ul,
+.widget-area ul,
 .entry-content ol,
-.sidebar-widgets ol {
+.widget-area ol {
 	padding-left: 1em;
 }
 

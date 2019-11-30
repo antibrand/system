@@ -193,58 +193,6 @@ final class Functions {
 		 ] );
 
 		/**
-		 * Block editor colors
-		 *
-		 * Match the following HEX codes with SASS color variables.
-		 * @see assets/css/_variables.scss
-		 *
-		 * @since 1.0.0
-		 */
-		$color_args = [
-			[
-				'name'  => __( 'Text', 'antibrand' ),
-				'slug'  => 'ub-text',
-				'color' => '#333333',
-			],
-			[
-				'name'  => __( 'Light Gray', 'antibrand' ),
-				'slug'  => 'ub-light-gray',
-				'color' => '#888888',
-			],
-			[
-				'name'  => __( 'Pale Gray', 'antibrand' ),
-				'slug'  => 'ub-pale-gray',
-				'color' => '#cccccc',
-			],
-			[
-				'name'  => __( 'White', 'antibrand' ),
-				'slug'  => 'ub-white',
-				'color' => '#ffffff',
-			],
-			[
-				'name'  => __( 'Error Red', 'antibrand' ),
-				'slug'  => 'ub-error',
-				'color' => '#dc3232',
-			],
-			[
-				'name'  => __( 'Warning Yellow', 'antibrand' ),
-				'slug'  => 'ub-warning',
-				'color' => '#ffb900',
-			],
-			[
-				'name'  => __( 'Success Green', 'antibrand' ),
-				'slug'  => 'ub-success',
-				'color' => '#46b450',
-			]
-		];
-
-		// Apply a filter to editor arguments.
-		$colors = apply_filters( 'ub_editor_colors', $color_args );
-
-		// Add theme color support.
-		add_theme_support( 'editor-color-palette', $colors );
-
-		/**
 		 * Set default image sizes
 		 *
 		 * Define the dimensions and the crop options.
@@ -276,9 +224,6 @@ final class Functions {
 		// Set the post thumbnail size, 16:9 HD Video.
 		set_post_thumbnail_size( 1280, 720, [ 'center', 'center' ] );
 
-		// Add wide image support for the block editor.
-		add_theme_support( 'align-wide' );
-
 		/**
 		 * Add image sizes
 		 *
@@ -305,7 +250,7 @@ final class Functions {
 		/**
 		 * Custom header
 		 */
-		add_theme_support( 'custom-header', apply_filters( 'ub_custom_header_args', [
+		add_theme_support( 'custom-header', apply_filters( 'ab_custom_header', [
 			'width'              => 2048,
 			'height'             => 878,
 			'flex-height'        => true,
@@ -336,7 +281,7 @@ final class Functions {
 		];
 
 		// Apply a filter to logo arguments.
-		$logo = apply_filters( 'ub_header_image', $logo_args );
+		$logo = apply_filters( 'ab_custom_logo', $logo_args );
 
 		// Add logo support.
 		add_theme_support( 'custom-logo', $logo );
@@ -346,10 +291,10 @@ final class Functions {
 		 *
 		 * @since 1.0.0
 		 */
-		$ub_content_width = apply_filters( 'ub_content_width', 1280 );
+		$ab_content_width = apply_filters( 'ab_content_width', 1280 );
 
 		if ( ! isset( $content_width ) ) {
-			$content_width = $ub_content_width;
+			$content_width = $ab_content_width;
 		}
 
 		// Embed sizes.
@@ -458,7 +403,7 @@ final class Functions {
 		$disable = add_theme_support( 'disable-custom-colors', [] );
 
 		// Apply a filter for conditionally disabling the picker.
-		$custom_colors = apply_filters( 'ub_editor_custom_colors', '__return_false' );
+		$custom_colors = apply_filters( 'ab_editor_custom_colors', '__return_false' );
 
 		return $custom_colors;
 
@@ -539,14 +484,7 @@ final class Functions {
 
 		// Add right-to-left styles if needed.
 		if ( is_rtl() ) {
-			wp_enqueue_style( 'ab-blocks', get_theme_file_uri( '/assets/css/rtl.min.css' ), [ 'antibrand' ], '' );
-		}
-
-		// Block styles.
-		if ( function_exists( 'has_blocks' ) ) {
-			if ( has_blocks() ) {
-				wp_enqueue_style( 'ab-blocks', get_theme_file_uri( '/assets/css/blocks.min.css' ), [ 'antibrand' ], '' );
-			}
+			wp_enqueue_style( 'ab-rtl', get_theme_file_uri( '/assets/css/rtl.min.css' ), [ 'antibrand' ], '' );
 		}
 
 		// Print styles.
@@ -627,7 +565,7 @@ final class Functions {
 			__( 'Theme Options', 'antibrand' ),
 			__( 'Theme Options', 'antibrand' ),
 			'manage_options',
-			'antibrand-options',
+			'theme-options',
 			[ $this, 'theme_options_output' ]
 		);
 
@@ -738,7 +676,7 @@ final class Functions {
 			__( 'Theme Info', 'antibrand' ),
 			__( 'Theme Info', 'antibrand' ),
 			'manage_options',
-			'antibrand-info',
+			'theme-info',
 			[ $this, 'theme_info_output' ]
 		);
 
@@ -796,13 +734,13 @@ final class Functions {
  * @access public
  * @return object
  */
-function ub_theme() {
+function ab_theme() {
 
-	$ub_theme = Functions::get_instance();
+	$ab_theme = Functions::get_instance();
 
-	return $ub_theme;
+	return $ab_theme;
 
 }
 
 // Run the Functions class.
-ub_theme();
+ab_theme();

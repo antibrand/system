@@ -1,8 +1,9 @@
 <?php
 /**
- * The header for our theme
+ * Begin HTML markup
  *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
+ * Renders the `<head>` section, gets site
+ * identity and navigation.
  *
  * @package    system
  * @subpackage AB_Theme
@@ -11,6 +12,7 @@
  * @todo       Add hooks for nav above or below header.
  */
 
+// Conditional canonical link.
 if ( is_home() && ! is_front_page() ) {
     $canonical = get_permalink( get_option( 'page_for_posts' ) );
 } elseif ( is_archive() ) {
@@ -19,6 +21,7 @@ if ( is_home() && ! is_front_page() ) {
     $canonical = get_permalink();
 }
 
+// Begin HTML output.
 ?>
 <!doctype html>
 <?php do_action( 'before_html' ); ?>
@@ -50,50 +53,11 @@ if ( is_home() && ! is_front_page() ) {
 <div id="page" class="site" itemscope="itemscope" itemtype="<?php AB_Theme\Tags\site_schema(); ?>">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'antibrand' ); ?></a>
 
-	<nav id="site-navigation" class="main-navigation" role="directory" itemscope itemtype="http://schema.org/SiteNavigationElement">
-		<button class="menu-toggle" aria-controls="main-menu" aria-expanded="false">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="theme-icon menu-icon"><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg>
-			<?php esc_html_e( 'Menu', 'antibrand' ); ?>
-		</button>
-		<?php
-		wp_nav_menu( [
-			'theme_location' => 'main',
-			'menu_id'        => 'main-menu',
-		] );
-		?>
-	</nav>
+	<?php get_template_part( 'template-parts/navigation/navigation', 'main' ); ?>
 
 	<header id="masthead" class="site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/Organization">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php endif;
-			$site_description = get_bloginfo( 'description', 'display' );
-			if ( $site_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $site_description; ?></p>
-			<?php endif; ?>
-			<div class="site-header-image" role="presentation">
-				<figure>
-					<?php
-					if ( has_header_image() ) {
-						$attributes = [
-							'alt'  => ''
-						];
-						the_header_image_tag( $attributes );
-					} else {
-						echo sprintf(
-							'<img src="%1s" alt="" width="2048" height="878" />',
-							get_theme_file_uri( '/assets/images/default-header.jpg' )
-						);
-					} ?>
-				</figure>
-			</div>
-		</div>
+		<?php get_template_part( 'template-parts/header/site-identity' ); ?>
+		<?php get_template_part( 'template-parts/header/header-image' ); ?>
 	</header>
 
 	<div id="content" class="site-content">

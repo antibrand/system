@@ -294,7 +294,7 @@ body {
   background: #ffffff;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   line-height: 1.5;
-  color: #333333;
+  color: #222222;
 }
 
 body.dark-mode {
@@ -353,10 +353,14 @@ a:visited {
   color: #551a8b;
 }
 
+.entry-title a {
+  text-decoration: none;
+}
+
 .entry-content ul,
-.sidebar-widgets ul,
+.widget-area ul,
 .entry-content ol,
-.sidebar-widgets ol {
+.widget-area ol {
   padding-left: 1em;
 }
 
@@ -513,7 +517,7 @@ button {
   max-width: 640px;
   padding: 1rem;
   font: inherit;
-  background: #ffffff;
+  background: inherit;
   border: solid 1px #cccccc;
 }
 
@@ -693,13 +697,13 @@ h2 + .search-form {
   padding: 0;
   background: none;
   border: none;
-  color: #333333;
+  color: #222222;
 }
 
 .theme-toggle-button:hover, .theme-toggle-button:focus {
   background: none;
   border: none;
-  color: #333333;
+  color: #222222;
 }
 
 .theme-toggle-button:hover svg, .theme-toggle-button:focus svg {
@@ -723,6 +727,37 @@ h2 + .search-form {
   fill: currentColor;
   border-radius: 50%;
   background-image: radial-gradient(circle, yellow 0%, white 70%);
+}
+
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select,
+.dark-mode button {
+  background: #333333;
+  border-color: #555555;
+  color: #ffffff;
+}
+
+.dark-mode input:focus,
+.dark-mode textarea:focus,
+.dark-mode select:focus,
+.dark-mode button:focus {
+  border-color: #888888;
+}
+
+.dark-mode button:hover, .dark-mode button:focus,
+.dark-mode button[type="submit"]:hover,
+.dark-mode button[type="submit"]:focus,
+.dark-mode input[type="submit"]:hover,
+.dark-mode input[type="submit"]:focus,
+.dark-mode input[type="button"]:hover,
+.dark-mode input[type="button"]:focus,
+.dark-mode input[type="reset"]:hover,
+.dark-mode input[type="reset"]:focus,
+.dark-mode input[type="image"]:hover,
+.dark-mode input[type="image"]:focus {
+  background: #555555;
+  border-color: #888888;
 }
 
 .dark-mode .theme-toggle-button {
@@ -770,15 +805,15 @@ h2 + .search-form {
     background: #555555;
     border-color: #888888;
   }
-  .theme-toggle {
+  .theme-toggle-button {
     background: none;
     border: none;
   }
-  .theme-toggle:hover, .theme-toggle:focus {
+  .theme-toggle-button:hover, .theme-toggle-button:focus {
     background: none;
     border: none;
   }
-  .theme-toggle svg {
+  .theme-toggle-button svg {
     fill: #ffee00;
   }
 }
@@ -786,17 +821,38 @@ h2 + .search-form {
 /**
  * Header
  */
-.site-title {
+.site-identity {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 2em 0 1em;
+}
+
+.site-identity .site-logo {
+  max-width: 90px;
+  margin-right: 1em;
+}
+
+.site-identity .site-logo img {
+  display: block;
+}
+
+.site-identity .site-title {
+  margin: 0;
   /* Match <p> tag to <h1> tag on front page */
   font-size: 2em;
   font-weight: bold;
 }
 
-.site-title a {
-  text-decoration: none;
+.site-identity .site-title a {
+  color: inherit;
+  text-decoration: inherit;
 }
 
-.site-description {
+.site-identity .site-description {
   margin: 0;
 }
 
@@ -855,6 +911,8 @@ h2 + .search-form {
 
 .main-navigation li {
   overflow: visible;
+  font-size: 1.125rem;
+  font-weight: bold;
 }
 
 .main-navigation li:hover > ul,
@@ -866,6 +924,19 @@ h2 + .search-form {
 .main-navigation a {
   display: inline-block;
   text-decoration: none;
+}
+
+.main-navigation button {
+  background: none;
+  border: none;
+  color: inherit;
+}
+
+.main-navigation button svg {
+  width: auto;
+  height: 1em;
+  vertical-align: baseline;
+  fill: currentColor;
 }
 
 /* Small menu. */
@@ -991,6 +1062,12 @@ h2 + .search-form {
 img {
   font-size: 75%;
   /* alt text */
+}
+
+img,
+figure {
+  max-width: 100%;
+  height: auto;
 }
 
 img.alignright,
