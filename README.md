@@ -1,6 +1,6 @@
 # system
 
-A generic website management system forked from WordPress 4.9.8
+A generic website management system inspired by WordPress 4.9.8
 
 ![Version 1.0.0](https://img.shields.io/badge/Version-1.0.0-ffd000.svg?style=flat-square)
 ![WordPress compatible](https://img.shields.io/badge/WordPress-compatible-0073aa.svg?style=flat-square)
@@ -48,7 +48,7 @@ Also included is a nonfunctional starter plugin that is used for testing. One ca
 
 The theme and plugin, also not branded, can be found separately at the following links:
 
-Theme: [https://github.com/antibrand/theme](https://github.com/antibrand/theme)  
+Theme: [https://github.com/antibrand/theme](https://github.com/antibrand/theme)
 Plugin: [https://github.com/antibrand/plugin](https://github.com/antibrand/plugin)
 
 ## Development
