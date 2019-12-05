@@ -1,6 +1,6 @@
 # system
 
-A generic website management system forked from WordPress 4.9.8
+A generic website management system inspired by WordPress 4.9.8
 
 ![Version 1.0.0](https://img.shields.io/badge/Version-1.0.0-ffd000.svg?style=flat-square)
 ![WordPress compatible](https://img.shields.io/badge/WordPress-compatible-0073aa.svg?style=flat-square)
