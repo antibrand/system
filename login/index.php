@@ -1018,11 +1018,7 @@ default:
 	}
 ?>
 
-<<<<<<< HEAD
 <form name="loginform" id="loginform" action="<?php echo esc_url( site_url( APP_LOGIN . 'index.php', 'login_post' ) ); ?>" method="post">
-=======
-<form name="loginform" id="loginform" action="<?php echo esc_url( site_url( APP_LOGIN . '/index.php', 'login_post' ) ); ?>" method="post">
->>>>>>> bdb4c679c311c728e1b96c6281ae0c5246454bfa
 	<p>
 		<label for="user_login"><?php _e( 'Username or Email Address' ); ?><br />
 		<input type="text" name="log" id="user_login"<?php echo $aria_describedby_error; ?> class="input" value="<?php echo esc_attr( $user_login ); ?>" size="20" /></label>
