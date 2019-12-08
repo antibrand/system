@@ -213,6 +213,7 @@
 .welcome-panel .welcome-panel-column li {
   line-height: 16px;
   padding: 0 0 8px;
+  font-weight: bold;
 }
 
 .welcome-panel .welcome-icon {
