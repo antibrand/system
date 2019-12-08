@@ -1141,7 +1141,7 @@ function wp_welcome_panel() {
 			$version
 		); ?>
 		</h2>
-		<p class="about-description"><?php _e( 'Following are some links to help manage your website:' ); ?></p>
+		<p class="description about-description"><?php _e( 'Following are some links to help manage your website:' ); ?></p>
 		<div class="welcome-panel-column-container">
 			<div class="welcome-panel-column">
 				<h3><?php _e( 'Get Started' ); ?></h3>
