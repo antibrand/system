@@ -2,8 +2,6 @@
 /**
  * Object Cache API
  *
- * @link https://codex.wordpress.org/Class_Reference/WP_Object_Cache
- *
  * @package WMS
  * @subpackage Cache
  */

@@ -5,8 +5,6 @@
  * The query API attempts to get which part the user is on. It
  * also provides functionality for getting URL query information.
  *
- * @link https://codex.wordpress.org/The_Loop More information on The Loop.
- *
  * @package WMS
  * @subpackage Query
  */
@@ -736,11 +734,10 @@ function is_main_query() {
 	if ( 'pre_get_posts' === current_filter() ) {
 		$message = sprintf(
 			/* translators: 1: pre_get_posts 2: WP_Query->is_main_query() 3: is_main_query() 4: link to codex is_main_query() page. */
-			__( 'In %1$s, use the %2$s method, not the %3$s function. See %4$s.' ),
+			__( 'In %1$s, use the %2$s method, not the %3$s function.' ),
 			'<code>pre_get_posts</code>',
 			'<code>WP_Query->is_main_query()</code>',
-			'<code>is_main_query()</code>',
-			__( 'https://codex.wordpress.org/Function_Reference/is_main_query' )
+			'<code>is_main_query()</code>'
 		);
 		_doing_it_wrong( __FUNCTION__, $message, '3.7.0' );
 	}

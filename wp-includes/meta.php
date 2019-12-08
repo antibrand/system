@@ -996,8 +996,7 @@ function sanitize_meta( $meta_key, $meta_value, $object_type, $object_subtype = 
  * without passing a subtype.
  *
  * @since 3.3.0
- * @since 4.6.0 {@link https://core.trac.wordpress.org/ticket/35658 Modified
- *              to support an array of data to attach to registered meta keys}. Previous arguments for
+ * @since 4.6.0 Modified to support an array of data to attach to registered meta keys}. Previous arguments for
  *              `$sanitize_callback` and `$auth_callback` have been folded into this array.
  * @since 4.9.8 The `$object_subtype` argument was added to the arguments array.
  *

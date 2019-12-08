@@ -65,7 +65,7 @@ class WP_Widget_Meta extends WP_Widget {
 			 * @since 3.6.0
 			 * @since 4.9.0 Added the `$instance` parameter.
 			 *
-			 * @param string $title_text Default title text for the wordpress.org link.
+			 * @param string $title_text Default title text for the link.
 			 * @param array  $instance   Array of settings for the current widget.
 			 */
 			echo apply_filters( 'widget_meta_poweredby', sprintf( '<li>>%s</li>',

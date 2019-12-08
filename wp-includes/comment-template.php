@@ -1853,7 +1853,7 @@ function comment_id_fields( $id = 0 ) {
  * Only affects users with JavaScript disabled.
  *
  * @internal The $comment global must be present to allow template tags access to the current
- *           comment. See https://core.trac.wordpress.org/changeset/36512.
+ *           comment.
  *
  * @since 2.7.0
  *

@@ -23,8 +23,6 @@
  *
  *     $out = do_shortcode( $content );
  *
- * @link https://codex.wordpress.org/Shortcode_API
- *
  * @package WMS
  * @subpackage Shortcodes
  * @since 2.5.0

@@ -71,8 +71,6 @@ class WP_Customize_Setting {
 	 * Set this value to 'postMessage' to enable a custom Javascript handler to render changes to this setting
 	 * as opposed to reloading the whole page.
 	 *
-	 * @link https://developer.wordpress.org/themes/customize-api
-	 *
 	 * @since 3.4.0
 	 * @var string
 	 */

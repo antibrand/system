@@ -327,8 +327,7 @@ function wp_mail( $to, $subject, $message, $headers = '', $attachments = array()
 	/* If we don't have an email from the input headers default to wordpress@$sitename
 	 * Some hosts will block outgoing mail from this address if it doesn't exist but
 	 * there's no easy alternative. Defaulting to admin_email might appear to be another
-	 * option but some hosts may refuse to relay mail from an unknown domain. See
-	 * https://core.trac.wordpress.org/ticket/5007.
+	 * option but some hosts may refuse to relay mail from an unknown domain.
 	 */
 
 	if ( !isset( $from_email ) ) {
@@ -2089,8 +2088,6 @@ if ( !function_exists('wp_salt') ) :
  * common dictionary strings. The added values makes it harder to crack.
  *
  * @since 2.5.0
- *
- * @link https://api.wordpress.org/secret-key/1.1/salt/ Create secrets for wp-config.php
  *
  * @staticvar array $cached_salts
  * @staticvar array $duplicated_keys
