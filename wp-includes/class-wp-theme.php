@@ -720,7 +720,7 @@ final class WP_Theme implements ArrayAccess {
 				if ( $this->get('AuthorURI') ) {
 					$value = sprintf( '<a href="%1$s">%2$s</a>', $this->display( 'AuthorURI', true, $translate ), $value );
 				} elseif ( ! $value ) {
-					$value = __( 'Anonymous' );
+					$value = __( '' );
 				}
 				break;
 			case 'Tags' :

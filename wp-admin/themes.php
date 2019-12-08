@@ -455,7 +455,9 @@ $can_install = current_user_can( 'install_themes' );
 					<span class="current-label"><?php _e( 'Current Theme' ); ?></span>
 				<# } #>
 				<h2 class="theme-name">{{{ data.name }}}<span class="theme-version"><?php printf( __( 'Version: %s' ), '{{ data.version }}' ); ?></span></h2>
-				<p class="theme-author"><?php printf( __( 'By %s' ), '{{{ data.authorAndUri }}}' ); ?></p>
+				<# if ( data.authorAndUri ) { #>
+				<p class="theme-author"><?php printf( __( '%s' ), '{{{ data.authorAndUri }}}' ); ?></p>
+				<# } #>
 
 				<# if ( data.hasUpdate ) { #>
 				<div class="notice notice-warning notice-alt notice-large">
