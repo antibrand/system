@@ -1,0 +1,41 @@
+.upload-plugin-wrap .upload-plugin {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: none;
+  margin: 0;
+  padding: 50px 0;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  top: 10px;
+}
+
+.upload-plugin-wrap .upload-plugin.upload-plugin-open {
+  display: block;
+}
+
+.upload-plugin-wrap .upload-plugin .wp-upload-form {
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
+  padding: 30px;
+  margin: 30px auto;
+  max-width: 380px;
+}
+
+.upload-plugin-wrap .upload-plugin .install-help {
+  color: #555d66;
+  /* #f1f1f1 background */
+  font-size: 18px;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.no-js .upload-plugin-wrap .upload-plugin {
+  display: block;
+}
+
+.plugin-install-tab-upload .upload-plugin {
+  display: block;
+}

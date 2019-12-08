@@ -205,7 +205,7 @@ if ( ! is_multisite() && current_user_can( 'update_plugins' ) ) {
 
 $menu[65] = array( sprintf( __('Plugins %s'), $count ), 'activate_plugins', 'plugins.php', '', 'menu-top menu-icon-plugins', 'menu-plugins', 'dashicons-admin-plugins' );
 
-$submenu['plugins.php'][5]  = array( __('Installed Plugins'), 'activate_plugins', 'plugins.php' );
+$submenu['plugins.php'][5]  = array( __('Manage Plugins'), 'activate_plugins', 'plugins.php' );
 
 	if ( ! is_multisite() ) {
 		/* translators: add new plugin */

@@ -67,7 +67,7 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 		} elseif ( $this->type == 'web' ) {
 			$install_actions['plugins_page'] = '<a href="' . self_admin_url( 'plugin-install.php' ) . '" target="_parent">' . __( 'Return to Plugin Installer' ) . '</a>';
 		} elseif ( 'upload' == $this->type && 'plugins' == $from ) {
-			$install_actions['plugins_page'] = '<a href="' . self_admin_url( 'plugin-install.php' ) . '">' . __( 'Return to Plugin Installer' ) . '</a>';
+			$install_actions['plugins_page'] = '<a href="' . self_admin_url( 'plugins.php' ) . '">' . __( 'Return to Plugins page' ) . '</a>';
 		} else {
 			$install_actions['plugins_page'] = '<a href="' . self_admin_url( 'plugins.php' ) . '" target="_parent">' . __( 'Return to Plugins page' ) . '</a>';
 		}
