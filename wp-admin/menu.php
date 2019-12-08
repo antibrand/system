@@ -50,7 +50,7 @@ $menu[4] = array( '', 'read', 'separator1', '', 'wp-menu-separator' );
 
 // $menu[5] = Posts
 
-$menu[10] = array( __('Media'), 'upload_files', 'upload.php', '', 'menu-top menu-icon-media', 'menu-media', 'dashicons-admin-media' );
+$menu[5] = array( __('Media'), 'upload_files', 'upload.php', '', 'menu-top menu-icon-media', 'menu-media', 'dashicons-admin-media' );
 	$submenu['upload.php'][5] = array( __('Library'), 'upload_files', 'upload.php');
 	/* translators: add new file */
 	$submenu['upload.php'][10] = array( _x('Add New', 'file'), 'upload_files', 'media-new.php');
@@ -69,14 +69,12 @@ $menu[15] = array( __('Links'), 'manage_links', 'link-manager.php', '', 'menu-to
 	$submenu['link-manager.php'][10] = array( _x('Add New', 'link'), 'manage_links', 'link-add.php' );
 	$submenu['link-manager.php'][15] = array( __('Link Categories'), 'manage_categories', 'edit-tags.php?taxonomy=link_category' );
 
-// $menu[20] = Pages
-
 // Avoid the comment count query for users who cannot edit_posts.
 if ( current_user_can( 'edit_posts' ) ) {
 	$awaiting_mod = wp_count_comments();
 	$awaiting_mod = $awaiting_mod->moderated;
-	$menu[25] = array(
-		sprintf( __( 'Comments %s' ), '<span class="awaiting-mod count-' . absint( $awaiting_mod ) . '"><span class="pending-count">' . number_format_i18n( $awaiting_mod ) . '</span></span>' ),
+	$menu[24] = array(
+		sprintf( __( 'Discussion %s' ), '<span class="awaiting-mod count-' . absint( $awaiting_mod ) . '"><span class="pending-count">' . number_format_i18n( $awaiting_mod ) . '</span></span>' ),
 		'edit_posts',
 		'edit-comments.php',
 		'',
@@ -88,6 +86,8 @@ if ( current_user_can( 'edit_posts' ) ) {
 }
 
 $submenu[ 'edit-comments.php' ][0] = array( __('All Comments'), 'edit_posts', 'edit-comments.php' );
+
+// $menu[25] = Pages
 
 $_wp_last_object_menu = 25; // The index of the last top-level menu in the object menu group
 
