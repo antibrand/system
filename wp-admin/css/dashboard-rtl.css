@@ -205,12 +205,13 @@
 }
 
 .welcome-panel .welcome-panel-column ul {
-  margin: 0.8em 0 1em 1em;
+  margin: 1em 0 1em 1em;
+  padding: 0 1em 0 0;
+  list-style: unset;
 }
 
 .welcome-panel .welcome-panel-column li {
   line-height: 16px;
-  list-style-type: none;
   padding: 0 0 8px;
 }
 
