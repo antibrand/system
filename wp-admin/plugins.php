@@ -9,11 +9,6 @@
 /** Administration Bootstrap */
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
-// TODO route this pages via a specific iframe handler instead of the do_action below
-if ( ! defined( 'IFRAME_REQUEST' ) && isset( $_GET['tab'] ) && ( 'plugin-information' == $_GET['tab'] ) ) {
-	define( 'IFRAME_REQUEST', true );
-}
-
 if ( ! current_user_can( 'activate_plugins' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to manage plugins for this site.' ) );
 }
@@ -41,7 +36,7 @@ $_SERVER['REQUEST_URI'] = remove_query_arg(
 );
 
 wp_enqueue_script( 'updates' );
-wp_enqueue_script( 'plugin-install' );
+// wp_enqueue_script( 'plugin-install' );
 
 if ( $action ) {
 
