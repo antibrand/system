@@ -209,7 +209,7 @@ $submenu['plugins.php'][5]  = array( __('Manage Plugins'), 'activate_plugins', '
 
 	if ( ! is_multisite() ) {
 		/* translators: add new plugin */
-		$submenu['plugins.php'][10] = array( _x('Add New', 'plugin'), 'install_plugins', 'plugin-install.php' );
+		$submenu['plugins.php'][10] = array( _x('From WordPress', 'plugin'), 'install_plugins', 'plugin-install.php' );
 		$submenu['plugins.php'][15] = array( _x('Editor', 'plugin editor'), 'edit_plugins', 'plugin-editor.php' );
 	}
 
