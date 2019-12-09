@@ -8,6 +8,10 @@ body.js .theme-browser.search-loading {
   display: none;
 }
 
+.theme-browser {
+  margin-top: 2rem;
+}
+
 .theme-browser .themes {
   clear: both;
 }
@@ -58,9 +62,9 @@ body.js .theme-browser.search-loading {
   width: 30.6%;
   border: 1px solid #ddd;
   -webkit-box-shadow: 0 1px 1px -1px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 1px 1px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 1px -1px rgba(0, 0, 0, 0.1);
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .ie8 .theme-browser .theme {
@@ -84,7 +88,7 @@ body.js .theme-browser.search-loading {
   margin: 0;
   padding: 15px;
   -webkit-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -186,7 +190,7 @@ body.js .theme-browser.search-loading {
 .theme-browser .theme:focus {
   border-color: #5b9dd9;
   -webkit-box-shadow: 0 0 2px rgba(30, 140, 190, 0.8);
-          box-shadow: 0 0 2px rgba(30, 140, 190, 0.8);
+  box-shadow: 0 0 2px rgba(30, 140, 190, 0.8);
 }
 
 .theme-browser .theme:focus .more-details {
@@ -213,7 +217,7 @@ body.js .theme-browser.search-loading {
   padding-right: 110px;
   font-weight: 300;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5);
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 .theme-browser .customize-control .theme.active .theme-name {
@@ -243,11 +247,16 @@ body.js .theme-browser.search-loading {
   right: 0;
   padding: 10px 15px;
   -webkit-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .theme-browser .theme.active .theme-actions .button-primary {
   margin-right: 0;
+  color: #eee;
+}
+
+.theme-browser .theme.active .theme-actions .button-primary:hover, .theme-browser .theme.active .theme-actions .button-primary:focus {
+  color: #444;
 }
 
 .theme-browser .theme .theme-author {
@@ -276,7 +285,7 @@ body.js .theme-browser.search-loading {
 .theme-browser .theme.add-new-theme {
   border: none;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 .theme-browser .theme.add-new-theme a {
@@ -301,7 +310,7 @@ body.js .theme-browser.search-loading {
   border: 5px dashed #d5d2ca;
   border: 5px dashed rgba(0, 0, 0, 0.1);
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .theme-browser .theme.add-new-theme span:after {
@@ -354,7 +363,7 @@ body.js .theme-browser.search-loading {
   background: none;
   text-align: center;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   font-weight: 400;
   position: relative;
   top: 0;
@@ -455,7 +464,7 @@ body.js .theme-browser.search-loading {
 .theme-overlay .theme-header .right:focus,
 .theme-overlay .theme-header .left:focus {
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   outline: none;
 }
 
@@ -492,11 +501,11 @@ body.js .theme-browser.search-loading {
   bottom: 3%;
   background: #fff;
   -webkit-box-shadow: 0 1px 20px 5px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 1px 20px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 20px 5px rgba(0, 0, 0, 0.1);
   z-index: 10000;
   /* Over WP Pointers. */
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -524,7 +533,7 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
   background: #f3f3f3;
   z-index: 30;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   border-top: 1px solid #eee;
 }
 
@@ -549,7 +558,7 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
   text-decoration: none;
   border-color: transparent;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   background: transparent;
 }
 
@@ -594,11 +603,11 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 .theme-overlay .screenshot {
   border: 1px solid #fff;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   overflow: hidden;
   position: relative;
   -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
 }
 
 .theme-overlay .screenshot:after {
@@ -1029,38 +1038,54 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
   display: inline;
 }
 
-.upload-theme {
+.upload-theme-wrap .upload-theme {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin: 0;
-  padding: 50px 0;
+  padding: 3em 0;
   width: 100%;
   overflow: hidden;
   position: relative;
   top: 10px;
 }
 
-.show-upload-view .upload-theme {
-  display: block;
+.upload-theme-wrap .upload-theme.upload-theme-open {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.upload-theme .wp-upload-form {
-  background: #fafafa;
-  border: 1px solid #e5e5e5;
-  padding: 30px;
-  margin: 30px auto;
-  max-width: 380px;
+.upload-theme-wrap .upload-theme .wp-upload-form {
+  border: 1px solid #ccc;
+  margin-top: 2em;
+  padding: 2em;
+  max-width: 480px;
 }
 
-.upload-theme .install-help {
-  color: #555d66;
-  /* #f1f1f1 background */
-  font-size: 18px;
+.upload-theme-wrap .upload-theme .install-help {
+  font-size: 1.0625rem;
   font-style: normal;
+  font-weight: bold;
   margin: 0;
   padding: 0;
   text-align: center;
+}
+
+.no-js .upload-theme-wrap .upload-theme {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 p.no-themes,
@@ -1081,18 +1106,6 @@ p.no-themes-local {
 
 .theme-install-php .add-new-theme {
   display: none !important;
-}
-
-@media only screen and (max-width: 1120px) {
-  .upload-theme .wp-upload-form {
-    margin: 20px 0;
-    max-width: 100%;
-  }
-  .upload-theme .install-help {
-    font-size: 15px;
-    padding: 20px 0 0;
-    text-align: left;
-  }
 }
 
 .theme-details .theme-rating {
@@ -1164,14 +1177,14 @@ div#custom-background-image img {
   background: #eee;
   border-color: #999;
   -webkit-box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.5);
-          box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
 .background-position-control input[type="radio"]:focus ~ .button {
   border-color: #5b9dd9;
   -webkit-box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.5), 0 0 3px rgba(0, 115, 170, 0.8);
-          box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.5), 0 0 3px rgba(0, 115, 170, 0.8);
+  box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.5), 0 0 3px rgba(0, 115, 170, 0.8);
   color: #23282d;
 }
 
@@ -1211,7 +1224,7 @@ div#custom-background-image img {
 .background-position-control .button-group .button {
   border-radius: 0;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   /* Following properties are overridden by buttons responsive styles (see: wp-includes/css/buttons.css). */
   height: 40px !important;
   line-height: 37px !important;
@@ -1228,7 +1241,7 @@ div#custom-background-image img {
 
 .background-position-control .button-group:last-child .button {
   -webkit-box-shadow: 0 1px 0 #ccc;
-          box-shadow: 0 1px 0 #ccc;
+  box-shadow: 0 1px 0 #ccc;
 }
 
 .background-position-control .button-group > label {
@@ -1303,7 +1316,7 @@ body.full-overlay-active {
 
 .wp-full-overlay-sidebar {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   position: fixed;
   min-width: 300px;
   max-width: 600px;
@@ -1385,7 +1398,7 @@ body.full-overlay-active {
   margin: 0;
   border-top: none;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 .wp-full-overlay-sidebar .wp-full-overlay-header a.back {
@@ -1397,7 +1410,7 @@ body.full-overlay-active {
   border-bottom: none;
   border-top: none;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 .wp-full-overlay-sidebar .wp-full-overlay-sidebar-content {
@@ -1443,7 +1456,7 @@ body.full-overlay-active {
   color: #000;
   outline: none;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 .theme-install-overlay .close-full-overlay:before {
@@ -1510,7 +1523,7 @@ body.full-overlay-active {
   background-color: transparent !important;
   border: none !important;
   -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   border-radius: 0 !important;
 }
 
@@ -1538,7 +1551,7 @@ body.full-overlay-active {
 .wp-full-overlay .collapse-sidebar:hover .collapse-sidebar-arrow,
 .wp-full-overlay .collapse-sidebar:focus .collapse-sidebar-arrow {
   -webkit-box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
-          box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
+  box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
 }
 
 .wp-full-overlay .collapse-sidebar-label {
@@ -1585,7 +1598,7 @@ body.full-overlay-active {
   -webkit-transition-property: left, right, top, bottom, width, margin;
   transition-property: left, right, top, bottom, width, margin;
   -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 /* Device/preview size toggles */
@@ -1618,7 +1631,7 @@ body.full-overlay-active {
   position: relative;
   background: #eee;
   -webkit-box-shadow: -20px 0 10px -5px #eee;
-          box-shadow: -20px 0 10px -5px #eee;
+  box-shadow: -20px 0 10px -5px #eee;
 }
 
 .wp-full-overlay-footer .devices button {
@@ -1629,7 +1642,7 @@ body.full-overlay-active {
   padding: 0 3px;
   margin: 0 0 0 -4px;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   border-top: 1px solid transparent;
   border-bottom: 4px solid transparent;
   -webkit-transition: .15s color ease-in-out, .15s background-color ease-in-out, .15s border-color ease-in-out;
@@ -1638,7 +1651,7 @@ body.full-overlay-active {
 
 .wp-full-overlay-footer .devices button:focus {
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   outline: none;
 }
 

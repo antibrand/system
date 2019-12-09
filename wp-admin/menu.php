@@ -309,9 +309,15 @@ $menu[60] = [
 ];
 
 $submenu['themes.php'][5] = [
-	__( 'Themes' ),
+	__( 'Manage Themes' ),
 	$appearance_cap,
 	'themes.php'
+];
+
+$submenu['themes.php'][6] = [
+	__( 'WordPress Themes' ),
+	$appearance_cap,
+	'theme-install.php'
 ];
 
 $customize_url = add_query_arg(
@@ -325,7 +331,7 @@ $customize_url = add_query_arg(
 	'customize.php'
 );
 
-$submenu['themes.php'][6] = [
+$submenu['themes.php'][7] = [
 	__( 'Customize' ),
 	'customize',
 	esc_url( $customize_url ),
@@ -416,7 +422,7 @@ if ( ! is_multisite() && current_user_can( 'update_plugins' ) ) {
 	$count = "<span class='update-plugins count-{$update_data['counts']['plugins']}'><span class='plugin-count'>" . number_format_i18n($update_data['counts']['plugins']) . "</span></span>";
 }
 
-$menu[65] = array(
+$menu[65] = [
 	sprintf(
 		'%1s %2s',
 		__( 'Plugins' ),
@@ -428,14 +434,18 @@ $menu[65] = array(
 	'menu-top menu-icon-plugins',
 	'menu-plugins',
 	'dashicons-admin-plugins'
-);
+];
 
-$submenu['plugins.php'][5]  = array( __('Manage Plugins'), 'activate_plugins', 'plugins.php' );
+$submenu['plugins.php'][5] = [
+	__( 'Manage Plugins' ),
+	'activate_plugins',
+	'plugins.php'
+];
 
 	if ( ! is_multisite() ) {
 		/* translators: add new plugin */
 		$submenu['plugins.php'][10] = [
-			_x( 'From WordPress', 'plugin' ),
+			_x( 'WordPress Plugins', 'plugin' ),
 			'install_plugins',
 			'plugin-install.php'
 		];

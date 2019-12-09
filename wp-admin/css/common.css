@@ -983,7 +983,6 @@ th.action-links {
   min-width: 4em;
 }
 
-.title-count,
 .filter-count .count {
   display: inline-block;
   position: relative;
@@ -994,14 +993,6 @@ th.action-links {
   color: #fff;
   font-size: 14px;
   font-weight: 600;
-}
-
-/* not a part of filter bar, but derived from it, so here for now */
-.title-count {
-  display: inline;
-  top: -3px;
-  margin-left: 5px;
-  margin-right: 20px;
 }
 
 .filter-items {

@@ -535,11 +535,8 @@ jQuery(document).ready( function($) {
 	});
 
 });
-
 </script>
-<h1 class="wp-heading-inline"><?php
-echo esc_html( $title );
-?></h1>
+<h1 class="wp-heading-inline"><?php echo esc_html( $title ); ?></h1>
 <?php
 if ( ( ! is_multisite() || is_network_admin() ) && current_user_can( 'upload_plugins' ) ) {
 	printf(
