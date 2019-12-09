@@ -27,7 +27,7 @@ function create_initial_post_types() {
 		'_edit_link' => 'post.php?post=%d', /* internal use only. don't use this when registering your own post type. */
 		'capability_type' => 'post',
 		'map_meta_cap' => true,
-		'menu_position' => 20,
+		'menu_position' => 10,
 		'hierarchical' => false,
 		'rewrite' => false,
 		'query_var' => false,
@@ -48,7 +48,7 @@ function create_initial_post_types() {
 		'_edit_link' => 'post.php?post=%d', /* internal use only. don't use this when registering your own post type. */
 		'capability_type' => 'page',
 		'map_meta_cap' => true,
-		'menu_position' => 25,
+		'menu_position' => 20,
 		'hierarchical' => true,
 		'rewrite' => false,
 		'query_var' => false,
