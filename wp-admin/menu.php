@@ -4,9 +4,7 @@
  *
  * @package WMS
  * @subpackage Administration
- */
-
-/**
+ *
  * Constructs the admin menu.
  *
  * The elements in the array are :
@@ -20,12 +18,40 @@
  * @global array $menu
  */
 
-$menu[2] = array( __('Dashboard'), 'read', 'index.php', '', 'menu-top menu-top-first menu-icon-dashboard', 'menu-dashboard', 'dashicons-dashboard' );
+/**
+ * Dashboard & admin index page
+ *
+ * Items vary if network activated (multisite).
+ */
+$menu[2] = [
+	__( 'Dashboard' ),
+	'read',
+	'index.php',
+	'',
+	'menu-top menu-top-first menu-icon-dashboard',
+	'menu-dashboard',
+	'dashicons-dashboard'
+];
 
-$submenu[ 'index.php' ][0] = array( __('Home'), 'read', 'index.php' );
+$submenu['index.php'][0] = [
+	__( 'Home' ),
+	'read',
+	'index.php'
+];
+
+$submenu['index.php'][1] = [
+	__( 'Visit Site' ),
+	'read',
+	home_url( '/' )
+];
 
 if ( is_multisite() ) {
-	$submenu[ 'index.php' ][5] = array( __('My Sites'), 'read', 'my-sites.php' );
+
+	$submenu['index.php'][5] = [
+		__( 'My Sites' ),
+		'read',
+		'my-sites.php'
+	];
 }
 
 if ( ! is_multisite() || current_user_can( 'update_core' ) ) {
@@ -33,6 +59,7 @@ if ( ! is_multisite() || current_user_can( 'update_core' ) ) {
 }
 
 if ( ! is_multisite() ) {
+
 	if ( current_user_can( 'update_core' ) ) {
 		$cap = 'update_core';
 	} elseif ( current_user_can( 'update_plugins' ) ) {
@@ -42,11 +69,28 @@ if ( ! is_multisite() ) {
 	} else {
 		$cap = 'update_languages';
 	}
-	$submenu[ 'index.php' ][10] = array( sprintf( __('Updates %s'), "<span class='update-plugins count-{$update_data['counts']['total']}'><span class='update-count'>" . number_format_i18n($update_data['counts']['total']) . "</span></span>" ), $cap, 'update-core.php');
+
+	$submenu['index.php'][10] = array(
+		sprintf(
+			'%1s %2s',
+			__( 'Updates' ),
+			"<span class='update-plugins count-{$update_data['counts']['total']}'><span class='update-count'>" . number_format_i18n( $update_data['counts']['total'] ) . "</span></span>"
+		),
+		$cap,
+		'update-core.php'
+	);
+
 	unset( $cap );
 }
 
-$menu[4] = array( '', 'read', 'separator1', '', 'wp-menu-separator' );
+// Separator before content management items.
+$menu[4] = [
+	'',
+	'read',
+	'separator1',
+	'',
+	'wp-menu-separator'
+];
 
 // $menu[5] = Posts
 
@@ -62,12 +106,6 @@ $menu[5] = array( __('Media'), 'upload_files', 'upload.php', '', 'menu-top menu-
 		$submenu['upload.php'][$i++] = array( esc_attr( $tax->labels->menu_name ), $tax->cap->manage_terms, 'edit-tags.php?taxonomy=' . $tax->name . '&amp;post_type=attachment' );
 	}
 	unset( $tax, $i );
-
-$menu[15] = array( __('Links'), 'manage_links', 'link-manager.php', '', 'menu-top menu-icon-links', 'menu-links', 'dashicons-admin-links' );
-	$submenu['link-manager.php'][5] = array( _x('All Links', 'admin menu'), 'manage_links', 'link-manager.php' );
-	/* translators: add new links */
-	$submenu['link-manager.php'][10] = array( _x('Add New', 'link'), 'manage_links', 'link-add.php' );
-	$submenu['link-manager.php'][15] = array( __('Link Categories'), 'manage_categories', 'edit-tags.php?taxonomy=link_category' );
 
 // Avoid the comment count query for users who cannot edit_posts.
 if ( current_user_can( 'edit_posts' ) ) {
@@ -283,7 +321,6 @@ $compat = array(
 	'edit' => 'posts',
 	'post' => 'posts',
 	'upload' => 'media',
-	'link-manager' => 'links',
 	'edit-pages' => 'pages',
 	'page' => 'pages',
 	'edit-comments' => 'comments',

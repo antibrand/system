@@ -603,8 +603,6 @@ function upgrade_all() {
 	if ( $wp_current_db_version < 37965 )
 		upgrade_460();
 
-	maybe_disable_link_manager();
-
 	maybe_disable_automattic_widgets();
 
 	update_option( 'db_version', $wp_db_version );
@@ -1488,9 +1486,6 @@ function upgrade_340() {
  */
 function upgrade_350() {
 	global $wp_current_db_version, $wpdb;
-
-	if ( $wp_current_db_version < 22006 && $wpdb->get_var( "SELECT link_id FROM $wpdb->links LIMIT 1" ) )
-		update_option( 'link_manager_enabled', 1 ); // Previously set to 0 by populate_options()
 
 	if ( $wp_current_db_version < 21811 && wp_should_upgrade_global_tables() ) {
 		$meta_keys = array();
@@ -2804,21 +2799,6 @@ function maybe_disable_automattic_widgets() {
 			break;
 		}
 	}
-}
-
-/**
- * Disables the Link Manager on upgrade if, at the time of upgrade, no links exist in the DB.
- *
- * @since 3.5.0
- *
- * @global int  $wp_current_db_version
- * @global wpdb $wpdb database abstraction object.
- */
-function maybe_disable_link_manager() {
-	global $wp_current_db_version, $wpdb;
-
-	if ( $wp_current_db_version >= 22006 && get_option( 'link_manager_enabled' ) && ! $wpdb->get_var( "SELECT link_id FROM $wpdb->links LIMIT 1" ) )
-		update_option( 'link_manager_enabled', 0 );
 }
 
 /**
