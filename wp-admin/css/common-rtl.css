@@ -3712,11 +3712,12 @@ img {
     padding: 0;
   }
   /* Hidden Elements */
-  #screen-meta,
-  #screen-meta-links,
   #collapse-menu,
   .post-format-select {
     display: none !important;
+  }
+  #screen-meta-links {
+    min-height: 36px;
   }
   .wrap h1.wp-heading-inline {
     margin-bottom: 0.5em;
