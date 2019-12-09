@@ -193,7 +193,7 @@ if ( ! is_multisite() ) {
  */
 function _add_themes_utility_last() {
 	// Must use API on the admin_menu hook, direct modification is only possible on/before the _admin_menu hook
-	add_submenu_page('themes.php', _x('Editor', 'theme editor'), _x('Editor', 'theme editor'), 'edit_themes', 'theme-editor.php');
+	add_submenu_page('themes.php', _x('Theme Editor', 'theme editor'), _x('Theme Editor', 'theme editor'), 'edit_themes', 'theme-editor.php');
 }
 
 $count = '';
@@ -210,7 +210,7 @@ $submenu['plugins.php'][5]  = array( __('Manage Plugins'), 'activate_plugins', '
 	if ( ! is_multisite() ) {
 		/* translators: add new plugin */
 		$submenu['plugins.php'][10] = array( _x('From WordPress', 'plugin'), 'install_plugins', 'plugin-install.php' );
-		$submenu['plugins.php'][15] = array( _x('Editor', 'plugin editor'), 'edit_plugins', 'plugin-editor.php' );
+		$submenu['plugins.php'][15] = array( _x('Plugin Editor', 'plugin editor'), 'edit_plugins', 'plugin-editor.php' );
 	}
 
 unset( $update_data );
