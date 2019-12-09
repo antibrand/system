@@ -1,31 +1,45 @@
 .upload-plugin-wrap {
 
 	.upload-plugin {
-		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		   -moz-box-sizing: border-box;
+		        box-sizing: border-box;
 		display: none;
 		margin: 0;
-		padding: 50px 0;
+		padding: 3em 0;
 		width: 100%;
 		overflow: hidden;
 		position: relative;
 		top: 10px;
 
 		&.upload-plugin-open {
-			display: block;
+			display: -webkit-box;
+			display: -moz-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+			   -moz-box-orient: vertical;
+			   -moz-box-direction: normal;
+			    -ms-flex-direction: column;
+			        flex-direction: column;
+			-webkit-box-align: center;
+			   -moz-box-align: center;
+			    -ms-flex-align: center;
+			        align-items: center;
 		}
 
 		.wp-upload-form {
-			background: #fafafa;
-			border: 1px solid #e5e5e5;
-			padding: 30px;
-			margin: 30px auto;
-			max-width: 380px;
+			border: 1px solid #ccc;
+			margin-top: 2em;
+			padding: 2em;
+			max-width: 480px;
 		}
 
 		.install-help {
-			color: #555d66; /* #f1f1f1 background */
-			font-size: 18px;
+			font-size: 1.0625rem;
 			font-style: normal;
+			font-weight: bold;
 			margin: 0;
 			padding: 0;
 			text-align: center;
