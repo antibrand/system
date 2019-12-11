@@ -83,13 +83,13 @@ define( 'APP_NAME', 'system' );
 define( 'APP_LOGIN', 'login' );
 
 // Allow automatic database repair.
-define( 'WP_ALLOW_REPAIR', false );
+// define( 'WP_ALLOW_REPAIR', false );
 
 // Don't make database upgrades on global tables.
 // define( 'DO_NOT_UPGRADE_GLOBAL_TABLES', true );
 
 // Disable WordPress cron in favor of server cron.
-define( 'DISABLE_WP_CRON', true );
+// define( 'DISABLE_WP_CRON', true );
 
 /**
  * Disable automatic updates.
