@@ -183,8 +183,6 @@ function get_search_form( $echo = true ) {
 	 *
 	 * @since 2.7.0 as 'get_search_form' action.
 	 * @since 3.6.0
-	 *
-	 * @link https://core.trac.wordpress.org/ticket/19321
 	 */
 	do_action( 'pre_get_search_form' );
 
@@ -618,8 +616,6 @@ function wp_register( $before = '<li>', $after = '</li>', $echo = true ) {
  * but one purpose might have been to allow for theme switching.
  *
  * @since 1.5.0
- *
- * @link https://core.trac.wordpress.org/ticket/1458 Explanation of 'wp_meta' action.
  */
 function wp_meta() {
 	/**
@@ -3135,13 +3131,12 @@ function wp_default_editor() {
  * Renders an editor.
  *
  * Using this function is the proper way to output all needed components for both TinyMCE and Quicktags.
- * _WP_Editors should not be used directly. See https://core.trac.wordpress.org/ticket/17144.
+ * _WP_Editors should not be used directly.
  *
  * NOTE: Once initialized the TinyMCE editor cannot be safely moved in the DOM. For that reason
  * running wp_editor() inside of a meta box is not a good idea unless only Quicktags is used.
  * On the post edit screen several actions can be used to include additional editors
  * containing TinyMCE: 'edit_page_form', 'edit_form_advanced' and 'dbx_post_sidebar'.
- * See https://core.trac.wordpress.org/ticket/19173 for more information.
  *
  * @see _WP_Editors::editor()
  * @since 3.3.0

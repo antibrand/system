@@ -204,9 +204,13 @@ class Plural_Forms {
 				// Default - number or invalid
 				default:
 					if ( $next >= '0' && $next <= '9' ) {
-						$span = strspn( $str, self::NUM_CHARS, $pos );
+						$span     = strspn( $str, self::NUM_CHARS, $pos );
 						$output[] = array( 'value', intval( substr( $str, $pos, $span ) ) );
+<<<<<<< HEAD
 						$pos += $span;
+=======
+						$pos     += $span;
+>>>>>>> fe5f0173d8dc1c8342b5c03e532a0621a97b2f1f
 						break;
 					}
 

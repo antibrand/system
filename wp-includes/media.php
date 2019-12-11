@@ -3361,8 +3361,6 @@ function wp_enqueue_media( $args = array() ) {
 	 * @since 4.7.4
 	 * @since 4.8.0 The filter's default value is `true` rather than `null`.
 	 *
-	 * @link https://core.trac.wordpress.org/ticket/31071
-	 *
 	 * @param bool|null Whether to show the button, or `null` to decide based
 	 *                  on whether any audio files exist in the media library.
 	 */
@@ -3389,8 +3387,6 @@ function wp_enqueue_media( $args = array() ) {
 	 * @since 4.7.4
 	 * @since 4.8.0 The filter's default value is `true` rather than `null`.
 	 *
-	 * @link https://core.trac.wordpress.org/ticket/31071
-	 *
 	 * @param bool|null Whether to show the button, or `null` to decide based
 	 *                  on whether any video files exist in the media library.
 	 */
@@ -3414,8 +3410,6 @@ function wp_enqueue_media( $args = array() ) {
 	 * override this behavior.
 	 *
 	 * @since 4.7.4
-	 *
-	 * @link https://core.trac.wordpress.org/ticket/31071
 	 *
 	 * @param array|null An array of objects with `month` and `year`
 	 *                   properties, or `null` (or any other non-array value)

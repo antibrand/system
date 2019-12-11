@@ -620,8 +620,7 @@ function post_excerpt_meta_box($post) {
 <p><?php
 	printf(
 		/* translators: %s: Codex URL */
-		__( 'Excerpts are optional hand-crafted summaries of your content that can be used in your theme. <a href="%s">Learn more about manual excerpts</a>.' ),
-		__( 'https://codex.wordpress.org/Excerpt' )
+		__( 'Excerpts are optional hand-crafted summaries of your content that can be used in your theme.' )
 	);
 ?></p>
 <?php
@@ -680,8 +679,7 @@ meta_form( $post ); ?>
 <p><?php
 	printf(
 		/* translators: %s: Codex URL */
-		__( 'Custom fields can be used to add extra metadata to a post that you can <a href="%s">use in your theme</a>.' ),
-		__( 'https://codex.wordpress.org/Using_Custom_Fields' )
+		__( 'Custom fields can be used to add extra metadata to a post that you can use in your theme.' )
 	);
 ?></p>
 <?php
@@ -702,8 +700,8 @@ function post_comment_status_meta_box($post) {
 	<label for="ping_status" class="selectit"><input name="ping_status" type="checkbox" id="ping_status" value="open" <?php checked($post->ping_status, 'open'); ?> /> <?php
 		printf(
 			/* translators: %s: Codex URL */
-			__( 'Allow <a href="%s">trackbacks and pingbacks</a> on this page' ),
-			__( 'https://codex.wordpress.org/Introduction_to_Blogging#Managing_Comments' ) );
+			__( 'Allow trackbacks and pingbacks on this page' )
+		);
 		?></label>
 	<?php
 	/**

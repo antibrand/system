@@ -651,10 +651,10 @@ th.asc a:focus span.sorting-indicator {
 
 .tablenav .tablenav-pages {
 	float: left;
-	height: 28px;
-	margin-top: 3px;
 	cursor: default;
-	color: #555;
+	font-size: 0.875rem;
+	font-weight: bold;
+	line-height: 1.5;
 }
 
 .tablenav .no-pages,
@@ -1994,15 +1994,6 @@ div.action-links,
 	#wpbody-content .updates-table .plugin-title {
 		width: auto;
 		white-space: normal;
-	}
-
-	/* Links */
-	.link-manager-php #posts-filter {
-		margin-top: 25px;
-	}
-
-	.link-manager-php .tablenav.bottom {
-		overflow: hidden;
 	}
 
 	/* List tables that don't toggle rows */

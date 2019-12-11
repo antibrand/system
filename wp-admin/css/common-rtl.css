@@ -9,7 +9,6 @@
 
 #wpcontent {
   height: 100%;
-  padding-right: 20px;
 }
 
 #wpcontent,
@@ -565,16 +564,11 @@ code {
 }
 
 .wrap {
-  margin: 10px 2px 0 20px;
+  padding: 0 2rem;
 }
 
-.wrap > h2:first-child,
-.wrap [class$="icon32"] + h2,
-.postbox .inside h2,
 .wrap h1 {
-  margin: 0;
-  padding: 9px 0 4px 0;
-  line-height: 29px;
+  margin: 1em 0 0;
 }
 
 .wrap h1.wp-heading-inline {
@@ -989,7 +983,6 @@ th.action-links {
   min-width: 4em;
 }
 
-.title-count,
 .filter-count .count {
   display: inline-block;
   position: relative;
@@ -1000,14 +993,6 @@ th.action-links {
   color: #fff;
   font-size: 14px;
   font-weight: 600;
-}
-
-/* not a part of filter bar, but derived from it, so here for now */
-.title-count {
-  display: inline;
-  top: -3px;
-  margin-right: 5px;
-  margin-left: 20px;
 }
 
 .filter-items {
@@ -1636,7 +1621,7 @@ form.upgrade .hint {
 }
 
 #screen-meta-links {
-  margin: 0 0 0 20px;
+  margin: 0 0 0 2rem;
 }
 
 /* screen options and help tabs revert */
@@ -1908,7 +1893,6 @@ html.wp-toolbar {
   color: #555;
 }
 
-.widefat th,
 .widefat thead td,
 .widefat tfoot td {
   font-weight: 400;
@@ -3713,14 +3697,9 @@ img {
   #wpcontent {
     position: relative;
     margin-right: 0;
-    padding-right: 10px;
   }
   #wpbody-content {
     padding-bottom: 100px;
-  }
-  .wrap {
-    margin-left: 12px;
-    margin-right: 0;
   }
   /* categories */
   #col-left,
@@ -3733,11 +3712,12 @@ img {
     padding: 0;
   }
   /* Hidden Elements */
-  #screen-meta,
-  #screen-meta-links,
   #collapse-menu,
   .post-format-select {
     display: none !important;
+  }
+  #screen-meta-links {
+    min-height: 36px;
   }
   .wrap h1.wp-heading-inline {
     margin-bottom: 0.5em;

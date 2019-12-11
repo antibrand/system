@@ -979,6 +979,7 @@ function wp_default_styles( &$styles ) {
 	$styles->add( 'revisions',           "/wp-admin/css/revisions$suffix.css" );
 	$styles->add( 'media',               "/wp-admin/css/media$suffix.css" );
 	$styles->add( 'themes',              "/wp-admin/css/themes$suffix.css" );
+	$styles->add( 'plugins',              "/wp-admin/css/plugins$suffix.css" );
 	$styles->add( 'about',               "/wp-admin/css/about$suffix.css" );
 	$styles->add( 'nav-menus',           "/wp-admin/css/nav-menus$suffix.css" );
 	$styles->add( 'widgets',             "/wp-admin/css/widgets$suffix.css", array( 'wp-pointer' ) );
@@ -986,7 +987,7 @@ function wp_default_styles( &$styles ) {
 	$styles->add( 'l10n',                "/wp-admin/css/l10n$suffix.css" );
 	$styles->add( 'code-editor',         "/wp-admin/css/code-editor$suffix.css", array( 'wp-codemirror' ) );
 
-	$styles->add( 'wp-admin', false, array( 'dashicons', 'common', 'forms', 'admin-menu', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'about', 'nav-menus', 'widgets', 'site-icon', 'l10n' ) );
+	$styles->add( 'wp-admin', false, array( 'dashicons', 'common', 'forms', 'admin-menu', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'about', 'nav-menus', 'widgets', 'site-icon', 'l10n' ) );
 
 	$styles->add( 'login',               "/wp-admin/css/login$suffix.css", array( 'dashicons', 'buttons', 'forms', 'l10n' ) );
 	$styles->add( 'install',             "/wp-admin/css/install$suffix.css", array( 'buttons' ) );
@@ -1030,7 +1031,7 @@ function wp_default_styles( &$styles ) {
 	// RTL CSS
 	$rtl_styles = array(
 		// wp-admin
-		'common', 'forms', 'admin-menu', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'about', 'nav-menus',
+		'common', 'forms', 'admin-menu', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'about', 'nav-menus',
 		'widgets', 'site-icon', 'l10n', 'install', 'wp-color-picker', 'customize-controls', 'customize-widgets', 'customize-nav-menus', 'customize-preview',
 		'ie', 'login',
 		// wp-includes

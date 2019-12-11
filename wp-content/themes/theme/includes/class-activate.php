@@ -46,8 +46,6 @@ class AB_Theme_Activate {
 	 * @since  1.0.0
 	 * @access public
 	 * @return void
-	 *
-	 * @link   https://developer.wordpress.org/reference/functions/set_theme_mod/
 	 */
     public function activate() {
 

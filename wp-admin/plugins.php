@@ -9,21 +9,34 @@
 /** Administration Bootstrap */
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
-if ( ! current_user_can('activate_plugins') )
+if ( ! current_user_can( 'activate_plugins' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to manage plugins for this site.' ) );
+}
 
-$wp_list_table = _get_list_table('WP_Plugins_List_Table');
-$pagenum = $wp_list_table->get_pagenum();
+$wp_list_table = _get_list_table( 'WP_Plugins_List_Table' );
+$pagenum       = $wp_list_table->get_pagenum();
 
 $action = $wp_list_table->current_action();
 
-$plugin = isset($_REQUEST['plugin']) ? wp_unslash( $_REQUEST['plugin'] ) : '';
-$s = isset($_REQUEST['s']) ? urlencode( wp_unslash( $_REQUEST['s'] ) ) : '';
+$plugin = isset( $_REQUEST['plugin'] ) ? wp_unslash( $_REQUEST['plugin'] ) : '';
+$s      = isset( $_REQUEST['s'] ) ? urlencode( wp_unslash( $_REQUEST['s'] ) ) : '';
 
 // Clean up request URI from temporary args for screen options/paging uri's to work as expected.
-$_SERVER['REQUEST_URI'] = remove_query_arg(array('error', 'deleted', 'activate', 'activate-multi', 'deactivate', 'deactivate-multi', '_error_nonce'), $_SERVER['REQUEST_URI']);
+$_SERVER['REQUEST_URI'] = remove_query_arg(
+	[
+		'error',
+		'deleted',
+		'activate',
+		'activate-multi',
+		'deactivate',
+		'deactivate-multi',
+		'_error_nonce'
+	],
+	$_SERVER['REQUEST_URI']
+);
 
 wp_enqueue_script( 'updates' );
+// wp_enqueue_script( 'plugin-install' );
 
 if ( $action ) {
 
@@ -438,7 +451,7 @@ get_current_screen()->set_screen_reader_content( array(
 	'heading_list'       => __( 'Plugins list' ),
 ) );
 
-$title = __('Plugins');
+$title       = __( 'Manage Plugins' );
 $parent_file = 'plugins.php';
 
 require_once(ABSPATH . 'wp-admin/admin-header.php');
@@ -513,16 +526,40 @@ if ( ! empty( $invalid ) ) {
 <?php endif; ?>
 
 <div class="wrap">
-<h1 class="wp-heading-inline"><?php
-echo esc_html( $title );
-?></h1>
+<script>
+// Toggle the plugin upload interface.
+jQuery(document).ready( function($) {
+	$( '#upload-plugin-toggle' ).click( function() {
+		$(this).text( $(this).text() == "<?php _e( 'Upload Plugin' ); ?>" ? "<?php _e( 'Close Upload' ); ?>" : "<?php _e( 'Upload Plugin' ); ?>" );
+		$( '#upload-plugin' ).toggleClass( 'upload-plugin-open' );
+	});
 
+});
+</script>
+<h1 class="wp-heading-inline"><?php echo esc_html( $title ); ?></h1>
 <?php
-if ( ( ! is_multisite() || is_network_admin() ) && current_user_can('install_plugins') ) { ?>
-	<a href="<?php echo self_admin_url( 'plugin-install.php' ); ?>" class="button page-title-action"><?php echo esc_html_x( 'Add New', 'plugin' ); ?></a>
-<?php
+if ( ( ! is_multisite() || is_network_admin() ) && current_user_can( 'upload_plugins' ) ) {
+	printf(
+		' <button id="upload-plugin-toggle" class="button upload-view-toggle page-title-action"><span class="upload">%s</span></button>',
+		__( 'Upload Plugin' )
+	);
 }
+?>
+<p class="description"><?php _e( 'Plugins extend the functionality of the website management system.' ); ?></p>
 
+<div class="upload-plugin-wrap">
+	<div id="upload-plugin" class="upload-plugin">
+		<p class="install-help"><?php _e('If you have a plugin in a .zip format, you may install it by uploading it here.'); ?></p>
+		<form method="post" enctype="multipart/form-data" class="wp-upload-form" action="<?php echo self_admin_url('update.php?action=upload-plugin'); ?>">
+			<?php wp_nonce_field( 'plugin-upload' ); ?>
+			<label class="screen-reader-text" for="pluginzip"><?php _e( 'Plugin zip file' ); ?></label>
+			<input type="file" id="pluginzip" name="pluginzip" />
+			<?php submit_button( __( 'Install Now' ), '', 'install-plugin-submit', false ); ?>
+		</form>
+	</div>
+</div>
+
+<?php
 if ( strlen( $s ) ) {
 	/* translators: %s: search keywords */
 	printf( '<span class="subtitle">' . __( 'Search results for &#8220;%s&#8221;' ) . '</span>', esc_html( urldecode( $s ) ) );

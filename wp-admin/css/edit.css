@@ -1060,6 +1060,11 @@ p.description,
 	color: #666;
 }
 
+h1 ~ p.description {
+	margin: 0.5em 0 0;
+	font-size: 1rem;
+}
+
 p.help,
 p.description,
 span.description,

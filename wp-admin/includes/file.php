@@ -307,7 +307,7 @@ function wp_print_file_editor_templates() {
 				</p>
 				<pre>{{ data.message }}</pre>
 			<# } else if ( 'file_not_writable' === data.code ) { #>
-				<p><?php _e( 'You need to make this file writable before you can save your changes. See <a href="https://codex.wordpress.org/Changing_File_Permissions">the Codex</a> for more information.' ); ?></p>
+				<p><?php _e( 'You need to make this file writable before you can save your changes.' ); ?></p>
 			<# } else { #>
 				<p>{{ data.message || data.code }}</p>
 
@@ -1515,7 +1515,7 @@ function get_filesystem_method( $args = array(), $context = '', $allow_relaxed_f
  *
  * All chosen/entered details are saved, excluding the password.
  *
- * Hostnames may be in the form of hostname:portnumber (eg: wordpress.org:2467)
+ * Hostnames may be in the form of hostname:portnumber (eg: example.com:2467)
  * to specify an alternate FTP/SSH port.
  *
  * Plugins may override this form by returning true|false via the {@see 'request_filesystem_credentials'} filter.
@@ -1703,7 +1703,7 @@ echo "<$heading_tag id='request-filesystem-credentials-title'>" . __( 'Connectio
 ?></p>
 <label for="hostname">
 	<span class="field-title"><?php _e( 'Hostname' ) ?></span>
-	<input name="hostname" type="text" id="hostname" aria-describedby="request-filesystem-credentials-desc" class="code" placeholder="<?php esc_attr_e( 'example: www.wordpress.org' ) ?>" value="<?php echo esc_attr($hostname); if ( !empty($port) ) echo ":$port"; ?>"<?php disabled( defined('FTP_HOST') ); ?> />
+	<input name="hostname" type="text" id="hostname" aria-describedby="request-filesystem-credentials-desc" class="code" placeholder="<?php esc_attr_e( 'example: www.example.com' ) ?>" value="<?php echo esc_attr($hostname); if ( !empty($port) ) echo ":$port"; ?>"<?php disabled( defined('FTP_HOST') ); ?> />
 </label>
 <div class="ftp-username">
 	<label for="username">

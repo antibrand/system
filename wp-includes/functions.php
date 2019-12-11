@@ -96,7 +96,6 @@ function date_i18n( $dateformatstring, $unixtimestamp = false, $gmt = false ) {
 
 	/*
 	 * Store original value for language with untypical grammars.
-	 * See https://core.trac.wordpress.org/ticket/9396
 	 */
 	$req_format = $dateformatstring;
 
@@ -440,7 +439,6 @@ function maybe_serialize( $data ) {
 		return serialize( $data );
 
 	// Double serialization is required for backward compatibility.
-	// See https://core.trac.wordpress.org/ticket/12930
 	// Also the world will end. See WP 3.6.1.
 	if ( is_serialized( $data, false ) )
 		return serialize( $data );
@@ -4700,8 +4698,6 @@ function wp_timezone_choice( $selected_zone, $locale = null ) {
  * @since 2.8.0
  * @access private
  *
- * @see https://core.trac.wordpress.org/ticket/8497
- *
  * @param string $str Header comment to clean up.
  * @return string
  */
@@ -4768,8 +4764,6 @@ function wp_scheduled_delete() {
  *
  * If the file data is not within that first 8kiB, then the author should correct
  * their plugin file and move the data headers to the top.
- *
- * @link https://codex.wordpress.org/File_Header
  *
  * @since 2.9.0
  *
@@ -5063,8 +5057,6 @@ function wp_allowed_protocols() {
  *
  * @since 3.4.0
  *
- * @see https://core.trac.wordpress.org/ticket/19589
- *
  * @param string $ignore_class Optional. A class to ignore all function calls within - useful
  *                             when you want to just give info about the callee. Default null.
  * @param int    $skip_frames  Optional. A number of stack frames to skip - useful for unwinding
@@ -5336,8 +5328,6 @@ function get_tag_regex( $tag ) {
  *
  * @since 3.6.0
  * @access private
- *
- * @see https://core.trac.wordpress.org/ticket/23688
  *
  * @param string $charset A charset name.
  * @return string The canonical form of the charset.

@@ -10,8 +10,6 @@
  * return no results. In these cases, a _doing_it_wrong() error notice is also thrown.
  * See WP_Date_Query::validate_date_values().
  *
- * @link https://codex.wordpress.org/Function_Reference/WP_Query Codex page.
- *
  * @since 3.7.0
  */
 class WP_Date_Query {

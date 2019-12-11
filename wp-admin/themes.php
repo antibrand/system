@@ -8,6 +8,7 @@
 
 /** Administration Bootstrap */
 require_once( dirname( __FILE__ ) . '/admin.php' );
+require( ABSPATH . 'wp-admin/includes/theme-install.php' );
 
 if ( ! current_user_can( 'switch_themes' ) && ! current_user_can( 'edit_theme_options' ) ) {
 	wp_die(
@@ -64,7 +65,7 @@ if ( current_user_can( 'switch_themes' ) && isset($_GET['action'] ) ) {
 	}
 }
 
-$title = __('Manage Themes');
+$title       = __( 'Manage Themes' );
 $parent_file = 'themes.php';
 
 // Help tab: Overview
@@ -147,17 +148,32 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 ?>
 
 <div class="wrap">
-	<h1 class="wp-heading-inline"><?php esc_html_e( 'Themes' ); ?>
-		<span class="title-count theme-count"><?php echo ! empty( $_GET['search'] ) ? __( '&hellip;' ) : count( $themes ); ?></span>
+<script>
+// Toggle the theme upload interface.
+jQuery(document).ready( function($) {
+	$( '#upload-theme-toggle' ).click( function() {
+		$(this).text( $(this).text() == "<?php _e( 'Upload Theme' ); ?>" ? "<?php _e( 'Close Upload' ); ?>" : "<?php _e( 'Upload Theme' ); ?>" );
+		$( '#upload-theme' ).toggleClass( 'upload-theme-open' );
+	});
+
+});
+</script>
+	<h1 class="wp-heading-inline"><?php echo esc_html( $title ); ?>
+		<span class="theme-count screen-reader-text"><?php echo ! empty( $_GET['search'] ) ? __( '&hellip;' ) : count( $themes ); ?></span>
 	</h1>
 
 	<?php if ( ! is_multisite() && current_user_can( 'install_themes' ) ) : ?>
-		<a href="<?php echo admin_url( 'theme-install.php' ); ?>" class="hide-if-no-js page-title-action"><?php echo esc_html_x( 'Add New', 'Add new theme' ); ?></a>
+		<button id="upload-theme-toggle" class="button page-title-action"><?php echo esc_html_x( 'Upload Theme', 'Upload new theme' ); ?></button>
 	<?php endif; ?>
 
 	<form class="search-form"></form>
 
-	<hr class="wp-header-end">
+	<div class="upload-theme-wrap">
+		<div id="upload-theme" class="upload-theme">
+			<?php install_themes_upload(); ?>
+		</div>
+	</div>
+
 <?php
 if ( ! validate_current_theme() || isset( $_GET['broken'] ) ) : ?>
 <div id="message1" class="updated notice is-dismissible"><p><?php _e('The active theme is broken. Reverting to the default theme.'); ?></p></div>
@@ -455,7 +471,9 @@ $can_install = current_user_can( 'install_themes' );
 					<span class="current-label"><?php _e( 'Current Theme' ); ?></span>
 				<# } #>
 				<h2 class="theme-name">{{{ data.name }}}<span class="theme-version"><?php printf( __( 'Version: %s' ), '{{ data.version }}' ); ?></span></h2>
-				<p class="theme-author"><?php printf( __( 'By %s' ), '{{{ data.authorAndUri }}}' ); ?></p>
+				<# if ( data.authorAndUri ) { #>
+				<p class="theme-author"><?php printf( __( '%s' ), '{{{ data.authorAndUri }}}' ); ?></p>
+				<# } #>
 
 				<# if ( data.hasUpdate ) { #>
 				<div class="notice notice-warning notice-alt notice-large">

@@ -251,25 +251,26 @@ function _wp_menu_output( $menu, $submenu, $submenu_as_parent = true ) {
 }
 
 ?>
-
 <div id="adminmenumain" role="navigation" aria-label="<?php esc_attr_e( 'Main menu' ); ?>">
-<a href="#wpbody-content" class="screen-reader-shortcut"><?php _e( 'Skip to main content' ); ?></a>
-<a href="#wp-toolbar" class="screen-reader-shortcut"><?php _e( 'Skip to toolbar' ); ?></a>
-<div id="adminmenuback"></div>
-<div id="adminmenuwrap">
-<ul id="adminmenu">
+	<a href="#wpbody-content" class="screen-reader-shortcut"><?php _e( 'Skip to main content' ); ?></a>
+	<a href="#wp-toolbar" class="screen-reader-shortcut"><?php _e( 'Skip to toolbar' ); ?></a>
+	<div id="adminmenuback"><?php do_action( 'admin_menu_back' ); ?></div>
+	<div id="adminmenuwrap">
+		<?php do_action( 'before_admin_menu' ); ?>
+		<ul id="adminmenu">
 
-<?php
+		<?php
 
-_wp_menu_output( $menu, $submenu );
-/**
- * Fires after the admin menu has been output.
- *
- * @since 2.5.0
- */
-do_action( 'adminmenu' );
+		_wp_menu_output( $menu, $submenu );
+		/**
+		 * Fires after the admin menu has been output.
+		 *
+		 * @since 2.5.0
+		 */
+		do_action( 'adminmenu' );
 
-?>
-</ul>
-</div>
+		?>
+		</ul>
+		<?php do_action( 'after_admin_menu' ); ?>
+	</div>
 </div>

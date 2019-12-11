@@ -76,11 +76,6 @@ if ( file_exists( ABSPATH . 'wp-config.php') ) {
 		'<code>wp-config.php</code>'
 	) . '</p>';
 	$die .= '<p>' . sprintf(
-		/* translators: %s: Codex URL */
-		__( "Need more help? <a href='%s'>We got it</a>." ),
-		__( 'https://codex.wordpress.org/Editing_wp-config.php' )
-	) . '</p>';
-	$die .= '<p>' . sprintf(
 		/* translators: %s: wp-config.php */
 		__( "You can create a %s file through a web interface, but this doesn't work for all server setups. The safest way is to manually create the file." ),
 		'<code>wp-config.php</code>'

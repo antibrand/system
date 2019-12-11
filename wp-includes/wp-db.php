@@ -43,8 +43,6 @@ define( 'ARRAY_N', 'ARRAY_N' );
  * file to your class. The wpdb class will still be included,
  * so you can extend it or simply use your own.
  *
- * @link https://codex.wordpress.org/Function_Reference/wpdb_Class
- *
  * @since 0.71
  */
 class wpdb {
@@ -554,7 +552,6 @@ class wpdb {
 	 * the actual setting up of the class properties and connection
 	 * to the database.
 	 *
-	 * @link https://core.trac.wordpress.org/ticket/3354
 	 * @since 2.0.8
 	 *
 	 * @global string $wp_version

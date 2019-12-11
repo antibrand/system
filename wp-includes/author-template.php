@@ -4,8 +4,6 @@
  *
  * These functions must be used within the Loop.
  *
- * @link https://codex.wordpress.org/Author_Templates
- *
  * @package WMS
  * @subpackage Template
  */
@@ -49,7 +47,6 @@ function get_the_author($deprecated = '') {
  *
  * @since 0.71
  * @see get_the_author()
- * @link https://codex.wordpress.org/Template_Tags/the_author
  *
  * @param string $deprecated Deprecated.
  * @param string $deprecated_echo Deprecated. Use get_the_author(). Echo the string or return it.
@@ -238,8 +235,6 @@ function get_the_author_link() {
  * If the author has a home page set, echo an HTML link, otherwise just echo the
  * author's name.
  *
- * @link https://codex.wordpress.org/Template_Tags/the_author_link
- *
  * @since 2.1.0
  */
 function the_author_link() {
@@ -263,8 +258,6 @@ function get_the_author_posts() {
 
 /**
  * Display the number of posts by the author of the current post.
- *
- * @link https://codex.wordpress.org/Template_Tags/the_author_posts
  * @since 0.71
  */
 function the_author_posts() {
@@ -365,8 +358,6 @@ function get_author_posts_url( $author_id, $author_nicename = '' ) {
 
 /**
  * List all the authors of the site, with several options available.
- *
- * @link https://codex.wordpress.org/Template_Tags/wp_list_authors
  *
  * @since 1.2.0
  *

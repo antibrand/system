@@ -1395,8 +1395,6 @@ function add_utility_page( $page_title, $menu_title, $capability, $menu_slug, $f
  * @since 4.0.0
  * @deprecated 4.6.0
  *
- * @link https://core.trac.wordpress.org/ticket/35852
- *
  * @global bool $is_safari
  * @global bool $is_chrome
  */

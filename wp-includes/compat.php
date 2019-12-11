@@ -370,7 +370,6 @@ if ( ! function_exists( 'json_last_error_msg' ) ) :
 	 *                     or false on failure.
 	 */
 	function json_last_error_msg() {
-		// See https://core.trac.wordpress.org/ticket/27799.
 		if ( ! function_exists( 'json_last_error' ) ) {
 			return false;
 		}

@@ -652,7 +652,9 @@ function customize_themes_print_templates() {
 						<span class="current-label"><?php _e( 'Current Theme' ); ?></span>
 					<# } #>
 					<h2 class="theme-name">{{{ data.name }}}<span class="theme-version"><?php printf( __( 'Version: %s' ), '{{ data.version }}' ); ?></span></h2>
-					<h3 class="theme-author"><?php printf( __( 'By %s' ), '{{{ data.authorAndUri }}}' ); ?></h3>
+					<# if ( data.authorAndUri ) { #>
+					<h3 class="theme-author"><?php printf( __( '%s' ), '{{{ data.authorAndUri }}}' ); ?></h3>
+					<# } #>
 
 					<# if ( data.stars && 0 != data.num_ratings ) { #>
 						<div class="theme-rating">

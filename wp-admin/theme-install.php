@@ -20,12 +20,8 @@ if ( is_multisite() && ! is_network_admin() ) {
 	exit();
 }
 
-$title = __( 'Add Themes' );
+$title       = __( 'WordPress Themes' );
 $parent_file = 'themes.php';
-
-if ( ! is_network_admin() ) {
-	$submenu_file = 'themes.php';
-}
 
 $installed_themes = search_theme_directories();
 
@@ -123,32 +119,7 @@ include(ABSPATH . 'wp-admin/admin-header.php');
 <div class="wrap">
 	<h1 class="wp-heading-inline"><?php echo esc_html( $title ); ?></h1>
 
-	<?php
-
-	/**
-	 * Filters the tabs shown on the Add Themes screen.
-	 *
-	 * This filter is for backward compatibility only, for the suppression of the upload tab.
-	 *
-	 * @since 2.8.0
-	 *
-	 * @param array $tabs The tabs shown on the Add Themes screen. Default is 'upload'.
-	 */
-	$tabs = apply_filters( 'install_themes_tabs', array( 'upload' => __( 'Upload Theme' ) ) );
-	if ( ! empty( $tabs['upload'] ) && current_user_can( 'upload_themes' ) ) {
-		echo ' <button type="button" class="upload-view-toggle page-title-action hide-if-no-js" aria-expanded="false">' . __( 'Upload Theme' ) . '</button>';
-	}
-	?>
-
 	<hr class="wp-header-end">
-
-	<div class="error hide-if-js">
-		<p><?php _e( 'The Theme Installer screen requires JavaScript.' ); ?></p>
-	</div>
-
-	<div class="upload-theme">
-	<?php install_themes_upload(); ?>
-	</div>
 
 	<h2 class="screen-reader-text hide-if-no-js"><?php _e( 'Filter themes list' ); ?></h2>
 

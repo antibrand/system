@@ -44,9 +44,7 @@ if ( 'category' == $taxonomy ) {
 	do_action( 'edit_tag_form_pre', $tag );
 }
 
-/**
- * Use with caution, see https://codex.wordpress.org/Function_Reference/wp_reset_vars
- */
+// Use with caution.
 wp_reset_vars( array( 'wp_http_referer' ) );
 
 $wp_http_referer = remove_query_arg( array( 'action', 'message', 'tag_ID' ), $wp_http_referer );

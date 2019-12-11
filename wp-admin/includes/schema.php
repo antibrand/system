@@ -506,9 +506,6 @@ function populate_options() {
 	// 3.1
 	'default_post_format' => 0,
 
-	// 3.5
-	'link_manager_enabled' => 0,
-
 	// 4.3.0
 	'finished_splitting_shared_terms' => 1,
 	'site_icon' => 0,
