@@ -50,6 +50,10 @@ body {
   border: solid 1px #ccc;
 }
 
+.setup-config-wrap fieldset:not(:first-of-type) {
+  margin-top: 1em;
+}
+
 .setup-config-wrap fieldset legend {
   padding: 0.5em;
   font-size: 1.1em;

@@ -46,10 +46,9 @@ TABLE OF CONTENTS:
 	display: inline-block;
 	text-decoration: none;
 	font-size: 13px;
-	line-height: 26px;
-	height: 28px;
+	line-height: 1.1;
 	margin: 0;
-	padding: 0 10px 1px;
+	padding: 0.75em 1em;
 	cursor: pointer;
 	-webkit-appearance: none;
 	white-space: nowrap;
@@ -67,25 +66,22 @@ TABLE OF CONTENTS:
 
 .app-core-ui .button.button-large,
 .app-core-ui .button-group.button-large .button {
-	height: 30px;
-    line-height: 28px;
-    padding: 0 12px 2px;
+	line-height: 1.1;
+	margin: 0;
 }
 
 .app-core-ui .button.button-small,
 .app-core-ui .button-group.button-small .button {
-	height: 24px;
-	line-height: 22px;
-	padding: 0 8px 1px;
+	line-height: 1.1;
+	margin: 0;
 	font-size: 11px;
 }
 
 .app-core-ui .button.button-hero,
 .app-core-ui .button-group.button-hero .button {
 	font-size: 14px;
-	height: 46px;
-	line-height: 44px;
-	padding: 0 36px;
+	line-height: 1.1;
+	margin: 0;
 }
 
 .app-core-ui .button:active,
