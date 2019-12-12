@@ -275,12 +275,6 @@ textarea {
   font-size: 12px;
 }
 
-@media only screen and (max-width: 799px) {
-  body {
-    margin-top: 115px;
-  }
-}
-
 @media screen and (max-width: 782px) {
   .form-table {
     margin-top: 0;
