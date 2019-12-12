@@ -13,10 +13,10 @@
  * Conditional menu fallback function
  *
  * Gets the included fallback if the current user can
- * manage options. Gets the menu default for all other
+ * customize. Gets the menu default for all other
  * users and visitors.
  */
-if ( current_user_can( 'manage_options' ) ) {
+if ( current_user_can( 'customize' ) ) {
 	$fallback_cb = 'AB_Theme\Includes\main_menu_fallback';
 } else {
 	$fallback_cb = 'wp_page_menu';
