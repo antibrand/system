@@ -429,9 +429,9 @@ function network_step2( $errors = false ) {
 				'<code>app-config.php</code>',
 				'<code>' . $location_of_wp_config . '</code>',
 				/*
-				 * translators: This string should only be translated if app-config-sample.php is localized.
+				 * translators: This string should only be translated if app-config.sample.php is localized.
 				 * You can check the localized release package or
-				 * https://i18n.svn.wordpress.org/<locale code>/branches/<wp version>/dist/app-config-sample.php
+				 * https://i18n.svn.wordpress.org/<locale code>/branches/<wp version>/dist/app-config.sample.php
 				 */
 				'<code>/* ' . __( 'That&#8217;s all, stop editing! Happy blogging.' ) . ' */</code>'
 			); ?></p>

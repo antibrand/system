@@ -43,16 +43,16 @@ require_once( ABSPATH . 'wp-admin/includes/translation-install.php' );
 
 nocache_headers();
 
-// Support app-config-sample.php one level up.
-if ( file_exists( ABSPATH . 'app-config-sample.php' ) ) {
-	$config_file = file( ABSPATH . 'app-config-sample.php' );
-} elseif ( file_exists( dirname( ABSPATH ) . '/app-config-sample.php' ) ) {
-	$config_file = file( dirname( ABSPATH ) . '/app-config-sample.php' );
+// Support app-config.sample.php one level up.
+if ( file_exists( ABSPATH . 'app-config.sample.php' ) ) {
+	$config_file = file( ABSPATH . 'app-config.sample.php' );
+} elseif ( file_exists( dirname( ABSPATH ) . '/app-config.sample.php' ) ) {
+	$config_file = file( dirname( ABSPATH ) . '/app-config.sample.php' );
 } else {
 	wp_die( sprintf(
-		/* translators: %s: app-config-sample.php */
+		/* translators: %s: app-config.sample.php */
 		__( 'Sorry, we need a %s file to work from. Please re-upload this file to the root directory of your installation.' ),
-		'<code>app-config-sample.php</code>'
+		'<code>app-config.sample.php</code>'
 	) );
 }
 
@@ -116,9 +116,9 @@ switch( $step ) {
 				); ?></li>
 			</ol>
 			<p><?php
-				/* translators: 1: app-config-sample.php, 2: app-config.php */
+				/* translators: 1: app-config.sample.php, 2: app-config.php */
 				printf( __( 'This information is needed to create a configuration file. If for any reason this automatic file creation doesn&#8217;t work you can simply open %1$s in a text editor, fill in your information, and save it as %2$s in the same directory.' ),
-					'<code>app-config-sample.php</code>',
+					'<code>app-config.sample.php</code>',
 					'<code>app-config.php</code>'
 				);
 			?></p>
@@ -357,10 +357,10 @@ if ( ! /iPad|iPod|iPhone/.test( navigator.userAgent ) ) {
 <?php
 	else :
 		/*
-		 * If this file doesn't exist, then we are using the app-config-sample.php
+		 * If this file doesn't exist, then we are using the app-config.sample.php
 		 * file one level up, which is for the develop repo.
 		 */
-		if ( file_exists( ABSPATH . 'app-config-sample.php' ) )
+		if ( file_exists( ABSPATH . 'app-config.sample.php' ) )
 			$path_to_wp_config = ABSPATH . 'app-config.php';
 		else
 			$path_to_wp_config = dirname( ABSPATH ) . '/app-config.php';
