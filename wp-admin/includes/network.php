@@ -356,7 +356,7 @@ function network_step2( $errors = false ) {
 
 
 	$location_of_wp_config = $abspath_fix;
-	if ( ! file_exists( ABSPATH . 'wp-config.php' ) && file_exists( dirname( ABSPATH ) . '/wp-config.php' ) ) {
+	if ( ! file_exists( ABSPATH . 'app-config.php' ) && file_exists( dirname( ABSPATH ) . '/app-config.php' ) ) {
 		$location_of_wp_config = dirname( $abspath_fix );
 	}
 	$location_of_wp_config = trailingslashit( $location_of_wp_config );
@@ -397,25 +397,25 @@ function network_step2( $errors = false ) {
 			if ( file_exists( $home_path . '.htaccess' ) ) {
 				echo '<strong>' . __( 'Caution:' ) . '</strong> ';
 				printf(
-					/* translators: 1: wp-config.php 2: .htaccess */
+					/* translators: 1: app-config.php 2: .htaccess */
 					__( 'We recommend you back up your existing %1$s and %2$s files.' ),
-					'<code>wp-config.php</code>',
+					'<code>app-config.php</code>',
 					'<code>.htaccess</code>'
 				);
 			} elseif ( file_exists( $home_path . 'web.config' ) ) {
 				echo '<strong>' . __( 'Caution:' ) . '</strong> ';
 				printf(
-					/* translators: 1: wp-config.php 2: web.config */
+					/* translators: 1: app-config.php 2: web.config */
 					__( 'We recommend you back up your existing %1$s and %2$s files.' ),
-					'<code>wp-config.php</code>',
+					'<code>app-config.php</code>',
 					'<code>web.config</code>'
 				);
 			} else {
 				echo '<strong>' . __( 'Caution:' ) . '</strong> ';
 				printf(
-					/* translators: 1: wp-config.php */
+					/* translators: 1: app-config.php */
 					__( 'We recommend you back up your existing %s file.' ),
-					'<code>wp-config.php</code>'
+					'<code>app-config.php</code>'
 				);
 			}
 		?></p></div>
@@ -424,14 +424,14 @@ function network_step2( $errors = false ) {
 ?>
 		<ol>
 			<li><p><?php printf(
-				/* translators: 1: wp-config.php 2: location of wp-config file, 3: translated version of "That's all, stop editing! Happy blogging." */
+				/* translators: 1: app-config.php 2: location of app-config file, 3: translated version of "That's all, stop editing! Happy blogging." */
 				__( 'Add the following to your %1$s file in %2$s <strong>above</strong> the line reading %3$s:' ),
-				'<code>wp-config.php</code>',
+				'<code>app-config.php</code>',
 				'<code>' . $location_of_wp_config . '</code>',
 				/*
-				 * translators: This string should only be translated if wp-config-sample.php is localized.
+				 * translators: This string should only be translated if app-config-sample.php is localized.
 				 * You can check the localized release package or
-				 * https://i18n.svn.wordpress.org/<locale code>/branches/<wp version>/dist/wp-config-sample.php
+				 * https://i18n.svn.wordpress.org/<locale code>/branches/<wp version>/dist/app-config-sample.php
 				 */
 				'<code>/* ' . __( 'That&#8217;s all, stop editing! Happy blogging.' ) . ' */</code>'
 			); ?></p>
@@ -469,15 +469,15 @@ define('BLOG_ID_CURRENT_SITE', 1);
 		<?php
 			if ( 1 == $num_keys_salts ) {
 				printf(
-					/* translators: 1: wp-config.php */
+					/* translators: 1: app-config.php */
 					__( 'This unique authentication key is also missing from your %s file.' ),
-					'<code>wp-config.php</code>'
+					'<code>app-config.php</code>'
 				);
 			} else {
 				printf(
-					/* translators: 1: wp-config.php */
+					/* translators: 1: app-config.php */
 					__( 'These unique authentication keys are also missing from your %s file.' ),
-					'<code>wp-config.php</code>'
+					'<code>app-config.php</code>'
 				);
 			}
 		?>

@@ -1,6 +1,6 @@
 <?php
 /**
- * Defines constants and global variables that can be overridden, generally in wp-config.php.
+ * Defines constants and global variables that can be overridden, generally in app-config.php.
  *
  * @package WMS
  * @subpackage Multisite
@@ -128,11 +128,11 @@ function ms_subdomain_constants() {
 
 	if ( $subdomain_error ) {
 		$vhost_deprecated = sprintf(
-			/* translators: 1: VHOST, 2: SUBDOMAIN_INSTALL, 3: wp-config.php, 4: is_subdomain_install() */
+			/* translators: 1: VHOST, 2: SUBDOMAIN_INSTALL, 3: app-config.php, 4: is_subdomain_install() */
 			__( 'The constant %1$s <strong>is deprecated</strong>. Use the boolean constant %2$s in %3$s to enable a subdomain configuration. Use %4$s to check whether a subdomain configuration is enabled.' ),
 			'<code>VHOST</code>',
 			'<code>SUBDOMAIN_INSTALL</code>',
-			'<code>wp-config.php</code>',
+			'<code>app-config.php</code>',
 			'<code>is_subdomain_install()</code>'
 		);
 		if ( $subdomain_error_warn ) {

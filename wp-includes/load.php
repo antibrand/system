@@ -273,7 +273,7 @@ function timer_stop( $display = 0, $precision = 3 ) {
  * Set PHP error reporting based on debug settings.
  *
  * Uses three constants: `WP_DEBUG`, `WP_DEBUG_DISPLAY`, and `WP_DEBUG_LOG`.
- * All three can be defined in wp-config.php. By default, `WP_DEBUG` and
+ * All three can be defined in app-config.php. By default, `WP_DEBUG` and
  * `WP_DEBUG_LOG` are set to false, and `WP_DEBUG_DISPLAY` is set to true.
  *
  * When `WP_DEBUG` is true, all PHP notices are reported. The application will also
@@ -342,7 +342,7 @@ function wp_debug_mode() {
  * Set the location of the language directory.
  *
  * To set directory manually, define the `WP_LANG_DIR` constant
- * in wp-config.php.
+ * in app-config.php.
  *
  * If the language directory exists within `WP_CONTENT_DIR`, it
  * is used. Otherwise the language directory is assumed to live
@@ -434,10 +434,10 @@ function wp_set_wpdb_vars() {
 	if ( is_wp_error( $prefix ) ) {
 		wp_load_translations_early();
 		wp_die(
-			/* translators: 1: $table_prefix 2: wp-config.php */
+			/* translators: 1: $table_prefix 2: app-config.php */
 			sprintf( __( '<strong>ERROR</strong>: %1$s in %2$s can only contain numbers, letters, and underscores.' ),
 				'<code>$table_prefix</code>',
-				'<code>wp-config.php</code>'
+				'<code>app-config.php</code>'
 			)
 		);
 	}
@@ -556,7 +556,7 @@ function wp_not_installed() {
  *
  * The default directory is wp-content/mu-plugins. To change the default
  * directory manually, define `WPMU_PLUGIN_DIR` and `WPMU_PLUGIN_URL`
- * in wp-config.php.
+ * in app-config.php.
  *
  * @since 3.0.0
  * @access private
@@ -586,7 +586,7 @@ function wp_get_mu_plugins() {
  *
  * The default directory is wp-content/plugins. To change the default
  * directory manually, define `WP_PLUGIN_DIR` and `WP_PLUGIN_URL`
- * in wp-config.php.
+ * in app-config.php.
  *
  * @since 3.0.0
  * @access private

@@ -45,7 +45,7 @@ function get_locale() {
 		$locale = $wp_local_package;
 	}
 
-	// WPLANG was defined in wp-config.
+	// WPLANG was defined in app-config.
 	if ( defined( 'WPLANG' ) ) {
 		$locale = WPLANG;
 	}

@@ -32,9 +32,9 @@ if ( ! defined( 'WP_ALLOW_REPAIR' ) ) {
 
 	echo '<p>';
 	printf(
-		/* translators: %s: wp-config.php */
+		/* translators: %s: app-config.php */
 		__( 'To allow use of this page to automatically repair database problems, please add the following line to your %s file. Once this line is added to your config, reload this page.' ),
-		'<code>wp-config.php</code>'
+		'<code>app-config.php</code>'
 	);
 	echo "</p><p><code>define('WP_ALLOW_REPAIR', true);</code></p>";
 
@@ -64,8 +64,8 @@ if ( ! defined( 'WP_ALLOW_REPAIR' ) ) {
 
 		echo '<h2 class="screen-reader-text">' . __( 'Check secret keys' ) . '</h2>';
 
-		// Translators: 1: wp-config.php; 2: Secret key service URL.
-		echo '<p>' . sprintf( __( 'While you are editing your %1$s file, take a moment to make sure you have all 8 keys and that they are unique. You can generate these using the <a href="%2$s">wordpress.org secret key service</a>.' ), '<code>wp-config.php</code>', 'https://api.wordpress.org/secret-key/1.1/salt/' ) . '</p>';
+		// Translators: 1: app-config.php; 2: Secret key service URL.
+		echo '<p>' . sprintf( __( 'While you are editing your %1$s file, take a moment to make sure you have all 8 keys and that they are unique. You can generate these using the <a href="%2$s">wordpress.org secret key service</a>.' ), '<code>app-config.php</code>', 'https://api.wordpress.org/secret-key/1.1/salt/' ) . '</p>';
 	}
 
 } elseif ( isset( $_GET['repair'] ) ) {
@@ -149,7 +149,7 @@ if ( ! defined( 'WP_ALLOW_REPAIR' ) ) {
 			$problem_output .= "$table: $problem\n";
 		echo '<p><textarea name="errors" id="errors" rows="20" cols="60">' . esc_textarea( $problem_output ) . '</textarea></p>';
 	} else {
-		echo '<p>' . __( 'Repairs complete. Please remove the following line from wp-config.php to prevent this page from being used by unauthorized users.' ) . "</p><p><code>define('WP_ALLOW_REPAIR', true);</code></p>";
+		echo '<p>' . __( 'Repairs complete. Please remove the following line from app-config.php to prevent this page from being used by unauthorized users.' ) . "</p><p><code>define('WP_ALLOW_REPAIR', true);</code></p>";
 	}
 } else {
 

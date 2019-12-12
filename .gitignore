@@ -1,5 +1,5 @@
 *.log
-wp-config.php
+app-config.php
 wp-content/advanced-cache.php
 wp-content/backup-db/
 wp-content/backups/

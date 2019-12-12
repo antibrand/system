@@ -261,9 +261,9 @@ if ( ! is_string( $wpdb->base_prefix ) || '' === $wpdb->base_prefix ) {
 	die(
 		'<h1>' . __( 'Configuration Error' ) . '</h1>' .
 		'<p>' . sprintf(
-			/* translators: %s: wp-config.php */
+			/* translators: %s: app-config.php */
 			__( 'Your %s file has an empty database table prefix, which is not supported.' ),
-			'<code>wp-config.php</code>'
+			'<code>app-config.php</code>'
 		) . '</p></body></html>'
 	);
 }

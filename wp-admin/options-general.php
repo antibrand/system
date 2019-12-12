@@ -162,11 +162,11 @@ if ( ! empty( $languages ) || ! empty( $translations ) ) {
 					|| ! is_multisite() && current_user_can( 'manage_options' ) ) {
 					?>
 					<p class="description">
-						<strong><?php _e( 'Note:' ); ?></strong> <?php printf( __( 'The %s constant in your %s file is no longer needed.' ), '<code>WPLANG</code>', '<code>wp-config.php</code>' ); ?>
+						<strong><?php _e( 'Note:' ); ?></strong> <?php printf( __( 'The %s constant in your %s file is no longer needed.' ), '<code>WPLANG</code>', '<code>app-config.php</code>' ); ?>
 					</p>
 					<?php
 				}
-				_deprecated_argument( 'define()', '4.0.0', sprintf( __( 'The %s constant in your %s file is no longer needed.' ), 'WPLANG', 'wp-config.php' ) );
+				_deprecated_argument( 'define()', '4.0.0', sprintf( __( 'The %s constant in your %s file is no longer needed.' ), 'WPLANG', 'app-config.php' ) );
 			}
 			?>
 		</td>

@@ -1736,7 +1736,7 @@ function wp_normalize_path( $path ) {
  * before finally defaulting to /tmp/
  *
  * In the event that this function does not find a writable location,
- * It may be overridden by the WP_TEMP_DIR constant in your wp-config.php file.
+ * It may be overridden by the WP_TEMP_DIR constant in your app-config.php file.
  *
  * @since 2.5.0
  *

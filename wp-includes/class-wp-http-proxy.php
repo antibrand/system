@@ -10,7 +10,7 @@
 /**
  * Core class used to implement HTTP API proxy support.
  *
- * There are caveats to proxy support. It requires that defines be made in the wp-config.php file to
+ * There are caveats to proxy support. It requires that defines be made in the app-config.php file to
  * enable proxy support. There are also a few filters that plugins can hook into for some of the
  * constants.
  *

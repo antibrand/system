@@ -473,7 +473,7 @@ function wp_revisions_enabled( $post ) {
  *
  * By default, an infinite number of revisions are kept.
  *
- * The constant WP_POST_REVISIONS can be set in wp-config to specify the limit
+ * The constant WP_POST_REVISIONS can be set in app-config to specify the limit
  * of revisions to keep.
  *
  * @since 3.6.0

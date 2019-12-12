@@ -1,9 +1,9 @@
 <?php
 /**
- * Retrieves and creates the wp-config.php file.
+ * Retrieves and creates the app-config.php file.
  *
  * The permissions for the base directory must allow for writing files in order
- * for the wp-config.php to be created using this page.
+ * for the app-config.php to be created using this page.
  *
  * @package WMS
  * @subpackage Administration
@@ -41,36 +41,36 @@ require_once( ABSPATH . 'wp-admin/includes/translation-install.php' );
 
 nocache_headers();
 
-// Support wp-config-sample.php one level up.
-if ( file_exists( ABSPATH . 'wp-config-sample.php' ) ) {
-	$config_file = file( ABSPATH . 'wp-config-sample.php' );
-} elseif ( file_exists( dirname( ABSPATH ) . '/wp-config-sample.php' ) ) {
-	$config_file = file( dirname( ABSPATH ) . '/wp-config-sample.php' );
+// Support app-config-sample.php one level up.
+if ( file_exists( ABSPATH . 'app-config-sample.php' ) ) {
+	$config_file = file( ABSPATH . 'app-config-sample.php' );
+} elseif ( file_exists( dirname( ABSPATH ) . '/app-config-sample.php' ) ) {
+	$config_file = file( dirname( ABSPATH ) . '/app-config-sample.php' );
 } else {
 	wp_die( sprintf(
-		/* translators: %s: wp-config-sample.php */
+		/* translators: %s: app-config-sample.php */
 		__( 'Sorry, we need a %s file to work from. Please re-upload this file to the root directory of your installation.' ),
-		'<code>wp-config-sample.php</code>'
+		'<code>app-config-sample.php</code>'
 	) );
 }
 
-// Check if wp-config.php has been created.
-if ( file_exists( ABSPATH . 'wp-config.php' ) ) {
+// Check if app-config.php has been created.
+if ( file_exists( ABSPATH . 'app-config.php' ) ) {
 	wp_die( '<p>' . sprintf(
-			/* translators: 1: wp-config.php 2: install.php */
+			/* translators: 1: app-config.php 2: install.php */
 			__( 'The file %1$s already exists. If you need to reset any of the configuration items in this file, please delete it first. You may try <a href="%2$s">installing now</a>.' ),
-			'<code>wp-config.php</code>',
+			'<code>app-config.php</code>',
 			'install.php'
 		) . '</p>'
 	);
 }
 
-// Check if wp-config.php exists above the root directory but is not part of another installation.
-if ( @file_exists( ABSPATH . '../wp-config.php' ) && ! @file_exists( ABSPATH . '../wp-settings.php' ) ) {
+// Check if app-config.php exists above the root directory but is not part of another installation.
+if ( @file_exists( ABSPATH . '../app-config.php' ) && ! @file_exists( ABSPATH . '../wp-settings.php' ) ) {
 	wp_die( '<p>' . sprintf(
-			/* translators: 1: wp-config.php 2: install.php */
+			/* translators: 1: app-config.php 2: install.php */
 			__( 'The file %1$s already exists one level above your installation. If you need to reset any of the configuration items in this file, please delete it first. You may try <a href="%2$s">installing now</a>.' ),
-			'<code>wp-config.php</code>',
+			'<code>app-config.php</code>',
 			'install.php'
 		) . '</p>'
 	);
@@ -79,7 +79,7 @@ if ( @file_exists( ABSPATH . '../wp-config.php' ) && ! @file_exists( ABSPATH . '
 $step = isset( $_GET['step'] ) ? (int) $_GET['step'] : -1;
 
 /**
- * Display setup wp-config.php file header
+ * Display setup app-config.php file header
  *
  * @ignore
  * @since WP 2.3.0
@@ -171,10 +171,10 @@ switch( $step ) {
 		); ?></li>
 	</ol>
 	<p><?php
-		/* translators: 1: wp-config-sample.php, 2: wp-config.php */
+		/* translators: 1: app-config-sample.php, 2: app-config.php */
 		printf( __( 'This information is needed to create a configuration file. If for any reason this automatic file creation doesn&#8217;t work you can simply open %1$s in a text editor, fill in your information, and save it as %2$s.' ),
-			'<code>wp-config-sample.php</code>',
-			'<code>wp-config.php</code>'
+			'<code>app-config-sample.php</code>',
+			'<code>app-config.php</code>'
 		);
 	?></p>
 	<p><?php _e( 'If you don&#8217;t have this information then you will need to contact your web host. If you&#8217;re ready&hellip;' ); ?></p>
@@ -391,14 +391,14 @@ case 1:
 		setup_config_display_header();
 ?>
 <p><?php
-	/* translators: %s: wp-config.php */
-	printf( __( 'Sorry, but I can&#8217;t write the %s file.' ), '<code>wp-config.php</code>' );
+	/* translators: %s: app-config.php */
+	printf( __( 'Sorry, but I can&#8217;t write the %s file.' ), '<code>app-config.php</code>' );
 ?></p>
 <p><?php
-	/* translators: %s: wp-config.php */
-	printf( __( 'You can create the %s file manually and paste the following text into it.' ), '<code>wp-config.php</code>' );
+	/* translators: %s: app-config.php */
+	printf( __( 'You can create the %s file manually and paste the following text into it.' ), '<code>app-config.php</code>' );
 ?></p>
-<textarea id="wp-config" cols="98" rows="15" class="code" readonly="readonly"><?php
+<textarea id="app-config" cols="98" rows="15" class="code" readonly="readonly"><?php
 		foreach ( $config_file as $line ) {
 			echo htmlentities($line, ENT_COMPAT, 'UTF-8' );
 		}
@@ -408,7 +408,7 @@ case 1:
 <script>
 (function(){
 if ( ! /iPad|iPod|iPhone/.test( navigator.userAgent ) ) {
-	var el = document.getElementById( 'wp-config' );
+	var el = document.getElementById( 'app-config' );
 	el.focus();
 	el.select();
 }
@@ -417,13 +417,13 @@ if ( ! /iPad|iPod|iPhone/.test( navigator.userAgent ) ) {
 <?php
 	else :
 		/*
-		 * If this file doesn't exist, then we are using the wp-config-sample.php
+		 * If this file doesn't exist, then we are using the app-config-sample.php
 		 * file one level up, which is for the develop repo.
 		 */
-		if ( file_exists( ABSPATH . 'wp-config-sample.php' ) )
-			$path_to_wp_config = ABSPATH . 'wp-config.php';
+		if ( file_exists( ABSPATH . 'app-config-sample.php' ) )
+			$path_to_wp_config = ABSPATH . 'app-config.php';
 		else
-			$path_to_wp_config = dirname( ABSPATH ) . '/wp-config.php';
+			$path_to_wp_config = dirname( ABSPATH ) . '/app-config.php';
 
 		$handle = fopen( $path_to_wp_config, 'w' );
 		foreach ( $config_file as $line ) {
