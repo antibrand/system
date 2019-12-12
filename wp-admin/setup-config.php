@@ -122,15 +122,16 @@ if ( ! empty( $_REQUEST['language'] ) ) {
 
 switch( $step ) {
 	case -1:
-		if ( wp_can_install_language_pack() && empty( $language ) && ( $languages = wp_get_available_translations() ) ) {
-			setup_config_display_header( 'language-chooser' );
-			echo '<h1>Begin Installation</h1>';
-			echo '<p>Select a default language.</p>';
-			echo '<form id="setup" method="post" action="?step=0">';
-			wp_install_language_form( $languages );
-			echo '</form>';
-			break;
-		}
+	// if ( wp_can_install_language_pack() && empty( $language ) && ( $languages = wp_get_available_translations() ) ) {
+	setup_config_display_header( 'language-chooser' ); ?>
+<div class="setup-config-wrap">
+	<h1>Begin Installation</h1>
+	<p>Select a default language.</p>
+	<form id="setup" method="post" action="?step=0">
+		<?php wp_install_language_form( $languages ); ?>
+	</form>
+	<?php break;
+		// }
 
 		// Deliberately fall through if we can't reach the translations API.
 
@@ -154,92 +155,92 @@ switch( $step ) {
 			$step_1 .= '&amp;language=' . $loaded_language;
 		}
 ?>
-<h1><?php _e( 'Begin Installation' ) ?></h1>
-<p><?php _e( 'Before getting started we need some information on the database. You will need to know the following items before proceeding.' ) ?></p>
-<ol>
-	<li><?php _e( 'Database name' ); ?></li>
-	<li><?php _e( 'Database username' ); ?></li>
-	<li><?php _e( 'Database password' ); ?></li>
-	<li><?php _e( 'Database host' ); ?></li>
-	<li><?php _e( 'Table prefix (if you want to run more than one website management system in a single database)' ); ?></li>
-</ol>
-<p><?php
-	/* translators: %s: wp-config.php */
-	printf( __( 'We&#8217;re going to use this information to create a %s file.' ),
-		'<code>wp-config.php</code>'
-	);
-	?>
-	<strong><?php
+</div>
+<div class="setup-config-wrap">
+	<h1><?php _e( 'Begin Installation' ) ?></h1>
+	<p><?php _e( 'You will need to know the following items before proceeding.' ) ?></p>
+	<ol class="setup-config-database-info-list">
+		<li><?php _e( 'Database name' ); ?></li>
+		<li><?php _e( 'Database username' ); ?></li>
+		<li><?php _e( 'Database password' ); ?></li>
+		<li><?php _e( 'Database host' ); ?></li>
+		<li><?php echo sprintf(
+			'%1s <br /><span>%2s</span>',
+			__( 'Table prefix' ),
+			__( 'The table prefix is needed if you want to run more than one installation with a single database.' )
+		); ?></li>
+	</ol>
+	<p><?php
 		/* translators: 1: wp-config-sample.php, 2: wp-config.php */
-		printf( __( 'If for any reason this automatic file creation doesn&#8217;t work, don&#8217;t worry. All this does is fill in the database information to a configuration file. You may also simply open %1$s in a text editor, fill in your information, and save it as %2$s.' ),
+		printf( __( 'This information is needed to create a configuration file. If for any reason this automatic file creation doesn&#8217;t work you can simply open %1$s in a text editor, fill in your information, and save it as %2$s.' ),
 			'<code>wp-config-sample.php</code>',
 			'<code>wp-config.php</code>'
 		);
-	?></strong>
-</p>
-<p><?php _e( 'In all likelihood, these items were supplied to you by your web host. If you don&#8217;t have this information, then you will need to contact them before you can continue. If you&#8217;re ready&hellip;' ); ?></p>
+	?></p>
+	<p><?php _e( 'If you don&#8217;t have this information then you will need to contact your web host. If you&#8217;re ready&hellip;' ); ?></p>
 
-<p class="step"><a href="<?php echo $step_1; ?>" class="button button-large"><?php _e( 'Continue' ); ?></a></p>
+	<p class="step"><a href="<?php echo $step_1; ?>" class="button button-large"><?php _e( 'Continue' ); ?></a></p>
+</div>
 <?php
-	break;
+break;
 
-	case 1:
-		load_default_textdomain( $language );
-		$GLOBALS['wp_locale'] = new WP_Locale();
+case 1:
+	load_default_textdomain( $language );
+	$GLOBALS['wp_locale'] = new WP_Locale();
 
-		setup_config_display_header();
-	?>
-<h1><?php _e( 'Database Connection' ) ?></h1>
-<form method="post" action="setup-config.php?step=2">
-	<p><?php _e( 'Enter an application name to be used throughout the website management system. This allows you to "white label" the application and can be changed at any time in the <code>app-config</code> file.' ); ?></p>
-	<table class="form-table">
-		<tr>
-			<th scope="row"><label for="appname"><?php _e( 'Application Name' ); ?></label></th>
-			<td><input name="appname" id="appname" type="text" size="25" value="system" /></td>
-			<td><?php _e( 'Enter the name to use for your application.' ); ?></td>
-		</tr>
-	</table>
-	<p><?php _e( 'Enter your database connection details below. If you&#8217;re not sure about these, contact your host.' ); ?></p>
-	<table class="form-table">
-		<tr>
-			<th scope="row"><label for="dbname"><?php _e( 'Database Name' ); ?></label></th>
-			<td><input name="dbname" id="dbname" type="text" size="25" value="Enter name" /></td>
-			<td><?php _e( 'The name of the database you want to use.' ); ?></td>
-		</tr>
-		<tr>
-			<th scope="row"><label for="uname"><?php _e( 'Username' ); ?></label></th>
-			<td><input name="uname" id="uname" type="text" size="25" value="<?php echo htmlspecialchars( _x( 'root', 'example username' ), ENT_QUOTES ); ?>" /></td>
-			<td><?php _e( 'Your database username.' ); ?></td>
-		</tr>
-		<tr>
-			<th scope="row"><label for="pwd"><?php _e( 'Password' ); ?></label></th>
-			<td><input name="pwd" id="pwd" type="text" size="25" value="<?php echo htmlspecialchars( _x( 'mysql', 'example password' ), ENT_QUOTES ); ?>" autocomplete="off" /></td>
-			<td><?php _e( 'Your database password.' ); ?></td>
-		</tr>
-		<tr>
-			<th scope="row"><label for="dbhost"><?php _e( 'Database Host' ); ?></label></th>
-			<td><input name="dbhost" id="dbhost" type="text" size="25" value="localhost" /></td>
-			<td><?php
-				/* translators: %s: localhost */
-				printf( __( 'You should be able to get this info from your web host, if %s doesn&#8217;t work.' ),'<code>localhost</code>' );
-			?></td>
-		</tr>
-		<tr>
-			<th scope="row"><label for="prefix"><?php _e( 'Table Prefix' ); ?></label></th>
-			<td><input name="prefix" id="prefix" type="text" value="app_<?php echo esc_attr( md5( time() ) ); ?>_" size="25" /></td>
-			<td><?php echo sprintf(
-				'%1s <em>app_%2s_</em><br />%3s',
-				esc_html__( 'Random table prefix is:' ),
-				md5( time() ),
-				esc_html__( 'Change this if you want to define your own prefix.' )
+	setup_config_display_header();
+?>
+<div class="setup-config-wrap">
+	<h1><?php _e( 'Database Connection' ) ?></h1>
+	<form class="setup-config-form" method="post" action="setup-config.php?step=2">
+		<p><?php _e( 'Enter an application name to be used throughout the website management system. This allows you to "white label" the application and can be changed at any time in the <code>app-config</code> file.' ); ?></p>
+		<p class="setup-config-field setup-config-app-name">
+			<label for="appname"><?php _e( 'Application Name' ); ?></label>
+			<br /><span class="setup-config-field-description"><?php _e( 'Enter the name to use for your website management system.' ); ?></span>
+			<br /><input name="appname" id="appname" type="text" size="25" value="system" />
+		</p>
+		<p><?php _e( 'Enter your database connection details below. If you&#8217;re not sure about these, contact your host.' ); ?></p>
+		<table class="form-table">
+			<tr>
+				<th scope="row"><label for="dbname"><?php _e( 'Database Name' ); ?></label></th>
+				<td><input name="dbname" id="dbname" type="text" size="25" value="Enter name" /></td>
+				<td><?php _e( 'The name of the database you want to use.' ); ?></td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="uname"><?php _e( 'Username' ); ?></label></th>
+				<td><input name="uname" id="uname" type="text" size="25" value="<?php echo htmlspecialchars( _x( 'root', 'example username' ), ENT_QUOTES ); ?>" /></td>
+				<td><?php _e( 'Your database username.' ); ?></td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="pwd"><?php _e( 'Password' ); ?></label></th>
+				<td><input name="pwd" id="pwd" type="text" size="25" value="<?php echo htmlspecialchars( _x( 'mysql', 'example password' ), ENT_QUOTES ); ?>" autocomplete="off" /></td>
+				<td><?php _e( 'Your database password.' ); ?></td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="dbhost"><?php _e( 'Database Host' ); ?></label></th>
+				<td><input name="dbhost" id="dbhost" type="text" size="25" value="localhost" /></td>
+				<td><?php
+					/* translators: %s: localhost */
+					printf( __( 'You should be able to get this info from your web host, if %s doesn&#8217;t work.' ),'<code>localhost</code>' );
+				?></td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="prefix"><?php _e( 'Table Prefix' ); ?></label></th>
+				<td><input name="prefix" id="prefix" type="text" value="app_<?php echo esc_attr( md5( time() ) ); ?>_" size="25" /></td>
+				<td><?php echo sprintf(
+					'%1s <em>app_%2s_</em><br />%3s',
+					esc_html__( 'Random table prefix is:' ),
+					md5( time() ),
+					esc_html__( 'Change this if you want to define your own prefix.' )
 
-			); ?></td>
-		</tr>
-	</table>
-	<?php if ( isset( $_GET['noapi'] ) ) { ?><input name="noapi" type="hidden" value="1" /><?php } ?>
-	<input type="hidden" name="language" value="<?php echo esc_attr( $language ); ?>" />
-	<p class="step"><input name="submit" type="submit" value="<?php echo htmlspecialchars( __( 'Submit' ), ENT_QUOTES ); ?>" class="button button-large" /></p>
-</form>
+				); ?></td>
+			</tr>
+		</table>
+		<?php if ( isset( $_GET['noapi'] ) ) { ?><input name="noapi" type="hidden" value="1" /><?php } ?>
+		<input type="hidden" name="language" value="<?php echo esc_attr( $language ); ?>" />
+		<p class="step"><input name="submit" type="submit" value="<?php echo htmlspecialchars( __( 'Submit' ), ENT_QUOTES ); ?>" class="button button-large" /></p>
+	</form>
+</div>
 <?php
 	break;
 
