@@ -51,7 +51,7 @@ if ( file_exists( ABSPATH . 'app-config.php') ) {
 
 	require_once( ABSPATH . WPINC . '/functions.php' );
 
-	$path = wp_guess_url() . '/wp-admin/setup-config.php';
+	$path = wp_guess_url() . '/wp-admin/setup-config-new.php';
 
 	/*
 	 * We're going to redirect to setup-config.php. While this shouldn't result

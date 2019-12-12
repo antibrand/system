@@ -25,11 +25,13 @@ if ( ! defined( 'APP_NAME' ) ) {
  *
  * Set this to error_reporting( -1 ) for debugging.
  */
-error_reporting(0);
+error_reporting( 0 );
 
 if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', dirname( dirname( __FILE__ ) ) . '/' );
 }
+
+ob_start();
 
 require( ABSPATH . 'wp-settings.php' );
 
@@ -76,41 +78,11 @@ if ( @file_exists( ABSPATH . '../app-config.php' ) && ! @file_exists( ABSPATH . 
 	);
 }
 
-$step = isset( $_GET['step'] ) ? (int) $_GET['step'] : -1;
-
-/**
- * Display setup app-config.php file header
- *
- * @ignore
- * @since WP 2.3.0
- *
- * @global string    $wp_local_package
- * @global WP_Locale $wp_locale
- *
- * @param string|array $body_classes
- */
-function setup_config_display_header( $body_classes = [] ) {
-
-	$body_classes   = (array) $body_classes;
-	$body_classes[] = 'app-core-ui';
-	if ( is_rtl() ) {
-		$body_classes[] = 'rtl';
-	}
-
-	header( 'Content-Type: text/html; charset=utf-8' );
-?>
-<!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml"<?php if ( is_rtl() ) echo ' dir="rtl"'; ?>>
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="robots" content="noindex,nofollow" />
-	<title><?php _e( 'Configuration File Setup' ); ?></title>
-	<?php wp_admin_css( 'install', true ); ?>
-</head>
-<body class="<?php echo implode( ' ', $body_classes ); ?>">
-<?php
-} // End function setup_config_display_header();
+if ( isset( $_GET['step'] ) ) {
+	$step = (int) $_GET['step'];
+} else {
+	$step = 0;
+}
 
 $language = '';
 
@@ -121,41 +93,11 @@ if ( ! empty( $_REQUEST['language'] ) ) {
 }
 
 switch( $step ) {
-	case -1:
-	// if ( wp_can_install_language_pack() && empty( $language ) && ( $languages = wp_get_available_translations() ) ) {
-	setup_config_display_header( 'language-chooser' ); ?>
-<div class="setup-config-wrap">
-	<h1>Begin Installation</h1>
-	<p>Select a default language.</p>
-	<form id="setup" method="post" action="?step=0">
-		<?php wp_install_language_form( $languages ); ?>
-	</form>
-	<?php break;
-		// }
 
-		// Deliberately fall through if we can't reach the translations API.
-
-	case 0:
-		if ( ! empty( $language ) ) {
-			$loaded_language = wp_download_language_pack( $language );
-			if ( $loaded_language ) {
-				load_default_textdomain( $loaded_language );
-				$GLOBALS['wp_locale'] = new WP_Locale();
-			}
-		}
-
-		setup_config_display_header();
+	case 0 :
+		include_once( ABSPATH . 'wp-admin/partials/header/config-install.php' );
 		$step_1 = 'setup-config.php?step=1';
-
-		if ( isset( $_REQUEST['noapi'] ) ) {
-			$step_1 .= '&amp;noapi';
-		}
-
-		if ( ! empty( $loaded_language ) ) {
-			$step_1 .= '&amp;language=' . $loaded_language;
-		}
 ?>
-</div>
 <div class="setup-config-wrap">
 	<h1><?php _e( 'Begin Installation' ) ?></h1>
 	<p><?php _e( 'You will need to know the following items before proceeding.' ) ?></p>
@@ -184,11 +126,11 @@ switch( $step ) {
 <?php
 break;
 
-case 1:
+case 1 :
 	load_default_textdomain( $language );
 	$GLOBALS['wp_locale'] = new WP_Locale();
 
-	setup_config_display_header();
+	include_once( ABSPATH . 'wp-admin/partials/header/config-install.php' );
 ?>
 <div class="setup-config-wrap">
 	<h1><?php _e( 'Database Connection' ) ?></h1>
@@ -244,7 +186,7 @@ case 1:
 <?php
 	break;
 
-	case 2:
+	case 2 :
 	load_default_textdomain( $language );
 	$GLOBALS['wp_locale'] = new WP_Locale();
 
@@ -368,23 +310,25 @@ case 1:
 	unset( $line );
 
 	if ( ! is_writable(ABSPATH) ) :
-		setup_config_display_header();
+		include_once( ABSPATH . 'wp-admin/partials/header/config-install.php' );
 ?>
-<p><?php
-	/* translators: %s: app-config.php */
-	printf( __( 'Sorry, but I can&#8217;t write the %s file.' ), '<code>app-config.php</code>' );
-?></p>
-<p><?php
-	/* translators: %s: app-config.php */
-	printf( __( 'You can create the %s file manually and paste the following text into it.' ), '<code>app-config.php</code>' );
-?></p>
-<textarea id="app-config" cols="98" rows="15" class="code" readonly="readonly"><?php
-		foreach ( $config_file as $line ) {
-			echo htmlentities($line, ENT_COMPAT, 'UTF-8' );
-		}
-?></textarea>
-<p><?php _e( 'After you&#8217;ve done that, click &#8220;Run the installation.&#8221;' ); ?></p>
-<p class="step"><a href="<?php echo $install; ?>" class="button button-large"><?php _e( 'Run the installation' ); ?></a></p>
+<div class="setup-config-wrap">
+	<p><?php
+		/* translators: %s: app-config.php */
+		printf( __( 'Sorry, but I can&#8217;t write the %s file.' ), '<code>app-config.php</code>' );
+	?></p>
+	<p><?php
+		/* translators: %s: app-config.php */
+		printf( __( 'You can create the %s file manually and paste the following text into it.' ), '<code>app-config.php</code>' );
+	?></p>
+	<textarea id="app-config" cols="98" rows="15" class="code" readonly="readonly"><?php
+			foreach ( $config_file as $line ) {
+				echo htmlentities($line, ENT_COMPAT, 'UTF-8' );
+			}
+	?></textarea>
+	<p><?php _e( 'After you&#8217;ve done that, click &#8220;Run the installation.&#8221;' ); ?></p>
+	<p class="step"><a href="<?php echo $install; ?>" class="button button-large"><?php _e( 'Run the installation' ); ?></a></p>
+</div>
 <script>
 (function(){
 if ( ! /iPad|iPod|iPhone/.test( navigator.userAgent ) ) {
@@ -411,17 +355,20 @@ if ( ! /iPad|iPod|iPhone/.test( navigator.userAgent ) ) {
 		}
 		fclose( $handle );
 		chmod( $path_to_wp_config, 0666 );
-		setup_config_display_header();
+		include_once( ABSPATH . 'wp-admin/partials/header/config-install.php' );
 ?>
-<h1><?php _e( 'Successful Database Connection' ) ?></h1>
-<p><?php _e( 'The website management system can now communicate with your database. If you are ready&hellip;' ); ?></p>
+<div class="setup-config-wrap">
+	<h1><?php _e( 'Successful Database Connection' ) ?></h1>
+	<p><?php _e( 'The website management system can now communicate with your database. If you are ready&hellip;' ); ?></p>
 
-<p class="step"><a href="<?php echo $install; ?>" class="button button-large"><?php _e( 'Run the installation' ); ?></a></p>
+	<p class="step"><a href="<?php echo $install; ?>" class="button button-large"><?php _e( 'Run the installation' ); ?></a></p>
+</div>
 <?php
 	endif;
 	break;
 }
 ?>
-<?php wp_print_scripts( 'language-chooser' ); ?>
+<?php // wp_print_scripts( 'language-chooser' ); ?>
 </body>
 </html>
+<?php ob_end_flush();

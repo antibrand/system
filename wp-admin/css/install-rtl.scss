@@ -6,7 +6,7 @@ body {
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
 	        box-sizing: border-box;
-	height: 100%;
+	min-height: 100%;
 	margin: 0;
 	padding: 0;
 }
@@ -51,6 +51,27 @@ body {
 			}
 		}
 	}
+
+	fieldset {
+		padding: 0.5em 1.5em 1em;
+		border: solid 1px #ccc;
+
+		legend {
+			padding: 0.5em;
+			font-size: 1.1em;
+			font-weight: bold;
+		}
+	}
+}
+
+.setup-config-field {
+
+	&.setup-config-app-name {
+
+		input {
+			margin-top: 1em;
+		}
+	}
 }
 
 ul,
@@ -91,7 +112,9 @@ label {
 textarea {
 	border: 1px solid #ddd;
 	width: 100%;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
 }
 
 .form-table {
@@ -130,7 +153,6 @@ textarea {
 	font-size: 15px;
 	padding: 3px 5px;
 	border: 1px solid #ddd;
-	box-shadow: inset 0 1px 2px rgba(0,0,0,0.07);
 }
 
 .form-table input[type=text],
@@ -182,7 +204,9 @@ textarea {
 	padding: 3px 5px;
 	text-align: center;
 	width: 218px;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
 	opacity: 0;
 }
 
@@ -310,7 +334,9 @@ textarea {
 		padding: 7px 10px;
 		display: block;
 		max-width: none;
-		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		   -moz-box-sizing: border-box;
+		        box-sizing: border-box;
 	}
 
 }
