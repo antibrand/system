@@ -120,7 +120,9 @@ switch( $step ) {
 			?></p>
 			<p class="step"><a href="<?php echo $step_1; ?>" class="button button-large"><?php _e( 'Begin Installation' ); ?></a></p>
 		</main>
-		<footer></footer>
+		<footer>
+			<p><?php _e( 'This is the installation process for the generic website management system.' ) ?></p>
+		</footer>
 	</div>
 <?php
 break;
@@ -192,7 +194,9 @@ case 1 :
 				<p class="step"><input name="submit" type="submit" value="<?php echo htmlspecialchars( __( 'Submit Information' ), ENT_QUOTES ); ?>" class="button button-large" /></p>
 			</form>
 		</main>
-		<footer></footer>
+		<footer>
+			<p><?php _e( 'This is the installation process for the generic website management system.' ) ?></p>
+		</footer>
 	</div>
 <?php
 	break;
@@ -373,10 +377,12 @@ if ( ! /iPad|iPod|iPhone/.test( navigator.userAgent ) ) {
 			<h1><?php _e( 'Successful Database Connection' ) ?></h1>
 		</header>
 		<main>
-			<p><?php _e( 'The website management system can now communicate with your database. If you are ready&hellip;' ); ?></p>
+			<p><?php _e( 'The website management system can now communicate with your database.' ); ?></p>
 			<p class="step"><a href="<?php echo $install; ?>" class="button button-large"><?php _e( 'Run the installation' ); ?></a></p>
 		</main>
-		<footer></footer>
+		<footer>
+			<p><?php _e( 'This is the installation process for the generic website management system.' ) ?></p>
+		</footer>
 	</div>
 <?php
 	endif;

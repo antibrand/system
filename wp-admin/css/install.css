@@ -75,6 +75,12 @@ body {
   border-color: #ccc;
 }
 
+.setup-install-wrap footer {
+  font-size: 0.85em;
+  font-style: italic;
+  color: #666;
+}
+
 .setup-config-field.setup-config-app-name input {
   width: 100%;
   max-width: 360px;
