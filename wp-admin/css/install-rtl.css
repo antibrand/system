@@ -306,7 +306,6 @@ textarea {
   .form-table td {
     display: block;
     width: auto;
-    vertical-align: middle;
   }
   .form-table th {
     padding: 20px 0 0;
