@@ -98,7 +98,7 @@ switch( $step ) {
 		include_once( ABSPATH . 'wp-admin/partials/header/config-install.php' );
 		$step_1 = 'setup-config.php?step=1';
 ?>
-<div class="setup-config-wrap">
+<div class="setup-install-wrap">
 	<h1><?php _e( 'Begin Installation' ) ?></h1>
 	<p><?php _e( 'You will need to know the following items before proceeding.' ) ?></p>
 	<ol class="setup-config-database-info-list">
@@ -132,7 +132,7 @@ case 1 :
 
 	include_once( ABSPATH . 'wp-admin/partials/header/config-install.php' );
 ?>
-<div class="setup-config-wrap">
+<div class="setup-install-wrap">
 	<h1><?php _e( 'Database Connection' ) ?></h1>
 	<form class="setup-config-form" method="post" action="setup-config.php?step=2">
 		<p><?php _e( 'Enter an application name to be used throughout the website management system. This allows you to "white label" the application and can be changed at any time in the <code>app-config</code> file.' ); ?></p>
@@ -312,7 +312,7 @@ case 1 :
 	if ( ! is_writable(ABSPATH) ) :
 		include_once( ABSPATH . 'wp-admin/partials/header/config-install.php' );
 ?>
-<div class="setup-config-wrap">
+<div class="setup-install-wrap">
 	<p><?php
 		/* translators: %s: app-config.php */
 		printf( __( 'Sorry, but I can&#8217;t write the %s file.' ), '<code>app-config.php</code>' );
@@ -357,7 +357,7 @@ if ( ! /iPad|iPod|iPhone/.test( navigator.userAgent ) ) {
 		chmod( $path_to_wp_config, 0666 );
 		include_once( ABSPATH . 'wp-admin/partials/header/config-install.php' );
 ?>
-<div class="setup-config-wrap">
+<div class="setup-install-wrap">
 	<h1><?php _e( 'Successful Database Connection' ) ?></h1>
 	<p><?php _e( 'The website management system can now communicate with your database. If you are ready&hellip;' ); ?></p>
 

@@ -98,7 +98,7 @@ switch( $step ) {
 		include_once( ABSPATH . 'wp-admin/partials/header/config-install.php' );
 		$step_1 = 'setup-config-new.php?step=1';
 ?>
-	<div class="setup-config-wrap">
+	<div class="setup-install-wrap setup-install-introduction">
 		<header>
 			<h1><?php _e( 'Introduction' ) ?></h1>
 		</header>
@@ -109,21 +109,15 @@ switch( $step ) {
 				<li><?php _e( 'Database username' ); ?></li>
 				<li><?php _e( 'Database password' ); ?></li>
 				<li><?php _e( 'Database host' ); ?></li>
-				<li><?php echo sprintf(
-					'%1s <br /><span>%2s</span>',
-					__( 'Table prefix' ),
-					__( 'The table prefix is needed if you want to run more than one installation with a single database.' )
-				); ?></li>
 			</ol>
+			<p><?php _e( 'If you don&#8217;t have this information then you will need to contact your web host.' ); ?></p>
 			<p><?php
 				/* translators: 1: app-config.sample.php, 2: app-config.php */
-				printf( __( 'This information is needed to create a configuration file. If for any reason this automatic file creation doesn&#8217;t work you can simply open %1$s in a text editor, fill in your information, and save it as %2$s in the same directory.' ),
+				printf( __( 'This information is needed to create a configuration file. If for any reason this automatic file creation doesn&#8217;t work then find the %1$s file in the root directory, open it in a text editor, fill in your information, and save it as %2$s in the same directory.' ),
 					'<code>app-config.sample.php</code>',
 					'<code>app-config.php</code>'
 				);
 			?></p>
-			<p><?php _e( 'If you don&#8217;t have this information then you will need to contact your web host.' ); ?></p>
-
 			<p class="step"><a href="<?php echo $step_1; ?>" class="button button-large"><?php _e( 'Begin Installation' ); ?></a></p>
 		</main>
 		<footer></footer>
@@ -137,7 +131,7 @@ case 1 :
 
 	include_once( ABSPATH . 'wp-admin/partials/header/config-install.php' );
 ?>
-	<div class="setup-config-wrap">
+	<div class="setup-install-wrap setup-install-installation">
 		<header>
 			<h1><?php _e( 'Installation' ) ?></h1>
 		</header>
@@ -149,12 +143,13 @@ case 1 :
 					<p class="setup-config-field setup-config-app-name">
 						<label for="app_name"><?php _e( 'Application Name' ); ?></label>
 						<br /><span class="setup-config-field-description"><?php _e( 'Enter the name to use for your website management system.' ); ?></span>
-						<br /><input name="app_name" id="app_name" type="text" size="25" value="<?php echo htmlspecialchars( _x( 'system', 'example name for the website management system' ), ENT_QUOTES ); ?>" placeholder="<?php echo htmlspecialchars( _x( 'system', 'example name for the website management system' ), ENT_QUOTES ); ?>" />
+						<br /><input name="app_name" id="app_name" type="text" size="25" value="<?php echo htmlspecialchars( _x( 'Website Management System', 'example name for the website management system' ), ENT_QUOTES ); ?>" placeholder="<?php echo htmlspecialchars( _x( 'Website Management System', 'example name for the website management system' ), ENT_QUOTES ); ?>" />
 					</p>
 				</fieldset>
 				<fieldset>
 					<legend><?php _e( 'Database Connection' ) ?></legend>
 					<p><?php _e( 'Enter your database connection details below. If you&#8217;re not sure about these, contact your host.' ); ?></p>
+					<p><?php _e( 'Unique database table prefixes are needed if you want to run more than one installation with a single database. For security purposes a random prefix has been generated. You can void this by entering your own prefix. It is recommended for legibility that the prefix ends in an underscore.' ); ?></p>
 					<table class="form-table">
 						<tr>
 							<th scope="row"><label for="app_db_name"><?php _e( 'Database Name' ); ?></label></th>
@@ -162,12 +157,12 @@ case 1 :
 							<td><?php _e( 'The name of the database you want to use.' ); ?></td>
 						</tr>
 						<tr>
-							<th scope="row"><label for="app_db_user"><?php _e( 'Username' ); ?></label></th>
-							<td><input name="app_db_user" id="app_db_user" type="text" size="25" value="" placeholder="<?php echo htmlspecialchars( _x( 'root', 'example username' ), ENT_QUOTES ); ?>" /></td>
-							<td><?php _e( 'Your database username.' ); ?></td>
+							<th scope="row"><label for="app_db_user"><?php _e( 'Database User' ); ?></label></th>
+							<td><input name="app_db_user" id="app_db_user" type="text" size="25" value="" placeholder="<?php echo htmlspecialchars( _x( 'root', 'example database user name' ), ENT_QUOTES ); ?>" /></td>
+							<td><?php _e( 'Your database user name.' ); ?></td>
 						</tr>
 						<tr>
-							<th scope="row"><label for="app_db_password"><?php _e( 'Password' ); ?></label></th>
+							<th scope="row"><label for="app_db_password"><?php _e( 'Database Password' ); ?></label></th>
 							<td><input name="app_db_password" id="app_db_password" type="text" size="25" value="" placeholder="<?php echo htmlspecialchars( _x( 'mysql', 'example password' ), ENT_QUOTES ); ?>" autocomplete="off" /></td>
 							<td><?php _e( 'Your database password.' ); ?></td>
 						</tr>
@@ -180,7 +175,7 @@ case 1 :
 							?></td>
 						</tr>
 						<tr>
-							<th scope="row"><label for="app_db_prefix"><?php _e( 'Table Prefix' ); ?></label></th>
+							<th scope="row"><label for="app_db_prefix"><?php _e( 'Database Prefix' ); ?></label></th>
 							<td><input name="app_db_prefix" id="app_db_prefix" type="text" value="app_<?php echo esc_attr( md5( time() ) ); ?>_" placeholder="app_" size="25" /></td>
 							<td><?php echo sprintf(
 								'%1s <em>app_%2s_</em><br />%3s',
@@ -328,7 +323,7 @@ case 1 :
 	if ( ! is_writable(ABSPATH) ) :
 		include_once( ABSPATH . 'wp-admin/partials/header/config-install.php' );
 ?>
-	<div class="setup-config-wrap">
+	<div class="setup-install-wrap setup-install-no-write">
 		<p><?php
 			/* translators: %s: app-config.php */
 			printf( __( 'Sorry, but I can&#8217;t write the %s file.' ), '<code>app-config.php</code>' );
@@ -373,7 +368,7 @@ if ( ! /iPad|iPod|iPhone/.test( navigator.userAgent ) ) {
 		chmod( $path_to_wp_config, 0666 );
 		include_once( ABSPATH . 'wp-admin/partials/header/config-install.php' );
 ?>
-	<div class="setup-config-wrap">
+	<div class="setup-install-wrap setup-install-connection-success">
 		<header>
 			<h1><?php _e( 'Successful Database Connection' ) ?></h1>
 		</header>

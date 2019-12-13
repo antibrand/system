@@ -31,36 +31,53 @@ body {
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
-.setup-config-wrap {
+.setup-install-wrap {
   max-width: 768px;
+  padding: 1rem 2rem;
+  background-color: #fff;
 }
 
-.setup-config-wrap ol li {
+.setup-install-wrap ol li {
   font-weight: bold;
 }
 
-.setup-config-wrap ol li span {
+.setup-install-wrap ol li span {
   font-size: 0.85em;
   font-weight: normal;
   font-style: italic;
 }
 
-.setup-config-wrap fieldset {
+.setup-install-wrap fieldset {
   padding: 0.5em 1.5em 1em;
   border: solid 1px #ccc;
 }
 
-.setup-config-wrap fieldset:not(:first-of-type) {
+.setup-install-wrap fieldset:not(:first-of-type) {
   margin-top: 1em;
 }
 
-.setup-config-wrap fieldset legend {
+.setup-install-wrap fieldset legend {
   padding: 0.5em;
   font-size: 1.1em;
   font-weight: bold;
 }
 
+.setup-install-wrap .button {
+  background-color: #fe0;
+  border-color: #fe0;
+  -webkit-transition: background-color .15s, border-color .15s;
+  transition: background-color .15s, border-color .15s;
+  font-size: 1rem;
+}
+
+.setup-install-wrap .button:hover, .setup-install-wrap .button:focus {
+  background-color: #ccc;
+  border-color: #ccc;
+}
+
 .setup-config-field.setup-config-app-name input {
+  width: 100%;
+  max-width: 360px;
   margin-top: 1em;
 }
 
