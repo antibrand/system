@@ -1,6 +1,6 @@
 # system
 
-A generic website management system inspired by WordPress.
+A generic website management system inspired by WordPress. The system is compatible with plugins and themes that do not require WordPress version 5.0 or greater.
 
 ![Version 1.0.0](https://img.shields.io/badge/Version-1.0.0-ffd000.svg?style=flat-square)
 ![WordPress compatible](https://img.shields.io/badge/WordPress-compatible-0073aa.svg?style=flat-square)
