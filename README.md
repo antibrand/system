@@ -1,6 +1,6 @@
 # system
 
-A generic website management system inspired by WordPress 4.9.8
+A generic website management system inspired by WordPress.
 
 ![Version 1.0.0](https://img.shields.io/badge/Version-1.0.0-ffd000.svg?style=flat-square)
 ![WordPress compatible](https://img.shields.io/badge/WordPress-compatible-0073aa.svg?style=flat-square)
@@ -11,6 +11,8 @@ A generic website management system inspired by WordPress 4.9.8
 ## Overview
 
 This was created to demonstrate that one can "fork" WordPress in relatively short time. There have been comments made by influential folks in the WordPress organization, particularly the most influential individual, that are condescending, dismissive and passive-aggressive, daring others to fork WordPress. Hopefully this little experiment will prove that taking that challenge is relatively easy, albeit tedious.
+
+The version of WordPress from whence this project derived is 4.9.8, a version prior to the release of the block editor (a.k.a. Gutenberg) in version 5.0.
 
 ## Name, and No Name
 
