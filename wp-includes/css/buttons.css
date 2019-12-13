@@ -51,7 +51,7 @@ TABLE OF CONTENTS:
   -webkit-appearance: none;
   white-space: nowrap;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   border: none;
 }
 
@@ -109,9 +109,9 @@ TABLE OF CONTENTS:
 .app-core-ui .button-secondary {
   vertical-align: top;
   background: inherit;
-  color: #333;
   font-weight: bold;
   font-weight: 700;
+  color: inherit;
   border: solid 1px #888;
 }
 
@@ -154,7 +154,7 @@ TABLE OF CONTENTS:
   margin: 0;
   padding: 0;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   background: none;
   outline: none;
   cursor: pointer;

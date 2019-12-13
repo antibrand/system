@@ -51,7 +51,7 @@ TABLE OF CONTENTS:
   -webkit-appearance: none;
   white-space: nowrap;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   border: none;
 }
 
@@ -99,7 +99,7 @@ TABLE OF CONTENTS:
 .app-core-ui input[type="reset"]:focus {
   background: none;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   padding: 0 2px 1px;
   width: auto;
 }
@@ -111,9 +111,9 @@ TABLE OF CONTENTS:
 .app-core-ui .button-secondary {
   vertical-align: top;
   background: inherit;
-  color: #333;
   font-weight: bold;
   font-weight: 700;
+  color: inherit;
   border: solid 1px #888;
 }
 
@@ -147,7 +147,7 @@ TABLE OF CONTENTS:
   color: #a0a5aa !important;
   background: #f7f7f7 !important;
   -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   cursor: default;
   -webkit-transform: none !important;
   transform: none !important;
@@ -158,7 +158,7 @@ TABLE OF CONTENTS:
   margin: 0;
   padding: 0;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   background: none;
   outline: none;
   cursor: pointer;

@@ -52,7 +52,9 @@ TABLE OF CONTENTS:
 	cursor: pointer;
 	-webkit-appearance: none;
 	white-space: nowrap;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
 	border: none;
 }
 
@@ -100,7 +102,8 @@ TABLE OF CONTENTS:
 .app-core-ui input[type="reset"]:active,
 .app-core-ui input[type="reset"]:focus {
 	background: none;
-	box-shadow: none;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
 	padding: 0 2px 1px;
 	width: auto;
 }
@@ -113,9 +116,9 @@ TABLE OF CONTENTS:
 .app-core-ui .button-secondary {
 	vertical-align: top;
 	background: inherit;
-	color: #333;
 	font-weight: bold;
 	font-weight: 700;
+	color: inherit;
 	border: solid 1px #888;
 }
 
@@ -154,7 +157,8 @@ TABLE OF CONTENTS:
 .app-core-ui .button-disabled {
 	color: #a0a5aa !important;
 	background: #f7f7f7 !important;
-	box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	        box-shadow: none !important;
 	cursor: default;
 	-webkit-transform: none !important;
 	transform: none !important;
@@ -164,7 +168,8 @@ TABLE OF CONTENTS:
 .app-core-ui .button-link {
 	margin: 0;
 	padding: 0;
-	box-shadow: none;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
 	background: none;
 	outline: none;
 	cursor: pointer;
