@@ -57,7 +57,7 @@ body {
 
 	fieldset {
 		padding: 0.5em 1.5em 1em;
-		border: solid 1px #ccc;
+		border: solid 1px #888;
 
 		&:not(:first-of-type) {
 			margin-top: 1em;
@@ -72,7 +72,6 @@ body {
 
 	.button {
 		background-color: #fe0;
-		border-color: #fe0;
 		transition: background-color .15s, border-color .15s;
 		font-size: 1rem;
 
@@ -80,6 +79,12 @@ body {
 		&:focus {
 			background-color: #ccc;
 			border-color: #ccc;
+		}
+	}
+
+	input {
+		&:not([type="submit"]) {
+			padding: 0.5em 0.75em;
 		}
 	}
 
@@ -155,7 +160,7 @@ textarea {
 	margin-bottom: 9px;
 	padding: 10px 0 10px 20px;
 	font-size: 14px;
-	vertical-align: top
+	vertical-align: middle;
 }
 
 .form-table th {
@@ -163,7 +168,7 @@ textarea {
 	text-align: right;
 	padding: 10px 0 10px 20px;
 	width: 140px;
-	vertical-align: top;
+	vertical-align: middle;
 }
 
 .form-table code {

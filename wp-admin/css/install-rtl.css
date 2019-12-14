@@ -49,7 +49,7 @@ body {
 
 .setup-install-wrap fieldset {
   padding: 0.5em 1.5em 1em;
-  border: solid 1px #ccc;
+  border: solid 1px #888;
 }
 
 .setup-install-wrap fieldset:not(:first-of-type) {
@@ -64,7 +64,6 @@ body {
 
 .setup-install-wrap .button {
   background-color: #fe0;
-  border-color: #fe0;
   -webkit-transition: background-color .15s, border-color .15s;
   transition: background-color .15s, border-color .15s;
   font-size: 1rem;
@@ -73,6 +72,10 @@ body {
 .setup-install-wrap .button:hover, .setup-install-wrap .button:focus {
   background-color: #ccc;
   border-color: #ccc;
+}
+
+.setup-install-wrap input:not([type="submit"]) {
+  padding: 0.5em 0.75em;
 }
 
 .setup-install-wrap footer {
@@ -140,7 +143,7 @@ textarea {
   margin-bottom: 9px;
   padding: 10px 0 10px 20px;
   font-size: 14px;
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 .form-table th {
@@ -148,7 +151,7 @@ textarea {
   text-align: right;
   padding: 10px 0 10px 20px;
   width: 140px;
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 .form-table code {
