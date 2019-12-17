@@ -100,10 +100,10 @@ switch( $step ) {
 ?>
 	<div class="setup-install-wrap setup-install-introduction">
 		<header>
-			<h1><?php _e( 'Introduction' ) ?></h1>
+			<h2><?php _e( 'Introduction' ); ?></h2>
 		</header>
 		<main>
-			<p><?php _e( 'For the installation process you will need to know the following information.' ) ?></p>
+			<p><?php _e( 'For the installation process you will need to know the following information.' ); ?></p>
 			<ol class="setup-config-database-info-list">
 				<li><?php _e( 'Database name' ); ?></li>
 				<li><?php _e( 'Database username' ); ?></li>
@@ -121,7 +121,7 @@ switch( $step ) {
 			<p class="step"><a href="<?php echo $step_1; ?>" class="button button-large"><?php _e( 'Begin Installation' ); ?></a></p>
 		</main>
 		<footer>
-			<p><?php _e( 'This is the installation process for the generic website management system.' ) ?></p>
+			<p><?php _e( 'This is the installation process for the generic website management system.' ); ?></p>
 		</footer>
 	</div>
 <?php
@@ -135,12 +135,12 @@ case 1 :
 ?>
 	<div class="setup-install-wrap setup-install-installation">
 		<header>
-			<h1><?php _e( 'Installation' ) ?></h1>
+			<h2><?php _e( 'Installation' ); ?></h2>
 		</header>
 		<main>
 			<form class="setup-config-form" method="post" action="setup-config-new.php?step=2">
 				<fieldset>
-					<legend><?php _e( 'White Label' ) ?></legend>
+					<legend><?php _e( 'White Label' ); ?></legend>
 					<p><?php _e( 'Enter an application name to be used throughout the website management system. This allows you to "white label" the application and can be changed at any time in the <code>app-config</code> file.' ); ?></p>
 					<p class="setup-config-field setup-config-app-name">
 						<label for="app_name"><?php _e( 'Application Name' ); ?></label>
@@ -149,7 +149,7 @@ case 1 :
 					</p>
 				</fieldset>
 				<fieldset>
-					<legend><?php _e( 'Database Connection' ) ?></legend>
+					<legend><?php _e( 'Database Connection' ); ?></legend>
 					<p><?php _e( 'Enter your database connection details below. If you&#8217;re not sure about these, contact your host.' ); ?></p>
 					<p><?php _e( 'Unique database table prefixes are needed if you want to run more than one installation with a single database. For security purposes a random prefix has been generated. You can void this by entering your own prefix. It is recommended for legibility that the prefix ends in an underscore.' ); ?></p>
 					<table class="form-table">
@@ -195,7 +195,7 @@ case 1 :
 			</form>
 		</main>
 		<footer>
-			<p><?php _e( 'This is the installation process for the generic website management system.' ) ?></p>
+			<p><?php _e( 'This is the installation process for the generic website management system.' ); ?></p>
 		</footer>
 	</div>
 <?php
@@ -271,7 +271,7 @@ case 1 :
 
 	// Generate keys and salts using secure CSPRNG.
 	$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_ []{}<>~`+=,.;:/?|';
-	$max = strlen($chars) - 1;
+	$max   = strlen( $chars ) - 1;
 	for ( $i = 0; $i < 8; $i++ ) {
 		$key = '';
 		for ( $j = 0; $j < 64; $j++ ) {
@@ -324,7 +324,7 @@ case 1 :
 	}
 	unset( $line );
 
-	if ( ! is_writable(ABSPATH) ) :
+	if ( ! is_writable( ABSPATH ) ) :
 		include_once( ABSPATH . 'wp-admin/partials/header/config-install.php' );
 ?>
 	<div class="setup-install-wrap setup-install-no-write">
@@ -374,14 +374,14 @@ if ( ! /iPad|iPod|iPhone/.test( navigator.userAgent ) ) {
 ?>
 	<div class="setup-install-wrap setup-install-connection-success">
 		<header>
-			<h1><?php _e( 'Successful Database Connection' ) ?></h1>
+			<h2><?php _e( 'Successful Database Connection' ); ?></h2>
 		</header>
 		<main>
 			<p><?php _e( 'The website management system can now communicate with your database.' ); ?></p>
 			<p class="step"><a href="<?php echo $install; ?>" class="button button-large"><?php _e( 'Run the installation' ); ?></a></p>
 		</main>
 		<footer>
-			<p><?php _e( 'This is the installation process for the generic website management system.' ) ?></p>
+			<p><?php _e( 'This is the installation process for the generic website management system.' ); ?></p>
 		</footer>
 	</div>
 <?php
