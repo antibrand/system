@@ -15,9 +15,15 @@ define( 'WP_INSTALLING', true );
 // We are unaware of anything.
 define( 'WP_SETUP_CONFIG', true );
 
-// Define the application name.
-if ( ! defined( 'APP_NAME' ) ) {
-	define( 'APP_NAME', 'system' );
+/**
+ * Define a name of the website management system
+ *
+ * This is used in the setup & configuration page headers.
+ */
+if ( defined( 'APP_NAME' ) ) {
+	$app_name = APP_NAME;
+} else {
+	$app_name = 'Website Management System';
 }
 
 /**
