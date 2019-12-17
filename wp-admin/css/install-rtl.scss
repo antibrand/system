@@ -1,5 +1,10 @@
+@import '_reset.scss';
+@import '_global-variables.scss';
 @import url(forms.css);
 @import url(l10n.css);
+
+$install_primary_color: #ffee00;
+$install_secondary_color: #3ad4fb;
 
 html,
 body {
@@ -13,35 +18,85 @@ body {
 }
 
 body {
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	   -moz-box-orient: vertical;
-	   -moz-box-direction: normal;
-	    -ms-flex-direction: column;
-	        flex-direction: column;
-	-webkit-box-align: center;
-	   -moz-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
-	-webkit-box-pack: center;
-	   -moz-box-pack: center;
-	    -ms-flex-pack: center;
-			justify-content: center;
-	padding: 2rem;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 1rem;
-	line-height: 1.5em;
+	line-height: 1.5;
 	-webkit-font-smoothing: subpixel-antialiased;
 }
 
+.serif {
+	font-family: 'Hoefler Text', 'Baskerville Old Face', Garamond, Times, 'Times New Roman', serif;
+}
+
+.global-wrapper {
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+	margin-top: 1em;
+}
+
+code {
+	background: #eee;
+	padding: 0.15em 0.3em;
+}
+
+.app-header {
+	width: 100%;
+	padding: 2rem;
+
+	.app-identity {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		   -moz-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
+		max-width: 1280px;
+		margin: 0 auto;
+
+		.app-logo {
+			max-width: 80px;
+			margin-left: 1em;
+
+			img {
+				display: block;
+				border-radius: 50%;
+			}
+		}
+
+		.app-title {
+			margin: 0;
+			line-height: 1.1;
+		}
+
+		.app-description {
+			margin-top: 0.25em;
+			font-size: $px18;
+			line-height: 1.2;
+		}
+	}
+}
+
 .setup-install-wrap {
-	max-width: 768px;
-	padding: 1rem 2rem;
-	background-color: #fff;
+	padding: 0 2rem;
+
+	header {
+		h2 {
+			margin: 0;
+		}
+	}
 
 	ol {
 		li {
@@ -57,7 +112,7 @@ body {
 
 	fieldset {
 		padding: 0.5em 1.5em 1em;
-		border: solid 1px #888;
+		border: solid 1px $light_gray;
 
 		&:not(:first-of-type) {
 			margin-top: 1em;
@@ -71,14 +126,15 @@ body {
 	}
 
 	.button {
-		background-color: #fe0;
+		background-color: $install_primary_color;
+		-webkit-transition: background-color .15s, border-color .15s;
 		transition: background-color .15s, border-color .15s;
 		font-size: 1rem;
+		color: #1c1c1c;
 
 		&:hover,
 		&:focus {
-			background-color: #ccc;
-			border-color: #ccc;
+			background-color: $install_secondary_color;
 		}
 	}
 

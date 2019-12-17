@@ -19,7 +19,12 @@ if ( is_rtl() ) {
 	$body_classes .= 'rtl';
 }
 
-header( 'Content-Type: text/html; charset=utf-8' );
+// Get the identity image or white label logo.
+$app_logo = dirname( dirname( $_SERVER['PHP_SELF'] ) ) . '/app-assets/images/app-logo.jpg';
+
+// Link for the logo image.
+$app_link = null;
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?> class="no-js">
@@ -33,8 +38,13 @@ header( 'Content-Type: text/html; charset=utf-8' );
 </head>
 <body class="<?php echo $body_classes; ?>">
 	<header class="app-header">
-		<div class="app-identity">
-			<h1 class="app-name"><?php echo $app_name; ?></h1>
-			<p class="app-description"><?php _e( 'Installation & Configuration Process' ); ?></p>
+		<div class="app-identity global-wrapper">
+			<div class="app-logo">
+				<a href="<?php echo $app_link; ?>" class="app-logo-link" rel="home" itemprop="url"><img src="<?php echo $app_logo; ?>" class="app-logo-image" alt="<?php _e( 'App identity image' ); ?>" itemprop="logo" width="512" height="512"></a>
+			</div>
+			<div class="app-title-description">
+				<h1 class="app-title"><?php echo $app_title; ?></h1>
+				<p class="app-description"><?php _e( 'Installation & Configuration Process' ); ?></p>
+			</div>
 		</div>
 	</header>
