@@ -28,6 +28,13 @@ header( 'Content-Type: text/html; charset=utf-8' );
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="robots" content="noindex,nofollow" />
 	<title><?php _e( 'Configuration File Setup' ); ?></title>
+	<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
 	<?php wp_admin_css( 'install', true ); ?>
 </head>
 <body class="<?php echo $body_classes; ?>">
+	<header class="app-header">
+		<div class="app-identity">
+			<h1 class="app-name"><?php echo $app_name; ?></h1>
+			<p class="app-description"><?php _e( 'Installation & Configuration Process' ); ?></p>
+		</div>
+	</header>
