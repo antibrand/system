@@ -18,7 +18,9 @@ define( 'WP_SETUP_CONFIG', true );
 /**
  * Define a name of the website management system
  *
- * This is used in the setup & configuration page headers.
+ * Check first to see if the `APP_NAME` constant
+ * has been defined. This name is used in the
+ * setup & configuration page headers.
  */
 if ( defined( 'APP_NAME' ) ) {
 	$app_name = APP_NAME;
