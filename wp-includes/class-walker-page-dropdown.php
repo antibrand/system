@@ -2,7 +2,7 @@
 /**
  * Post API: Walker_PageDropdown class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Post
  * @since 4.4.0
  */

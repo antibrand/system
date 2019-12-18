@@ -30,7 +30,7 @@
  *         ++$error_count;
  *     }
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Plugin
  */
 

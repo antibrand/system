@@ -7,7 +7,7 @@
  *
  * Not all of the Multisite default hooks are found in ms-default-filters.php
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Multisite
  * @see default-filters.php
  * @since 3.0.0

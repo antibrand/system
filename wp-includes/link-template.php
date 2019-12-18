@@ -2,7 +2,7 @@
 /**
  * Link Template Functions
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Template
  */
 

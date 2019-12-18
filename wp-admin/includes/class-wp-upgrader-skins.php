@@ -2,7 +2,7 @@
 /**
  * The User Interface "Skins" for the File Upgrader
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Upgrader
  * @since 2.8.0
  */

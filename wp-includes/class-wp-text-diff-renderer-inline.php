@@ -2,7 +2,7 @@
 /**
  * Diff API: WP_Text_Diff_Renderer_inline class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Diff
  * @since 4.7.0
  */

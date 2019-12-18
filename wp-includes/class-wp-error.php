@@ -4,7 +4,7 @@
  *
  * Contains the WP_Error class and the is_wp_error() function.
  *
- * @package WMS
+ * @package App_Package
  */
 
 /**

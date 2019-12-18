@@ -2,7 +2,7 @@
 /**
  * Edit Term Administration Screen.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  * @since 4.5.0
  */

@@ -2,7 +2,7 @@
 /**
  * Customize Section classes
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Customize
  * @since 3.4.0
  */

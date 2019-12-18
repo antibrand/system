@@ -2,7 +2,7 @@
 /**
  * User administration panel
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  * @since 1.0.0
  */

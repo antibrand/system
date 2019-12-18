@@ -4,7 +4,7 @@
  *
  * Intended for form submission handling in themes and plugins.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  */
 

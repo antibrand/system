@@ -2,7 +2,7 @@
 /**
  * Post API: WP_Post class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Post
  * @since 4.4.0
  */

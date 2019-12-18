@@ -2,7 +2,7 @@
 /**
  * Facilitates adding of the editor as used on the Write and Edit screens.
  *
- * @package WMS
+ * @package App_Package
  * @since 3.3.0
  *
  * Private, not included by default. See wp_editor() in wp-includes/general-template.php.

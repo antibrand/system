@@ -2,7 +2,7 @@
 /**
  * Core Comment API
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Comment
  */
 

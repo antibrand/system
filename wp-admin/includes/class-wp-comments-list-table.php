@@ -2,7 +2,7 @@
 /**
  * List Table API: WP_Comments_List_Table class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  * @since 3.1.0
  */

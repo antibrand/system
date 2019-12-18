@@ -2,7 +2,7 @@
 /**
  * Server-side file upload handler from wp-plupload or other asynchronous upload methods.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  */
 

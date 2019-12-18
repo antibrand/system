@@ -2,7 +2,7 @@
 /**
  * HTTP API: WP_Http_Encoding class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage HTTP
  * @since 4.4.0
  */

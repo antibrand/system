@@ -2,7 +2,7 @@
 /**
  * Administration Template Header
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  */
 

@@ -2,7 +2,7 @@
 /**
  * The custom background script.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  */
 

@@ -2,7 +2,7 @@
 /**
  * File contains all the administration image manipulation functions.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  */
 

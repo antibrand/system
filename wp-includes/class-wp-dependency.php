@@ -4,7 +4,7 @@
  *
  * @since 4.7.0
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Dependencies
  */
 

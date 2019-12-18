@@ -2,7 +2,7 @@
 /**
  * Loads the application environment and template.
  *
- * @package WMS
+ * @package App_Package
  */
 
 if ( !isset($wp_did_header) ) {

@@ -2,7 +2,7 @@
 /**
  * Administration Bootstrap
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  */
 

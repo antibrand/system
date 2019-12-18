@@ -2,7 +2,7 @@
 /**
  * Bookmark Template Functions for usage in Themes
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Template
  */
 

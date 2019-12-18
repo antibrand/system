@@ -4,7 +4,7 @@
  * use these functions and look for the alternatives instead. The functions will be
  * removed in a later version.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Deprecated
  * @since 3.0.0
  */

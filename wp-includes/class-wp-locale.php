@@ -2,7 +2,7 @@
 /**
  * Locale API: WP_Locale class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage i18n
  * @since 4.6.0
  */

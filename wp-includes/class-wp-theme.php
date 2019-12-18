@@ -2,7 +2,7 @@
 /**
  * WP_Theme Class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Theme
  * @since 3.4.0
  */

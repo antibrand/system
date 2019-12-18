@@ -4,7 +4,7 @@
  *
  * Basically all that remains is the table structure and some method names.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Diff
  */
 

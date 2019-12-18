@@ -1,6 +1,6 @@
 <?php
 /**
- * @package WMS
+ * @package App_Package
  * @subpackage Theme_Compat
  * @deprecated 3.0.0
  *

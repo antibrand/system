@@ -2,7 +2,7 @@
 /**
  * Rewrite API
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Rewrite
  */
 

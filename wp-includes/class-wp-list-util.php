@@ -2,7 +2,7 @@
 /**
  * List utility class
  *
- * @package WMS
+ * @package App_Package
  * @since 4.7.0
  */
 

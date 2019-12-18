@@ -2,7 +2,7 @@
 /**
  * Meta API: WP_Meta_Query class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Meta
  * @since 4.4.0
  */

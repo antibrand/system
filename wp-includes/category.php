@@ -2,7 +2,7 @@
 /**
  * Taxonomy API: Core category-specific functionality
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Taxonomy
  */
 

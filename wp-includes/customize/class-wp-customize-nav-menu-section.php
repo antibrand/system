@@ -2,7 +2,7 @@
 /**
  * Customize API: WP_Customize_Nav_Menu_Section class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Customize
  * @since 4.4.0
  */

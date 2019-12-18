@@ -5,7 +5,7 @@
  * The permissions for the base directory must allow for writing files in order
  * for the app-config.php to be created using this page.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  */
 

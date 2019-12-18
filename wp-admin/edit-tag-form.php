@@ -2,7 +2,7 @@
 /**
  * Edit tag form for inclusion in administration panels.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  */
 

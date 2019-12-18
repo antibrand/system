@@ -2,7 +2,7 @@
 /**
  * Customize Panel classes
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Customize
  * @since 4.0.0
  */

@@ -2,7 +2,7 @@
 /**
  * Database Repair and Optimization Script.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Database
  */
 define('WP_REPAIRING', true);

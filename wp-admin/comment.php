@@ -2,7 +2,7 @@
 /**
  * Comment Management Screen
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  */
 

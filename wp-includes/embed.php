@@ -2,7 +2,7 @@
 /**
  * oEmbed API: Top-level oEmbed functionality
  *
- * @package WMS
+ * @package App_Package
  * @subpackage oEmbed
  * @since 4.4.0
  */

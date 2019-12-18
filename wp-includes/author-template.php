@@ -4,7 +4,7 @@
  *
  * These functions must be used within the Loop.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Template
  */
 

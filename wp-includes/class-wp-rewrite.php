@@ -2,7 +2,7 @@
 /**
  * Rewrite API: WP_Rewrite class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Rewrite
  * @since 1.5.0
  */

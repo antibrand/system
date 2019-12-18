@@ -2,7 +2,7 @@
 /**
  * These functions are needed to load the application
  *
- * @package WMS
+ * @package App_Package
  */
 
 /**

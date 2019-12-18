@@ -4,7 +4,7 @@
  *
  * Original code from {@link http://php.justinvincent.com Justin Vincent (justin@visunet.ie)}
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Database
  * @since 0.71
  */

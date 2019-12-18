@@ -2,7 +2,7 @@
 /**
  * Widget API: WP_Widget_Media_Gallery class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Widgets
  * @since 4.9.0
  */

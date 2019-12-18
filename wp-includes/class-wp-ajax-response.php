@@ -2,7 +2,7 @@
 /**
  * Send XML response back to Ajax request.
  *
- * @package WMS
+ * @package App_Package
  * @since 2.1.0
  */
 class WP_Ajax_Response {

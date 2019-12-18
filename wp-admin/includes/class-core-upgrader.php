@@ -2,7 +2,7 @@
 /**
  * Upgrade API: Core_Upgrader class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Upgrader
  * @since 4.6.0
  */

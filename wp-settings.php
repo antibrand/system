@@ -5,7 +5,7 @@
  *
  * Allows for some configuration in app-config.php (see default-constants.php)
  *
- * @package WMS
+ * @package App_Package
  */
 
 /**

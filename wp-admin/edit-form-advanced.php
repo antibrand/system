@@ -2,7 +2,7 @@
 /**
  * Post advanced form for inclusion in the administration panels.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  */
 

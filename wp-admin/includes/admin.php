@@ -2,7 +2,7 @@
 /**
  * Core Administration API
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  * @since 2.3.0
  */

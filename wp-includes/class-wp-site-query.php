@@ -2,7 +2,7 @@
 /**
  * Site API: WP_Site_Query class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Sites
  * @since 4.6.0
  */

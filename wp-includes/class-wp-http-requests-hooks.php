@@ -2,7 +2,7 @@
 /**
  * HTTP API: Requests hook bridge class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage HTTP
  * @since 4.7.0
  */

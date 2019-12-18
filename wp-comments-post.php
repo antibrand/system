@@ -2,7 +2,7 @@
 /**
  * Handles Comment Post and prevents duplicate comment posting.
  *
- * @package WMS
+ * @package App_Package
  */
 
 if ( 'POST' != $_SERVER['REQUEST_METHOD'] ) {

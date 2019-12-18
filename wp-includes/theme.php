@@ -2,7 +2,7 @@
 /**
  * Theme, template, and stylesheet functions.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Theme
  */
 

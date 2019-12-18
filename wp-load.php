@@ -12,7 +12,7 @@
  * Will also search for app-config.php in the parent
  * directory to allow the directory to remain untouched.
  *
- * @package WMS
+ * @package App_Package
  */
 
 /** Define ABSPATH as this file's directory */

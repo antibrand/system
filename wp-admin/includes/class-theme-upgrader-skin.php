@@ -2,7 +2,7 @@
 /**
  * Upgrader API: Theme_Upgrader_Skin class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Upgrader
  * @since 4.6.0
  */

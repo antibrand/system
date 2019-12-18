@@ -2,7 +2,7 @@
 /**
  * Core Post API
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Post
  */
 

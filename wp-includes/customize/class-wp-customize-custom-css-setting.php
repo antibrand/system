@@ -4,7 +4,7 @@
  *
  * This handles validation, sanitization and saving of the value.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Customize
  * @since 4.7.0
  */

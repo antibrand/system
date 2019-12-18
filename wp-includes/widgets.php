@@ -10,7 +10,7 @@
  * This functionality was found in a plugin before 2.2, which
  * included it in the core from that point on.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Widgets
  * @since 2.2.0
  */

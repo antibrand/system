@@ -2,7 +2,7 @@
 /**
  * Press This Display and Handler.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Press_This
  */
 

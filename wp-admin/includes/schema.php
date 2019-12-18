@@ -4,7 +4,7 @@
  *
  * Here we keep the DB structure and option values.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  */
 

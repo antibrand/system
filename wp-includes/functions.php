@@ -2,7 +2,7 @@
 /**
  * Main API
  *
- * @package WMS
+ * @package App_Package
  */
 
 require( ABSPATH . WPINC . '/option.php' );

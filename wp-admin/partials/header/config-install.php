@@ -2,7 +2,7 @@
 /**
  * Header for setup-config and install pages
  *
- * @package    WMS
+ * @package    App_Package
  * @subpackage Administration
  */
 

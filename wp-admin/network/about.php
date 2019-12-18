@@ -2,7 +2,7 @@
 /**
  * Network About administration panel.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Multisite
  * @since 3.4.0
  */

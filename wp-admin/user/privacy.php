@@ -2,7 +2,7 @@
 /**
  * User Dashboard Privacy administration panel.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  * @since 4.9.0
  */

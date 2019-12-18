@@ -2,7 +2,7 @@
 /**
  * Customize Nav Menus classes
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Customize
  * @since 4.3.0
  */

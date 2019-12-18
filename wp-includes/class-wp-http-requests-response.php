@@ -2,7 +2,7 @@
 /**
  * HTTP API: WP_HTTP_Requests_Response class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage HTTP
  * @since 4.6.0
  */

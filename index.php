@@ -3,7 +3,7 @@
  * Front to the application. This file doesn't do anything, but loads
  * wp-blog-header.php which does and tells the application to load the theme.
  *
- * @package WMS
+ * @package App_Package
  */
 
 /**

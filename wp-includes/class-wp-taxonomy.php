@@ -2,7 +2,7 @@
 /**
  * Taxonomy API: WP_Taxonomy class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Taxonomy
  * @since 4.7.0
  */

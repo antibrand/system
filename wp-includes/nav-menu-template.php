@@ -2,7 +2,7 @@
 /**
  * Nav Menu API: Template functions
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Nav_Menus
  * @since 3.0.0
  */

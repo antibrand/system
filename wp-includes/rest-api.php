@@ -2,7 +2,7 @@
 /**
  * REST API functions.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage REST_API
  * @since 4.4.0
  */

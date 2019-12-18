@@ -2,7 +2,7 @@
 /**
  * Customize API: WP_Customize_Selective_Refresh class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Customize
  * @since 4.5.0
  */

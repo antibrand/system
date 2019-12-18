@@ -2,7 +2,7 @@
 /**
  * Edit Tags Administration Screen.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  */
 

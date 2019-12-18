@@ -2,7 +2,7 @@
 /**
  * Taxonomy API: Core category-specific template tags
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Template
  * @since 1.2.0
  */

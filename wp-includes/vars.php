@@ -12,7 +12,7 @@
  * Note: Though Nginx is detected, the application does not currently
  * generate rewrite rules for it.
  *
- * @package WMS
+ * @package App_Package
  */
 
 global $pagenow,

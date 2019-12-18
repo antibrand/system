@@ -2,7 +2,7 @@
 /**
  * Noop functions for load-scripts.php and load-styles.php.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  * @since 4.4.0
  */

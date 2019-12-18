@@ -2,7 +2,7 @@
 /**
  * Administration API: WP_Site_Icon class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  * @since 4.3.0
  */

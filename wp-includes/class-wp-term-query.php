@@ -3,7 +3,7 @@
 /**
  * Taxonomy API: WP_Term_Query class.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Taxonomy
  * @since 4.6.0
  */

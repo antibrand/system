@@ -2,7 +2,7 @@
 /**
  * Multisite upgrade administration panel.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Multisite
  * @since 3.0.0
  */

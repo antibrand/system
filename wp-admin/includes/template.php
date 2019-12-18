@@ -4,7 +4,7 @@
  *
  * A Big Mess. Also some neat functions that are nicely written.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  */
 

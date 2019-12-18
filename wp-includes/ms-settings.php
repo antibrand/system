@@ -5,7 +5,7 @@
  *
  * Allows for some configuration in app-config.php (see ms-default-constants.php)
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Multisite
  * @since 3.0.0
  */

@@ -2,7 +2,7 @@
 /**
  * Upgrade API: WP_Automatic_Updater class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Upgrader
  * @since 4.6.0
  */

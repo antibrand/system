@@ -5,7 +5,7 @@
  * Support for post thumbnails.
  * Theme's functions.php must call add_theme_support( 'post-thumbnails' ) to use these.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Template
  */
 

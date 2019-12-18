@@ -2,7 +2,7 @@
 /**
  * Option API
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Option
  */
 

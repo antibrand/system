@@ -2,7 +2,7 @@
 /**
  * Plugin API: WP_Hook class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Plugin
  * @since 4.7.0
  */

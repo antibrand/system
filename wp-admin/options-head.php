@@ -4,7 +4,7 @@
  *
  * Displays updated message, if updated variable is part of the URL query.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  */
 

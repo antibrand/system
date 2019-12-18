@@ -2,7 +2,7 @@
 /**
  * Action handler for Multisite administration panels.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Multisite
  * @since 3.0.0
  */

@@ -8,7 +8,7 @@
  *
  * @since 2.1.0
  *
- * @package WMS
+ * @package App_Package
  * @abstract
  */
 class Walker {

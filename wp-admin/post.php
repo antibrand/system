@@ -4,7 +4,7 @@
  *
  * Manage Post actions: post, edit, delete, etc.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  */
 

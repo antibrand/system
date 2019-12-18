@@ -2,7 +2,7 @@
 /**
  * API for media display.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Media
  */
 

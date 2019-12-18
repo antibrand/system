@@ -6,7 +6,7 @@
  *
  * @link http://oembed.com/ oEmbed Homepage
  *
- * @package WMS
+ * @package App_Package
  * @subpackage oEmbed
  */
 

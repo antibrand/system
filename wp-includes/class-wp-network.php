@@ -2,7 +2,7 @@
 /**
  * Network API: WP_Network class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Multisite
  * @since 4.4.0
  */

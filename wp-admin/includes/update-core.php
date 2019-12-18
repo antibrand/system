@@ -2,7 +2,7 @@
 /**
  * Core upgrade functionality.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  * @since 2.7.0
  */

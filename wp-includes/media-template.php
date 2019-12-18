@@ -2,7 +2,7 @@
 /**
  * Media templates.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Media
  * @since 3.5.0
  */

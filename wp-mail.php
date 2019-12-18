@@ -4,7 +4,7 @@
  * a post. Mailbox connection information must be
  * configured under Settings > Writing
  *
- * @package WMS
+ * @package App_Package
  */
 
 /** Make sure that the bootstrap has run before continuing. */

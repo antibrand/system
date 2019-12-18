@@ -2,7 +2,7 @@
 /**
  * User API: WP_Roles class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Users
  * @since 4.4.0
  */

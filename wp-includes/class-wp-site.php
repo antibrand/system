@@ -2,7 +2,7 @@
 /**
  * Site API: WP_Site class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Multisite
  * @since 4.5.0
  */

@@ -4,7 +4,7 @@
  *
  * @since 0.71
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Trackbacks
  */
 

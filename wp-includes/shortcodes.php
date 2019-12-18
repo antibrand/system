@@ -23,7 +23,7 @@
  *
  *     $out = do_shortcode( $content );
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Shortcodes
  * @since 2.5.0
  */

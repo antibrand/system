@@ -2,7 +2,7 @@
 /**
  * Misc Administration API.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  */
 

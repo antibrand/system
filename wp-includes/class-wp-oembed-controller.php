@@ -2,7 +2,7 @@
 /**
  * WP_oEmbed_Controller class, used to provide an oEmbed endpoint.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Embeds
  * @since 4.4.0
  */

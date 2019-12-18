@@ -2,7 +2,7 @@
 /**
  * GD Image Editor
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Image_Editor
  */
 

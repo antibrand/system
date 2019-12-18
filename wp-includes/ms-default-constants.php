@@ -2,7 +2,7 @@
 /**
  * Defines constants and global variables that can be overridden, generally in app-config.php.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Multisite
  * @since 3.0.0
  */

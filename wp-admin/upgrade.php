@@ -2,7 +2,7 @@
 /**
  * Upgrade Page.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  */
 

@@ -2,7 +2,7 @@
 /**
  * Widget API: Default core widgets
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Widgets
  * @since 2.8.0
  */

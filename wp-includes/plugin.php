@@ -13,7 +13,7 @@
  *
  * This file should have no external dependencies.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Plugin
  * @since 1.5.0
  */

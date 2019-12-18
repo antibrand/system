@@ -2,7 +2,7 @@
 /**
  * Media management action handler.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  */
 

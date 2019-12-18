@@ -2,7 +2,7 @@
 /**
  * Update/Install Plugin/Theme administration panel.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  */
 

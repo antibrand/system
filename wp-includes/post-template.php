@@ -4,7 +4,7 @@
  *
  * Gets content for the current post in the loop.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Template
  */
 

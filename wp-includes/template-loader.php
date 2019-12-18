@@ -1,7 +1,7 @@
 <?php
 /**
  * Loads the correct template based on the visitor's url
- * @package WMS
+ * @package App_Package
  */
 if ( defined('WP_USE_THEMES') && WP_USE_THEMES )
 	/**

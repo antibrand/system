@@ -5,7 +5,7 @@
  * Based on "Permalink Redirect" from Scott Yang and "Enforce www. Preference"
  * by Mark Jaquith
  *
- * @package WMS
+ * @package App_Package
  * @since 2.3.0
  */
 

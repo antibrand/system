@@ -2,7 +2,7 @@
 /**
  * Core User Role & Capabilities API
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Users
  */
 

@@ -4,7 +4,7 @@
  *
  * Requires skin classes and WP_Upgrader subclasses for backward compatibility.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Upgrader
  * @since 2.8.0
  */

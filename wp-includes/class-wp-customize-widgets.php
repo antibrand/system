@@ -2,7 +2,7 @@
 /**
  * Customize Widgets classes
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Customize
  * @since 3.9.0
  */

@@ -11,7 +11,7 @@
  * that use the Settings API. In this case it saves the new option values
  * and returns the user to their page of origin.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  */
 

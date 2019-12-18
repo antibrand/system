@@ -2,7 +2,7 @@
 /**
  * Network Privacy administration panel.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Multisite
  * @since 4.9.0
  */

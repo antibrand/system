@@ -11,7 +11,7 @@
  *
  * @see `wp-includes/default-constants.php` for fallback definitions.
  *
- * @package WMS
+ * @package App_Package
  */
 
 // Define a name of the website management system.

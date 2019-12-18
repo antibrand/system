@@ -4,7 +4,7 @@
  *
  * Requires wp-admin/includes/revision.php.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  * @since 2.6.0
  *

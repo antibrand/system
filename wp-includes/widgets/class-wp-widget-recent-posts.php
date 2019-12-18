@@ -2,7 +2,7 @@
 /**
  * Widget API: WP_Widget_Recent_Posts class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Widgets
  * @since 4.4.0
  */

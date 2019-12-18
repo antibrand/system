@@ -2,7 +2,7 @@
 /**
  * Object Cache API
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Cache
  */
 

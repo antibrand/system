@@ -2,7 +2,7 @@
 /**
  * WP_HTTP_IXR_Client
  *
- * @package WMS
+ * @package App_Package
  * @since 3.1.0
  *
  */

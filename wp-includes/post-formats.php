@@ -2,7 +2,7 @@
 /**
  * Post format functions.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Post
  */
 

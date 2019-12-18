@@ -6,7 +6,7 @@
  * Includes functionality for theme-specific files as well as operations for uploading,
  * archiving, and rendering output when necessary.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Filesystem
  * @since 2.3.0
  */

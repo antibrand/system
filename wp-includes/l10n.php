@@ -2,7 +2,7 @@
 /**
  * Core Translation API
  *
- * @package WMS
+ * @package App_Package
  * @subpackage i18n
  * @since 1.2.0
  */

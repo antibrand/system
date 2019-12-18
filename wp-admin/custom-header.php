@@ -2,7 +2,7 @@
 /**
  * The custom header image script.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  */
 

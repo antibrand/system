@@ -2,7 +2,7 @@
 /**
  * Toolbar API: Top-level Toolbar functionality
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Toolbar
  * @since 3.1.0
  */

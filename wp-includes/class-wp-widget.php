@@ -2,7 +2,7 @@
 /**
  * Widget API: WP_Widget base class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Widgets
  * @since 4.4.0
  */

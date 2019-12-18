@@ -6,7 +6,7 @@
  * for an object is a represented by a simple key-value pair. Objects may contain multiple
  * metadata entries that share the same key and differ only in their value.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Meta
  */
 

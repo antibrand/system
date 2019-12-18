@@ -2,7 +2,7 @@
 /**
  * Core User API
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Users
  */
 

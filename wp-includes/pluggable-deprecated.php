@@ -6,7 +6,7 @@
  *
  * Deprecated warnings are also thrown if one of these functions is being defined by a plugin.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Deprecated
  * @see pluggable.php
  */

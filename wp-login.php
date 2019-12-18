@@ -5,7 +5,7 @@
  * Handles authentication, registering, resetting passwords, forgot password,
  * and other user handling.
  *
- * @package WMS
+ * @package App_Package
  */
 
 // Make sure that the website management system bootstrap has run before continuing.

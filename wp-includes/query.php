@@ -5,7 +5,7 @@
  * The query API attempts to get which part the user is on. It
  * also provides functionality for getting URL query information.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Query
  */
 

@@ -2,7 +2,7 @@
 /**
  * Administration API: Core Ajax handlers
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Administration
  * @since 2.1.0
  */

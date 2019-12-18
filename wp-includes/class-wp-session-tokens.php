@@ -2,7 +2,7 @@
 /**
  * Session API: WP_Session_Tokens class
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Session
  * @since 4.7.0
  */

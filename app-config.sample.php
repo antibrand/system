@@ -13,7 +13,7 @@
  * * Database table prefix
  * * ABSPATH
  *
- * @package WMS
+ * @package App_Package
  */
 
 /**

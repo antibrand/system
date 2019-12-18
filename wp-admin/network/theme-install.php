@@ -2,7 +2,7 @@
 /**
  * Install theme network administration panel.
  *
- * @package WMS
+ * @package App_Package
  * @subpackage Multisite
  * @since 3.1.0
  */
