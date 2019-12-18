@@ -96,7 +96,7 @@ switch( $step ) {
 	<div class="setup-install-wrap setup-install-introduction">
 		<main class="setup-config-content global-wrapper">
 			<header>
-				<h2><?php _e( 'Introduction' ); ?></h2>
+				<h2><?php _e( 'Setup Introduction' ); ?></h2>
 			</header>
 			<p><?php _e( 'For the installation process you will need to know the following information.' ); ?></p>
 			<ol class="setup-config-database-info-list">

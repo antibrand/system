@@ -62,7 +62,7 @@ if ( $app_logo && defined( 'APP_WEBSITE' ) ) {
 			</div>
 			<div class="app-title-description">
 				<h1 class="app-title"><?php echo APP_NAME; ?></h1>
-				<p class="app-description"><?php _e( 'Installation & Configuration Process' ); ?></p>
+				<p class="app-description"><?php echo APP_TAGLINE; ?></p>
 			</div>
 		</div>
 	</header>

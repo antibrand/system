@@ -9,6 +9,10 @@
 ?>
 <footer id="colophon" class="app-footer">
 	<div class="footer-content global-wrapper">
-		<p><?php _e( 'This is the installation process for the generic website management system.' ); ?></p>
+	<?php echo sprintf(
+		'<p>%1s %2s</p>',
+		__( 'This is the installation process for' ),
+		APP_NAME
+	); ?>
 	</div>
 </footer>
