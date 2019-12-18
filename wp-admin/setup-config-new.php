@@ -16,19 +16,6 @@ define( 'WP_INSTALLING', true );
 define( 'WP_SETUP_CONFIG', true );
 
 /**
- * Define a name of the website management system
- *
- * Check first to see if the `APP_NAME` constant
- * has been defined. This name is used in the
- * setup & configuration page headers.
- */
-if ( defined( 'APP_NAME' ) ) {
-	$app_title = APP_NAME;
-} else {
-	$app_title = 'Website Management System';
-}
-
-/**
  * Disable error reporting
  *
  * Set this to error_reporting( -1 ) for debugging.
@@ -39,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', dirname( dirname( __FILE__ ) ) . '/' );
 }
 
-// ob_start();
+ob_start();
 
 require( ABSPATH . 'wp-settings.php' );
 
@@ -394,4 +381,4 @@ if ( ! /iPad|iPod|iPhone/.test( navigator.userAgent ) ) {
 <?php // wp_print_scripts( 'language-chooser' ); ?>
 </body>
 </html>
-<?php // ob_end_flush();
+<?php ob_end_flush();

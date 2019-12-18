@@ -20,10 +20,28 @@ if ( is_rtl() ) {
 }
 
 // Get the identity image or white label logo.
-$app_logo = dirname( dirname( $_SERVER['PHP_SELF'] ) ) . '/app-assets/images/app-logo.jpg';
+$app_logo = APP_LOGO;
 
 // Link for the logo image.
-$app_link = null;
+$app_link = APP_WEBSITE;
+
+// Conditional logo markup.
+if ( $app_logo && defined( 'APP_WEBSITE' ) ) {
+	$app_logo = sprintf(
+		'<a href="%1s"><img src="%2s" class="app-logo-image" alt="%3s" itemprop="logo" width="512" height="512"></a>',
+		APP_WEBSITE,
+		$app_logo,
+		APP_NAME
+	);
+} elseif ( $app_logo ) {
+	$app_logo = sprintf(
+		'<img src="%1s" class="app-logo-image" alt="%2s" itemprop="logo" width="512" height="512">',
+		$app_logo,
+		APP_NAME
+	);
+} else {
+	$app_logo = '';
+}
 
 ?>
 <!doctype html>
@@ -40,10 +58,10 @@ $app_link = null;
 	<header class="app-header">
 		<div class="app-identity global-wrapper">
 			<div class="app-logo">
-				<a href="<?php echo $app_link; ?>" class="app-logo-link" rel="home" itemprop="url"><img src="<?php echo $app_logo; ?>" class="app-logo-image" alt="<?php _e( 'App identity image' ); ?>" itemprop="logo" width="512" height="512"></a>
+				<?php echo $app_logo; ?>
 			</div>
 			<div class="app-title-description">
-				<h1 class="app-title"><?php echo $app_title; ?></h1>
+				<h1 class="app-title"><?php echo APP_NAME; ?></h1>
 				<p class="app-description"><?php _e( 'Installation & Configuration Process' ); ?></p>
 			</div>
 		</div>

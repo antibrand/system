@@ -1,6 +1,6 @@
 <?php
 /**
- * The base configuration for the website management system
+ * Base configuration for the website management system
  *
  * The app-config.php creation script uses this file during the
  * installation. You don't have to use the web site, you can
@@ -66,14 +66,6 @@ define( 'NONCE_SALT',       'Put your unique phrase here' );
 $table_prefix  = 'app_';
 
 /**
- * Define the application name
- *
- * This constant is used throughout the website management system
- * and allows you to "white label" the application.
- */
-define( 'APP_NAME', 'Website Management System' );
-
-/**
  * User login directory
  *
  * The default login directory is `/login`. You can
@@ -81,15 +73,6 @@ define( 'APP_NAME', 'Website Management System' );
  * name here.
  */
 define( 'APP_LOGIN', 'login' );
-
-// Allow automatic database repair.
-// define( 'WP_ALLOW_REPAIR', false );
-
-// Don't make database upgrades on global tables.
-// define( 'DO_NOT_UPGRADE_GLOBAL_TABLES', true );
-
-// Disable WordPress cron in favor of server cron.
-// define( 'DISABLE_WP_CRON', true );
 
 /**
  * Disable automatic updates.

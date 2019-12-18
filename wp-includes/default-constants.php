@@ -19,6 +19,52 @@ function wp_initial_constants() {
 
 	global $blog_id;
 
+	/**
+	 * App identity
+	 *
+	 * Define white label names and URLs.
+	 */
+
+	// Check for an identity config file.
+	if ( file_exists( ABSPATH . 'identity-config.php' ) ) {
+		require( ABSPATH . 'identity-config.php' );
+
+	// Check one level above root for an identity config file.
+	} elseif ( file_exists( dirname( ABSPATH ) . 'identity-config.php' ) ) {
+		require( dirname( ABSPATH ) . 'identity-config.php' );
+
+	// Check for a sample identity config file.
+	} elseif ( file_exists( ABSPATH . 'identity-config.sample.php' ) ) {
+		require( ABSPATH . 'identity-config.sample.php' );
+
+	// Check one level above root for a sample identity config file.
+	} elseif ( file_exists( dirname( ABSPATH ) . 'identity-config.sample.php' ) ) {
+		require( dirname( ABSPATH ) . 'identity-config.sample.php' );
+
+	// Fallback definitions.
+	} else {
+
+		// Define a name of the website management system.
+		if ( ! defined( 'APP_NAME' ) ) {
+			define( 'APP_NAME', 'Website Management System' );
+		}
+
+		// Define a tagline of the website management system.
+		if ( ! defined( 'APP_TAGLINE' ) ) {
+			define( 'APP_TAGLINE', '' );
+		}
+
+		// Define a URL for the website management system.
+		if ( ! defined( 'APP_WEBSITE' ) ) {
+			define( 'APP_WEBSITE', '' );
+		}
+
+		// Define a logo path for the website management system.
+		if ( ! defined( 'APP_LOGO' ) ) {
+			define( 'APP_LOGO', '' );
+		}
+	}
+
 	/**#@+
 	 * Constants for expressing human-readable data sizes in their respective number of bytes.
 	 *
