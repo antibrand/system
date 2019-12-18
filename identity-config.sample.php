@@ -31,5 +31,7 @@ if ( ! defined( 'APP_WEBSITE' ) ) {
 
 // Define a logo path for the website management system.
 if ( ! defined( 'APP_LOGO' ) ) {
+
+	// Path starts at the system's root directory.
 	define( 'APP_LOGO', dirname( dirname( $_SERVER['PHP_SELF'] ) ) . '/app-assets/images/app-logo.jpg' );
 }
