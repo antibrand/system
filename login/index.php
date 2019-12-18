@@ -13,11 +13,7 @@ require( dirname( dirname( __FILE__ ) ) . '/wp-load.php' );
 
 // Check for defined user login directory.
 if ( ! defined( 'APP_LOGIN' ) ) {
-<<<<<<< HEAD
 	define( 'APP_LOGIN', '/' . 'login' . '/' );
-=======
-	define( 'APP_LOGIN', 'login' );
->>>>>>> bdb4c679c311c728e1b96c6281ae0c5246454bfa
 }
 
 // Redirect to https login if forced to use SSL.
