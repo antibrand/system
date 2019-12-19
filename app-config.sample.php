@@ -103,6 +103,9 @@ define( 'wp_auto_update_core', false );
 // Switch for local dev
 // define( 'WP_LOCAL_DEV', true );
 
+// Set false to load scripts & styles separately.
+// define( 'CONCATENATE_SCRIPTS', true );
+
 /**
  * Multisite network
  *
@@ -135,9 +138,6 @@ define( 'wp_auto_update_core', false );
 
 // Allow editing images to replace the originals.
 // define( 'IMAGE_EDIT_OVERWRITE', true );
-
-// Set false to load scripts & styles separately.
-// define( 'CONCATENATE_SCRIPTS', true );
 
 // Use unminified scripts.
 // define( 'SCRIPT_DEBUG', true );
