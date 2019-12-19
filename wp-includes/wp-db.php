@@ -1027,29 +1027,62 @@ class wpdb {
 			if ( ! did_action( 'template_redirect' ) ) {
 				wp_load_translations_early();
 
-				$message = '<h1>' . __( 'Can&#8217;t select a database' ) . "</h1>\n";
+				$message = '<header><h2>' . __( 'Can&#8217;t select a database' ) . "</h2></header>\n";
 
-				$message .= '<p>' . sprintf(
-					/* translators: %s: database name */
-					__( 'We were able to connect to the database server (which means your username and password is okay) but not able to select the "%s" database.' ),
-					'<code>' . htmlspecialchars( $db, ENT_QUOTES ) . '</code>'
-				) . "</p>\n";
+				if ( ! empty( $db ) ) {
+					$message .= '<p>' . sprintf(
+						/* translators: %s: database name */
+						__( 'We were able to connect to the database server (which means your username and password is okay) but not able to select the "%s" database.' ),
+						'<code>' . htmlspecialchars( $db, ENT_QUOTES ) . '</code>'
+					) . "</p>\n";
+				} else {
+					$message .= '<p>' . sprintf(
+						/* translators: %s: database name */
+						__( 'We were able to connect to the database server (which means your username and password is okay) but not able to select the database.' )
+					) . "</p>\n";
+				}
 
 				$message .= "<ul>\n";
 				$message .= '<li>' . __( 'Are you sure it exists?' ) . "</li>\n";
 
-				$message .= '<li>' . sprintf(
-					/* translators: 1: database user, 2: database name */
-					__( 'Does the user %1$s have permission to use the %2$s database?' ),
-					'<code>' . htmlspecialchars( $this->dbuser, ENT_QUOTES )  . '</code>',
-					'<code>' . htmlspecialchars( $db, ENT_QUOTES ) . '</code>'
-				) . "</li>\n";
+				if ( ! empty( ( $db && $this->dbuser ) ) ) {
+					$message .= '<li>' . sprintf(
+						/* translators: 1: database user, 2: database name */
+						__( 'Does the user %1$s have permission to use the %2$s database?' ),
+						'<code>' . htmlspecialchars( $this->dbuser, ENT_QUOTES )  . '</code>',
+						'<code>' . htmlspecialchars( $db, ENT_QUOTES ) . '</code>'
+					) . "</li>\n";
+				} elseif ( ! empty( ( $db ) ) ) {
+					$message .= '<li>' . sprintf(
+						/* translators: 1: database user, 2: database name */
+						__( 'Does the user have permission to use the %2$s database?' ),
+						'<code>' . htmlspecialchars( $db, ENT_QUOTES ) . '</code>'
+					) . "</li>\n";
+				} elseif ( ! empty( ( $this->dbuser ) ) ) {
+					$message .= '<li>' . sprintf(
+						/* translators: 1: database user, 2: database name */
+						__( 'Does the user %1$s have permission to use the database?' ),
+						'<code>' . htmlspecialchars( $this->dbuser, ENT_QUOTES )  . '</code>'
+					) . "</li>\n";
+				}  else {
+					$message .= '<li>' . sprintf(
+						/* translators: 1: database user, 2: database name */
+						__( 'Does the user have permission to use the database?' )
+					) . "</li>\n";
+				}
 
-				$message .= '<li>' . sprintf(
-					/* translators: %s: database name */
-					__( 'On some systems the name of your database is prefixed with your username, so it would be like <code>username_%1$s</code>. Could that be the problem?' ),
-					htmlspecialchars( $db, ENT_QUOTES )
-				). "</li>\n";
+				if ( ! empty( ( $db ) ) ) {
+					$message .= '<li>' . sprintf(
+						/* translators: %s: database name */
+						__( 'On some systems the name of your database is prefixed with your username, so it would be like <code>username_%1$s</code>. Could that be the problem?' ),
+						htmlspecialchars( $db, ENT_QUOTES )
+					). "</li>\n";
+				} else {
+					$message .= '<li>' . sprintf(
+						/* translators: %s: database name */
+						__( 'On some systems the name of your database is prefixed with your username. Could that be the problem?' )
+					). "</li>\n";
+				}
 
 				$message .= "</ul>\n";
 
