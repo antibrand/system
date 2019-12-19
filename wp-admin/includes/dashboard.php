@@ -1131,6 +1131,17 @@ function wp_welcome_panel() {
 	// App version.
 	$version = get_bloginfo( 'version' );
 
+	/**
+	 * Welcome panel description
+	 *
+	 * Uses the white label tagline if available.
+	 */
+	if ( defined( 'APP_TAGLINE' ) ) {
+		$description = APP_TAGLINE;
+	} else {
+		$description = __( 'Following are some links to help manage your website:' );
+	}
+
 	?>
 	<div class="welcome-panel-content">
 		<h2>
@@ -1141,7 +1152,7 @@ function wp_welcome_panel() {
 			$version
 		); ?>
 		</h2>
-		<p class="description about-description"><?php _e( 'Following are some links to help manage your website:' ); ?></p>
+		<p class="description welcome-description"><?php echo $description; ?></p>
 		<div class="welcome-panel-column-container">
 			<div class="welcome-panel-column">
 				<h3><?php _e( 'Get Started' ); ?></h3>
