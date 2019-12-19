@@ -26,20 +26,20 @@ function wp_initial_constants() {
 	 */
 
 	// Check for an identity config file.
-	if ( file_exists( ABSPATH . 'identity-config.php' ) ) {
-		require( ABSPATH . 'identity-config.php' );
+	if ( file_exists( ABSPATH . 'id-config.php' ) ) {
+		require( ABSPATH . 'id-config.php' );
 
 	// Check one level above root for an identity config file.
-	} elseif ( file_exists( dirname( ABSPATH ) . 'identity-config.php' ) ) {
-		require( dirname( ABSPATH ) . 'identity-config.php' );
+	} elseif ( file_exists( dirname( ABSPATH ) . 'id-config.php' ) ) {
+		require( dirname( ABSPATH ) . 'id-config.php' );
 
 	// Check for a sample identity config file.
-	} elseif ( file_exists( ABSPATH . 'identity-config.sample.php' ) ) {
-		require( ABSPATH . 'identity-config.sample.php' );
+	} elseif ( file_exists( ABSPATH . 'id-config.sample.php' ) ) {
+		require( ABSPATH . 'id-config.sample.php' );
 
 	// Check one level above root for a sample identity config file.
-	} elseif ( file_exists( dirname( ABSPATH ) . 'identity-config.sample.php' ) ) {
-		require( dirname( ABSPATH ) . 'identity-config.sample.php' );
+	} elseif ( file_exists( dirname( ABSPATH ) . 'id-config.sample.php' ) ) {
+		require( dirname( ABSPATH ) . 'id-config.sample.php' );
 
 	// Fallback definitions.
 	} else {

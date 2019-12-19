@@ -15,6 +15,11 @@ define( 'WP_INSTALLING', true );
 // We are unaware of anything.
 define( 'WP_SETUP_CONFIG', true );
 
+// Define the application name.
+if ( ! defined( 'APP_NAME' ) ) {
+	define( 'APP_NAME', 'system' );
+}
+
 /**
  * Disable error reporting
  *
@@ -26,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', dirname( dirname( __FILE__ ) ) . '/' );
 }
 
-ob_start();
+// ob_start();
 
 require( ABSPATH . 'wp-settings.php' );
 
@@ -91,14 +96,14 @@ switch( $step ) {
 
 	case 0 :
 		include_once( ABSPATH . 'wp-admin/partials/header/config-install.php' );
-		$step_1 = 'setup-config-new.php?step=1';
+		$step_1 = 'setup-config.php?step=1';
 ?>
 	<div class="setup-install-wrap setup-install-introduction">
-		<main class="setup-config-content global-wrapper">
-			<header>
-				<h2><?php _e( 'Setup Introduction' ); ?></h2>
-			</header>
-			<p><?php _e( 'For the installation process you will need to know the following information.' ); ?></p>
+		<header>
+			<h1><?php _e( 'Introduction' ) ?></h1>
+		</header>
+		<main>
+			<p><?php _e( 'For the installation process you will need to know the following information.' ) ?></p>
 			<ol class="setup-config-database-info-list">
 				<li><?php _e( 'Database name' ); ?></li>
 				<li><?php _e( 'Database username' ); ?></li>
@@ -115,7 +120,9 @@ switch( $step ) {
 			?></p>
 			<p class="step"><a href="<?php echo $step_1; ?>" class="button button-large"><?php _e( 'Begin Installation' ); ?></a></p>
 		</main>
-		<?php include_once( ABSPATH . 'wp-admin/partials/footer/config-install.php' ); ?>
+		<footer>
+			<p><?php _e( 'This is the installation process for the generic website management system.' ) ?></p>
+		</footer>
 	</div>
 <?php
 break;
@@ -127,13 +134,13 @@ case 1 :
 	include_once( ABSPATH . 'wp-admin/partials/header/config-install.php' );
 ?>
 	<div class="setup-install-wrap setup-install-installation">
-		<main class="setup-config-content global-wrapper">
-			<header>
-				<h2><?php _e( 'Installation' ); ?></h2>
-			</header>
-			<form class="setup-config-form" method="post" action="setup-config-new.php?step=2">
+		<header>
+			<h1><?php _e( 'Installation' ) ?></h1>
+		</header>
+		<main>
+			<form class="setup-config-form" method="post" action="setup-config.php?step=2">
 				<fieldset>
-					<legend><?php _e( 'White Label' ); ?></legend>
+					<legend><?php _e( 'White Label' ) ?></legend>
 					<p><?php _e( 'Enter an application name to be used throughout the website management system. This allows you to "white label" the application and can be changed at any time in the <code>app-config</code> file.' ); ?></p>
 					<p class="setup-config-field setup-config-app-name">
 						<label for="app_name"><?php _e( 'Application Name' ); ?></label>
@@ -142,7 +149,7 @@ case 1 :
 					</p>
 				</fieldset>
 				<fieldset>
-					<legend><?php _e( 'Database Connection' ); ?></legend>
+					<legend><?php _e( 'Database Connection' ) ?></legend>
 					<p><?php _e( 'Enter your database connection details below. If you&#8217;re not sure about these, contact your host.' ); ?></p>
 					<p><?php _e( 'Unique database table prefixes are needed if you want to run more than one installation with a single database. For security purposes a random prefix has been generated. You can void this by entering your own prefix. It is recommended for legibility that the prefix ends in an underscore.' ); ?></p>
 					<table class="form-table">
@@ -187,7 +194,9 @@ case 1 :
 				<p class="step"><input name="submit" type="submit" value="<?php echo htmlspecialchars( __( 'Submit Information' ), ENT_QUOTES ); ?>" class="button button-large" /></p>
 			</form>
 		</main>
-		<?php include_once( ABSPATH . 'wp-admin/partials/footer/config-install.php' ); ?>
+		<footer>
+			<p><?php _e( 'This is the installation process for the generic website management system.' ) ?></p>
+		</footer>
 	</div>
 <?php
 	break;
@@ -203,7 +212,7 @@ case 1 :
 	$app_db_host     = trim( wp_unslash( $_POST['app_db_host'] ) );
 	$app_db_prefix   = trim( wp_unslash( $_POST['app_db_prefix'] ) );
 
-	$step_1  = 'setup-config-new.php?step=1';
+	$step_1  = 'setup-config.php?step=1';
 	$install = 'install.php';
 	if ( isset( $_REQUEST['noapi'] ) ) {
 		$step_1 .= '&amp;noapi';
@@ -262,7 +271,7 @@ case 1 :
 
 	// Generate keys and salts using secure CSPRNG.
 	$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_ []{}<>~`+=,.;:/?|';
-	$max   = strlen( $chars ) - 1;
+	$max = strlen($chars) - 1;
 	for ( $i = 0; $i < 8; $i++ ) {
 		$key = '';
 		for ( $j = 0; $j < 64; $j++ ) {
@@ -315,7 +324,7 @@ case 1 :
 	}
 	unset( $line );
 
-	if ( ! is_writable( ABSPATH ) ) :
+	if ( ! is_writable(ABSPATH) ) :
 		include_once( ABSPATH . 'wp-admin/partials/header/config-install.php' );
 ?>
 	<div class="setup-install-wrap setup-install-no-write">
@@ -364,14 +373,16 @@ if ( ! /iPad|iPod|iPhone/.test( navigator.userAgent ) ) {
 		include_once( ABSPATH . 'wp-admin/partials/header/config-install.php' );
 ?>
 	<div class="setup-install-wrap setup-install-connection-success">
-		<main class="setup-config-content global-wrapper">
-			<header>
-				<h2><?php _e( 'Successful Database Connection' ); ?></h2>
-			</header>
+		<header>
+			<h1><?php _e( 'Successful Database Connection' ) ?></h1>
+		</header>
+		<main>
 			<p><?php _e( 'The website management system can now communicate with your database.' ); ?></p>
 			<p class="step"><a href="<?php echo $install; ?>" class="button button-large"><?php _e( 'Run the installation' ); ?></a></p>
 		</main>
-		<?php include_once( ABSPATH . 'wp-admin/partials/footer/config-install.php' ); ?>
+		<footer>
+			<p><?php _e( 'This is the installation process for the generic website management system.' ) ?></p>
+		</footer>
 	</div>
 <?php
 	endif;
@@ -381,4 +392,4 @@ if ( ! /iPad|iPod|iPhone/.test( navigator.userAgent ) ) {
 <?php // wp_print_scripts( 'language-chooser' ); ?>
 </body>
 </html>
-<?php ob_end_flush();
+<?php // ob_end_flush();

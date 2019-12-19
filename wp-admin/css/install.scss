@@ -120,7 +120,7 @@ code {
 
 		legend {
 			padding: 0.5em;
-			font-size: 1.1em;
+			font-size: $px19;
 			font-weight: bold;
 		}
 	}
@@ -143,12 +143,13 @@ code {
 			padding: 0.5em 0.75em;
 		}
 	}
+}
 
-	footer {
-		font-size: 0.85em;
-		font-style: italic;
-		color: #666;
-	}
+.app-footer {
+	padding: 0 2rem;
+	font-size: 0.85em;
+	font-style: italic;
+	color: #666;
 }
 
 .setup-config-field {

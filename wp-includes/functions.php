@@ -2766,81 +2766,16 @@ function _default_wp_die_handler( $message, $title = '', $args = array() ) {
 		elseif ( function_exists( 'is_rtl' ) && is_rtl() )
 			$text_direction = 'rtl';
 ?>
-<!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml" <?php if ( function_exists( 'language_attributes' ) && function_exists( 'is_rtl' ) ) language_attributes(); else echo "dir='$text_direction'"; ?>>
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<?php
-	if ( function_exists( 'wp_no_robots' ) ) {
-		wp_no_robots();
-	}
-	?>
-	<title><?php echo $title ?></title>
-	<?php wp_admin_css( 'install', true ); ?>
-	<style type="text/css">
-		.button {
-			background: #f7f7f7;
-			border: 1px solid #ccc;
-			color: #555;
-			display: inline-block;
-			text-decoration: none;
-			font-size: 13px;
-			line-height: 26px;
-			height: 28px;
-			margin: 0;
-			padding: 0 10px 1px;
-			cursor: pointer;
-			-webkit-border-radius: 3px;
-			-webkit-appearance: none;
-			border-radius: 3px;
-			white-space: nowrap;
-			-webkit-box-sizing: border-box;
-			-moz-box-sizing:    border-box;
-			box-sizing:         border-box;
 
-			-webkit-box-shadow: 0 1px 0 #ccc;
-			box-shadow: 0 1px 0 #ccc;
-		 	vertical-align: top;
-		}
-
-		.button.button-large {
-			height: 30px;
-			line-height: 28px;
-			padding: 0 12px 2px;
-		}
-
-		.button:hover,
-		.button:focus {
-			background: #fafafa;
-			border-color: #999;
-			color: #23282d;
-		}
-
-		.button:focus  {
-			border-color: #5b9dd9;
-			-webkit-box-shadow: 0 0 3px rgba( 0, 115, 170, .8 );
-			box-shadow: 0 0 3px rgba( 0, 115, 170, .8 );
-			outline: none;
-		}
-
-		.button:active {
-			background: #eee;
-			border-color: #999;
-		 	-webkit-box-shadow: inset 0 2px 5px -3px rgba( 0, 0, 0, 0.5 );
-		 	box-shadow: inset 0 2px 5px -3px rgba( 0, 0, 0, 0.5 );
-		 	-webkit-transform: translateY(1px);
-		 	-ms-transform: translateY(1px);
-		 	transform: translateY(1px);
-		}
-	</style>
-</head>
-<body id="error-page">
+<?php include_once( ABSPATH . 'wp-admin/partials/header/config-install.php' ); ?>
 <?php endif; // ! did_action( 'admin_head' ) ?>
-	<?php echo $message; ?>
-</body>
-</html>
-<?php
+	<div class="setup-install-wrap setup-install-error">
+		<main class="setup-config-content global-wrapper">
+			<?php echo $message; ?>
+		</main>
+	</div>
+<?php include_once( ABSPATH . 'wp-admin/partials/footer/config-install.php' );
+
 	die();
 }
 

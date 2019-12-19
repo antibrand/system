@@ -398,7 +398,7 @@ code {
 
 .setup-install-wrap fieldset legend {
   padding: 0.5em;
-  font-size: 1.1em;
+  font-size: 1.1875rem;
   font-weight: bold;
 }
 
@@ -418,7 +418,8 @@ code {
   padding: 0.5em 0.75em;
 }
 
-.setup-install-wrap footer {
+.app-footer {
+  padding: 0 2rem;
   font-size: 0.85em;
   font-style: italic;
   color: #666;

@@ -1,6 +1,6 @@
 *.log
 app-config.php
-identity-config.php
+id-config.php
 wp-content/advanced-cache.php
 wp-content/backup-db/
 wp-content/backups/
