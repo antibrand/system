@@ -940,6 +940,10 @@ h2 + .search-form {
 }
 
 /* Small menu. */
+.menu-toggle {
+  padding: 0;
+}
+
 .menu-toggle,
 .main-navigation.toggled ul {
   display: block;
@@ -1005,6 +1009,22 @@ h2 + .search-form {
   }
   .main-navigation ul ul li:not(:last-of-type) {
     margin-right: 0;
+  }
+}
+
+.no-js .menu-toggle {
+  display: none;
+}
+
+.no-js .main-navigation ul {
+  display: block;
+}
+
+@media screen and (min-width: 37.5em) {
+  .no-js .main-navigation ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 

@@ -1,7 +1,7 @@
 /**
  * Navigation
  */
-.main-navigation {
+ .main-navigation {
 	clear: both;
 	display: block;
 	width: 100%;
@@ -82,6 +82,10 @@
 }
 
 /* Small menu. */
+.menu-toggle {
+	padding: 0;
+}
+
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
@@ -159,6 +163,9 @@
 	.main-navigation {
 
 		ul {
+			display: -webkit-box;
+			display: -moz-box;
+			display: -ms-flexbox;
 			display: flex;
 
 			li {
@@ -177,6 +184,31 @@
 						margin-right: 0;
 					}
 				}
+			}
+		}
+	}
+}
+
+.no-js {
+
+	.menu-toggle {
+		display: none;
+	}
+
+	.main-navigation {
+
+		ul {
+			display: block;
+		}
+	}
+
+	// Non-mobile menu.
+	@media screen and (min-width: 37.5em) {
+
+		.main-navigation {
+
+			ul {
+				display: flex;
 			}
 		}
 	}
