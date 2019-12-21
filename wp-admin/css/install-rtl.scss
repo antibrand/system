@@ -1,10 +1,7 @@
 @import '_reset.scss';
 @import '_global-variables.scss';
-@import url(forms.css);
-@import url(l10n.css);
-
-$install_primary_color: #ffee00;
-$install_secondary_color: #3ad4fb;
+@import url(forms.min.css);
+@import url(l10n.min.css);
 
 html,
 body {
@@ -126,16 +123,10 @@ code {
 	}
 
 	.button {
-		background-color: $install_primary_color;
 		-webkit-transition: background-color .15s, border-color .15s;
 		transition: background-color .15s, border-color .15s;
 		font-size: 1rem;
 		color: #1c1c1c;
-
-		&:hover,
-		&:focus {
-			background-color: $install_secondary_color;
-		}
 	}
 
 	input {

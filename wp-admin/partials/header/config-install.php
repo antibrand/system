@@ -43,6 +43,43 @@ if ( $app_logo && defined( 'APP_WEBSITE' ) ) {
 	$app_logo = '';
 }
 
+// Identity colors
+if ( defined( 'APP_COLOR' ) ) {
+	$app_color = APP_COLOR;
+} else {
+	$app_color = 'inherit';
+}
+
+if ( defined( 'APP_DARK_COLOR' ) ) {
+	$app_dark_color = APP_DARK_COLOR;
+} else {
+	$app_dark_color = 'white';
+}
+
+if ( defined( 'APP_BG_COLOR' ) ) {
+	$app_bg_color = APP_BG_COLOR;
+} else {
+	$app_bg_color = 'white';
+}
+
+if ( defined( 'APP_DARK_BG_COLOR' ) ) {
+	$app_dark_bg_color = APP_DARK_BG_COLOR;
+} else {
+	$app_dark_bg_color = '#252525';
+}
+
+if ( defined( 'APP_PRIMARY_COLOR' ) ) {
+	$app_primary_color = APP_PRIMARY_COLOR;
+} else {
+	$app_primary_color = '#ffee00';
+}
+
+if ( defined( 'APP_SECONDARY_COLOR' ) ) {
+	$app_secondary_color = APP_SECONDARY_COLOR;
+} else {
+	$app_secondary_color = '#3ad4fb';
+}
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?> class="no-js">
@@ -52,7 +89,30 @@ if ( $app_logo && defined( 'APP_WEBSITE' ) ) {
 	<meta name="robots" content="noindex,nofollow" />
 	<title><?php _e( 'Configuration File Setup' ); ?></title>
 	<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+	<?php wp_admin_css( 'buttons', true ); ?>
 	<?php wp_admin_css( 'install', true ); ?>
+	<style>
+		body {
+			background-color: <?php echo $app_bg_color; ?>;
+			color: <?php echo $app_color; ?>
+		}
+		.dark-mode {
+			background-color: <?php echo $app_dark_bg_color; ?>;
+			color: <?php echo $app_dark_color; ?>
+		}
+		.setup-install-wrap .button {
+			background-color: <?php echo $app_primary_color; ?>;
+			border-color: <?php echo $app_primary_color; ?>
+		}
+		.setup-install-wrap .button:hover,
+		.setup-install-wrap .button:focus {
+			background-color: <?php echo $app_secondary_color; ?>;
+			border-color: <?php echo $app_secondary_color; ?>
+		}
+		.dark-mode code {
+			color: #222222
+		}
+	</style>
 </head>
 <body class="<?php echo $body_classes; ?>">
 	<header class="app-header">
