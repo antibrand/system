@@ -284,12 +284,46 @@ foreach ( array_merge( $builtin, $types ) as $ptype ) {
 }
 unset( $ptype, $ptype_obj, $ptype_for_id, $ptype_menu_position, $menu_icon, $i, $tax, $post_new_file );
 
-$menu[59] = [
+$menu[54] = [
 	'',
 	'read',
 	'separator2',
 	'',
 	'wp-menu-separator'
+];
+
+$menu[55] = [
+	__( 'Content' ),
+	'edit_others_posts',
+	'options-content.php',
+	'',
+	'menu-top menu-icon-appearance',
+	'menu-appearance',
+	'dashicons-welcome-write-blog'
+];
+
+$submenu['options-content.php'][5] = [
+	__( 'Content Options' ),
+	'edit_others_posts',
+	'options-content.php'
+];
+
+$submenu['options-content.php'][10] = [
+	__( 'Authors' ),
+	'edit_others_posts',
+	'authors.php'
+];
+
+$submenu['options-content.php'][15] = [
+	__( 'Custom Types' ),
+	'edit_others_posts',
+	'content-types.php'
+];
+
+$submenu['options-content.php'][20] = [
+	__( 'Custom Taxonomies' ),
+	'edit_others_posts',
+	'content-taxes.php'
 ];
 
 if ( current_user_can( 'switch_themes' ) ) {
@@ -462,7 +496,7 @@ unset( $update_data );
 if ( current_user_can('list_users') ) {
 
 	$menu[70] = [
-		__( 'Users' ),
+		__( 'Accounts' ),
 		'list_users',
 		'users.php',
 		'',
@@ -473,7 +507,7 @@ if ( current_user_can('list_users') ) {
 } else {
 
 	$menu[70] = [
-		__( 'Profile' ),
+		__( 'Account' ),
 		'read',
 		'profile.php',
 		'',
@@ -489,7 +523,7 @@ if ( current_user_can( 'list_users' ) ) {
 	$_wp_real_parent_file['profile.php'] = 'users.php';
 
 	$submenu['users.php'][5] = [
-		__( 'All Users' ),
+		__( 'All Accounts' ),
 		'list_users',
 		'users.php'
 	];
@@ -509,7 +543,7 @@ if ( current_user_can( 'list_users' ) ) {
 	}
 
 	$submenu['users.php'][15] = [
-		__( 'Your Profile' ),
+		__( 'Your Account' ),
 		'read',
 		'profile.php'
 	];
@@ -518,7 +552,7 @@ if ( current_user_can( 'list_users' ) ) {
 	$_wp_real_parent_file['users.php'] = 'profile.php';
 
 	$submenu['profile.php'][5] = [
-		__( 'Your Profile' ),
+		__( 'Your Account' ),
 		'read',
 		'profile.php'
 	];
