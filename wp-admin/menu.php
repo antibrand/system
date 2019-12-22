@@ -114,6 +114,12 @@ $submenu['upload.php'][10] = [
 	'media-new.php'
 ];
 
+$submenu['upload.php'][25] = [
+	__( 'Settings' ),
+	'manage_options',
+	'options-media.php'
+];
+
 $i = 15;
 foreach ( get_taxonomies_for_attachments( 'objects' ) as $tax ) {
 
@@ -164,6 +170,12 @@ $submenu[ 'edit-comments.php' ][0] = [
 	__( 'All Comments' ),
 	'edit_posts',
 	'edit-comments.php'
+];
+
+$submenu['edit-comments.php'][25] = [
+	__( 'Settings' ),
+	'manage_options',
+	'options-discussion.php'
 ];
 
 /**
@@ -642,8 +654,6 @@ $menu[80] = [
 $submenu['options-general.php'][10] = array( _x( 'General', 'settings screen' ), 'manage_options', 'options-general.php' );
 $submenu['options-general.php'][15] = array( __( 'Writing' ), 'manage_options', 'options-writing.php' );
 $submenu['options-general.php'][20] = array( __( 'Reading' ), 'manage_options', 'options-reading.php' );
-$submenu['options-general.php'][25] = array( __( 'Discussion' ), 'manage_options', 'options-discussion.php' );
-$submenu['options-general.php'][30] = array( __( 'Media' ), 'manage_options', 'options-media.php' );
 $submenu['options-general.php'][40] = array( __( 'Permalinks' ), 'manage_options', 'options-permalink.php' );
 // translators: %s is the update notification bubble, if updates are available.
 $submenu['options-general.php'][45] = array( sprintf( __( 'Privacy %s' ), $change_notice ), 'manage_privacy_options', 'privacy.php' );
