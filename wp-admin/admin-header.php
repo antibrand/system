@@ -222,19 +222,16 @@ if ( current_user_can( 'customize' ) ) {
 <div id="wpcontent">
 
 <?php
-/**
- * Fires at the beginning of the content section in an admin page.
- *
- * Currently not used.
- *
- * @since WP 3.0.0
- *
- * @todo Review this action as header & layout progresses.
- *       May not provide support for this.
- */
+
+do_action( 'app_toolbar_render' );
 do_action( 'in_admin_header' );
 
-$current_screen->render_screen_meta();
+/**
+ * Screen options & contextual help
+ *
+ * @todo add this via hook.
+ */
+echo $current_screen->render_screen_meta();
 
 ?>
 

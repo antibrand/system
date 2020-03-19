@@ -480,7 +480,7 @@ add_action( 'admin_init', '_wp_admin_bar_init' );
 add_action( 'before_signup_header', '_wp_admin_bar_init' );
 add_action( 'activate_header', '_wp_admin_bar_init' );
 add_action( 'wp_footer', 'wp_admin_bar_render', 1000 );
-add_action( 'in_admin_header', 'wp_admin_bar_render', 0 );
+add_action( 'app_toolbar_render', 'wp_admin_bar_render' );
 
 // Former admin filters that can also be hooked on the front end
 add_action( 'media_buttons', 'media_buttons' );
