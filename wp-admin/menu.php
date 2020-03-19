@@ -34,13 +34,13 @@ $menu[2] = [
 ];
 
 $submenu['index.php'][0] = [
-	__( 'Home' ),
+	__( 'Site Dashboard' ),
 	'read',
 	'index.php'
 ];
 
 $submenu['index.php'][1] = [
-	__( 'Visit Site' ),
+	__( 'Site Home' ),
 	'read',
 	home_url( '/' )
 ];
@@ -48,7 +48,7 @@ $submenu['index.php'][1] = [
 if ( is_multisite() ) {
 
 	$submenu['index.php'][5] = [
-		__( 'My Sites' ),
+		__( 'Network' ),
 		'read',
 		'my-sites.php'
 	];

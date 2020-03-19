@@ -1,6 +1,6 @@
 <?php
 /**
- * My Sites dashboard.
+ * Network Sites dashboard.
  *
  * @package App_Package
  * @subpackage Multisite
@@ -32,7 +32,7 @@ if ( 'updateblogsettings' == $action && isset( $_POST['primary_blog'] ) ) {
 	}
 }
 
-$title = __( 'My Sites' );
+$title = __( 'Network Sites' );
 $parent_file = 'index.php';
 
 get_current_screen()->add_help_tab( array(
@@ -75,7 +75,7 @@ else :
 	<?php
 	choose_primary_blog();
 	/**
-	 * Fires before the sites list on the My Sites screen.
+	 * Fires before the sites list on the Network Sites screen.
 	 *
 	 * @since 3.0.0
 	 */
@@ -85,7 +85,7 @@ else :
 	<ul class="my-sites striped">
 	<?php
 	/**
-	 * Enable the Global Settings section on the My Sites screen.
+	 * Enable the Global Settings section on the Network Sites screen.
 	 *
 	 * By default, the Global Settings section is hidden. Passing a non-empty
 	 * string to this filter will enable the section, and allow new settings
@@ -116,7 +116,7 @@ else :
 		}
 
 		/**
-		 * Filters the row links displayed for each site on the My Sites screen.
+		 * Filters the row links displayed for each site on the Network Sites screen.
 		 *
 		 * @since MU (3.0.0)
 		 *

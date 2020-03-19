@@ -231,7 +231,7 @@ function wp_admin_bar_site_menu( $wp_admin_bar ) {
 		return;
 	}
 
-	$blogname = get_bloginfo('name');
+	$blogname = get_bloginfo( 'name' );
 
 	if ( ! $blogname ) {
 		$blogname = preg_replace( '#^(https?://)?(www.)?#', '', get_home_url() );
@@ -245,7 +245,13 @@ function wp_admin_bar_site_menu( $wp_admin_bar ) {
 		$blogname = sprintf( __( 'User Dashboard: %s' ), esc_html( get_network()->site_name ) );
 	}
 
-	$title = wp_html_excerpt( $blogname, 40, '&hellip;' );
+	$site_title = wp_html_excerpt( $blogname, 40, '&hellip;' );
+
+	if ( is_admin() ) {
+		$title = __( 'Site Home' );
+	} else {
+		$title = __( 'Site Admin' );
+	}
 
 	$wp_admin_bar->add_menu( array(
 		'id'    => 'site-name',
@@ -256,13 +262,6 @@ function wp_admin_bar_site_menu( $wp_admin_bar ) {
 	// Create submenu items.
 
 	if ( is_admin() ) {
-		// Add an option to visit the site.
-		$wp_admin_bar->add_menu( array(
-			'parent' => 'site-name',
-			'id'     => 'view-site',
-			'title'  => __( 'Visit Site' ),
-			'href'   => home_url( '/' ),
-		) );
 
 		if ( is_blog_admin() && is_multisite() && current_user_can( 'manage_sites' ) ) {
 			$wp_admin_bar->add_menu( array(
@@ -330,7 +329,7 @@ function wp_admin_bar_customize_menu( $wp_admin_bar ) {
 }
 
 /**
- * Add the "My Sites/[Site Name]" menu and all submenus.
+ * Add the "Network Sites/[Site Name]" menu and all submenus.
  *
  * @since 3.1.0
  *
@@ -354,7 +353,7 @@ function wp_admin_bar_my_sites_menu( $wp_admin_bar ) {
 
 	$wp_admin_bar->add_menu( array(
 		'id'    => 'my-sites',
-		'title' => __( 'My Sites' ),
+		'title' => __( 'Network Sites' ),
 		'href'  => $my_sites_url,
 	) );
 
@@ -367,7 +366,7 @@ function wp_admin_bar_my_sites_menu( $wp_admin_bar ) {
 		$wp_admin_bar->add_menu( array(
 			'parent' => 'my-sites-super-admin',
 			'id'     => 'network-admin',
-			'title'  => __('Network Admin'),
+			'title'  => __( 'Network Admin' ),
 			'href'   => network_admin_url(),
 		) );
 
@@ -490,7 +489,7 @@ function wp_admin_bar_my_sites_menu( $wp_admin_bar ) {
 		$wp_admin_bar->add_menu( array(
 			'parent' => $menu_id,
 			'id'     => $menu_id . '-v',
-			'title'  => __( 'Visit Site' ),
+			'title'  => __( 'View Site' ),
 			'href'   => home_url( '/' ),
 		) );
 
@@ -708,7 +707,7 @@ function wp_admin_bar_new_content_menu( $wp_admin_bar ) {
  * @param WP_Admin_Bar $wp_admin_bar
  */
 function wp_admin_bar_comments_menu( $wp_admin_bar ) {
-	if ( !current_user_can('edit_posts') )
+	if ( !current_user_can( 'edit_posts' ) )
 		return;
 
 	$awaiting_mod = wp_count_comments();
@@ -722,7 +721,7 @@ function wp_admin_bar_comments_menu( $wp_admin_bar ) {
 	$wp_admin_bar->add_menu( array(
 		'id'    => 'comments',
 		'title' => $icon . $title,
-		'href'  => admin_url('edit-comments.php'),
+		'href'  => admin_url( 'edit-comments.php' ),
 	) );
 }
 
@@ -759,7 +758,7 @@ function wp_admin_bar_appearance_menu( $wp_admin_bar ) {
 	}
 
 	if ( current_theme_supports( 'menus' ) || current_theme_supports( 'widgets' ) )
-		$wp_admin_bar->add_menu( array( 'parent' => 'appearance', 'id' => 'menus', 'title' => __('Menus'), 'href' => admin_url('nav-menus.php') ) );
+		$wp_admin_bar->add_menu( array( 'parent' => 'appearance', 'id' => 'menus', 'title' => __( 'Menus' ), 'href' => admin_url( 'nav-menus.php' ) ) );
 
 	if ( current_theme_supports( 'custom-background' ) ) {
 		$wp_admin_bar->add_menu( array(
@@ -828,7 +827,7 @@ function wp_admin_bar_search_menu( $wp_admin_bar ) {
 	$form  = '<form action="' . esc_url( home_url( '/' ) ) . '" method="get" id="adminbarsearch">';
 	$form .= '<input class="adminbar-input" name="s" id="adminbar-search" type="text" value="" maxlength="150" />';
 	$form .= '<label for="adminbar-search" class="screen-reader-text">' . __( 'Search' ) . '</label>';
-	$form .= '<input type="submit" class="adminbar-button" value="' . __('Search') . '"/>';
+	$form .= '<input type="submit" class="adminbar-button" value="' . __( 'Search' ) . '"/>';
 	$form .= '</form>';
 
 	$wp_admin_bar->add_menu( array(
@@ -924,7 +923,7 @@ function is_admin_bar_showing() {
 	global $show_admin_bar, $pagenow;
 
 	// For all these types of requests, we never want an admin bar.
-	if ( defined('XMLRPC_REQUEST') || defined('DOING_AJAX') || defined('IFRAME_REQUEST') )
+	if ( defined( 'XMLRPC_REQUEST' ) || defined( 'DOING_AJAX' ) || defined( 'IFRAME_REQUEST' ) )
 		return false;
 
 	if ( is_embed() ) {

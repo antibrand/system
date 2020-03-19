@@ -2791,7 +2791,7 @@ function wp_admin_bar_dashboard_view_site_menu( $wp_admin_bar ) {
 
 	if ( 0 != $user_id ) {
 		if ( is_admin() )
-			$wp_admin_bar->add_menu( array( 'id' => 'view-site', 'title' => __( 'Visit Site' ), 'href' => home_url() ) );
+			$wp_admin_bar->add_menu( array( 'id' => 'view-site', 'title' => __( 'View Site' ), 'href' => home_url() ) );
 		elseif ( is_multisite() )
 			$wp_admin_bar->add_menu( array( 'id' => 'dashboard', 'title' => __( 'Dashboard' ), 'href' => get_dashboard_url( $user_id ) ) );
 		else
