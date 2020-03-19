@@ -275,7 +275,7 @@ if ( is_plugin_active( 'wpcat2tag-importer/wpcat2tag-importer.php' ) ) {
 
 ?>
 
-<div class="wrap nosubsub">
+<div class="wrap">
 <h1 class="wp-heading-inline"><?php echo esc_html( $title ); ?></h1>
 
 <?php
