@@ -9,9 +9,9 @@ body {
 }
 
 .entry-content ul,
-.sidebar-widgets ul,
+.widget-area ul,
 .entry-content ol,
-.sidebar-widgets ol {
+.widget-area ol {
 	padding: 0 1em 0 0;
 }
 
@@ -52,18 +52,6 @@ figure.alignright {
  */
 .search-label {
 	margin: 0 0 0 0.3em;
-}
-
-input[type="search"] {
-
-	&+button {
-		border-left: solid 1px $pale_gray;
-		border-right: none;
-
-		&:focus {
-			border-color: $light_gray;
-		}
-	  }
 }
 
 /**
@@ -107,8 +95,15 @@ input[type="search"] {
 
 @media screen and (min-width: 37.5em) {
 
-	.main-navigation div > ul > li {
-		margin: 0 0 0 1em;
+	.main-navigation {
+		ul {
+			li {
+				&:not(:last-of-type) {
+					margin-right: 0;
+					margin-left: 1em;
+				}
+			}
+		}
 	}
 }
 

@@ -39,10 +39,6 @@ if ( is_home() && ! is_front_page() ) {
 	<link href="<?php echo $canonical; ?>" rel="canonical" />
 	<?php if ( is_search() ) { echo '<meta name="robots" content="noindex,nofollow" />'; } ?>
 
-	<!-- Prefetch font URLs -->
-	<link rel='dns-prefetch' href='//fonts.adobe.com'/>
-	<link rel='dns-prefetch' href='//fonts.google.com'/>
-
 	<?php do_action( 'before_wp_head' ); ?>
 	<?php wp_head(); ?>
 	<?php do_action( 'after_wp_head' ); ?>

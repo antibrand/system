@@ -53,10 +53,7 @@ input[type="url"],
 input[type="tel"] {}
 
 input[type="search"] {
-
-	&+button {
-		border-left: none;
-	}
+	&+button {}
 }
 
 input[type="radio"],
@@ -85,6 +82,7 @@ input[type="image"] {
 	&:hover,
 	&:focus {
 		background: $pale_gray;
+		border-color: $light_gray;
 	}
 
 	&.menu-toggle {

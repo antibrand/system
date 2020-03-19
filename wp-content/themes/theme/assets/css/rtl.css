@@ -30,9 +30,9 @@ body {
 }
 
 .entry-content ul,
-.sidebar-widgets ul,
+.widget-area ul,
 .entry-content ol,
-.sidebar-widgets ol {
+.widget-area ol {
   padding: 0 1em 0 0;
 }
 
@@ -70,15 +70,6 @@ figure.alignright {
  */
 .search-label {
   margin: 0 0 0 0.3em;
-}
-
-input[type="search"] + button {
-  border-left: solid 1px #cccccc;
-  border-right: none;
-}
-
-input[type="search"] + button:focus {
-  border-color: #888888;
 }
 
 /**
@@ -120,8 +111,9 @@ input[type="search"] + button:focus {
 
 /* Small menu. */
 @media screen and (min-width: 37.5em) {
-  .main-navigation div > ul > li {
-    margin: 0 0 0 1em;
+  .main-navigation ul li:not(:last-of-type) {
+    margin-right: 0;
+    margin-left: 1em;
   }
 }
 

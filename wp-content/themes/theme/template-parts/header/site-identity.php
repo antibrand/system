@@ -28,7 +28,7 @@ if ( is_front_page() && has_custom_logo() ) {
 	$site_logo = sprintf(
 		'<a href="%1s" class="custom-logo-link" rel="home" itemprop="url"><img src="%2s" class="custom-logo" alt="%3s" itemprop="logo" width="512" height="512"></a>',
 		esc_url( home_url( '/' ) ),
-		get_theme_file_uri( '/assets/images/non-logo.jpg' ),
+		get_theme_file_uri( '/assets/images/identity-image.jpg' ),
 		get_bloginfo( 'name' )
 	);
 }

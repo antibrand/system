@@ -41,6 +41,8 @@ class AB_Theme_Deactivate {
 	 * @since  1.0.0
 	 * @access public
 	 * @return void
+	 *
+	 * @link   https://codex.wordpress.org/Function_Reference/remove_theme_mods
 	 */
     public function deactivate() {
 
