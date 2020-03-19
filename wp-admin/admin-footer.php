@@ -37,11 +37,20 @@ global $hook_suffix;
 	?>
 	<p id="footer-left" class="alignleft">
 		<?php
-		$text = sprintf(
-			'%1s %2s',
-			__( 'This website is managed by' ),
-			APP_NAME
-		);
+		if ( is_network_admin() ) {
+			$text = sprintf(
+				'%1s %2s',
+				__( 'This network is managed by' ),
+				APP_NAME
+			);
+		} else {
+			$text = sprintf(
+				'%1s %2s',
+				__( 'This website is managed by' ),
+				APP_NAME
+			);
+		}
+
 		/**
 		 * Filters the "Thank you" text displayed in the admin footer.
 		 *
