@@ -2046,30 +2046,21 @@ function _wp_admin_html_begin() {
 
 	$admin_html_class = ( is_admin_bar_showing() ) ? 'wp-toolbar' : '';
 
-	if ( $is_IE )
-		@header('X-UA-Compatible: IE=edge');
+	if ( $is_IE ) {
+		@header( 'X-UA-Compatible: IE=edge' );
+	}
 
 ?>
-<!DOCTYPE html>
-<!--[if IE 8]>
-<html xmlns="http://www.w3.org/1999/xhtml" class="ie8 <?php echo $admin_html_class; ?>" <?php
-	/**
-	 * Fires inside the HTML tag in the admin header.
-	 *
-	 * @since 2.2.0
-	 */
-	do_action( 'admin_xml_ns' );
-?> <?php language_attributes(); ?>>
-<![endif]-->
-<!--[if !(IE 8) ]><!-->
-<html xmlns="http://www.w3.org/1999/xhtml" class="<?php echo $admin_html_class; ?>" <?php
+<!doctype html>
+<?php do_action( 'before_html' ); ?>
+<html xmlns="http://www.w3.org/1999/xhtml" class="no-js <?php echo $admin_html_class; ?>" <?php
 	/** This action is documented in wp-admin/includes/template.php */
 	do_action( 'admin_xml_ns' );
 ?> <?php language_attributes(); ?>>
-<!--<![endif]-->
 <head>
-<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php echo get_option('blog_charset'); ?>" />
+<meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php echo get_option( 'blog_charset' ); ?>" />
 <?php
+
 }
 
 /**

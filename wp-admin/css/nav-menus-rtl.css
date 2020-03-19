@@ -584,7 +584,7 @@ body.menu-max-depth-11 { min-width: 1280px !important; }
 	outline: none;
 }
 
-.no-js.nav-menus-php .item-edit {
+.no-js .nav-menus-php .item-edit {
 	position: static;
 	float: left;
 	width: auto;
@@ -597,7 +597,7 @@ body.menu-max-depth-11 { min-width: 1280px !important; }
 	line-height: 18px;
 }
 
-.no-js.nav-menus-php .item-edit .screen-reader-text {
+.no-js .nav-menus-php .item-edit .screen-reader-text {
 	position: static;
 	-webkit-clip-path: none;
 	clip-path: none;
@@ -614,7 +614,7 @@ body.menu-max-depth-11 { min-width: 1280px !important; }
 	text-indent: -1px; /* account for the dashicon alignment */
 }
 
-.no-js.nav-menus-php .item-edit:before {
+.no-js .nav-menus-php .item-edit:before {
 	display: none;
 }
 

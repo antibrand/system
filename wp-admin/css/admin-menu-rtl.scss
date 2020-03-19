@@ -254,7 +254,7 @@
 .folded #adminmenu .wp-has-current-submenu .wp-submenu.sub-open,
 .folded #adminmenu a.menu-top:focus + .wp-submenu,
 .folded #adminmenu .wp-has-current-submenu a.menu-top:focus + .wp-submenu,
-.no-js.folded #adminmenu .wp-has-submenu:hover .wp-submenu {
+.no-js .folded #adminmenu .wp-has-submenu:hover .wp-submenu {
 	top: 0;
 	right: 36px;
 }
