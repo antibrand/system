@@ -864,7 +864,7 @@ function admin_color_scheme_picker( $user_id ) {
 
 				foreach ( $color_info->colors as $html_color ) {
 					?>
-					<li style="background-color: <?php echo esc_attr( $html_color ); ?>"><span class="screen-reader-text"><?php echo __( 'Color hex code: ' ) . esc_attr( $html_color ); ?></span></li>
+					<li class="tooltip" style="background-color: <?php echo esc_attr( $html_color ); ?>" title="<?php echo esc_attr( __( 'Color hex code: ' ) . $html_color ); ?>"><span class="screen-reader-text"><?php echo esc_attr( __( 'Color hex code: ' ) . $html_color ); ?></span></li>
 					<?php
 				}
 
@@ -1388,7 +1388,7 @@ final class WP_Privacy_Policy_Content {
 				printf(
 					/* translators: %s: Privacy Policy Guide URL */
 					__( 'The suggested privacy policy text has changed. Please <a href="%s">review the guide</a> and update your privacy policy.' ),
-					esc_url( admin_url( 'tools.php?wp-privacy-policy-guide=1' ) )
+					esc_url( admin_url( 'tools.php?privacy-policy-guide=1' ) )
 				);
 			?></p>
 		</div>
@@ -1568,7 +1568,7 @@ final class WP_Privacy_Policy_Content {
 			/* translators: 1: Privacy Policy guide URL, 2: additional link attributes, 3: accessibility text */
 			printf(
 				__( 'Need help putting together your new Privacy Policy page? <a href="%1$s" %2$s>Check out our guide%3$s</a> for recommendations on what content to include, along with policies suggested by your plugins and theme.' ),
-				admin_url( 'tools.php?wp-privacy-policy-guide=1' ),
+				admin_url( 'tools.php?privacy-policy-guide=1' ),
 				'target="_blank"',
 				sprintf(
 					'<span class="screen-reader-text"> %s</span>',
@@ -1593,10 +1593,14 @@ final class WP_Privacy_Policy_Content {
 		$content_array = self::get_suggested_policy_text();
 
 		$content = '';
-		$toc = array( '<li><a href="#wp-privacy-policy-guide-introduction">' . __( 'Introduction' ) . '</a></li>' );
+		$toc = array( '<li><a href="#privacy-policy-guide-introduction">' . __( 'Introduction' ) . '</a></li>' );
 		$date_format = __( 'F j, Y' );
 		$copy = __( 'Copy' );
-		$return_to_top = '<a href="#" class="return-to-top">' . __( '&uarr; Return to Top' ) . '</a>';
+		$return_to_privacy_page = sprintf(
+			'<p class="return-to-privacy-page"><a href="%1s">%2s</a></p>',
+			esc_url( 'privacy.php' ),
+			__( 'Return to privacy page' )
+		);
 
 		foreach ( $content_array as $section ) {
 			$class = $meta = $removed = '';
@@ -1619,7 +1623,7 @@ final class WP_Privacy_Policy_Content {
 			}
 
 			$plugin_name = esc_html( $section['plugin_name'] );
-			$toc_id = 'wp-privacy-policy-guide-' . sanitize_title( $plugin_name );
+			$toc_id = 'privacy-policy-guide-' . sanitize_title( $plugin_name );
 			$toc[] = sprintf( '<li><a href="#%1$s">%2$s</a>' . $meta . '</li>', $toc_id, $plugin_name );
 
 			$content .= '<div class="privacy-text-section' . $class . '">';
@@ -1629,7 +1633,6 @@ final class WP_Privacy_Policy_Content {
 			$content .= $removed;
 
 			$content .= '<div class="policy-text">' . $section['policy_text'] . '</div>';
-			$content .= $return_to_top;
 
 			if ( empty( $section['removed'] ) ) {
 				$content .= '<div class="privacy-text-actions">';
@@ -1640,6 +1643,7 @@ final class WP_Privacy_Policy_Content {
 				$content .= '</div>';
 			}
 
+			$content .= $return_to_privacy_page;
 			$content .= "</div>\n"; // End of .privacy-text-section.
 		}
 
@@ -1657,7 +1661,7 @@ final class WP_Privacy_Policy_Content {
 		?>
 		<div class="privacy-text-box">
 			<div class="privacy-text-box-head">
-				<a id="wp-privacy-policy-guide-introduction">&nbsp;</a>
+				<a id="privacy-policy-guide-introduction">&nbsp;</a>
 				<h2><?php _e( 'Introduction' ); ?></h2>
 				<p><?php _e( 'Hello,' ); ?></p>
 				<p><?php _e( 'This text template will help you to create your web site&#8217;s privacy policy.' ); ?></p>

@@ -9,7 +9,7 @@
 /** Administration Bootstrap */
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
-$is_privacy_guide = ( isset( $_GET['wp-privacy-policy-guide'] ) && current_user_can( 'manage_privacy_options' ) );
+$is_privacy_guide = ( isset( $_GET['privacy-policy-guide'] ) && current_user_can( 'manage_privacy_options' ) );
 
 if ( $is_privacy_guide ) {
 	$title = __( 'Privacy Policy Guide' );
@@ -40,7 +40,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
 if ( $is_privacy_guide ) {
 	?>
-	<div class="wp-privacy-policy-guide">
+	<div class="privacy-policy-guide">
 		<?php WP_Privacy_Policy_Content::privacy_policy_guide(); ?>
 	</div>
 	<?php
