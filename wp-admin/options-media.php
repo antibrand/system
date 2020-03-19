@@ -12,8 +12,8 @@ require_once( dirname( __FILE__ ) . '/admin.php' );
 if ( ! current_user_can( 'manage_options' ) )
 	wp_die( __( 'Sorry, you are not allowed to manage options for this site.' ) );
 
-$title = __('Media Settings');
-$parent_file = 'options-general.php';
+$title       = __( 'Media Settings' );
+$parent_file = 'upload.php';
 
 $media_options_help = '<p>' . __('You can set maximum sizes for images inserted into your written content; you can also insert an image as Full Size.') . '</p>';
 
