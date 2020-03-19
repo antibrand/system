@@ -321,19 +321,19 @@ $submenu['options-content.php'][5] = [
 ];
 
 $submenu['options-content.php'][10] = [
+	__( 'Content Types' ),
+	'edit_others_posts',
+	'content-types.php'
+];
+
+$submenu['options-content.php'][15] = [
 	__( 'Authors' ),
 	'edit_others_posts',
 	'authors.php'
 ];
 
-$submenu['options-content.php'][15] = [
-	__( 'Custom Types' ),
-	'edit_others_posts',
-	'content-types.php'
-];
-
 $submenu['options-content.php'][20] = [
-	__( 'Custom Taxonomies' ),
+	__( 'Taxonomies' ),
 	'edit_others_posts',
 	'content-taxes.php'
 ];
@@ -519,7 +519,7 @@ if ( current_user_can('list_users') ) {
 } else {
 
 	$menu[70] = [
-		__( 'Account' ),
+		__( 'Your Account' ),
 		'read',
 		'profile.php',
 		'',
@@ -540,25 +540,25 @@ if ( current_user_can( 'list_users' ) ) {
 		'users.php'
 	];
 
-	if ( current_user_can( 'create_users' ) ) {
-		$submenu['users.php'][10] = [
-			_x( 'Add New', 'user' ),
-			'create_users',
-			'user-new.php'
-		];
-	} elseif ( is_multisite() ) {
-		$submenu['users.php'][10] = [
-			_x( 'Add New', 'user' ),
-			'promote_users',
-			'user-new.php'
-		];
-	}
-
-	$submenu['users.php'][15] = [
+	$submenu['users.php'][10] = [
 		__( 'Your Account' ),
 		'read',
 		'profile.php'
 	];
+
+	if ( current_user_can( 'create_users' ) ) {
+		$submenu['users.php'][15] = [
+			_x( 'Add Account', 'user' ),
+			'create_users',
+			'user-new.php'
+		];
+	} elseif ( is_multisite() ) {
+		$submenu['users.php'][15] = [
+			_x( 'Add Account', 'user' ),
+			'promote_users',
+			'user-new.php'
+		];
+	}
 
 } else {
 	$_wp_real_parent_file['users.php'] = 'profile.php';
@@ -585,9 +585,16 @@ if ( current_user_can( 'list_users' ) ) {
 	}
 }
 
+$submenu['users.php'][20] = [
+	sprintf( __( 'Privacy %s' ),
+	$change_notice ),
+	'manage_privacy_options',
+	'privacy.php'
+];
+
 /**
  * Tools entries
- */
+ *
 $menu[75] = [
 	__( 'Tools' ),
 	'edit_posts',
@@ -596,51 +603,29 @@ $menu[75] = [
 	'menu-top menu-icon-tools',
 	'menu-tools',
 	'dashicons-admin-tools'
+];*/
+
+// Separator before Admin.
+$menu[79] = [
+	'',
+	'read',
+	'separator3',
+	'',
+	'wp-menu-separator'
 ];
 
-$submenu['tools.php'][5] = [
-	__( 'Available Tools' ),
-	'edit_posts',
-	'tools.php'
-];
-
-$submenu['tools.php'][10] = [
-	__( 'Import' ),
-	'import',
-	'import.php'
-];
-
-$submenu['tools.php'][15] = [
-	__( 'Export' ),
-	'export',
-	'export.php'
-];
-
-if ( is_multisite() && ! is_main_site() ) {
-	$submenu['tools.php'][25] = [
-		__( 'Delete Site' ),
-		'delete_site',
-		'ms-delete-site.php'
-	];
-}
-
-if ( ! is_multisite() && defined('WP_ALLOW_MULTISITE') && WP_ALLOW_MULTISITE ) {
-	$submenu['tools.php'][50] = [
-		__( 'Network Setup' ),
-		'setup_network',
-		'network.php'
-	];
-}
-
+// Get privacy notifications.
 $change_notice = '';
 if ( current_user_can( 'manage_privacy_options' ) && WP_Privacy_Policy_Content::text_change_check() ) {
 	$change_notice = ' <span class="update-plugins 1"><span class="plugin-count">' . number_format_i18n( 1 ) . '</span></span>';
 }
 
-// translators: %s is the update notification bubble, if updates are available.
+/**
+ * Administrative tools & settings
+ */
 $menu[80] = [
 	sprintf(
-		__( 'Settings %s' ),
+		__( 'Admin Tools %s' ),
 		$change_notice
 	),
 	'manage_options',
@@ -648,15 +633,54 @@ $menu[80] = [
 	'',
 	'menu-top menu-icon-settings',
 	'menu-settings',
-	'dashicons-admin-settings'
+	'dashicons-admin-tools'
 ];
 
-$submenu['options-general.php'][10] = array( _x( 'General', 'settings screen' ), 'manage_options', 'options-general.php' );
-$submenu['options-general.php'][15] = array( __( 'Writing' ), 'manage_options', 'options-writing.php' );
-$submenu['options-general.php'][20] = array( __( 'Reading' ), 'manage_options', 'options-reading.php' );
-$submenu['options-general.php'][40] = array( __( 'Permalinks' ), 'manage_options', 'options-permalink.php' );
-// translators: %s is the update notification bubble, if updates are available.
-$submenu['options-general.php'][45] = array( sprintf( __( 'Privacy %s' ), $change_notice ), 'manage_privacy_options', 'privacy.php' );
+$submenu['options-general.php'][10] = [
+	_x( 'Settings', 'settings screen' ),
+	'manage_options',
+	'options-general.php'
+];
+
+$submenu['options-general.php'][15] = [
+	__( 'Writing' ),
+	'manage_options',
+	'options-writing.php'
+];
+
+$submenu['options-general.php'][20] = [
+	__( 'Reading' ),
+	'manage_options',
+	'options-reading.php'
+];
+
+$submenu['options-general.php'][40] = [
+	__( 'Permalinks' ),
+	'manage_options',
+	'options-permalink.php'
+];
+
+$submenu['options-general.php'][60] = [
+	__( 'Database & System' ),
+	'manage_options',
+	'manage-data.php'
+];
+
+if ( is_multisite() && ! is_main_site() ) {
+	$submenu['options-general.php'][75] = [
+		__( 'Delete Site' ),
+		'delete_site',
+		'ms-delete-site.php'
+	];
+}
+
+if ( ! is_multisite() && defined( 'WP_ALLOW_MULTISITE' ) && WP_ALLOW_MULTISITE ) {
+	$submenu['options-general.php'][80] = [
+		__( 'Network Setup' ),
+		'setup_network',
+		'network.php'
+	];
+}
 
 // The index of the last top-level menu in the utility menu group.
 $_wp_last_utility_menu = 80;
