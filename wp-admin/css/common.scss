@@ -2147,7 +2147,7 @@ h3 .nav-tab, /* Back-compat for pre-4.4 */
 .nav-tab-active:focus,
 .nav-tab-active:focus:active {
 	border-bottom: 1px solid #f1f1f1;
-	background: #f1f1f1;
+	background: inherit;
 	color: #000;
 }
 
@@ -2155,7 +2155,7 @@ h1.nav-tab-wrapper, /* Back-compat for pre-4.4 */
 .wrap h2.nav-tab-wrapper, /* higher specificity to override .wrap > h2:first-child */
 .nav-tab-wrapper {
 	border-bottom: 1px solid #ccc;
-	margin: 0;
+	margin: 1em 0 0;
 	padding-top: 9px;
 	padding-bottom: 0;
 	line-height: inherit;

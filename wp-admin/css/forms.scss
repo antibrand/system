@@ -727,6 +727,7 @@ table.form-table td .updated p {
 	        box-sizing: border-box;
 	margin-bottom: 3px;
 	border: solid 2px transparent;
+	cursor: pointer;
 }
 
 .color-option:hover,
@@ -759,10 +760,6 @@ table.form-table td .updated p {
 	li {
 		margin: 0;
 	}
-}
-
-.color-option {
-	cursor: pointer;
 }
 
 /*------------------------------------------------------------------------------

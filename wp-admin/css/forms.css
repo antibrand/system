@@ -723,6 +723,7 @@ table.form-table td .updated p {
   box-sizing: border-box;
   margin-bottom: 3px;
   border: solid 2px transparent;
+  cursor: pointer;
 }
 
 .color-palette {
@@ -758,10 +759,6 @@ table.form-table td .updated p {
 
 .color-palette li {
   margin: 0;
-}
-
-.color-option {
-  cursor: pointer;
 }
 
 /*------------------------------------------------------------------------------

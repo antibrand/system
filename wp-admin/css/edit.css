@@ -676,10 +676,6 @@ span.wp-media-buttons-icon:before {
 	margin: 1em 0 0.5em;
 }
 
-.privacy-text-section .privacy-text-copy {
-	float: right;
-}
-
 .privacy-text-section {
 	position: relative;
 	border-top: 1px solid #e3e3e3;
@@ -709,12 +705,6 @@ span.wp-media-buttons-icon:before {
 
 .suggested-policy-content {
 	font-style: italic;
-}
-
-.privacy-text-section a.return-to-top {
-	float: right;
-	margin-right: -250px;
-	margin-top: 6px;
 }
 
 .hide-privacy-policy-tutorial .privacy-policy-tutorial {
@@ -1662,19 +1652,14 @@ table.links-table {
 	.links-table td {
 		padding: 10px 0;
 	}
-	
+
 	.privacy-text-box {
 		width: auto;
 	}
-	
+
 	.privacy-text-box-toc {
 		float: none;
 		width: auto;
 		height: 100%;
-	}
-
-	.privacy-text-section a.return-to-top {
-		float: none;
-		margin: 0;
 	}
 }
