@@ -11,8 +11,8 @@ require_once( dirname( __FILE__ ) . '/admin.php' );
 if ( ! current_user_can( 'manage_options' ) )
 	wp_die( __( 'Sorry, you are not allowed to manage options for this site.' ) );
 
-$title = __('Discussion Settings');
-$parent_file = 'options-general.php';
+$title       = __( 'Discussion Settings' );
+$parent_file = 'edit-comments.php';
 
 add_action( 'admin_print_footer_scripts', 'options_discussion_add_js' );
 
