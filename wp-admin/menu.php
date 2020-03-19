@@ -84,6 +84,7 @@ if ( ! is_multisite() ) {
 }
 
 // Separator before content management items.
+/**
 $menu[4] = [
 	'',
 	'read',
@@ -91,6 +92,7 @@ $menu[4] = [
 	'',
 	'wp-menu-separator'
 ];
+*/
 
 $menu[5] = [
 	__( 'Media' ),
@@ -296,6 +298,7 @@ foreach ( array_merge( $builtin, $types ) as $ptype ) {
 }
 unset( $ptype, $ptype_obj, $ptype_for_id, $ptype_menu_position, $menu_icon, $i, $tax, $post_new_file );
 
+/**
 $menu[54] = [
 	'',
 	'read',
@@ -303,6 +306,7 @@ $menu[54] = [
 	'',
 	'wp-menu-separator'
 ];
+*/
 
 $menu[55] = [
 	__( 'Content' ),
@@ -606,6 +610,7 @@ $menu[75] = [
 ];*/
 
 // Separator before Admin.
+/**
 $menu[79] = [
 	'',
 	'read',
@@ -613,6 +618,7 @@ $menu[79] = [
 	'',
 	'wp-menu-separator'
 ];
+*/
 
 // Get privacy notifications.
 $change_notice = '';
