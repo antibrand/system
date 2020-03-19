@@ -225,10 +225,20 @@ if ( current_user_can( 'customize' ) ) {
 /**
  * Fires at the beginning of the content section in an admin page.
  *
+ * Currently not used.
+ *
  * @since WP 3.0.0
+ *
+ * @todo Review this action as header & layout progresses.
+ *       May not provide support for this.
  */
 do_action( 'in_admin_header' );
+
+$current_screen->render_screen_meta();
+
 ?>
+
+<?php get_template_part( 'backend/header/site', 'identity' ) ?>
 
 <div id="wpbody" role="main">
 <?php
@@ -240,8 +250,6 @@ $current_screen->set_parentage( $parent_file );
 
 <div id="wpbody-content" aria-label="<?php esc_attr_e( 'Main content' ); ?>" tabindex="0">
 <?php
-
-$current_screen->render_screen_meta();
 
 if ( is_network_admin() ) {
 	/**

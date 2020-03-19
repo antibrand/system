@@ -626,25 +626,38 @@ function get_attachment_template() {
  * @param bool         $require_once   Whether to require_once or require. Default true. Has no effect if $load is false.
  * @return string The template filename if one is located.
  */
-function locate_template($template_names, $load = false, $require_once = true ) {
+function locate_template( $template_names, $load = false, $require_once = true ) {
+
 	$located = '';
+
 	foreach ( (array) $template_names as $template_name ) {
-		if ( !$template_name )
+
+		if ( ! $template_name ) {
 			continue;
-		if ( file_exists(STYLESHEETPATH . '/' . $template_name)) {
+		}
+
+		if ( file_exists( STYLESHEETPATH . '/' . $template_name ) ) {
 			$located = STYLESHEETPATH . '/' . $template_name;
 			break;
-		} elseif ( file_exists(TEMPLATEPATH . '/' . $template_name) ) {
+
+		} elseif ( file_exists( TEMPLATEPATH . '/' . $template_name ) ) {
 			$located = TEMPLATEPATH . '/' . $template_name;
 			break;
+
 		} elseif ( file_exists( ABSPATH . WPINC . '/theme-compat/' . $template_name ) ) {
 			$located = ABSPATH . WPINC . '/theme-compat/' . $template_name;
+			break;
+
+		// Look in views directory added by this WordPress fork.
+		} elseif ( file_exists( VIEWSPATH . $template_name ) ) {
+			$located = VIEWSPATH . $template_name;
 			break;
 		}
 	}
 
-	if ( $load && '' != $located )
+	if ( $load && '' != $located ) {
 		load_template( $located, $require_once );
+	}
 
 	return $located;
 }
