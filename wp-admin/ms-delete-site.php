@@ -28,7 +28,7 @@ $blog = get_site();
 $user = wp_get_current_user();
 
 $title = __( 'Delete Site' );
-$parent_file = 'tools.php';
+$parent_file = 'privacy.php';
 require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
 echo '<div class="wrap">';
