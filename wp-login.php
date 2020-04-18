@@ -9,7 +9,7 @@
  */
 
 // Make sure that the website management system bootstrap has run before continuing.
-require( dirname( __FILE__ ) . '/wp-load.php' );
+require( dirname( __FILE__ ) . '/app-load.php' );
 
 // Redirect to https login if forced to use SSL.
 if ( force_ssl_admin() && ! is_ssl() ) {

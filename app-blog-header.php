@@ -10,7 +10,7 @@ if ( ! isset( $wp_did_header ) ) {
 	$wp_did_header = true;
 
 	// Load the application library.
-	require_once( dirname( __FILE__ ) . '/wp-load.php' );
+	require_once( dirname( __FILE__ ) . '/app-load.php' );
 
 	// Set up the query.
 	app();

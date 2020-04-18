@@ -18,7 +18,7 @@ if ( 'POST' != $_SERVER['REQUEST_METHOD'] ) {
 }
 
 /** Sets up the application Environment. */
-require( dirname(__FILE__) . '/wp-load.php' );
+require( dirname(__FILE__) . '/app-load.php' );
 
 nocache_headers();
 

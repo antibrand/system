@@ -9,7 +9,7 @@
 define( 'WP_INSTALLING', true );
 
 /** Sets up the application environment. */
-require( dirname(__FILE__) . '/wp-load.php' );
+require( dirname(__FILE__) . '/app-load.php' );
 
 require( dirname( __FILE__ ) . '/app-blog-header.php' );
 

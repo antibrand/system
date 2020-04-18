@@ -17,7 +17,7 @@ if ( ! defined( 'WP_ADMIN' ) ) {
 }
 
 /** Load the website management system */
-require_once( dirname( dirname( __FILE__ ) ) . '/wp-load.php' );
+require_once( dirname( dirname( __FILE__ ) ) . '/app-load.php' );
 
 /** Allow for cross-domain requests (from the front end). */
 send_origin_headers();

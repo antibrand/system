@@ -30,7 +30,7 @@ define('DOING_CRON', true);
 
 if ( !defined('ABSPATH') ) {
 	/** Set up application environment */
-	require_once( dirname( __FILE__ ) . '/wp-load.php' );
+	require_once( dirname( __FILE__ ) . '/app-load.php' );
 }
 
 /**

@@ -9,7 +9,7 @@
  */
 
 // Make sure that the website management system bootstrap has run before continuing.
-require( dirname( dirname( __FILE__ ) ) . '/wp-load.php' );
+require( dirname( dirname( __FILE__ ) ) . '/app-load.php' );
 
 // Check for defined user login directory.
 if ( ! defined( 'APP_LOGIN' ) ) {
