@@ -341,12 +341,9 @@ class WP_Comments_List_Table extends WP_List_Table {
 				 *
 				 * @since 2.7.0
 				 *
-				 * @param array $comment_types An array of comment types. Accepts 'Comments', 'Pings'.
+				 * @param array $comment_types An array of comment types. Accepts 'Comments'.
 				 */
-				$comment_types = apply_filters( 'admin_comment_types_dropdown', array(
-					'comment' => __( 'Comments' ),
-					'pings' => __( 'Pings' ),
-				) );
+				$comment_types = apply_filters( 'admin_comment_types_dropdown', array( 'comment' => __( 'Comments' ) ) );
 
 				foreach ( $comment_types as $type => $label )
 					echo "\t" . '<option value="' . esc_attr( $type ) . '"' . selected( $comment_type, $type, false ) . ">$label</option>\n";

@@ -61,10 +61,6 @@ function wp_install( $blog_title, $user_name, $user_email, $public, $deprecated 
 
 	update_option('siteurl', $guessurl);
 
-	// If not a public blog, don't ping.
-	if ( ! $public )
-		update_option('default_pingback_flag', 0);
-
 	/*
 	 * Create default user. If the user already exists, the user tables are
 	 * being shared among sites. Just set the role in that case.
@@ -188,8 +184,6 @@ function wp_install_defaults( $user_id ) {
 		'post_modified_gmt' => $now_gmt,
 		'guid' => $first_post_guid,
 		'comment_count' => 1,
-		'to_ping' => '',
-		'pinged' => '',
 		'post_content_filtered' => ''
 	));
 	$wpdb->insert( $wpdb->term_relationships, array('term_taxonomy_id' => $cat_tt_id, 'object_id' => 1) );
@@ -238,8 +232,6 @@ To get started with moderating, editing, and deleting comments, please visit the
 		'post_modified_gmt' => $now_gmt,
 		'guid' => $first_post_guid,
 		'post_type' => 'page',
-		'to_ping' => '',
-		'pinged' => '',
 		'post_content_filtered' => ''
 	));
 	$wpdb->insert( $wpdb->postmeta, array( 'post_id' => 2, 'meta_key' => '_wp_page_template', 'meta_value' => 'default' ) );
@@ -275,8 +267,6 @@ To get started with moderating, editing, and deleting comments, please visit the
 				'guid'                  => $privacy_policy_guid,
 				'post_type'             => 'page',
 				'post_status'           => 'draft',
-				'to_ping'               => '',
-				'pinged'                => '',
 				'post_content_filtered' => '',
 			)
 		);
@@ -369,21 +359,6 @@ function wp_install_maybe_enable_pretty_permalinks() {
 		$first_post = get_page_by_path( sanitize_title( _x( 'hello-world', 'Default post slug' ) ), OBJECT, 'post' );
 		if ( $first_post ) {
 			$test_url = get_permalink( $first_post->ID );
-		}
-
-		/*
-	 	 * Send a request to the site, and check whether
-	 	 * the 'x-pingback' header is returned as expected.
-	 	 *
-	 	 * Uses wp_remote_get() instead of wp_remote_head() because web servers
-	 	 * can block head requests.
-	 	 */
-		$response          = wp_remote_get( $test_url, array( 'timeout' => 5 ) );
-		$x_pingback_header = wp_remote_retrieve_header( $response, 'x-pingback' );
-		$pretty_permalinks = $x_pingback_header && $x_pingback_header === get_bloginfo( 'pingback_url' );
-
-		if ( $pretty_permalinks ) {
-			return true;
 		}
 	}
 
@@ -818,10 +793,6 @@ function upgrade_130() {
 	$wpdb->query('DROP TABLE IF EXISTS ' . $wpdb->prefix . 'optiontypes');
 	$wpdb->query('DROP TABLE IF EXISTS ' . $wpdb->prefix . 'optiongroups');
 	$wpdb->query('DROP TABLE IF EXISTS ' . $wpdb->prefix . 'optiongroup_options');
-
-	// Update comments table to use comment_type
-	$wpdb->query("UPDATE $wpdb->comments SET comment_type='trackback', comment_content = REPLACE(comment_content, '<trackback />', '') WHERE comment_content LIKE '<trackback />%'");
-	$wpdb->query("UPDATE $wpdb->comments SET comment_type='pingback', comment_content = REPLACE(comment_content, '<pingback />', '') WHERE comment_content LIKE '<pingback />%'");
 
 	// Some versions have multiple duplicate option_name rows with the same values
 	$options = $wpdb->get_results("SELECT option_name, COUNT(option_name) AS dupes FROM `$wpdb->options` GROUP BY option_name");

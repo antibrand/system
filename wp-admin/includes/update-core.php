@@ -38,7 +38,6 @@ $_old_files = array(
 'wp-includes/js/tinymce/plugins/inlinepopups/readme.txt',
 // 2.1
 'wp-admin/edit-form-ajax-cat.php',
-'wp-admin/execute-pings.php',
 'wp-admin/inline-uploading.php',
 'wp-admin/link-categories.php',
 'wp-admin/list-manipulation.js',

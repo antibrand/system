@@ -280,9 +280,6 @@ if ( $thumbnail_support && current_user_can( 'upload_files' ) )
 if ( post_type_supports($post_type, 'excerpt') )
 	add_meta_box('postexcerpt', __('Excerpt'), 'post_excerpt_meta_box', null, 'normal', 'core');
 
-if ( post_type_supports($post_type, 'trackbacks') )
-	add_meta_box('trackbacksdiv', __('Send Trackbacks'), 'post_trackback_meta_box', null, 'normal', 'core');
-
 if ( post_type_supports($post_type, 'custom-fields') )
 	add_meta_box('postcustom', __('Custom Fields'), 'post_custom_meta_box', null, 'normal', 'core');
 
@@ -297,8 +294,8 @@ if ( post_type_supports($post_type, 'custom-fields') )
 do_action( 'dbx_post_advanced', $post );
 
 // Allow the Discussion meta box to show up if the post type supports comments,
-// or if comments or pings are open.
-if ( comments_open( $post ) || pings_open( $post ) || post_type_supports( $post_type, 'comments' ) ) {
+// or if comments are open.
+if ( comments_open( $post ) || post_type_supports( $post_type, 'comments' ) ) {
 	add_meta_box( 'commentstatusdiv', __( 'Discussion' ), 'post_comment_status_meta_box', null, 'normal', 'core' );
 }
 
@@ -311,7 +308,7 @@ $stati[] = 'private';
 if ( in_array( get_post_status( $post ), $stati ) ) {
 	// If the post type support comments, or the post has comments, allow the
 	// Comments meta box.
-	if ( comments_open( $post ) || pings_open( $post ) || $post->comment_count > 0 || post_type_supports( $post_type, 'comments' ) ) {
+	if ( comments_open( $post ) || $post->comment_count > 0 || post_type_supports( $post_type, 'comments' ) ) {
 		add_meta_box( 'commentsdiv', __( 'Comments' ), 'post_comment_meta_box', null, 'normal', 'core' );
 	}
 }
@@ -446,8 +443,7 @@ if ( 'post' == $post_type ) {
 		'content' => $publish_box,
 	) );
 
-	$discussion_settings  = '<p>' . __('<strong>Send Trackbacks</strong> &mdash; Trackbacks are a way to notify legacy blog systems that you&#8217;ve linked to them. Enter the URL(s) you want to send trackbacks. If you link to WordPress sites they&#8217;ll be notified automatically using pingbacks, and this field is unnecessary.') . '</p>';
-	$discussion_settings .= '<p>' . __('<strong>Discussion</strong> &mdash; You can turn comments and pings on or off, and if there are comments on the post, you can see them here and moderate them.') . '</p>';
+	$discussion_settings = '<p>' . __('<strong>Discussion</strong> &mdash; You can turn comments on or off, and if there are comments on the post, you can see them here and moderate them.') . '</p>';
 
 	get_current_screen()->add_help_tab( array(
 		'id'      => 'discussion-settings',

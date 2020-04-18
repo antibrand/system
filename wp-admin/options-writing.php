@@ -150,28 +150,13 @@ if ( apply_filters( 'enable_update_services_configuration', true ) ) {
 ?>
 <h2 class="title"><?php _e( 'Update Services' ) ?></h2>
 
-<?php if ( 1 == get_option('blog_public') ) : ?>
-
-	<p><label for="ping_sites"><?php
-		printf(
-			/* translators: %s: Codex URL */
-			__( 'When you publish a new post the following site is automatically notified of update services. Separate multiple service URLs with line breaks.' )
-		);
-	?></label></p>
-
-	<textarea name="ping_sites" id="ping_sites" class="large-text code" rows="3"><?php echo esc_textarea( get_option('ping_sites') ); ?></textarea>
-
-<?php else : ?>
-
-	<p><?php
+<p><?php
 		printf(
 			/* translators: 1: Codex URL, 2: Reading Settings URL */
 			__( 'Not notifying any update services because of your site&#8217;s <a href="%2$s">visibility settings</a>.' ),
 			'options-reading.php'
 		);
-	?></p>
-
-<?php endif; ?>
+?></p>
 <?php } // enable_update_services_configuration ?>
 
 <?php do_settings_sections('writing'); ?>

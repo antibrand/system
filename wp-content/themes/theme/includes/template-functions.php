@@ -43,24 +43,6 @@ function body_classes( $classes ) {
 add_filter( 'body_class', 'AB_Theme\Includes\body_classes' );
 
 /**
- * Pingback header
- *
- * Add a pingback url auto-discovery header for single posts, pages, or attachments.
- *
- * @since  1.0.0
- * @access public
- * @return string Returns the link element in '<head>`.
- */
-function pingback_header() {
-
-	if ( is_singular() && pings_open() ) {
-		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
-	}
-
-}
-add_action( 'wp_head', 'AB_Theme\Includes\pingback_header' );
-
-/**
  * Main menu fallback
  *
  * @since  1.0.0

@@ -1652,8 +1652,6 @@ function wp_ajax_inline_save() {
 
 	if ( empty($data['comment_status']) )
 		$data['comment_status'] = 'closed';
-	if ( empty($data['ping_status']) )
-		$data['ping_status'] = 'closed';
 
 	// Exclude terms from taxonomies that are not supposed to appear in Quick Edit.
 	if ( ! empty( $data['tax_input'] ) ) {
@@ -2685,16 +2683,10 @@ function wp_ajax_send_link_to_editor() {
 
 	$post = get_post( isset( $_POST['post_id'] ) ? $_POST['post_id'] : 0 );
 
-	// Ping WordPress for an embed.
-	$check_embed = $wp_embed->run_shortcode( '[embed]'. $src .'[/embed]' );
-
 	// Fallback that is created when no oEmbed was found.
 	$fallback = $wp_embed->maybe_make_link( $src );
 
-	if ( $check_embed !== $fallback ) {
-		// TinyMCE view for [embed] will parse this
-		$html = '[embed]' . $src . '[/embed]';
-	} elseif ( $link_text ) {
+	if ( $link_text ) {
 		$html = '<a href="' . esc_url( $src ) . '">' . $link_text . '</a>';
 	} else {
 		$html = '';

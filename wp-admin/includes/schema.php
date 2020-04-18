@@ -164,11 +164,8 @@ CREATE TABLE $wpdb->posts (
   post_excerpt text NOT NULL,
   post_status varchar(20) NOT NULL default 'publish',
   comment_status varchar(20) NOT NULL default 'open',
-  ping_status varchar(20) NOT NULL default 'open',
   post_password varchar(255) NOT NULL default '',
   post_name varchar(200) NOT NULL default '',
-  to_ping text NOT NULL,
-  pinged text NOT NULL,
   post_modified datetime NOT NULL default '0000-00-00 00:00:00',
   post_modified_gmt datetime NOT NULL default '0000-00-00 00:00:00',
   post_content_filtered longtext NOT NULL,
@@ -412,8 +409,6 @@ function populate_options() {
 	'mailserver_port' => 110,
 	'default_category' => 1,
 	'default_comment_status' => 'open',
-	'default_ping_status' => 'open',
-	'default_pingback_flag' => 1,
 	'posts_per_page' => 10,
 	/* translators: default date format, see https://secure.php.net/date */
 	'date_format' => __('F j, Y'),
@@ -430,7 +425,6 @@ function populate_options() {
 	'moderation_keys' => '',
 	'active_plugins' => array(),
 	'category_base' => '',
-	'ping_sites' => 'http://rpc.pingomatic.com/',
 	'comment_max_links' => 2,
 	'gmt_offset' => $gmt_offset,
 
@@ -443,9 +437,6 @@ function populate_options() {
 	'blacklist_keys' => '',
 	'comment_registration' => 0,
 	'html_type' => 'text/html',
-
-	// 1.5.1
-	'use_trackback' => 0,
 
 	// 2.0
 	'default_role' => 'subscriber',

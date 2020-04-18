@@ -9,8 +9,7 @@
 /**
  * WordPress XMLRPC server implementation.
  *
- * Implements compatibility for Blogger API, MetaWeblog API, MovableType, and
- * pingback. Additional WordPress API for managing comments, pages, posts,
+ * Implements compatibility for Blogger API, MetaWeblog API, MovableType. Additional WordPress API for managing comments, pages, posts,
  * options, etc.
  *
  * As of WordPress 3.5.0, XML-RPC is enabled by default. It can be disabled
@@ -141,12 +140,8 @@ class wp_xmlrpc_server extends IXR_Server {
 			'mt.setPostCategories' => 'this:mt_setPostCategories',
 			'mt.supportedMethods' => 'this:mt_supportedMethods',
 			'mt.supportedTextFilters' => 'this:mt_supportedTextFilters',
-			'mt.getTrackbackPings' => 'this:mt_getTrackbackPings',
 			'mt.publishPost' => 'this:mt_publishPost',
 
-			// PingBack
-			'pingback.ping' => 'this:pingback_ping',
-			'pingback.extensions.getPingbacks' => 'this:pingback_extensions_getPingbacks',
 
 			'demo.sayHello' => 'this:sayHello',
 			'demo.addTwoNumbers' => 'this:addTwoNumbers'
@@ -247,7 +242,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		 * enabled, rather, it only controls whether XML-RPC methods requiring authentication - such
 		 * as for publishing purposes - are enabled.
 		 *
-		 * Further, the filter does not control whether pingbacks or other custom endpoints that don't
+		 * Further, the filter does not control whether custom endpoints that don't
 		 * require authentication are enabled. This behavior is expected, and due to how parity was matched
 		 * with the `enable_xmlrpc` UI option the filter replaced when it was introduced in 3.5.
 		 *
@@ -610,11 +605,6 @@ class wp_xmlrpc_server extends IXR_Server {
 				'desc'          => __( 'Allow people to post comments on new articles' ),
 				'readonly'      => false,
 				'option'        => 'default_comment_status'
-			),
-			'default_ping_status' => array(
-				'desc'          => __( 'Allow link notifications from other blogs (pingbacks and trackbacks) on new articles' ),
-				'readonly'      => false,
-				'option'        => 'default_ping_status'
 			)
 		);
 
@@ -870,7 +860,6 @@ class wp_xmlrpc_server extends IXR_Server {
 			'guid'              => $post['guid'],
 			'menu_order'        => intval( $post['menu_order'] ),
 			'comment_status'    => $post['comment_status'],
-			'ping_status'       => $post['ping_status'],
 			'sticky'            => ( $post['post_type'] === 'post' && is_sticky( $post['ID'] ) ),
 		);
 
@@ -1046,9 +1035,8 @@ class wp_xmlrpc_server extends IXR_Server {
 			$parent_title = $parent->post_title;
 		}
 
-		// Determine comment and ping settings.
+		// Determine comment settings.
 		$allow_comments = comments_open( $page->ID ) ? 1 : 0;
-		$allow_pings = pings_open( $page->ID ) ? 1 : 0;
 
 		// Format page date.
 		$page_date = $this->_convert_date( $page->post_date );
@@ -1082,7 +1070,6 @@ class wp_xmlrpc_server extends IXR_Server {
 			'excerpt'                => $page->post_excerpt,
 			'text_more'              => $full_page['extended'],
 			'mt_allow_comments'      => $allow_comments,
-			'mt_allow_pings'         => $allow_pings,
 			'wp_slug'                => $page->post_name,
 			'wp_password'            => $page->post_password,
 			'wp_author'              => $author->display_name,
@@ -1230,7 +1217,6 @@ class wp_xmlrpc_server extends IXR_Server {
 	 *         @type string $post_date      Post date.
 	 *         @type string $post_password  Post password (20-character limit).
 	 *         @type string $comment_status Post comment enabled status. Accepts 'open' or 'closed'.
-	 *         @type string $ping_status    Post ping status. Accepts 'open' or 'closed'.
 	 *         @type bool   $sticky         Whether the post should be sticky. Automatically false if
 	 *                                      `$post_status` is 'private'.
 	 *         @type int    $post_thumbnail ID of an image to use as the post thumbnail/featured image.
@@ -1360,7 +1346,6 @@ class wp_xmlrpc_server extends IXR_Server {
 			'post_name'      => null,
 			'post_thumbnail' => null,
 			'post_parent'    => null,
-			'ping_status'    => null,
 			'comment_status' => null,
 			'custom_fields'  => null,
 			'terms_names'    => null,
@@ -1427,9 +1412,6 @@ class wp_xmlrpc_server extends IXR_Server {
 
 		if ( isset( $post_data['comment_status'] ) && $post_data['comment_status'] != 'open' && $post_data['comment_status'] != 'closed' )
 			unset( $post_data['comment_status'] );
-
-		if ( isset( $post_data['ping_status'] ) && $post_data['ping_status'] != 'open' && $post_data['ping_status'] != 'closed' )
-			unset( $post_data['ping_status'] );
 
 		// Do some timestamp voodoo.
 		if ( ! empty( $post_data['post_date_gmt'] ) ) {
@@ -1759,7 +1741,6 @@ class wp_xmlrpc_server extends IXR_Server {
 	 *  - 'post_content'
 	 *  - 'link'
 	 *  - 'comment_status'
-	 *  - 'ping_status'
 	 *  - 'sticky'
 	 *  - 'custom_fields'
 	 *  - 'terms'
@@ -4889,7 +4870,6 @@ class wp_xmlrpc_server extends IXR_Server {
 	 *  - mt_excerpt
 	 *  - mt_text_more
 	 *  - mt_keywords
-	 *  - mt_tb_ping_urls
 	 *  - categories
 	 *
 	 * Also, it can optionally contain:
@@ -4900,7 +4880,6 @@ class wp_xmlrpc_server extends IXR_Server {
 	 *  - wp_author_id
 	 *  - post_status | page_status - can be 'draft', 'private', 'publish', or 'pending'
 	 *  - mt_allow_comments - can be 'open' or 'closed'
-	 *  - mt_allow_pings - can be 'open' or 'closed'
 	 *  - date_created_gmt
 	 *  - dateCreated
 	 *  - wp_post_thumbnail
@@ -5077,45 +5056,8 @@ class wp_xmlrpc_server extends IXR_Server {
 			$comment_status = get_default_comment_status( $post_type );
 		}
 
-		if ( isset($content_struct['mt_allow_pings']) ) {
-			if ( !is_numeric($content_struct['mt_allow_pings']) ) {
-				switch ( $content_struct['mt_allow_pings'] ) {
-					case 'closed':
-						$ping_status = 'closed';
-						break;
-					case 'open':
-						$ping_status = 'open';
-						break;
-					default:
-						$ping_status = get_default_comment_status( $post_type, 'pingback' );
-						break;
-				}
-			} else {
-				switch ( (int) $content_struct['mt_allow_pings'] ) {
-					case 0:
-						$ping_status = 'closed';
-						break;
-					case 1:
-						$ping_status = 'open';
-						break;
-					default:
-						$ping_status = get_default_comment_status( $post_type, 'pingback' );
-						break;
-				}
-			}
-		} else {
-			$ping_status = get_default_comment_status( $post_type, 'pingback' );
-		}
-
 		if ( $post_more )
 			$post_content = $post_content . '<!--more-->' . $post_more;
-
-		$to_ping = null;
-		if ( isset( $content_struct['mt_tb_ping_urls'] ) ) {
-			$to_ping = $content_struct['mt_tb_ping_urls'];
-			if ( is_array($to_ping) )
-				$to_ping = implode(' ', $to_ping);
-		}
 
 		// Do some timestamp voodoo
 		if ( !empty( $content_struct['date_created_gmt'] ) )
@@ -5143,7 +5085,7 @@ class wp_xmlrpc_server extends IXR_Server {
 			}
 		}
 
-		$postdata = compact('post_author', 'post_date', 'post_date_gmt', 'post_content', 'post_title', 'post_category', 'post_status', 'post_excerpt', 'comment_status', 'ping_status', 'to_ping', 'post_type', 'post_name', 'post_password', 'post_parent', 'menu_order', 'tags_input', 'page_template');
+		$postdata = compact('post_author', 'post_date', 'post_date_gmt', 'post_content', 'post_title', 'post_category', 'post_status', 'post_excerpt', 'comment_status', 'post_type', 'post_name', 'post_password', 'post_parent', 'menu_order', 'tags_input', 'page_template');
 
 		$post_ID = $postdata['ID'] = get_default_post_to_edit( $post_type, true )->ID;
 
@@ -5391,34 +5333,6 @@ class wp_xmlrpc_server extends IXR_Server {
 			}
 		}
 
-		if ( isset($content_struct['mt_allow_pings']) ) {
-			if ( !is_numeric($content_struct['mt_allow_pings']) ) {
-				switch ( $content_struct['mt_allow_pings'] ) {
-					case 'closed':
-						$ping_status = 'closed';
-						break;
-					case 'open':
-						$ping_status = 'open';
-						break;
-					default:
-						$ping_status = get_default_comment_status( $post_type, 'pingback' );
-						break;
-				}
-			} else {
-				switch ( (int) $content_struct["mt_allow_pings"] ) {
-					case 0:
-						$ping_status = 'closed';
-						break;
-					case 1:
-						$ping_status = 'open';
-						break;
-					default:
-						$ping_status = get_default_comment_status( $post_type, 'pingback' );
-						break;
-				}
-			}
-		}
-
 		if ( isset( $content_struct['title'] ) )
 			$post_title =  $content_struct['title'];
 
@@ -5468,13 +5382,6 @@ class wp_xmlrpc_server extends IXR_Server {
 		if ( $post_more )
 			$post_content = $post_content . "<!--more-->" . $post_more;
 
-		$to_ping = null;
-		if ( isset( $content_struct['mt_tb_ping_urls'] ) ) {
-			$to_ping = $content_struct['mt_tb_ping_urls'];
-			if ( is_array($to_ping) )
-				$to_ping = implode(' ', $to_ping);
-		}
-
 		// Do some timestamp voodoo.
 		if ( !empty( $content_struct['date_created_gmt'] ) )
 			// We know this is supposed to be GMT, so we're going to slap that Z on there by force.
@@ -5497,7 +5404,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		}
 
 		// We've got all the data -- post it.
-		$newpost = compact('ID', 'post_content', 'post_title', 'post_category', 'post_status', 'post_excerpt', 'comment_status', 'ping_status', 'edit_date', 'post_date', 'post_date_gmt', 'to_ping', 'post_name', 'post_password', 'post_parent', 'menu_order', 'post_author', 'tags_input', 'page_template');
+		$newpost = compact('ID', 'post_content', 'post_title', 'post_category', 'post_status', 'post_excerpt', 'comment_status', 'edit_date', 'post_date', 'post_date_gmt', 'post_name', 'post_password', 'post_parent', 'menu_order', 'post_author', 'tags_input', 'page_template');
 
 		$result = wp_update_post($newpost, true);
 		if ( is_wp_error( $result ) )
@@ -5618,7 +5525,6 @@ class wp_xmlrpc_server extends IXR_Server {
 			$author = get_userdata($postdata['post_author']);
 
 			$allow_comments = ('open' == $postdata['comment_status']) ? 1 : 0;
-			$allow_pings = ('open' == $postdata['ping_status']) ? 1 : 0;
 
 			// Consider future posts as published
 			if ( $postdata['post_status'] === 'future' )
@@ -5661,7 +5567,6 @@ class wp_xmlrpc_server extends IXR_Server {
 				'mt_text_more' => $post['extended'],
 				'wp_more_text' => $post['more_text'],
 				'mt_allow_comments' => $allow_comments,
-				'mt_allow_pings' => $allow_pings,
 				'mt_keywords' => $tagnames,
 				'wp_slug' => $postdata['post_name'],
 				'wp_password' => $postdata['post_password'],
@@ -5758,7 +5663,6 @@ class wp_xmlrpc_server extends IXR_Server {
 			$author = get_userdata($entry['post_author']);
 
 			$allow_comments = ('open' == $entry['comment_status']) ? 1 : 0;
-			$allow_pings = ('open' == $entry['ping_status']) ? 1 : 0;
 
 			// Consider future posts as published
 			if ( $entry['post_status'] === 'future' )
@@ -5784,7 +5688,6 @@ class wp_xmlrpc_server extends IXR_Server {
 				'mt_text_more' => $post['extended'],
 				'wp_more_text' => $post['more_text'],
 				'mt_allow_comments' => $allow_comments,
-				'mt_allow_pings' => $allow_pings,
 				'mt_keywords' => $tagnames,
 				'wp_slug' => $entry['post_name'],
 				'wp_password' => $entry['post_password'],
@@ -6198,48 +6101,6 @@ class wp_xmlrpc_server extends IXR_Server {
 	}
 
 	/**
-	 * Retrieve trackbacks sent to a given post.
-	 *
-	 * @since 1.5.0
-	 *
-	 * @global wpdb $wpdb database abstraction object.
-	 *
-	 * @param int $post_ID
-	 * @return array|IXR_Error
-	 */
-	public function mt_getTrackbackPings( $post_ID ) {
-		global $wpdb;
-
-		/** This action is documented in wp-includes/class-wp-xmlrpc-server.php */
-		do_action( 'xmlrpc_call', 'mt.getTrackbackPings' );
-
-		$actual_post = get_post($post_ID, ARRAY_A);
-
-		if ( !$actual_post )
-			return new IXR_Error(404, __('Sorry, no such post.'));
-
-		$comments = $wpdb->get_results( $wpdb->prepare("SELECT comment_author_url, comment_content, comment_author_IP, comment_type FROM $wpdb->comments WHERE comment_post_ID = %d", $post_ID) );
-
-		if ( !$comments )
-			return array();
-
-		$trackback_pings = array();
-		foreach ( $comments as $comment ) {
-			if ( 'trackback' == $comment->comment_type ) {
-				$content = $comment->comment_content;
-				$title = substr($content, 8, (strpos($content, '</strong>') - 8));
-				$trackback_pings[] = array(
-					'pingTitle' => $title,
-					'pingURL'   => $comment->comment_author_url,
-					'pingIP'    => $comment->comment_author_IP
-				);
-			}
-		}
-
-		return $trackback_pings;
-	}
-
-	/**
 	 * Sets a post's publish status to 'publish'.
 	 *
 	 * @since 1.5.0
@@ -6281,293 +6142,5 @@ class wp_xmlrpc_server extends IXR_Server {
 		$this->escape($postdata);
 
 		return wp_update_post( $postdata );
-	}
-
-	/* PingBack functions
-	 * specs on www.hixie.ch/specs/pingback/pingback
-	 */
-
-	/**
-	 * Retrieves a pingback and registers it.
-	 *
-	 * @since 1.5.0
-	 *
-	 * @param array  $args {
-	 *     Method arguments. Note: arguments must be ordered as documented.
-	 *
-	 *     @type string $pagelinkedfrom
-	 *     @type string $pagelinkedto
-	 * }
-	 * @return string|IXR_Error
-	 */
-	public function pingback_ping( $args ) {
-		global $wpdb;
-
-		/** This action is documented in wp-includes/class-wp-xmlrpc-server.php */
-		do_action( 'xmlrpc_call', 'pingback.ping' );
-
-		$this->escape( $args );
-
-		$pagelinkedfrom = str_replace( '&amp;', '&', $args[0] );
-		$pagelinkedto = str_replace( '&amp;', '&', $args[1] );
-		$pagelinkedto = str_replace( '&', '&amp;', $pagelinkedto );
-
-		/**
-		 * Filters the pingback source URI.
-		 *
-		 * @since 3.6.0
-		 *
-		 * @param string $pagelinkedfrom URI of the page linked from.
-		 * @param string $pagelinkedto   URI of the page linked to.
-		 */
-		$pagelinkedfrom = apply_filters( 'pingback_ping_source_uri', $pagelinkedfrom, $pagelinkedto );
-
-		if ( ! $pagelinkedfrom )
-			return $this->pingback_error( 0, __( 'A valid URL was not provided.' ) );
-
-		// Check if the page linked to is in our site
-		$pos1 = strpos($pagelinkedto, str_replace(array('http://www.','http://','https://www.','https://'), '', get_option('home')));
-		if ( !$pos1 )
-			return $this->pingback_error( 0, __( 'Is there no link to us?' ) );
-
-		// let's find which post is linked to
-		// FIXME: does url_to_postid() cover all these cases already?
-		//        if so, then let's use it and drop the old code.
-		$urltest = parse_url($pagelinkedto);
-		if ( $post_ID = url_to_postid($pagelinkedto) ) {
-			// $way
-		} elseif ( isset( $urltest['path'] ) && preg_match('#p/[0-9]{1,}#', $urltest['path'], $match) ) {
-			// the path defines the post_ID (archives/p/XXXX)
-			$blah = explode('/', $match[0]);
-			$post_ID = (int) $blah[1];
-		} elseif ( isset( $urltest['query'] ) && preg_match('#p=[0-9]{1,}#', $urltest['query'], $match) ) {
-			// the querystring defines the post_ID (?p=XXXX)
-			$blah = explode('=', $match[0]);
-			$post_ID = (int) $blah[1];
-		} elseif ( isset($urltest['fragment']) ) {
-			// an #anchor is there, it's either...
-			if ( intval($urltest['fragment']) ) {
-				// ...an integer #XXXX (simplest case)
-				$post_ID = (int) $urltest['fragment'];
-			} elseif ( preg_match('/post-[0-9]+/',$urltest['fragment']) ) {
-				// ...a post id in the form 'post-###'
-				$post_ID = preg_replace('/[^0-9]+/', '', $urltest['fragment']);
-			} elseif ( is_string($urltest['fragment']) ) {
-				// ...or a string #title, a little more complicated
-				$title = preg_replace('/[^a-z0-9]/i', '.', $urltest['fragment']);
-				$sql = $wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE post_title RLIKE %s", $title );
-				if (! ($post_ID = $wpdb->get_var($sql)) ) {
-					// returning unknown error '0' is better than die()ing
-			  		return $this->pingback_error( 0, '' );
-				}
-			}
-		} else {
-			// TODO: Attempt to extract a post ID from the given URL
-	  		return $this->pingback_error( 33, __('The specified target URL cannot be used as a target. It either doesn&#8217;t exist, or it is not a pingback-enabled resource.' ) );
-		}
-		$post_ID = (int) $post_ID;
-
-		$post = get_post($post_ID);
-
-		if ( !$post ) // Post_ID not found
-	  		return $this->pingback_error( 33, __( 'The specified target URL cannot be used as a target. It either doesn&#8217;t exist, or it is not a pingback-enabled resource.' ) );
-
-		if ( $post_ID == url_to_postid($pagelinkedfrom) )
-			return $this->pingback_error( 0, __( 'The source URL and the target URL cannot both point to the same resource.' ) );
-
-		// Check if pings are on
-		if ( !pings_open($post) )
-	  		return $this->pingback_error( 33, __( 'The specified target URL cannot be used as a target. It either doesn&#8217;t exist, or it is not a pingback-enabled resource.' ) );
-
-		// Let's check that the remote site didn't already pingback this entry
-		if ( $wpdb->get_results( $wpdb->prepare("SELECT * FROM $wpdb->comments WHERE comment_post_ID = %d AND comment_author_url = %s", $post_ID, $pagelinkedfrom) ) )
-			return $this->pingback_error( 48, __( 'The pingback has already been registered.' ) );
-
-		// very stupid, but gives time to the 'from' server to publish !
-		sleep(1);
-
-		$remote_ip = preg_replace( '/[^0-9a-fA-F:., ]/', '', $_SERVER['REMOTE_ADDR'] );
-
-		/** This filter is documented in wp-includes/class-http.php */
-		$user_agent = apply_filters( 'http_headers_useragent', 'WordPress/' . get_bloginfo( 'version' ) . '; ' . get_bloginfo( 'url' ) );
-
-		// Let's check the remote site
-		$http_api_args = array(
-			'timeout' => 10,
-			'redirection' => 0,
-			'limit_response_size' => 153600, // 150 KB
-			'user-agent' => "$user_agent; verifying pingback from $remote_ip",
-			'headers' => array(
-				'X-Pingback-Forwarded-For' => $remote_ip,
-			),
-		);
-
-		$request = wp_safe_remote_get( $pagelinkedfrom, $http_api_args );
-		$remote_source = $remote_source_original = wp_remote_retrieve_body( $request );
-
-		if ( ! $remote_source ) {
-			return $this->pingback_error( 16, __( 'The source URL does not exist.' ) );
-		}
-
-		/**
-		 * Filters the pingback remote source.
-		 *
-		 * @since 2.5.0
-		 *
-		 * @param string $remote_source Response source for the page linked from.
-		 * @param string $pagelinkedto  URL of the page linked to.
-		 */
-		$remote_source = apply_filters( 'pre_remote_source', $remote_source, $pagelinkedto );
-
-		// Work around bug in strip_tags():
-		$remote_source = str_replace( '<!DOC', '<DOC', $remote_source );
-		$remote_source = preg_replace( '/[\r\n\t ]+/', ' ', $remote_source ); // normalize spaces
-		$remote_source = preg_replace( "/<\/*(h1|h2|h3|h4|h5|h6|p|th|td|li|dt|dd|pre|caption|input|textarea|button|body)[^>]*>/", "\n\n", $remote_source );
-
-		preg_match( '|<title>([^<]*?)</title>|is', $remote_source, $matchtitle );
-		$title = isset( $matchtitle[1] ) ? $matchtitle[1] : '';
-		if ( empty( $title ) ) {
-			return $this->pingback_error( 32, __( 'We cannot find a title on that page.' ) );
-		}
-
-		$remote_source = strip_tags( $remote_source, '<a>' ); // just keep the tag we need
-
-		$p = explode( "\n\n", $remote_source );
-
-		$preg_target = preg_quote($pagelinkedto, '|');
-
-		foreach ( $p as $para ) {
-			if ( strpos($para, $pagelinkedto) !== false ) { // it exists, but is it a link?
-				preg_match("|<a[^>]+?".$preg_target."[^>]*>([^>]+?)</a>|", $para, $context);
-
-				// If the URL isn't in a link context, keep looking
-				if ( empty($context) )
-					continue;
-
-				// We're going to use this fake tag to mark the context in a bit
-				// the marker is needed in case the link text appears more than once in the paragraph
-				$excerpt = preg_replace('|\</?wpcontext\>|', '', $para);
-
-				// prevent really long link text
-				if ( strlen($context[1]) > 100 )
-					$context[1] = substr($context[1], 0, 100) . '&#8230;';
-
-				$marker = '<wpcontext>'.$context[1].'</wpcontext>';    // set up our marker
-				$excerpt= str_replace($context[0], $marker, $excerpt); // swap out the link for our marker
-				$excerpt = strip_tags($excerpt, '<wpcontext>');        // strip all tags but our context marker
-				$excerpt = trim($excerpt);
-				$preg_marker = preg_quote($marker, '|');
-				$excerpt = preg_replace("|.*?\s(.{0,100}$preg_marker.{0,100})\s.*|s", '$1', $excerpt);
-				$excerpt = strip_tags($excerpt); // YES, again, to remove the marker wrapper
-				break;
-			}
-		}
-
-		if ( empty($context) ) // Link to target not found
-			return $this->pingback_error( 17, __( 'The source URL does not contain a link to the target URL, and so cannot be used as a source.' ) );
-
-		$pagelinkedfrom = str_replace('&', '&amp;', $pagelinkedfrom);
-
-		$context = '[&#8230;] ' . esc_html( $excerpt ) . ' [&#8230;]';
-		$pagelinkedfrom = $this->escape( $pagelinkedfrom );
-
-		$comment_post_ID = (int) $post_ID;
-		$comment_author = $title;
-		$comment_author_email = '';
-		$this->escape($comment_author);
-		$comment_author_url = $pagelinkedfrom;
-		$comment_content = $context;
-		$this->escape($comment_content);
-		$comment_type = 'pingback';
-
-		$commentdata = compact(
-			'comment_post_ID', 'comment_author', 'comment_author_url', 'comment_author_email',
-			'comment_content', 'comment_type', 'remote_source', 'remote_source_original'
-		);
-
-		$comment_ID = wp_new_comment($commentdata);
-
-		if ( is_wp_error( $comment_ID ) ) {
-			return $this->pingback_error( 0, $comment_ID->get_error_message() );
-		}
-
-		/**
-		 * Fires after a post pingback has been sent.
-		 *
-		 * @since 0.71
-		 *
-		 * @param int $comment_ID Comment ID.
-		 */
-		do_action( 'pingback_post', $comment_ID );
-
-		/* translators: 1: URL of the page linked from, 2: URL of the page linked to */
-		return sprintf( __( 'Pingback from %1$s to %2$s registered. Keep the web talking! :-)' ), $pagelinkedfrom, $pagelinkedto );
-	}
-
-	/**
-	 * Retrieve array of URLs that pingbacked the given URL.
-	 *
-	 * Specs on http://www.aquarionics.com/misc/archives/blogite/0198.html
-	 *
-	 * @since 1.5.0
-	 *
-	 * @global wpdb $wpdb database abstraction object.
-	 *
-	 * @param string $url
-	 * @return array|IXR_Error
-	 */
-	public function pingback_extensions_getPingbacks( $url ) {
-		global $wpdb;
-
-		/** This action is documented in wp-includes/class-wp-xmlrpc-server.php */
-		do_action( 'xmlrpc_call', 'pingback.extensions.getPingbacks' );
-
-		$url = $this->escape( $url );
-
-		$post_ID = url_to_postid($url);
-		if ( !$post_ID ) {
-			// We aren't sure that the resource is available and/or pingback enabled
-	  		return $this->pingback_error( 33, __( 'The specified target URL cannot be used as a target. It either doesn&#8217;t exist, or it is not a pingback-enabled resource.' ) );
-		}
-
-		$actual_post = get_post($post_ID, ARRAY_A);
-
-		if ( !$actual_post ) {
-			// No such post = resource not found
-	  		return $this->pingback_error( 32, __('The specified target URL does not exist.' ) );
-		}
-
-		$comments = $wpdb->get_results( $wpdb->prepare("SELECT comment_author_url, comment_content, comment_author_IP, comment_type FROM $wpdb->comments WHERE comment_post_ID = %d", $post_ID) );
-
-		if ( !$comments )
-			return array();
-
-		$pingbacks = array();
-		foreach ( $comments as $comment ) {
-			if ( 'pingback' == $comment->comment_type )
-				$pingbacks[] = $comment->comment_author_url;
-		}
-
-		return $pingbacks;
-	}
-
-	/**
-	 * Sends a pingback error based on the given error code and message.
-	 *
-	 * @since 3.6.0
-	 *
-	 * @param int    $code    Error code.
-	 * @param string $message Error message.
-	 * @return IXR_Error Error object.
-	 */
-	protected function pingback_error( $code, $message ) {
-		/**
-		 * Filters the XML-RPC pingback error return.
-		 *
-		 * @since 3.5.1
-		 *
-		 * @param IXR_Error $error An IXR_Error object containing the error code and message.
-		 */
-		return apply_filters( 'xmlrpc_pingback_error', new IXR_Error( $code, $message ) );
 	}
 }
