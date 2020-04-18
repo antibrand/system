@@ -33,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // ob_start();
 
-require( ABSPATH . 'wp-settings.php' );
+require( ABSPATH . 'app-settings.php' );
 
 // Load administration upgrade API.
 require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -68,7 +68,7 @@ if ( file_exists( ABSPATH . 'app-config.php' ) ) {
 }
 
 // Check if app-config.php exists above the root directory but is not part of another installation.
-if ( @file_exists( ABSPATH . '../app-config.php' ) && ! @file_exists( ABSPATH . '../wp-settings.php' ) ) {
+if ( @file_exists( ABSPATH . '../app-config.php' ) && ! @file_exists( ABSPATH . '..app-settings.php' ) ) {
 	wp_die( '<p>' . sprintf(
 			/* translators: 1: app-config.php 2: install.php */
 			__( 'The file %1$s already exists one level above your installation. If you need to reset any of the configuration items in this file, please delete it first. You may try <a href="%2$s">installing now</a>.' ),

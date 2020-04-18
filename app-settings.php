@@ -43,7 +43,7 @@ wp_initial_constants();
 // Check for the required PHP version and for the MySQL extension or a database drop-in.
 wp_check_php_mysql_versions();
 
-// Disable magic quotes at runtime. Magic quotes are added using wpdb later in wp-settings.php.
+// Disable magic quotes at runtime. Magic quotes are added using wpdb later in app-settings.php.
 @ini_set( 'magic_quotes_runtime', 0 );
 @ini_set( 'magic_quotes_sybase',  0 );
 

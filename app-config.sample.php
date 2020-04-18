@@ -186,4 +186,4 @@ define( 'APP_LOGIN', '/' . 'login' . '/' );
 // define( 'WP_LANG_DIR', ABSPATH . 'wp-content/languages' );
 
 // Sets up vars and included files.
-require_once( ABSPATH . 'wp-settings.php' );
+require( ABSPATH . 'app-settings.php' );

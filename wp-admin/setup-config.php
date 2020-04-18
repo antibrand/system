@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ob_start();
 
 // Load dependency files.
-require( ABSPATH . 'wp-settings.php' );
+require( ABSPATH . 'app-settings.php' );
 require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 require_once( ABSPATH . 'wp-admin/includes/translation-install.php' );
 
@@ -81,7 +81,7 @@ if ( file_exists( ABSPATH . 'app-config.php' ) ) {
  * configuration file exists above the root directory but is
  * not part of another installation.
  */
-if ( @file_exists( ABSPATH . '../app-config.php' ) && ! @file_exists( ABSPATH . '../wp-settings.php' ) ) {
+if ( @file_exists( ABSPATH . '../app-config.php' ) && ! @file_exists( ABSPATH . '../app-settings.php' ) ) {
 	wp_die( '<p>' . sprintf(
 			__( 'The file %1$s already exists one level above your installation. If you need to reset any of the configuration items in this file, please delete it first. You may try <a href="%2$s">installing now</a>.' ),
 			'<code>app-config.php</code>',

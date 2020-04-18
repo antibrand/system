@@ -2,7 +2,7 @@
 /**
  * Bootstrap file for setting the ABSPATH constant
  * and loading the app-config.php file. The app-config.php
- * file will then load the wp-settings.php file, which
+ * file will then load the app-settings.php file, which
  * will then set up the environment.
  *
  * If the app-config.php file is not found then an error
@@ -23,8 +23,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 error_reporting( E_CORE_ERROR | E_CORE_WARNING | E_COMPILE_ERROR | E_ERROR | E_WARNING | E_PARSE | E_USER_ERROR | E_USER_WARNING | E_RECOVERABLE_ERROR );
 
 /*
- * If app-config.php exists in the root, or if it exists in the root and wp-settings.php
- * doesn't, load app-config.php. The secondary check for wp-settings.php has the added benefit
+ * If app-config.php exists in the root, or if it exists in the root and app-settings.php
+ * doesn't, load app-config.php. The secondary check for app-settings.php has the added benefit
  * of avoiding cases where the current directory is a nested installation.
  *
  * If neither set of conditions is true, initiate loading the setup process.
@@ -34,7 +34,7 @@ if ( file_exists( ABSPATH . 'app-config.php') ) {
 	/** The config file resides in ABSPATH */
 	require_once( ABSPATH . 'app-config.php' );
 
-} elseif ( @file_exists( dirname( ABSPATH ) . '/app-config.php' ) && ! @file_exists( dirname( ABSPATH ) . '/wp-settings.php' ) ) {
+} elseif ( @file_exists( dirname( ABSPATH ) . '/app-config.php' ) && ! @file_exists( dirname( ABSPATH ) . '/app-settings.php' ) ) {
 
 	/** The config file resides one level above ABSPATH but is not part of another installation */
 	require_once( dirname( ABSPATH ) . '/app-config.php' );
