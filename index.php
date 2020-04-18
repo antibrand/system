@@ -1,7 +1,7 @@
 <?php
 /**
  * Front to the application. This file doesn't do anything, but loads
- * wp-blog-header.php which does and tells the application to load the theme.
+ * app-blog-header.php which does and tells the application to load the theme.
  *
  * @package App_Package
  */
@@ -11,7 +11,7 @@
  *
  * @var bool
  */
-define('WP_USE_THEMES', true);
+define( 'WP_USE_THEMES', true );
 
-/** Loads the application environment and template */
-require( dirname( __FILE__ ) . '/wp-blog-header.php' );
+// Loads the application environment and template.
+require( dirname( __FILE__ ) . '/app-blog-header.php' );
