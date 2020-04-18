@@ -1,6 +1,6 @@
 # Development Time Log
 
-The following is a log of the development sessions for this project. It is recorded as encouragement to others in creating their own fork of WordPress, to show that it can be done in relatively short time if no major changes are implemented.
+The following is a log of the initial development sessions to fork WordPress. It is recorded as encouragement to others in creating their own fork of WordPress, to show that it can be done in relatively short time if no major changes are implemented.
 
 This also includes renaming/modifying the packaged theme, renaming the packaged plugin, and setting up a simple [GitHub page](https://antibrand.github.io/system/).
 
