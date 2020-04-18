@@ -1059,7 +1059,7 @@ function wp_edit_posts_query( $q = false ) {
 	if ( ! empty( $q['show_sticky'] ) )
 		$query['post__in'] = (array) get_option( 'sticky_posts' );
 
-	wp( $query );
+	app( $query );
 
 	return $avail_post_stati;
 }
@@ -1158,7 +1158,7 @@ function wp_edit_attachments_query_vars( $q = false ) {
  * @return array
  */
 function wp_edit_attachments_query( $q = false ) {
-	wp( wp_edit_attachments_query_vars( $q ) );
+	app( wp_edit_attachments_query_vars( $q ) );
 
 	$post_mime_types = get_post_mime_types();
 	$avail_post_mime_types = get_available_post_mime_types( 'attachment' );

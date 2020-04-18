@@ -13,7 +13,7 @@ if ( ! isset( $wp_did_header ) ) {
 	require_once( dirname( __FILE__ ) . '/wp-load.php' );
 
 	// Set up the query.
-	wp();
+	app();
 
 	// Load the theme template.
 	require_once( ABSPATH . WPINC . '/template-loader.php' );
