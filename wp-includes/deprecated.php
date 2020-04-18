@@ -3933,3 +3933,54 @@ function wp_ajax_press_this_add_category() {
 		wp_send_json_error( array( 'errorMessage' => __( 'The Press This plugin is required.' ) ) );
 	}
 }
+
+/**
+ * Null out trackback & pingback functions.
+ */
+function pingback_header() {
+	return null;
+}
+
+function add_ping() {
+	return null;
+}
+
+function get_pung() {
+	return null;
+}
+
+function get_to_ping() {
+	return null;
+}
+
+function pings_open() {
+	return null;
+}
+
+function get_trackback_url() {
+	return null;
+}
+
+function trackback_url() {
+	return null;
+}
+
+function trackback_rdf() {
+	return null;
+}
+
+function trackback_url_list() {
+	return null;
+}
+
+function sanitize_trackback_urls() {
+	return null;
+}
+
+function is_trackback() {
+	return null;
+}
+
+function post_trackback_meta_box() {
+	return null;
+}
