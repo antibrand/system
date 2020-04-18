@@ -8,11 +8,7 @@
  * @package App_Package
  */
 
-/**
- * Stores the location of the directory of functions, classes, and core content.
- *
- * @since 1.0.0
- */
+// Stores the location of the directory of functions, classes, and core content.
 define( 'WPINC', 'wp-includes' );
 
 // Include files required for initialization.
@@ -20,7 +16,7 @@ require( ABSPATH . WPINC . '/load.php' );
 require( ABSPATH . WPINC . '/default-constants.php' );
 require_once( ABSPATH . WPINC . '/plugin.php' );
 
-/*
+/**
  * These can't be directly globalized in version.php. When updating,
  * we're including version.php from another installation and don't want
  * these values to be overridden if already set.
@@ -33,7 +29,7 @@ require( ABSPATH . WPINC . '/version.php' );
  * configuration. In multisite, it will be overridden by default in ms-settings.php.
  *
  * @global int $blog_id
- * @since 2.0.0
+ * @since WP 2.0.0
  */
 global $blog_id;
 
@@ -47,7 +43,7 @@ wp_check_php_mysql_versions();
 @ini_set( 'magic_quotes_runtime', 0 );
 @ini_set( 'magic_quotes_sybase',  0 );
 
-// Calculates offsets from UTC.
+// Calculate offsets from UTC.
 date_default_timezone_set( 'UTC' );
 
 // Turn register_globals off.
@@ -74,16 +70,21 @@ wp_debug_mode();
  * This filter runs before it can be used by plugins. It is designed for non-web
  * run-times. If false is returned, advanced-cache.php will never be loaded.
  *
- * @since 4.6.0
+ * @since WP 4.6.0
  *
  * @param bool $enable_advanced_cache Whether to enable loading advanced-cache.php (if present).
  *                                    Default true.
  */
 if ( WP_CACHE && apply_filters( 'enable_loading_advanced_cache_dropin', true ) ) {
-	// For an advanced caching plugin to use. Uses a static drop-in because you would only want one.
-	WP_DEBUG ? include( WP_CONTENT_DIR . '/advanced-cache.php' ) : @include( WP_CONTENT_DIR . '/advanced-cache.php' );
 
-	// Re-initialize any hooks added manually by advanced-cache.php
+	// For an advanced caching plugin to use. Uses a static drop-in because you would only want one.
+	if ( WP_DEBUG ) {
+		include( WP_CONTENT_DIR . '/advanced-cache.php' );
+	} else {
+		@include( WP_CONTENT_DIR . '/advanced-cache.php' );
+	}
+
+	// Re-initialize any hooks added manually by advanced-cache.php.
 	if ( $wp_filter ) {
 		$wp_filter = WP_Hook::build_preinitialized_hooks( $wp_filter );
 	}
@@ -128,8 +129,9 @@ if ( is_multisite() ) {
 register_shutdown_function( 'shutdown_action_hook' );
 
 // Stop most of the application from being loaded if we just want the basics.
-if ( SHORTINIT )
+if ( SHORTINIT ) {
 	return false;
+}
 
 // Load the L10n library.
 require_once( ABSPATH . WPINC . '/l10n.php' );
@@ -249,11 +251,13 @@ if ( is_multisite() ) {
 	require( ABSPATH . WPINC . '/ms-deprecated.php' );
 }
 
-// Define constants that rely on the API to obtain the default value.
-// Define must-use plugin directory constants, which may be overridden in the sunrise.php drop-in.
+/**
+ * Define constants that rely on the API to obtain the default value.
+ * Define must-use plugin directory constants, which may be overridden in the sunrise.php drop-in.
+ */
 wp_plugin_directory_constants();
 
-$GLOBALS['wp_plugin_paths'] = array();
+$GLOBALS['wp_plugin_paths'] = [];
 
 // Load must-use plugins.
 foreach ( wp_get_mu_plugins() as $mu_plugin ) {
@@ -270,33 +274,33 @@ if ( is_multisite() ) {
 	unset( $network_plugin );
 }
 
-/**
- * Fires once all must-use and network-activated plugins have loaded.
- *
- * @since 2.8.0
- */
+// Fires once all must-use and network-activated plugins have loaded.
 do_action( 'muplugins_loaded' );
 
-if ( is_multisite() )
-	ms_cookie_constants(  );
+if ( is_multisite() ) {
+	ms_cookie_constants();
+}
 
 // Define constants after multisite is loaded.
 wp_cookie_constants();
 
-// Define and enforce our SSL constants
+// Define and enforce our SSL constants.
 wp_ssl_constants();
 
 // Create common globals.
 require( ABSPATH . WPINC . '/vars.php' );
 
-// Make taxonomies and posts available to plugins and themes.
-// @plugin authors: warning: these get registered again on the init hook.
+/**
+ * Make taxonomies and posts available to plugins and themes.
+ *
+ * Plugin authors: warning, these get registered again on the init hook.
+ */
 create_initial_taxonomies();
 create_initial_post_types();
 
 wp_start_scraping_edited_file_errors();
 
-// Register the default theme directory root
+// Register the default theme directory root.
 register_theme_directory( get_theme_root() );
 
 // Load active plugins.
@@ -314,15 +318,16 @@ require( ABSPATH . WPINC . '/pluggable-deprecated.php' );
 wp_set_internal_encoding();
 
 // Run wp_cache_postload() if object cache is enabled and the function exists.
-if ( WP_CACHE && function_exists( 'wp_cache_postload' ) )
+if ( WP_CACHE && function_exists( 'wp_cache_postload' ) ) {
 	wp_cache_postload();
+}
 
 /**
  * Fires once activated plugins have loaded.
  *
  * Pluggable functions are also available at this point in the loading order.
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  */
 do_action( 'plugins_loaded' );
 
@@ -335,14 +340,14 @@ wp_magic_quotes();
 /**
  * Fires when comment cookies are sanitized.
  *
- * @since 2.0.11
+ * @since WP 2.0.11
  */
 do_action( 'sanitize_comment_cookies' );
 
 /**
  * Query object
  * @global WP_Query $wp_the_query
- * @since 2.0.0
+ * @since WP 2.0.0
  */
 $GLOBALS['wp_the_query'] = new WP_Query();
 
@@ -350,42 +355,42 @@ $GLOBALS['wp_the_query'] = new WP_Query();
  * Holds the reference to @see $wp_the_query
  * Use this global for queries
  * @global WP_Query $wp_query
- * @since 1.5.0
+ * @since WP 1.5.0
  */
 $GLOBALS['wp_query'] = $GLOBALS['wp_the_query'];
 
 /**
  * Holds the Rewrite object for creating pretty URLs
  * @global WP_Rewrite $wp_rewrite
- * @since 1.5.0
+ * @since WP 1.5.0
  */
 $GLOBALS['wp_rewrite'] = new WP_Rewrite();
 
 /**
  * Object
  * @global WP $wp
- * @since 2.0.0
+ * @since WP 2.0.0
  */
 $GLOBALS['wp'] = new WP();
 
 /**
  * Widget Factory Object
  * @global WP_Widget_Factory $wp_widget_factory
- * @since 2.8.0
+ * @since WP 2.8.0
  */
 $GLOBALS['wp_widget_factory'] = new WP_Widget_Factory();
 
 /**
  * User Roles
  * @global WP_Roles $wp_roles
- * @since 2.0.0
+ * @since WP 2.0.0
  */
 $GLOBALS['wp_roles'] = new WP_Roles();
 
 /**
  * Fires before the theme is loaded.
  *
- * @since 2.6.0
+ * @since WP 2.6.0
  */
 do_action( 'setup_theme' );
 
@@ -395,23 +400,26 @@ wp_templating_constants(  );
 // Load the default text localization domain.
 load_default_textdomain();
 
-$locale = get_locale();
+$locale      = get_locale();
 $locale_file = WP_LANG_DIR . "/$locale.php";
-if ( ( 0 === validate_file( $locale ) ) && is_readable( $locale_file ) )
+
+if ( ( 0 === validate_file( $locale ) ) && is_readable( $locale_file ) ) {
 	require( $locale_file );
+}
+
 unset( $locale_file );
 
 /**
  * Locale object for loading locale domain date and various strings.
  * @global WP_Locale $wp_locale
- * @since 2.1.0
+ * @since WP 2.1.0
  */
 $GLOBALS['wp_locale'] = new WP_Locale();
 
 /**
  *  Locale Switcher object for switching locales.
  *
- * @since 4.7.0
+ * @since WP 4.7.0
  *
  * @global WP_Locale_Switcher $wp_locale_switcher locale switcher object.
  */
@@ -420,16 +428,20 @@ $GLOBALS['wp_locale_switcher']->init();
 
 // Load the functions for the active theme, for both parent and child theme if applicable.
 if ( ! wp_installing() || 'wp-activate.php' === $pagenow ) {
-	if ( TEMPLATEPATH !== STYLESHEETPATH && file_exists( STYLESHEETPATH . '/functions.php' ) )
+
+	if ( TEMPLATEPATH !== STYLESHEETPATH && file_exists( STYLESHEETPATH . '/functions.php' ) ) {
 		include( STYLESHEETPATH . '/functions.php' );
-	if ( file_exists( TEMPLATEPATH . '/functions.php' ) )
+	}
+
+	if ( file_exists( TEMPLATEPATH . '/functions.php' ) ) {
 		include( TEMPLATEPATH . '/functions.php' );
+	}
 }
 
 /**
  * Fires after the theme is loaded.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  */
 do_action( 'after_setup_theme' );
 
@@ -445,7 +457,7 @@ $GLOBALS['wp']->init();
  *
  * If you wish to plug an action once WP is loaded, use the {@see 'wp_loaded'} hook below.
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  */
 do_action( 'init' );
 
@@ -455,7 +467,7 @@ if ( is_multisite() ) {
 		require( $file );
 		die();
 	}
-	unset($file);
+	unset( $file );
 }
 
 /**
@@ -464,6 +476,6 @@ if ( is_multisite() ) {
  * Ajax requests should use wp-admin/admin-ajax.php. admin-ajax.php can handle requests for
  * users not logged in.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  */
 do_action( 'wp_loaded' );
