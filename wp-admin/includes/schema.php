@@ -161,6 +161,7 @@ CREATE TABLE $wpdb->posts (
   post_date_gmt datetime NOT NULL default '0000-00-00 00:00:00',
   post_content longtext NOT NULL,
   post_title text NOT NULL,
+  post_subtitle text NOT NULL,
   post_excerpt text NOT NULL,
   post_status varchar(20) NOT NULL default 'publish',
   comment_status varchar(20) NOT NULL default 'open',

@@ -371,7 +371,7 @@ function edit_post( $post_data = null ) {
 	$success = wp_update_post( $post_data );
 	// If the save failed, see if we can sanity check the main fields and try again
 	if ( ! $success && is_callable( array( $wpdb, 'strip_invalid_text_for_column' ) ) ) {
-		$fields = array( 'post_title', 'post_content', 'post_excerpt' );
+		$fields = [ 'post_title', 'post_subtitle', 'post_content', 'post_excerpt' ];
 
 		foreach ( $fields as $field ) {
 			if ( isset( $post_data[ $field ] ) ) {
@@ -585,23 +585,34 @@ function bulk_edit_posts( $post_data = null ) {
  * @return WP_Post Post object containing all the default post data as attributes
  */
 function get_default_post_to_edit( $post_type = 'post', $create_in_db = false ) {
+
 	$post_title = '';
-	if ( !empty( $_REQUEST['post_title'] ) )
-		$post_title = esc_html( wp_unslash( $_REQUEST['post_title'] ));
+	if ( ! empty( $_REQUEST['post_title'] ) ) {
+		$post_title = esc_html( wp_unslash( $_REQUEST['post_title'] ) );
+	}
+
+	$post_subtitle = '';
+	if ( ! empty( $_REQUEST['post_subtitle'] ) ) {
+		$post_subtitle = esc_html( wp_unslash( $_REQUEST['post_subtitle'] ) );
+	}
 
 	$post_content = '';
-	if ( !empty( $_REQUEST['content'] ) )
-		$post_content = esc_html( wp_unslash( $_REQUEST['content'] ));
+	if ( ! empty( $_REQUEST['content'] ) ) {
+		$post_content = esc_html( wp_unslash( $_REQUEST['content'] ) );
+	}
 
 	$post_excerpt = '';
-	if ( !empty( $_REQUEST['excerpt'] ) )
-		$post_excerpt = esc_html( wp_unslash( $_REQUEST['excerpt'] ));
+	if ( ! empty( $_REQUEST['excerpt'] ) ) {
+		$post_excerpt = esc_html( wp_unslash( $_REQUEST['excerpt'] ) );
+	}
 
 	if ( $create_in_db ) {
-		$post_id = wp_insert_post( array( 'post_title' => __( 'Auto Draft' ), 'post_type' => $post_type, 'post_status' => 'auto-draft' ) );
-		$post = get_post( $post_id );
+
+		$post_id = wp_insert_post( [ 'post_title' => __( 'Auto Draft' ), 'post_type' => $post_type, 'post_status' => 'auto-draft' ] );
+		$post    = get_post( $post_id );
 		if ( current_theme_supports( 'post-formats' ) && post_type_supports( $post->post_type, 'post-formats' ) && get_option( 'default_post_format' ) )
 			set_post_format( $post, get_option( 'default_post_format' ) );
+
 	} else {
 		$post = new stdClass;
 		$post->ID = 0;
@@ -633,20 +644,30 @@ function get_default_post_to_edit( $post_type = 'post', $create_in_db = false ) 
 	/**
 	 * Filters the default post title initially used in the "Write Post" form.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
-	 * @param string  $post_title Default post title.
-	 * @param WP_Post $post       Post object.
+	 * @param string $post_title Default post title.
+	 * @param WP_Post $post Post object.
 	 */
 	$post->post_title = apply_filters( 'default_title', $post_title, $post );
 
 	/**
-	 * Filters the default post excerpt initially used in the "Write Post" form.
+	 * Filters the default post subtitle initially used in the "Write Post" form.
 	 *
 	 * @since 1.5.0
 	 *
-	 * @param string  $post_excerpt Default post excerpt.
-	 * @param WP_Post $post         Post object.
+	 * @param string $post_subtitle Default post subtitle.
+	 * @param WP_Post $post Post object.
+	 */
+	$post->post_subtitle = apply_filters( 'default_subtitle', $post_subtitle, $post );
+
+	/**
+	 * Filters the default post excerpt initially used in the "Write Post" form.
+	 *
+	 * @since WP 1.5.0
+	 *
+	 * @param string $post_excerpt Default post excerpt.
+	 * @param WP_Post $post Post object.
 	 */
 	$post->post_excerpt = apply_filters( 'default_excerpt', $post_excerpt, $post );
 
@@ -665,33 +686,41 @@ function get_default_post_to_edit( $post_type = 'post', $create_in_db = false ) 
  * @param string $date Optional post date
  * @return int Post ID if post exists, 0 otherwise.
  */
-function post_exists($title, $content = '', $date = '') {
+function post_exists( $title, $subtitle, $content = '', $date = '' ) {
+
 	global $wpdb;
 
-	$post_title = wp_unslash( sanitize_post_field( 'post_title', $title, 0, 'db' ) );
-	$post_content = wp_unslash( sanitize_post_field( 'post_content', $content, 0, 'db' ) );
-	$post_date = wp_unslash( sanitize_post_field( 'post_date', $date, 0, 'db' ) );
+	$post_title    = wp_unslash( sanitize_post_field( 'post_title', $title, 0, 'db' ) );
+	$post_subtitle = wp_unslash( sanitize_post_field( 'post_subtitle', $subtitle, 0, 'db' ) );
+	$post_content  = wp_unslash( sanitize_post_field( 'post_content', $content, 0, 'db' ) );
+	$post_date     = wp_unslash( sanitize_post_field( 'post_date', $date, 0, 'db' ) );
 
 	$query = "SELECT ID FROM $wpdb->posts WHERE 1=1";
-	$args = array();
+	$args  = [];
 
-	if ( !empty ( $date ) ) {
+	if ( ! empty ( $date ) ) {
 		$query .= ' AND post_date = %s';
 		$args[] = $post_date;
 	}
 
-	if ( !empty ( $title ) ) {
+	if ( ! empty ( $title ) ) {
 		$query .= ' AND post_title = %s';
 		$args[] = $post_title;
 	}
 
-	if ( !empty ( $content ) ) {
+	if ( ! empty ( $subtitle ) ) {
+		$query .= ' AND post_subtitle = %s';
+		$args[] = $post_subtitle;
+	}
+
+	if ( ! empty ( $content ) ) {
 		$query .= ' AND post_content = %s';
 		$args[] = $post_content;
 	}
 
-	if ( !empty ( $args ) )
-		return (int) $wpdb->get_var( $wpdb->prepare($query, $args) );
+	if ( ! empty ( $args ) ) {
+		return (int) $wpdb->get_var( $wpdb->prepare( $query, $args ) );
+	}
 
 	return 0;
 }
@@ -1226,7 +1255,7 @@ function get_sample_permalink($id, $title = null, $name = null) {
 	// Hack: get_permalink() would return ugly permalink for drafts, so we will fake that our post is published.
 	if ( in_array( $post->post_status, array( 'draft', 'pending', 'future' ) ) ) {
 		$post->post_status = 'publish';
-		$post->post_name = sanitize_title($post->post_name ? $post->post_name : $post->post_title, $post->ID);
+		$post->post_name   = sanitize_title( $post->post_name ? $post->post_name : $post->post_title, $post->ID );
 	}
 
 	// If the user wants to set a new name -- override the current one

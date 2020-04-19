@@ -357,6 +357,11 @@ a:visited {
   text-decoration: none;
 }
 
+.entry-subtitle {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
 .entry-content ul,
 .widget-area ul,
 .entry-content ol,

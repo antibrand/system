@@ -251,6 +251,7 @@ for ( $i = 1; $i <= $count; $i++ ) {
 	$post_data = compact(
 		'post_content',
 		'post_title',
+		'post_subtitle',
 		'post_date',
 		'post_date_gmt',
 		'post_author',

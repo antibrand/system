@@ -178,6 +178,7 @@ function wp_install_defaults( $user_id ) {
 		'post_content' => $first_post,
 		'post_excerpt' => '',
 		'post_title' => __( 'Hello, World' ),
+		'post_subtitle' => '',
 		/* translators: Default post slug */
 		'post_name' => sanitize_title( _x( 'hello-world', 'Default post slug' ) ),
 		'post_modified' => $now,
@@ -226,6 +227,7 @@ To get started with moderating, editing, and deleting comments, please visit the
 		'post_excerpt' => '',
 		'comment_status' => 'closed',
 		'post_title' => __( 'Sample Page' ),
+		'post_subtitle' => '',
 		/* translators: Default page slug */
 		'post_name' => __( 'sample-page' ),
 		'post_modified' => $now,
@@ -260,6 +262,7 @@ To get started with moderating, editing, and deleting comments, please visit the
 				'post_excerpt'          => '',
 				'comment_status'        => 'closed',
 				'post_title'            => __( 'Privacy Policy' ),
+				'post_subtitle'         => '',
 				/* translators: Privacy Policy page slug */
 				'post_name'             => __( 'privacy-policy' ),
 				'post_modified'         => $now,
@@ -597,11 +600,12 @@ function upgrade_100() {
 
 	// Get the title and ID of every post, post_name to check if it already has a value
 	$posts = $wpdb->get_results("SELECT ID, post_title, post_name FROM $wpdb->posts WHERE post_name = ''");
-	if ($posts) {
-		foreach ($posts as $post) {
-			if ('' == $post->post_name) {
-				$newtitle = sanitize_title($post->post_title);
-				$wpdb->query( $wpdb->prepare("UPDATE $wpdb->posts SET post_name = %s WHERE ID = %d", $newtitle, $post->ID) );
+	if ( $posts ) {
+		foreach ( $posts as $post ) {
+
+			if ( '' == $post->post_name ) {
+				$newtitle = sanitize_title( $post->post_title );
+				$wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_name = %s WHERE ID = %d", $newtitle, $post->ID ) );
 			}
 		}
 	}
@@ -739,18 +743,23 @@ function upgrade_130() {
 	global $wpdb;
 
 	// Remove extraneous backslashes.
-	$posts = $wpdb->get_results("SELECT ID, post_title, post_content, post_excerpt, guid, post_date, post_name, post_status, post_author FROM $wpdb->posts");
-	if ($posts) {
-		foreach ($posts as $post) {
-			$post_content = addslashes(deslash($post->post_content));
-			$post_title = addslashes(deslash($post->post_title));
-			$post_excerpt = addslashes(deslash($post->post_excerpt));
-			if ( empty($post->guid) )
-				$guid = get_permalink($post->ID);
-			else
-				$guid = $post->guid;
+	$posts = $wpdb->get_results( "SELECT ID, post_title, post_subtitle, post_content, post_excerpt, guid, post_date, post_name, post_status, post_author FROM $wpdb->posts" );
 
-			$wpdb->update( $wpdb->posts, compact('post_title', 'post_content', 'post_excerpt', 'guid'), array('ID' => $post->ID) );
+	if ( $posts ) {
+
+		foreach ( $posts as $post ) {
+			$post_content  = addslashes( deslash( $post->post_content ) );
+			$post_title    = addslashes( deslash( $post->post_title ) );
+			$post_subtitle = addslashes( deslash( $post->post_subtitle ) );
+			$post_excerpt  = addslashes( deslash( $post->post_excerpt ) );
+
+			if ( empty( $post->guid ) ) {
+				$guid = get_permalink( $post->ID );
+			} else {
+				$guid = $post->guid;
+			}
+
+			$wpdb->update( $wpdb->posts, compact( 'post_title', 'post_subtitle', 'post_content', 'post_excerpt', 'guid' ), [ 'ID' => $post->ID ] );
 
 		}
 	}

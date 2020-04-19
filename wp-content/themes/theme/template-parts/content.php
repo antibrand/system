@@ -19,7 +19,9 @@
 		endif;
 
 		if ( 'post' === get_post_type() ) :
-			?>
+
+		the_subtitle( '<p class="entry-subtitle">', '</p>' );
+		?>
 			<div class="entry-meta">
 				<?php
 				AB_Theme\Tags\posted_on();

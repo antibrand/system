@@ -545,15 +545,42 @@ do_action( 'edit_form_top', $post ); ?>
 	/**
 	 * Filters the title field placeholder text.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
-	 * @param string  $text Placeholder text. Default 'Enter title here'.
+	 * @param string $text Placeholder text. Default 'Enter title here'.
 	 * @param WP_Post $post Post object.
 	 */
 	$title_placeholder = apply_filters( 'enter_title_here', __( 'Enter title here' ), $post );
 	?>
 	<label class="screen-reader-text" id="title-prompt-text" for="title"><?php echo $title_placeholder; ?></label>
 	<input type="text" name="post_title" size="30" value="<?php echo esc_attr( $post->post_title ); ?>" id="title" spellcheck="true" autocomplete="off" />
+</div>
+<div id="subtitlewrap">
+	<?php
+	/**
+	 * Filters the subtitle field label text.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $text Label text. Default 'Subtitle:'.
+	 * @param WP_Post $post Post object.
+	 */
+	$subtitle_label = apply_filters( 'edit_subtitle_label', __( 'Subtitle:' ), $post );
+
+	/**
+	 * Filters the subtitle field placeholder text.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $text Placeholder text. Default 'Enter subtitle here'.
+	 * @param WP_Post $post Post object.
+	 */
+	$subtitle_placeholder = apply_filters( 'enter_subtitle_here', __( 'Enter subtitle here' ), $post );
+	?>
+	<p id="subtitle-field">
+		<label class="post-subtitle-label" id="subtitle-label" for="subtitle"><?php echo $subtitle_label; ?></label>
+		<input type="text" name="post_subtitle" value="<?php echo esc_attr( $post->post_subtitle ); ?>" placeholder="<?php echo $subtitle_placeholder; ?>" id="subtitle" spellcheck="true" autocomplete="off" />
+	</p>
 </div>
 <?php
 /**

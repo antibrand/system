@@ -2081,7 +2081,7 @@ function sanitize_post_field( $field, $value, $post_id, $context = 'display' ) {
 	}
 
 	if ( 'edit' == $context ) {
-		$format_to_edit = array('post_content', 'post_excerpt', 'post_title', 'post_password');
+		$format_to_edit = array('post_content', 'post_excerpt', 'post_title', 'post_subtitle', 'post_password');
 
 		if ( $prefixed ) {
 
@@ -3100,6 +3100,7 @@ function wp_get_recent_posts( $args = array(), $output = ARRAY_A ) {
  *     @type mixed  $post_content          The post content. Default empty.
  *     @type string $post_content_filtered The filtered post content. Default empty.
  *     @type string $post_title            The post title. Default empty.
+ *     @type string $post_subtitle         The post subtitle. Default empty.
  *     @type string $post_excerpt          The post excerpt. Default empty.
  *     @type string $post_status           The post status. Default 'draft'.
  *     @type string $post_type             The post type. Default 'post'.
@@ -3135,6 +3136,7 @@ function wp_insert_post( $postarr, $wp_error = false ) {
 		'post_content' => '',
 		'post_content_filtered' => '',
 		'post_title' => '',
+		'post_subtitle' => '',
 		'post_excerpt' => '',
 		'post_status' => 'draft',
 		'post_type' => 'post',
@@ -3179,9 +3181,10 @@ function wp_insert_post( $postarr, $wp_error = false ) {
 
 	$post_type = empty( $postarr['post_type'] ) ? 'post' : $postarr['post_type'];
 
-	$post_title = $postarr['post_title'];
-	$post_content = $postarr['post_content'];
-	$post_excerpt = $postarr['post_excerpt'];
+	$post_title    = $postarr['post_title'];
+	$post_subtitle = $postarr['post_subtitle'];
+	$post_content  = $postarr['post_content'];
+	$post_excerpt  = $postarr['post_excerpt'];
 	if ( isset( $postarr['post_name'] ) ) {
 		$post_name = $postarr['post_name'];
 	} elseif ( $update ) {
@@ -3190,7 +3193,7 @@ function wp_insert_post( $postarr, $wp_error = false ) {
 	}
 
 	$maybe_empty = 'attachment' !== $post_type
-		&& ! $post_content && ! $post_title && ! $post_excerpt
+		&& ! $post_content && ! $post_title && ! $post_subtitle && ! $post_excerpt
 		&& post_type_supports( $post_type, 'editor' )
 		&& post_type_supports( $post_type, 'title' )
 		&& post_type_supports( $post_type, 'excerpt' );
@@ -3400,9 +3403,9 @@ function wp_insert_post( $postarr, $wp_error = false ) {
 	$post_mime_type = isset( $postarr['post_mime_type'] ) ? $postarr['post_mime_type'] : '';
 
 	// Expected_slashed (everything!).
-	$data = compact( 'post_author', 'post_date', 'post_date_gmt', 'post_content', 'post_content_filtered', 'post_title', 'post_excerpt', 'post_status', 'post_type', 'comment_status', 'post_password', 'post_name', 'post_modified', 'post_modified_gmt', 'post_parent', 'menu_order', 'post_mime_type', 'guid' );
+	$data = compact( 'post_author', 'post_date', 'post_date_gmt', 'post_content', 'post_content_filtered', 'post_title', 'post_subtitle', 'post_excerpt', 'post_status', 'post_type', 'comment_status', 'post_password', 'post_name', 'post_modified', 'post_modified_gmt', 'post_parent', 'menu_order', 'post_mime_type', 'guid' );
 
-	$emoji_fields = array( 'post_title', 'post_content', 'post_excerpt' );
+	$emoji_fields = [ 'post_title', 'post_subtitle', 'post_content', 'post_excerpt' ];
 
 	foreach ( $emoji_fields as $emoji_field ) {
 		if ( isset( $data[ $emoji_field ] ) ) {
@@ -4676,7 +4679,7 @@ function get_pages( $args = array() ) {
 	}
 
 	$orderby_array = array();
-	$allowed_keys = array( 'author', 'post_author', 'date', 'post_date', 'title', 'post_title', 'name', 'post_name', 'modified',
+	$allowed_keys = array( 'author', 'post_author', 'date', 'post_date', 'title', 'post_title', 'post_subtitle', 'name', 'post_name', 'modified',
 		'post_modified', 'modified_gmt', 'post_modified_gmt', 'menu_order', 'parent', 'post_parent',
 		'ID', 'rand', 'comment_count' );
 

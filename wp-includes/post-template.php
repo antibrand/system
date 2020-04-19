@@ -159,6 +159,72 @@ function get_the_title( $post = 0 ) {
 }
 
 /**
+ * Display or retrieve the current post subtitle with optional markup.
+ *
+ * @since 1.0.0
+ *
+ * @param string $before Optional. Markup to prepend to the subtitle. Default empty.
+ * @param string $after Optional. Markup to append to the subtitle. Default empty.
+ * @param bool $echo  Optional. Whether to echo or return the subtitle. Default true for echo.
+ * @return string|void Current post subtitle if $echo is false.
+ */
+function the_subtitle( $before = '', $after = '', $echo = true ) {
+
+	$subtitle = get_the_subtitle();
+
+	if ( strlen( $subtitle ) == 0 ) {
+		return;
+	}
+
+	$subtitle = $before . $subtitle . $after;
+
+	if ( $echo ) {
+		echo $subtitle;
+	} else {
+		return $subtitle;
+	}
+}
+
+/**
+ * Retrieve post subtitle.
+ *
+ * If the post is protected and the visitor is not an admin, then "Protected"
+ * will be displayed before the post subtitle. If the post is private, then
+ * "Private" will be located before the post subtitle.
+ *
+ * @since 1.0.0
+ *
+ * @param int|WP_Post $post Optional. Post ID or WP_Post object. Default is global $post.
+ * @return string
+ */
+function get_the_subtitle( $post = 0 ) {
+
+	$post = get_post( $post );
+
+	if ( isset( $post->post_subtitle ) ) {
+		$subtitle = $post->post_subtitle;
+	} else {
+		$subtitle = '';
+	}
+
+	if ( isset( $post->ID ) ) {
+		$id = $post->ID;
+	} else {
+		$id = 0;
+	}
+
+	/**
+	 * Filters the post subtitle.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $subtitle The post subtitle.
+	 * @param int $id The post ID.
+	 */
+	return apply_filters( 'the_subtitle', $subtitle, $id );
+}
+
+/**
  * Display the Post Global Unique Identifier (guid).
  *
  * The guid will appear to be a link, but should not be used as a link to the

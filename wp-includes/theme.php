@@ -2169,6 +2169,7 @@ function get_theme_starter_content() {
 							array(
 								'post_type',
 								'post_title',
+								'post_subtitle',
 								'post_excerpt',
 								'post_name',
 								'post_content',
