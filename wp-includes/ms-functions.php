@@ -862,9 +862,9 @@ function wpmu_signup_blog_notification( $domain, $path, $title, $user_login, $us
 
 	// Send email with activation link.
 	if ( !is_subdomain_install() || get_current_network_id() != 1 )
-		$activate_url = network_site_url("wp-activate.php?key=$key");
+		$activate_url = network_site_url("app-activate.php?key=$key");
 	else
-		$activate_url = "http://{$domain}{$path}wp-activate.php?key=$key"; // @todo use *_url() API
+		$activate_url = "http://{$domain}{$path}app-activate.php?key=$key"; // @todo use *_url() API
 
 	$activate_url = esc_url($activate_url);
 	$admin_email = get_site_option( 'admin_email' );
@@ -997,7 +997,7 @@ function wpmu_signup_user_notification( $user_login, $user_email, $key, $meta = 
 			__( "To activate your user, please click the following link:\n\n%s\n\nAfter you activate, you will receive *another email* with your login." ),
 			$user_login, $user_email, $key, $meta
 		),
-		site_url( "wp-activate.php?key=$key" )
+		site_url( "app-activate.php?key=$key" )
 	);
 	// TODO: Don't hard code activation link.
 	$subject = sprintf(

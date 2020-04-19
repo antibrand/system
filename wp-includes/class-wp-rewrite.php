@@ -1212,7 +1212,7 @@ class WP_Rewrite {
 		$registration_pages = array();
 		if ( is_multisite() && is_main_site() ) {
 			$registration_pages['.*wp-signup.php$'] = $this->index . '?signup=true';
-			$registration_pages['.*wp-activate.php$'] = $this->index . '?activate=true';
+			$registration_pages['.*app-activate.php$'] = $this->index . '?activate=true';
 		}
 
 		// Deprecated.
