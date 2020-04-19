@@ -3,6 +3,7 @@
  * Redirects to app-activate.php.
  *
  * Added in case needed by a external multisite method or plugin.
+ * Remove if not needed.
  *
  * @package App_Package
  */
