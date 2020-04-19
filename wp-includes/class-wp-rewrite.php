@@ -1211,7 +1211,7 @@ class WP_Rewrite {
 		// Registration rules.
 		$registration_pages = array();
 		if ( is_multisite() && is_main_site() ) {
-			$registration_pages['.*wp-signup.php$'] = $this->index . '?signup=true';
+			$registration_pages['.*app-signup.php$'] = $this->index . '?signup=true';
 			$registration_pages['.*app-activate.php$'] = $this->index . '?activate=true';
 		}
 

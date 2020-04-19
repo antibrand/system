@@ -2045,7 +2045,7 @@ function signup_nonce_fields() {
  * @return array
  */
 function signup_nonce_check( $result ) {
-	if ( !strpos( $_SERVER[ 'PHP_SELF' ], 'wp-signup.php' ) )
+	if ( !strpos( $_SERVER[ 'PHP_SELF' ], 'app-signup.php' ) )
 		return $result;
 
 	if ( wp_create_nonce('signup_form_' . $_POST[ 'signup_form_id' ]) != $_POST['_signup_form'] )
