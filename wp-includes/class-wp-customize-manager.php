@@ -3380,7 +3380,7 @@ final class WP_Customize_Manager {
 				 * the changeset so that any filters that apply during the save
 				 * process will respect the original user's capabilities. This
 				 * will ensure, for example, that KSES won't strip unsafe HTML
-				 * when a scheduled changeset publishes via WP Cron.
+				 * when a scheduled changeset publishes via APP Cron.
 				 */
 				if ( isset( $setting_user_ids[ $setting_id ] ) ) {
 					wp_set_current_user( $setting_user_ids[ $setting_id ] );

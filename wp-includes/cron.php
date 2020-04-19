@@ -319,7 +319,7 @@ function spawn_cron( $gmt_time = 0 ) {
 		while ( @ob_end_flush() );
 		flush();
 
-		WP_DEBUG ? include_once( ABSPATH . 'wp-cron.php' ) : @include_once( ABSPATH . 'wp-cron.php' );
+		WP_DEBUG ? include_once( ABSPATH . 'app-cron.php' ) : @include_once( ABSPATH . 'app-cron.php' );
 		return;
 	}
 
@@ -349,7 +349,7 @@ function spawn_cron( $gmt_time = 0 ) {
 	 * @param string $doing_wp_cron The unix timestamp of the cron lock.
 	 */
 	$cron_request = apply_filters( 'cron_request', array(
-		'url'  => add_query_arg( 'doing_wp_cron', $doing_wp_cron, site_url( 'wp-cron.php' ) ),
+		'url'  => add_query_arg( 'doing_wp_cron', $doing_wp_cron, site_url( 'app-cron.php' ) ),
 		'key'  => $doing_wp_cron,
 		'args' => array(
 			'timeout'   => 0.01,
@@ -368,8 +368,8 @@ function spawn_cron( $gmt_time = 0 ) {
  * @since 2.1.0
  */
 function wp_cron() {
-	// Prevent infinite loops caused by lack of wp-cron.php
-	if ( strpos($_SERVER['REQUEST_URI'], '/wp-cron.php') !== false || ( defined('DISABLE_WP_CRON') && DISABLE_WP_CRON ) )
+	// Prevent infinite loops caused by lack of app-cron.php
+	if ( strpos($_SERVER['REQUEST_URI'], '/app-cron.php') !== false || ( defined('DISABLE_APP_CRON') && DISABLE_APP_CRON ) )
 		return;
 
 	if ( false === $crons = _get_cron_array() )

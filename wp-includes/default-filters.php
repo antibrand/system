@@ -279,9 +279,10 @@ add_action( 'atom_head', 'atom_site_icon' );
 add_action( 'rss2_head', 'rss2_site_icon' );
 
 
-// WP Cron
-if ( !defined( 'DOING_CRON' ) )
+// APP Cron.
+if ( ! defined( 'DOING_CRON' ) ) {
 	add_action( 'init', 'wp_cron' );
+}
 
 // 2 Actions 2 Furious
 add_action( 'do_feed_rdf',                'do_feed_rdf',                             10, 1 );
