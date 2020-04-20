@@ -679,12 +679,12 @@ final class WP_Screen {
 	 *                                      Default 'Items list'.
 	 * }
 	 */
-	public function set_screen_reader_content( $content = array() ) {
-		$defaults = array(
-			'heading_views'      => __( 'Filter items list' ),
-			'heading_pagination' => __( 'Items list navigation' ),
-			'heading_list'       => __( 'Items list' ),
-		);
+	public function set_screen_reader_content( $content = [] ) {
+		$defaults = [
+			'heading_views'      => __( 'Manage Items' ),
+			'heading_pagination' => __( 'Items List Navigation' ),
+			'heading_list'       => __( 'Items List' ),
+		];
 		$content = wp_parse_args( $content, $defaults );
 
 		$this->_screen_reader_content = $content;
@@ -696,7 +696,7 @@ final class WP_Screen {
 	 * @since 4.4.0
 	 */
 	public function remove_screen_reader_content() {
-		$this->_screen_reader_content = array();
+		$this->_screen_reader_content = [];
 	}
 
 	/**

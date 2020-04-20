@@ -1414,7 +1414,7 @@ function _post_type_meta_capabilities( $capabilities = null ) {
  * - `use_featured_image` - Label in the media frame for using a featured image. Default is 'Use as featured image'.
  * - `menu_name` - Label for the menu name. Default is the same as `name`.
  * - `filter_items_list` - Label for the table views hidden heading. Default is 'Filter posts list' /
- *                       'Filter pages list'.
+ *                       ''.
  * - `items_list_navigation` - Label for the table pagination hidden heading. Default is 'Posts list navigation' /
  *                           'Pages list navigation'.
  * - `items_list` - Label for the table hidden heading. Default is 'Posts list' / 'Pages list'.
@@ -1438,38 +1438,110 @@ function _post_type_meta_capabilities( $capabilities = null ) {
  * @return object Object with all the labels as member variables.
  */
 function get_post_type_labels( $post_type_object ) {
-	$nohier_vs_hier_defaults = array(
-		'name' => array( _x('Posts', 'post type general name'), _x('Pages', 'post type general name') ),
-		'singular_name' => array( _x('Post', 'post type singular name'), _x('Page', 'post type singular name') ),
-		'add_new' => array( _x('Add New', 'post'), _x('Add New', 'page') ),
-		'add_new_item' => array( __('Add New Post'), __('Add New Page') ),
-		'edit_item' => array( __('Edit Post'), __('Edit Page') ),
-		'new_item' => array( __('New Post'), __('New Page') ),
-		'view_item' => array( __('View Post'), __('View Page') ),
-		'view_items' => array( __('View Posts'), __('View Pages') ),
-		'search_items' => array( __('Search Posts'), __('Search Pages') ),
-		'not_found' => array( __('No posts found.'), __('No pages found.') ),
-		'not_found_in_trash' => array( __('No posts found in Trash.'), __('No pages found in Trash.') ),
-		'parent_item_colon' => array( null, __('Parent Page:') ),
-		'all_items' => array( __( 'All Posts' ), __( 'All Pages' ) ),
-		'archives' => array( __( 'Post Archives' ), __( 'Page Archives' ) ),
-		'attributes' => array( __( 'Post Attributes' ), __( 'Page Attributes' ) ),
-		'insert_into_item' => array( __( 'Insert into post' ), __( 'Insert into page' ) ),
-		'uploaded_to_this_item' => array( __( 'Uploaded to this post' ), __( 'Uploaded to this page' ) ),
-		'featured_image' => array( _x( 'Featured Image', 'post' ), _x( 'Featured Image', 'page' ) ),
-		'set_featured_image' => array( _x( 'Set featured image', 'post' ), _x( 'Set featured image', 'page' ) ),
-		'remove_featured_image' => array( _x( 'Remove featured image', 'post' ), _x( 'Remove featured image', 'page' ) ),
-		'use_featured_image' => array( _x( 'Use as featured image', 'post' ), _x( 'Use as featured image', 'page' ) ),
-		'filter_items_list' => array( __( 'Filter posts list' ), __( 'Filter pages list' ) ),
-		'items_list_navigation' => array( __( 'Posts list navigation' ), __( 'Pages list navigation' ) ),
-		'items_list' => array( __( 'Posts list' ), __( 'Pages list' ) ),
-	);
+
+	$nohier_vs_hier_defaults = [
+		'name' => [
+			_x( 'Posts', 'post type general name' ),
+			_x( 'Pages', 'post type general name' )
+		],
+		'singular_name' => [
+			_x( 'Post', 'post type singular name' ),
+			_x( 'Page', 'post type singular name' )
+		],
+		'add_new' => [
+			_x( 'Add New', 'post' ),
+			_x( 'Add New', 'page' )
+		],
+		'add_new_item' => [
+			__( 'Add New Post' ),
+			__( 'Add New Page' )
+		],
+		'edit_item' => [
+			__( 'Edit Post' ),
+			__( 'Edit Page' )
+		],
+		'new_item' => [
+			__( 'New Post' ),
+			__( 'New Page' )
+		],
+		'view_item' => [
+			__( 'View Post' ),
+			__( 'View Page' )
+		],
+		'view_items' => [
+			__( 'View Posts' ),
+			__( 'View Pages' )
+		],
+		'search_items' => [
+			__( 'Search Posts' ),
+			__( 'Search Pages' )
+		],
+		'not_found' => [
+			__( 'No posts found.' ),
+			__( 'No pages found.' )
+		],
+		'not_found_in_trash' => [
+			__( 'No posts found in Trash.' ),
+			__( 'No pages found in Trash.' )
+		],
+		'parent_item_colon' => [
+			null,
+			__( 'Parent Page:' )
+		],
+		'all_items' => [
+			__( 'All Posts' ),
+			__( 'All Pages' )
+		],
+		'archives' => [
+			__( 'Post Archives' ),
+			__( 'Page Archives' )
+		],
+		'attributes' => [
+			__( 'Post Attributes' ),
+			__( 'Page Attributes' )
+		],
+		'insert_into_item' => [
+			__( 'Insert into post' ),
+			__( 'Insert into page' )
+		],
+		'uploaded_to_this_item' => [
+			__( 'Uploaded to this post' ),
+			__( 'Uploaded to this page' )
+		],
+		'featured_image' => [
+			_x( 'Featured Image', 'post' ),
+			_x( 'Featured Image', 'page' )
+		],
+		'set_featured_image' => [
+			_x( 'Set featured image', 'post' ),
+			_x( 'Set featured image', 'page' )
+		],
+		'remove_featured_image' => [
+			_x( 'Remove featured image', 'post' ),
+			_x( 'Remove featured image', 'page' )
+		],
+		'use_featured_image' => [
+			_x( 'Use as featured image', 'post' ),
+			_x( 'Use as featured image', 'page' )
+		],
+		'filter_items_list' => [
+			__( 'Manage Posts' ),
+			__( 'Manage Pages' )
+		],
+		'items_list_navigation' => [
+			__( 'Posts list navigation' ),
+			__( 'Pages list navigation' )
+		],
+		'items_list' => [
+			__( 'Posts list' ),
+			__( 'Pages list' )
+		],
+	];
+
 	$nohier_vs_hier_defaults['menu_name'] = $nohier_vs_hier_defaults['name'];
 
-	$labels = _get_custom_object_labels( $post_type_object, $nohier_vs_hier_defaults );
-
-	$post_type = $post_type_object->name;
-
+	$labels         = _get_custom_object_labels( $post_type_object, $nohier_vs_hier_defaults );
+	$post_type      = $post_type_object->name;
 	$default_labels = clone $labels;
 
 	/**

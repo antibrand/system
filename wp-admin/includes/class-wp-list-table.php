@@ -361,29 +361,71 @@ class WP_List_Table {
 	 * @since 3.1.0
 	 */
 	public function views() {
+
+		// Access global variables.
+		global $typenow, $post_type, $post_type_object;
+
+		// Get the post status links.
 		$views = $this->get_views();
+
+		/**
+		 * Get the "add new" link.
+		 *
+		 * @since 1.0.0
+		 */
+		$post_type        = $typenow;
+		$post_type_object = get_post_type_object( $post_type );
+
+		// Get the add new link by post type.
+		if ( 'post' != $post_type ) {
+			$parent_file   = "edit.php?post_type=$post_type";
+			$submenu_file  = "edit.php?post_type=$post_type";
+			$post_new_file = "post-new.php?post_type=$post_type";
+		} else {
+			$parent_file   = 'edit.php';
+			$submenu_file  = 'edit.php';
+			$post_new_file = 'post-new.php';
+		}
+
+		// Print the add new link only if the current user can create posts.
+		if ( current_user_can( $post_type_object->cap->create_posts ) ) {
+			$add_new = sprintf(
+				'<li class="list-table-add-new"><a href="%1s" class="page-title-action">%2s</a></li>',
+				esc_url( admin_url( $post_new_file ) ),
+				esc_html( $post_type_object->labels->add_new )
+			);
+		} else {
+			$add_new = null;
+		}
+
 		/**
 		 * Filters the list of available list table views.
 		 *
 		 * The dynamic portion of the hook name, `$this->screen->id`, refers
 		 * to the ID of the current screen, usually a string.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @param array $views An array of available list table views.
 		 */
 		$views = apply_filters( "views_{$this->screen->id}", $views );
 
-		if ( empty( $views ) )
+		if ( empty( $views ) ) {
 			return;
+		}
 
+		// Print the section heading for screen readers.
 		$this->screen->render_screen_reader_content( 'heading_views' );
 
 		echo "<ul class='subsubsub'>\n";
+
+		echo $add_new;
+
 		foreach ( $views as $class => $view ) {
 			$views[ $class ] = "\t<li class='$class'>$view";
 		}
 		echo implode( " |</li>\n", $views ) . "</li>\n";
+
 		echo "</ul>";
 	}
 

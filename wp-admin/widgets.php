@@ -346,22 +346,6 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' ); ?>
 echo esc_html( $title );
 ?></h1>
 
-<?php
-if ( current_user_can( 'customize' ) ) {
-	printf(
-		' <a class="page-title-action hide-if-no-customize" href="%1$s">%2$s</a>',
-		esc_url( add_query_arg(
-			array(
-				array( 'autofocus' => array( 'panel' => 'widgets' ) ),
-				'return' => urlencode( remove_query_arg( wp_removable_query_args(), wp_unslash( $_SERVER['REQUEST_URI'] ) ) )
-			),
-			admin_url( 'customize.php' )
-		) ),
-		__( 'Manage with Live Preview' )
-	);
-}
-?>
-
 <hr class="wp-header-end">
 
 <?php if ( isset($_GET['message']) && isset($messages[$_GET['message']]) ) { ?>

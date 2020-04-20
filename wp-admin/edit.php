@@ -42,8 +42,8 @@ if ( ! current_user_can( $post_type_object->cap->edit_posts ) ) {
 	);
 }
 
-$wp_list_table = _get_list_table('WP_Posts_List_Table');
-$pagenum = $wp_list_table->get_pagenum();
+$wp_list_table = _get_list_table( 'WP_Posts_List_Table' );
+$pagenum       = $wp_list_table->get_pagenum();
 
 // Back-compat for viewing comments of an entry
 foreach ( array( 'p', 'attachment_id', 'page_id' ) as $_redirect ) {
@@ -300,10 +300,6 @@ echo esc_html( $post_type_object->labels->name );
 ?></h1>
 
 <?php
-if ( current_user_can( $post_type_object->cap->create_posts ) ) {
-	echo ' <a href="' . esc_url( admin_url( $post_new_file ) ) . '" class="button page-title-action">' . esc_html( $post_type_object->labels->add_new ) . '</a>';
-}
-
 if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {
 	/* translators: %s: search keywords */
 	printf( ' <span class="subtitle">' . __( 'Search results for &#8220;%s&#8221;' ) . '</span>', get_search_query() );
