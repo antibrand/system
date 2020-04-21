@@ -969,8 +969,8 @@ function wp_default_styles( &$styles ) {
 
 	$suffix = SCRIPT_DEBUG ? '' : '.min';
 
-	// Admin CSS
-	$styles->add( 'global',              "/app-assets/css/global$suffix.css" );
+	// Admin CSS.
+	$styles->add( 'admin',               "/wp-admin/css/admin$suffix.css" );
 	$styles->add( 'common',              "/wp-admin/css/common$suffix.css" );
 	$styles->add( 'forms',               "/wp-admin/css/forms$suffix.css" );
 	$styles->add( 'admin-menu',          "/wp-admin/css/admin-menu$suffix.css" );
@@ -988,7 +988,7 @@ function wp_default_styles( &$styles ) {
 	$styles->add( 'l10n',                "/wp-admin/css/l10n$suffix.css" );
 	$styles->add( 'code-editor',         "/wp-admin/css/code-editor$suffix.css", array( 'wp-codemirror' ) );
 
-	$styles->add( 'wp-admin', false, array( 'dashicons', 'global', 'common', 'forms', 'admin-menu', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'about', 'nav-menus', 'widgets', 'site-icon', 'l10n' ) );
+	$styles->add( 'wp-admin', false, array( 'dashicons', 'admin', 'common', 'forms', 'admin-menu', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'about', 'nav-menus', 'widgets', 'site-icon', 'l10n' ) );
 
 	$styles->add( 'login',               "/wp-admin/css/login$suffix.css", array( 'dashicons', 'buttons', 'forms', 'l10n' ) );
 	$styles->add( 'install',             "/wp-admin/css/install$suffix.css", array( 'buttons' ) );
@@ -1032,7 +1032,7 @@ function wp_default_styles( &$styles ) {
 	// RTL CSS
 	$rtl_styles = array(
 		// wp-admin
-		'common', 'forms', 'admin-menu', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'about', 'nav-menus',
+		'admin', 'common', 'forms', 'admin-menu', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'about', 'nav-menus',
 		'widgets', 'site-icon', 'l10n', 'install', 'wp-color-picker', 'customize-controls', 'customize-widgets', 'customize-nav-menus', 'customize-preview',
 		'ie', 'login',
 		// wp-includes
