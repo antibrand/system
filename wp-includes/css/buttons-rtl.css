@@ -43,8 +43,8 @@ TABLE OF CONTENTS:
 .app-core-ui .button-secondary {
   display: inline-block;
   text-decoration: none;
-  font-size: 13px;
-  line-height: 1.1;
+  font-size: 0.875rem;
+  line-height: 1;
   margin: 0;
   padding: 0.75em 1em;
   cursor: pointer;

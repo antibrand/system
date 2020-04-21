@@ -1,8 +1,7 @@
 /* Include margin and padding in the width calculation of input and textarea. */
 input,
 textarea {
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 input[type="text"],
@@ -172,6 +171,7 @@ textarea,
 input,
 select,
 button {
+	box-sizing: border-box;
 	font-family: inherit;
 	font-size: inherit;
 	font-weight: inherit;
@@ -180,7 +180,7 @@ button {
 textarea,
 input,
 select {
-	font-size: 14px;
+	font-size: 0.875rem;
 	padding: 3px 5px;
 	border-radius: 0; /* Reset mobile webkit's default element styling */
 }
@@ -203,8 +203,8 @@ label {
 
 input,
 select {
-	margin: 1px;
-	padding: 3px 5px;
+	height: 3em;
+	padding: 0.5em 1em;
 }
 
 input.code {
@@ -239,8 +239,7 @@ textarea[readonly] {
 .form-invalid input, .form-invalid input:focus,
 .form-invalid select, .form-invalid select:focus {
 	border-color: #dc3232 !important;
-	-webkit-box-shadow: 0 0 2px rgba( 204, 0, 0, 0.8 );
-	        box-shadow: 0 0 2px rgba( 204, 0, 0, 0.8 );
+	box-shadow: 0 0 2px rgba( 204, 0, 0, 0.8 );
 }
 
 .form-table .form-required.form-invalid td:after {
@@ -284,8 +283,7 @@ input[type="file"].disabled,
 input[type="range"]:disabled,
 input[type="range"].disabled {
 	background: none;
-	-webkit-box-shadow: none;
-	        box-shadow: none;
+	box-shadow: none;
 	cursor: default;
 }
 
@@ -304,12 +302,9 @@ input[type="radio"].disabled:checked:before {
   2.0 - Forms
 ------------------------------------------------------------------------------*/
 
-
 .wp-admin select {
-	padding: 2px;
-	line-height: 28px;
-	height: 28px;
-	vertical-align: middle;
+	padding: 0.5em 1em;
+	line-height: 1;
 }
 
 .wp-admin .button-cancel {
@@ -460,8 +455,7 @@ fieldset label,
 	padding: 3px 5px;
 	text-align: center;
 	width: 25em;
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 	opacity: 0;
 }
 
@@ -540,8 +534,7 @@ p.search-box {
 .tablenav .search-plugins input[name="s"],
 .tagsdiv .newtag {
 	float: left;
-	height: 28px;
-	margin: 0 4px 0 0;
+	margin: 0 0.5em 0 0;
 }
 
 .js.plugins-php .search-box .wp-filter-search {
@@ -567,7 +560,7 @@ input.ui-autocomplete-input.open {
 }
 
 ul#add-to-blog-users {
-	margin: 0 0 0 14px;
+	margin: 0 0 0 1em;
 }
 
 .ui-autocomplete {
@@ -614,7 +607,7 @@ ul#add-to-blog-users {
 .form-table td,
 .form-table th,
 .form-table td p {
-	font-size: 14px;
+	font-size: 0.875rem;
 }
 
 .form-table td {
@@ -723,8 +716,7 @@ table.form-table td .updated p {
 	display: inline-block;
 	width: 24%;
 	padding: 5px 15px 15px;
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 	margin-bottom: 3px;
 	border: solid 2px transparent;
 	cursor: pointer;
@@ -794,8 +786,7 @@ table.form-table td .updated p {
 	min-width: 255px;
 	max-width: 520px;
 	border: 1px solid #e5e5e5;
-	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.04);
-	        box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+	box-shadow: 0 1px 1px rgba(0,0,0,0.04);
 	background: #fff;
 }
 
@@ -834,7 +825,7 @@ table.form-table td .updated p {
 	border: 1px solid #b4b9be;
 	font-style: normal;
 	line-height: 16px;
-	font-size: 14px;
+	font-size: 0.875rem;
 	text-decoration: none;
 }
 
@@ -1130,8 +1121,7 @@ table.form-table td .updated p {
 }
 
 .privacy_requests tbody .has-request-results th {
-	-webkit-box-shadow: none;
-	        box-shadow: none;
+	box-shadow: none;
 }
 
 .privacy_requests tbody .request-results th .notice {
@@ -1143,8 +1133,7 @@ table.form-table td .updated p {
 }
 
 .privacy_requests tbody .has-request-results td {
-	-webkit-box-shadow: none;
-	        box-shadow: none;
+	box-shadow: none;
 }
 
 .privacy_requests .next_steps .button {
@@ -1308,7 +1297,7 @@ table.form-table td .updated p {
 
 	.wp-admin .button-cancel {
 		padding: 0;
-		font-size: 14px;
+		font-size: 0.875rem;
 	}
 
 	#adduser .form-field input,
@@ -1317,8 +1306,7 @@ table.form-table td .updated p {
 	}
 
 	.form-table {
-		-webkit-box-sizing: border-box;
-		        box-sizing: border-box;
+		box-sizing: border-box;
 	}
 
 	.form-table th,
@@ -1359,8 +1347,7 @@ table.form-table td .updated p {
 		padding: 7px 10px;
 		display: block;
 		max-width: none;
-		-webkit-box-sizing: border-box;
-		        box-sizing: border-box;
+		box-sizing: border-box;
 	}
 
 	.form-table .form-required.form-invalid td:after {
@@ -1387,8 +1374,7 @@ table.form-table td .updated p {
 
 	#pass-strength-result {
 		width: 100%;
-		-webkit-box-sizing: border-box;
-		        box-sizing: border-box;
+		box-sizing: border-box;
 		padding: 8px;
 	}
 
@@ -1418,7 +1404,7 @@ table.form-table td .updated p {
 		display: inline;
 		padding: 4px 0 0;
 		line-height: 1.4em;
-		font-size: 14px;
+		font-size: 0.875rem;
 	}
 
 	.form-table th {
@@ -1449,7 +1435,7 @@ table.form-table td .updated p {
 	}
 
 	.form-table label {
-		font-size: 14px;
+		font-size: 0.875rem;
 	}
 
 	.form-table fieldset label {
@@ -1480,8 +1466,7 @@ table.form-table td .updated p {
 	.wp-pwd button.button {
 		background: transparent;
 		border: none;
-		-webkit-box-shadow: none;
-		        box-shadow: none;
+		box-shadow: none;
 		line-height: 2;
 		margin: 0;
 		padding: 5px 10px;

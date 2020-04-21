@@ -209,7 +209,7 @@
 #adminmenu a.menu-top:focus + .wp-submenu,
 #adminmenu li.wp-has-submenu:hover .wp-submenu,
 .no-js li.wp-has-submenu:hover .wp-submenu {
-	top: -1px;
+	top: 0;
 }
 
 #adminmenu .wp-has-current-submenu .wp-submenu,

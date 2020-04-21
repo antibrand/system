@@ -172,6 +172,8 @@ textarea,
 input,
 select,
 button {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
@@ -180,7 +182,7 @@ button {
 textarea,
 input,
 select {
-  font-size: 14px;
+  font-size: 0.875rem;
   padding: 3px 5px;
   border-radius: 0;
   /* Reset mobile webkit's default element styling */
@@ -204,8 +206,8 @@ label {
 
 input,
 select {
-  margin: 1px;
-  padding: 3px 5px;
+  height: 3em;
+  padding: 0.5em 1em;
 }
 
 input.code {
@@ -305,10 +307,8 @@ input[type="radio"].disabled:checked:before {
   2.0 - Forms
 ------------------------------------------------------------------------------*/
 .wp-admin select {
-  padding: 2px;
-  line-height: 28px;
-  height: 28px;
-  vertical-align: middle;
+  padding: 0.5em 1em;
+  line-height: 1;
 }
 
 .wp-admin .button-cancel {
@@ -538,8 +538,7 @@ p.search-box {
 .tablenav .search-plugins input[name="s"],
 .tagsdiv .newtag {
   float: right;
-  height: 28px;
-  margin: 0 0 0 4px;
+  margin: 0 0 0 0.5em;
 }
 
 .js.plugins-php .search-box .wp-filter-search {
@@ -565,7 +564,7 @@ input.ui-autocomplete-input.open {
 }
 
 ul#add-to-blog-users {
-  margin: 0 14px 0 0;
+  margin: 0 1em 0 0;
 }
 
 .ui-autocomplete {
@@ -611,7 +610,7 @@ ul#add-to-blog-users {
 .form-table td,
 .form-table th,
 .form-table td p {
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .form-table td {
@@ -833,7 +832,7 @@ table.form-table td .updated p {
   border: 1px solid #b4b9be;
   font-style: normal;
   line-height: 16px;
-  font-size: 14px;
+  font-size: 0.875rem;
   text-decoration: none;
 }
 
@@ -1290,7 +1289,7 @@ table.form-table td .updated p {
   }
   .wp-admin .button-cancel {
     padding: 0;
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   #adduser .form-field input,
   #createuser .form-field input {
@@ -1385,7 +1384,7 @@ table.form-table td .updated p {
     display: inline;
     padding: 4px 0 0;
     line-height: 1.4em;
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   .form-table th {
     padding-top: 10px;
@@ -1410,7 +1409,7 @@ table.form-table td .updated p {
     width: 100%;
   }
   .form-table label {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   .form-table fieldset label {
     display: block;
