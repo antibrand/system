@@ -1,36 +1,16 @@
 /**
- * SASS/SCSS variables
- *
- * The following variables are used in other .scss files.
- * Make sure that this files is called early in style,scss.
+ * SASS/SCSS global admin variables
  *
  * @link https://sass-lang.com/documentation/variables
  */
 
 /**
- * Colors
- *
- * Some variables use colors set by args in the functions file.
- *
- * @see functions.php/setup
- */
-$white: #ffffff;
-$text: #333333;
-$dark_gray: #333333;
-$medium_gray: #555555;
-$light_gray: #888888;
-$pale_gray: #cccccc;
-$error: #dc3232;
-$warning: #ffb900;
-$success: #46b450;
-
- /**
   * Font sizes
   *
   * The font size variables presume a browser default of 16px,
   * in which case the variable number is equivelent to a px number.
   *
-  * SASS compiler may not like variables beginning with a numeral.
+  * SASS can't have variables beginning with a numeral.
   */
  $px10: 0.625rem;
  $px11: 0.6875rem;

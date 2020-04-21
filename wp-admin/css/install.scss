@@ -1,5 +1,7 @@
 @import '_reset.scss';
-@import '_global-variables.scss';
+@import '_global.scss';
+@import 'colors/_variables.scss';
+
 @import url(forms.min.css);
 @import url(l10n.min.css);
 

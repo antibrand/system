@@ -1,0 +1,279 @@
+/**
+ * Browser reset
+ */
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, button, input, select, textarea, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+article, aside, details, div, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+audio, canvas, progress, video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+  overflow-y: scroll;
+  font-size: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: inherit;
+  line-height: 1;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+*:before, *:after {
+  font-size: inherit;
+}
+
+img, object, embed, video {
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+  -ms-interpolation-mode: bicubic;
+  border: 0;
+}
+
+hr {
+  display: block;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+a, a:hover, a:active, a:focus {
+  outline: none;
+  background-color: transparent;
+}
+
+small {
+  font-size: 85%;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+ol ol {
+  list-style-type: lower-alpha;
+}
+
+input {
+  line-height: normal;
+}
+
+input, textarea, select, button {
+  border: solid 1px #ccc;
+}
+
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  vertical-align: baseline;
+}
+
+input::-webkit-inner-spin-button {
+  opacity: 1;
+}
+
+*::-webkit-input-placeholder {
+  color: #888;
+  opacity: 1;
+}
+
+*:-ms-input-placeholder {
+  color: #888;
+  opacity: 1;
+}
+
+*::-ms-input-placeholder {
+  color: #888;
+  opacity: 1;
+}
+
+*::placeholder {
+  color: #888;
+  opacity: 1;
+}
+
+textarea {
+  overflow: auto;
+}
+
+button, input, optgroup, select, textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+button {
+  overflow: visible;
+}
+
+button, html input[type="button"], input[type="reset"], input[type="submit"], input[type="image"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+button[disabled], html input[disabled] {
+  cursor: default;
+}
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+table {
+  font-size: inherit;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td, th {
+  padding: 0;
+}
+
+th {
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+td, td img {
+  font-weight: normal;
+  vertical-align: top;
+}
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+dfn {
+  font-style: italic;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+blockquote {
+  quotes: none;
+}
+
+q, cite {
+  font-style: italic;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+[hidden], template {
+  display: none;
+}
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+pre {
+  overflow: auto;
+  white-space: pre;
+  white-space: pre-wrap;
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+
+pre, code, kbd, samp {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+b, strong, optgroup {
+  font-weight: bold;
+}
+
+/* .clearfix class for clearing floats */
+.clearfix {
+  clear: both;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  zoom: 1;
+}
+
+/**
+ * SASS/SCSS global typography variables
+ *
+ * @link https://sass-lang.com/documentation/variables
+ */
+/**
+  * Font sizes
+  *
+  * The font size variables presume a browser default of 16px,
+  * in which case the variable number is equivelent to a px number.
+  *
+  * SASS can't have variables beginning with a numeral.
+  */

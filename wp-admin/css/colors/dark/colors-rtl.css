@@ -1,3 +1,10 @@
+/**
+ * SASS/SCSS color variables
+ *
+ * Assign default value to all undefined variables.
+ *
+ * @link https://sass-lang.com/documentation/variables
+ */
 /*
  * Button mixin- creates 3d-ish button effect with correct
  * highlights/shadows, based on a base color.

@@ -285,7 +285,7 @@ b, strong, optgroup {
  * The font size variables presume a browser default of 16px,
  * in which case the variable number is equivelent to a px number.
  *
- * SASS compiler may not like variables beginning with a numeral.
+ * SASS can't have variables beginning with a numeral.
  */
 /**
  * Typography

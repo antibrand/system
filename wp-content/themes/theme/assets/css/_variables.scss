@@ -33,7 +33,7 @@ $success: #46b450;
  * The font size variables presume a browser default of 16px,
  * in which case the variable number is equivelent to a px number.
  *
- * SASS compiler may not like variables beginning with a numeral.
+ * SASS can't have variables beginning with a numeral.
  */
 $px10: 0.625rem;
 $px11: 0.6875rem;

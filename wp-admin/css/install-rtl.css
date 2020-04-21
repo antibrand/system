@@ -267,19 +267,9 @@ b, strong, optgroup {
 }
 
 /**
- * SASS/SCSS variables
- *
- * The following variables are used in other .scss files.
- * Make sure that this files is called early in style,scss.
+ * SASS/SCSS global admin variables
  *
  * @link https://sass-lang.com/documentation/variables
- */
-/**
- * Colors
- *
- * Some variables use colors set by args in the functions file.
- *
- * @see functions.php/setup
  */
 /**
   * Font sizes
@@ -287,8 +277,15 @@ b, strong, optgroup {
   * The font size variables presume a browser default of 16px,
   * in which case the variable number is equivelent to a px number.
   *
-  * SASS compiler may not like variables beginning with a numeral.
+  * SASS can't have variables beginning with a numeral.
   */
+/**
+ * SASS/SCSS color variables
+ *
+ * Assign default value to all undefined variables.
+ *
+ * @link https://sass-lang.com/documentation/variables
+ */
 html,
 body {
   -webkit-box-sizing: border-box;
