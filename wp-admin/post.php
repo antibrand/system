@@ -11,7 +11,7 @@
 /** Administration Bootstrap */
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
-$parent_file = 'edit.php';
+$parent_file  = 'edit.php';
 $submenu_file = 'edit.php';
 
 wp_reset_vars( array( 'action' ) );

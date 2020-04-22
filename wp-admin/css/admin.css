@@ -275,11 +275,6 @@ b, strong, optgroup {
  * @link https://sass-lang.com/documentation/variables
  */
 /**
- * SASS/SCSS global typography variables
- *
- * @link https://sass-lang.com/documentation/variables
- */
-/**
   * Font sizes
   *
   * The font size variables presume a browser default of 16px,
@@ -359,6 +354,43 @@ b, strong, optgroup {
  * The $sans and $serif stacks are default. The $inter and $crimson
  * stacks are used in @supports( font-variation-settings ) queries.
  */
+/**
+ * General app typography
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 1em;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}
+
+@supports (font-variation-settings: normal) {
+  h1,
+  h2,
+  h3 {
+    font-weight: 750;
+    letter-spacing: -0.02em;
+  }
+}
+
+h1 {
+  font-size: 2.325em;
+  line-height: 1.4em;
+}
+
+h2,
+h3 {
+  font-size: 1.3em;
+}
+
 body {
   color: #333333;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, sans-serif;
