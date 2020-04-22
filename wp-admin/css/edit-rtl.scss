@@ -58,11 +58,12 @@
 }
 
 #titlediv #title {
-	width: 100%;
+	width: calc( 100% + 20px);
+	transform: translateX(10px);
 	height: auto;
 	margin-top: 1em;
-	padding: 0;
-	border: none;
+	padding: 0 10px;
+	border: solid 1px transparent;
 	font-size: 2.325em;
 	font-weight: 700;
 	letter-spacing: -0.02em;
@@ -74,15 +75,25 @@
 		font-weight: 750;
 		letter-spacing: -0.02em;
 	}
+
+	&:hover {
+		border-color: $pale_gray;
+	}
+
+	&:focus {
+		border-color: $form_focus;
+	}
 }
 
 #titlediv #title-prompt-text {
 	display: block;
 	position: absolute;
-	width: 100%;
+	width: calc( 100% + 20px);
+	transform: translateX(10px);
 	height: auto;
 	margin-top: 1em;
-	padding: 0;
+	padding: 0 10px;
+	border: solid 1px transparent;
 	font-size: 2.325em;
 	font-weight: 700;
 	letter-spacing: -0.02em;
@@ -93,11 +104,19 @@
 		font-weight: 750;
 		letter-spacing: -0.02em;
 	}
+
+	&:hover {
+		border-color: $pale_gray;
+	}
+
+	&:focus {
+		border-color: $form_focus;
+	}
 }
 
 #subtitlewrap #subtitle-label {
 	display: block;
-	font-size: 1.5em;
+	font-size: 1.2em;
 	font-weight: 700;
 }
 
