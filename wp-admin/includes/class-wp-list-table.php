@@ -365,7 +365,7 @@ class WP_List_Table {
 		// Access global variables.
 		global $typenow, $post_type, $post_type_object;
 
-		// Get the post status links.
+		// Get the post status links as a variable.
 		$views = $this->get_views();
 
 		/**
@@ -388,15 +388,30 @@ class WP_List_Table {
 		}
 
 		// Print the add new link only if the current user can create posts.
-		if ( current_user_can( $post_type_object->cap->create_posts ) ) {
+		if ( ( 'edit-post' || 'edit-page' ) == $this->screen->id && current_user_can( $post_type_object->cap->create_posts ) ) {
 			$add_new = sprintf(
 				'<li class="list-table-add-new"><a href="%1s" class="page-title-action">%2s</a></li>',
 				esc_url( admin_url( $post_new_file ) ),
 				esc_html( $post_type_object->labels->add_new )
 			);
+		} elseif ( 'users' == $this->screen->id && current_user_can( 'create_users' ) ) {
+			$add_new = sprintf(
+				'<li class="list-table-add-new"><a href="%1s" class="page-title-action">%2s</a></li>',
+				esc_url( admin_url( 'user-new.php' ) ),
+				esc_html_x( 'Add New', 'user' )
+			);
+		} elseif ( 'users-network' == $this->screen->id && is_multisite() && current_user_can( 'promote_users' ) ) {
+			$add_new = sprintf(
+				'<li class="list-table-add-new"><a href="%1s" class="page-title-action">%2s</a></li>',
+				esc_url( admin_url( 'user-new.php' ) ),
+				esc_html_x( 'Add Existing', 'user' )
+			);
 		} else {
 			$add_new = null;
 		}
+
+		// Apply a filter to the add new list item.
+		$add_new = apply_filters( 'list_table_add_new', $add_new );
 
 		/**
 		 * Filters the list of available list table views.
