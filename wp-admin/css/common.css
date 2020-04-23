@@ -1,3 +1,10 @@
+/**
+ * SASS/SCSS color variables
+ *
+ * Assign default value to all undefined variables.
+ *
+ * @link https://sass-lang.com/documentation/variables
+ */
 /* 2 column liquid layout */
 #wpwrap {
   height: auto;
@@ -401,7 +408,7 @@ code {
 }
 
 .subsubsub li.list-table-add-new {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .subsubsub li.list-table-add-new:after {
@@ -409,6 +416,11 @@ code {
   display: inline-block;
   margin-left: 0.35em;
   font-weight: normal;
+}
+
+.subsubsub li.list-table-add-new button {
+  border: none;
+  color: #0073aa;
 }
 
 /* .widefat - main style for tables */

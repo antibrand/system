@@ -115,6 +115,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 		// Disabled recommended plugins tab. Uncomment to enable.
 		// $tabs['recommended'] = _x( 'Recommended', 'Plugin Installer' );
 		$tabs['favorites']   = _x( 'Favorites', 'Plugin Installer' );
+
 		if ( current_user_can( 'upload_plugins' ) ) {
 			// No longer a real tab. Here for filter compatibility.
 			// Gets skipped in get_views().
@@ -314,9 +315,19 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 		$views = apply_filters( "views_{$this->screen->id}", $views );
 
 		$this->screen->render_screen_reader_content( 'heading_views' );
+
+		// Print the add new link only if the current user can upload plugins.
+		if ( 'plugins' == $this->screen->id && current_user_can( 'upload_plugins' ) ) {
+			$add_new = sprintf(
+				'<li class="list-table-add-new"><a href="%1s" class="page-title-action">%2s</a></li>',
+				esc_url( admin_url( $post_new_file ) ),
+				esc_html( $post_type_object->labels->add_new )
+			);
+		}
 ?>
 <div class="wp-filter">
 	<ul class="filter-links">
+
 		<?php
 		if ( ! empty( $views ) ) {
 			foreach ( $views as $class => $view ) {

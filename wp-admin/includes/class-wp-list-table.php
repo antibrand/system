@@ -406,6 +406,12 @@ class WP_List_Table {
 				esc_url( admin_url( 'user-new.php' ) ),
 				esc_html_x( 'Add Existing', 'user' )
 			);
+		} elseif ( 'plugins' == $this->screen->id && current_user_can( 'upload_plugins' ) ) {
+			$add_new = sprintf(
+				'<li class="list-table-add-new"><button id="upload-plugin-toggle" href="%1s" class="upload-view-toggle page-title-action">%2s</button></li>',
+				esc_url( admin_url( $post_new_file ) ),
+				esc_html( 'Upload Plugin' )
+			);
 		} else {
 			$add_new = null;
 		}

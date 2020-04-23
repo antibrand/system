@@ -1,3 +1,5 @@
+@import 'colors/_variables.scss';
+
 /* 2 column liquid layout */
 #wpwrap {
 	height: auto;
@@ -395,13 +397,18 @@ code {
 	white-space: nowrap;
 
 	&.list-table-add-new {
-		font-weight: 700;
+		font-weight: 600;
 
 		&:after {
 			content: '|';
 			display: inline-block;
 			margin-left: 0.35em;
 			font-weight: normal;
+		}
+
+		button {
+			border: none;
+			color: $link;
 		}
 	}
 }
