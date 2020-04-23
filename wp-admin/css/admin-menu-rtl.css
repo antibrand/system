@@ -304,6 +304,15 @@
   padding: 5px 12px;
 }
 
+#adminmenu a.menu-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 #adminmenu a.menu-top,
 #adminmenu .wp-submenu-head {
   font-size: 0.9375rem;
@@ -343,7 +352,6 @@
 }
 
 #adminmenu div.wp-menu-image {
-  float: right;
   width: 36px;
   height: 34px;
   margin: 0;
