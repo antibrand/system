@@ -137,7 +137,9 @@ function wp_underscore_video_template() {
  * @global bool $is_IE
  */
 function wp_print_media_templates() {
+
 	global $is_IE;
+	
 	$class = 'media-modal app-core-ui';
 	if ( $is_IE && strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7') !== false )
 		$class .= ' ie7';
@@ -248,6 +250,10 @@ function wp_print_media_templates() {
 			</div>
 		<?php endif; ?>
 		</div>
+	</script>
+
+	<script type="text/html" id="tmpl-media-grid-add-new">
+		<a href="<?php echo esc_url( admin_url( 'media-new.php' ) ); ?>" class="button upload-new-media-link"><?php _e( 'Add New' ); ?></a>
 	</script>
 
 	<script type="text/html" id="tmpl-media-library-view-switcher">

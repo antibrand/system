@@ -648,9 +648,7 @@ th.asc a:focus span.sorting-indicator {
 
 .tablenav {
   clear: both;
-  height: 30px;
-  margin: 6px 0 4px;
-  vertical-align: middle;
+  margin: 2em 0 1em;
 }
 
 .tablenav.themes {
@@ -771,19 +769,17 @@ classes exist in paginate_links() but not seen in list table output. */
 }
 
 .view-switch a {
-  float: left;
-  width: 28px;
-  height: 28px;
   text-align: center;
-  line-height: 24px;
+  line-height: 2rem;
   text-decoration: none;
 }
 
 .view-switch a:before {
   color: #b4b9be;
   display: inline-block;
-  font: normal 20px/1 dashicons;
-  speak: none;
+  font-family: dashicons;
+  font-size: 2rem;
+  speak: never;
   vertical-align: middle;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -822,10 +818,6 @@ classes exist in paginate_links() but not seen in list table output. */
 
 .screen-per-page {
   width: 4em;
-}
-
-#posts-filter .wp-filter {
-  margin-bottom: 0;
 }
 
 #posts-filter fieldset {

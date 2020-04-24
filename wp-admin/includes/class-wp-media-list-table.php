@@ -227,29 +227,40 @@ class WP_Media_List_Table extends WP_List_Table {
 	 * @global string $mode List table view mode.
 	 */
 	public function views() {
+
 		global $mode;
 
 		$views = $this->get_views();
 
 		$this->screen->render_screen_reader_content( 'heading_views' );
-?>
-<div class="wp-filter">
-	<div class="filter-items">
+
+		if ( 'upload' == $this->screen->id && current_user_can( 'upload_files' ) ) {
+			$add_new = sprintf(
+				'<a href="%1s" class="button upload-new-media-link">%2s</a>',
+				esc_url( admin_url( 'media-new.php' ) ),
+				esc_html__( 'Add New' )
+			);
+		} else {
+			$add_new = null;
+		}
+	?>
+	<div class="wp-filter">
+
+	<?php echo $add_new; ?>
+
+	<div class="filter-items filter-media-items">
+
 		<?php $this->view_switcher( $mode ); ?>
 
 		<label for="attachment-filter" class="screen-reader-text"><?php _e( 'Filter by type' ); ?></label>
 		<select class="attachment-filters" name="attachment-filter" id="attachment-filter">
-			<?php
-			if ( ! empty( $views ) ) {
+			<?php if ( ! empty( $views ) ) {
 				foreach ( $views as $class => $view ) {
 					echo "\t$view\n";
 				}
-			}
-			?>
+			} ?>
 		</select>
-
-<?php
-		$this->extra_tablenav( 'bar' );
+		<?php $this->extra_tablenav( 'bar' );
 
 		/** This filter is documented in wp-admin/inclues/class-wp-list-table.php */
 		$views = apply_filters( "views_{$this->screen->id}", array() );
@@ -261,10 +272,8 @@ class WP_Media_List_Table extends WP_List_Table {
 				echo "<li class='$class'>$view</li>";
 			}
 			echo '</ul>';
-		}
-?>
+		} ?>
 	</div>
-
 	<div class="search-form">
 		<label for="media-search-input" class="screen-reader-text"><?php esc_html_e( 'Search Media' ); ?></label>
 		<input type="search" placeholder="<?php esc_attr_e( 'Search media items...' ) ?>" id="media-search-input" class="search" name="s" value="<?php _admin_search_query(); ?>"></div>

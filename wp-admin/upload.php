@@ -71,12 +71,6 @@ if ( 'grid' === $mode ) {
 	<div class="wrap" id="wp-media-grid" data-search="<?php _admin_search_query() ?>">
 		<h1 class="wp-heading-inline"><?php echo esc_html( $title ); ?></h1>
 
-		<?php
-		if ( current_user_can( 'upload_files' ) ) { ?>
-			<a href="<?php echo admin_url( 'media-new.php' ); ?>" class="page-title-action aria-button-if-js"><?php echo esc_html_x( 'Add New', 'file' ); ?></a><?php
-		}
-		?>
-
 		<hr class="wp-header-end">
 
 		<div class="error hide-if-js">
@@ -218,10 +212,6 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 <h1 class="wp-heading-inline"><?php echo esc_html( $title ); ?></h1>
 
 <?php
-if ( current_user_can( 'upload_files' ) ) { ?>
-	<a href="<?php echo admin_url( 'media-new.php' ); ?>" class="button page-title-action"><?php echo esc_html_x( 'Add New', 'file' ); ?></a><?php
-}
-
 if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {
 	/* translators: %s: search keywords */
 	printf( '<span class="subtitle">' . __( 'Search results for &#8220;%s&#8221;' ) . '</span>', get_search_query() );

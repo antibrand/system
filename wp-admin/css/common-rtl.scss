@@ -251,9 +251,12 @@ td {
 /* Any change to the default link style must be applied to button-link too. */
 a {
 	color: #0073aa;
+	-webkit-transition-property: border, background, color;
 	transition-property: border, background, color;
-	transition-duration: .05s;
-	transition-timing-function: ease-in-out;
+	-webkit-transition-duration: .05s;
+	        transition-duration: .05s;
+	-webkit-transition-timing-function: ease-in-out;
+	        transition-timing-function: ease-in-out;
 }
 
 a,
@@ -559,11 +562,9 @@ code {
 }
 
 .subtitle {
-	margin: 0;
-	padding-right: 25px;
-	color: #555d66;
-	font-size: 14px;
-	font-weight: 400;
+	margin: 1em 0 0;
+	font-size: 1.2em;
+	font-weight: 600;
 	line-height: 1;
 }
 
@@ -917,21 +918,37 @@ th.action-links {
 
 /* Filter bar */
 .wp-filter {
-	display: inline-block;
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-align: center;
+	        align-items: center;
 	position: relative;
 	box-sizing: border-box;
-	margin: 12px 0 25px;
-	padding: 0 10px;
+	margin: 2em 0 1em;
 	width: 100%;
-	box-shadow: 0 1px 1px rgba(0,0,0,0.04);
-	border: 1px solid #e5e5e5;
-	background: #fff;
-	color: #555;
-	font-size: 13px;
-}
+	font-size: 0.8125rem;
 
-.wp-filter a {
-	text-decoration: none;
+	.filter-items {
+		-webkit-box-flex: 2;
+		        flex-grow: 2;
+		display: -webkit-box;
+		display: flex;
+		-webkit-box-align: center;
+		        align-items: center;
+
+		select {
+			margin-left: 0.3em;
+		}
+	}
+
+	a {
+		text-decoration: none;
+
+		&.upload-new-media-link {
+			display: block;
+			margin-left: 1em;
+		}
+	}
 }
 
 .filter-count {
@@ -950,10 +967,6 @@ th.action-links {
 	color: #fff;
 	font-size: 14px;
 	font-weight: 600;
-}
-
-.filter-items {
-	float: right;
 }
 
 .filter-links {
@@ -989,8 +1002,7 @@ th.action-links {
 }
 
 .wp-filter .search-form {
-	float: left;
-	margin: 10px 0;
+	align-self: flex-end;
 }
 
 .wp-filter .search-form input[type="search"] {
@@ -1240,9 +1252,6 @@ th.action-links {
 }
 
 @media only screen and (max-width: 1000px) {
-	.filter-items {
-		float: none;
-	}
 
 	.wp-filter .media-toolbar-primary,
 	.wp-filter .media-toolbar-secondary,
@@ -1528,9 +1537,12 @@ form.upgrade .hint {
 }
 
 .button.updated-message {
+	-webkit-transition-property: border, background, color;
 	transition-property: border, background, color;
-	transition-duration: .05s;
-	transition-timing-function: ease-in-out;
+	-webkit-transition-duration: .05s;
+	        transition-duration: .05s;
+	-webkit-transition-timing-function: ease-in-out;
+	        transition-timing-function: ease-in-out;
 }
 
 @media aural {
@@ -2395,6 +2407,7 @@ div.star-holder .star-rating {
 	font-weight: 400;
 	font-style: normal;
 	vertical-align: top;
+	-webkit-transition: color .1s ease-in 0;
 	transition: color .1s ease-in 0;
 	text-align: center;
 	color: #ffb900;
@@ -2519,6 +2532,7 @@ div.action-links {
 	line-height: 18px;
 	font-size: 14px;
 	text-decoration: none;
+	-webkit-transition: none;
 	transition: none;
 }
 
