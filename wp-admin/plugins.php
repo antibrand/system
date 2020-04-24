@@ -648,7 +648,7 @@ if ( ! empty( $invalid ) ) {
 	if ( strlen( $s ) ) {
 
 		// Translators: %s: search keywords
-		printf( '<span class="subtitle">' . __( 'Search results for &#8220;%s&#8221;' ) . '</span>', esc_html( urldecode( $s ) ) );
+		printf( '<p class="subtitle">' . __( 'Search results for &#8220;%s&#8221;' ) . '</p>', esc_html( urldecode( $s ) ) );
 	}
 	?>
 

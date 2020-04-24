@@ -214,7 +214,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 <?php
 if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {
 	/* translators: %s: search keywords */
-	printf( '<span class="subtitle">' . __( 'Search results for &#8220;%s&#8221;' ) . '</span>', get_search_query() );
+	printf( '<p class="subtitle">' . __( 'Search results for &#8220;%s&#8221;' ) . '</p>', get_search_query() );
 }
 ?>
 

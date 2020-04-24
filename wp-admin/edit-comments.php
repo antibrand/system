@@ -208,12 +208,12 @@ if ( $post_id ) {
 
 <?php
 if ( isset($_REQUEST['s']) && strlen( $_REQUEST['s'] ) ) {
-	echo '<span class="subtitle">';
+	echo '<p class="subtitle">';
 	/* translators: %s: search keywords */
 	printf( __( 'Search results for &#8220;%s&#8221;' ),
 		wp_html_excerpt( esc_html( wp_unslash( $_REQUEST['s'] ) ), 50, '&hellip;' )
 	);
-	echo '</span>';
+	echo '</p>';
 }
 ?>
 

@@ -532,7 +532,7 @@ default:
 	<?php
 	if ( strlen( $usersearch ) ) {
 		/* translators: %s: search keywords */
-		printf( '<span class="subtitle">' . __( 'Search results for &#8220;%s&#8221;' ) . '</span>', esc_html( $usersearch ) );
+		printf( '<p class="subtitle">' . __( 'Search results for &#8220;%s&#8221;' ) . '</p>', esc_html( $usersearch ) );
 	}
 	?>
 
