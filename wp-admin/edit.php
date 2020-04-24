@@ -330,13 +330,19 @@ unset( $messages );
 $_SERVER['REQUEST_URI'] = remove_query_arg( array( 'locked', 'skipped', 'updated', 'deleted', 'trashed', 'untrashed' ), $_SERVER['REQUEST_URI'] );
 ?>
 
-<?php $wp_list_table->views(); ?>
+<div class="list-table-top">
+
+	<?php $wp_list_table->views(); ?>
+
+	<form method="get" id="search-<?php echo $post_type; ?>-list" class="search-form">
+		<?php $wp_list_table->search_box( $post_type_object->labels->search_items, 'post' ); ?>
+	</form>
+
+</div>
 
 <form id="posts-filter" method="get">
 
-<?php $wp_list_table->search_box( $post_type_object->labels->search_items, 'post' ); ?>
-
-<input type="hidden" name="post_status" class="post_status_page" value="<?php echo !empty($_REQUEST['post_status']) ? esc_attr($_REQUEST['post_status']) : 'all'; ?>" />
+<input type="hidden" name="post_status" class="post_status_page" value="<?php echo ! empty( $_REQUEST['post_status'] ) ? esc_attr( $_REQUEST['post_status'] ) : 'all'; ?>" />
 <input type="hidden" name="post_type" class="post_type_page" value="<?php echo $post_type; ?>" />
 
 <?php if ( ! empty( $_REQUEST['author'] ) ) { ?>

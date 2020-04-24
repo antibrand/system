@@ -538,11 +538,17 @@ default:
 
 	<hr class="wp-header-end">
 
-	<?php $wp_list_table->views(); ?>
+	<div class="list-table-top">
+
+		<?php $wp_list_table->views(); ?>
+
+		<form method="get" id="search-users-list" class="search-form">
+			<?php $wp_list_table->search_box( __( 'Search Users' ), 'user' ); ?>
+		</form>
+
+	</div>
 
 	<form method="get">
-
-		<?php $wp_list_table->search_box( __( 'Search Users' ), 'user' ); ?>
 
 		<?php if ( ! empty( $_REQUEST['role'] ) ) { ?>
 		<input type="hidden" name="role" value="<?php echo esc_attr( $_REQUEST['role'] ); ?>" />

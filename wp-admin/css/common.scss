@@ -367,52 +367,59 @@ code {
 	font-size: 13px;
 }
 
+
 .subsubsub {
 	list-style: none;
-	margin: 1em 0;
 	padding: 0;
 	font-size: 1rem;
-	float: left;
-	color: #666;
-}
 
-.subsubsub a {
-	line-height: 2;
-	padding: .2em;
-	text-decoration: none;
-}
+	li {
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+		white-space: nowrap;
 
-.subsubsub a .count,
-.subsubsub a.current .count {
-	color: #555d66; /* #f1f1f1 background */
-	font-weight: 400;
-}
+		&.list-table-add-new {
+			font-weight: 600;
 
-.subsubsub a.current {
-	font-weight: 600;
-	border: none;
-}
+			&:after {
+				content: '|';
+				display: inline-block;
+				margin-left: 0.35em;
+				font-weight: normal;
+			}
 
-.subsubsub li {
-	display: inline-block;
-	margin: 0;
-	padding: 0;
-	white-space: nowrap;
+			button {
+				border: none;
+				color: $link;
+			}
+		}
+	}
 
-	&.list-table-add-new {
-		font-weight: 600;
+	a {
+		line-height: 2;
+		padding: .2em;
+		text-decoration: none;
 
-		&:after {
-			content: '|';
-			display: inline-block;
-			margin-left: 0.35em;
-			font-weight: normal;
+		.count,
+		&.current .count {
+			font-weight: 400;
 		}
 
-		button {
+		&.current {
+			font-weight: 600;
 			border: none;
-			color: $link;
 		}
+	}
+}
+
+.list-table-top {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 2em;
+
+	.search-box {
+		float: none;
 	}
 }
 

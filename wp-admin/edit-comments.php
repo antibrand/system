@@ -296,11 +296,19 @@ if ( isset($_REQUEST['approved']) || isset($_REQUEST['deleted']) || isset($_REQU
 }
 ?>
 
-<?php $wp_list_table->views(); ?>
+<div class="list-table-top">
+
+	<?php $wp_list_table->views(); ?>
+
+	<form method="get" id="search-comments-list" class="search-form">
+		<?php $wp_list_table->search_box( __( 'Search Comments' ), 'comment' ); ?>
+	</form>
+
+</div>
+
+
 
 <form id="comments-form" method="get">
-
-<?php $wp_list_table->search_box( __( 'Search Comments' ), 'comment' ); ?>
 
 <?php if ( $post_id ) : ?>
 <input type="hidden" name="p" value="<?php echo esc_attr( intval( $post_id ) ); ?>" />

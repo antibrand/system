@@ -226,15 +226,20 @@ if ( isset( $_REQUEST['updated'] ) && $_REQUEST['updated'] == 'true' && ! empty(
 
 	<hr class="wp-header-end">
 
-	<?php $wp_list_table->views(); ?>
+	<div class="list-table-top">
 
-	<form method="get" class="search-form">
-		<?php $wp_list_table->search_box( __( 'Search Users' ), 'all-user' ); ?>
-	</form>
+		<?php $wp_list_table->views(); ?>
+
+		<form method="get" id="search-network-users-list" class="search-form">
+			<?php $wp_list_table->search_box( __( 'Search Users' ), 'all-user' ); ?>
+		</form>
+
+	</div>
 
 	<form id="form-user-list" action="users.php?action=allusers" method="post">
 		<?php $wp_list_table->display(); ?>
 	</form>
 </div>
 
-<?php require_once( ABSPATH . 'wp-admin/admin-footer.php' ); ?>
+<?php
+require_once( ABSPATH . 'wp-admin/admin-footer.php' );
