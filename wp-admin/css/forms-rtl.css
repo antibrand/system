@@ -104,16 +104,16 @@ input[type="radio"]:checked + label:before {
 }
 
 td > input[type="checkbox"],
-.wp-admin p input[type="checkbox"],
-.wp-admin p input[type="radio"] {
+.app-admin p input[type="checkbox"],
+.app-admin p input[type="radio"] {
   margin-top: 0;
 }
 
-.wp-admin p label input[type="checkbox"] {
+.app-admin p label input[type="checkbox"] {
   margin-top: -4px;
 }
 
-.wp-admin p label input[type="radio"] {
+.app-admin p label input[type="radio"] {
   margin-top: -2px;
 }
 
@@ -201,7 +201,7 @@ textarea {
   resize: vertical;
 }
 
-.wp-admin input[type="file"] {
+.app-admin input[type="file"] {
   padding: 3px 0;
   cursor: pointer;
 }
@@ -312,12 +312,12 @@ input[type="radio"].disabled:checked:before {
 /*------------------------------------------------------------------------------
   2.0 - Forms
 ------------------------------------------------------------------------------*/
-.wp-admin select {
+.app-admin select {
   padding: 0.5em 1em;
   line-height: 1;
 }
 
-.wp-admin .button-cancel {
+.app-admin .button-cancel {
   padding: 0 5px;
   line-height: 2;
 }
@@ -326,7 +326,7 @@ input[type="radio"].disabled:checked:before {
   max-width: 100%;
 }
 
-.wp-admin select[multiple] {
+.app-admin select[multiple] {
   height: auto;
 }
 
@@ -1268,8 +1268,8 @@ table.form-table td .updated p {
     height: 25px;
     width: 25px;
   }
-  .wp-admin p input[type="checkbox"],
-  .wp-admin p input[type="radio"] {
+  .app-admin p input[type="checkbox"],
+  .app-admin p input[type="radio"] {
     margin-top: -3px;
   }
   input[type="radio"]:checked:before {
@@ -1286,7 +1286,7 @@ table.form-table td .updated p {
     height: 36px;
     font-size: 16px;
   }
-  .wp-admin .button-cancel {
+  .app-admin .button-cancel {
     padding: 0;
     font-size: 0.875rem;
   }

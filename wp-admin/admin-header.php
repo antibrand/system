@@ -207,7 +207,7 @@ $admin_body_class .= ' no-customize-support no-svg';
 $admin_body_classes = apply_filters( 'admin_body_class', '' );
 
 ?>
-<body class="wp-admin app-core-ui <?php echo $admin_body_classes . ' ' . $admin_body_class; ?>">
+<body class="app-admin app-core-ui <?php echo $admin_body_classes . ' ' . $admin_body_class; ?>">
 
 	<?php
 	// Make sure the customize body classes are correct as early as possible.
