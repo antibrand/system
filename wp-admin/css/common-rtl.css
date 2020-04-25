@@ -3669,7 +3669,7 @@ img {
   .wrap .icon32 + h2 {
     margin-top: -2px;
   }
-  .wp-responsive-open #wpbody {
+  .wp-responsive-open .admin-main {
     left: -16em;
   }
   code {
@@ -3818,7 +3818,7 @@ img {
   html.wp-toolbar {
     padding-top: 0;
   }
-  #wpbody {
+  .admin-main {
     padding-top: 46px;
   }
   /* Keep full-width boxes on Edit Post page from causing horizontal scroll */

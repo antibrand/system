@@ -544,7 +544,7 @@ table.ie-fixed {
 }
 
 #nav-menus-frame,
-#wpbody,
+.admin-main,
 .menu li {
 	zoom: 100%;
 }

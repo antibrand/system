@@ -51,7 +51,7 @@ window.wp = window.wp || {};
 
 			// Any element in the body with the `load-customize` class opens
 			// the Customizer.
-			$('#wpbody').on( 'click', '.load-customize', function( event ) {
+			$('#app-body').on( 'click', '.load-customize', function( event ) {
 				event.preventDefault();
 
 				// Store a reference to the link that opened the Customizer.

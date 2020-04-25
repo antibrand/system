@@ -72,7 +72,7 @@ body.locale-he-il .press-this a.wp-switch-editor {
 	width: inherit; /* back-compat for pre-3.2 */
 }
 .locale-ru-ru #adminmenu,
-.locale-ru-ru #wpbody {
+.locale-ru-ru .admin-main {
 	margin-right: 0; /* back-compat for pre-3.2 */
 }
 .locale-ru-ru .inline-edit-row fieldset label span.title,
