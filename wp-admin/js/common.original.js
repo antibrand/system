@@ -105,12 +105,12 @@ showNotice = {
 screenMeta = {
 	element: null, // #screen-meta
 	toggles: null, // .screen-meta-toggle
-	page:    null, // #wpcontent
+	page:    null, // #app-content
 
 	init: function() {
 		this.element = $('#screen-meta');
 		this.toggles = $( '#screen-meta-links' ).find( '.show-settings' );
-		this.page    = $('#wpcontent');
+		this.page    = $('#app-content');
 
 		this.toggles.click( this.toggleEvent );
 	},
@@ -307,7 +307,7 @@ $document.ready( function() {
 		isAndroid = navigator.userAgent.indexOf( 'Android' ) !== -1,
 		isIE8 = $( document.documentElement ).hasClass( 'ie8' ),
 		$adminMenuWrap = $( '#adminmenuwrap' ),
-		$wpwrap = $( '#wpwrap' ),
+		$wpwrap = $( '#admin-page-wrap' ),
 		$adminmenu = $( '#adminmenu' ),
 		$overlay = $( '#wp-responsive-overlay' ),
 		$toolbar = $( '#wp-toolbar' ),
@@ -973,7 +973,7 @@ $document.ready( function() {
 		enableOverlay: function() {
 			if ( $overlay.length === 0 ) {
 				$overlay = $( '<div id="wp-responsive-overlay"></div>' )
-					.insertAfter( '#wpcontent' )
+					.insertAfter( '#app-content' )
 					.hide()
 					.on( 'click.wp-responsive', function() {
 						$toolbar.find( '.menupop.hover' ).removeClass( 'hover' );

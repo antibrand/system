@@ -1,35 +1,5 @@
 @import 'colors/_variables.scss';
 
-/* 2 column liquid layout */
-#wpwrap {
-	height: auto;
-	min-height: 100%;
-	width: 100%;
-	position: relative;
-	-webkit-font-smoothing: subpixel-antialiased;
-}
-
-#wpcontent {
-	height: 100%;
-}
-
-#wpcontent,
-#wpfooter {
-	margin-left: 160px;
-}
-
-.folded #wpcontent,
-.folded #wpfooter {
-	margin-left: 36px;
-}
-
-#wpbody-content {
-	padding-bottom: 65px;
-	float: left;
-	width: 100%;
-	overflow: visible !important;
-}
-
 /* inner 2 column liquid layout */
 
 .inner-sidebar {
@@ -3596,7 +3566,7 @@ img {
 		-webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
 	}
 
-	#wpcontent {
+	.admin-page-content {
 		position: relative;
 		margin-left: 0;
 	}
@@ -3829,11 +3799,6 @@ img {
 
 /* Smartphone */
 @media screen and (max-width: 600px) {
-	/* Disable horizontal scroll when responsive menu is open
-	   since we push the main content off to the right. */
-	#wpwrap.wp-responsive-open {
-		overflow-x: hidden;
-	}
 
 	html.wp-toolbar {
 		padding-top: 0;

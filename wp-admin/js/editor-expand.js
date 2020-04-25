@@ -975,7 +975,7 @@
 	 */
 	$( function() {
 		var $body = $( document.body ),
-			$wrap = $( '#wpcontent' ),
+			$wrap = $( '#app-content' ),
 			$editor = $( '#post-body-content' ),
 			$title = $( '#title' ),
 			$content = $( '#content' ),

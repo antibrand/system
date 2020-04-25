@@ -574,7 +574,7 @@ li#wp-admin-bar-menu-toggle {
 
 /* Auto-folding of the admin menu */
 @media only screen and (max-width: 960px) {
-  .auto-fold #wpcontent,
+  .auto-fold .admin-page-content,
   .auto-fold #wpfooter {
     margin-left: 36px;
   }
@@ -664,7 +664,7 @@ li#wp-admin-bar-menu-toggle {
 }
 
 @media screen and (max-width: 782px) {
-  .auto-fold #wpcontent {
+  .auto-fold .admin-page-content {
     position: relative;
     margin-left: 0;
   }

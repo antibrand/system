@@ -92,7 +92,7 @@
 	margin: 0;
 }
 
-.folded #wpcontent,
+.folded .admin-page-content,
 .folded #wpfooter {
 	margin-right: 170px;
 }
@@ -153,11 +153,11 @@ ul#adminmenu {
 	width: auto;
 }
 
-#wpcontent #adminmenu li.wp-has-current-submenu a.wp-has-submenu {
+.admin-page-content #adminmenu li.wp-has-current-submenu a.wp-has-submenu {
 	font-style: normal;
 }
 
-#wpcontent #adminmenu .wp-submenu li {
+.admin-page-content #adminmenu .wp-submenu li {
 	padding: 0;
 }
 
@@ -355,7 +355,7 @@ a.button.button-small {
 
 #the-comment-list .comment-item,
 #post-status-info,
-#wpwrap,
+.admin-page-wrap,
 #wrap,
 #postdivrich,
 #postdiv,
@@ -529,7 +529,7 @@ table.ie-fixed {
 	float: right;
 }
 
-#wpcontent .button-primary-disabled {
+.admin-page-content .button-primary-disabled {
 	color: #9FD0D5;
 	background: #298CBA;
 }
@@ -747,7 +747,7 @@ input[type="password"],
 	margin-right: -22px;
 }
 
-* html #wpcontent #adminmenu li.menu-top {
+* html .admin-page-content #adminmenu li.menu-top {
 	display: inline;
 	padding: 0;
 	margin: 0;

@@ -211,7 +211,7 @@ wpWidgets = {
 			distance: 2,
 			helper: 'clone',
 			zIndex: 100,
-			containment: '#wpwrap',
+			containment: '#admin-page-wrap',
 			refreshPositions: true,
 			start: function( event, ui ) {
 				var chooser = $(this).find('.widgets-chooser');
@@ -283,7 +283,7 @@ wpWidgets = {
 			handle: '> .widget-top > .widget-title',
 			cursor: 'move',
 			distance: 2,
-			containment: '#wpwrap',
+			containment: '#admin-page-wrap',
 			tolerance: 'pointer',
 			refreshPositions: true,
 			start: function( event, ui ) {

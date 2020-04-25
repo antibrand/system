@@ -499,9 +499,9 @@ div#widgets-right .closed .widgets-sortables {
 	cursor: auto;
 }
 
-.widgets_access #wpwrap .widgets-holder-wrap.closed .sidebar-description,
-.widgets_access #wpwrap .widgets-holder-wrap.closed .widget,
-.widgets_access #wpwrap .widget-control-edit {
+.widgets_access .admin-page-wrap .widgets-holder-wrap.closed .sidebar-description,
+.widgets_access .admin-page-wrap .widgets-holder-wrap.closed .widget,
+.widgets_access .admin-page-wrap .widget-control-edit {
 	display: block;
 }
 

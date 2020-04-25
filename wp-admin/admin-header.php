@@ -71,7 +71,7 @@ _wp_admin_html_begin();
 
 wp_enqueue_style( 'colors' );
 wp_enqueue_style( 'ie' );
-wp_enqueue_script('utils');
+wp_enqueue_script( 'utils' );
 wp_enqueue_script( 'svg-painter' );
 
 $admin_body_class = preg_replace( '/[^a-z0-9_-]+/i', '-', $hook_suffix );
@@ -205,79 +205,76 @@ $admin_body_class .= ' no-customize-support no-svg';
  * @param string $classes Space-separated list of CSS classes.
  */
 $admin_body_classes = apply_filters( 'admin_body_class', '' );
+
 ?>
 <body class="wp-admin app-core-ui <?php echo $admin_body_classes . ' ' . $admin_body_class; ?>">
 
-<?php
-// Make sure the customize body classes are correct as early as possible.
-if ( current_user_can( 'customize' ) ) {
-	wp_customize_support_script();
-}
-?>
+	<?php
+	// Make sure the customize body classes are correct as early as possible.
+	if ( current_user_can( 'customize' ) ) {
+		wp_customize_support_script();
+	} ?>
 
-<div id="wpwrap">
+	<div id="admin-page-wrap" class="page-wrap admin-page-wrap">
 
-<?php require( ABSPATH . 'wp-admin/menu-header.php' ); ?>
+		<?php require( ABSPATH . 'wp-admin/menu-header.php' ); ?>
 
-<div id="wpcontent">
+		<div id="app-content" class="page-content admin-page-content">
+			<?php
 
-<?php
+			do_action( 'app_toolbar_render' );
+			do_action( 'in_admin_header' );
 
-do_action( 'app_toolbar_render' );
-do_action( 'in_admin_header' );
+			/**
+			 * Screen options & contextual help
+			 *
+			 * @todo add this via hook.
+			 */
+			echo $current_screen->render_screen_meta();
 
-/**
- * Screen options & contextual help
- *
- * @todo add this via hook.
- */
-echo $current_screen->render_screen_meta();
+			get_template_part( 'backend/header/site', 'identity' ) ?>
 
-?>
+			<div id="wpbody" role="main">
+			<?php
+			unset( $title_class, $blog_name, $total_update_count, $update_title );
 
-<?php get_template_part( 'backend/header/site', 'identity' ) ?>
+			$current_screen->set_parentage( $parent_file );
 
-<div id="wpbody" role="main">
-<?php
-unset( $title_class, $blog_name, $total_update_count, $update_title );
+			?>
 
-$current_screen->set_parentage( $parent_file );
+				<div id="wpbody-content" aria-label="<?php esc_attr_e( 'Main content' ); ?>" tabindex="0">
+				<?php
 
-?>
+				if ( is_network_admin() ) {
+					/**
+					 * Prints network admin screen notices.
+					 *
+					 * @since WP 3.1.0
+					 */
+					do_action( 'network_admin_notices' );
+				} elseif ( is_user_admin() ) {
+					/**
+					 * Prints user admin screen notices.
+					 *
+					 * @since WP 3.1.0
+					 */
+					do_action( 'user_admin_notices' );
+				} else {
+					/**
+					 * Prints admin screen notices.
+					 *
+					 * @since WP 3.1.0
+					 */
+					do_action( 'admin_notices' );
+				}
 
-<div id="wpbody-content" aria-label="<?php esc_attr_e( 'Main content' ); ?>" tabindex="0">
-<?php
+				/**
+				 * Prints generic admin screen notices.
+				 *
+				 * @since WP 3.1.0
+				 */
+				do_action( 'all_admin_notices' );
 
-if ( is_network_admin() ) {
-	/**
-	 * Prints network admin screen notices.
-	 *
-	 * @since WP 3.1.0
-	 */
-	do_action( 'network_admin_notices' );
-} elseif ( is_user_admin() ) {
-	/**
-	 * Prints user admin screen notices.
-	 *
-	 * @since WP 3.1.0
-	 */
-	do_action( 'user_admin_notices' );
-} else {
-	/**
-	 * Prints admin screen notices.
-	 *
-	 * @since WP 3.1.0
-	 */
-	do_action( 'admin_notices' );
-}
-
-/**
- * Prints generic admin screen notices.
- *
- * @since WP 3.1.0
- */
-do_action( 'all_admin_notices' );
-
-if ( $parent_file == 'options-general.php' ) {
-	require( ABSPATH . 'wp-admin/options-head.php' );
-}
+				if ( $parent_file == 'options-general.php' ) {
+					require( ABSPATH . 'wp-admin/options-head.php' );
+				}

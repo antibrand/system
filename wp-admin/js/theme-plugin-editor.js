@@ -84,8 +84,8 @@ wp.themePluginEditor = (function( $ ) {
 	component.showWarning = function() {
 		// Get the text within the modal.
 		var rawMessage = component.warning.find( '.file-editor-warning-message' ).text();
-		// Hide all the #wpwrap content from assistive technologies.
-		$( '#wpwrap' ).attr( 'aria-hidden', 'true' );
+		// Hide all the #admin-page-wrap content from assistive technologies.
+		$( '#admin-page-wrap' ).attr( 'aria-hidden', 'true' );
 		// Detach the warning modal from its position and append it to the body.
 		$( document.body )
 			.addClass( 'modal-open' )
@@ -145,7 +145,7 @@ wp.themePluginEditor = (function( $ ) {
 
 		// Hide modal.
 		component.warning.remove();
-		$( '#wpwrap' ).removeAttr( 'aria-hidden' );
+		$( '#admin-page-wrap' ).removeAttr( 'aria-hidden' );
 		$( 'body' ).removeClass( 'modal-open' );
 	};
 

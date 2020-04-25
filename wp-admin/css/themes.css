@@ -805,15 +805,15 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
  * Shuffles theme columns around based on screen width
  */
 @media only screen and (min-width: 2000px) {
-  #wpwrap .theme-browser .theme {
+  .admin-page-wrap .theme-browser .theme {
     width: 17.6%;
     margin: 0 3% 3% 0;
   }
-  #wpwrap .theme-browser .theme:nth-child(3n),
-  #wpwrap .theme-browser .theme:nth-child(4n) {
+  .admin-page-wrap .theme-browser .theme:nth-child(3n),
+  .admin-page-wrap .theme-browser .theme:nth-child(4n) {
     margin-right: 3%;
   }
-  #wpwrap .theme-browser .theme:nth-child(5n) {
+  .admin-page-wrap .theme-browser .theme:nth-child(5n) {
     margin-right: 0;
   }
 }

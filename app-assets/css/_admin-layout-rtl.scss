@@ -1,0 +1,84 @@
+/**
+ * Styles for administration screen layout
+ */
+body {
+	height: 100%;
+
+	&.iframe {
+		min-width: 0;
+		padding-top: 1px;
+	}
+
+	&.modal-open {
+		overflow: hidden;
+	}
+
+	&.mobile.modal-open {
+		.admin-page-wrap {
+			overflow: hidden;
+			position: fixed;
+			height: 100%;
+		}
+	}
+}
+
+/* 2 column liquid layout */
+.admin-page-wrap {
+	height: auto;
+	min-height: 100%;
+	width: 100%;
+	position: relative;
+	-webkit-font-smoothing: subpixel-antialiased;
+}
+
+.admin-page-content {
+	height: 100%;
+}
+
+.admin-page-content,
+#wpfooter {
+	margin-right: 160px;
+}
+
+.folded .admin-page-content,
+.folded #wpfooter {
+	margin-right: 36px;
+}
+
+#wpbody-content {
+	padding-bottom: 65px;
+	float: right;
+	width: 100%;
+	overflow: visible !important;
+}
+
+.wrap {
+	padding: 0 2rem;
+}
+
+/**
+ * Admin page header
+ */
+.site-header {
+
+	&.backend-site-header {
+		padding: 2rem 30px 0;
+
+		.site-title {
+			margin: 0;
+			font-size: 1.8rem;
+			font-weight: 700;
+			line-height: 1.2;
+
+			@supports ( font-variation-settings: normal ) {
+				font-weight: 650;
+			}
+		}
+
+		.site-description {
+			margin: 0;
+			font-size: 1rem;
+			line-height: 1.2;
+		}
+	}
+}
