@@ -69,7 +69,7 @@ class WP_List_Table {
 	 * @since 4.1.0
 	 * @var array
 	 */
-	protected $modes = array();
+	protected $modes = [];
 
 	/**
 	 * Stores the value returned by ->get_column_info().
@@ -652,13 +652,18 @@ class WP_List_Table {
 		<div class="view-switch">
 <?php
 			foreach ( $this->modes as $mode => $title ) {
-				$classes = array( 'view-' . $mode );
-				if ( $current_mode === $mode )
+
+				$classes = [ 'view-' . $mode ];
+
+				if ( $current_mode === $mode ) {
 					$classes[] = 'current';
+				}
+
 				printf(
-					"<a href='%s' class='%s' id='view-switch-$mode'><span class='screen-reader-text'>%s</span></a>\n",
+					"<a href='%1s' class='%2s tooltip' id='view-switch-$mode' title='%3s'><span class='screen-reader-text'>%4s</span></a>\n",
 					esc_url( add_query_arg( 'mode', $mode ) ),
 					implode( ' ', $classes ),
+					$title,
 					$title
 				);
 			}

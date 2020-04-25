@@ -257,11 +257,11 @@ function wp_print_media_templates() {
 	</script>
 
 	<script type="text/html" id="tmpl-media-library-view-switcher">
-		<a href="<?php echo esc_url( add_query_arg( 'mode', 'list', $_SERVER['REQUEST_URI'] ) ) ?>" class="view-list">
-			<span class="screen-reader-text"><?php _e( 'List View' ); ?></span>
-		</a>
-		<a href="<?php echo esc_url( add_query_arg( 'mode', 'grid', $_SERVER['REQUEST_URI'] ) ) ?>" class="view-grid current">
+		<a href="<?php echo esc_url( add_query_arg( 'mode', 'grid', $_SERVER['REQUEST_URI'] ) ) ?>" title="<?php _e( 'Grid View' ); ?>" class="view-grid current tooltip">
 			<span class="screen-reader-text"><?php _e( 'Grid View' ); ?></span>
+		</a>
+		<a href="<?php echo esc_url( add_query_arg( 'mode', 'list', $_SERVER['REQUEST_URI'] ) ) ?>" title="<?php _e( 'List View' ); ?>" class="view-list tooltip">
+			<span class="screen-reader-text"><?php _e( 'List View' ); ?></span>
 		</a>
 	</script>
 

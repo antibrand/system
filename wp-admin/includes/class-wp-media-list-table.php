@@ -40,15 +40,15 @@ class WP_Media_List_Table extends WP_List_Table {
 	public function __construct( $args = array() ) {
 		$this->detached = ( isset( $_REQUEST['attachment-filter'] ) && 'detached' === $_REQUEST['attachment-filter'] );
 
-		$this->modes = array(
-			'list' => __( 'List View' ),
-			'grid' => __( 'Grid View' )
-		);
+		$this->modes = [
+			'grid' => __( 'Grid View' ),
+			'list' => __( 'List View' )
+		];
 
-		parent::__construct( array(
+		parent::__construct( [
 			'plural' => 'media',
 			'screen' => isset( $args['screen'] ) ? $args['screen'] : null,
-		) );
+		] );
 	}
 
 	/**
@@ -263,17 +263,21 @@ class WP_Media_List_Table extends WP_List_Table {
 		<?php $this->extra_tablenav( 'bar' );
 
 		/** This filter is documented in wp-admin/inclues/class-wp-list-table.php */
-		$views = apply_filters( "views_{$this->screen->id}", array() );
+		$views = apply_filters( "views_{$this->screen->id}", [] );
 
 		// Back compat for pre-4.0 view links.
 		if ( ! empty( $views ) ) {
+
 			echo '<ul class="filter-links">';
+
 			foreach ( $views as $class => $view ) {
 				echo "<li class='$class'>$view</li>";
 			}
+
 			echo '</ul>';
 		} ?>
 	</div>
+
 	<div class="search-form">
 		<label for="media-search-input" class="screen-reader-text"><?php esc_html_e( 'Search Media' ); ?></label>
 		<input type="search" placeholder="<?php esc_attr_e( 'Search media items...' ) ?>" id="media-search-input" class="search" name="s" value="<?php _admin_search_query(); ?>"></div>
