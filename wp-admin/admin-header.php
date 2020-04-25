@@ -34,20 +34,20 @@ get_admin_page_title();
 $title = esc_html( strip_tags( $title ) );
 
 if ( is_network_admin() ) {
-	/* translators: Network admin screen title. 1: Network name */
+	// Translators: Network admin screen title. 1: Network name.
 	$admin_title = sprintf( __( 'Network Admin: %s' ), esc_html( get_network()->site_name ) );
 } elseif ( is_user_admin() ) {
-	/* translators: User dashboard screen title. 1: Network name */
+	// Translators: User dashboard screen title. 1: Network name.
 	$admin_title = sprintf( __( 'User Dashboard: %s' ), esc_html( get_network()->site_name ) );
 } else {
 	$admin_title = get_bloginfo( 'name' );
 }
 
 if ( $admin_title == $title ) {
-	/* translators: Admin screen title. 1: Admin screen name */
+	// Translators: Admin screen title. 1: Admin screen name.
 	$admin_title = sprintf( __( '%1$s' ), $title );
 } else {
-	/* translators: Admin screen title. 1: Admin screen name, 2: Network or site name */
+	// Translators: Admin screen title. 1: Admin screen name, 2: Network or site name.
 	$admin_title = sprintf( __( '%1$s &lsaquo; %2$s' ), $title, $admin_title );
 }
 
@@ -55,9 +55,8 @@ if ( $admin_title == $title ) {
  * Filters the title tag content for an admin page.
  *
  * @since WP 3.1.0
- *
  * @param string $admin_title The page title, with extra context added.
- * @param string $title       The original page title.
+ * @param string $title The original page title.
  */
 $admin_title = apply_filters( 'admin_title', $admin_title, $title );
 
@@ -94,7 +93,6 @@ var ajaxurl = '<?php echo admin_url( 'admin-ajax.php', 'relative' ); ?>',
  * Enqueue scripts for all admin pages.
  *
  * @since WP 2.8.0
- *
  * @param string $hook_suffix The current admin page.
  */
 do_action( 'admin_enqueue_scripts', $hook_suffix );
@@ -252,6 +250,7 @@ $admin_body_classes = apply_filters( 'admin_body_class', '' );
 					 * @since WP 3.1.0
 					 */
 					do_action( 'network_admin_notices' );
+
 				} elseif ( is_user_admin() ) {
 					/**
 					 * Prints user admin screen notices.
@@ -259,6 +258,7 @@ $admin_body_classes = apply_filters( 'admin_body_class', '' );
 					 * @since WP 3.1.0
 					 */
 					do_action( 'user_admin_notices' );
+
 				} else {
 					/**
 					 * Prints admin screen notices.
