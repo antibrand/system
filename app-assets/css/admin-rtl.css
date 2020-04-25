@@ -467,7 +467,7 @@ body.mobile.modal-open .admin-page-wrap {
   margin-right: 36px;
 }
 
-#wpbody-content {
+.app-content {
   padding-bottom: 65px;
   float: right;
   width: 100%;

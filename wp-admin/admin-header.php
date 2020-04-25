@@ -242,7 +242,7 @@ $admin_body_classes = apply_filters( 'admin_body_class', '' );
 
 			?>
 
-				<div id="wpbody-content" aria-label="<?php esc_attr_e( 'Main content' ); ?>" tabindex="0">
+				<div id="wpbody-content" class="app-content" aria-label="<?php esc_attr_e( 'Main content' ); ?>" tabindex="0">
 				<?php
 
 				if ( is_network_admin() ) {

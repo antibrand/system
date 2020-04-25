@@ -897,7 +897,7 @@ tr:hover .row-actions,
 .inline-edit* is for everything
 */
 /*	Layout */
-#wpbody-content .inline-edit-row fieldset {
+.app-content .inline-edit-row fieldset {
   font-size: 12px;
   float: left;
   margin: 0;
@@ -906,45 +906,45 @@ tr:hover .row-actions,
 }
 
 tr.inline-edit-row td,
-#wpbody-content .inline-edit-row fieldset .inline-edit-col {
+.app-content .inline-edit-row fieldset .inline-edit-col {
   padding: 0 0.5em;
 }
 
-#wpbody-content .quick-edit-row-post .inline-edit-col-left {
+.app-content .quick-edit-row-post .inline-edit-col-left {
   width: 40%;
 }
 
-#wpbody-content .quick-edit-row-post .inline-edit-col-right {
+.app-content .quick-edit-row-post .inline-edit-col-right {
   width: 39%;
 }
 
-#wpbody-content .inline-edit-row-post .inline-edit-col-center {
+.app-content .inline-edit-row-post .inline-edit-col-center {
   width: 20%;
 }
 
-#wpbody-content .quick-edit-row-page .inline-edit-col-left {
+.app-content .quick-edit-row-page .inline-edit-col-left {
   width: 50%;
 }
 
-#wpbody-content .quick-edit-row-page .inline-edit-col-right,
-#wpbody-content .bulk-edit-row-post .inline-edit-col-right {
+.app-content .quick-edit-row-page .inline-edit-col-right,
+.app-content .bulk-edit-row-post .inline-edit-col-right {
   width: 49%;
 }
 
-#wpbody-content .bulk-edit-row .inline-edit-col-left {
+.app-content .bulk-edit-row .inline-edit-col-left {
   width: 30%;
 }
 
-#wpbody-content .bulk-edit-row-page .inline-edit-col-right {
+.app-content .bulk-edit-row-page .inline-edit-col-right {
   width: 69%;
 }
 
-#wpbody-content .bulk-edit-row .inline-edit-col-bottom {
+.app-content .bulk-edit-row .inline-edit-col-bottom {
   float: right;
   width: 69%;
 }
 
-#wpbody-content .inline-edit-row-page .inline-edit-col-right {
+.app-content .inline-edit-row-page .inline-edit-col-right {
   margin-top: 27px;
 }
 
@@ -1057,11 +1057,11 @@ tr.inline-edit-row td,
   vertical-align: top;
 }
 
-#wpbody-content .bulk-edit-row fieldset .inline-edit-group label {
+.app-content .bulk-edit-row fieldset .inline-edit-group label {
   max-width: 50%;
 }
 
-#wpbody-content .quick-edit-row fieldset .inline-edit-group label.alignleft:first-child {
+.app-content .quick-edit-row fieldset .inline-edit-group label.alignleft:first-child {
   margin-right: 0.5em;
 }
 
@@ -1873,22 +1873,22 @@ div.action-links,
     word-wrap: normal;
   }
   /* Quick Edit and Bulk Edit */
-  #wpbody-content .quick-edit-row-post .inline-edit-col-left,
-  #wpbody-content .quick-edit-row-post .inline-edit-col-right,
-  #wpbody-content .inline-edit-row-post .inline-edit-col-center,
-  #wpbody-content .quick-edit-row-page .inline-edit-col-left,
-  #wpbody-content .quick-edit-row-page .inline-edit-col-right,
-  #wpbody-content .bulk-edit-row-post .inline-edit-col-right,
-  #wpbody-content .bulk-edit-row .inline-edit-col-left,
-  #wpbody-content .bulk-edit-row-page .inline-edit-col-right,
-  #wpbody-content .bulk-edit-row .inline-edit-col-bottom {
+  .app-content .quick-edit-row-post .inline-edit-col-left,
+  .app-content .quick-edit-row-post .inline-edit-col-right,
+  .app-content .inline-edit-row-post .inline-edit-col-center,
+  .app-content .quick-edit-row-page .inline-edit-col-left,
+  .app-content .quick-edit-row-page .inline-edit-col-right,
+  .app-content .bulk-edit-row-post .inline-edit-col-right,
+  .app-content .bulk-edit-row .inline-edit-col-left,
+  .app-content .bulk-edit-row-page .inline-edit-col-right,
+  .app-content .bulk-edit-row .inline-edit-col-bottom {
     float: none;
     width: 100%;
   }
-  #wpbody-content .quick-edit-row fieldset .inline-edit-col label,
-  #wpbody-content .quick-edit-row fieldset .inline-edit-group label,
-  #wpbody-content .bulk-edit-row fieldset .inline-edit-col label,
-  #wpbody-content .bulk-edit-row fieldset .inline-edit-group label {
+  .app-content .quick-edit-row fieldset .inline-edit-col label,
+  .app-content .quick-edit-row fieldset .inline-edit-group label,
+  .app-content .bulk-edit-row fieldset .inline-edit-col label,
+  .app-content .bulk-edit-row fieldset .inline-edit-group label {
     max-width: none;
     float: none;
     margin-bottom: 5px;
@@ -1949,7 +1949,7 @@ div.action-links,
     height: 22px;
   }
   /* Updates */
-  #wpbody-content .updates-table .plugin-title {
+  .app-content .updates-table .plugin-title {
     width: auto;
     white-space: normal;
   }
@@ -1959,17 +1959,17 @@ div.action-links,
     display: none;
   }
   /* Plugin/Theme Management */
-  #wpbody-content .wp-list-table.plugins td {
+  .app-content .wp-list-table.plugins td {
     display: block;
     width: auto;
     padding: 10px 9px;
     /* reset from other list tables that have a label at this width */
   }
-  #wpbody-content .wp-list-table.plugins .column-description {
+  .app-content .wp-list-table.plugins .column-description {
     padding-top: 2px;
   }
-  #wpbody-content .wp-list-table.plugins .plugin-title,
-  #wpbody-content .wp-list-table.plugins .theme-title {
+  .app-content .wp-list-table.plugins .plugin-title,
+  .app-content .wp-list-table.plugins .theme-title {
     padding-right: 12px;
     white-space: normal;
   }

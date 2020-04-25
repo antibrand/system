@@ -1862,7 +1862,7 @@ html.wp-toolbar {
           box-sizing: border-box;
 }
 
-#wpbody-content .metabox-holder {
+.app-content .metabox-holder {
   padding-top: 10px;
 }
 
@@ -1915,7 +1915,7 @@ html.wp-toolbar {
 
 /* one column on the dash */
 @media only screen and (max-width: 799px) {
-  #wpbody-content .metabox-holder .postbox-container .empty-container {
+  .app-content .metabox-holder .postbox-container .empty-container {
     border: 0 none;
     height: 0;
     min-height: 0;
@@ -3626,7 +3626,7 @@ img {
     position: relative;
     margin-right: 0;
   }
-  #wpbody-content {
+  .app-content {
     padding-bottom: 100px;
   }
   /* categories */

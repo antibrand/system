@@ -9,13 +9,13 @@
 	width: 98%;
 }
 
-#wpbody-content #dashboard-widgets .postbox-container {
+.app-content #dashboard-widgets .postbox-container {
 	width: 49.5%;
 }
 
-#wpbody-content #dashboard-widgets #postbox-container-2,
-#wpbody-content #dashboard-widgets #postbox-container-3,
-#wpbody-content #dashboard-widgets #postbox-container-4 {
+.app-content #dashboard-widgets #postbox-container-2,
+.app-content #dashboard-widgets #postbox-container-3,
+.app-content #dashboard-widgets #postbox-container-4 {
 	float: left;
 	width: 50.5%;
 }
@@ -216,8 +216,8 @@ table.fixed td {
 	border-top: 1px solid #ddd;
 }
 
-#wpbody-content input.button,
-#wpbody-content input.button-primary {
+.app-content input.button,
+.app-content input.button-primary {
 	overflow: visible;
 }
 
@@ -238,11 +238,11 @@ table.fixed td {
 	vertical-align: middle;
 }
 
-#wpbody-content .postbox {
+.app-content .postbox {
 	border: 1px solid #ddd;
 }
 
-#wpbody-content .postbox .hndle {
+.app-content .postbox .hndle {
 	margin-bottom: -1px;
 }
 
@@ -261,19 +261,19 @@ table.fixed td {
 }
 
 /* Inline Editor */
-#wpbody-content .quick-edit-row-post .inline-edit-col-left {
+.app-content .quick-edit-row-post .inline-edit-col-left {
 	width: 39%;
 }
 
-#wpbody-content .inline-edit-row-post .inline-edit-col-center {
+.app-content .inline-edit-row-post .inline-edit-col-center {
 	width: 19%;
 }
 
-#wpbody-content .quick-edit-row-page .inline-edit-col-left {
+.app-content .quick-edit-row-page .inline-edit-col-left {
 	width: 49%;
 }
 
-#wpbody-content .bulk-edit-row .inline-edit-col-left {
+.app-content .bulk-edit-row .inline-edit-col-left {
 	width: 29%;
 }
 
@@ -292,15 +292,15 @@ table.fixed td {
 	zoom: 100%;
 }
 
-#wpbody-content .inline-edit-row fieldset label span.input-text-wrap input {
+.app-content .inline-edit-row fieldset label span.input-text-wrap input {
 	line-height: 130%;
 }
 
-#wpbody-content .inline-edit-row .input-text-wrap input {
+.app-content .inline-edit-row .input-text-wrap input {
 	width: 95%;
 }
 
-#wpbody-content .inline-edit-row .input-text-wrap input.inline-edit-password-input {
+.app-content .inline-edit-row .input-text-wrap input.inline-edit-password-input {
 	width: 8em;
 }
 /* end Inline Editor */
@@ -727,13 +727,13 @@ input[type="password"],
 	height: 300px;
 }
 
-* html #wpbody-content #screen-options-link-wrap {
+* html .app-content #screen-options-link-wrap {
 	display: inline-block;
 	width: 150px;
 	text-align: center;
 }
 
-* html #wpbody-content #contextual-help-link-wrap {
+* html .app-content #contextual-help-link-wrap {
 	display: inline-block;
 	width: 100px;
 	text-align: center;
