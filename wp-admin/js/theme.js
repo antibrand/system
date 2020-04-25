@@ -48,7 +48,7 @@ themes.Model = Backbone.Model.extend({
 // Unifies and renders all available views
 themes.view.Appearance = wp.Backbone.View.extend({
 
-	el: '#wpbody-content .wrap .theme-browser',
+	el: '#app-content .wrap .theme-browser',
 
 	window: $( window ),
 	// Pagination instance
@@ -1573,7 +1573,7 @@ themes.view.InstallerSearch =  themes.view.Search.extend({
 
 themes.view.Installer = themes.view.Appearance.extend({
 
-	el: '#wpbody-content .wrap',
+	el: '#app-content .wrap',
 
 	// Register events for sorting and filters in theme-navigation
 	events: {

@@ -221,7 +221,7 @@ wpWidgets = {
 
 				if ( chooser.length ) {
 					// Hide the chooser and move it out of the widget
-					$( '#wpbody-content' ).append( chooser.hide() );
+					$( '#app-content' ).append( chooser.hide() );
 					// Delete the cloned chooser from the drag helper
 					ui.helper.find('.widgets-chooser').remove();
 					self.clearWidgetSelection();
@@ -708,7 +708,7 @@ wpWidgets = {
 		var self = this;
 
 		$( '.widgets-chooser' ).slideUp( 200, function() {
-			$( '#wpbody-content' ).append( this );
+			$( '#app-content' ).append( this );
 			self.clearWidgetSelection();
 		});
 	},

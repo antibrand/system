@@ -4279,7 +4279,7 @@ Modal = wp.media.View.extend(/** @lends wp.media.view.Modal.prototype */{
 		if ( null !== this.clickedOpenerEl ) {
 			this.clickedOpenerEl.focus();
 		} else {
-			$( '#wpbody-content' ).focus();
+			$( '#app-content' ).focus();
 		}
 
 		this.propagate('close');

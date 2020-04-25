@@ -586,7 +586,7 @@ $document.ready( function() {
 	});
 
 	// Show row actions on keyboard focus of its parent container element or any other elements contained within
-	$( '#wpbody-content' ).on({
+	$( '#app-content' ).on({
 		focusin: function() {
 			clearTimeout( transitionTimeout );
 			focusedRowActions = $( this ).find( '.row-actions' );

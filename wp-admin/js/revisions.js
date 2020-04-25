@@ -551,7 +551,7 @@ window.wp = window.wp || {};
 			wp.Backbone.View.prototype.render.apply( this, arguments );
 
 			$('html').css( 'overflow-y', 'scroll' );
-			$('#wpbody-content .wrap').append( this.el );
+			$('#app-content .wrap').append( this.el );
 			this.updateCompareTwoMode();
 			this.renderDiff( this.model.diff() );
 			this.views.ready();
