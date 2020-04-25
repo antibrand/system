@@ -25,7 +25,7 @@ global $hook_suffix;
 					<div class="clear"></div>
 				</div><!-- wpbody-content -->
 				<div class="clear"></div>
-			</div><!-- wpbody -->
+			</main><!-- wpbody -->
 			<div class="clear">
 		</div>
 	</div><!-- .admin-page-content -->

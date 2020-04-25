@@ -234,7 +234,7 @@ $admin_body_classes = apply_filters( 'admin_body_class', '' );
 
 			get_template_part( 'backend/header/site', 'identity' ) ?>
 
-			<div id="wpbody" role="main">
+			<main id="wpbody" role="main">
 			<?php
 			unset( $title_class, $blog_name, $total_update_count, $update_title );
 
