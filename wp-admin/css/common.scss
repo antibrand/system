@@ -414,8 +414,10 @@ code {
 }
 
 .list-table-top {
+	display: -webkit-box;
 	display: flex;
-	justify-content: space-between;
+	-webkit-box-pack: justify;
+	        justify-content: space-between;
 	margin-top: 2em;
 
 	.search-box {
@@ -677,7 +679,7 @@ img.emoji {
 
 .quicktags,
 .search {
-	background-color: #ccc;
+	background-color: $pale_gray;
 	color: #000;
 	font-size: 12px;
 }
@@ -687,7 +689,6 @@ img.emoji {
 }
 
 /* @todo can we combine these into a class or use an existing dashicon one? */
-.welcome-panel .welcome-panel-close:before,
 .tagchecklist .ntdelbutton .remove-tag-icon:before,
 #bulk-titles div a:before,
 .notice-dismiss:before {
@@ -702,10 +703,6 @@ img.emoji {
 	width: 20px;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-}
-
-.welcome-panel .welcome-panel-close:before {
-	margin: 0;
 }
 
 #bulk-titles div a:before {
@@ -1890,7 +1887,7 @@ html.wp-toolbar {
 	height: 1em;
 	width: 200px;
 	text-align: center;
-	color: #ccc;
+	color: $pale_gray;
 	font-size:18px;
 	display: none;
 }
@@ -2011,7 +2008,7 @@ html.wp-toolbar {
 }
 
 .temp-border {
-	border: 1px dotted #ccc;
+	border: 1px dotted $pale_gray;
 }
 
 .columns-prefs label {
@@ -2064,7 +2061,7 @@ html.wp-toolbar {
 
 .nav-tab {
 	float: left;
-	border: 1px solid #ccc;
+	border: 1px solid $pale_gray;
 	border-bottom: none;
 	margin-left: 0.5em; /* half the font size so set the font size properly */
 	padding: 5px 10px;
@@ -2112,7 +2109,7 @@ h3 .nav-tab, /* Back-compat for pre-4.4 */
 h1.nav-tab-wrapper, /* Back-compat for pre-4.4 */
 .wrap h2.nav-tab-wrapper, /* higher specificity to override .wrap > h2:first-child */
 .nav-tab-wrapper {
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid $pale_gray;
 	margin: 1em 0 0;
 	padding-top: 9px;
 	padding-bottom: 0;
@@ -2711,7 +2708,7 @@ div.action-links {
 #plugin-information pre {
 	padding: 7px;
 	overflow: auto;
-	border: 1px solid #ccc;
+	border: 1px solid $pale_gray;
 }
 
 #plugin-information blockquote {
@@ -3071,7 +3068,7 @@ img {
 	display: block;
 	position: absolute;
 	left: 2px;
-	border-left: 1px solid #ccc;
+	border-left: 1px solid $pale_gray;
 	top: -13px;
 	bottom: 10px;
 }
@@ -3079,18 +3076,18 @@ img {
 	content: ' ';
 	position: absolute;
 	display: block;
-	border-left: 1px solid #ccc;
+	border-left: 1px solid $pale_gray;
 	left: 2px;
 	top: -5px;
 	height: 18px;
 	width: 7px;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid $pale_gray;
 }
 .tree-folder > li::after {
 	content: ' ';
 	position: absolute;
 	display: block;
-	border-left: 1px solid #ccc;
+	border-left: 1px solid $pale_gray;
 	left: 2px;
 	bottom: -7px;
 	top: 0;
@@ -3435,7 +3432,7 @@ img {
 		position: absolute;
 		top: 0;
 		right: 0;
-		background: #ccc;
+		background: $pale_gray;
 	}
 
 }
@@ -3861,7 +3858,7 @@ img {
 	h2 .nav-tab,
 	h3 .nav-tab {
 		margin: 10px 10px 0 0;
-		border-bottom: 1px solid #ccc;
+		border-bottom: 1px solid $pale_gray;
 	}
 }
 

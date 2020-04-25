@@ -1,3 +1,5 @@
+@import 'colors/_variables.scss';
+
 /* Include margin and padding in the width calculation of input and textarea. */
 input,
 textarea {
@@ -23,9 +25,8 @@ input[type="url"],
 input[type="week"],
 select,
 textarea {
-	border: 1px solid #ddd;
-	background-color: #fff;
-	color: #333;
+	background-color: inherit;
+	border: 1px solid $light_gray;
 	outline: none;
 	-webkit-transition: 0.05s border-color ease-in-out;
 	transition: 0.05s border-color ease-in-out;

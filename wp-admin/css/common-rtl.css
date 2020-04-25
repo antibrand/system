@@ -453,8 +453,8 @@ code {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
   margin-top: 2em;
 }
 
@@ -720,7 +720,7 @@ img.emoji {
 
 .quicktags,
 .search {
-  background-color: #ccc;
+  background-color: #cccccc;
   color: #000;
   font-size: 12px;
 }
@@ -730,7 +730,6 @@ img.emoji {
 }
 
 /* @todo can we combine these into a class or use an existing dashicon one? */
-.welcome-panel .welcome-panel-close:before,
 .tagchecklist .ntdelbutton .remove-tag-icon:before,
 #bulk-titles div a:before,
 .notice-dismiss:before {
@@ -745,10 +744,6 @@ img.emoji {
   width: 20px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.welcome-panel .welcome-panel-close:before {
-  margin: 0;
 }
 
 #bulk-titles div a:before {
@@ -1948,7 +1943,7 @@ html.wp-toolbar {
   height: 1em;
   width: 200px;
   text-align: center;
-  color: #ccc;
+  color: #cccccc;
   font-size: 18px;
   display: none;
 }
@@ -2072,7 +2067,7 @@ html.wp-toolbar {
 }
 
 .temp-border {
-  border: 1px dotted #ccc;
+  border: 1px dotted #cccccc;
 }
 
 .columns-prefs label {
@@ -2123,7 +2118,7 @@ html.wp-toolbar {
 ------------------------------------------------------------------------------*/
 .nav-tab {
   float: right;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
   border-bottom: none;
   margin-right: 0.5em;
   /* half the font size so set the font size properly */
@@ -2173,7 +2168,7 @@ h3 .nav-tab,
 h1.nav-tab-wrapper,
 .wrap h2.nav-tab-wrapper,
 .nav-tab-wrapper {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #cccccc;
   margin: 1em 0 0;
   padding-top: 9px;
   padding-bottom: 0;
@@ -2790,7 +2785,7 @@ div.action-links {
 #plugin-information pre {
   padding: 7px;
   overflow: auto;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
 }
 
 #plugin-information blockquote {
@@ -3159,7 +3154,7 @@ img {
   display: block;
   position: absolute;
   right: 2px;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid #cccccc;
   top: -13px;
   bottom: 10px;
 }
@@ -3168,19 +3163,19 @@ img {
   content: ' ';
   position: absolute;
   display: block;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid #cccccc;
   right: 2px;
   top: -5px;
   height: 18px;
   width: 7px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #cccccc;
 }
 
 .tree-folder > li::after {
   content: ' ';
   position: absolute;
   display: block;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid #cccccc;
   right: 2px;
   bottom: -7px;
   top: 0;
@@ -3533,7 +3528,7 @@ img {
     position: absolute;
     top: 0;
     left: 0;
-    background: #ccc;
+    background: #cccccc;
   }
 }
 
@@ -3904,7 +3899,7 @@ img {
   h2 .nav-tab,
   h3 .nav-tab {
     margin: 10px 0 0 10px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #cccccc;
   }
 }
 

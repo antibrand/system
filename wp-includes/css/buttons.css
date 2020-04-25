@@ -1,3 +1,10 @@
+/**
+ * SASS/SCSS color variables
+ *
+ * Assign default value to all undefined variables.
+ *
+ * @link https://sass-lang.com/documentation/variables
+ */
 /* ----------------------------------------------------------------------------
 
 NOTE: If you edit this file, you should make sure that the CSS rules for
@@ -112,7 +119,7 @@ TABLE OF CONTENTS:
   font-weight: bold;
   font-weight: 700;
   color: inherit;
-  border: solid 1px #888;
+  border: solid 1px #888888;
 }
 
 .app-core-ui p .button {
@@ -125,14 +132,14 @@ TABLE OF CONTENTS:
 .app-core-ui .button.focus,
 .app-core-ui .button:focus,
 .app-core-ui .button-secondary:focus {
-  background: #ccc;
+  background: #cccccc;
 }
 
 .app-core-ui .button.active,
 .app-core-ui .button.active:hover,
 .app-core-ui .button:active,
 .app-core-ui .button-secondary:active {
-  background: #ccc;
+  background: #cccccc;
 }
 
 .app-core-ui .button[disabled],
@@ -197,14 +204,14 @@ TABLE OF CONTENTS:
 .app-core-ui .button-primary:hover,
 .app-core-ui .button-primary.focus,
 .app-core-ui .button-primary:focus {
-  background: #ccc;
+  background: #cccccc;
 }
 
 .app-core-ui .button-primary.active,
 .app-core-ui .button-primary.active:hover,
 .app-core-ui .button-primary.active:focus,
 .app-core-ui .button-primary:active {
-  background: #aeaeae;
+  background: #888888;
   vertical-align: top;
 }
 
