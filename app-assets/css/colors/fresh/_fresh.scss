@@ -1,10 +1,10 @@
 
-@import '_fresh-variables';
-@import '_fresh-mixins';
+@import '_fresh-variables.scss';
+@import '_fresh-mixins.scss';
 
 
 body {
-	background: $body-background;
+	background: $body_background;
 }
 
 
@@ -16,7 +16,7 @@ a {
 	&:hover,
 	&:active,
 	&:focus {
-		color: $link-focus;
+		color: $link_action;
 	}
 }
 
@@ -24,7 +24,7 @@ a {
 div.dashboard-widget-submit input:hover,
 .subsubsub a:hover,
 .subsubsub a.current:hover {
-	color: $link-focus;
+	color: $link_action;
 }
 
 
@@ -40,7 +40,7 @@ input[type=radio]:checked:before {
 
 .app-core-ui input[type="reset"]:hover,
 .app-core-ui input[type="reset"]:active {
-	color: $link-focus;
+	color: $link_action;
 }
 
 
@@ -52,11 +52,11 @@ input[type=radio]:checked:before {
 	}
 
 	.wp-ui-primary {
-		color: $text-color;
-		background-color: $base-color;
+		color: $menu_text_color;
+		background-color: $menu_base_color;
 	}
 	.wp-ui-text-primary {
-		color: $base-color;
+		color: $menu_base_color;
 	}
 
 	.wp-ui-highlight {
@@ -87,7 +87,7 @@ input[type=radio]:checked:before {
 .wrap .page-title-action:hover,
 .tablenav .tablenav-pages a:hover,
 .tablenav .tablenav-pages a:focus {
-	color: $menu-text;
+	color: $menu_text_color;
 	background-color: $menu-background;
 }
 
@@ -109,7 +109,7 @@ input[type=radio]:checked:before {
 }
 
 #adminmenu a {
-	color: $menu-text;
+	color: $menu_text_color;
 }
 
 #adminmenu div.wp-menu-image:before {
@@ -135,8 +135,8 @@ input[type=radio]:checked:before {
 .about-wrap h2 .nav-tab-active,
 .nav-tab-active,
 .nav-tab-active:hover {
-	background-color: $body-background;
-	border-bottom-color: $body-background;
+	background-color: $body_background;
+	border-bottom-color: $body_background;
 }
 
 
@@ -185,7 +185,7 @@ input[type=radio]:checked:before {
 
 ul#adminmenu a.wp-has-current-submenu:after,
 ul#adminmenu > li.current > a.current:after {
-    border-right-color: $body-background;
+    border-right-color: $body_background;
 }
 
 #adminmenu li.current a.menu-top,
@@ -239,7 +239,7 @@ ul#adminmenu > li.current > a.current:after {
 /* Admin Bar */
 
 #wpadminbar {
-	color: $menu-text;
+	color: $menu_text_color;
 	background: $menu-background;
 }
 
@@ -247,7 +247,7 @@ ul#adminmenu > li.current > a.current:after {
 #wpadminbar a.ab-item,
 #wpadminbar > #wp-toolbar span.ab-label,
 #wpadminbar > #wp-toolbar span.noticon {
-	color: $menu-text;
+	color: $menu_text_color;
 }
 
 #wpadminbar .ab-icon,
@@ -346,7 +346,7 @@ ul#adminmenu > li.current > a.current:after {
 }
 
 #wpadminbar > #wp-toolbar > #wp-admin-bar-top-secondary > #wp-admin-bar-search #adminbarsearch input.adminbar-input:focus {
-	color: $menu-text;
+	color: $menu_text_color;
 	background: $adminbar-input-background;
 }
 
@@ -358,7 +358,7 @@ ul#adminmenu > li.current > a.current:after {
 }
 
 #wpadminbar #wp-admin-bar-user-info .display-name {
-	color: $menu-text;
+	color: $menu_text_color;
 }
 
 #wpadminbar #wp-admin-bar-user-info a:hover .display-name {
@@ -431,12 +431,12 @@ ul#adminmenu > li.current > a.current:after {
 }
 
 body.more-filters-opened .more-filters {
-	color: $menu-text;
+	color: $menu_text_color;
 	background-color: $menu-background;
 }
 
 body.more-filters-opened .more-filters:before {
-	color: $menu-text;
+	color: $menu_text_color;
 }
 
 body.more-filters-opened .more-filters:hover,

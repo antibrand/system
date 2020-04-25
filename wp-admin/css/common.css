@@ -1,7 +1,8 @@
 /**
  * SASS/SCSS color variables
  *
- * Assign default value to all undefined variables.
+ * Assign default value to all undefined variables,
+ * pure white and pure black excepted.
  *
  * @link https://sass-lang.com/documentation/variables
  */
@@ -196,7 +197,7 @@ td {
 
 /* Any change to the default link style must be applied to button-link too. */
 a {
-  color: #0073aa;
+  color: #115599;
   -webkit-transition-property: border, background, color;
   transition-property: border, background, color;
   -webkit-transition-duration: .05s;
@@ -205,14 +206,8 @@ a {
   transition-timing-function: ease-in-out;
 }
 
-a,
-div {
-  outline: 0;
-}
-
-a:hover,
-a:active {
-  color: #00a0d2;
+a:hover, a:focus {
+  color: #166fc7;
 }
 
 a:focus,
@@ -369,7 +364,7 @@ code {
 
 .subsubsub li.list-table-add-new button {
   border: none;
-  color: #0073aa;
+  color: #115599;
 }
 
 .subsubsub a {
@@ -708,7 +703,7 @@ img.emoji {
 .tagchecklist .ntdelbutton:focus .remove-tag-icon:before,
 #bulk-titles div a:hover:before,
 #bulk-titles div a:focus:before {
-  color: #c00;
+  color: #dd0000;
 }
 
 .tagchecklist .ntdelbutton:focus .remove-tag-icon:before {
@@ -781,7 +776,7 @@ span.required,
 #media-items a.delete-permanently:hover,
 #nav-menu-footer .menu-delete:hover,
 #delete-link a.delete:hover {
-  color: #dc3232;
+  color: #dd0000;
   border: none;
 }
 
@@ -1254,8 +1249,7 @@ th.action-links {
 .notice,
 div.updated,
 div.error {
-  background: #fff;
-  border-left: 4px solid #fff;
+  border-left: 4px solid transparent;
   -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
   margin: 5px 15px 2px;
@@ -1312,58 +1306,32 @@ div.error p,
   margin: 0;
   padding: 9px;
   background: none;
-  color: #72777c;
+  color: #888888;
   cursor: pointer;
 }
 
 .notice-dismiss:hover:before,
 .notice-dismiss:active:before,
 .notice-dismiss:focus:before {
-  color: #c00;
-}
-
-.notice-dismiss:focus {
-  outline: none;
-  -webkit-box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
-          box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
-}
-
-.ie8 .notice-dismiss:focus {
-  outline: 1px solid #5b9dd9;
+  color: #dd0000;
 }
 
 .notice-success,
 div.updated {
-  border-left-color: #46b450;
-}
-
-.notice-success.notice-alt {
-  background-color: #ecf7ed;
+  border-left-color: #44aa11;
 }
 
 .notice-warning {
-  border-left-color: #ffb900;
-}
-
-.notice-warning.notice-alt {
-  background-color: #fff8e5;
+  border-left-color: #ffbb00;
 }
 
 .notice-error,
 div.error {
-  border-left-color: #dc3232;
-}
-
-.notice-error.notice-alt {
-  background-color: #fbeaea;
+  border-left-color: #dd0000;
 }
 
 .notice-info {
-  border-left-color: #00a0d2;
-}
-
-.notice-info.notice-alt {
-  background-color: #e5f5fa;
+  border-left-color: #ee6600;
 }
 
 .update-message p:before,
@@ -1434,7 +1402,7 @@ div.error {
 
 /* Error icon. */
 .update-message.notice-error p:before {
-  color: #dc3232;
+  color: #dd0000;
   content: "\f534";
 }
 
@@ -2201,7 +2169,7 @@ table .column-rating {
 
 .attention,
 .error-message {
-  color: #dc3232;
+  color: #dd0000;
   font-weight: 600;
 }
 
@@ -2389,7 +2357,7 @@ div.star-holder .star-rating {
   -webkit-transition: color .1s ease-in 0;
   transition: color .1s ease-in 0;
   text-align: center;
-  color: #ffb900;
+  color: #ffbb00;
 }
 
 .star-rating .star-full:before {

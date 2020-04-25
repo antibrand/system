@@ -1,31 +1,5 @@
-#adminmenuback,
-#adminmenuwrap,
-#adminmenu,
-#adminmenu .wp-submenu {
-	width: 160px;
-	background-color: #222;
-}
-
-#adminmenuback {
-	position: fixed;
-	top: 0;
-	bottom: -120px;
-	z-index: 1; /* positive z-index to avoid elastic scrolling woes in Safari */
-}
-
-#adminmenu {
-	clear: right;
-	margin: 12px 0;
-	padding: 0;
-	list-style: none;
-}
-
-.folded #adminmenuback,
-.folded #adminmenuwrap,
-.folded #adminmenu,
-.folded #adminmenu li.menu-top {
-	width: 36px;
-}
+@import '../../app-assets/css/_vars-typography.scss';
+@import '../../app-assets/css/colors/_variables.scss';
 
 .icon16 {
 	height: 18px;
@@ -35,10 +9,8 @@
 	float: right;
 }
 
-/* New Menu icons */
-
 .icon16:before {
-	color: #82878c; /* same as new icons */
+	color: $light_gray;
 	font: normal 20px/1 dashicons;
 	speak: none;
 	padding: 6px 0;
@@ -137,18 +109,39 @@
   7.0 - Main Navigation (Left Menu)
 ------------------------------------------------------------------------------*/
 
+#adminmenuback,
+#adminmenuwrap,
+#adminmenu,
+#adminmenu .wp-submenu {
+	width: 160px;
+	background-color: $menu_base_color;
+}
+
+.folded #adminmenuback,
+.folded #adminmenuwrap,
+.folded #adminmenu,
+.folded #adminmenu li.menu-top {
+	width: 36px;
+}
+
+#adminmenuback {
+	position: fixed;
+	top: 0;
+	bottom: -120px;
+	z-index: 1; /* positive z-index to avoid elastic scrolling woes in Safari */
+}
+
 #adminmenuwrap {
 	position: relative;
 	float: right;
 	z-index: 9990;
 }
 
-/* side admin menu */
-#adminmenu * {
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+#adminmenu {
+	clear: right;
+	margin: 12px 0;
+	padding: 0;
+	list-style: none;
 }
 
 #adminmenu li {

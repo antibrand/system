@@ -1,7 +1,8 @@
 /**
  * SASS/SCSS color variables
  *
- * Assign default value to all undefined variables.
+ * Assign default value to all undefined variables,
+ * pure white and pure black excepted.
  *
  * @link https://sass-lang.com/documentation/variables
  */
@@ -15,18 +16,18 @@ body {
 
 /* Links */
 a {
-  color: #0073aa;
+  color: #115599;
 }
 
 a:hover, a:active, a:focus {
-  color: #0096dd;
+  color: #166fc7;
 }
 
 #media-upload a.del-link:hover,
 div.dashboard-widget-submit input:hover,
 .subsubsub a:hover,
 .subsubsub a.current:hover {
-  color: #0096dd;
+  color: #166fc7;
 }
 
 /* Forms */
@@ -40,7 +41,7 @@ input[type=radio]:checked:before {
 
 .app-core-ui input[type="reset"]:hover,
 .app-core-ui input[type="reset"]:active {
-  color: #0096dd;
+  color: #166fc7;
 }
 
 /* Core UI */

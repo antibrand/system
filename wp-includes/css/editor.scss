@@ -1,7 +1,7 @@
 /*------------------------------------------------------------------------------
  TinyMCE and Quicklinks toolbars
 ------------------------------------------------------------------------------*/
-@import '../../wp-admin/css/colors/_variables.scss';
+@import '../../app-assets/css/colors/_variables.scss';
 
 /* TinyMCE widgets/containers */
 
@@ -487,7 +487,7 @@ div.mce-path {
 .mce-toolbar .mce-btn-group .mce-btn.mce-primary {
 	min-width: 0;
 	background: #0085ba;
-	border-color: #0073aa #006799 #006799;
+	border-color: $link #006799 #006799;
 	box-shadow: 0 1px 0 #006799;
 	color: #fff;
 	text-decoration: none;
@@ -515,7 +515,7 @@ div.mce-path {
 }
 
 .mce-toolbar .mce-btn-group .mce-btn.mce-primary:active {
-	background: #0073aa;
+	background: $link;
 	border-color: #006799;
 	box-shadow: inset 0 2px 0 #006799;
 }
@@ -573,7 +573,7 @@ div.mce-path {
 .mce-menu .mce-menu-item:focus,
 .mce-menu .mce-menu-item-normal.mce-active,
 .mce-menu .mce-menu-item-preview.mce-active {
-	background: #0073aa; /* See color scheme. */
+	background: $link; /* See color scheme. */
 	color: #fff;
 }
 
@@ -711,7 +711,7 @@ div.mce-menu .mce-menu-item-sep,
 
 .mce-window .mce-btn.mce-primary {
 	background: #0085ba;
-	border-color: #0073aa #006799 #006799;
+	border-color: $link #006799 #006799;
 	box-shadow: 0 1px 0 #006799;
 	color: #fff;
 	text-decoration: none;
@@ -729,12 +729,12 @@ div.mce-menu .mce-menu-item-sep,
 }
 
 .mce-window .mce-btn.mce-primary:focus {
-	box-shadow: 0 1px 0 #0073aa,
+	box-shadow: 0 1px 0 $link,
 		0 0 2px 1px #33b3db;
 }
 
 .mce-window .mce-btn.mce-primary:active {
-	background: #0073aa;
+	background: $link;
 	border-color: #006799;
 	box-shadow: inset 0 2px 0 #006799;
 	vertical-align: top;
@@ -1145,7 +1145,7 @@ i.mce-i-wp_code:before {
 .tmce-active .switch-tmce,
 .html-active .switch-html {
 	background: #f5f5f5;
-	color: $text;
+	color: $text_color;
 	border-bottom-color: #f5f5f5;
 }
 
@@ -1727,7 +1727,7 @@ div.wp-link-preview {
 }
 
 div.wp-link-preview a {
-	color: #0073aa;
+	color: $link;
 	text-decoration: underline;
 	transition-property: border, background, color;
 	transition-duration: .05s;
@@ -1736,7 +1736,7 @@ div.wp-link-preview a {
 }
 
 div.wp-link-preview a.wplink-url-error {
-	color: #dc3232;
+	color: $app_red;
 }
 
 div.wp-link-input {

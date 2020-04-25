@@ -1,6 +1,5 @@
-/**
- * Base Styles
- */
+@import '../../app-assets/css/colors/_variables.scss';
+
 .media-modal * {
 	box-sizing: content-box;
 }
@@ -30,7 +29,7 @@
 
 .media-frame a {
 	border-bottom: none;
-	color: #0073aa;
+	color: $link;
 }
 
 .media-frame a:hover,
@@ -495,12 +494,12 @@
 	margin: 0;
 	line-height: 18px;
 	font-size: 14px;
-	color: #0073aa;
+	color: $link;
 	text-decoration: none;
 }
 
 .media-menu > a:hover {
-	color: #0073aa;
+	color: $link;
 	background: rgba( 0, 0, 0, 0.04 );
 }
 
@@ -791,7 +790,7 @@
 .app-core-ui .attachment.details {
 	box-shadow:
 		inset 0 0 0 3px #fff,
-		inset 0 0 0 7px #0073aa;
+		inset 0 0 0 7px $link;
 }
 
 .app-core-ui .attachment-preview {
@@ -952,10 +951,10 @@
 .app-core-ui .attachment.details .check,
 .app-core-ui .attachment.selected .check:focus,
 .app-core-ui .media-frame.mode-grid .attachment.selected .check {
-	background-color: #0073aa;
+	background-color: $link;
 	box-shadow:
 		0 0 0 1px #fff,
-		0 0 0 2px #0073aa;
+		0 0 0 2px $link;
 }
 
 .app-core-ui .attachment.details .check .media-modal-icon,
@@ -1088,7 +1087,7 @@
 	height: 10px;
 	min-width: 20px;
 	width: 0;
-	background: #0073aa;
+	background: $link;
 	border-radius: 10px;
 	transition: width 300ms;
 }
@@ -1171,14 +1170,14 @@
 
 .media-sidebar .media-uploader-status .upload-dismiss-errors:hover:before,
 .media-sidebar .media-uploader-status .upload-dismiss-errors:focus:before {
-	color: #c00;
+	color: $app_red;
 }
 
 .upload-errors .upload-error {
 	padding: 12px;
 	margin-bottom: 12px;
 	background: #fff;
-	border-right: 4px solid #dc3232;
+	border-right: 4px solid $app_red;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -1359,7 +1358,7 @@
 	margin: 1px -8px 1px 8px;
 	line-height: 16px;
 	border-left: 1px solid #ddd;
-	color: #0073aa;
+	color: $link;
 	text-decoration: none;
 }
 
@@ -1379,7 +1378,7 @@
 
 .selection-info .clear-selection:hover,
 .selection-info .clear-selection:focus {
-	color: #dc3232;
+	color: $app_red;
 }
 
 .media-selection .selection-view {
@@ -1433,7 +1432,7 @@
 .app-core-ui .media-selection .attachment.details {
 	box-shadow:
 		0 0 0 1px #fff,
-		0 0 0 3px #0073aa;
+		0 0 0 3px $link;
 }
 
 .media-selection:after {
@@ -1599,7 +1598,7 @@
 .media-modal .trash-attachment:focus,
 .media-modal .untrash-attachment:hover,
 .media-modal .untrash-attachment:focus {
-	color: #dc3232;
+	color: $app_red;
 }
 
 /**
@@ -2222,7 +2221,7 @@
 	}
 
 	.media-frame:not(.hide-menu) .media-frame-title h1 {
-		color: #0073aa;
+		color: $link;
 		line-height: 3;
 		font-size: 18px;
 		float: right;

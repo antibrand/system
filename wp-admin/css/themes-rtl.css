@@ -1,6 +1,11 @@
-/*------------------------------------------------------------------------------
-  16.0 - Themes
-------------------------------------------------------------------------------*/
+/**
+ * SASS/SCSS color variables
+ *
+ * Assign default value to all undefined variables,
+ * pure white and pure black excepted.
+ *
+ * @link https://sass-lang.com/documentation/variables
+ */
 /*------------------------------------------------------------------------------
   16.1 - Manage Themes
 ------------------------------------------------------------------------------*/
@@ -348,14 +353,14 @@ body.js .theme-browser.search-loading {
 .theme-browser .theme.add-new-theme a:hover span:after,
 .theme-browser .theme.add-new-theme a:focus span:after {
   background: #fff;
-  color: #0073aa;
+  color: #115599;
 }
 
 .theme-browser .theme.add-new-theme a:hover:after,
 .theme-browser .theme.add-new-theme a:focus:after {
   border-color: transparent;
   color: #fff;
-  background: #0073aa;
+  background: #115599;
   content: "";
 }
 
@@ -1002,7 +1007,7 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 ------------------------------------------------------------------------------*/
 /* Already installed theme */
 .theme-browser .theme .theme-installed {
-  background: #0073aa;
+  background: #115599;
 }
 
 .theme-browser .theme .notice-success p:before {
@@ -1528,7 +1533,7 @@ body.full-overlay-active {
 
 .app-core-ui .wp-full-overlay .collapse-sidebar:hover,
 .app-core-ui .wp-full-overlay .collapse-sidebar:focus {
-  color: #0073aa;
+  color: #115599;
 }
 
 .wp-full-overlay .collapse-sidebar-arrow,
@@ -1675,7 +1680,7 @@ body.full-overlay-active {
 
 .wp-full-overlay-footer .devices button:focus,
 .wp-full-overlay-footer .devices button.active:hover {
-  border-bottom-color: #0073aa;
+  border-bottom-color: #115599;
 }
 
 .wp-full-overlay-footer .devices button.active:before {
@@ -1684,7 +1689,7 @@ body.full-overlay-active {
 
 .wp-full-overlay-footer .devices button:hover:before,
 .wp-full-overlay-footer .devices button:focus:before {
-  color: #0073aa;
+  color: #115599;
 }
 
 .wp-full-overlay-footer .devices .preview-desktop:before {

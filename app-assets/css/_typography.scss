@@ -9,7 +9,7 @@ body {
 	font-family: $sans;
 	font-size: $px16;
 	line-height: 1.4em;
-	color: $text;
+	color: $text_color;
 
 	@supports( font-variation-settings: normal ) {
 		font-family: $inter;

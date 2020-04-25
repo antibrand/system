@@ -1,33 +1,25 @@
-#adminmenuback,
-#adminmenuwrap,
-#adminmenu,
-#adminmenu .wp-submenu {
-  width: 160px;
-  background-color: #222;
-}
-
-#adminmenuback {
-  position: fixed;
-  top: 0;
-  bottom: -120px;
-  z-index: 1;
-  /* positive z-index to avoid elastic scrolling woes in Safari */
-}
-
-#adminmenu {
-  clear: left;
-  margin: 12px 0;
-  padding: 0;
-  list-style: none;
-}
-
-.folded #adminmenuback,
-.folded #adminmenuwrap,
-.folded #adminmenu,
-.folded #adminmenu li.menu-top {
-  width: 36px;
-}
-
+/**
+  * Font sizes
+  *
+  * The font size variables presume a browser default of 16px,
+  * in which case the variable number is equivelent to a px number.
+  *
+  * SASS can't have variables beginning with a numeral.
+  */
+/**
+ * Font stack variables
+ *
+ * The $sans and $serif stacks are default. The $inter and $crimson
+ * stacks are used in @supports( font-variation-settings ) queries.
+ */
+/**
+ * SASS/SCSS color variables
+ *
+ * Assign default value to all undefined variables,
+ * pure white and pure black excepted.
+ *
+ * @link https://sass-lang.com/documentation/variables
+ */
 .icon16 {
   height: 18px;
   width: 18px;
@@ -36,10 +28,8 @@
   float: left;
 }
 
-/* New Menu icons */
 .icon16:before {
-  color: #82878c;
-  /* same as new icons */
+  color: #888888;
   font: normal 20px/1 dashicons;
   speak: none;
   padding: 6px 0;
@@ -136,20 +126,44 @@
 }
 
 /*------------------------------------------------------------------------------
-  7.0 - Main Navigation (Left Menu)
+  7.0 - Main Navigation
 ------------------------------------------------------------------------------*/
+#adminmenuback,
+#adminmenuwrap,
+#adminmenu,
+#adminmenu .wp-submenu {
+  width: 160px;
+  background-color: #222;
+}
+
+.folded #adminmenuback,
+.folded #adminmenuwrap,
+.folded #adminmenu,
+.folded #adminmenu li.menu-top {
+  width: 36px;
+}
+
+#adminmenuback {
+  position: fixed;
+  top: 0;
+  bottom: -120px;
+  z-index: 1;
+  /* positive z-index to avoid elastic scrolling woes in Safari */
+}
+
 #adminmenuwrap {
   position: relative;
   float: left;
   z-index: 9990;
 }
 
-/* side admin menu */
-#adminmenu * {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+#adminmenu {
+  clear: left;
+  margin: 12px 0;
+  padding: 0;
+  list-style: none;
+  /* ensure that wp-submenu's box shadow doesn't appear
+	on top of the focused menu item's background. */
 }
 
 #adminmenu li {
@@ -162,24 +176,24 @@
   display: block;
   line-height: 18px;
   padding: 2px 5px;
-  color: #eee;
+  color: #ffffff;
 }
 
 #adminmenu .wp-submenu a {
-  color: #b4b9be;
-  color: rgba(240, 245, 250, 0.7);
+  color: #ffffff;
+  opacity: 0.7;
 }
 
-#adminmenu .wp-submenu a:hover,
-#adminmenu .wp-submenu a:focus {
+#adminmenu .wp-submenu a:hover, #adminmenu .wp-submenu a:focus {
   background: none;
+  opacity: 1;
 }
 
 #adminmenu a:hover,
 #adminmenu li.menu-top > a:focus,
 #adminmenu .wp-submenu a:hover,
 #adminmenu .wp-submenu a:focus {
-  background: #333;
+  background: #333333;
 }
 
 #adminmenu li.menu-top {
@@ -195,6 +209,13 @@
   left: 160px;
   overflow: visible;
   word-wrap: break-word;
+}
+
+#adminmenu #adminmenu li.menu-top:hover,
+#adminmenu #adminmenu li > a.menu-top:focus {
+  position: relative;
+  background-color: #191e23;
+  color: #00b9eb;
 }
 
 #adminmenu .wp-submenu,
@@ -229,14 +250,6 @@
   -webkit-box-shadow: none;
           box-shadow: none;
   background-color: #333;
-}
-
-/* ensure that wp-submenu's box shadow doesn't appear on top of the focused menu item's background. */
-#adminmenu li.menu-top:hover,
-#adminmenu li > a.menu-top:focus {
-  position: relative;
-  background-color: #191e23;
-  color: #00b9eb;
 }
 
 .folded #adminmenu li.menu-top:hover,
@@ -289,6 +302,7 @@
 #adminmenu .wp-submenu li.current a:hover,
 #adminmenu .wp-submenu li.current a:focus {
   color: #fff;
+  opacity: 1;
 }
 
 #adminmenu .wp-not-current-submenu li > a,

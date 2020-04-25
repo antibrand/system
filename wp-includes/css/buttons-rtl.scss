@@ -1,4 +1,4 @@
-@import '../../wp-admin/css/colors/_variables.scss';
+@import '../../app-assets/css/colors/_variables.scss';
 
 /* ----------------------------------------------------------------------------
 
@@ -177,7 +177,7 @@ TABLE OF CONTENTS:
 	cursor: pointer;
 	text-align: right;
 	/* Mimics the default link style in common.css */
-	color: #0073aa;
+	color: $link;
 	text-decoration: underline;
 }
 
@@ -196,7 +196,7 @@ TABLE OF CONTENTS:
 
 .app-core-ui .button-link-delete:hover,
 .app-core-ui .button-link-delete:focus {
-	color: #dc3232;
+	color: $app_red;
 }
 
 .ie8 .app-core-ui .button-link:focus {
@@ -234,7 +234,7 @@ TABLE OF CONTENTS:
 .app-core-ui .button-primary:disabled,
 .app-core-ui .button-primary-disabled,
 .app-core-ui .button-primary.disabled {
-	color: $light_gray888 !important;
+	color: $light_gray !important;
 	background: $light_gray !important;
 	cursor: default;
 }

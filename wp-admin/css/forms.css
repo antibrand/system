@@ -1,7 +1,8 @@
 /**
  * SASS/SCSS color variables
  *
- * Assign default value to all undefined variables.
+ * Assign default value to all undefined variables,
+ * pure white and pure black excepted.
  *
  * @link https://sass-lang.com/documentation/variables
  */
@@ -247,7 +248,7 @@ textarea[readonly] {
 
 .form-invalid input, .form-invalid input:focus,
 .form-invalid select, .form-invalid select:focus {
-  border-color: #dc3232 !important;
+  border-color: #dd0000 !important;
   -webkit-box-shadow: 0 0 2px rgba(204, 0, 0, 0.8);
           box-shadow: 0 0 2px rgba(204, 0, 0, 0.8);
 }
@@ -255,7 +256,7 @@ textarea[readonly] {
 .form-table .form-required.form-invalid td:after {
   content: "\f534";
   font: normal 20px/1 dashicons;
-  color: #dc3232;
+  color: #dd0000;
   margin-left: -25px;
   vertical-align: middle;
 }
@@ -268,7 +269,7 @@ textarea[readonly] {
 .form-table .form-required.user-pass1-wrap.form-invalid .password-input-wrapper:after {
   content: '\f534';
   font: normal 20px/1 dashicons;
-  color: #dc3232;
+  color: #dd0000;
   margin: 0 6px 0 -29px;
   vertical-align: middle;
 }

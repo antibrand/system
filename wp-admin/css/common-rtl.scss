@@ -1,4 +1,4 @@
-@import 'colors/_variables.scss';
+@import '../../app-assets/css/colors/_variables.scss';
 
 /* inner 2 column liquid layout */
 
@@ -190,23 +190,18 @@ td {
 
 /* Any change to the default link style must be applied to button-link too. */
 a {
-	color: #0073aa;
+	color: $link;
 	-webkit-transition-property: border, background, color;
 	transition-property: border, background, color;
 	-webkit-transition-duration: .05s;
 	        transition-duration: .05s;
 	-webkit-transition-timing-function: ease-in-out;
-	        transition-timing-function: ease-in-out;
-}
+			transition-timing-function: ease-in-out;
 
-a,
-div {
-	outline: 0;
-}
-
-a:hover,
-a:active {
-	color: #00a0d2;
+	&:hover,
+	&:focus {
+		color: $link_action;
+	}
 }
 
 a:focus,
@@ -696,7 +691,7 @@ img.emoji {
 .tagchecklist .ntdelbutton:focus .remove-tag-icon:before,
 #bulk-titles div a:hover:before,
 #bulk-titles div a:focus:before {
-	color: #c00;
+	color: $app_red;
 }
 
 .tagchecklist .ntdelbutton:focus .remove-tag-icon:before {
@@ -768,7 +763,7 @@ span.required,
 #media-items a.delete-permanently:hover,
 #nav-menu-footer .menu-delete:hover,
 #delete-link a.delete:hover {
-	color: #dc3232;
+	color: $app_red;
 	border: none;
 }
 
@@ -1234,8 +1229,7 @@ th.action-links {
 .notice,
 div.updated,
 div.error {
-	background: #fff;
-	border-right: 4px solid #fff;
+	border-right: 4px solid transparent;
 	box-shadow: 0 1px 1px 0 rgba( 0, 0, 0, 0.1 );
 	margin: 5px 15px 2px;
 	padding: 1px 12px;
@@ -1289,59 +1283,33 @@ div.error p,
 	margin: 0;
 	padding: 9px;
 	background: none;
-	color: #72777c;
+	color: $light_gray;
 	cursor: pointer;
 }
 
 .notice-dismiss:hover:before,
 .notice-dismiss:active:before,
 .notice-dismiss:focus:before {
-	color: #c00;
-}
-
-.notice-dismiss:focus {
-	outline: none;
-	box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, .8);
-}
-
-.ie8 .notice-dismiss:focus {
-	outline: 1px solid #5b9dd9;
+	color: $app_red;
 }
 
 .notice-success,
 div.updated {
-	border-right-color: #46b450;
-}
-
-.notice-success.notice-alt {
-	background-color: #ecf7ed;
+	border-left-color: $app_green;
 }
 
 .notice-warning {
-	border-right-color: #ffb900;
-}
-
-.notice-warning.notice-alt {
-	background-color: #fff8e5;
+	border-left-color: $app_yellow;
 }
 
 .notice-error,
 div.error {
-	border-right-color: #dc3232;
-}
-
-.notice-error.notice-alt {
-	background-color: #fbeaea;
+	border-left-color: $app_red;
 }
 
 .notice-info {
-	border-right-color: #00a0d2;
+	border-left-color: $app_orange;
 }
-
-.notice-info.notice-alt {
-	background-color: #e5f5fa;
-}
-
 .update-message p:before,
 .updating-message p:before,
 .updated-message p:before,
@@ -1410,7 +1378,7 @@ div.error {
 
 /* Error icon. */
 .update-message.notice-error p:before {
-	 color: #dc3232;
+	 color: $app_red;
 	 content: "\f534";
 }
 
@@ -2169,7 +2137,7 @@ table .column-rating {
 
 .attention,
 .error-message {
-	color: #dc3232;
+	color: $app_red;
 	font-weight: 600;
 }
 
@@ -2353,7 +2321,7 @@ div.star-holder .star-rating {
 	-webkit-transition: color .1s ease-in 0;
 	transition: color .1s ease-in 0;
 	text-align: center;
-	color: #ffb900;
+	color: $app_yellow;
 }
 
 .star-rating .star-full:before {

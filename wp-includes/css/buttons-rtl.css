@@ -1,7 +1,8 @@
 /**
  * SASS/SCSS color variables
  *
- * Assign default value to all undefined variables.
+ * Assign default value to all undefined variables,
+ * pure white and pure black excepted.
  *
  * @link https://sass-lang.com/documentation/variables
  */
@@ -121,7 +122,7 @@ TABLE OF CONTENTS:
   font-weight: bold;
   font-weight: 700;
   color: inherit;
-  border: solid 1px #888;
+  border: solid 1px #888888;
 }
 
 .app-core-ui p .button {
@@ -134,14 +135,14 @@ TABLE OF CONTENTS:
 .app-core-ui .button.focus,
 .app-core-ui .button:focus,
 .app-core-ui .button-secondary:focus {
-  background: #ccc;
+  background: #888888;
 }
 
 .app-core-ui .button.active,
 .app-core-ui .button.active:hover,
 .app-core-ui .button:active,
 .app-core-ui .button-secondary:active {
-  background: #ccc;
+  background: #888888;
 }
 
 .app-core-ui .button[disabled],
@@ -171,7 +172,7 @@ TABLE OF CONTENTS:
   cursor: pointer;
   text-align: right;
   /* Mimics the default link style in common.css */
-  color: #0073aa;
+  color: #115599;
   text-decoration: underline;
 }
 
@@ -190,7 +191,7 @@ TABLE OF CONTENTS:
 
 .app-core-ui .button-link-delete:hover,
 .app-core-ui .button-link-delete:focus {
-  color: #dc3232;
+  color: #dd0000;
 }
 
 .ie8 .app-core-ui .button-link:focus {
@@ -208,14 +209,14 @@ TABLE OF CONTENTS:
 .app-core-ui .button-primary:hover,
 .app-core-ui .button-primary.focus,
 .app-core-ui .button-primary:focus {
-  background: #ccc;
+  background: #888888;
 }
 
 .app-core-ui .button-primary.active,
 .app-core-ui .button-primary.active:hover,
 .app-core-ui .button-primary.active:focus,
 .app-core-ui .button-primary:active {
-  background: #aeaeae;
+  background: #888888;
   vertical-align: top;
 }
 
@@ -224,7 +225,7 @@ TABLE OF CONTENTS:
 .app-core-ui .button-primary-disabled,
 .app-core-ui .button-primary.disabled {
   color: #888888 !important;
-  background: #cccccc !important;
+  background: #888888 !important;
   cursor: default;
 }
 

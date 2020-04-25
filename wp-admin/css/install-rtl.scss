@@ -1,6 +1,6 @@
 @import '_reset.scss';
 @import '_global.scss';
-@import 'colors/_variables.scss';
+@import '../../app-assets/css/colors/_variables.scss';
 
 @import url(forms.min.css);
 @import url(l10n.min.css);
@@ -338,7 +338,7 @@ textarea {
 }
 
 .message {
-	border-right: 4px solid #dc3232;
+	border-right: 4px solid $app_red;
 	padding: .7em .6em;
 	background-color: #fbeaea;
 }

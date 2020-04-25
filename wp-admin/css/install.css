@@ -282,7 +282,8 @@ b, strong, optgroup {
 /**
  * SASS/SCSS color variables
  *
- * Assign default value to all undefined variables.
+ * Assign default value to all undefined variables,
+ * pure white and pure black excepted.
  *
  * @link https://sass-lang.com/documentation/variables
  */
@@ -603,7 +604,7 @@ textarea {
 }
 
 .message {
-  border-left: 4px solid #dc3232;
+  border-left: 4px solid #dd0000;
   padding: .7em .6em;
   background-color: #fbeaea;
 }

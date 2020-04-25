@@ -1,13 +1,13 @@
-$base-color: #1c1c1c;
-$icon-color: #999;
-$text-color: #e5e5e5;
+$menu_base_color: #1c1c1c;
+$menu_icon_color: #999;
+$menu_text_color: #e5e5e5;
 $highlight-color: #3ad4fb;
-$notification-color: #ffee00;
+$notify_color: #ffee00;
 
-$body-background: #252525;
+$body_background: #252525;
 
 $menu-highlight-text: #fff;
-$menu-highlight-icon: $base-color;
+$menu-highlight-icon: $menu_base_color;
 $menu-highlight-background: #ffee00;
 
 $menu-bubble-text: #fff;
@@ -98,7 +98,7 @@ textarea,
 #dashboard_quick_press .drafts li time,
 #dashboard_activity .subsubsub a .count,
 #dashboard_activity .subsubsub a.current .count {
-	color: $text-color;
+	color: $menu_text_color;
 }
 
 a,
@@ -114,27 +114,27 @@ select:disabled,
 select.disabled,
 textarea:disabled,
 textarea.disabled {
-	color: $icon-color;
+	color: $menu_icon_color;
 }
 
 ::-webkit-input-placeholder {
-	color: $icon-color;
+	color: $menu_icon_color;
 }
 
 ::-moz-placeholder {
-	color: $icon-color;
+	color: $menu_icon_color;
 }
 
 :-ms-input-placeholder {
-	color: $icon-color;
+	color: $menu_icon_color;
 }
 
 ::-ms-input-placeholder {
-	color: $icon-color;
+	color: $menu_icon_color;
 }
 
 ::placeholder {
-	color: $icon-color;
+	color: $menu_icon_color;
 }
 
 /**
@@ -144,7 +144,7 @@ textarea.disabled {
 .updates-table td input,
 .widefat thead td input,
 .widefat tfoot td input {
-	border-color: $text-color;
+	border-color: $menu_text_color;
 }
 
 /**
@@ -166,7 +166,7 @@ textarea.disabled {
 #adminmenu li.menu-top:hover,
 #adminmenu li > a.menu-top:focus,
 #adminmenu li.menu-top:hover div.wp-menu-image:before {
-	color: $base-color;
+	color: $menu_base_color;
 	text-shadow: none;
 }
 
@@ -259,7 +259,7 @@ p.popular-tags,
 #contextual-help-back,
 .contextual-help-tabs .active a {
 	background: $menu-submenu-background;
-	border-color: $base-color;
+	border-color: $menu_base_color;
 }
 
 .wp-editor-container,
@@ -276,14 +276,14 @@ div.mce-statusbar,
 .wp-switch-editor,
 .quicktags-toolbar {
 	background: $menu-submenu-background !important;
-	border-color: $base-color !important;
-	color: $text-color !important;
+	border-color: $menu_base_color !important;
+	color: $menu_text_color !important;
 }
 
 .welcome-panel p,
 .mce-menubtn button,
 .mce-toolbar .mce-ico {
-	color: $text-color !important;
+	color: $menu_text_color !important;
 }
 
 .app-core-ui .button.active,
@@ -311,8 +311,8 @@ div.mce-statusbar,
 ul.add-menu-item-tabs li.tabs,
 ul.category-tabs li.tabs {
 	background: $highlight-color;
-	border-color: $base-color;
-	color: $base-color;
+	border-color: $menu_base_color;
+	color: $menu_base_color;
 }
 
 .mce-toolbar .mce-btn button:hover,
@@ -320,8 +320,8 @@ ul.category-tabs li.tabs {
 .html-active .switch-html,
 .tmce-active .switch-tmce {
 	background: $highlight-color !important;
-	border-color: $base-color !important;
-	color: $base-color !important;
+	border-color: $menu_base_color !important;
+	color: $menu_base_color !important;
 }
 
 .striped > tbody > :nth-child(2n+1),
@@ -332,12 +332,12 @@ ul.striped > :nth-child(2n+1), .alternate,
 .edit-attachment-frame .edit-media-header .right,
 .upload-php .media-modal-close,
 #screen-meta {
-	background: $body-background;
-	border-color: $base-color;
+	background: $body_background;
+	border-color: $menu_base_color;
 }
 
 .color-palette li {
-	border: solid 1px $text-color;
+	border: solid 1px $menu_text_color;
 }
 
 /* temporary fix for admin-bar hover color */
@@ -349,7 +349,7 @@ ul.striped > :nth-child(2n+1), .alternate,
 #wpadminbar.nojq .quicklinks .ab-top-menu > li > .ab-item:focus,
 #wpadminbar.nojs .ab-top-menu > li.menupop:hover > .ab-item,
 #wpadminbar .ab-top-menu > li.menupop.hover > .ab-item {
-	color: $text-color;
+	color: $menu_text_color;
 }
 
 /* Override the theme filter highlight color for this scheme */

@@ -1,4 +1,4 @@
-@import 'colors/_variables.scss';
+@import '../../app-assets/css/colors/_variables.scss';
 
 #poststuff {
 	min-width: 763px;
@@ -1218,7 +1218,7 @@ p.popular-tags a {
 
 .ac_results .ac_over,
 .ac_over .ac_match {
-	background-color: #0073aa;
+	background-color: $link;
 	color: #fff;
 	cursor: pointer;
 }

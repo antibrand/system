@@ -1,4 +1,4 @@
-@import '../../wp-admin/css/colors/_variables.scss';
+@import '../../app-assets/css/colors/_variables.scss';
 
 /* ----------------------------------------------------------------------------
 
@@ -173,7 +173,7 @@ TABLE OF CONTENTS:
 	cursor: pointer;
 	text-align: left;
 	/* Mimics the default link style in common.css */
-	color: #0073aa;
+	color: $link;
 	text-decoration: underline;
 }
 
@@ -192,7 +192,7 @@ TABLE OF CONTENTS:
 
 .app-core-ui .button-link-delete:hover,
 .app-core-ui .button-link-delete:focus {
-	color: #dc3232;
+	color: $app_red;
 }
 
 .ie8 .app-core-ui .button-link:focus {

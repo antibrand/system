@@ -1,3 +1,11 @@
+/**
+ * SASS/SCSS color variables
+ *
+ * Assign default value to all undefined variables,
+ * pure white and pure black excepted.
+ *
+ * @link https://sass-lang.com/documentation/variables
+ */
 /*
  * Button mixin- creates 3d-ish button effect with correct
  * highlights/shadows, based on a base color.
@@ -24,11 +32,11 @@ div.dashboard-widget-submit input:hover,
 
 /* Forms */
 input[type=checkbox]:checked:before {
-  color: #23282d;
+  color: #0073aa;
 }
 
 input[type=radio]:checked:before {
-  background: #23282d;
+  background: #0073aa;
 }
 
 .app-core-ui input[type="reset"]:hover,
@@ -103,15 +111,15 @@ input[type=radio]:checked:before {
 
 .app-core-ui .wp-ui-notification {
   color: #eee;
-  background-color: #00a0d2;
+  background-color: #ee6600;
 }
 
 .app-core-ui .wp-ui-text-notification {
-  color: #00a0d2;
+  color: #ee6600;
 }
 
 .app-core-ui .wp-ui-text-icon {
-  color: #a0a5aa;
+  color: #f1f2f3;
 }
 
 /* List tables */
@@ -128,7 +136,7 @@ input[type=radio]:checked:before {
 }
 
 .view-switch a:hover:before {
-  color: #00a0d2;
+  color: #ee6600;
 }
 
 /* Admin Menu */
@@ -143,7 +151,7 @@ input[type=radio]:checked:before {
 }
 
 #adminmenu div.wp-menu-image:before {
-  color: #a0a5aa;
+  color: #f1f2f3;
 }
 
 #adminmenu a:hover,
@@ -247,7 +255,7 @@ ul#adminmenu > li.current > a.current:after {
 #adminmenu .awaiting-mod,
 #adminmenu .update-plugins {
   color: #eee;
-  background: #00a0d2;
+  background: #ee6600;
 }
 
 #adminmenu li.current a .awaiting-mod,
@@ -260,7 +268,7 @@ ul#adminmenu > li.current > a.current:after {
 
 /* Admin Menu: collapse button */
 #collapse-button {
-  color: #a0a5aa;
+  color: #f1f2f3;
 }
 
 #collapse-button:hover,
@@ -285,7 +293,7 @@ ul#adminmenu > li.current > a.current:after {
 #wpadminbar .ab-icon:before,
 #wpadminbar .ab-item:before,
 #wpadminbar .ab-item:after {
-  color: #a0a5aa;
+  color: #f1f2f3;
 }
 
 #wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
@@ -329,7 +337,7 @@ ul#adminmenu > li.current > a.current:after {
 
 #wpadminbar .quicklinks li .blavatar,
 #wpadminbar .menupop .menupop > .ab-item:before {
-  color: #a0a5aa;
+  color: #f1f2f3;
 }
 
 #wpadminbar .quicklinks .menupop ul li a:hover,
@@ -364,12 +372,12 @@ ul#adminmenu > li.current > a.current:after {
 
 #wpadminbar.mobile .quicklinks .hover .ab-icon:before,
 #wpadminbar.mobile .quicklinks .hover .ab-item:before {
-  color: #a0a5aa;
+  color: #f1f2f3;
 }
 
 /* Admin Bar: search */
 #wpadminbar #adminbarsearch:before {
-  color: #a0a5aa;
+  color: #f1f2f3;
 }
 
 #wpadminbar > #wp-toolbar > #wp-admin-bar-top-secondary > #wp-admin-bar-search #adminbarsearch input.adminbar-input:focus {
@@ -484,7 +492,7 @@ body.more-filters-opened .more-filters:focus:before {
 
 /* Responsive Component */
 div#wp-responsive-toggle a:before {
-  color: #a0a5aa;
+  color: #f1f2f3;
 }
 
 .wp-responsive-open div#wp-responsive-toggle a {
@@ -497,7 +505,7 @@ div#wp-responsive-toggle a:before {
 }
 
 .wp-responsive-open #wpadminbar #wp-admin-bar-menu-toggle .ab-icon:before {
-  color: #a0a5aa;
+  color: #f1f2f3;
 }
 
 /* TinyMCE */

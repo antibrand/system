@@ -20,7 +20,7 @@
 body {
 
 	// Backend styles.
-	&.app-admin {
+	&.wp-admin {
 
 		// Admin theme: Fresh (default)
 		&.admin-color-fresh {}
@@ -30,5 +30,5 @@ body {
 	}
 
 	// Frontend styles.
-	&:not(.app-admin) {}
+	&:not(.wp-admin) {}
 }

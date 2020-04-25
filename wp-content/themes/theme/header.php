@@ -33,9 +33,6 @@ if ( is_home() && ! is_front_page() ) {
 	<![endif]-->
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<?php if ( is_singular() && pings_open() ) {
-		echo sprintf( '<link rel="pingback" href="%s" />', get_bloginfo( 'pingback_url' ) );
-	} ?>
 	<link href="<?php echo $canonical; ?>" rel="canonical" />
 	<?php if ( is_search() ) { echo '<meta name="robots" content="noindex,nofollow" />'; } ?>
 

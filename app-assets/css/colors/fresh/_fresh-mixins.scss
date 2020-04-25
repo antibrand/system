@@ -2,10 +2,10 @@
  * Button mixin- creates 3d-ish button effect with correct
  * highlights/shadows, based on a base color.
  */
-@mixin button( $button-color, $text-color: #eee ) {
+@mixin button( $button-color, $menu_text_color: #eee ) {
 	background: $button-color;
 	border-color: darken( $button-color, 10% ) darken( $button-color, 15% ) darken( $button-color, 15% );
-	color: $text-color;
+	color: $menu_text_color;
 	box-shadow: 0 1px 0 darken( $button-color, 15% );
 	text-shadow: 0 -1px 1px darken( $button-color, 15% ),
 		1px 0 1px darken( $button-color, 15% ),
@@ -16,7 +16,7 @@
 	&:focus {
 		background: lighten( $button-color, 3% );
 		border-color: darken( $button-color, 15% );
-		color: $text-color;
+		color: $menu_text_color;
 		box-shadow: 0 1px 0 darken( $button-color, 15% );
 	}
 

@@ -1,4 +1,4 @@
-@import 'colors/_variables.scss';
+@import '../../app-assets/css/colors/_variables.scss';
 
 /* Include margin and padding in the width calculation of input and textarea. */
 input,
@@ -239,14 +239,14 @@ textarea[readonly] {
 
 .form-invalid input, .form-invalid input:focus,
 .form-invalid select, .form-invalid select:focus {
-	border-color: #dc3232 !important;
+	border-color: $app_red !important;
 	box-shadow: 0 0 2px rgba( 204, 0, 0, 0.8 );
 }
 
 .form-table .form-required.form-invalid td:after {
 	content: "\f534";
 	font: normal 20px/1 dashicons;
-	color: #dc3232;
+	color: $app_red;
 	margin-left: -25px;
 	vertical-align: middle;
 }
@@ -259,7 +259,7 @@ textarea[readonly] {
 .form-table .form-required.user-pass1-wrap.form-invalid .password-input-wrapper:after {
 	content: '\f534';
 	font: normal 20px/1 dashicons;
-	color: #dc3232;
+	color: $app_red;
 	margin: 0 6px 0 -29px;
 	vertical-align: middle;
 }

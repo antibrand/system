@@ -1,8 +1,8 @@
-$base-color: #23282d;
-$icon-color: #a0a5aa;
+$menu_base_color: #23282d;
+$menu_icon_color: #a0a5aa;
 $highlight-color: #0073aa;
-$notification-color: #00a0d2;
+$notify_color: #00a0d2;
 
-$form-checked: $base-color;
+$form-checked: $menu_base_color;
 
 @import "_fresh.scss";

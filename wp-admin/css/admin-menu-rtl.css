@@ -1,33 +1,25 @@
-#adminmenuback,
-#adminmenuwrap,
-#adminmenu,
-#adminmenu .wp-submenu {
-  width: 160px;
-  background-color: #222;
-}
-
-#adminmenuback {
-  position: fixed;
-  top: 0;
-  bottom: -120px;
-  z-index: 1;
-  /* positive z-index to avoid elastic scrolling woes in Safari */
-}
-
-#adminmenu {
-  clear: right;
-  margin: 12px 0;
-  padding: 0;
-  list-style: none;
-}
-
-.folded #adminmenuback,
-.folded #adminmenuwrap,
-.folded #adminmenu,
-.folded #adminmenu li.menu-top {
-  width: 36px;
-}
-
+/**
+  * Font sizes
+  *
+  * The font size variables presume a browser default of 16px,
+  * in which case the variable number is equivelent to a px number.
+  *
+  * SASS can't have variables beginning with a numeral.
+  */
+/**
+ * Font stack variables
+ *
+ * The $sans and $serif stacks are default. The $inter and $crimson
+ * stacks are used in @supports( font-variation-settings ) queries.
+ */
+/**
+ * SASS/SCSS color variables
+ *
+ * Assign default value to all undefined variables,
+ * pure white and pure black excepted.
+ *
+ * @link https://sass-lang.com/documentation/variables
+ */
 .icon16 {
   height: 18px;
   width: 18px;
@@ -36,10 +28,8 @@
   float: right;
 }
 
-/* New Menu icons */
 .icon16:before {
-  color: #82878c;
-  /* same as new icons */
+  color: #888888;
   font: normal 20px/1 dashicons;
   speak: none;
   padding: 6px 0;
@@ -138,18 +128,40 @@
 /*------------------------------------------------------------------------------
   7.0 - Main Navigation (Left Menu)
 ------------------------------------------------------------------------------*/
+#adminmenuback,
+#adminmenuwrap,
+#adminmenu,
+#adminmenu .wp-submenu {
+  width: 160px;
+  background-color: #222;
+}
+
+.folded #adminmenuback,
+.folded #adminmenuwrap,
+.folded #adminmenu,
+.folded #adminmenu li.menu-top {
+  width: 36px;
+}
+
+#adminmenuback {
+  position: fixed;
+  top: 0;
+  bottom: -120px;
+  z-index: 1;
+  /* positive z-index to avoid elastic scrolling woes in Safari */
+}
+
 #adminmenuwrap {
   position: relative;
   float: right;
   z-index: 9990;
 }
 
-/* side admin menu */
-#adminmenu * {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+#adminmenu {
+  clear: right;
+  margin: 12px 0;
+  padding: 0;
+  list-style: none;
 }
 
 #adminmenu li {

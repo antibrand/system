@@ -1,7 +1,8 @@
 /**
  * SASS/SCSS color variables
  *
- * Assign default value to all undefined variables.
+ * Assign default value to all undefined variables,
+ * pure white and pure black excepted.
  *
  * @link https://sass-lang.com/documentation/variables
  */
@@ -167,7 +168,7 @@ TABLE OF CONTENTS:
   cursor: pointer;
   text-align: left;
   /* Mimics the default link style in common.css */
-  color: #0073aa;
+  color: #115599;
   text-decoration: underline;
 }
 
@@ -186,7 +187,7 @@ TABLE OF CONTENTS:
 
 .app-core-ui .button-link-delete:hover,
 .app-core-ui .button-link-delete:focus {
-  color: #dc3232;
+  color: #dd0000;
 }
 
 .ie8 .app-core-ui .button-link:focus {

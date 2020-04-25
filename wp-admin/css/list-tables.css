@@ -1,3 +1,11 @@
+/**
+ * SASS/SCSS color variables
+ *
+ * Assign default value to all undefined variables,
+ * pure white and pure black excepted.
+ *
+ * @link https://sass-lang.com/documentation/variables
+ */
 .response-links {
   display: block;
   margin-bottom: 1em;
@@ -87,14 +95,14 @@
 .column-response .post-com-count-approved:focus .comment-count-approved,
 .column-comments .post-com-count-approved:hover .comment-count-approved,
 .column-comments .post-com-count-approved:focus .comment-count-approved {
-  background: #0073aa;
+  background: #115599;
 }
 
 .column-response .post-com-count-approved:hover:after,
 .column-response .post-com-count-approved:focus:after,
 .column-comments .post-com-count-approved:hover:after,
 .column-comments .post-com-count-approved:focus:after {
-  border-top-color: #0073aa;
+  border-top-color: #115599;
 }
 
 /* @todo: consider to use a single rule for these counters and the admin menu counters. */
@@ -742,7 +750,7 @@ classes exist in paginate_links() but not seen in list table output. */
 .tablenav .next,
 .tablenav .prev {
   border-color: transparent;
-  color: #0073aa;
+  color: #115599;
 }
 
 .tablenav .next:hover,
@@ -791,7 +799,7 @@ classes exist in paginate_links() but not seen in list table output. */
 }
 
 .view-switch a.current:before {
-  color: #0073aa;
+  color: #115599;
 }
 
 .view-switch .view-list:before {
@@ -1863,7 +1871,7 @@ div.action-links,
   }
   .column-response .post-com-count-pending:hover,
   .column-comments .post-com-count-pending:hover {
-    color: #dc3232;
+    color: #dd0000;
   }
   .widefat thead td.check-column,
   .widefat tfoot td.check-column {
