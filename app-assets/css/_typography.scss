@@ -1,9 +1,13 @@
-@import '_vars-typography.scss';
-@import 'colors/_variables.scss';
-
 /**
  * General app typography
+ *
+ * These styles are primarily used in administration pages,
+ * but also common features such as the user toolbar. For this
+ * reason the file is not kept in the css/admin directory.
  */
+
+@import '_vars-typography.scss';
+@import '_vars-color.scss';
 
 body {
 	font-family: $sans;

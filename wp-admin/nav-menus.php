@@ -749,7 +749,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 							</div><!-- END .publishing-action -->
 						</div><!-- END .major-publishing-actions -->
 					</div><!-- END .nav-menu-header -->
-					<div id="post-body">
+					<div id="post-body" class="app-post-body">
 						<div id="post-body-content" class="wp-clearfix">
 							<?php if ( ! $add_new_screen ) : ?>
 							<h3><?php _e( 'Menu Structure' ); ?></h3>

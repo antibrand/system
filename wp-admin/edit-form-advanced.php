@@ -614,7 +614,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 		?>
 
 		<div id="poststuff">
-			<div id="post-body" class="metabox-holder columns-<?php echo 1 == get_current_screen()->get_columns() ? '1' : '2'; ?>">
+			<div id="post-body" class="app-post-body metabox-holder columns-<?php echo 1 == get_current_screen()->get_columns() ? '1' : '2'; ?>">
 				<div id="post-body-content">
 
 					<?php if ( post_type_supports( $post_type, 'title' ) ) { ?>

@@ -1,20 +1,25 @@
-@import 'colors/_variables.scss';
-@import '_vars-typography.scss';
+@import '../colors/_variables.scss';
+@import '../_vars-typography.scss';
 
 /* inner 2 column liquid layout */
+.app-post-body {
 
-.inner-sidebar {
-	float: left;
-	clear: left;
-	display: none;
-	width: 281px;
-	position: relative;
-}
+	.inner-sidebar {
+		float: right;
+		clear: right;
+		display: none;
+		width: 281px;
+		position: relative;
+	}
 
-.columns-2 .inner-sidebar {
-	margin-left: auto;
-	width: 286px;
-	display: block;
+	&.columns-2 {
+
+		.inner-sidebar {
+			margin-right: auto;
+			width: 286px;
+			display: block;
+		}
+	}
 }
 
 .inner-sidebar #side-sortables,
@@ -29,14 +34,14 @@
 }
 
 .has-right-sidebar #post-body {
-	float: right;
-	clear: right;
+	float: left;
+	clear: left;
 	width: 100%;
-	margin-left: -2000px;
+	margin-right: -2000px;
 }
 
 .has-right-sidebar #post-body-content {
-	margin-left: 300px;
+	margin-right: 300px;
 	float: none;
 	width: auto;
 }
@@ -44,38 +49,38 @@
 /* 2 columns main area */
 
 #col-left {
-	float: right;
+	float: left;
 	width: 35%;
 }
 
 #col-right {
-	float: left;
+	float: right;
 	width: 65%;
 }
 
 #col-left .col-wrap {
-	padding: 0 0 0 6px;
+	padding: 0 6px 0 0;
 }
 
 #col-right .col-wrap {
-	padding: 0 6px 0 0;
+	padding: 0 0 0 6px;
 }
 
 /* utility classes */
 .alignleft {
-	float: right;
-}
-
-.alignright {
 	float: left;
 }
 
+.alignright {
+	float: right;
+}
+
 .textleft {
-	text-align: right;
+	text-align: left;
 }
 
 .textright {
-	text-align: left;
+	text-align: right;
 }
 
 .clear {
@@ -116,7 +121,7 @@
 }
 
 .screen-reader-shortcut:focus {
-	right: 6px;
+	left: 6px;
 	top: -25px;
 	height: auto;
 	width: auto;
@@ -284,7 +289,7 @@ ul {
 
 ol {
 	list-style-type: decimal;
-	margin-right: 2em;
+	margin-left: 2em;
 }
 
 ul.ul-disc {
@@ -302,7 +307,7 @@ ol.ol-decimal {
 ul.ul-disc,
 ul.ul-square,
 ol.ol-decimal {
-	margin-right: 1.8em;
+	margin-left: 1.8em;
 }
 
 ul.ul-disc > li,
@@ -333,6 +338,7 @@ code {
 	font-size: 13px;
 }
 
+
 .subsubsub {
 	list-style: none;
 	padding: 0;
@@ -350,7 +356,7 @@ code {
 			&:after {
 				content: '|';
 				display: inline-block;
-				margin-right: 0.35em;
+				margin-left: 0.35em;
 				font-weight: normal;
 			}
 
@@ -442,7 +448,7 @@ code {
 .widefat th,
 .widefat thead td,
 .widefat tfoot td {
-	text-align: right;
+	text-align: left;
 	line-height: 1.3em;
 	font-size: 14px;
 }
@@ -451,7 +457,7 @@ code {
 .updates-table td input,
 .widefat thead td input,
 .widefat tfoot td input {
-	margin: 0 8px 0 0;
+	margin: 0 0 0 8px;
 	padding: 0;
 	vertical-align: text-top;
 }
@@ -470,7 +476,7 @@ code {
 .widefat tbody th.check-column,
 .updates-table tbody td.check-column,
 .widefat tfoot td.check-column {
-	padding: 11px 3px 0 0;
+	padding: 11px 0 0 3px;
 }
 
 .widefat thead td.check-column,
@@ -481,7 +487,7 @@ code {
 
 .update-php div.updated,
 .update-php div.error {
-	margin-right: 0;
+	margin-left: 0;
 }
 
 .no-js .widefat thead .check-column input,
@@ -514,7 +520,7 @@ code {
 
 .app-core-ui .button.page-title-action,
 .app-core-ui .button.page-title-action:active {
-	margin-right: 4px;
+	margin-left: 4px;
 	padding: 5px 8px 4px;
 	position: relative;
 	vertical-align: text-bottom;
@@ -558,7 +564,7 @@ ul.striped > :nth-child(odd),
 
 .bar {
 	background-color: #e8e8e8;
-	border-left-color: #99d;
+	border-right-color: #99d;
 }
 
 /* Helper classes for plugins to leverage the active color scheme */
@@ -675,7 +681,7 @@ img.emoji {
 }
 
 .tagchecklist .ntdelbutton .remove-tag-icon:before {
-	margin-right: 2px;
+	margin-left: 2px;
 	border-radius: 50%;
 	color: #ffee00;
 	/* vertically center the icon cross browsers */
@@ -780,15 +786,15 @@ span.required,
 }
 
 #delete-action {
-	float: right;
+	float: left;
 	line-height: 28px;
 }
 
 #delete-link {
 	line-height: 28px;
 	vertical-align: middle;
-	text-align: right;
-	margin-right: 8px;
+	text-align: left;
+	margin-left: 8px;
 }
 
 #delete-link a {
@@ -796,13 +802,13 @@ span.required,
 }
 
 #publishing-action {
-	text-align: left;
-	float: left;
+	text-align: right;
+	float: right;
 	line-height: 23px;
 }
 
 #publishing-action .spinner {
-	float: right;
+	float: left;
 }
 
 #misc-publishing-actions {
@@ -819,19 +825,19 @@ span.required,
 
 #minor-publishing-actions {
 	padding: 10px 10px 0 10px;
-	text-align: left;
+	text-align: right;
 }
 
 #save-post {
-	float: right;
-}
-
-.preview {
 	float: left;
 }
 
+.preview {
+	float: right;
+}
+
 #sticky-span {
-	margin-right: 18px;
+	margin-left: 18px;
 }
 
 .approve,
@@ -847,12 +853,12 @@ span.required,
 
 td.action-links,
 th.action-links {
-	text-align: left;
+	text-align: right;
 }
 
 #misc-publishing-actions .notice {
-	margin-right: 10px;
 	margin-left: 10px;
+	margin-right: 10px;
 }
 
 /* Filter bar */
@@ -876,7 +882,7 @@ th.action-links {
 		        align-items: center;
 
 		select {
-			margin-left: 0.3em;
+			margin-right: 0.3em;
 		}
 	}
 
@@ -885,7 +891,7 @@ th.action-links {
 
 		&.upload-new-media-link {
 			display: block;
-			margin-left: 1em;
+			margin-right: 1em;
 		}
 	}
 }
@@ -966,7 +972,7 @@ th.action-links {
 
 .wp-filter .button.drawer-toggle {
 	margin: 10px 9px 0;
-	padding: 0 6px 0 10px;
+	padding: 0 10px 0 6px;
 	border-color: transparent;
 	background-color: transparent;
 	color: #666;
@@ -976,7 +982,7 @@ th.action-links {
 
 .wp-filter .drawer-toggle:before {
 	content: "\f111";
-	margin: 0 0 0 5px;
+	margin: 0 5px 0 0;
 	color: #72777c;
 	font: normal 16px/1 dashicons;
 	vertical-align: text-bottom;
@@ -1015,7 +1021,7 @@ th.action-links {
 .filter-drawer,
 .wp-filter .favorites-form {
 	display: none;
-	margin: 0 -20px 0 -10px;
+	margin: 0 -10px 0 -20px;
 	padding: 20px;
 	border-top: 1px solid #eee;
 	background: #fafafa;
@@ -1049,8 +1055,8 @@ th.action-links {
 .filter-group {
 	box-sizing: border-box;
 	position: relative;
-	float: right;
-	margin: 0 0 0 1%;
+	float: left;
+	margin: 0 1% 0 0;
 	padding: 20px 10px 10px;
 	width: 24%;
 	background: #fff;
@@ -1086,7 +1092,7 @@ th.action-links {
 
 .filter-group .filter-group-feature label {
 	display: block;
-	margin: 14px 23px 14px 0px;
+	margin: 14px 0px 14px 23px;
 }
 
 .filter-drawer .buttons {
@@ -1108,7 +1114,7 @@ th.action-links {
 
 .wp-filter .button.clear-filters {
 	display: none;
-	margin-right: 10px;
+	margin-left: 10px;
 }
 
 .wp-filter .button-link.edit-filters {
@@ -1126,7 +1132,7 @@ th.action-links {
 }
 
 .filtered-by a {
-	margin-right: 10px;
+	margin-left: 10px;
 }
 
 .filtered-by .tags {
@@ -1230,14 +1236,14 @@ th.action-links {
 .notice,
 div.updated,
 div.error {
-	border-right: 4px solid transparent;
+	border-left: 4px solid transparent;
 	box-shadow: 0 1px 1px 0 rgba( 0, 0, 0, 0.1 );
 	margin: 5px 15px 2px;
 	padding: 1px 12px;
 }
 
 div[class="update-message"] { /* back-compat for pre-4.6 */
-	padding: 0.5em 0 0.5em 12px;
+	padding: 0.5em 12px 0.5em 0;
 }
 
 .notice p,
@@ -1272,14 +1278,14 @@ div.error p,
 }
 
 .app-core-ui .notice.is-dismissible {
-	padding-left: 38px;
+	padding-right: 38px;
 	position: relative;
 }
 
 .notice-dismiss {
 	position: absolute;
 	top: 0;
-	left: 1px;
+	right: 1px;
 	border: none;
 	margin: 0;
 	padding: 9px;
@@ -1311,6 +1317,7 @@ div.error {
 .notice-info {
 	border-left-color: $app_orange;
 }
+
 .update-message p:before,
 .updating-message p:before,
 .updated-message p:before,
@@ -1343,7 +1350,7 @@ div.error {
 }
 
 .wrap #templateside span.notice {
-	margin-right: -12px;
+	margin-left: -12px;
 }
 
 #templateside li.notice a {
@@ -1385,7 +1392,7 @@ div.error {
 
 .wrap .notice p:before,
 .import-php .updating-message:before {
-	margin-left: 6px;
+	margin-right: 6px;
 	vertical-align: bottom;
 }
 
@@ -1395,10 +1402,10 @@ div.error {
 	line-height: 19px;
 	padding: 11px 15px;
 	font-size: 14px;
-	text-align: right;
-	margin: 25px 2px 0 20px;
+	text-align: left;
+	margin: 25px 20px 0 2px;
 	background-color: #fff;
-	border-right: 4px solid #ffba00;
+	border-left: 4px solid #ffba00;
 	box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
 }
 
@@ -1430,14 +1437,14 @@ form.upgrade .hint {
 }
 
 #ajax-response.alignleft {
-	margin-right: 2em;
+	margin-left: 2em;
 }
 
 .button.updating-message:before,
 .button.updated-message:before,
 .button.installed:before,
 .button.installing:before {
-	margin: 3px -2px 0 5px;
+	margin: 3px 5px 0 -2px;
 }
 
 .button-primary.updating-message:before {
@@ -1490,17 +1497,17 @@ form.upgrade .hint {
 
 #contextual-help-wrap {
 	overflow: auto;
-	margin-right: 0 !important;
+	margin-left: 0 !important;
 }
 
 #screen-meta-links {
-	margin: 0 0 0 2rem;
+	margin: 0 2rem 0 0;
 }
 
 /* screen options and help tabs revert */
 #screen-meta {
 	display: none;
-	margin: 0 0px -1px 20px;
+	margin: 0 20px -1px 0px;
 	position: relative;
 	background-color: #fff;
 	border: 1px solid #ddd;
@@ -1510,9 +1517,9 @@ form.upgrade .hint {
 
 #screen-options-link-wrap,
 #contextual-help-link-wrap {
-	float: left;
+	float: right;
 	height: 28px;
-	margin: 0 6px 0 0;
+	margin: 0 0 0 6px;
 	border: 1px solid #ddd;
 	border-top: none;
 	background: #fff;
@@ -1530,7 +1537,7 @@ form.upgrade .hint {
 	border-radius: 0;
 	color: #72777c;
 	line-height: 1.7;
-	padding: 3px 16px 3px 6px;
+	padding: 3px 6px 3px 16px;
 }
 
 #screen-meta-links .show-settings:hover,
@@ -1546,12 +1553,12 @@ form.upgrade .hint {
 }
 
 #screen-meta-links .show-settings:after {
-	left: 0;
+	right: 0;
 	content: "\f140";
 	font: normal 20px/1 dashicons;
 	speak: none;
 	display: inline-block;
-	padding: 0 0 0 5px;
+	padding: 0 5px 0 0;
 	bottom: 2px;
 	position: relative;
 	vertical-align: bottom;
@@ -1569,7 +1576,7 @@ form.upgrade .hint {
 
 .toggle-arrow {
 	background-repeat: no-repeat;
-	background-position: top right;
+	background-position: top left;
 	background-color: transparent;
 	height: 22px;
 	line-height: 22px;
@@ -1577,7 +1584,7 @@ form.upgrade .hint {
 }
 
 .toggle-arrow-active {
-	background-position: bottom right;
+	background-position: bottom left;
 }
 
 #screen-options-wrap h5, /* Back-compat for old plugins */
@@ -1595,7 +1602,7 @@ form.upgrade .hint {
 
 .metabox-prefs label {
 	display: inline-block;
-	padding-left: 15px;
+	padding-right: 15px;
 	line-height: 30px;
 }
 
@@ -1607,16 +1614,16 @@ form.upgrade .hint {
 
 .metabox-prefs input[type=checkbox] {
 	margin-top: 0;
-	margin-left: 6px;
+	margin-right: 6px;
 }
 
 .metabox-prefs label input,
 .metabox-prefs label input[type=checkbox] {
-	margin: -4px 0 0 5px;
+	margin: -4px 5px 0 0;
 }
 
 .metabox-prefs .columns-prefs label input {
-	margin: -1px 0 0 2px;
+	margin: -1px 2px 0 0;
 }
 
 .metabox-prefs label a {
@@ -1631,12 +1638,12 @@ form.upgrade .hint {
 }
 
 .metabox-prefs .screen-options .screen-per-page {
-	margin-left: 15px;
+	margin-right: 15px;
 }
 
 .metabox-prefs .screen-options label {
 	line-height: 28px;
-	padding-left: 0;
+	padding-right: 0;
 }
 
 .screen-options + .screen-options {
@@ -1664,8 +1671,8 @@ form.upgrade .hint {
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	right: 150px;
-	left: 170px;
+	left: 150px;
+	right: 170px;
 	border: 1px solid #e1e1e1;
 	border-top: none;
 	border-bottom: none;
@@ -1673,13 +1680,13 @@ form.upgrade .hint {
 }
 
 #contextual-help-wrap.no-sidebar #contextual-help-back {
-	left: 0;
-	border-left-width: 0;
-	border-bottom-left-radius: 2px;
+	right: 0;
+	border-right-width: 0;
+	border-bottom-right-radius: 2px;
 }
 
 .contextual-help-tabs {
-	float: right;
+	float: left;
 	width: 150px;
 	margin: 0;
 }
@@ -1692,18 +1699,18 @@ form.upgrade .hint {
 	margin-bottom: 0;
 	list-style-type: none;
 	border-style: solid;
-	border-width: 0 2px 0 0;
+	border-width: 0 0 0 2px;
 	border-color: transparent;
 }
 
 .contextual-help-tabs a {
 	display: block;
-	padding: 5px 12px 5px 5px;
+	padding: 5px 5px 5px 12px;
 	line-height: 18px;
 	text-decoration: none;
 	border: 1px solid transparent;
-	border-left: none;
 	border-right: none;
+	border-left: none;
 }
 
 .contextual-help-tabs a:hover {
@@ -1712,8 +1719,8 @@ form.upgrade .hint {
 
 .contextual-help-tabs .active {
 	padding: 0;
-	margin: 0 0 0 -1px;
-	border-right: 2px solid #00a0d2;
+	margin: 0 -1px 0 0;
+	border-left: 2px solid #00a0d2;
 	background: #f6fbfd;
 	box-shadow: 0 2px 0 rgba(0,0,0,0.02), 0 1px 0 rgba(0,0,0,0.02);
 }
@@ -1730,7 +1737,7 @@ form.upgrade .hint {
 
 .help-tab-content {
 	display: none;
-	margin: 0 0 12px 22px;
+	margin: 0 22px 12px 0;
 	line-height: 1.6em;
 }
 
@@ -1740,13 +1747,13 @@ form.upgrade .hint {
 
 .help-tab-content ul li {
 	list-style-type: disc;
-	margin-right: 18px;
+	margin-left: 18px;
 }
 
 .contextual-help-sidebar {
 	width: 150px;
-	float: left;
-	padding: 0 12px 0 8px;
+	float: right;
+	padding: 0 8px 0 12px;
 	overflow: auto;
 }
 
@@ -1792,12 +1799,12 @@ html.wp-toolbar {
 
 .widefat .column-comment ul {
 	list-style: initial;
-	margin-right: 2em;
+	margin-left: 2em;
 }
 
 /* Screens with postboxes */
 .postbox-container {
-	float: right;
+	float: left;
 }
 
 .postbox-container .meta-box-sortables {
@@ -1819,9 +1826,9 @@ html.wp-toolbar {
 	margin: auto;
 	position: absolute;
 	top: 0;
-	right: 0;
-	bottom: 0;
 	left: 0;
+	bottom: 0;
+	right: 0;
 	height: 1em;
 	width: 200px;
 	text-align: center;
@@ -1842,12 +1849,12 @@ html.wp-toolbar {
 #post-body-content {
 	width: 100%;
 	min-width: 463px;
-	float: right;
+	float: left;
 }
 
 #post-body.columns-2 #postbox-container-1 {
-	float: left;
-	margin-left: -300px;
+	float: right;
+	margin-right: -300px;
 	width: 280px;
 }
 
@@ -1876,7 +1883,7 @@ html.wp-toolbar {
 
 .postbox .handlediv {
 	display: none;
-	float: left;
+	float: right;
 	width: 36px;
 	height: 36px;
 	margin: 0;
@@ -1950,7 +1957,7 @@ html.wp-toolbar {
 }
 
 .columns-prefs label {
-	padding: 0 0 0 10px;
+	padding: 0 10px 0 0;
 }
 
 /* @todo: what is this doing here */
@@ -1977,8 +1984,8 @@ html.wp-toolbar {
 #wpfooter {
 	position: absolute;
 	bottom: 0;
-	right: 0;
 	left: 0;
+	right: 0;
 	padding: 10px 20px;
 	color: #555d66;
 }
@@ -1998,10 +2005,10 @@ html.wp-toolbar {
 ------------------------------------------------------------------------------*/
 
 .nav-tab {
-	float: right;
+	float: left;
 	border: 1px solid $pale_gray;
 	border-bottom: none;
-	margin-right: 0.5em; /* half the font size so set the font size properly */
+	margin-left: 0.5em; /* half the font size so set the font size properly */
 	padding: 5px 10px;
 	font-size: 14px;
 	line-height: 24px;
@@ -2077,7 +2084,7 @@ h1.nav-tab-wrapper, /* Back-compat for pre-4.4 */
 	background-size: 20px 20px;
 	display: inline-block;
 	visibility: hidden;
-	float: left;
+	float: right;
 	vertical-align: middle;
 	opacity: 0.7;
 	filter: alpha(opacity=70);
@@ -2092,11 +2099,11 @@ h1.nav-tab-wrapper, /* Back-compat for pre-4.4 */
 }
 
 #template > div {
-	margin-left: 16em;
+	margin-right: 16em;
 }
 #template .notice {
 	margin-top: 1em;
-	margin-left: 3%;
+	margin-right: 3%;
 }
 #template .notice p {
 	width: auto;
@@ -2117,7 +2124,7 @@ h1.nav-tab-wrapper, /* Back-compat for pre-4.4 */
 
 /* Back-compat for nav-menus screen */
 .nav-menus-php .metabox-holder h3 {
-	padding: 10px 14px 11px 10px;
+	padding: 10px 10px 11px 14px;
 	line-height: 21px;
 }
 
@@ -2133,7 +2140,7 @@ h1.nav-tab-wrapper, /* Back-compat for pre-4.4 */
 table .vers,
 table .column-visible,
 table .column-rating {
-	text-align: right;
+	text-align: left;
 }
 
 .attention,
@@ -2180,7 +2187,7 @@ body.iframe {
 }
 
 .importers td {
-	padding-left: 14px;
+	padding-right: 14px;
 	line-height: 1.5em;
 }
 
@@ -2221,7 +2228,7 @@ body.iframe {
 	line-height: 1.4;
 	font-weight: 600;
 	color: #222;
-	margin: 2px 9px 0 0;
+	margin: 2px 0 0 9px;
 }
 
 #namediv h3 label, /* Back-compat for pre-4.4 */
@@ -2300,7 +2307,7 @@ div.star-holder {
 div.star-holder .star-rating {
 	background: url(../images/stars.png?ver=20121108) repeat-x top left;
 	height: 17px;
-	float: right;
+	float: left;
 }
 
 /* Star Ratings */
@@ -2352,9 +2359,9 @@ div.action-links {
 	background: #fff;
 	position: fixed;
 	top: 0;
-	left: 0;
-	bottom: 0;
 	right: 0;
+	bottom: 0;
+	left: 0;
 	height: 100%;
 	padding: 0;
 }
@@ -2376,7 +2383,7 @@ div.action-links {
 }
 
 #plugin-information-title.with-banner {
-	margin-left: 0;
+	margin-right: 0;
 	height: 250px;
 	background-size: cover;
 }
@@ -2416,7 +2423,7 @@ div.action-links {
 	position: absolute;
 	display: block;
 	top: 0;
-	right: 0;
+	left: 0;
 	height: 250px;
 	width: 100%;
 	background: transparent;
@@ -2426,8 +2433,8 @@ div.action-links {
 #plugin-information-tabs {
 	padding: 0 16px;
 	position: relative;
-	left: 0;
 	right: 0;
+	left: 0;
 	min-height: 36px;
 	font-size: 0;
 	z-index: 1;
@@ -2472,8 +2479,8 @@ div.action-links {
 	background: #fff;
 	position: relative;
 	top: 0;
-	left: 0;
 	right: 0;
+	left: 0;
 	min-height: 100%;
 	/* Height of title + tabs + install now */
 	min-height: calc( 100% - 152px );
@@ -2487,10 +2494,10 @@ div.action-links {
 #section-holder {
 	position: relative;
 	top: 0;
-	left: 250px;
+	right: 250px;
 	bottom: 0;
-	right: 0;
-	margin-left: 250px; /* FYI box */
+	left: 0;
+	margin-right: 250px; /* FYI box */
 	padding: 10px 26px;
 	margin-bottom: -99939px; /* 60px less than the padding below to accommodate footer */
 	padding-bottom: 99999px; /* equal height column trick */
@@ -2501,15 +2508,15 @@ div.action-links {
 }
 
 #plugin-information .fyi {
-	float: left;
+	float: right;
 	position: relative;
 	top: 0;
-	left: 0;
+	right: 0;
 	padding: 16px;
 	margin-bottom: -99939px; /* 60px less than the padding below to accommodate footer */
 	padding-bottom: 99999px; /* equal height column trick */
 	width: 217px;
-	border-right: 1px solid #ddd;
+	border-left: 1px solid #ddd;
 	background: #f3f3f3;
 	color: #666;
 }
@@ -2529,7 +2536,7 @@ div.action-links {
 #plugin-information .fyi h2 {
 	font-size: 0.9em;
 	margin-bottom: 0;
-	margin-left: 0;
+	margin-right: 0;
 }
 
 #plugin-information .fyi ul {
@@ -2551,8 +2558,8 @@ div.action-links {
 }
 
 #plugin-information .counter-label {
-	float: right;
-	margin-left: 5px;
+	float: left;
+	margin-right: 5px;
 	min-width: 55px;
 }
 
@@ -2560,17 +2567,17 @@ div.action-links {
 	height: 17px;
 	width: 92px;
 	background-color: #e5e5e5;
-	float: right;
+	float: left;
 }
 
 #plugin-information .counter-bar {
 	height: 17px;
 	background-color: #ffc733; /* slightly lighter than stars due to larger expanse */
-	float: right;
+	float: left;
 }
 
 #plugin-information .counter-count {
-	margin-right: 5px;
+	margin-left: 5px;
 }
 
 #plugin-information .fyi ul.contributors {
@@ -2579,27 +2586,27 @@ div.action-links {
 
 #plugin-information .fyi ul.contributors li {
 	display: inline-block;
-	margin-left: 8px;
+	margin-right: 8px;
 	vertical-align: middle;
 }
 
 #plugin-information .fyi ul.contributors li {
 	display: inline-block;
-	margin-left: 8px;
+	margin-right: 8px;
 	vertical-align: middle;
 }
 
 #plugin-information .fyi ul.contributors li img {
 	vertical-align: middle;
-	margin-left: 4px;
+	margin-right: 4px;
 }
 
 #plugin-information-footer {
 	padding: 13px 16px;
 	position: absolute;
-	left: 0;
-	bottom: 0;
 	right: 0;
+	bottom: 0;
+	left: 0;
 	height: 33px; /* 33+13+13+1=60 */
 	border-top: 1px solid #ddd;
 	background: #f3f3f3;
@@ -2650,11 +2657,11 @@ div.action-links {
 }
 
 #plugin-information blockquote {
-	border-right: 2px solid #ddd;
+	border-left: 2px solid #ddd;
 	color: #666;
 	font-style: italic;
 	margin: 1em 0;
-	padding: 0 1em 0 0;
+	padding: 0 0 0 1em;
 }
 
 /* rtl:ignore */
@@ -2711,7 +2718,7 @@ div.action-links {
 
 /* For non-js plugin installation screen ticket #36430. */
 .update-php .button.button-primary {
-	margin-left: 1em;
+	margin-right: 1em;
 }
 
 @media screen and ( max-width: 771px ) {
@@ -2778,10 +2785,10 @@ div.action-links {
 	width: 20px;
 	height: 20px;
 	position: absolute;
-	right: 50%;
+	left: 50%;
 	top: 50%;
 	z-index: -1;
-	margin: -10px -10px 0 0;
+	margin: -10px 0 0 -10px;
 	background: #fcfcfc url(../images/spinner.gif) no-repeat center;
 	background-size: 20px 20px;
 	-webkit-transform: translateZ(0);
@@ -2798,7 +2805,7 @@ div.action-links {
 }
 
 .plugin-details-modal #TB_title {
-	float: right;
+	float: left;
 	height: 1px;
 }
 
@@ -2807,8 +2814,8 @@ div.action-links {
 }
 
 .plugin-details-modal #TB_closeWindowButton {
-	right: auto;
-	left: -30px;
+	left: auto;
+	right: -30px;
 	color: #eee;
 }
 
@@ -2834,7 +2841,7 @@ div.action-links {
 /* move plugin install close icon to top on narrow screens */
 @media screen and ( max-width: 830px ) {
 	.plugin-details-modal #TB_closeWindowButton {
-		left: 0;
+		right: 0;
 		top: -30px;
 	}
 }
@@ -2941,13 +2948,13 @@ img {
 	height: calc(100vh - 295px);
 	background-color: #f7f7f7;
 	border: 1px solid #ddd;
-	border-right: none;
+	border-left: none;
 }
 #templateside ul ul {
-	padding-right: 12px;
+	padding-left: 12px;
 }
 #templateside > ul > li > ul[role=group] {
-	padding-right: 0;
+	padding-left: 0;
 }
 
 /*
@@ -2968,14 +2975,14 @@ img {
 	pointer-events: none;
 }
 [role="treeitem"][aria-expanded="false"] > .folder-label .icon:after {
-	content: "\f141";
+	content: "\f139";
 }
 [role="treeitem"][aria-expanded="true"] > .folder-label .icon:after {
 	content: "\f140";
 }
 [role="treeitem"] .folder-label {
 	display: block;
-	padding: 3px 12px 3px 3px;
+	padding: 3px 3px 3px 12px;
 	cursor: pointer;
 }
 
@@ -3005,8 +3012,8 @@ img {
 	content: ' ';
 	display: block;
 	position: absolute;
-	right: 2px;
-	border-right: 1px solid $pale_gray;
+	left: 2px;
+	border-left: 1px solid $pale_gray;
 	top: -13px;
 	bottom: 10px;
 }
@@ -3014,8 +3021,8 @@ img {
 	content: ' ';
 	position: absolute;
 	display: block;
-	border-right: 1px solid $pale_gray;
-	right: 2px;
+	border-left: 1px solid $pale_gray;
+	left: 2px;
 	top: -5px;
 	height: 18px;
 	width: 7px;
@@ -3025,8 +3032,8 @@ img {
 	content: ' ';
 	position: absolute;
 	display: block;
-	border-right: 1px solid $pale_gray;
-	right: 2px;
+	border-left: 1px solid $pale_gray;
+	left: 2px;
 	bottom: -7px;
 	top: 0;
 }
@@ -3036,16 +3043,16 @@ img {
 	margin: -4px 0 -2px;
 }
 .tree-folder > .current-file::before {
-	right: 4px;
+	left: 4px;
 	height: 15px;
 	width: 0px;
-	border-right: none;
+	border-left: none;
 	top: 3px;
 }
 .tree-folder > .current-file::after {
 	bottom: -4px;
 	height: 7px;
-	right: 2px;
+	left: 2px;
 	top: auto;
 }
 
@@ -3073,7 +3080,7 @@ img {
 	max-width: 40%;
 }
 .fileedit-sub .alignright {
-	text-align: left;
+	text-align: right;
 }
 
 #template p {
@@ -3100,7 +3107,7 @@ img {
 	cursor: not-allowed;
 }
 #templateside {
-	float: left;
+	float: right;
 	width: 16em;
 	word-wrap: break-word;
 }
@@ -3120,7 +3127,7 @@ img {
 #templateside li:not(.howto) a,
 .theme-editor-php .highlight {
 	display: block;
-	padding: 3px 12px 3px 0;
+	padding: 3px 0 3px 12px;
 	text-decoration: none;
 }
 
@@ -3133,7 +3140,7 @@ img {
 }
 
 .theme-editor-php .highlight {
-	margin: -3px -12px -3px 3px;
+	margin: -3px 3px -3px -12px;
 }
 
 #templateside .highlight {
@@ -3145,7 +3152,7 @@ img {
 	color: #666;
 	font-size: 11px;
 	font-style: italic;
-	padding-right: 12px;
+	padding-left: 12px;
 }
 
 #documentation {
@@ -3182,7 +3189,7 @@ img {
 }
 
 .widget-top .widget-action .toggle-indicator:before {
-	padding: 1px 0px 1px 2px;
+	padding: 1px 2px 1px 0px;
 	border-radius: 50%;
 }
 
@@ -3219,8 +3226,8 @@ img {
 
 .control-section .accordion-section-title:after,
 .accordion-section-title:after {
-	float: left;
-	left: 20px;
+	float: right;
+	right: 20px;
 	top: -2px;
 }
 
@@ -3270,8 +3277,8 @@ img {
 	margin: 0;
 	padding: 12px 15px 15px;
 	position: relative;
-	border-right: 1px solid #ddd;
 	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -3285,7 +3292,7 @@ img {
 .js .accordion-section-title:after {
 	position: absolute;
 	top: 12px;
-	left: 10px;
+	right: 10px;
 	z-index: 1;
 }
 
@@ -3308,9 +3315,9 @@ img {
 
 .control-section .accordion-section-title,
 .customize-pane-child .accordion-section-title {
-	border-right: none;
 	border-left: none;
-	padding: 10px 14px 11px 10px;
+	border-right: none;
+	padding: 10px 10px 11px 14px;
 	line-height: 21px;
 	background: #fff;
 }
@@ -3369,21 +3376,21 @@ img {
 		height: 100%;
 		position: absolute;
 		top: 0;
-		left: 0;
+		right: 0;
 		background: $pale_gray;
 	}
 
 }
 @media only screen and (min-width: 600px) and (max-width: 699px) {
 	.my-sites li{
-		float: right;
+		float: left;
 		width: 44%;
 	}
 	.my-sites.striped li {
 		background-color: #fff;
 	}
 	.my-sites.striped li:nth-of-type(2n+1) {
-		clear: right;
+		clear: left;
 	}
 	.my-sites.striped li:nth-of-type(2n+2):after {
 		content: none;
@@ -3397,7 +3404,7 @@ img {
 
 @media only screen and (min-width: 700px) and (max-width: 1199px) {
 	.my-sites li {
-		float: right;
+		float: left;
 		width: 27.333333%;
 		background-color: #fff;
 	}
@@ -3413,13 +3420,13 @@ img {
 
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
 	.my-sites li {
-		float: right;
+		float: left;
 		width: 21%;
 		padding: 8px 2%;
 		background-color: #fff;
 	}
 	.my-sites.striped li:nth-of-type(4n+1) {
-		clear: right;
+		clear: left;
 	}
 	.my-sites.striped li:nth-of-type(4n+4):after {
 		content: none;
@@ -3434,13 +3441,13 @@ img {
 
 @media only screen and (min-width: 1400px) and (max-width: 1599px) {
 	.my-sites li {
-		float: right;
+		float: left;
 		width: 16%;
 		padding: 8px 2%;
 		background-color: #fff;
 	}
 	.my-sites.striped li:nth-of-type(5n+1) {
-		clear: right;
+		clear: left;
 	}
 	.my-sites.striped li:nth-of-type(5n+5):after {
 		content: none;
@@ -3456,13 +3463,13 @@ img {
 
 @media only screen and (min-width: 1600px) {
 	.my-sites li {
-		float: right;
+		float: left;
 		width: 12.666666%;
 		padding: 8px 2%;
 		background-color: #fff;
 	}
 	.my-sites.striped li:nth-of-type(6n+1) {
-		clear: right;
+		clear: left;
 	}
 	.my-sites.striped li:nth-of-type(6n+6):after {
 		content: none;
@@ -3536,7 +3543,7 @@ img {
 
 	.admin-page-content {
 		position: relative;
-		margin-right: 0;
+		margin-left: 0;
 	}
 
 	.app-content {
@@ -3583,7 +3590,7 @@ img {
 	}
 
 	.app-core-ui .notice.is-dismissible {
-		padding-left: 46px;
+		padding-right: 46px;
 	}
 
 	.notice-dismiss {
@@ -3595,7 +3602,7 @@ img {
 	}
 
 	.wp-responsive-open .admin-main {
-		left: -16em;
+		right: -16em;
 	}
 
 	code {
@@ -3638,7 +3645,7 @@ img {
 	}
 
 	#templateside > ul {
-		border-right: 1px solid #ddd;
+		border-left: 1px solid #ddd;
 	}
 
 	#templateside li {
@@ -3655,7 +3662,7 @@ img {
 
 	#templateside .highlight {
 		padding: 5px;
-		margin-right: -5px;
+		margin-left: -5px;
 		margin-top: -5px;
 	}
 
@@ -3672,7 +3679,7 @@ img {
 	}
 
 	#templateside ul ul {
-		padding-right: 1.5em;
+		padding-left: 1.5em;
 	}
 	[role="treeitem"] .folder-label {
 		display: block;
@@ -3681,31 +3688,31 @@ img {
 	.tree-folder > li::before,
 	.tree-folder > li::after,
 	.tree-folder .tree-folder::after {
-		right: -8px;
+		left: -8px;
 	}
 	.tree-folder > li::before {
 		top: 0px;
 		height: 13px;
 	}
 	.tree-folder > .current-file::before {
-		right: -5px;
+		left: -5px;
 		top: 7px;
 		width: 4px;
 	}
 	.tree-folder > .current-file::after {
 		height: 9px;
-		right: -8px;
+		left: -8px;
 	}
 	.wrap #templateside span.notice {
-		margin-right: -5px;
+		margin-left: -5px;
 		width: 100%;
 	}
 
 	.fileedit-sub .alignright {
-		float: right;
+		float: left;
 		margin-top: 15px;
 		width: 100%;
-		text-align: right;
+		text-align: left;
 	}
 
 	.fileedit-sub .alignright label {
@@ -3714,7 +3721,7 @@ img {
 
 	.fileedit-sub #theme,
 	.fileedit-sub #plugin {
-		margin-right: 0;
+		margin-left: 0;
 		max-width: 70%;
 	}
 
@@ -3728,7 +3735,7 @@ img {
 	}
 
 	#documentation select[name="docs-list"] {
-		margin-right: 0;
+		margin-left: 0;
 		max-width: 60%;
 	}
 
@@ -3755,7 +3762,7 @@ img {
 	}
 
 	.filter-drawer .filter-group-feature label {
-		margin-right: 32px;
+		margin-left: 32px;
 	}
 
 	.wp-filter .button.drawer-toggle {
@@ -3790,7 +3797,7 @@ img {
 	h1 .nav-tab,
 	h2 .nav-tab,
 	h3 .nav-tab {
-		margin: 10px 0 0 10px;
+		margin: 10px 10px 0 0;
 		border-bottom: 1px solid $pale_gray;
 	}
 }
@@ -3800,6 +3807,6 @@ img {
 	   the network dashboard is viewed on a small mobile device. */
 	#network_dashboard_right_now .subsubsub {
 		font-size: 14px;
-		text-align: right;
+		text-align: left;
 	}
 }
