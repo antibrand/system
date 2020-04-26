@@ -3,8 +3,6 @@
  */
 @import '_reset.scss';
 @import '_font-faces.scss';
-@import 'colors/_variables.scss';
-@import '_vars-typography.scss';
-@import '_typography.scss';
+@import 'admin/partials/_typography.scss';
 @import '_admin-layout-rtl.scss';
-@import 'admin/_common-rtl.scss';
+@import 'admin/partials/_common-rtl.scss';

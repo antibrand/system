@@ -1,5 +1,10 @@
-@import '../colors/_variables.scss';
-@import '../_vars-typography.scss';
+/**
+ * Styles comon to all administration screens
+ */
+
+// Import general app variables.
+@import '../../includes/modules/_typography.scss';
+@import '../../includes/modules/_colors.scss';
 
 /* inner 2 column liquid layout */
 .app-post-body {

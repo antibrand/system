@@ -333,51 +333,58 @@ b, strong, optgroup {
 }
 
 /**
- * SASS/SCSS color variables
- *
- * Assign default value to all undefined variables,
- * pure white and pure black excepted.
- *
- * @link https://sass-lang.com/documentation/variables
- */
-/**
-  * Font sizes
-  *
-  * The font size variables presume a browser default of 16px,
-  * in which case the variable number is equivelent to a px number.
-  *
-  * SASS can't have variables beginning with a numeral.
-  */
-/**
- * Font stack variables
- *
- * The $sans and $serif stacks are default. The $inter and $crimson
- * stacks are used in @supports( font-variation-settings ) queries.
- */
-/**
-  * Font sizes
-  *
-  * The font size variables presume a browser default of 16px,
-  * in which case the variable number is equivelent to a px number.
-  *
-  * SASS can't have variables beginning with a numeral.
-  */
-/**
- * Font stack variables
- *
- * The $sans and $serif stacks are default. The $inter and $crimson
- * stacks are used in @supports( font-variation-settings ) queries.
- */
-/**
- * SASS/SCSS color variables
- *
- * Assign default value to all undefined variables,
- * pure white and pure black excepted.
- *
- * @link https://sass-lang.com/documentation/variables
- */
-/**
  * General app typography
+ *
+ * These styles are primarily used in administration pages.
+ */
+/**
+ * General app typography variables
+ *
+ * These styles are primarily used in administration pages,
+ * but also common features such as the user toolbar. For this
+ * reason the file is not kept in the css/admin directory.
+ *
+ * @link https://sass-lang.com/documentation/variables
+ */
+/**
+  * Font sizes
+  *
+  * The font size variables presume a browser default of 16px,
+  * in which case the variable number is equivelent to a px number.
+  *
+  * SASS can't have variables beginning with a numeral.
+  */
+/**
+ * Font stack variables
+ *
+ * The $sans and $serif stacks are default. The $inter and $crimson
+ * stacks are used in @supports( font-variation-settings ) queries.
+ */
+/**
+ * General app color variables
+ *
+ * These styles are primarily used in administration pages,
+ * but also common features such as the user toolbar. For this
+ * reason the file is not kept in the css/admin directory.
+ *
+ * @link https://sass-lang.com/documentation/variables
+ */
+/**
+ * Default app admin color variables
+ *
+ * Assign default value to all undefined variables,
+ * pure white and pure black excepted.
+ *
+ * @link https://sass-lang.com/documentation/variables
+ */
+/**
+ * General app color variables
+ *
+ * These styles are primarily used in administration pages,
+ * but also common features such as the user toolbar. For this
+ * reason the file is not kept in the css/admin directory.
+ *
+ * @link https://sass-lang.com/documentation/variables
  */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, sans-serif;
@@ -507,10 +514,14 @@ body.mobile.modal-open .admin-page-wrap {
 }
 
 /**
- * SASS/SCSS color variables
+ * Styles comon to all administration screens
+ */
+/**
+ * General app typography variables
  *
- * Assign default value to all undefined variables,
- * pure white and pure black excepted.
+ * These styles are primarily used in administration pages,
+ * but also common features such as the user toolbar. For this
+ * reason the file is not kept in the css/admin directory.
  *
  * @link https://sass-lang.com/documentation/variables
  */
@@ -527,6 +538,15 @@ body.mobile.modal-open .admin-page-wrap {
  *
  * The $sans and $serif stacks are default. The $inter and $crimson
  * stacks are used in @supports( font-variation-settings ) queries.
+ */
+/**
+ * General app color variables
+ *
+ * These styles are primarily used in administration pages,
+ * but also common features such as the user toolbar. For this
+ * reason the file is not kept in the css/admin directory.
+ *
+ * @link https://sass-lang.com/documentation/variables
  */
 /* inner 2 column liquid layout */
 .app-post-body .inner-sidebar {

@@ -1,0 +1,375 @@
+$menu_base_color: #1c1c1c;
+$menu_icon_color: #999;
+$menu_text_color: #e5e5e5;
+$highlight-color: #3ad4fb;
+$notify_color: #ffee00;
+
+$body_background: #252525;
+
+$menu-highlight-text: #fff;
+$menu-highlight-icon: $menu_base_color;
+$menu-highlight-background: #ffee00;
+
+$menu-bubble-text: #fff;
+$menu-avatar-frame: #aaa;
+$menu-submenu-background: #333;
+
+$menu-collapse-text: #777;
+$menu-collapse-focus-icon: #555;
+
+/**
+ * Override default dark text colors
+ */
+body,
+h1,
+h2,
+h3,
+.app-core-ui .button,
+.form-wrap p,
+p.description,
+.form-table th,
+.form-wrap label,
+input[type="text"],
+input[type="password"],
+input[type="checkbox"],
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="search"],
+input[type="radio"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+select,
+textarea,
+#wpfooter,
+#dashboard-widgets h4,
+#dashboard-widgets h3,
+#dashboard_quick_press .drafts h2,
+#title-wrap #title-prompt-text,
+.textarea-wrap #content-prompt-text,
+#screen-meta-links .show-settings,
+#screen-meta-links .show-settings:after,
+.widefat th,
+.widefat td,
+.subsubsub a .count,
+.subsubsub a.current .count,
+.theme-overlay .theme-name,
+.theme-overlay .theme-version,
+.theme-overlay .theme-author,
+.theme-overlay .theme-description,
+.theme-overlay .theme-tags span,
+.theme-overlay .theme-tags,
+.widefat thead tr th,
+.widefat thead tr td,
+.widefat tfoot tr th,
+.widefat tfoot tr td,
+.importer-title,
+.ac_match,
+.subsubsub a.current,
+.inactive-sidebar .description,
+.widget-holder .description,
+#available-widgets .widget-description,
+#widgets-right a.widget-control-edit,
+.in-widget-title,
+.widgets-holder-wrap .description,
+.handlediv,
+.postbox .handlediv.button-link,
+.item-edit,
+.toggle-indicator,
+.accordion-section-title:after,
+.attachment-info,
+.edit-attachment-frame .attachment-info .filename,
+.attachment-details .setting span,
+.compat-item label span,
+.media-sidebar .setting span,
+.contextual-help-tabs .active a,
+#future-posts ul span,
+#published-posts ul span,
+#latest-comments #the-comment-list .comment-meta,
+#dashboard_quick_press .drafts li time,
+#dashboard_activity .subsubsub a .count,
+#dashboard_activity .subsubsub a.current .count {
+	color: $menu_text_color;
+}
+
+a,
+#screen-meta-links .show-settings:hover,
+#screen-meta-links .show-settings:active,
+#screen-meta-links .show-settings:focus {
+	color: $highlight-color;
+}
+
+input:disabled,
+input.disabled,
+select:disabled,
+select.disabled,
+textarea:disabled,
+textarea.disabled {
+	color: $menu_icon_color;
+}
+
+::-webkit-input-placeholder {
+	color: $menu_icon_color;
+}
+
+::-moz-placeholder {
+	color: $menu_icon_color;
+}
+
+:-ms-input-placeholder {
+	color: $menu_icon_color;
+}
+
+::-ms-input-placeholder {
+	color: $menu_icon_color;
+}
+
+::placeholder {
+	color: $menu_icon_color;
+}
+
+/**
+ * Override default dark backgrounds & borders
+ */
+.widefat th input,
+.updates-table td input,
+.widefat thead td input,
+.widefat tfoot td input {
+	border-color: $menu_text_color;
+}
+
+/**
+ * Override default light text colors
+ */
+.app-core-ui .button.button-primary,
+.app-core-ui .button-secondary,
+#adminmenu li.current a.menu-top,
+#adminmenu li.wp-has-submenu:hover > a,
+#adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,
+#adminmenu li.wp-has-current-submenu .wp-submenu .wp-submenu-head,
+.folded #adminmenu li.current.menu-top,
+#adminmenu li.wp-has-current-submenu div.wp-menu-image:before,
+#adminmenu a.current:hover div.wp-menu-image:before,
+#adminmenu li.wp-has-current-submenu a:focus div.wp-menu-image:before,
+#adminmenu li:hover div.wp-menu-image:before,
+#adminmenu li a:focus div.wp-menu-image:before,
+#adminmenu a:hover,
+#adminmenu li.menu-top:hover,
+#adminmenu li > a.menu-top:focus,
+#adminmenu li.menu-top:hover div.wp-menu-image:before {
+	color: $menu_base_color;
+	text-shadow: none;
+}
+
+/**
+ * Override default light backgrounds & borders
+ */
+input[type="text"],
+input[type="password"],
+input[type="checkbox"],
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="search"],
+input[type="radio"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+select,
+textarea,
+input:disabled,
+input.disabled,
+select:disabled,
+select.disabled,
+textarea:disabled,
+textarea.disabled,
+.postbox,
+.postbox .hndle,
+.stuffbox .hndle,
+.welcome-panel,
+.js #dashboard_quick_press .drafts,
+.activity-block,
+#dashboard_activity .subsubsub,
+#activity-widget #the-comment-list .comment-item,
+#screen-options-link-wrap,
+#contextual-help-link-wrap,
+table.widefat,
+.wp-editor-container,
+.stuffbox, p.popular-tags,
+.widgets-holder-wrap,
+.popular-tags,
+.feature-filter,
+.imgedit-group,
+.comment-ays,
+.widefat tfoot th,
+.widefat tfoot td,
+.wp-filter,
+.theme-overlay .theme-wrap,
+.theme-overlay .theme-actions,
+.plugins tr,
+.card,
+.notice,
+div.updated,
+div.error,
+.privacy_requests tbody td,
+.widget .widget-top,
+.menu-item-handle,
+.widget-top,
+.menu-item-handle,
+.widget-inside,
+#menu-settings-column .accordion-container,
+#menu-management .menu-edit,
+.manage-menus,
+table.widefat,
+.stuffbox,
+p.popular-tags,
+.widgets-holder-wrap,
+.wp-editor-container,
+.popular-tags,
+.feature-filter,
+.imgedit-group,
+.comment-ays,
+.media-modal-content,
+.edit-attachment-frame .attachment-info,
+#titlediv #title,
+#wp-content-editor-tools,
+.wp-editor-expand #wp-content-editor-tools,
+#post-status-info,
+#major-publishing-actions,
+.categorydiv div.tabs-panel,
+.customlinkdiv div.tabs-panel,
+.posttypediv div.tabs-panel,
+.taxonomydiv div.tabs-panel,
+.wp-tab-panel,
+#contextual-help-back,
+.contextual-help-tabs .active a {
+	background: $menu-submenu-background;
+	border-color: $menu_base_color;
+}
+
+.wp-editor-container,
+div.mce-panel,
+div.mce-toolbar-grp,
+.mce-toolbar .mce-btn-group .mce-btn.mce-listbox,
+.mce-container,
+.mce-container *,
+.mce-widget,
+.mce-widget *,
+.mce-reset,
+div.mce-statusbar,
+#post-status-info,
+.wp-switch-editor,
+.quicktags-toolbar {
+	background: $menu-submenu-background !important;
+	border-color: $menu_base_color !important;
+	color: $menu_text_color !important;
+}
+
+.welcome-panel p,
+.mce-menubtn button,
+.mce-toolbar .mce-ico {
+	color: $menu_text_color !important;
+}
+
+.app-core-ui .button.active,
+.app-core-ui .button.active:hover,
+.app-core-ui .button:active,
+.app-core-ui .button-secondary:active,
+.wrap .add-new-h2,
+.wrap .add-new-h2:active,
+.wrap .page-title-action,
+.wrap .page-title-action:active,
+.theme-overlay .current-label,
+.app-core-ui .button.hover,
+.app-core-ui .button:hover,
+.app-core-ui .button-secondary:hover,
+.app-core-ui .button.focus,
+.app-core-ui .button:focus,
+.app-core-ui .button-secondary:focus,
+.edit-attachment-frame .edit-media-header .left:focus,
+.edit-attachment-frame .edit-media-header .left:hover,
+.edit-attachment-frame .edit-media-header .right:focus,
+.edit-attachment-frame .edit-media-header .right:hover,
+.upload-php .media-modal-close:focus,
+.upload-php .media-modal-close:hover,
+.wp-tab-active,
+ul.add-menu-item-tabs li.tabs,
+ul.category-tabs li.tabs {
+	background: $highlight-color;
+	border-color: $menu_base_color;
+	color: $menu_base_color;
+}
+
+.mce-toolbar .mce-btn button:hover,
+.qt-dfw:hover,
+.html-active .switch-html,
+.tmce-active .switch-tmce {
+	background: $highlight-color !important;
+	border-color: $menu_base_color !important;
+	color: $menu_base_color !important;
+}
+
+.striped > tbody > :nth-child(2n+1),
+ul.striped > :nth-child(2n+1), .alternate,
+.widget-inside,
+.media-frame-content,
+.edit-attachment-frame .edit-media-header .left,
+.edit-attachment-frame .edit-media-header .right,
+.upload-php .media-modal-close,
+#screen-meta {
+	background: $body_background;
+	border-color: $menu_base_color;
+}
+
+.color-palette li {
+	border: solid 1px $menu_text_color;
+}
+
+/* temporary fix for admin-bar hover color */
+#wpadminbar .ab-top-menu > li:hover > .ab-item,
+#wpadminbar .ab-top-menu > li.hover > .ab-item,
+#wpadminbar > #wp-toolbar > #wp-admin-bar-root-default li:hover span.ab-label,
+#wpadminbar > #wp-toolbar > #wp-admin-bar-top-secondary li.hover span.ab-label,
+#wpadminbar .ab-top-menu > li > .ab-item:focus,
+#wpadminbar.nojq .quicklinks .ab-top-menu > li > .ab-item:focus,
+#wpadminbar.nojs .ab-top-menu > li.menupop:hover > .ab-item,
+#wpadminbar .ab-top-menu > li.menupop.hover > .ab-item {
+	color: $menu_text_color;
+}
+
+/* Override the theme filter highlight color for this scheme */
+.theme-section.current,
+.theme-filter.current {
+	border-bottom-color: $highlight-color;
+}
+
+.button-link,
+.button-link-delete,
+.widget-control-close,
+.delete-attachment {
+	border: none;
+}
+
+.privacy_requests thead td:first-child, .privacy_requests tfoot td:first-child {
+	border-left: none;
+}
+
+.media-modal .delete-attachment,
+.media-modal .trash-attachment,
+.media-modal .untrash-attachment,
+.button-link-delete {
+	color: #f00;
+}
