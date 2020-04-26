@@ -206,7 +206,7 @@ td {
 
 /* Any change to the default link style must be applied to button-link too. */
 a {
-  color: #115599;
+  color: #004499;
   -webkit-transition-property: border, background, color;
   transition-property: border, background, color;
   -webkit-transition-duration: .05s;
@@ -216,7 +216,7 @@ a {
 }
 
 a:hover, a:focus {
-  color: #166fc7;
+  color: #005bcc;
 }
 
 a:focus,
@@ -373,7 +373,7 @@ code {
 
 .subsubsub li.list-table-add-new button {
   border: none;
-  color: #115599;
+  color: #004499;
 }
 
 .subsubsub a {

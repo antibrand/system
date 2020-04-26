@@ -104,14 +104,14 @@
 .column-response .post-com-count-approved:focus .comment-count-approved,
 .column-comments .post-com-count-approved:hover .comment-count-approved,
 .column-comments .post-com-count-approved:focus .comment-count-approved {
-  background: #115599;
+  background: #004499;
 }
 
 .column-response .post-com-count-approved:hover:after,
 .column-response .post-com-count-approved:focus:after,
 .column-comments .post-com-count-approved:hover:after,
 .column-comments .post-com-count-approved:focus:after {
-  border-top-color: #115599;
+  border-top-color: #004499;
 }
 
 /* @todo: consider to use a single rule for these counters and the admin menu counters. */
@@ -759,7 +759,7 @@ classes exist in paginate_links() but not seen in list table output. */
 .tablenav .next,
 .tablenav .prev {
   border-color: transparent;
-  color: #115599;
+  color: #004499;
 }
 
 .tablenav .next:hover,
@@ -808,7 +808,7 @@ classes exist in paginate_links() but not seen in list table output. */
 }
 
 .view-switch a.current:before {
-  color: #115599;
+  color: #004499;
 }
 
 .view-switch .view-list:before {

@@ -46,7 +46,7 @@
 
 .media-frame a {
   border-bottom: none;
-  color: #115599;
+  color: #004499;
 }
 
 .media-frame a:hover,
@@ -522,12 +522,12 @@
   margin: 0;
   line-height: 18px;
   font-size: 14px;
-  color: #115599;
+  color: #004499;
   text-decoration: none;
 }
 
 .media-menu > a:hover {
-  color: #115599;
+  color: #004499;
   background: rgba(0, 0, 0, 0.04);
 }
 
@@ -816,8 +816,8 @@
 }
 
 .app-core-ui .attachment.details {
-  -webkit-box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 7px #115599;
-          box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 7px #115599;
+  -webkit-box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 7px #004499;
+          box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 7px #004499;
 }
 
 .app-core-ui .attachment-preview {
@@ -984,9 +984,9 @@
 .app-core-ui .attachment.details .check,
 .app-core-ui .attachment.selected .check:focus,
 .app-core-ui .media-frame.mode-grid .attachment.selected .check {
-  background-color: #115599;
-  -webkit-box-shadow: 0 0 0 1px #fff, 0 0 0 2px #115599;
-          box-shadow: 0 0 0 1px #fff, 0 0 0 2px #115599;
+  background-color: #004499;
+  -webkit-box-shadow: 0 0 0 1px #fff, 0 0 0 2px #004499;
+          box-shadow: 0 0 0 1px #fff, 0 0 0 2px #004499;
 }
 
 .app-core-ui .attachment.details .check .media-modal-icon,
@@ -1120,7 +1120,7 @@
   height: 10px;
   min-width: 20px;
   width: 0;
-  background: #115599;
+  background: #004499;
   border-radius: 10px;
   -webkit-transition: width 300ms;
   transition: width 300ms;
@@ -1396,7 +1396,7 @@
   margin: 1px -8px 1px 8px;
   line-height: 16px;
   border-left: 1px solid #ddd;
-  color: #115599;
+  color: #004499;
   text-decoration: none;
 }
 
@@ -1469,8 +1469,8 @@
 }
 
 .app-core-ui .media-selection .attachment.details {
-  -webkit-box-shadow: 0 0 0 1px #fff, 0 0 0 3px #115599;
-          box-shadow: 0 0 0 1px #fff, 0 0 0 3px #115599;
+  -webkit-box-shadow: 0 0 0 1px #fff, 0 0 0 3px #004499;
+          box-shadow: 0 0 0 1px #fff, 0 0 0 3px #004499;
 }
 
 .media-selection:after {
@@ -2262,7 +2262,7 @@
     line-height: 50px;
   }
   .media-frame:not(.hide-menu) .media-frame-title h1 {
-    color: #115599;
+    color: #004499;
     line-height: 3;
     font-size: 18px;
     float: right;
