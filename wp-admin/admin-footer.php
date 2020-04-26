@@ -22,14 +22,14 @@ if ( ! defined( 'APP_NAME' ) ) {
 global $hook_suffix;
 ?>
 
+						<div class="clear"></div>
+					</div><!-- wpbody-content -->
 					<div class="clear"></div>
-				</div><!-- wpbody-content -->
-				<div class="clear"></div>
-			</main><!-- wpbody -->
-			<div class="clear">
-		</div>
-	</div><!-- .admin-page-content -->
-
+				</main><!-- wpbody -->
+				<div class="clear">
+			</div>
+		</div><!-- .admin-page-content -->
+	</div><!-- .page-wrap -->
 	<div id="wpfooter" role="contentinfo">
 		<?php
 		/**
@@ -120,9 +120,7 @@ global $hook_suffix;
 	}
 
 	?>
-
 	<div class="clear"></div>
-</div><!-- .page-wrap -->
 
 <script type="text/javascript">if(typeof wpOnload=='function')wpOnload();</script>
 

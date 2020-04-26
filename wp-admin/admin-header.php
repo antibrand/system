@@ -207,20 +207,20 @@ $admin_body_classes = apply_filters( 'admin_body_class', '' );
 ?>
 <body class="app-admin app-core-ui <?php echo $admin_body_classes . ' ' . $admin_body_class; ?>">
 
-	<?php
+	<?php do_action( 'app_toolbar_render' );
+
 	// Make sure the customize body classes are correct as early as possible.
 	if ( current_user_can( 'customize' ) ) {
 		wp_customize_support_script();
 	} ?>
 
-	<div id="admin-page-wrap" class="page-wrap admin-page-wrap">
+	<?php require( ABSPATH . 'wp-admin/menu-header.php' ); ?>
 
-		<?php require( ABSPATH . 'wp-admin/menu-header.php' ); ?>
+	<div id="admin-page-wrap" class="page-wrap admin-page-wrap">
 
 		<div id="app-content" class="page-content admin-page-content">
 			<?php
 
-			do_action( 'app_toolbar_render' );
 			do_action( 'in_admin_header' );
 
 			/**

@@ -2545,10 +2545,6 @@ html.wp-toolbar {
   21.0 - Admin Footer
 ------------------------------------------------------------------------------*/
 #wpfooter {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
   padding: 10px 20px;
   color: #555d66;
 }
