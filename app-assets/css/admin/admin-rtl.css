@@ -468,17 +468,17 @@ body.mobile.modal-open .admin-page-wrap {
 
 .admin-page-content,
 #wpfooter {
-  margin-right: 160px;
+  margin-left: 160px;
 }
 
 .folded .admin-page-content,
 .folded #wpfooter {
-  margin-right: 36px;
+  margin-left: 36px;
 }
 
 .app-content {
   padding-bottom: 65px;
-  float: right;
+  float: left;
   width: 100%;
   overflow: visible !important;
 }

@@ -970,7 +970,7 @@ function wp_default_styles( &$styles ) {
 	$suffix = SCRIPT_DEBUG ? '' : '.min';
 
 	// Admin CSS.
-	$styles->add( 'admin',               "/app-assets/css/admin$suffix.css" );
+	$styles->add( 'admin',               "/app-assets/css/admin/admin$suffix.css" );
 	$styles->add( 'common',              "/wp-admin/css/common$suffix.css" );
 	$styles->add( 'forms',               "/wp-admin/css/forms$suffix.css" );
 	$styles->add( 'admin-menu',          "/wp-admin/css/admin-menu$suffix.css" );

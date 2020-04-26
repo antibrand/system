@@ -25,7 +25,6 @@ html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   height: 100%;
-  overflow-y: scroll;
   font-size: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -267,7 +266,20 @@ b, strong, optgroup {
 }
 
 /**
- * SASS/SCSS global admin variables
+ * General app color variables
+ *
+ * These styles are primarily used in administration pages,
+ * but also common features such as the user toolbar. For this
+ * reason the file is not kept in the css/admin directory.
+ *
+ * @link https://sass-lang.com/documentation/variables
+ */
+/**
+ * General app typography variables
+ *
+ * These styles are primarily used in administration pages,
+ * but also common features such as the user toolbar. For this
+ * reason the file is not kept in the css/admin directory.
  *
  * @link https://sass-lang.com/documentation/variables
  */
@@ -280,10 +292,25 @@ b, strong, optgroup {
   * SASS can't have variables beginning with a numeral.
   */
 /**
- * SASS/SCSS color variables
+ * Font stack variables
+ *
+ * The $sans and $serif stacks are default. The $inter and $crimson
+ * stacks are used in @supports( font-variation-settings ) queries.
+ */
+/**
+ * Default app admin color variables
  *
  * Assign default value to all undefined variables,
  * pure white and pure black excepted.
+ *
+ * @link https://sass-lang.com/documentation/variables
+ */
+/**
+ * General app color variables
+ *
+ * These styles are primarily used in administration pages,
+ * but also common features such as the user toolbar. For this
+ * reason the file is not kept in the css/admin directory.
  *
  * @link https://sass-lang.com/documentation/variables
  */
