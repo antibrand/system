@@ -31,11 +31,11 @@ div.dashboard-widget-submit input:hover,
 /* Forms */
 
 input[type=checkbox]:checked:before {
-	color: $form-checked;
+	color: $form_checked;
 }
 
 input[type=radio]:checked:before {
-	background: $form-checked;
+	background: $form_checked;
 }
 
 .app-core-ui input[type="reset"]:hover,

@@ -1,11 +1,40 @@
-$menu_base_color: #1c1c1c;
-$medium_color: #555;
-$menu_icon_color: #999;
-$menu_text_color: #e5e5e5;
-$highlight-color: #3ad4fb;
-$notify_color: #ffee00;
+/**
+ * SASS/SCSS color variables
+ *
+ * @link https://sass-lang.com/documentation/variables
+ */
 
+ // Color name variables.
+$white: #ffffff;
+$off_white: #eeeeee;
+$pale_gray: #cccccc;
+$light_gray: #888888;
+$medium_gray: #555555;
+$dark_gray: #333333;
+$near_black: #121212;
+$black: #000000;
+$app_green: #44aa11;
+$app_yellow: #ffbb00;
+$app_orange: #ee6600;
+$app_red: #dd0000;
+
+// Global app admin variables.
 $body_background: #252525;
+$text_color: $white;
+$link: #3ad4fb;
+$link_action: darken( $link, 10% );
+$highlight-color: #3ad4fb;
+
+$notify_color: $app_orange;
+$error_color: $app_red;
+$warning_color: $app_yellow;
+$success_color: $app_green;
+
+$menu_base_color: #1c1c1c;
+$menu_text_color: $white;
+$menu_icon_color: hsl( hue( $menu_base_color ), 7%, 95% );
+$button-color: $highlight-color;
+$form_checked: $highlight-color;
 
 $menu-highlight-text: #fff;
 $menu-highlight-icon: $menu_base_color;
@@ -17,8 +46,6 @@ $menu-submenu-background: #333;
 
 $menu-collapse-text: #777;
 $menu-collapse-focus-icon: #555;
-
-@import "../_admin.scss";
 
 /**
  * Override default dark text colors
@@ -384,5 +411,5 @@ ul.striped > :nth-child(2n+1), .alternate,
 
 .plugins .active td,
 .plugins .active th {
-	background-color: $medium_color;
+	background-color: $medium_gray;
 }

@@ -333,28 +333,6 @@ b, strong, optgroup {
 }
 
 /**
- * SASS/SCSS color variables
- *
- * Assign default value to all undefined variables,
- * pure white and pure black excepted.
- *
- * @link https://sass-lang.com/documentation/variables
- */
-/**
-  * Font sizes
-  *
-  * The font size variables presume a browser default of 16px,
-  * in which case the variable number is equivelent to a px number.
-  *
-  * SASS can't have variables beginning with a numeral.
-  */
-/**
- * Font stack variables
- *
- * The $sans and $serif stacks are default. The $inter and $crimson
- * stacks are used in @supports( font-variation-settings ) queries.
- */
-/**
   * Font sizes
   *
   * The font size variables presume a browser default of 16px,

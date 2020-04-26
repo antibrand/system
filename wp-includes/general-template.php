@@ -3925,7 +3925,8 @@ function wp_admin_css_color( $key, $name, $url, $colors = array(), $icons = arra
  * @since 3.0.0
  */
 function register_admin_color_schemes() {
-	$suffix = is_rtl() ? '-rtl' : '';
+
+	$suffix  = is_rtl() ? '-rtl' : '';
 	$suffix .= SCRIPT_DEBUG ? '' : '.min';
 
 	wp_admin_css_color( 'default', _x( 'Default', 'admin color scheme' ),

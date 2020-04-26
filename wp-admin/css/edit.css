@@ -1,7 +1,8 @@
 /**
  * SASS/SCSS color variables
  *
- * Assign default value to all undefined variables.
+ * Assign default value to all undefined variables,
+ * pure white and pure black excepted.
  *
  * @link https://sass-lang.com/documentation/variables
  */
@@ -89,7 +90,7 @@
 }
 
 #titlediv #title:focus {
-  border-color: #5b9dd9;
+  border-color: transparent;
 }
 
 #titlediv #title-prompt-text {
@@ -121,7 +122,7 @@
 }
 
 #titlediv #title-prompt-text:focus {
-  border-color: #5b9dd9;
+  border-color: transparent;
 }
 
 #subtitlewrap #subtitle-label {
@@ -1229,7 +1230,7 @@ p.popular-tags a {
 
 .ac_results .ac_over,
 .ac_over .ac_match {
-  background-color: #0073aa;
+  background-color: #115599;
   color: #fff;
   cursor: pointer;
 }

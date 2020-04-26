@@ -21,13 +21,15 @@ $app_yellow: #ffbb00 !default;
 $app_orange: #ee6600 !default;
 $app_red: #dd0000 !default;
 
+$form-focus: transparent;
+
 // Global app admin variables.
 $body_background: $white !default;
 $text_color: #222222 !default;
 $link: #115599 !default;
 $link_action: lighten( $link, 10% ) !default;
-
 $highlight-color: #0073aa !default;
+
 $notify_color: $app_orange !default;
 $error_color: $app_red !default;
 $warning_color: $app_yellow !default;
@@ -38,7 +40,7 @@ $menu_base_color: #222 !default;
 $menu_text_color: $white !default;
 $menu_icon_color: hsl( hue( $menu_base_color ), 7%, 95% ) !default;
 $button-color: $highlight-color !default;
-$form-checked: $highlight-color !default;
+$form_checked: $highlight-color !default;
 
 $menu-icon: $menu_icon_color !default;
 $menu-background: $menu_base_color !default;
