@@ -358,16 +358,10 @@ $menu[60] = [
 	'dashicons-layout'
 ];
 
-$submenu['themes.php'][5] = [
+$submenu['themes.php'][3] = [
 	__( 'Manage Themes' ),
 	$appearance_cap,
 	'themes.php'
-];
-
-$submenu['themes.php'][6] = [
-	__( 'WordPress Themes' ),
-	$appearance_cap,
-	'theme-install.php'
 ];
 
 $customize_url = add_query_arg(
@@ -381,7 +375,7 @@ $customize_url = add_query_arg(
 	'customize.php'
 );
 
-$submenu['themes.php'][7] = [
+$submenu['themes.php'][5] = [
 	__( 'Customize' ),
 	'customize',
 	esc_url( $customize_url ),
@@ -389,8 +383,14 @@ $submenu['themes.php'][7] = [
 	'hide-if-no-customize'
 ];
 
+$submenu['themes.php'][6] = [
+	__( 'WordPress Themes' ),
+	$appearance_cap,
+	'theme-install.php'
+];
+
 if ( current_theme_supports( 'menus' ) || current_theme_supports( 'widgets' ) ) {
-	$submenu['themes.php'][10] = [
+	$submenu['themes.php'][15] = [
 		__( 'Menus' ),
 		'edit_theme_options',
 		'nav-menus.php'
@@ -408,7 +408,7 @@ if ( current_theme_supports( 'custom-header' ) && current_user_can( 'customize')
 		$customize_url
 	);
 
-	$submenu['themes.php'][15] = [
+	$submenu['themes.php'][20] = [
 		__( 'Header' ),
 		$appearance_cap,
 		esc_url( $customize_header_url ),
@@ -428,7 +428,7 @@ if ( current_theme_supports( 'custom-background' ) && current_user_can( 'customi
 		$customize_url
 	);
 
-	$submenu['themes.php'][20] = [
+	$submenu['themes.php'][25] = [
 		__( 'Background' ),
 		$appearance_cap,
 		esc_url( $customize_background_url ),
