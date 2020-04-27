@@ -99,7 +99,7 @@
 }
 
 #titlediv #title:focus {
-  border-color: #0066e6;
+  border-color: #005fd6;
 }
 
 #titlediv #title-prompt-text {
@@ -131,7 +131,7 @@
 }
 
 #titlediv #title-prompt-text:focus {
-  border-color: #0066e6;
+  border-color: #005fd6;
 }
 
 #subtitlewrap #subtitle-label {

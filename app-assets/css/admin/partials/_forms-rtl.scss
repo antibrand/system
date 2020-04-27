@@ -6,6 +6,9 @@
 @import '../../includes/modules/_typography.scss';
 @import '../../includes/modules/_colors.scss';
 
+// Import variables specific to administration pages.
+@import '../colors/_defaults.scss';
+
 /* Include margin and padding in the width calculation of input and textarea. */
 input,
 textarea {
@@ -57,7 +60,7 @@ input[type="checkbox"]:focus,
 input[type="radio"]:focus,
 select:focus,
 textarea:focus {
-	border-color: #5b9dd9;
+	border-color: $form_focus;
 }
 
 /* rtl:ignore */

@@ -4,6 +4,15 @@
 /**
  * Browser reset
  */
+/**
+ * General app color variables
+ *
+ * These styles are primarily used in administration pages,
+ * but also common features such as the user toolbar. For this
+ * reason the file is not kept in the css/admin directory.
+ *
+ * @link https://sass-lang.com/documentation/variables
+ */
 html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, button, input, select, textarea, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -69,7 +78,7 @@ hr {
   box-sizing: content-box;
   height: 0;
   border: 0;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #cccccc;
   margin: 1em 0;
   padding: 0;
 }
@@ -96,7 +105,7 @@ input {
 }
 
 input, textarea, select, button {
-  border: solid 1px #ccc;
+  border: solid 1px #cccccc;
 }
 
 input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
@@ -123,22 +132,22 @@ input::-webkit-inner-spin-button {
 }
 
 *::-webkit-input-placeholder {
-  color: #888;
+  color: #888888;
   opacity: 1;
 }
 
 *:-ms-input-placeholder {
-  color: #888;
+  color: #888888;
   opacity: 1;
 }
 
 *::-ms-input-placeholder {
-  color: #888;
+  color: #888888;
   opacity: 1;
 }
 
 *::placeholder {
-  color: #888;
+  color: #888888;
   opacity: 1;
 }
 
@@ -250,14 +259,13 @@ pre {
 }
 
 pre, code, kbd, samp {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", Courier, monospace;
 }
 
 b, strong, optgroup {
   font-weight: bold;
 }
 
-/* .clearfix class for clearing floats */
 .clearfix {
   clear: both;
   display: block;
@@ -556,6 +564,23 @@ body.mobile.modal-open .admin-page-wrap {
  *
  * @link https://sass-lang.com/documentation/variables
  */
+/**
+ * Default app admin color variables
+ *
+ * Assign default value to all undefined variables,
+ * pure white and pure black excepted.
+ *
+ * @link https://sass-lang.com/documentation/variables
+ */
+/**
+ * General app color variables
+ *
+ * These styles are primarily used in administration pages,
+ * but also common features such as the user toolbar. For this
+ * reason the file is not kept in the css/admin directory.
+ *
+ * @link https://sass-lang.com/documentation/variables
+ */
 /* Include margin and padding in the width calculation of input and textarea. */
 input,
 textarea {
@@ -608,7 +633,7 @@ input[type="checkbox"]:focus,
 input[type="radio"]:focus,
 select:focus,
 textarea:focus {
-  border-color: #5b9dd9;
+  border-color: #005fd6;
 }
 
 /* rtl:ignore */
