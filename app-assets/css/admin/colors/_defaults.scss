@@ -15,7 +15,7 @@ $body_background: $white !default;
 $text_color: #222222 !default;
 $link: #004499 !default;
 $link_action: lighten( $link, 12% ) !default;
-$highlight-color: $app_yellow !default;
+$highlight_color: $app_yellow !default;
 
 $notify_color: $app_orange !default;
 $error_color: $app_red !default;
@@ -26,18 +26,26 @@ $success_color: $app_green !default;
 $form_focus: $link_action !default;
 $form_checked: $link_action !default;
 
+// Buttons.
+$button_background_color: inherit !default;
+$button_border_color: $light_gray !default;
+$button_text_color: $text_color !default;
+$button_action_background_color: $highlight_color !default;
+$button_action_border_color: $button_border_color !default;
+$button_action_text_color: $text_color !default;
+
 // Admin menu & admin-bar.
 $menu_base_color: #222 !default;
 $menu_text_color: $white !default;
 $menu_icon_color: darken( $menu_text_color, 25% ) !default;
-$button-color: $highlight-color !default;
+$button-color: $highlight_color !default;
 
 $menu-icon: $menu_icon_color !default;
 $menu-background: $menu_base_color !default;
 
 $menu-highlight-text: $menu_text_color !default;
 $menu-highlight-icon: $menu_text_color !default;
-$menu-highlight-background: $highlight-color !default;
+$menu-highlight-background: $highlight_color !default;
 
 $menu-current-text: $menu-highlight-text !default;
 $menu-current-icon: $menu-highlight-icon !default;
@@ -47,7 +55,7 @@ $menu-submenu-text: mix( $menu_base_color, $menu_text_color, 30% ) !default;
 $menu-submenu-background: darken( $menu_base_color, 7% ) !default;
 $menu-submenu-background-alt: desaturate( lighten( $menu-background, 7% ), 7% ) !default;
 
-$menu-submenu-focus-text: $highlight-color !default;
+$menu-submenu-focus-text: $highlight_color !default;
 $menu-submenu-current-text: $menu_text_color !default;
 
 $menu-bubble-text: $menu_text_color !default;

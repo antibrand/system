@@ -27,7 +27,7 @@ $text_color: #444444;
 $link: #0073aa;
 $link_action: lighten( $link, 10% );
 
-$highlight-color: #0073aa;
+$highlight_color: #0073aa;
 $notify_color: $app_orange;
 $error_color: $app_red;
 $warning_color: $app_yellow;
@@ -37,8 +37,8 @@ $success_color: $app_green;
 $menu_base_color: #23282d;
 $menu_text_color: #eee;
 $menu_icon_color: hsl( hue( $menu_base_color ), 7%, 95% );
-$button-color: $highlight-color;
-$form_checked: $highlight-color;
+$button-color: $highlight_color;
+$form_checked: $highlight_color;
 
 $menu-text: $menu_text_color;
 $menu-icon: $menu_icon_color;
@@ -46,7 +46,7 @@ $menu-background: $menu_base_color;
 
 $menu-highlight-text: $menu_text_color;
 $menu-highlight-icon: $menu_text_color;
-$menu-highlight-background: $highlight-color;
+$menu-highlight-background: $highlight_color;
 
 $menu-current-text: $menu-highlight-text;
 $menu-current-icon: $menu-highlight-icon;
@@ -56,7 +56,7 @@ $menu-submenu-text: mix( $menu_base_color, $menu_text_color, 30% );
 $menu-submenu-background: #32373c;
 $menu-submenu-background-alt: desaturate( lighten( $menu-background, 7% ), 7% );
 
-$menu-submenu-focus-text: $highlight-color;
+$menu-submenu-focus-text: $highlight_color;
 $menu-submenu-current-text: $menu_text_color;
 
 $menu-bubble-text: $menu_text_color;

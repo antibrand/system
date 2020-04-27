@@ -1,7 +1,7 @@
 $menu_base_color: #1c1c1c;
 $menu_icon_color: #999;
 $menu_text_color: #e5e5e5;
-$highlight-color: #3ad4fb;
+$highlight_color: #3ad4fb;
 $notify_color: #ffee00;
 
 $body_background: #252525;
@@ -103,7 +103,7 @@ a,
 #screen-meta-links .show-settings:hover,
 #screen-meta-links .show-settings:active,
 #screen-meta-links .show-settings:focus {
-	color: $highlight-color;
+	color: $highlight_color;
 }
 
 input:disabled,
@@ -308,7 +308,7 @@ div.mce-statusbar,
 .wp-tab-active,
 ul.add-menu-item-tabs li.tabs,
 ul.category-tabs li.tabs {
-	background: $highlight-color;
+	background: $highlight_color;
 	border-color: $menu_base_color;
 	color: $menu_base_color;
 }
@@ -317,7 +317,7 @@ ul.category-tabs li.tabs {
 .qt-dfw:hover,
 .html-active .switch-html,
 .tmce-active .switch-tmce {
-	background: $highlight-color !important;
+	background: $highlight_color !important;
 	border-color: $menu_base_color !important;
 	color: $menu_base_color !important;
 }
@@ -353,7 +353,7 @@ ul.striped > :nth-child(2n+1), .alternate,
 /* Override the theme filter highlight color for this scheme */
 .theme-section.current,
 .theme-filter.current {
-	border-bottom-color: $highlight-color;
+	border-bottom-color: $highlight_color;
 }
 
 .button-link,

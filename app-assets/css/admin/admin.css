@@ -2121,6 +2121,23 @@ table.form-table td .updated p {
 }
 
 /**
+ * Buttons
+ *
+ * Create a button by adding the `.button` class to an element. For backward
+ * compatibility, we support several other classes (such as `.button-secondary`),
+ * but these will not work with the stackable classes described below.
+ *
+ * Button Styles:
+ * To display a primary button style, add the `.button-primary` class to a button.
+ *
+ * Button Sizes:
+ * Adjust a button's size by adding the `.button-large` or `.button-small` class.
+ *
+ * Button States:
+ * Lock the state of a button by adding the name of the pseudoclass as
+ * an actual class (e.g. `.hover` for `:hover`).
+ */
+/**
  * General app typography variables
  *
  * These styles are primarily used in administration pages,
@@ -2152,226 +2169,127 @@ table.form-table td .updated p {
  *
  * @link https://sass-lang.com/documentation/variables
  */
-/* ----------------------------------------------------------------------------
-
-NOTE: If you edit this file, you should make sure that the CSS rules for
-buttons in the following files are updated.
-
-* jquery-ui-dialog.css
-* editor.css
-
-Buttons
-=======================
-Create a button by adding the `.button` class to an element. For backward
-compatibility, we support several other classes (such as `.button-secondary`),
-but these will *not* work with the stackable classes described below.
-
-Button Styles
--------------
-To display a primary button style, add the `.button-primary` class to a button.
-
-Button Sizes
-------------
-Adjust a button's size by adding the `.button-large` or `.button-small` class.
-
-Button States
--------------
-Lock the state of a button by adding the name of the pseudoclass as
-an actual class (e.g. `.hover` for `:hover`).
-
-
-TABLE OF CONTENTS:
-------------------
- 1.0 - Button Layouts
- 2.0 - Default Button Style
- 3.0 - Primary Button Style
- 4.0 - Button Groups
- 5.0 - Responsive Button Styles
-
----------------------------------------------------------------------------- */
-/* ----------------------------------------------------------------------------
-  1.0 - Button Layouts
----------------------------------------------------------------------------- */
 .button,
 .button-primary,
 .button-secondary {
   display: inline-block;
+  vertical-align: baseline;
   margin: 0;
   padding: 0.75em 1em;
-  border: none;
+  background: inherit;
+  border: solid 1px #888888;
   font-size: 0.875rem;
-  text-decoration: none;
+  font-weight: bold;
+  font-weight: 700;
   line-height: 1;
+  text-decoration: none;
+  color: #222222;
   white-space: nowrap;
   cursor: pointer;
   -webkit-appearance: none;
 }
 
-/* Remove the dotted border on :focus and the extra padding in Firefox */
-button::-moz-focus-inner,
-input[type="reset"]::-moz-focus-inner,
-input[type="button"]::-moz-focus-inner,
-input[type="submit"]::-moz-focus-inner {
-  padding: 0;
+.button.button-small,
+.button-primary.button-small,
+.button-secondary.button-small {
+  font-size: 0.6875rem;
 }
 
 .button.button-large,
-.button-group.button-large .button {
-  line-height: 1.1;
-  margin: 0;
-}
-
-.button.button-small,
-.button-group.button-small .button {
-  line-height: 1.1;
-  margin: 0;
-  font-size: 11px;
+.button-primary.button-large,
+.button-secondary.button-large {
+  font-size: 1rem;
 }
 
 .button.button-hero,
-.button-group.button-hero .button {
-  font-size: 14px;
-  line-height: 1.1;
-  margin: 0;
+.button-primary.button-hero,
+.button-secondary.button-hero {
+  height: auto;
+  padding: 1em 2em;
+  font-size: 1.0625rem;
+  line-height: 1.4;
 }
 
-.button:active,
-.button:focus {
+.button:active, .button:focus,
+.button-primary:active,
+.button-primary:focus,
+.button-secondary:active,
+.button-secondary:focus {
   outline: none;
 }
 
-.button.hidden {
+.button.hidden,
+.button-primary.hidden,
+.button-secondary.hidden {
   display: none;
 }
 
-/* Style Reset buttons as simple text links */
-input[type="reset"],
-input[type="reset"]:hover,
-input[type="reset"]:active,
-input[type="reset"]:focus {
-  background: none;
-  padding: 0 2px 1px;
-  width: auto;
-}
-
-/* ----------------------------------------------------------------------------
-  2.0 - Default Button Style
----------------------------------------------------------------------------- */
-.button,
-.button-secondary {
-  vertical-align: top;
-  background: inherit;
-  font-weight: bold;
-  font-weight: 700;
-  color: inherit;
-  border: solid 1px #888888;
-}
-
-p .button {
-  vertical-align: baseline;
-}
-
-.button.hover,
-.button:hover,
-.button-secondary:hover,
-.button.focus,
-.button:focus,
-.button-secondary:focus {
-  background: #cccccc;
-}
-
-.button.active,
-.button.active:hover,
-.button:active,
-.button-secondary:active {
-  background: #cccccc;
-}
-
-.button[disabled],
-.button:disabled,
-.button.disabled,
-.button-secondary[disabled],
-.button-secondary:disabled,
-.button-secondary.disabled,
-.button-disabled {
-  color: #a0a5aa !important;
-  background: #f7f7f7 !important;
-  cursor: default;
-  -webkit-transform: none !important;
-  transform: none !important;
-}
-
-/* Buttons that look like links, for a cross of good semantics with the visual */
-.button-link {
-  margin: 0;
-  padding: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  background: none;
-  outline: none;
-  cursor: pointer;
-  text-align: left;
-  /* Mimics the default link style in common.css */
-  color: #004499;
-  text-decoration: underline;
-}
-
-.button-link:hover,
-.button-link:active {
-  color: #00a0d2;
-}
-
-.button-link:focus {
-  color: #124964;
-}
-
-.button-link-delete {
-  color: #a00;
-}
-
-.button-link-delete:hover,
-.button-link-delete:focus {
-  color: #dd0000;
-}
-
-.ie8 .button-link:focus {
-  outline: #5b9dd9 solid 1px;
-}
-
-/* ----------------------------------------------------------------------------
-  3.0 - Primary Button Style
----------------------------------------------------------------------------- */
-.button-primary {
-  text-decoration: none;
-}
-
+.button.hover, .button:hover, .button.focus, .button:focus, .button.active, .button:active,
 .button-primary.hover,
 .button-primary:hover,
 .button-primary.focus,
-.button-primary:focus {
-  background: #cccccc;
-}
-
+.button-primary:focus,
 .button-primary.active,
-.button-primary.active:hover,
-.button-primary.active:focus,
-.button-primary:active {
-  background: #888888;
-  vertical-align: top;
+.button-primary:active,
+.button-secondary.hover,
+.button-secondary:hover,
+.button-secondary.focus,
+.button-secondary:focus,
+.button-secondary.active,
+.button-secondary:active {
+  background: #ffee00;
+  color: #222222;
 }
 
+.button[disabled], .button:disabled, .button.disabled, .button.button-disabled,
 .button-primary[disabled],
 .button-primary:disabled,
-.button-primary-disabled,
-.button-primary.disabled {
+.button-primary.disabled,
+.button-primary.button-disabled,
+.button-secondary[disabled],
+.button-secondary:disabled,
+.button-secondary.disabled,
+.button-secondary.button-disabled {
   color: #888888 !important;
   background: #cccccc !important;
   cursor: default;
 }
 
-/* ----------------------------------------------------------------------------
-  4.0 - Button Groups
----------------------------------------------------------------------------- */
+/**
+ * Button links
+ *
+ * These are button elements that look like links,
+ * for semantically correct HTML with the looks
+ * of a standard link.
+ */
+.button-link {
+  margin: 0;
+  padding: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background: none;
+  outline: none;
+  text-align: left;
+  text-decoration: underline;
+  color: #004499;
+  cursor: pointer;
+}
+
+.button-link:hover, .button-link:focus, .button-link:active {
+  color: #005fd6;
+}
+
+.button-link-delete {
+  color: #dd0000;
+}
+
+.button-link-delete:hover, .button-link-delete:focus {
+  color: #dd0000;
+}
+
+/*
+ * Button Groups
+ */
 .button-group {
   position: relative;
   display: inline-block;
@@ -2382,11 +2300,10 @@ p .button {
 
 .button-group > .button {
   display: inline-block;
-  margin-right: -1px;
   z-index: 10;
 }
 
-.button-group > .button-primary {
+.button-group > .button.button-primary {
   z-index: 100;
 }
 
@@ -2397,59 +2314,6 @@ p .button {
 .button-group > .button:focus {
   position: relative;
   z-index: 1;
-}
-
-/* ----------------------------------------------------------------------------
-  5.0 - Responsive Button Styles
----------------------------------------------------------------------------- */
-@media screen and (max-width: 782px) {
-  .button,
-  .button.button-large,
-  .button.button-small,
-  input#publish,
-  input#save-post,
-  a.preview {
-    padding: 6px 14px;
-    line-height: normal;
-    font-size: 14px;
-    vertical-align: middle;
-    height: auto;
-    margin-bottom: 4px;
-  }
-  #media-upload.button {
-    padding: 0 10px 1px;
-    height: 24px;
-    line-height: 22px;
-    font-size: 13px;
-  }
-  .media-frame.mode-grid .bulk-select .button {
-    margin-bottom: 0;
-  }
-  /* Publish Metabox Options */
-  .save-post-status.button {
-    position: relative;
-    margin: 0 14px 0 10px;
-    /* 14px right margin to match all other buttons */
-  }
-  /* Reset responsive styles in Press This, Customizer */
-  .wp-customizer .button {
-    padding: 0 10px 1px;
-    font-size: 13px;
-    line-height: 26px;
-    height: 28px;
-    margin: 0;
-    vertical-align: inherit;
-  }
-  .media-modal-content .media-toolbar-primary .media-button {
-    margin-top: 10px;
-    margin-left: 5px;
-  }
-  /* Reset responsive styles on Log in button on iframed login form */
-  .interim-login .button.button-large {
-    height: 30px;
-    line-height: 28px;
-    padding: 0 12px 2px;
-  }
 }
 
 /**

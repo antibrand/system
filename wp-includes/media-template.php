@@ -1175,10 +1175,10 @@ function wp_print_media_templates() {
 				<# } #>
 				<div class="setting preload">
 					<span><?php _e( 'Preload' ); ?></span>
-					<div class="button-group button-large" data-setting="preload">
-						<button class="button" value="auto"><?php _ex( 'Auto', 'auto preload' ); ?></button>
-						<button class="button" value="metadata"><?php _e( 'Metadata' ); ?></button>
-						<button class="button active" value="none"><?php _e( 'None' ); ?></button>
+					<div class="button-group" data-setting="preload">
+						<button class="button button-large" value="auto"><?php _ex( 'Auto', 'auto preload' ); ?></button>
+						<button class="button button-large" value="metadata"><?php _e( 'Metadata' ); ?></button>
+						<button class="button button-large active" value="none"><?php _e( 'None' ); ?></button>
 					</div>
 				</div>
 
