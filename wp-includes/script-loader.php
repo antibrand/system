@@ -961,7 +961,7 @@ function wp_default_styles( &$styles ) {
 	}
 
 	// Register a stylesheet for the selected admin color scheme.
-	$styles->add( 'colors', true, array( 'wp-admin', 'buttons' ) );
+	$styles->add( 'colors', true, array( 'wp-admin' ) );
 
 	$suffix = SCRIPT_DEBUG ? '' : '.min';
 
@@ -984,8 +984,8 @@ function wp_default_styles( &$styles ) {
 
 	$styles->add( 'wp-admin', false, [ 'dashicons', 'admin', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'about', 'nav-menus', 'widgets', 'site-icon', 'l10n' ] );
 
-	$styles->add( 'login',               "/wp-admin/css/login$suffix.css", [ 'dashicons', 'buttons', 'l10n' ] );
-	$styles->add( 'install',             "/wp-admin/css/install$suffix.css", [ 'buttons' ] );
+	$styles->add( 'login',               "/wp-admin/css/login$suffix.css", [ 'dashicons', 'l10n' ] );
+	$styles->add( 'install',             "/wp-admin/css/install$suffix.css" );
 	$styles->add( 'wp-color-picker',     "/wp-admin/css/color-picker$suffix.css" );
 	$styles->add( 'customize-controls',  "/wp-admin/css/customize-controls$suffix.css", [ 'wp-admin', 'colors', 'ie', 'imgareaselect' ] );
 	$styles->add( 'customize-widgets',   "/wp-admin/css/customize-widgets$suffix.css", [ 'wp-admin', 'colors' ] );
@@ -995,14 +995,13 @@ function wp_default_styles( &$styles ) {
 	$styles->add_data( 'ie', 'conditional', 'lte IE 7' );
 
 	// Common dependencies
-	$styles->add( 'buttons',   "/wp-includes/css/buttons$suffix.css" );
 	$styles->add( 'dashicons', "/wp-includes/css/dashicons$suffix.css" );
 
 	// Includes CSS
 	$styles->add( 'admin-bar',            "/wp-includes/css/admin-bar$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'wp-auth-check',        "/wp-includes/css/wp-auth-check$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'editor-buttons',       "/wp-includes/css/editor$suffix.css", [ 'dashicons' ] );
-	$styles->add( 'media-views',          "/wp-includes/css/media-views$suffix.css", [ 'buttons', 'dashicons', 'wp-mediaelement' ] );
+	$styles->add( 'media-views',          "/wp-includes/css/media-views$suffix.css", [ 'dashicons', 'wp-mediaelement' ] );
 	$styles->add( 'wp-pointer',           "/wp-includes/css/wp-pointer$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'customize-preview',    "/wp-includes/css/customize-preview$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'wp-embed-template-ie', "/wp-includes/css/wp-embed-template-ie$suffix.css" );
@@ -1023,7 +1022,7 @@ function wp_default_styles( &$styles ) {
 		'widgets', 'site-icon', 'l10n', 'install', 'wp-color-picker', 'customize-controls', 'customize-widgets', 'customize-nav-menus', 'customize-preview',
 		'ie', 'login',
 		// includes
-		'buttons', 'admin-bar', 'wp-auth-check', 'editor-buttons', 'media-views', 'wp-pointer',
+		'admin-bar', 'wp-auth-check', 'editor-buttons', 'media-views', 'wp-pointer',
 		'wp-jquery-ui-dialog'
 	];
 

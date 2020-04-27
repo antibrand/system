@@ -44,64 +44,64 @@ TABLE OF CONTENTS:
   1.0 - Button Layouts
 ---------------------------------------------------------------------------- */
 
-.app-core-ui .button,
-.app-core-ui .button-primary,
-.app-core-ui .button-secondary {
+.button,
+.button-primary,
+.button-secondary {
 	display: inline-block;
-	text-decoration: none;
-	font-size: 0.875rem;
-	line-height: 1;
 	margin: 0;
 	padding: 0.75em 1em;
+	border: none;
+	font-size: $px14;
+	text-decoration: none;
+	line-height: 1;
+	white-space: nowrap;
 	cursor: pointer;
 	-webkit-appearance: none;
-	white-space: nowrap;
-	border: none;
 }
 
 /* Remove the dotted border on :focus and the extra padding in Firefox */
-.app-core-ui button::-moz-focus-inner,
-.app-core-ui input[type="reset"]::-moz-focus-inner,
-.app-core-ui input[type="button"]::-moz-focus-inner,
-.app-core-ui input[type="submit"]::-moz-focus-inner {
+button::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner {
 	padding: 0;
 }
 
-.app-core-ui .button.button-large,
-.app-core-ui .button-group.button-large .button {
+.button.button-large,
+.button-group.button-large .button {
 	line-height: 1.1;
 	margin: 0;
 }
 
-.app-core-ui .button.button-small,
-.app-core-ui .button-group.button-small .button {
+.button.button-small,
+.button-group.button-small .button {
 	line-height: 1.1;
 	margin: 0;
 	font-size: 11px;
 }
 
-.app-core-ui .button.button-hero,
-.app-core-ui .button-group.button-hero .button {
+.button.button-hero,
+.button-group.button-hero .button {
 	font-size: 14px;
 	line-height: 1.1;
 	margin: 0;
 }
 
-.app-core-ui .button:active,
-.app-core-ui .button:focus {
+.button:active,
+.button:focus {
 	outline: none;
 }
 
-.app-core-ui .button.hidden {
+.button.hidden {
 	display: none;
 }
 
 /* Style Reset buttons as simple text links */
 
-.app-core-ui input[type="reset"],
-.app-core-ui input[type="reset"]:hover,
-.app-core-ui input[type="reset"]:active,
-.app-core-ui input[type="reset"]:focus {
+input[type="reset"],
+input[type="reset"]:hover,
+input[type="reset"]:active,
+input[type="reset"]:focus {
 	background: none;
 	-webkit-box-shadow: none;
 	        box-shadow: none;
@@ -113,8 +113,8 @@ TABLE OF CONTENTS:
   2.0 - Default Button Style
 ---------------------------------------------------------------------------- */
 
-.app-core-ui .button,
-.app-core-ui .button-secondary {
+.button,
+.button-secondary {
 	vertical-align: top;
 	background: inherit;
 	font-weight: bold;
@@ -123,39 +123,39 @@ TABLE OF CONTENTS:
 	border: solid 1px $light_gray;
 }
 
-.app-core-ui p .button {
+p .button {
 	vertical-align: baseline;
 }
 
-.app-core-ui .button.hover,
-.app-core-ui .button:hover,
-.app-core-ui .button-secondary:hover,
-.app-core-ui .button.focus,
-.app-core-ui .button:focus,
-.app-core-ui .button-secondary:focus {
+.button.hover,
+.button:hover,
+.button-secondary:hover,
+.button.focus,
+.button:focus,
+.button-secondary:focus {
 	background: $light_gray;
 }
 
-.app-core-ui .button.focus,
-.app-core-ui .button:focus,
-.app-core-ui .button-secondary:focus {}
+.button.focus,
+.button:focus,
+.button-secondary:focus {}
 
-.app-core-ui .button.active,
-.app-core-ui .button.active:hover,
-.app-core-ui .button:active,
-.app-core-ui .button-secondary:active {
+.button.active,
+.button.active:hover,
+.button:active,
+.button-secondary:active {
 	background: $light_gray;
 }
 
-.app-core-ui .button.active:focus {}
+.button.active:focus {}
 
-.app-core-ui .button[disabled],
-.app-core-ui .button:disabled,
-.app-core-ui .button.disabled,
-.app-core-ui .button-secondary[disabled],
-.app-core-ui .button-secondary:disabled,
-.app-core-ui .button-secondary.disabled,
-.app-core-ui .button-disabled {
+.button[disabled],
+.button:disabled,
+.button.disabled,
+.button-secondary[disabled],
+.button-secondary:disabled,
+.button-secondary.disabled,
+.button-disabled {
 	color: #a0a5aa !important;
 	background: #f7f7f7 !important;
 	-webkit-box-shadow: none !important;
@@ -166,7 +166,7 @@ TABLE OF CONTENTS:
 }
 
 /* Buttons that look like links, for a cross of good semantics with the visual */
-.app-core-ui .button-link {
+.button-link {
 	margin: 0;
 	padding: 0;
 	-webkit-box-shadow: none;
@@ -180,25 +180,25 @@ TABLE OF CONTENTS:
 	text-decoration: underline;
 }
 
-.app-core-ui .button-link:hover,
-.app-core-ui .button-link:active {
+.button-link:hover,
+.button-link:active {
 	color: #00a0d2;
 }
 
-.app-core-ui .button-link:focus {
+.button-link:focus {
 	color: #124964;
 }
 
-.app-core-ui .button-link-delete {
+.button-link-delete {
 	color: #a00;
 }
 
-.app-core-ui .button-link-delete:hover,
-.app-core-ui .button-link-delete:focus {
+.button-link-delete:hover,
+.button-link-delete:focus {
 	color: $app_red;
 }
 
-.ie8 .app-core-ui .button-link:focus {
+.ie8 .button-link:focus {
 	outline: #5b9dd9 solid 1px;
 }
 
@@ -206,50 +206,50 @@ TABLE OF CONTENTS:
   3.0 - Primary Button Style
 ---------------------------------------------------------------------------- */
 
-.app-core-ui .button-primary {
+.button-primary {
 	text-decoration: none;
 }
 
-.app-core-ui .button-primary.hover,
-.app-core-ui .button-primary:hover,
-.app-core-ui .button-primary.focus,
-.app-core-ui .button-primary:focus {
+.button-primary.hover,
+.button-primary:hover,
+.button-primary.focus,
+.button-primary:focus {
 	background: $light_gray;
 }
 
-.app-core-ui .button-primary.focus,
-.app-core-ui .button-primary:focus {
+.button-primary.focus,
+.button-primary:focus {
 }
 
-.app-core-ui .button-primary.active,
-.app-core-ui .button-primary.active:hover,
-.app-core-ui .button-primary.active:focus,
-.app-core-ui .button-primary:active {
+.button-primary.active,
+.button-primary.active:hover,
+.button-primary.active:focus,
+.button-primary:active {
 	background: $light_gray;
 	vertical-align: top;
 }
 
-.app-core-ui .button-primary[disabled],
-.app-core-ui .button-primary:disabled,
-.app-core-ui .button-primary-disabled,
-.app-core-ui .button-primary.disabled {
+.button-primary[disabled],
+.button-primary:disabled,
+.button-primary-disabled,
+.button-primary.disabled {
 	color: $light_gray !important;
 	background: $light_gray !important;
 	cursor: default;
 }
 
-.app-core-ui .button.button-primary.button-hero {}
+.button.button-primary.button-hero {}
 
-.app-core-ui .button.button-primary.button-hero.active,
-.app-core-ui .button.button-primary.button-hero.active:hover,
-.app-core-ui .button.button-primary.button-hero.active:focus,
-.app-core-ui .button.button-primary.button-hero:active {}
+.button.button-primary.button-hero.active,
+.button.button-primary.button-hero.active:hover,
+.button.button-primary.button-hero.active:focus,
+.button.button-primary.button-hero:active {}
 
 /* ----------------------------------------------------------------------------
   4.0 - Button Groups
 ---------------------------------------------------------------------------- */
 
-.app-core-ui .button-group {
+.button-group {
 	position: relative;
 	display: inline-block;
 	white-space: nowrap;
@@ -257,25 +257,25 @@ TABLE OF CONTENTS:
 	vertical-align: middle;
 }
 
-.app-core-ui .button-group > .button {
+.button-group > .button {
 	display: inline-block;
 	margin-left: -1px;
 	z-index: 10;
 }
 
-.app-core-ui .button-group > .button-primary {
+.button-group > .button-primary {
 	z-index: 100;
 }
 
-.app-core-ui .button-group > .button:hover {
+.button-group > .button:hover {
 	z-index: 20;
 }
 
-.app-core-ui .button-group > .button:first-child {}
+.button-group > .button:first-child {}
 
-.app-core-ui .button-group > .button:last-child {}
+.button-group > .button:last-child {}
 
-.app-core-ui .button-group > .button:focus {
+.button-group > .button:focus {
 	position: relative;
 	z-index: 1;
 }
@@ -286,9 +286,9 @@ TABLE OF CONTENTS:
 
 @media screen and ( max-width: 782px ) {
 
-	.app-core-ui .button,
-	.app-core-ui .button.button-large,
-	.app-core-ui .button.button-small,
+	.button,
+	.button.button-large,
+	.button.button-small,
 	input#publish,
 	input#save-post,
 	a.preview {
@@ -300,7 +300,7 @@ TABLE OF CONTENTS:
 		margin-bottom: 4px;
 	}
 
-	#media-upload.app-core-ui .button {
+	#media-upload.button {
 		padding: 0 10px 1px;
 		height: 24px;
 		line-height: 22px;
@@ -312,14 +312,14 @@ TABLE OF CONTENTS:
 	}
 
 	/* Publish Metabox Options */
-	.app-core-ui .save-post-status.button {
+	.save-post-status.button {
 		position: relative;
 		margin: 0 10px 0 14px; /* 14px right margin to match all other buttons */
 	}
 
 	/* Reset responsive styles in Press This, Customizer */
 
-	.app-core-ui.wp-customizer .button {
+	.wp-customizer .button {
 		padding: 0 10px 1px;
 		font-size: 13px;
 		line-height: 26px;
