@@ -15,19 +15,22 @@ $body_background: $white !default;
 $text_color: #222222 !default;
 $link: #004499 !default;
 $link_action: lighten( $link, 10% ) !default;
-$highlight-color: #0073aa !default;
+$highlight-color: lighten( $link, 10% ) !default;
 
 $notify_color: $app_orange !default;
 $error_color: $app_red !default;
 $warning_color: $app_yellow !default;
 $success_color: $app_green !default;
 
+// Forms.
+$form_focus: $highlight-color !default;
+$form_checked: $highlight-color !default;
+
 // Admin menu & admin-bar.
 $menu_base_color: #222 !default;
 $menu_text_color: $white !default;
 $menu_icon_color: hsl( hue( $menu_base_color ), 7%, 95% ) !default;
 $button-color: $highlight-color !default;
-$form_checked: $highlight-color !default;
 
 $menu-icon: $menu_icon_color !default;
 $menu-background: $menu_base_color !default;

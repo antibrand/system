@@ -927,32 +927,32 @@ tr.inline-edit-row td,
   padding: 0 0.5em;
 }
 
-.app-content .quick-edit-row-post .inline-edit-col-left {
+.app-content .quick-edit-row-post .inline-edit-col-one {
   width: 40%;
 }
 
-.app-content .quick-edit-row-post .inline-edit-col-right {
+.app-content .quick-edit-row-post .inline-edit-col-three {
   width: 39%;
 }
 
-.app-content .inline-edit-row-post .inline-edit-col-center {
+.app-content .inline-edit-row-post .inline-edit-col-two {
   width: 20%;
 }
 
-.app-content .quick-edit-row-page .inline-edit-col-left {
+.app-content .quick-edit-row-page .inline-edit-col-one {
   width: 50%;
 }
 
-.app-content .quick-edit-row-page .inline-edit-col-right,
-.app-content .bulk-edit-row-post .inline-edit-col-right {
+.app-content .quick-edit-row-page .inline-edit-col-three,
+.app-content .bulk-edit-row-post .inline-edit-col-three {
   width: 49%;
 }
 
-.app-content .bulk-edit-row .inline-edit-col-left {
+.app-content .bulk-edit-row .inline-edit-col-one {
   width: 30%;
 }
 
-.app-content .bulk-edit-row-page .inline-edit-col-right {
+.app-content .bulk-edit-row-page .inline-edit-col-three {
   width: 69%;
 }
 
@@ -961,7 +961,7 @@ tr.inline-edit-row td,
   width: 69%;
 }
 
-.app-content .inline-edit-row-page .inline-edit-col-right {
+.app-content .inline-edit-row-page .inline-edit-col-three {
   margin-top: 27px;
 }
 
@@ -1050,7 +1050,7 @@ tr.inline-edit-row td,
   margin-left: 6em;
 }
 
-.quick-edit-row-post fieldset.inline-edit-col-right label span.title {
+.quick-edit-row-post fieldset.inline-edit-col-three label span.title {
   width: auto;
   padding-right: 0.5em;
 }
@@ -1082,7 +1082,7 @@ tr.inline-edit-row td,
   margin-right: 0.5em;
 }
 
-.inline-edit-col-right .input-text-wrap input.inline-edit-menu-order-input {
+.inline-edit-col-three .input-text-wrap input.inline-edit-menu-order-input {
   width: 6em;
 }
 
@@ -1890,14 +1890,14 @@ div.action-links,
     word-wrap: normal;
   }
   /* Quick Edit and Bulk Edit */
-  .app-content .quick-edit-row-post .inline-edit-col-left,
-  .app-content .quick-edit-row-post .inline-edit-col-right,
-  .app-content .inline-edit-row-post .inline-edit-col-center,
-  .app-content .quick-edit-row-page .inline-edit-col-left,
-  .app-content .quick-edit-row-page .inline-edit-col-right,
-  .app-content .bulk-edit-row-post .inline-edit-col-right,
-  .app-content .bulk-edit-row .inline-edit-col-left,
-  .app-content .bulk-edit-row-page .inline-edit-col-right,
+  .app-content .quick-edit-row-post .inline-edit-col-one,
+  .app-content .quick-edit-row-post .inline-edit-col-three,
+  .app-content .inline-edit-row-post .inline-edit-col-two,
+  .app-content .quick-edit-row-page .inline-edit-col-one,
+  .app-content .quick-edit-row-page .inline-edit-col-three,
+  .app-content .bulk-edit-row-post .inline-edit-col-three,
+  .app-content .bulk-edit-row .inline-edit-col-one,
+  .app-content .bulk-edit-row-page .inline-edit-col-three,
   .app-content .bulk-edit-row .inline-edit-col-bottom {
     float: none;
     width: 100%;

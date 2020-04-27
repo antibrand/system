@@ -1,8 +1,17 @@
 /**
- * SASS/SCSS color variables
+ * Default app admin color variables
  *
  * Assign default value to all undefined variables,
  * pure white and pure black excepted.
+ *
+ * @link https://sass-lang.com/documentation/variables
+ */
+/**
+ * General app color variables
+ *
+ * These styles are primarily used in administration pages,
+ * but also common features such as the user toolbar. For this
+ * reason the file is not kept in the css/admin directory.
  *
  * @link https://sass-lang.com/documentation/variables
  */
@@ -90,7 +99,7 @@
 }
 
 #titlediv #title:focus {
-  border-color: transparent;
+  border-color: #005bcc;
 }
 
 #titlediv #title-prompt-text {
@@ -122,7 +131,7 @@
 }
 
 #titlediv #title-prompt-text:focus {
-  border-color: transparent;
+  border-color: #005bcc;
 }
 
 #subtitlewrap #subtitle-label {
@@ -1230,7 +1239,7 @@ p.popular-tags a {
 
 .ac_results .ac_over,
 .ac_over .ac_match {
-  background-color: #115599;
+  background-color: #004499;
   color: #fff;
   cursor: pointer;
 }

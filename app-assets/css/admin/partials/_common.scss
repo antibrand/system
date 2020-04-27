@@ -1,74 +1,28 @@
 /**
- * Styles comon to all administration screens
+ * Styles common to all administration screens
  */
 
-// Import general app variables.
+// Import general app variables from app-assets/includes.
 @import '../../includes/modules/_typography.scss';
 @import '../../includes/modules/_colors.scss';
 
-/* inner 2 column liquid layout */
-.app-post-body {
-
-	.inner-sidebar {
-		float: right;
-		clear: right;
-		display: none;
-		width: 281px;
-		position: relative;
-	}
-
-	&.columns-2 {
-
-		.inner-sidebar {
-			margin-right: auto;
-			width: 286px;
-			display: block;
-		}
-	}
-}
-
-.inner-sidebar #side-sortables,
-.columns-2 .inner-sidebar #side-sortables {
-	min-height: 300px;
-	width: 280px;
-	padding: 0;
-}
-
-.has-right-sidebar .inner-sidebar {
-	display: block;
-}
-
-.has-right-sidebar #post-body {
-	float: left;
-	clear: left;
-	width: 100%;
-	margin-right: -2000px;
-}
-
-.has-right-sidebar #post-body-content {
-	margin-right: 300px;
-	float: none;
-	width: auto;
-}
-
 /* 2 columns main area */
-
-#col-left {
+#taxonomy-form {
 	float: left;
 	width: 35%;
+
+	.col-wrap {
+		padding: 0 6px 0 0;
+	}
 }
 
-#col-right {
+#taxonomy-list {
 	float: right;
 	width: 65%;
-}
 
-#col-left .col-wrap {
-	padding: 0 6px 0 0;
-}
-
-#col-right .col-wrap {
-	padding: 0 0 0 6px;
+	.col-wrap {
+		padding: 0 0 0 6px;
+	}
 }
 
 /* utility classes */

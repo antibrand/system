@@ -1395,7 +1395,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 			echo $bulk ? $bulk_edit_classes : $quick_edit_classes;
 		?>" style="display: none"><td colspan="<?php echo $this->get_column_count(); ?>" class="colspanchange">
 
-		<fieldset class="inline-edit-col-left">
+		<fieldset class="inline-edit-col-one">
 			<legend class="inline-edit-legend"><?php echo $bulk ? __( 'Bulk Edit' ) : __( 'Quick Edit' ); ?></legend>
 			<div class="inline-edit-col">
 	<?php
@@ -1484,7 +1484,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 
 	<?php if ( count( $hierarchical_taxonomies ) && !$bulk ) : ?>
 
-		<fieldset class="inline-edit-col-center inline-edit-categories"><div class="inline-edit-col">
+		<fieldset class="inline-edit-col-two inline-edit-categories"><div class="inline-edit-col">
 
 	<?php foreach ( $hierarchical_taxonomies as $taxonomy ) : ?>
 
@@ -1500,7 +1500,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 
 	<?php endif; // count( $hierarchical_taxonomies ) && !$bulk ?>
 
-		<fieldset class="inline-edit-col-right"><div class="inline-edit-col">
+		<fieldset class="inline-edit-col-three"><div class="inline-edit-col">
 
 	<?php
 		if ( post_type_supports( $screen->post_type, 'author' ) && $bulk )
