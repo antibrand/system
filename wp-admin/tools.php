@@ -6,7 +6,7 @@
  * @subpackage Administration
  */
 
-/** Administration Bootstrap */
+// Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 $is_privacy_guide = ( isset( $_GET['privacy-policy-guide'] ) && current_user_can( 'manage_privacy_options' ) );

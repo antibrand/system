@@ -7,7 +7,7 @@
  * @since 4.5.0
  */
 
-/** Administration Bootstrap */
+// Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 if ( empty( $_REQUEST['tag_ID'] ) ) {

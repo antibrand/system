@@ -34,7 +34,7 @@
  * @subpackage Plugin
  */
 
-/** Load the website management system */
+// Load the website management system.
 require_once(dirname(dirname(__FILE__)).'/app-load.php');
 
 if ( ! function_exists('maybe_create_table') ) :

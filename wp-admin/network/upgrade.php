@@ -7,7 +7,7 @@
  * @since 3.0.0
  */
 
-/** Load Administration Bootstrap */
+// Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 require_once( ABSPATH . WPINC . '/http.php' );

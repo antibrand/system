@@ -6,7 +6,7 @@
  * @subpackage Administration
  */
 
-/** Load the website management system */
+// Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 if ( !current_user_can('export') )

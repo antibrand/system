@@ -6,7 +6,7 @@
  * @subpackage Administration
  */
 
-/** Load Administration Bootstrap */
+// Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 $parent_file = 'upload.php';

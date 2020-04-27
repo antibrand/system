@@ -8,7 +8,7 @@
 
 define( 'IFRAME_REQUEST' , true );
 
-/** Administration Bootstrap */
+// Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 function wp_load_press_this() {

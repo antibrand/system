@@ -9,7 +9,7 @@
 
 define( 'IFRAME_REQUEST', true );
 
-/** Load Administration Bootstrap */
+// Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 if ( ! current_user_can( 'customize' ) ) {
@@ -27,6 +27,7 @@ if ( ! current_user_can( 'customize' ) ) {
 global $wp_scripts, $wp_customize;
 
 if ( $wp_customize->changeset_post_id() ) {
+
 	$changeset_post = get_post( $wp_customize->changeset_post_id() );
 
 	if ( ! current_user_can( get_post_type_object( 'customize_changeset' )->cap->edit_post, $changeset_post->ID ) ) {
@@ -41,6 +42,7 @@ if ( $wp_customize->changeset_post_id() ) {
 		'future' === $changeset_post->post_status &&
 		get_post_time( 'G', true, $changeset_post ) < time()
 	);
+
 	if ( $missed_schedule ) {
 		/*
 		 * Note that an Ajax request spawns here instead of just calling `wp_publish_post( $changeset_post->ID )`.
@@ -52,15 +54,17 @@ if ( $wp_customize->changeset_post_id() ) {
 		 * By opening an Ajax request, this is avoided and the changeset is published. See #39221.
 		 */
 		$nonces = $wp_customize->get_nonces();
-		$request_args = array(
+
+		$request_args = [
 			'nonce' => $nonces['save'],
 			'customize_changeset_uuid' => $wp_customize->changeset_uuid(),
 			'wp_customize' => 'on',
 			'customize_changeset_status' => 'publish',
-		);
+		];
+
 		ob_start();
-		?>
-		<?php wp_print_scripts( array( 'wp-util' ) ); ?>
+
+		wp_print_scripts( array( 'wp-util' ) ); ?>
 		<script>
 			wp.ajax.post( 'customize_save', <?php echo wp_json_encode( $request_args ); ?> );
 		</script>
@@ -74,7 +78,7 @@ if ( $wp_customize->changeset_post_id() ) {
 		);
 	}
 
-	if ( in_array( get_post_status( $changeset_post->ID ), array( 'publish', 'trash' ), true ) ) {
+	if ( in_array( get_post_status( $changeset_post->ID ), [ 'publish', 'trash' ], true ) ) {
 		wp_die(
 			'<h1>' . __( 'Something went wrong.' ) . '</h1>' .
 			'<p>' . __( 'This changeset cannot be further modified.' ) . '</p>' .
@@ -86,12 +90,15 @@ if ( $wp_customize->changeset_post_id() ) {
 
 
 wp_reset_vars( array( 'url', 'return', 'autofocus' ) );
+
 if ( ! empty( $url ) ) {
 	$wp_customize->set_preview_url( wp_unslash( $url ) );
 }
+
 if ( ! empty( $return ) ) {
 	$wp_customize->set_return_url( wp_unslash( $return ) );
 }
+
 if ( ! empty( $autofocus ) && is_array( $autofocus ) ) {
 	$wp_customize->set_autofocus( wp_unslash( $autofocus ) );
 }
@@ -100,14 +107,14 @@ $registered = $wp_scripts->registered;
 $wp_scripts = new WP_Scripts;
 $wp_scripts->registered = $registered;
 
-add_action( 'customize_controls_print_scripts',        'print_head_scripts', 20 );
-add_action( 'customize_controls_print_footer_scripts', '_wp_footer_scripts'     );
-add_action( 'customize_controls_print_styles',         'print_admin_styles', 20 );
+add_action( 'customize_controls_print_scripts', 'print_head_scripts', 20 );
+add_action( 'customize_controls_print_footer_scripts', '_wp_footer_scripts' );
+add_action( 'customize_controls_print_styles', 'print_admin_styles', 20 );
 
 /**
  * Fires when Customizer controls are initialized, before scripts are enqueued.
  *
- * @since 3.4.0
+ * @since WP 3.4.0
  */
 do_action( 'customize_controls_init' );
 
@@ -118,12 +125,11 @@ wp_enqueue_style( 'customize-controls' );
 /**
  * Enqueue Customizer control scripts.
  *
- * @since 3.4.0
+ * @since WP 3.4.0
  */
 do_action( 'customize_controls_enqueue_scripts' );
 
-// Let's roll.
-@header('Content-Type: ' . get_option('html_type') . '; charset=' . get_option('blog_charset'));
+@header( 'Content-Type: ' . get_option( 'html_type' ) . '; charset=' . get_option( 'blog_charset' ) );
 
 wp_user_settings();
 _wp_admin_html_begin();
@@ -158,105 +164,109 @@ var ajaxurl = <?php echo wp_json_encode( admin_url( 'admin-ajax.php', 'relative'
 /**
  * Fires when Customizer control styles are printed.
  *
- * @since 3.4.0
+ * @since WP 3.4.0
  */
 do_action( 'customize_controls_print_styles' );
 
 /**
  * Fires when Customizer control scripts are printed.
  *
- * @since 3.4.0
+ * @since WP 3.4.0
  */
 do_action( 'customize_controls_print_scripts' );
 ?>
 </head>
 <body class="<?php echo esc_attr( $body_class ); ?>">
-<div class="wp-full-overlay expanded">
-	<form id="customize-controls" class="wrap wp-full-overlay-sidebar">
-		<div id="customize-header-actions" class="wp-full-overlay-header">
-			<?php $save_text = $wp_customize->is_theme_active() ? __( 'Publish' ) : __( 'Activate &amp; Publish' ); ?>
-			<div id="customize-save-button-wrapper" class="customize-save-button-wrapper" >
-				<?php submit_button( $save_text, 'primary save', 'save', false ); ?>
-				<button id="publish-settings" class="publish-settings button-primary button dashicons dashicons-admin-generic" aria-label="<?php esc_attr_e( 'Publish Settings' ); ?>" aria-expanded="false" disabled></button>
-			</div>
-			<span class="spinner"></span>
-			<button type="button" class="customize-controls-preview-toggle">
-				<span class="controls"><?php _e( 'Customize' ); ?></span>
-				<span class="preview"><?php _e( 'Preview' ); ?></span>
-			</button>
-			<a class="customize-controls-close" href="<?php echo esc_url( $wp_customize->get_return_url() ); ?>">
-				<span class="screen-reader-text"><?php _e( 'Close the Customizer and go back to the previous page' ); ?></span>
-			</a>
-		</div>
 
-		<div id="customize-sidebar-outer-content">
-			<div id="customize-outer-theme-controls">
-				<ul class="customize-outer-pane-parent"><?php // Outer panel and sections are not implemented, but its here as a placeholder to avoid any side-effect in api.Section. ?></ul>
-			</div>
-		</div>
+	<div class="wp-full-overlay expanded">
 
-		<div id="widgets-right" class="wp-clearfix"><!-- For Widget Customizer, many widgets try to look for instances under div#widgets-right, so we have to add that ID to a container div in the Customizer for compat -->
-			<div id="customize-notifications-area" class="customize-control-notifications-container">
-				<ul></ul>
+		<form id="customize-controls" class="wrap wp-full-overlay-sidebar">
+
+			<div id="customize-header-actions" class="wp-full-overlay-header">
+
+				<?php $save_text = $wp_customize->is_theme_active() ? __( 'Publish' ) : __( 'Activate &amp; Publish' ); ?>
+				<div id="customize-save-button-wrapper" class="customize-save-button-wrapper" >
+					<?php submit_button( $save_text, 'primary save', 'save', false ); ?>
+					<button id="publish-settings" class="publish-settings button-primary button dashicons dashicons-admin-generic" aria-label="<?php esc_attr_e( 'Publish Settings' ); ?>" aria-expanded="false" disabled></button>
+				</div>
+				<span class="spinner"></span>
+				<button type="button" class="customize-controls-preview-toggle">
+					<span class="controls"><?php _e( 'Customize' ); ?></span>
+					<span class="preview"><?php _e( 'Preview' ); ?></span>
+				</button>
+				<a class="customize-controls-close" href="<?php echo esc_url( $wp_customize->get_return_url() ); ?>">
+					<span class="screen-reader-text"><?php _e( 'Close the Customizer and go back to the previous page' ); ?></span>
+				</a>
 			</div>
-			<div class="wp-full-overlay-sidebar-content" tabindex="-1">
-				<div id="customize-info" class="accordion-section customize-info">
-					<div class="accordion-section-title">
-						<span class="preview-notice"><?php
-							echo sprintf( __( 'You are customizing %s' ), '<strong class="panel-title site-title">' . get_bloginfo( 'name', 'display' ) . '</strong>' );
-						?></span>
-						<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text"><?php _e( 'Help' ); ?></span></button>
+
+			<div id="customize-sidebar-outer-content">
+				<div id="customize-outer-theme-controls">
+					<ul class="customize-outer-pane-parent"><?php // Outer panel and sections are not implemented, but its here as a placeholder to avoid any side-effect in api.Section. ?></ul>
+				</div>
+			</div>
+
+			<div id="widgets-right" class="wp-clearfix"><!-- For Widget Customizer, many widgets try to look for instances under div#widgets-right, so we have to add that ID to a container div in the Customizer for compat -->
+				<div id="customize-notifications-area" class="customize-control-notifications-container">
+					<ul></ul>
+				</div>
+				<div class="wp-full-overlay-sidebar-content" tabindex="-1">
+					<div id="customize-info" class="accordion-section customize-info">
+						<div class="accordion-section-title">
+							<span class="preview-notice"><?php
+								echo sprintf( __( 'You are customizing %s' ), '<strong class="panel-title site-title">' . get_bloginfo( 'name', 'display' ) . '</strong>' );
+							?></span>
+							<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text"><?php _e( 'Help' ); ?></span></button>
+						</div>
+						<div class="customize-panel-description"><?php
+							_e( 'The Customizer allows you to preview changes to your site before publishing them. You can navigate to different pages on your site within the preview. Edit shortcuts are shown for some editable elements.' );
+						?></div>
 					</div>
-					<div class="customize-panel-description"><?php
-						_e( 'The Customizer allows you to preview changes to your site before publishing them. You can navigate to different pages on your site within the preview. Edit shortcuts are shown for some editable elements.' );
-					?></div>
-				</div>
 
-				<div id="customize-theme-controls">
-					<ul class="customize-pane-parent"><?php // Panels and sections are managed here via JavaScript ?></ul>
+					<div id="customize-theme-controls">
+						<ul class="customize-pane-parent"><?php // Panels and sections are managed here via JavaScript ?></ul>
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div id="customize-footer-actions" class="wp-full-overlay-footer">
-			<button type="button" class="collapse-sidebar button" aria-expanded="true" aria-label="<?php echo esc_attr( _x( 'Hide Controls', 'label for hide controls button without length constraints' ) ); ?>">
-				<span class="collapse-sidebar-arrow"></span>
-				<span class="collapse-sidebar-label"><?php _ex( 'Hide Controls', 'short (~12 characters) label for hide controls button' ); ?></span>
-			</button>
-			<?php $previewable_devices = $wp_customize->get_previewable_devices(); ?>
-			<?php if ( ! empty( $previewable_devices ) ) : ?>
-			<div class="devices-wrapper">
-				<div class="devices">
-					<?php foreach ( (array) $previewable_devices as $device => $settings ) : ?>
-						<?php
-						if ( empty( $settings['label'] ) ) {
-							continue;
-						}
-						$active = ! empty( $settings['default'] );
-						$class = 'preview-' . $device;
-						if ( $active ) {
-							$class .= ' active';
-						}
-						?>
-						<button type="button" class="<?php echo esc_attr( $class ); ?>" aria-pressed="<?php echo esc_attr( $active ) ?>" data-device="<?php echo esc_attr( $device ); ?>">
-							<span class="screen-reader-text"><?php echo esc_html( $settings['label'] ); ?></span>
-						</button>
-					<?php endforeach; ?>
+			<div id="customize-footer-actions" class="wp-full-overlay-footer">
+				<button type="button" class="collapse-sidebar button" aria-expanded="true" aria-label="<?php echo esc_attr( _x( 'Hide Controls', 'label for hide controls button without length constraints' ) ); ?>">
+					<span class="collapse-sidebar-arrow"></span>
+					<span class="collapse-sidebar-label"><?php _ex( 'Hide Controls', 'short (~12 characters) label for hide controls button' ); ?></span>
+				</button>
+				<?php $previewable_devices = $wp_customize->get_previewable_devices(); ?>
+				<?php if ( ! empty( $previewable_devices ) ) : ?>
+				<div class="devices-wrapper">
+					<div class="devices">
+						<?php foreach ( (array) $previewable_devices as $device => $settings ) : ?>
+							<?php
+							if ( empty( $settings['label'] ) ) {
+								continue;
+							}
+							$active = ! empty( $settings['default'] );
+							$class = 'preview-' . $device;
+							if ( $active ) {
+								$class .= ' active';
+							}
+							?>
+							<button type="button" class="<?php echo esc_attr( $class ); ?>" aria-pressed="<?php echo esc_attr( $active ) ?>" data-device="<?php echo esc_attr( $device ); ?>">
+								<span class="screen-reader-text"><?php echo esc_html( $settings['label'] ); ?></span>
+							</button>
+						<?php endforeach; ?>
+					</div>
 				</div>
+				<?php endif; ?>
 			</div>
-			<?php endif; ?>
-		</div>
-	</form>
-	<div id="customize-preview" class="wp-full-overlay-main"></div>
-	<?php
+		</form>
+		<div id="customize-preview" class="wp-full-overlay-main"></div>
+		<?php
 
-	/**
-	 * Prints templates, control scripts, and settings in the footer.
-	 *
-	 * @since 3.4.0
-	 */
-	do_action( 'customize_controls_print_footer_scripts' );
-	?>
-</div>
+		/**
+		 * Prints templates, control scripts, and settings in the footer.
+		 *
+		 * @since WP 3.4.0
+		 */
+		do_action( 'customize_controls_print_footer_scripts' );
+		?>
+	</div>
 </body>
 </html>

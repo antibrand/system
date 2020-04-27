@@ -8,7 +8,7 @@
 
 define( 'WP_LOAD_IMPORTERS', true );
 
-/** Load the website management system */
+// Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 if ( ! current_user_can( 'import' ) ) {

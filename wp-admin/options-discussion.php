@@ -5,7 +5,7 @@
  * @package App_Package
  * @subpackage Administration
  */
-/** Administration Bootstrap */
+// Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 if ( ! current_user_can( 'manage_options' ) )

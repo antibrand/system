@@ -32,7 +32,7 @@ if ( false ) {
  */
 define( 'WP_INSTALLING', true );
 
-/** Load the website management system */
+// Load the website management system.
 require_once( dirname( dirname( __FILE__ ) ) . '/app-load.php' );
 
 /** Load Administration Upgrade API */

@@ -7,7 +7,7 @@
  * @since 3.1.0
  */
 
-/** Load Administration Bootstrap */
+// Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 if ( !current_user_can('manage_network_themes') )

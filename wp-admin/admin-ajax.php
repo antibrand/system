@@ -16,7 +16,7 @@ if ( ! defined( 'WP_ADMIN' ) ) {
 	define( 'WP_ADMIN', true );
 }
 
-/** Load the website management system */
+// Load the website management system.
 require_once( dirname( dirname( __FILE__ ) ) . '/app-load.php' );
 
 /** Allow for cross-domain requests (from the front end). */

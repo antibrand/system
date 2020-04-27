@@ -14,7 +14,7 @@
  */
 define( 'WP_INSTALLING', true );
 
-/** Load the website management system */
+// Load the website management system.
 require( dirname( dirname( __FILE__ ) ) . '/app-load.php' );
 
 nocache_headers();

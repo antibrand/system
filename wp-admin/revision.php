@@ -15,7 +15,7 @@
  * @param int    to       Optional, required if revision missing. The revision to compare to.
  */
 
-/** Administration Bootstrap */
+// Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 require ABSPATH . 'wp-admin/includes/revision.php';

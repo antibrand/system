@@ -7,7 +7,7 @@
  * @since 3.4.0
  */
 
-/** Load Administration Bootstrap */
+// Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 require( ABSPATH . 'wp-admin/freedoms.php' );

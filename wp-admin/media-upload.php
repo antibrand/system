@@ -12,7 +12,7 @@
 if ( ! isset( $_GET['inline'] ) )
 	define( 'IFRAME_REQUEST' , true );
 
-/** Load Administration Bootstrap */
+// Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 if ( ! current_user_can( 'upload_files' ) ) {

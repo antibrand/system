@@ -10,7 +10,7 @@
 if ( isset( $_GET['tab'] ) && ( 'theme-information' == $_GET['tab'] ) )
 	define( 'IFRAME_REQUEST', true );
 
-/** Load Administration Bootstrap */
+// Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 require( ABSPATH . 'wp-admin/theme-install.php' );
