@@ -75,6 +75,11 @@ function site_url() {}
 /**
  * @ignore
  */
+function app_assets_url() {}
+
+/**
+ * @ignore
+ */
 function admin_url() {}
 
 /**
