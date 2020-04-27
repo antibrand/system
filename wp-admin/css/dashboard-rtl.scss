@@ -1,3 +1,4 @@
+@import '../../app-assets/css/includes/modules/_typography.scss';
 @import '../../app-assets/css/admin/colors/_defaults.scss';
 
 .app-content #dashboard-widgets.columns-1 .postbox-container {
@@ -743,9 +744,16 @@ form.initial-form.quickpress-open input#title {
 
 /* Recent Comments */
 
-#latest-comments #the-comment-list {
-	position: relative;
-	margin: 0 -12px;
+#latest-comments {
+
+	#the-comment-list {
+		position: relative;
+		margin: 0 -12px;
+	}
+
+	.subsubsub {
+		font-size: $px13;
+	}
 }
 
 #activity-widget #the-comment-list .comment,

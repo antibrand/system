@@ -9,15 +9,6 @@
  *
  * @link https://sass-lang.com/documentation/variables
  */
-/**
- * General app color variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- *
- * @link https://sass-lang.com/documentation/variables
- */
 /* TinyMCE widgets/containers */
 .mce-tinymce {
   -webkit-box-shadow: none;

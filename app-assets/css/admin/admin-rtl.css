@@ -4,15 +4,6 @@
 /**
  * Browser reset
  */
-/**
- * General app color variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- *
- * @link https://sass-lang.com/documentation/variables
- */
 html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, button, input, select, textarea, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -351,8 +342,6 @@ b, strong, optgroup {
  * These styles are primarily used in administration pages,
  * but also common features such as the user toolbar. For this
  * reason the file is not kept in the css/admin directory.
- *
- * @link https://sass-lang.com/documentation/variables
  */
 /**
   * Font sizes
@@ -369,28 +358,10 @@ b, strong, optgroup {
  * stacks are used in @supports( font-variation-settings ) queries.
  */
 /**
- * General app color variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- *
- * @link https://sass-lang.com/documentation/variables
- */
-/**
  * Default app admin color variables
  *
  * Assign default value to all undefined variables,
  * pure white and pure black excepted.
- *
- * @link https://sass-lang.com/documentation/variables
- */
-/**
- * General app color variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
  *
  * @link https://sass-lang.com/documentation/variables
  */
@@ -538,8 +509,6 @@ body.mobile.modal-open .admin-page-wrap {
  * These styles are primarily used in administration pages,
  * but also common features such as the user toolbar. For this
  * reason the file is not kept in the css/admin directory.
- *
- * @link https://sass-lang.com/documentation/variables
  */
 /**
   * Font sizes
@@ -556,28 +525,10 @@ body.mobile.modal-open .admin-page-wrap {
  * stacks are used in @supports( font-variation-settings ) queries.
  */
 /**
- * General app color variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- *
- * @link https://sass-lang.com/documentation/variables
- */
-/**
  * Default app admin color variables
  *
  * Assign default value to all undefined variables,
  * pure white and pure black excepted.
- *
- * @link https://sass-lang.com/documentation/variables
- */
-/**
- * General app color variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
  *
  * @link https://sass-lang.com/documentation/variables
  */
@@ -2124,30 +2075,11 @@ table.form-table td .updated p {
 }
 
 /**
- * Buttons
- *
- * Create a button by adding the `.button` class to an element. For backward
- * compatibility, we support several other classes (such as `.button-secondary`),
- * but these will not work with the stackable classes described below.
- *
- * Button Styles:
- * To display a primary button style, add the `.button-primary` class to a button.
- *
- * Button Sizes:
- * Adjust a button's size by adding the `.button-large` or `.button-small` class.
- *
- * Button States:
- * Lock the state of a button by adding the name of the pseudoclass as
- * an actual class (e.g. `.hover` for `:hover`).
- */
-/**
  * General app typography variables
  *
  * These styles are primarily used in administration pages,
  * but also common features such as the user toolbar. For this
  * reason the file is not kept in the css/admin directory.
- *
- * @link https://sass-lang.com/documentation/variables
  */
 /**
   * Font sizes
@@ -2164,14 +2096,10 @@ table.form-table td .updated p {
  * stacks are used in @supports( font-variation-settings ) queries.
  */
 /**
- * General app color variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- *
- * @link https://sass-lang.com/documentation/variables
+ * General button styles
  */
+.button,
+.button-primary,
 .button-secondary {
   display: inline-block;
   vertical-align: baseline;
@@ -2190,14 +2118,20 @@ table.form-table td .updated p {
   -webkit-appearance: none;
 }
 
+.button.button-small,
+.button-primary.button-small,
 .button-secondary.button-small {
   font-size: 0.6875rem;
 }
 
+.button.button-large,
+.button-primary.button-large,
 .button-secondary.button-large {
   font-size: 1rem;
 }
 
+.button.button-hero,
+.button-primary.button-hero,
 .button-secondary.button-hero {
   height: auto;
   padding: 1em 2em;
@@ -2205,20 +2139,46 @@ table.form-table td .updated p {
   line-height: 1.4;
 }
 
-.button-secondary:active, .button-secondary:focus {
+.button:active, .button:focus,
+.button-primary:active,
+.button-primary:focus,
+.button-secondary:active,
+.button-secondary:focus {
   outline: none;
 }
 
+.button.hidden,
+.button-primary.hidden,
 .button-secondary.hidden {
   display: none;
 }
 
-.button-secondary.hover, .button-secondary:hover, .button-secondary.focus, .button-secondary:focus, .button-secondary.active, .button-secondary:active {
+.button.hover, .button:hover, .button.focus, .button:focus, .button.active, .button:active,
+.button-primary.hover,
+.button-primary:hover,
+.button-primary.focus,
+.button-primary:focus,
+.button-primary.active,
+.button-primary:active,
+.button-secondary.hover,
+.button-secondary:hover,
+.button-secondary.focus,
+.button-secondary:focus,
+.button-secondary.active,
+.button-secondary:active {
   background: #ffee00;
   color: #222222;
 }
 
-.button-secondary[disabled], .button-secondary:disabled, .button-secondary.disabled, .button-secondary.button-disabled {
+.button[disabled], .button:disabled, .button.disabled, .button.button-disabled,
+.button-primary[disabled],
+.button-primary:disabled,
+.button-primary.disabled,
+.button-primary.button-disabled,
+.button-secondary[disabled],
+.button-secondary:disabled,
+.button-secondary.disabled,
+.button-secondary.button-disabled {
   color: #888888 !important;
   background: #cccccc !important;
   cursor: default;
@@ -2294,8 +2254,6 @@ table.form-table td .updated p {
  * These styles are primarily used in administration pages,
  * but also common features such as the user toolbar. For this
  * reason the file is not kept in the css/admin directory.
- *
- * @link https://sass-lang.com/documentation/variables
  */
 /**
   * Font sizes
@@ -2310,15 +2268,6 @@ table.form-table td .updated p {
  *
  * The $sans and $serif stacks are default. The $inter and $crimson
  * stacks are used in @supports( font-variation-settings ) queries.
- */
-/**
- * General app color variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- *
- * @link https://sass-lang.com/documentation/variables
  */
 /* 2 columns main area */
 #taxonomy-form {
@@ -6095,8 +6044,6 @@ img {
  * These styles are primarily used in administration pages,
  * but also common features such as the user toolbar. For this
  * reason the file is not kept in the css/admin directory.
- *
- * @link https://sass-lang.com/documentation/variables
  */
 /**
   * Font sizes
@@ -6111,15 +6058,6 @@ img {
  *
  * The $sans and $serif stacks are default. The $inter and $crimson
  * stacks are used in @supports( font-variation-settings ) queries.
- */
-/**
- * General app color variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- *
- * @link https://sass-lang.com/documentation/variables
  */
 .icon16 {
   height: 18px;

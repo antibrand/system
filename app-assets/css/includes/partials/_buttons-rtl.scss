@@ -1,25 +1,29 @@
-/**
- * Buttons
- *
- * Create a button by adding the `.button` class to an element. For backward
- * compatibility, we support several other classes (such as `.button-secondary`),
- * but these will not work with the stackable classes described below.
- *
- * Button Styles:
- * To display a primary button style, add the `.button-primary` class to a button.
- *
- * Button Sizes:
- * Adjust a button's size by adding the `.button-large` or `.button-small` class.
- *
- * Button States:
- * Lock the state of a button by adding the name of the pseudoclass as
- * an actual class (e.g. `.hover` for `:hover`).
- */
+///
+/// Buttons
+///
+/// Create a button by adding the `.button` class to an element. For backward
+/// compatibility, we support several other classes (such as `.button-secondary`),
+/// but these will not work with the stackable classes described below.
+///
+/// Button Styles:
+/// To display a primary button style, add the `.button-primary` class to a button.
+///
+/// Button Sizes:
+/// Adjust a button's size by adding the `.button-large` or `.button-small` class.
+///
+/// Button States:
+/// Lock the state of a button by adding the name of the pseudoclass as
+/// an actual class (e.g. `.hover` for `:hover`).
 
 // Import general app variables from app-assets/includes.
 @import '../modules/_typography.scss';
 @import '../modules/_colors.scss';
 
+/**
+ * General button styles
+ */
+.button,
+.button-primary,
 .button-secondary {
 	display: inline-block;
 	vertical-align: baseline;
