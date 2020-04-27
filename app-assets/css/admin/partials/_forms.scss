@@ -1,4 +1,10 @@
-@import '../../app-assets/css/admin/colors/_defaults.scss';
+/**
+ * Administration form styles
+ */
+
+// Import general app variables from app-assets/includes.
+@import '../../includes/modules/_typography.scss';
+@import '../../includes/modules/_colors.scss';
 
 /* Include margin and padding in the width calculation of input and textarea. */
 input,
@@ -76,7 +82,7 @@ input[type="radio"] {
 	display: inline-block;
 	line-height: 0;
 	height: 16px;
-	margin: -4px 0 0 4px;
+	margin: -4px 4px 0 0;
 	outline: 0;
 	padding: 0 !important;
 	text-align: center;
@@ -113,13 +119,13 @@ td > input[type="checkbox"],
 
 input[type="radio"] {
 	border-radius: 50%;
-	margin-left: 4px;
+	margin-right: 4px;
 	line-height: 10px;
 }
 
 input[type="checkbox"]:checked:before,
 input[type="radio"]:checked:before {
-	float: right;
+	float: left;
 	display: inline-block;
 	vertical-align: middle;
 	width: 16px;
@@ -131,7 +137,7 @@ input[type="radio"]:checked:before {
 
 input[type="checkbox"]:checked:before {
 	content: "\f147";
-	margin: -3px -4px 0 0;
+	margin: -3px 0 0 -4px;
 	color: #1e8cbe;
 }
 
@@ -247,7 +253,7 @@ textarea[readonly] {
 	content: "\f534";
 	font: normal 20px/1 dashicons;
 	color: $app_red;
-	margin-right: -25px;
+	margin-left: -25px;
 	vertical-align: middle;
 }
 
@@ -260,7 +266,7 @@ textarea[readonly] {
 	content: '\f534';
 	font: normal 20px/1 dashicons;
 	color: $app_red;
-	margin: 0 -29px 0 6px;
+	margin: 0 6px 0 -29px;
 	vertical-align: middle;
 }
 
@@ -324,8 +330,8 @@ input[type="radio"].disabled:checked:before {
 .submit {
 	padding: 1.5em 0;
 	margin: 5px 0;
-	border-bottom-right-radius: 3px;
 	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
 	border: none;
 }
 
@@ -334,7 +340,7 @@ form p.submit a.cancel:hover {
 }
 
 p.submit {
-	text-align: right;
+	text-align: left;
 	max-width: 100%;
 	margin-top: 20px;
 	padding-top: 10px;
@@ -342,7 +348,7 @@ p.submit {
 
 .textright p.submit {
 	border: none;
-	text-align: left;
+	text-align: right;
 }
 
 table.form-table + p.submit,
@@ -392,12 +398,12 @@ input[type="number"].tiny-text {
 #doaction,
 #doaction2,
 #post-query-submit {
-	margin: 0 0 0 0.5em;
+	margin: 0 0.5em 0 0;
 }
 
 .tablenav .actions select {
-	float: right;
-	margin-left: 6px;
+	float: left;
+	margin-right: 6px;
 	max-width: 200px;
 }
 
@@ -410,7 +416,7 @@ input[type="number"].tiny-text {
 }
 
 #timezone_string option {
-	margin-right: 1em;
+	margin-left: 1em;
 }
 
 button.wp-hide-pw > .dashicons {
@@ -445,7 +451,7 @@ fieldset label,
 	background-color: #eee;
 	border: 1px solid #ddd;
 	color: #222;
-	margin: -2px 1px 5px 5px;
+	margin: -2px 5px 5px 1px;
 	padding: 3px 5px;
 	text-align: center;
 	width: 25em;
@@ -516,19 +522,19 @@ fieldset label,
 }
 
 p.search-box {
-	float: left;
+	float: right;
 	margin: 0;
 }
 
 .network-admin.themes-php p.search-box {
-	clear: right;
+	clear: left;
 }
 
 .search-box input[name="s"],
 .tablenav .search-plugins input[name="s"],
 .tagsdiv .newtag {
-	float: right;
-	margin: 0 0 0 0.5em;
+	float: left;
+	margin: 0 0.5em 0 0;
 }
 
 .js.plugins-php .search-box .wp-filter-search {
@@ -545,7 +551,7 @@ input[type="text"].ui-autocomplete-loading,
 input[type="email"].ui-autocomplete-loading {
 	background-image: url(../images/loading.gif);
 	background-repeat: no-repeat;
-	background-position: left center;
+	background-position: right center;
 	visibility: visible;
 }
 
@@ -554,7 +560,7 @@ input.ui-autocomplete-input.open {
 }
 
 ul#add-to-blog-users {
-	margin: 0 1em 0 0;
+	margin: 0 0 0 1em;
 }
 
 .ui-autocomplete {
@@ -571,7 +577,7 @@ ul#add-to-blog-users {
 	margin-bottom: 0;
 	padding: 4px 10px;
 	white-space: nowrap;
-	text-align: right;
+	text-align: left;
 	cursor: pointer;
 }
 
@@ -621,8 +627,8 @@ ul#add-to-blog-users {
 
 .form-table th {
 	vertical-align: top;
-	text-align: right;
-	padding: 20px 0 20px 10px;
+	text-align: left;
+	padding: 20px 10px 20px 0;
 	width: 200px;
 	line-height: 1.3;
 	font-weight: 600;
@@ -631,7 +637,7 @@ ul#add-to-blog-users {
 .form-table th.th-full, /* Not used by core. Back-compat for pre-4.8 */
 .form-table .td-full {
 	width: auto;
-	padding: 20px 0 20px 10px;
+	padding: 20px 10px 20px 0;
 	font-weight: 400;
 }
 
@@ -662,7 +668,7 @@ ul#add-to-blog-users {
 .form-table input.tog,
 .form-table input[type="radio"] {
 	margin-top: -4px;
-	margin-left: 4px;
+	margin-right: 4px;
 	float: none;
 }
 
@@ -690,7 +696,7 @@ table.form-table td .updated p {
 }
 
 #profile-page .form-table #rich_editing {
-	margin-left: 5px
+	margin-right: 5px
 }
 
 #your-profile legend {
@@ -713,6 +719,7 @@ table.form-table td .updated p {
 	box-sizing: border-box;
 	margin-bottom: 3px;
 	border: solid 2px transparent;
+	cursor: pointer;
 }
 
 .color-option:hover,
@@ -745,10 +752,6 @@ table.form-table td .updated p {
 	li {
 		margin: 0;
 	}
-}
-
-.color-option {
-	cursor: pointer;
 }
 
 /*------------------------------------------------------------------------------
@@ -836,22 +839,22 @@ table.form-table td .updated p {
 	height: 55%;
 	z-index: -1;
 	position: absolute;
-	left: 10px;
+	right: 10px;
 	bottom: 9px;
 	background: transparent;
-	-webkit-transform: skew(-20deg) rotate(-6deg);
-	transform: skew(-20deg) rotate(-6deg);
+	-webkit-transform: skew(20deg) rotate(6deg);
+	transform: skew(20deg) rotate(6deg);
 }
 
 .pressthis-bookmarklet:hover:after {
-	-webkit-transform: skew(-20deg) rotate(-9deg);
-	transform: skew(-20deg) rotate(-9deg);
+	-webkit-transform: skew(20deg) rotate(9deg);
+	transform: skew(20deg) rotate(9deg);
 }
 
 .pressthis-bookmarklet span {
 	display: inline-block;
 	margin: 0px 0 0;
-	padding: 0px 9px 8px 12px;
+	padding: 0px 12px 8px 9px;
 }
 
 .pressthis-bookmarklet span:before {
@@ -861,11 +864,11 @@ table.form-table td .updated p {
 	position: relative;
 	display: inline-block;
 	top: 4px;
-	margin-left: 4px;
+	margin-right: 4px;
 }
 
 .pressthis-js-toggle {
-	margin-right: 10px;
+	margin-left: 10px;
 	padding: 0;
 	height: auto;
 	vertical-align: top;
@@ -873,14 +876,14 @@ table.form-table td .updated p {
 
 /* to override the button class being applied */
 .pressthis-js-toggle.button.button {
-	margin-right: 10px;
+	margin-left: 10px;
 	padding: 0;
 	height: auto;
 	vertical-align: top;
 }
 
 .pressthis-js-toggle .dashicons {
-	margin: 5px 7px 6px 8px;
+	margin: 5px 8px 6px 7px;
 	color: #555d66;
 }
 
@@ -920,8 +923,8 @@ table.form-table td .updated p {
 }
 
 .form-table.permalink-structure .available-structure-tags li {
-	float: right;
-	margin-left: 5px;
+	float: left;
+	margin-right: 5px;
 }
 
 /*------------------------------------------------------------------------------
@@ -1010,20 +1013,20 @@ table.form-table td .updated p {
 
 .request-filesystem-credentials-dialog .ftp-username,
 .request-filesystem-credentials-dialog .ftp-password {
-	float: right;
+	float: left;
 	width: 48%;
 }
 
 .request-filesystem-credentials-dialog .ftp-password {
-	margin-right: 4%;
+	margin-left: 4%;
 }
 
 .request-filesystem-credentials-dialog .request-filesystem-credentials-action-buttons {
-	text-align: left;
+	text-align: right;
 }
 
 .request-filesystem-credentials-dialog label[for="ftp"] {
-	margin-left: 10px;
+	margin-right: 10px;
 }
 
 .request-filesystem-credentials-dialog #auth-keys-desc {
@@ -1031,7 +1034,7 @@ table.form-table td .updated p {
 }
 
 #request-filesystem-credentials-dialog .button:not(:last-child) {
-	margin-left: 10px;
+	margin-right: 10px;
 }
 
 #request-filesystem-credentials-form .cancel-button {
@@ -1088,7 +1091,7 @@ table.form-table td .updated p {
 
 .tools-privacy-policy-page input.button,
 .tools-privacy-policy-page select {
-	margin-right: 6px;
+	margin-left: 6px;
 }
 
 .tools-privacy-edit {
@@ -1109,11 +1112,11 @@ table.form-table td .updated p {
 
 .privacy_requests thead td:first-child,
 .privacy_requests tfoot td:first-child {
-	border-right: 4px solid #fff;
+	border-left: 4px solid #fff;
 }
 
 .privacy_requests tbody th {
-	border-right: 4px solid #fff;
+	border-left: 4px solid #fff;
 	background: #fff;
 }
 
@@ -1144,13 +1147,13 @@ table.form-table td .updated p {
 .privacy_requests .status-request-confirmed th,
 .privacy_requests .status-request-confirmed td {
 	background-color: #f7fcfe;
-	border-right-color: #00a0d2;
+	border-left-color: #00a0d2;
 }
 
 .privacy_requests .status-request-failed th,
 .privacy_requests .status-request-failed td {
 	background-color: #fef7f1;
-	border-right-color: #d64d21;
+	border-left-color: #d64d21;
 }
 
 .privacy_requests .export_personal_data_failed a {
@@ -1195,7 +1198,7 @@ table.form-table td .updated p {
 .email-personal-data::before {
 	display: inline-block;
 	font: normal 20px/1 dashicons;
-	margin: 3px -2px 0 5px;
+	margin: 3px 5px 0 -2px;
 	speak: none;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -1323,7 +1326,7 @@ table.form-table td .updated p {
 	}
 
 	.form-table table.color-palette {
-		margin-left: 10px;
+		margin-right: 10px;
 	}
 
 	textarea,
@@ -1348,8 +1351,8 @@ table.form-table td .updated p {
 	}
 
 	.form-table .form-required.form-invalid td:after {
-		float: left;
-		margin: -30px 0 0 3px;
+		float: right;
+		margin: -30px 3px 0 0;
 	}
 
 	.admin-main .form-table td select {
@@ -1414,15 +1417,15 @@ table.form-table td .updated p {
 		margin-bottom: 0;
 		padding-bottom: 6px;
 		padding-top: 4px;
-		padding-right: 0;
+		padding-left: 0;
 	}
 
 	.form-table.permalink-structure td code {
-		margin-right: 32px;
+		margin-left: 32px;
 	}
 
 	.form-table.permalink-structure td input[type="text"] {
-		margin-right: 32px;
+		margin-left: 32px;
 		margin-top: 4px;
 		width: 96%;
 	}
@@ -1457,7 +1460,7 @@ table.form-table td .updated p {
 
 	.wp-pwd [type="text"],
 	.wp-pwd [type="password"] {
-		padding-left: 40px;
+		padding-right: 40px;
 	}
 
 	.wp-pwd button.button {
@@ -1468,7 +1471,7 @@ table.form-table td .updated p {
 		margin: 0;
 		padding: 5px 10px;
 		position: absolute;
-		left: 0;
+		right: 0;
 		top: 0;
 	}
 
@@ -1503,7 +1506,7 @@ table.form-table td .updated p {
 	}
 
 	.tools-privacy-policy-page .wp-create-privacy-page .button {
-	    margin-right: 0;
+	    margin-left: 0;
 	}
 
 	.wp-list-table.privacy_requests tr:not(.inline-edit-row):not(.no-items) td.column-primary:not(.check-column) {
@@ -1512,7 +1515,7 @@ table.form-table td .updated p {
 
 	.wp-list-table.privacy_requests.widefat th input,
 	.wp-list-table.privacy_requests.widefat thead td input {
-		margin-right: 5px;
+		margin-left: 5px;
 	}
 }
 
@@ -1546,7 +1549,7 @@ table.form-table td .updated p {
 		position: fixed;
 		top: 0;
 		margin: 0;
-		right: 0;
+		left: 0;
 	}
 }
 
@@ -1561,7 +1564,7 @@ table.form-table td .updated p {
 @media only screen and (max-width: 320px) {
 	.options-general-php .date-time-text.date-time-custom-text {
 		min-width: 0;
-		margin-left: 0.5em;
+		margin-right: 0.5em;
 	}
 }
 
@@ -1571,8 +1574,8 @@ table.form-table td .updated p {
 		transform: rotate(0deg);
 	}
 	100% {
-		-webkit-transform: rotate(-359deg);
-		transform: rotate(-359deg);
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
 	}
 }
 
@@ -1582,7 +1585,7 @@ table.form-table td .updated p {
 		transform: rotate(0deg);
 	}
 	100% {
-		-webkit-transform: rotate(-359deg);
-		transform: rotate(-359deg);
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
 	}
 }

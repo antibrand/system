@@ -982,9 +982,9 @@ function wp_default_styles( &$styles ) {
 	$styles->add( 'l10n',        "/wp-admin/css/l10n$suffix.css" );
 	$styles->add( 'code-editor', "/wp-admin/css/code-editor$suffix.css", [ 'wp-codemirror' ] );
 
-	$styles->add( 'wp-admin', false, [ 'dashicons', 'admin', 'forms', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'about', 'nav-menus', 'widgets', 'site-icon', 'l10n' ] );
+	$styles->add( 'wp-admin', false, [ 'dashicons', 'admin', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'about', 'nav-menus', 'widgets', 'site-icon', 'l10n' ] );
 
-	$styles->add( 'login',               "/wp-admin/css/login$suffix.css", [ 'dashicons', 'buttons', 'forms', 'l10n' ] );
+	$styles->add( 'login',               "/wp-admin/css/login$suffix.css", [ 'dashicons', 'buttons', 'l10n' ] );
 	$styles->add( 'install',             "/wp-admin/css/install$suffix.css", [ 'buttons' ] );
 	$styles->add( 'wp-color-picker',     "/wp-admin/css/color-picker$suffix.css" );
 	$styles->add( 'customize-controls',  "/wp-admin/css/customize-controls$suffix.css", [ 'wp-admin', 'colors', 'ie', 'imgareaselect' ] );
@@ -1019,7 +1019,7 @@ function wp_default_styles( &$styles ) {
 	// RTL CSS
 	$rtl_styles = [
 		// admin
-		'admin', 'forms', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'about', 'nav-menus',
+		'admin', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'about', 'nav-menus',
 		'widgets', 'site-icon', 'l10n', 'install', 'wp-color-picker', 'customize-controls', 'customize-widgets', 'customize-nav-menus', 'customize-preview',
 		'ie', 'login',
 		// includes
