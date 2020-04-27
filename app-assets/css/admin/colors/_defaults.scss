@@ -14,8 +14,8 @@
 $body_background: $white !default;
 $text_color: #222222 !default;
 $link: #004499 !default;
-$link_action: lighten( $link, 10% ) !default;
-$highlight-color: lighten( $link, 10% ) !default;
+$link_action: lighten( $link, 12% ) !default;
+$highlight-color: lighten( $link, 15% ) !default;
 
 $notify_color: $app_orange !default;
 $error_color: $app_red !default;
@@ -29,7 +29,7 @@ $form_checked: $highlight-color !default;
 // Admin menu & admin-bar.
 $menu_base_color: #222 !default;
 $menu_text_color: $white !default;
-$menu_icon_color: hsl( hue( $menu_base_color ), 7%, 95% ) !default;
+$menu_icon_color: darken( $menu_text_color, 25% ) !default;
 $button-color: $highlight-color !default;
 
 $menu-icon: $menu_icon_color !default;
