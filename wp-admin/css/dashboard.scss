@@ -217,6 +217,10 @@
 	padding: 0 0 8px;
 	font-weight: bold;
 	font-weight: 600;
+
+	@supports( font-variation-settings: normal ) {
+		font-weight: 525;
+	}
 }
 
 .welcome-panel .welcome-icon {

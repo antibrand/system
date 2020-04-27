@@ -236,6 +236,12 @@
   font-weight: 600;
 }
 
+@supports (font-variation-settings: normal) {
+  .welcome-panel .welcome-panel-column li {
+    font-weight: 525;
+  }
+}
+
 .welcome-panel .welcome-icon {
   background: transparent !important;
 }
