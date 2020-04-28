@@ -1,4 +1,4 @@
-@import '../../app-assets/css/admin/colors/_defaults.scss';
+@import '../../app-assets/css/includes/modules/_colors';
 
 
 /*------------------------------------------------------------------------------
@@ -350,14 +350,14 @@ body.js .theme-browser.search-loading {
 .theme-browser .theme.add-new-theme a:hover span:after,
 .theme-browser .theme.add-new-theme a:focus span:after {
 	background: #fff;
-	color: $link;
+	color: $link_color;
 }
 
 .theme-browser .theme.add-new-theme a:hover:after,
 .theme-browser .theme.add-new-theme a:focus:after {
 	border-color: transparent;
 	color: #fff;
-	background: $link;
+	background: $link_color;
 	content: "";
 }
 
@@ -1023,7 +1023,7 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 
 /* Already installed theme */
 .theme-browser .theme .theme-installed {
-	background: $link;
+	background: $link_color;
 }
 .theme-browser .theme .notice-success p:before {
 	color: #79ba49;
@@ -1569,7 +1569,7 @@ body.full-overlay-active {
 
 .app-core-ui .wp-full-overlay .collapse-sidebar:hover,
 .app-core-ui .wp-full-overlay .collapse-sidebar:focus {
-	color: $link;
+	color: $link_color;
 }
 
 .wp-full-overlay .collapse-sidebar-arrow,
@@ -1723,7 +1723,7 @@ body.full-overlay-active {
 
 .wp-full-overlay-footer .devices button:focus,
 .wp-full-overlay-footer .devices button.active:hover {
-	border-bottom-color: $link;
+	border-bottom-color: $link_color;
 }
 
 .wp-full-overlay-footer .devices button.active:before {
@@ -1732,7 +1732,7 @@ body.full-overlay-active {
 
 .wp-full-overlay-footer .devices button:hover:before,
 .wp-full-overlay-footer .devices button:focus:before {
-	color: $link;
+	color: $link_color;
 }
 
 .wp-full-overlay-footer .devices .preview-desktop:before {

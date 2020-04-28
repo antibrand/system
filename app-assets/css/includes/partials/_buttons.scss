@@ -100,13 +100,13 @@
 	outline: none;
 	text-align: left;
 	text-decoration: underline;
-	color: $link;
+	color: $link_color;
 	cursor: pointer;
 
 	&:hover,
 	&:focus,
 	&:active {
-		color: $link_action;
+		color: $link_action_color;
 	}
 }
 

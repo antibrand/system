@@ -21,8 +21,8 @@ $app_red: #dd0000;
 // Global app admin variables.
 $body_background: #252525;
 $text_color: $white;
-$link: #3ad4fb;
-$link_action: darken( $link, 10% );
+$link_color: #3ad4fb;
+$link_action_color: darken( $link_color, 10% );
 $highlight_color: #3ad4fb;
 
 $notify_color: $app_orange;
@@ -72,7 +72,6 @@ input[type="number"],
 input[type="search"],
 input[type="radio"],
 input[type="tel"],
-input[type="text"],
 input[type="time"],
 input[type="url"],
 input[type="week"],
@@ -217,7 +216,6 @@ input[type="number"],
 input[type="search"],
 input[type="radio"],
 input[type="tel"],
-input[type="text"],
 input[type="time"],
 input[type="url"],
 input[type="week"],

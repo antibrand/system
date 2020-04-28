@@ -24,8 +24,8 @@ $app_red: #dd0000;
 // Global app admin variables.
 $body_background: #f1f1f1;
 $text_color: #444444;
-$link: #0073aa;
-$link_action: lighten( $link, 10% );
+$link_color: #0073aa;
+$link_action_color: lighten( $link_color, 10% );
 
 $highlight_color: #0073aa;
 $notify_color: $app_orange;

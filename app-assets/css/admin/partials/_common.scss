@@ -155,7 +155,7 @@ td {
 
 /* Any change to the default link style must be applied to button-link too. */
 a {
-	color: $link;
+	color: $link_color;
 	-webkit-transition-property: border, background, color;
 	transition-property: border, background, color;
 	-webkit-transition-duration: .05s;
@@ -165,7 +165,7 @@ a {
 
 	&:hover,
 	&:focus {
-		color: $link_action;
+		color: $link_action_color;
 	}
 }
 
@@ -321,7 +321,7 @@ code {
 
 			button {
 				border: none;
-				color: $link;
+				color: $link_color;
 			}
 		}
 	}
@@ -1274,7 +1274,7 @@ div.error {
 }
 
 .notice-info {
-	border-left-color: $app_orange;
+	border-left-color: $notify_color;
 }
 
 .update-message p:before,

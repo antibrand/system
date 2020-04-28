@@ -1,7 +1,7 @@
 /*------------------------------------------------------------------------------
  TinyMCE and Quicklinks toolbars
 ------------------------------------------------------------------------------*/
-@import '../../app-assets/css/admin/colors/_defaults.scss';
+@import '../../app-assets/css/includes/modules/_colors';
 
 /* TinyMCE widgets/containers */
 
@@ -487,7 +487,7 @@ div.mce-path {
 .mce-toolbar .mce-btn-group .mce-btn.mce-primary {
 	min-width: 0;
 	background: #0085ba;
-	border-color: $link #006799 #006799;
+	border-color: $link_color #006799 #006799;
 	box-shadow: 0 1px 0 #006799;
 	color: #fff;
 	text-decoration: none;
@@ -515,7 +515,7 @@ div.mce-path {
 }
 
 .mce-toolbar .mce-btn-group .mce-btn.mce-primary:active {
-	background: $link;
+	background: $link_color;
 	border-color: #006799;
 	box-shadow: inset 0 2px 0 #006799;
 }
@@ -573,7 +573,7 @@ div.mce-path {
 .mce-menu .mce-menu-item:focus,
 .mce-menu .mce-menu-item-normal.mce-active,
 .mce-menu .mce-menu-item-preview.mce-active {
-	background: $link; /* See color scheme. */
+	background: $link_color; /* See color scheme. */
 	color: #fff;
 }
 
@@ -711,7 +711,7 @@ div.mce-menu .mce-menu-item-sep,
 
 .mce-window .mce-btn.mce-primary {
 	background: #0085ba;
-	border-color: $link #006799 #006799;
+	border-color: $link_color #006799 #006799;
 	box-shadow: 0 1px 0 #006799;
 	color: #fff;
 	text-decoration: none;
@@ -729,12 +729,12 @@ div.mce-menu .mce-menu-item-sep,
 }
 
 .mce-window .mce-btn.mce-primary:focus {
-	box-shadow: 0 1px 0 $link,
+	box-shadow: 0 1px 0 $link_color,
 		0 0 2px 1px #33b3db;
 }
 
 .mce-window .mce-btn.mce-primary:active {
-	background: $link;
+	background: $link_color;
 	border-color: #006799;
 	box-shadow: inset 0 2px 0 #006799;
 	vertical-align: top;
@@ -1727,7 +1727,7 @@ div.wp-link-preview {
 }
 
 div.wp-link-preview a {
-	color: $link;
+	color: $link_color;
 	text-decoration: underline;
 	transition-property: border, background, color;
 	transition-duration: .05s;

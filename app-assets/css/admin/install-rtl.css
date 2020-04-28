@@ -23,7 +23,21 @@
  * stacks are used in @supports( font-variation-settings ) queries.
  */
 /**
+ * General app color variables
+ *
+ * These styles are primarily used in administration pages,
+ * but also common features such as the user toolbar. For this
+ * reason the file is not kept in the css/admin directory.
+ */
+/**
  * Browser reset
+ */
+/**
+ * General app color variables
+ *
+ * These styles are primarily used in administration pages,
+ * but also common features such as the user toolbar. For this
+ * reason the file is not kept in the css/admin directory.
  */
 html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, button, input, select, textarea, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
   margin: 0;
@@ -374,6 +388,13 @@ b, strong, optgroup {
  * stacks are used in @supports( font-variation-settings ) queries.
  */
 /**
+ * General app color variables
+ *
+ * These styles are primarily used in administration pages,
+ * but also common features such as the user toolbar. For this
+ * reason the file is not kept in the css/admin directory.
+ */
+/**
  * General button styles
  */
 .button,
@@ -550,12 +571,11 @@ b, strong, optgroup {
  * stacks are used in @supports( font-variation-settings ) queries.
  */
 /**
- * Default app admin color variables
+ * General app color variables
  *
- * Assign default value to all undefined variables,
- * pure white and pure black excepted.
- *
- * @link https://sass-lang.com/documentation/variables
+ * These styles are primarily used in administration pages,
+ * but also common features such as the user toolbar. For this
+ * reason the file is not kept in the css/admin directory.
  */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, sans-serif;
@@ -635,12 +655,11 @@ h3 {
  * stacks are used in @supports( font-variation-settings ) queries.
  */
 /**
- * Default app admin color variables
+ * General app color variables
  *
- * Assign default value to all undefined variables,
- * pure white and pure black excepted.
- *
- * @link https://sass-lang.com/documentation/variables
+ * These styles are primarily used in administration pages,
+ * but also common features such as the user toolbar. For this
+ * reason the file is not kept in the css/admin directory.
  */
 input[type="text"],
 input[type="password"],
@@ -655,7 +674,6 @@ input[type="number"],
 input[type="search"],
 input[type="radio"],
 input[type="tel"],
-input[type="text"],
 input[type="time"],
 input[type="url"],
 input[type="week"],
@@ -681,13 +699,12 @@ input[type="number"]:focus,
 input[type="search"]:focus,
 input[type="radio"]:focus,
 input[type="tel"]:focus,
-input[type="text"]:focus,
 input[type="time"]:focus,
 input[type="url"]:focus,
 input[type="week"]:focus,
 select:focus,
 textarea:focus {
-  border-color: #888888;
+  border-color: #005fd6;
 }
 
 /* rtl: ignore */

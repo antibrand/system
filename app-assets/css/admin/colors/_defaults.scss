@@ -3,8 +3,6 @@
  *
  * Assign default value to all undefined variables,
  * pure white and pure black excepted.
- *
- * @link https://sass-lang.com/documentation/variables
  */
 
 // Import general app variables.
@@ -13,8 +11,8 @@
 // Global app admin variables.
 $body_background: $white !default;
 $text_color: #222222 !default;
-$link: #004499 !default;
-$link_action: lighten( $link, 12% ) !default;
+$link_color: #004499 !default;
+$link_action_color: lighten( $link_color, 12% ) !default;
 $highlight_color: $app_yellow !default;
 
 $notify_color: $app_orange !default;
@@ -22,16 +20,16 @@ $error_color: $app_red !default;
 $warning_color: $app_yellow !default;
 $success_color: $app_green !default;
 
-// Forms.
+// Form color variables.
 $form_background_color: inherit !default;
 $form_border_color: $light_gray !default;
 $form_text_color: $text_color !default;
-$form_action_background_color: $highlight_color !default;
-$form_action_border_color: $form_border_color !default;
+$form_action_background_color: $form_background_color !default;
+$form_action_border_color: $link_action_color !default;
 $form_action_text_color: $text_color !default;
 
-$form_focus: $link_action !default;
-$form_checked: $link_action !default;
+$form_focus: $link_action_color !default;
+$form_checked: $link_action_color !default;
 
 // Buttons.
 $button_background_color: inherit !default;

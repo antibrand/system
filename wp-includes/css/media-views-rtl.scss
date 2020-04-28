@@ -1,4 +1,4 @@
-@import '../../app-assets/css/admin/colors/_defaults.scss';
+@import '../../app-assets/css/includes/modules/_colors';
 
 .media-modal * {
 	box-sizing: content-box;
@@ -29,7 +29,7 @@
 
 .media-frame a {
 	border-bottom: none;
-	color: $link;
+	color: $link_color;
 }
 
 .media-frame a:hover,
@@ -494,12 +494,12 @@
 	margin: 0;
 	line-height: 18px;
 	font-size: 14px;
-	color: $link;
+	color: $link_color;
 	text-decoration: none;
 }
 
 .media-menu > a:hover {
-	color: $link;
+	color: $link_color;
 	background: rgba( 0, 0, 0, 0.04 );
 }
 
@@ -790,7 +790,7 @@
 .app-core-ui .attachment.details {
 	box-shadow:
 		inset 0 0 0 3px #fff,
-		inset 0 0 0 7px $link;
+		inset 0 0 0 7px $link_color;
 }
 
 .app-core-ui .attachment-preview {
@@ -951,10 +951,10 @@
 .app-core-ui .attachment.details .check,
 .app-core-ui .attachment.selected .check:focus,
 .app-core-ui .media-frame.mode-grid .attachment.selected .check {
-	background-color: $link;
+	background-color: $link_color;
 	box-shadow:
 		0 0 0 1px #fff,
-		0 0 0 2px $link;
+		0 0 0 2px $link_color;
 }
 
 .app-core-ui .attachment.details .check .media-modal-icon,
@@ -1087,7 +1087,7 @@
 	height: 10px;
 	min-width: 20px;
 	width: 0;
-	background: $link;
+	background: $link_color;
 	border-radius: 10px;
 	transition: width 300ms;
 }
@@ -1358,7 +1358,7 @@
 	margin: 1px -8px 1px 8px;
 	line-height: 16px;
 	border-left: 1px solid #ddd;
-	color: $link;
+	color: $link_color;
 	text-decoration: none;
 }
 
@@ -1432,7 +1432,7 @@
 .app-core-ui .media-selection .attachment.details {
 	box-shadow:
 		0 0 0 1px #fff,
-		0 0 0 3px $link;
+		0 0 0 3px $link_color;
 }
 
 .media-selection:after {
@@ -2221,7 +2221,7 @@
 	}
 
 	.media-frame:not(.hide-menu) .media-frame-title h1 {
-		color: $link;
+		color: $link_color;
 		line-height: 3;
 		font-size: 18px;
 		float: right;

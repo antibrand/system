@@ -11,12 +11,12 @@ body {
 /* Links */
 
 a {
-	color: $link;
+	color: $link_color;
 
 	&:hover,
 	&:active,
 	&:focus {
-		color: $link_action;
+		color: $link_action_color;
 	}
 }
 
@@ -24,7 +24,7 @@ a {
 div.dashboard-widget-submit input:hover,
 .subsubsub a:hover,
 .subsubsub a.current:hover {
-	color: $link_action;
+	color: $link_action_color;
 }
 
 
@@ -40,7 +40,7 @@ input[type=radio]:checked:before {
 
 .app-core-ui input[type="reset"]:hover,
 .app-core-ui input[type="reset"]:active {
-	color: $link_action;
+	color: $link_action_color;
 }
 
 

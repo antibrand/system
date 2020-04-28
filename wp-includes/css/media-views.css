@@ -1,10 +1,9 @@
 /**
- * Default app admin color variables
+ * General app color variables
  *
- * Assign default value to all undefined variables,
- * pure white and pure black excepted.
- *
- * @link https://sass-lang.com/documentation/variables
+ * These styles are primarily used in administration pages,
+ * but also common features such as the user toolbar. For this
+ * reason the file is not kept in the css/admin directory.
  */
 .media-modal * {
   -webkit-box-sizing: content-box;

@@ -1,9 +1,10 @@
-///
-/// General app color variables
-///
-/// These styles are primarily used in administration pages,
-/// but also common features such as the user toolbar. For this
-/// reason the file is not kept in the css/admin directory.
+/**
+ * General app color variables
+ *
+ * These styles are primarily used in administration pages,
+ * but also common features such as the user toolbar. For this
+ * reason the file is not kept in the css/admin directory.
+ */
 
 // Color name variables.
 $white: #ffffff;
@@ -22,8 +23,8 @@ $app_red: #dd0000 !default;
 // Global app color variables.
 $body_background: $white !default;
 $text_color: #222222 !default;
-$link: #004499 !default;
-$link_action: lighten( $link, 12% ) !default;
+$link_color: #004499 !default;
+$link_action_color: lighten( $link_color, 12% ) !default;
 $highlight_color: $app_yellow !default;
 
 $notify_color: $app_orange !default;
@@ -35,12 +36,12 @@ $success_color: $app_green !default;
 $form_background_color: inherit !default;
 $form_border_color: $light_gray !default;
 $form_text_color: $text_color !default;
-$form_action_background_color: $highlight_color !default;
-$form_action_border_color: $form_border_color !default;
+$form_action_background_color: $form_background_color !default;
+$form_action_border_color: $link_action_color !default;
 $form_action_text_color: $text_color !default;
 
-$form_focus: $link_action !default;
-$form_checked: $link_action !default;
+$form_focus: $link_action_color !default;
+$form_checked: $link_action_color !default;
 
 // Button color variables.
 $button_background_color: inherit !default;

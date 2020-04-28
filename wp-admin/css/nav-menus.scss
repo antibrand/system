@@ -1,4 +1,4 @@
-@import '../../app-assets/css/admin/colors/_defaults.scss';
+@import '../../app-assets/css/includes/modules/_colors';
 
 /* @todo: determine if this is truly for nav menus only */
 .no-js #message {
@@ -591,7 +591,7 @@ body.menu-max-depth-11 { min-width: 1280px !important; }
 	height: auto;
 	margin: 12px -10px 12px 0;
 	padding: 0;
-	color: $link;
+	color: $link_color;
 	text-decoration: underline;
 	font-size: 12px;
 	line-height: 18px;

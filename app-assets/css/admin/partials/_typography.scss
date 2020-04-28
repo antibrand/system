@@ -8,9 +8,6 @@
 @import '../../includes/modules/_typography';
 @import '../../includes/modules/_colors';
 
-// Import variables specific to administration pages.
-@import '../colors/_defaults';
-
 body {
 	font-family: $sans;
 	font-size: $px16;
