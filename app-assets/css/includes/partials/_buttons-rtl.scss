@@ -16,8 +16,8 @@
 /// an actual class (e.g. `.hover` for `:hover`).
 
 // Import general app variables from app-assets/includes.
-@import '../modules/_typography.scss';
-@import '../modules/_colors.scss';
+@import '../modules/_typography';
+@import '../modules/_colors';
 
 /**
  * General button styles

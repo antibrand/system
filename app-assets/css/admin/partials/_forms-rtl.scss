@@ -3,11 +3,11 @@
  */
 
 // Import general app variables from app-assets/includes.
-@import '../../includes/modules/_typography.scss';
-@import '../../includes/modules/_colors.scss';
+@import '../../includes/modules/_typography';
+@import '../../includes/modules/_colors';
 
 // Import variables specific to administration pages.
-@import '../colors/_defaults.scss';
+@import '../colors/_defaults';
 
 input[type="text"],
 input[type="password"],
