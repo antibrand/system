@@ -52,7 +52,7 @@ textarea {
 	transition: 0.05s border-color ease-in-out;
 
 	&:focus {
-		border-color: $form_action_border_color;
+		border-color: $form_action_border_color;;
 	}
 }
 
@@ -175,9 +175,13 @@ input {
  */
  select {
 	height: 2.5rem;
-	padding: 0 1rem;
+	padding: 0 1rem 0 0.5rem;
 	font-size: $px14;
 	line-height: 1rem;
+
+	option {
+		line-height: 1em;
+	}
 }
 
 /**

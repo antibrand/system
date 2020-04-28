@@ -490,9 +490,14 @@ form.initial-form.quickpress-open input#title {
 }
 
 #quick-press textarea#content {
-  min-height: 90px;
+  height: 120px;
+  min-height: 120px;
   max-height: 1300px;
   resize: none;
+}
+
+.no-js #quick-press textarea#content {
+  height: auto;
 }
 
 /* Dashboard Quick Draft - Drafts list */
