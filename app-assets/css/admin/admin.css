@@ -532,13 +532,6 @@ body.mobile.modal-open .admin-page-wrap {
  *
  * @link https://sass-lang.com/documentation/variables
  */
-/* Include margin and padding in the width calculation of input and textarea. */
-input,
-textarea {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
 input[type="text"],
 input[type="password"],
 input[type="checkbox"],
@@ -567,6 +560,7 @@ textarea {
 
 input[type="text"]:focus,
 input[type="password"]:focus,
+input[type="checkbox"]:focus,
 input[type="color"]:focus,
 input[type="date"]:focus,
 input[type="datetime"]:focus,
@@ -575,109 +569,79 @@ input[type="email"]:focus,
 input[type="month"]:focus,
 input[type="number"]:focus,
 input[type="search"]:focus,
+input[type="radio"]:focus,
 input[type="tel"]:focus,
 input[type="text"]:focus,
 input[type="time"]:focus,
 input[type="url"]:focus,
 input[type="week"]:focus,
-input[type="checkbox"]:focus,
-input[type="radio"]:focus,
 select:focus,
 textarea:focus {
-  border-color: #005fd6;
+  border-color: #888888;
 }
 
-/* rtl:ignore */
+/* rtl: ignore */
 input[type="email"],
 input[type="url"] {
   direction: ltr;
 }
 
-/* Vertically align the number selector with the input. */
-input[type="number"] {
-  height: 28px;
-  line-height: 1;
-}
-
 input[type="checkbox"],
 input[type="radio"] {
-  border: 1px solid #b4b9be;
-  background: #fff;
-  color: #555;
-  clear: none;
-  cursor: pointer;
   display: inline-block;
-  line-height: 0;
-  height: 16px;
-  margin: -4px 4px 0 0;
-  outline: 0;
+  clear: none;
+  width: 1em;
+  height: 1em;
   padding: 0 !important;
-  text-align: center;
   vertical-align: middle;
-  width: 16px;
-  min-width: 16px;
+  outline: 0;
+  line-height: 0;
+  text-align: center;
+  cursor: pointer;
   -webkit-appearance: none;
   -webkit-transition: .05s border-color ease-in-out;
   transition: .05s border-color ease-in-out;
 }
 
-input[type="radio"]:checked + label:before {
-  color: #82878c;
-}
-
-.app-core-ui input[type="reset"]:hover,
-.app-core-ui input[type="reset"]:active {
-  color: #00a0d2;
-}
-
-td > input[type="checkbox"],
-.app-admin p input[type="checkbox"],
-.app-admin p input[type="radio"] {
-  margin-top: 0;
-}
-
-.app-admin p label input[type="checkbox"] {
-  margin-top: -4px;
-}
-
-.app-admin p label input[type="radio"] {
-  margin-top: -2px;
-}
-
-input[type="radio"] {
-  border-radius: 50%;
-  margin-right: 4px;
-  line-height: 10px;
-}
-
-input[type="checkbox"]:checked:before,
-input[type="radio"]:checked:before {
-  float: left;
+input[type="checkbox"]:before, input[type="checkbox"]:before,
+input[type="radio"]:before,
+input[type="radio"]:before {
   display: inline-block;
+  width: 6px;
+  height: 6px;
   vertical-align: middle;
-  width: 16px;
-  font: normal 21px/1 dashicons;
-  speak: none;
+  font-family: 'dashicons';
+  speak: never;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-input[type="checkbox"]:checked:before {
-  content: "\f147";
-  margin: -3px 0 0 -4px;
-  color: #1e8cbe;
+input[type="radio"] {
+  border-radius: 50%;
+  margin-left: 4px;
+  line-height: 10px;
+}
+
+input[type="radio"]:checked + label:before {
+  color: #888888;
 }
 
 input[type="radio"]:checked:before {
   content: "\2022";
   text-indent: -9999px;
-  border-radius: 50px;
+  border-radius: 50%;
   font-size: 24px;
   width: 6px;
   height: 6px;
   margin: 4px;
-  line-height: 16px;
-  background-color: #1e8cbe;
+  line-height: 1;
+  background-color: #005fd6;
+}
+
+input[type="checkbox"]:checked:before {
+  content: "\f147";
+  margin-right: 0.3em;
+  color: #005fd6;
 }
 
 @-moz-document url-prefix() {
@@ -697,21 +661,6 @@ input[type="search"]::-webkit-search-decoration {
   display: none;
 }
 
-.ie8 input[type="password"] {
-  font-family: sans-serif;
-}
-
-textarea,
-input,
-select,
-button {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-}
-
 textarea,
 input,
 select {
@@ -728,7 +677,7 @@ textarea {
   resize: vertical;
 }
 
-.app-admin input[type="file"] {
+input[type="file"] {
   padding: 3px 0;
   cursor: pointer;
 }
@@ -737,7 +686,7 @@ label {
   cursor: pointer;
 }
 
-input,
+input:not([type="checkbox"]):not([type="radio"]),
 select {
   height: 3em;
   padding: 0.5em 1em;
@@ -750,26 +699,6 @@ input.code {
 textarea.code {
   line-height: 1.4;
   padding: 4px 6px 1px 6px;
-}
-
-input.readonly,
-input[readonly],
-textarea.readonly,
-textarea[readonly] {
-  background-color: #eee;
-}
-
-::-webkit-input-placeholder {
-  color: #72777c;
-}
-
-::-moz-placeholder {
-  color: #72777c;
-  opacity: 1;
-}
-
-:-ms-input-placeholder {
-  color: #72777c;
 }
 
 .form-invalid input, .form-invalid input:focus,
@@ -800,19 +729,14 @@ textarea[readonly] {
   vertical-align: middle;
 }
 
-.form-input-tip {
-  color: #666;
-}
-
 input:disabled,
 input.disabled,
 select:disabled,
 select.disabled,
 textarea:disabled,
 textarea.disabled {
-  background: rgba(255, 255, 255, 0.5);
-  border-color: rgba(222, 222, 222, 0.75);
-  color: rgba(51, 51, 51, 0.5);
+  background: rgba(204, 204, 204, 0.4);
+  color: rgba(136, 136, 136, 0.85);
 }
 
 input[type="file"]:disabled,
@@ -839,12 +763,12 @@ input[type="radio"].disabled:checked:before {
 /*------------------------------------------------------------------------------
   2.0 - Forms
 ------------------------------------------------------------------------------*/
-.app-admin select {
+select {
   padding: 0.5em 1em;
   line-height: 1;
 }
 
-.app-admin .button-cancel {
+.button-cancel {
   padding: 0 5px;
   line-height: 2;
 }
@@ -853,7 +777,7 @@ input[type="radio"].disabled:checked:before {
   max-width: 100%;
 }
 
-.app-admin select[multiple] {
+select[multiple] {
   height: auto;
 }
 
@@ -978,9 +902,6 @@ fieldset label,
 }
 
 #pass-strength-result {
-  background-color: #eee;
-  border: 1px solid #ddd;
-  color: #222;
   margin: -2px 5px 5px 1px;
   padding: 3px 5px;
   text-align: center;
@@ -991,43 +912,47 @@ fieldset label,
 }
 
 #pass-strength-result.short {
-  background-color: #f1adad;
-  border-color: #e35b5b;
+  background-color: white;
+  border-color: #dd0000;
   opacity: 1;
 }
 
 #pass-strength-result.bad {
-  background-color: #fbc5a9;
-  border-color: #f78b53;
+  background-color: white;
+  border-color: #ee6600;
   opacity: 1;
 }
 
 #pass-strength-result.good {
-  background-color: #ffe399;
-  border-color: #ffc733;
+  background-color: white;
+  border-color: #ffee00;
   opacity: 1;
 }
 
 #pass-strength-result.strong {
-  background-color: #c1e1b9;
-  border-color: #83c373;
+  background-color: white;
+  border-color: #44aa11;
   opacity: 1;
 }
 
-#pass1.short, #pass1-text.short {
-  border-color: #e35b5b;
+#pass1.short,
+#pass1-text.short {
+  border-color: #dd0000;
 }
 
-#pass1.bad, #pass1-text.bad {
-  border-color: #f78b53;
+#pass1.bad,
+#pass1-text.bad {
+  border-color: #ee6600;
 }
 
-#pass1.good, #pass1-text.good {
-  border-color: #ffc733;
+#pass1.good,
+#pass1-text.good {
+  border-color: #ffee00;
 }
 
-#pass1.strong, #pass1-text.strong {
-  border-color: #83c373;
+#pass1.strong,
+#pass1-text.strong {
+  border-color: #44aa11;
 }
 
 .pw-weak {
@@ -1315,106 +1240,10 @@ table.form-table td .updated p {
   padding: 0.7em 2em 1em;
   min-width: 255px;
   max-width: 520px;
-  border: 1px solid #e5e5e5;
+  background: #ffffff;
+  border: 1px solid #eeeeee;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
           box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
-  background: #fff;
-}
-
-/* Press this styles */
-.pressthis h4 {
-  margin: 2em 0 1em;
-}
-
-.pressthis textarea {
-  width: 100%;
-  font-size: 1em;
-}
-
-#pressthis-code-wrap {
-  overflow: auto;
-}
-
-.pressthis-bookmarklet-wrapper {
-  margin: 20px 0 8px;
-  vertical-align: top;
-  position: relative;
-  z-index: 1;
-}
-
-.pressthis-bookmarklet,
-.pressthis-bookmarklet:hover,
-.pressthis-bookmarklet:focus,
-.pressthis-bookmarklet:active {
-  display: inline-block;
-  position: relative;
-  cursor: move;
-  color: #333;
-  background: #e5e5e5;
-  border-radius: 5px;
-  border: 1px solid #b4b9be;
-  font-style: normal;
-  line-height: 16px;
-  font-size: 0.875rem;
-  text-decoration: none;
-}
-
-.pressthis-bookmarklet:active {
-  outline: none;
-}
-
-.pressthis-bookmarklet:after {
-  content: "";
-  width: 70%;
-  height: 55%;
-  z-index: -1;
-  position: absolute;
-  right: 10px;
-  bottom: 9px;
-  background: transparent;
-  -webkit-transform: skew(20deg) rotate(6deg);
-  transform: skew(20deg) rotate(6deg);
-}
-
-.pressthis-bookmarklet:hover:after {
-  -webkit-transform: skew(20deg) rotate(9deg);
-  transform: skew(20deg) rotate(9deg);
-}
-
-.pressthis-bookmarklet span {
-  display: inline-block;
-  margin: 0px 0 0;
-  padding: 0px 12px 8px 9px;
-}
-
-.pressthis-bookmarklet span:before {
-  color: #72777c;
-  font: normal 20px/1 dashicons;
-  content: "\f157";
-  position: relative;
-  display: inline-block;
-  top: 4px;
-  margin-right: 4px;
-}
-
-.pressthis-js-toggle {
-  margin-left: 10px;
-  padding: 0;
-  height: auto;
-  vertical-align: top;
-}
-
-/* to override the button class being applied */
-.pressthis-js-toggle.button.button {
-  margin-left: 10px;
-  padding: 0;
-  height: auto;
-  vertical-align: top;
-}
-
-.pressthis-js-toggle .dashicons {
-  margin: 5px 8px 6px 7px;
-  color: #555d66;
 }
 
 /*------------------------------------------------------------------------------
@@ -1587,7 +1416,7 @@ table.form-table td .updated p {
 }
 
 .request-filesystem-credentials-dialog .ftp-password em {
-  color: #888;
+  color: #888888;
 }
 
 .request-filesystem-credentials-dialog label {
@@ -1637,16 +1466,6 @@ table.form-table td .updated p {
   text-align: center;
 }
 
-.privacy_requests thead td:first-child,
-.privacy_requests tfoot td:first-child {
-  border-left: 4px solid #fff;
-}
-
-.privacy_requests tbody th {
-  border-left: 4px solid #fff;
-  background: #fff;
-}
-
 .privacy_requests tbody .has-request-results th {
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -1654,10 +1473,6 @@ table.form-table td .updated p {
 
 .privacy_requests tbody .request-results th .notice {
   margin: 0 0 5px;
-}
-
-.privacy_requests tbody td {
-  background: #fff;
 }
 
 .privacy_requests tbody .has-request-results td {
@@ -1675,14 +1490,12 @@ table.form-table td .updated p {
 
 .privacy_requests .status-request-confirmed th,
 .privacy_requests .status-request-confirmed td {
-  background-color: #f7fcfe;
-  border-left-color: #00a0d2;
+  border-left-color: #44aa11;
 }
 
 .privacy_requests .status-request-failed th,
 .privacy_requests .status-request-failed td {
-  background-color: #fef7f1;
-  border-left-color: #d64d21;
+  border-left-color: #dd0000;
 }
 
 .privacy_requests .export_personal_data_failed a {
@@ -1696,11 +1509,10 @@ table.form-table td .updated p {
 .status-label.status-request-pending {
   font-weight: normal;
   font-style: italic;
-  color: #6c7781;
 }
 
 .status-label.status-request-failed {
-  color: #aa0000;
+  color: #dd0000;
   font-weight: bold;
 }
 
@@ -1735,85 +1547,20 @@ table.form-table td .updated p {
 }
 
 .email-personal-data--sending::before {
-  color: #f56e28;
+  color: #dd0000;
   content: "\f463";
   -webkit-animation: rotation 2s infinite linear;
   animation: rotation 2s infinite linear;
 }
 
 .email-personal-data--sent::before {
-  color: #79ba49;
+  color: #44aa11;
   content: "\f147";
 }
 
-/* =Media Queries
+/* Media Queries
 -------------------------------------------------------------- */
 @media screen and (max-width: 782px) {
-  /* Input Elements */
-  textarea {
-    -webkit-appearance: none;
-  }
-  input[type="text"],
-  input[type="email"],
-  input[type="search"],
-  input[type="password"],
-  input[type="number"] {
-    -webkit-appearance: none;
-    padding: 6px 10px;
-  }
-  input[type="number"] {
-    height: 40px;
-  }
-  input.code {
-    padding-bottom: 5px;
-    padding-top: 10px;
-  }
-  input[type="checkbox"],
-  .widefat th input[type="checkbox"],
-  .widefat thead td input[type="checkbox"],
-  .widefat tfoot td input[type="checkbox"] {
-    -webkit-appearance: none;
-    padding: 10px;
-  }
-  .widefat th input[type="checkbox"],
-  .widefat thead td input[type="checkbox"],
-  .widefat tfoot td input[type="checkbox"] {
-    margin-bottom: 8px;
-  }
-  input[type="checkbox"]:checked:before,
-  .widefat th input[type="checkbox"]:before,
-  .widefat thead td input[type="checkbox"]:before,
-  .widefat tfoot td input[type="checkbox"]:before {
-    font: normal 30px/1 dashicons;
-    margin: -3px -5px;
-  }
-  input[type="radio"],
-  input[type="checkbox"] {
-    height: 25px;
-    width: 25px;
-  }
-  .app-admin p input[type="checkbox"],
-  .app-admin p input[type="radio"] {
-    margin-top: -3px;
-  }
-  input[type="radio"]:checked:before {
-    vertical-align: middle;
-    width: 9px;
-    height: 9px;
-    margin: 7px;
-    line-height: 16px;
-  }
-  .wp-upload-form input[type="submit"] {
-    margin-top: 10px;
-  }
-  .admin-main select {
-    height: 36px;
-    font-size: 16px;
-  }
-  .app-admin .button-cancel {
-    padding: 0;
-    font-size: 0.875rem;
-  }
   #adduser .form-field input,
   #createuser .form-field input {
     width: 100%;
@@ -1836,11 +1583,7 @@ table.form-table td .updated p {
     margin-bottom: 0;
   }
   .form-table table.color-palette {
-    margin-right: 10px;
-  }
-  textarea,
-  input {
-    font-size: 16px;
+    margin-right: 1em;
   }
   .form-table td input[type="text"],
   .form-table td input[type="email"],
@@ -1880,9 +1623,6 @@ table.form-table td .updated p {
   }
   #pass-strength-result {
     width: 100%;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    padding: 8px;
   }
   p.search-box {
     float: none;
@@ -6864,5 +6604,157 @@ li#wp-admin-bar-menu-toggle {
   }
   .auto-fold #adminmenu {
     top: 46px;
+  }
+}
+
+/**
+ * Localization
+ */
+/**
+ * General app typography variables
+ *
+ * These styles are primarily used in administration pages,
+ * but also common features such as the user toolbar. For this
+ * reason the file is not kept in the css/admin directory.
+ */
+/**
+  * Font sizes
+  *
+  * The font size variables presume a browser default of 16px,
+  * in which case the variable number is equivelent to a px number.
+  *
+  * SASS can't have variables beginning with a numeral.
+  */
+/**
+ * Font stack variables
+ *
+ * The $sans and $serif stacks are default. The $inter and $crimson
+ * stacks are used in @supports( font-variation-settings ) queries.
+ */
+/* he_IL: Have <em> be bold rather than italic. */
+.locale-he-il em {
+  font-style: normal;
+  font-weight: 600;
+}
+
+.locale-zh-cn {
+  /* zh_CN: Remove italic properties. */
+  /* zh_CN: Enlarge dashboard widget 'Configure' link */
+  /* zn_CH: Enlarge font size, set font-size: normal */
+  /* zh_CN: Enlarge font-size. */
+}
+
+.locale-zh-cn .howto,
+.locale-zh-cn .tablenav .displaying-num,
+.locale-zh-cn .js .input-with-default-title,
+.locale-zh-cn .link-to-original,
+.locale-zh-cn .inline-edit-row fieldset span.title,
+.locale-zh-cn .inline-edit-row fieldset span.checkbox-title,
+.locale-zh-cn #utc-time,
+.locale-zh-cn #local-time,
+.locale-zh-cn p.install-help,
+.locale-zh-cn p.help,
+.locale-zh-cn p.description,
+.locale-zh-cn span.description,
+.locale-zh-cn .form-wrap p {
+  font-style: normal;
+}
+
+.locale-zh-cn .hdnle a {
+  font-size: 0.75rem;
+}
+
+.locale-zh-cn form.upgrade .hint {
+  font-style: normal;
+  font-size: 100%;
+}
+
+.locale-zh-cn #sort-buttons {
+  font-size: 1em !important;
+}
+
+/* de_DE: Text needs more space for translation */
+.locale-de-de #customize-header-actions .button,
+.locale-de-de-formal #customize-header-actions .button {
+  padding: 0 5px 1px;
+  /* default 0 10px 1px */
+}
+
+.locale-de-de #customize-header-actions .spinner,
+.locale-de-de-formal #customize-header-actions .spinner {
+  margin: 16px 3px 0;
+  /* default 16px 4px 0 5px */
+}
+
+.locale-ru-ru {
+  /* ru_RU: Text needs more room to breathe. */
+}
+
+.locale-ru-ru #adminmenu {
+  width: inherit;
+  /* back-compat for pre-3.2 */
+}
+
+.locale-ru-ru #adminmenu,
+.locale-ru-ru .admin-main {
+  margin-left: 0;
+  /* back-compat for pre-3.2 */
+}
+
+.locale-ru-ru .inline-edit-row fieldset label span.title,
+.locale-ru-ru .inline-edit-row fieldset.inline-edit-date legend {
+  width: 8em;
+  /* default 6em */
+}
+
+.locale-ru-ru .inline-edit-row fieldset label span.input-text-wrap,
+.locale-ru-ru .inline-edit-row fieldset .timestamp-wrap {
+  margin-left: 8em;
+  /* default 6em */
+}
+
+.locale-ru-ru.post-php .tagsdiv .newtag,
+.locale-ru-ru.post-new-php .tagsdiv .newtag {
+  width: 165px;
+  /* default 180px - 15px */
+}
+
+.locale-ru-ru .press-this-sidebar {
+  width: 265px;
+  /* default 240px + 25px */
+}
+
+.locale-ru-ru #customize-header-actions .button {
+  padding: 0 5px 1px;
+  /* default 0 10px 1px */
+}
+
+.locale-ru-ru #customize-header-actions .spinner {
+  margin: 16px 3px 0;
+  /* default 16px 4px 0 5px */
+}
+
+.locale-lt-lt {
+  /* lt_LT: QuickEdit */
+}
+
+.locale-lt-lt .inline-edit-row fieldset label span.title,
+.locale-lt-lt .inline-edit-row fieldset.inline-edit-date legend {
+  width: 8em;
+  /* default 6em */
+}
+
+.locale-lt-lt .inline-edit-row fieldset label span.input-text-wrap,
+.locale-lt-lt .inline-edit-row fieldset .timestamp-wrap {
+  margin-left: 8em;
+  /* default 6em */
+}
+
+@media screen and (max-width: 782px) {
+  .locale-ru-ru .inline-edit-row fieldset label span.input-text-wrap,
+  .locale-ru-ru .inline-edit-row fieldset .timestamp-wrap,
+  .locale-lt-lt .inline-edit-row fieldset label span.input-text-wrap,
+  .locale-lt-lt .inline-edit-row fieldset .timestamp-wrap {
+    margin-left: 0;
   }
 }

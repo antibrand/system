@@ -1,0 +1,123 @@
+/**
+ * Localization
+ */
+
+// Import general app variables from app-assets/includes.
+@import '../modules/_typography.scss';
+
+/* he_IL: Have <em> be bold rather than italic. */
+.locale-he-il em {
+	font-style: normal;
+	font-weight: 600;
+}
+
+.locale-zh-cn {
+
+	/* zh_CN: Remove italic properties. */
+	.howto,
+	.tablenav .displaying-num,
+	.js .input-with-default-title,
+	.link-to-original,
+	.inline-edit-row fieldset span.title,
+	.inline-edit-row fieldset span.checkbox-title,
+	#utc-time,
+	#local-time,
+	p.install-help,
+	p.help,
+	p.description,
+	span.description,
+	.form-wrap p {
+		font-style: normal;
+	}
+
+	/* zh_CN: Enlarge dashboard widget 'Configure' link */
+	.hdnle a {
+		font-size: $px12;
+	}
+
+	/* zn_CH: Enlarge font size, set font-size: normal */
+	form.upgrade .hint {
+		font-style: normal;
+		font-size: 100%;
+	}
+
+	/* zh_CN: Enlarge font-size. */
+	#sort-buttons {
+		font-size: 1em !important;
+	}
+}
+
+/* de_DE: Text needs more space for translation */
+.locale-de-de #customize-header-actions .button,
+.locale-de-de-formal #customize-header-actions .button {
+	padding: 0 5px 1px; /* default 0 10px 1px */
+}
+
+.locale-de-de #customize-header-actions .spinner,
+.locale-de-de-formal #customize-header-actions .spinner {
+	margin: 16px 3px 0; /* default 16px 4px 0 5px */
+}
+
+.locale-ru-ru {
+
+	/* ru_RU: Text needs more room to breathe. */
+	#adminmenu {
+		width: inherit; /* back-compat for pre-3.2 */
+	}
+
+	#adminmenu,
+	.admin-main {
+		margin-left: 0; /* back-compat for pre-3.2 */
+	}
+
+	.inline-edit-row fieldset label span.title,
+	.inline-edit-row fieldset.inline-edit-date legend {
+		width: 8em; /* default 6em */
+	}
+
+	.inline-edit-row fieldset label span.input-text-wrap,
+	.inline-edit-row fieldset .timestamp-wrap {
+		margin-left: 8em; /* default 6em */
+	}
+
+	&.post-php .tagsdiv .newtag,
+	&.post-new-php .tagsdiv .newtag {
+		width: 165px; /* default 180px - 15px */
+	}
+
+	.press-this-sidebar {
+		width: 265px; /* default 240px + 25px */
+	}
+
+	#customize-header-actions .button {
+		padding: 0 5px 1px; /* default 0 10px 1px */
+	}
+
+	#customize-header-actions .spinner {
+		margin: 16px 3px 0; /* default 16px 4px 0 5px */
+	}
+}
+
+.locale-lt-lt {
+
+	/* lt_LT: QuickEdit */
+	.inline-edit-row fieldset label span.title,
+	.inline-edit-row fieldset.inline-edit-date legend {
+		width: 8em; /* default 6em */
+	}
+
+	.inline-edit-row fieldset label span.input-text-wrap,
+	.inline-edit-row fieldset .timestamp-wrap {
+		margin-left: 8em; /* default 6em */
+	}
+}
+
+@media screen and ( max-width: 782px ) {
+
+	.locale-ru-ru .inline-edit-row fieldset label span.input-text-wrap,
+	.locale-ru-ru .inline-edit-row fieldset .timestamp-wrap,
+	.locale-lt-lt .inline-edit-row fieldset label span.input-text-wrap,
+	.locale-lt-lt .inline-edit-row fieldset .timestamp-wrap {
+		margin-left: 0;
+	}
+}

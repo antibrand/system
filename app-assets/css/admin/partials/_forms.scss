@@ -9,12 +9,6 @@
 // Import variables specific to administration pages.
 @import '../colors/_defaults.scss';
 
-/* Include margin and padding in the width calculation of input and textarea. */
-input,
-textarea {
-	box-sizing: border-box;
-}
-
 input[type="text"],
 input[type="password"],
 input[type="checkbox"],
@@ -34,126 +28,80 @@ input[type="url"],
 input[type="week"],
 select,
 textarea {
-	background-color: inherit;
-	border: 1px solid $light_gray;
+	background-color: $form_background_color;
+	border: 1px solid $form_border_color;
 	outline: none;
 	-webkit-transition: 0.05s border-color ease-in-out;
 	transition: 0.05s border-color ease-in-out;
+
+	&:focus {
+		border-color: $form_action_border_color;
+	}
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="color"]:focus,
-input[type="date"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-input[type="email"]:focus,
-input[type="month"]:focus,
-input[type="number"]:focus,
-input[type="search"]:focus,
-input[type="tel"]:focus,
-input[type="text"]:focus,
-input[type="time"]:focus,
-input[type="url"]:focus,
-input[type="week"]:focus,
-input[type="checkbox"]:focus,
-input[type="radio"]:focus,
-select:focus,
-textarea:focus {
-	border-color: $form_focus;
-}
-
-/* rtl:ignore */
+/* rtl: ignore */
 input[type="email"],
 input[type="url"] {
 	direction: ltr;
 }
 
-/* Vertically align the number selector with the input. */
-input[type="number"] {
-	height: 28px;
-	line-height: 1;
-}
-
 input[type="checkbox"],
 input[type="radio"] {
-	border: 1px solid #b4b9be;
-	background: #fff;
-	color: #555;
-	clear: none;
-	cursor: pointer;
 	display: inline-block;
-	line-height: 0;
-	height: 16px;
-	margin: -4px 4px 0 0;
-	outline: 0;
+	clear: none;
+	width: 1em;
+	height: 1em;
 	padding: 0 !important;
-	text-align: center;
 	vertical-align: middle;
-	width: 16px;
-	min-width: 16px;
+	outline: 0;
+	line-height: 0;
+	text-align: center;
+	cursor: pointer;
 	-webkit-appearance: none;
-	-webkit-transition: .05s border-color ease-in-out;
 	transition: .05s border-color ease-in-out;
-}
 
-input[type="radio"]:checked + label:before {
-	color: #82878c;
-}
-
-.app-core-ui input[type="reset"]:hover,
-.app-core-ui input[type="reset"]:active {
-	color: #00a0d2;
-}
-
-td > input[type="checkbox"],
-.app-admin p input[type="checkbox"],
-.app-admin p input[type="radio"] {
-	margin-top: 0;
-}
-
-.app-admin p label input[type="checkbox"] {
-	margin-top: -4px;
-}
-
-.app-admin p label input[type="radio"] {
-	margin-top: -2px;
+	&:before,
+	&:before {
+		display: inline-block;
+		width: 6px;
+		height: 6px;
+		vertical-align: middle;
+		font-family: 'dashicons';
+		speak: never;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
 }
 
 input[type="radio"] {
 	border-radius: 50%;
-	margin-right: 4px;
+	margin-left: 4px;
 	line-height: 10px;
+
+	&:checked + label:before {
+		color: $light_gray;
+	}
+
+	&:checked:before {
+		content: "\2022";
+		text-indent: -9999px;
+		border-radius: 50%;
+		font-size: 24px;
+		width: 6px;
+		height: 6px;
+		margin: 4px;
+		line-height: 1;
+		background-color: $form_checked;
+	}
 }
 
-input[type="checkbox"]:checked:before,
-input[type="radio"]:checked:before {
-	float: left;
-	display: inline-block;
-	vertical-align: middle;
-	width: 16px;
-	font: normal 21px/1 dashicons;
-	speak: none;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
+input[type="checkbox"] {
 
-input[type="checkbox"]:checked:before {
-	content: "\f147";
-	margin: -3px 0 0 -4px;
-	color: #1e8cbe;
-}
-
-input[type="radio"]:checked:before {
-	content: "\2022";
-	text-indent: -9999px;
-	border-radius: 50px;
-	font-size: 24px;
-	width: 6px;
-	height: 6px;
-	margin: 4px;
-	line-height: 16px;
-	background-color: #1e8cbe;
+	&:checked:before {
+		content: "\f147";
+		margin-right: 0.3em;
+		color: $form_checked;
+	}
 }
 
 @-moz-document url-prefix() {
@@ -173,20 +121,6 @@ input[type="search"]::-webkit-search-decoration {
 	display: none;
 }
 
-.ie8 input[type="password"] {
-	font-family: sans-serif;
-}
-
-textarea,
-input,
-select,
-button {
-	box-sizing: border-box;
-	font-family: inherit;
-	font-size: inherit;
-	font-weight: inherit;
-}
-
 textarea,
 input,
 select {
@@ -202,7 +136,7 @@ textarea {
 	resize: vertical;
 }
 
-.app-admin input[type="file"] {
+input[type="file"] {
 	padding: 3px 0;
 	cursor: pointer;
 }
@@ -211,7 +145,7 @@ label {
 	cursor: pointer;
 }
 
-input,
+input:not([type="checkbox"]):not([type="radio"]),
 select {
 	height: 3em;
 	padding: 0.5em 1em;
@@ -224,26 +158,6 @@ input.code {
 textarea.code {
 	line-height: 1.4;
 	padding: 4px 6px 1px 6px;
-}
-
-input.readonly,
-input[readonly],
-textarea.readonly,
-textarea[readonly] {
-	background-color: #eee;
-}
-
-::-webkit-input-placeholder {
-	color: #72777c;
-}
-
-::-moz-placeholder {
-   color: #72777c;
-   opacity: 1;
-}
-
-:-ms-input-placeholder {
-	color: #72777c;
 }
 
 .form-invalid input, .form-invalid input:focus,
@@ -273,19 +187,14 @@ textarea[readonly] {
 	vertical-align: middle;
 }
 
-.form-input-tip {
-	color: #666;
-}
-
 input:disabled,
 input.disabled,
 select:disabled,
 select.disabled,
 textarea:disabled,
 textarea.disabled {
-	background: rgba( 255, 255, 255, 0.5 );
-	border-color: rgba( 222, 222, 222, 0.75 );
-	color: rgba( 51, 51, 51, 0.5 );
+	background: rgba($color: $pale_gray, $alpha: 0.4);
+	color: rgba($color: $light_gray, $alpha: 0.85);
 }
 
 input[type="file"]:disabled,
@@ -312,12 +221,12 @@ input[type="radio"].disabled:checked:before {
   2.0 - Forms
 ------------------------------------------------------------------------------*/
 
-.app-admin select {
+select {
 	padding: 0.5em 1em;
 	line-height: 1;
 }
 
-.app-admin .button-cancel {
+.button-cancel {
 	padding: 0 5px;
 	line-height: 2;
 }
@@ -326,7 +235,7 @@ input[type="radio"].disabled:checked:before {
 	max-width: 100%;
 }
 
-.app-admin select[multiple] {
+select[multiple] {
 	height: auto;
 }
 
@@ -451,9 +360,6 @@ fieldset label,
 }
 
 #pass-strength-result {
-	background-color: #eee;
-	border: 1px solid #ddd;
-	color: #222;
 	margin: -2px 5px 5px 1px;
 	padding: 3px 5px;
 	text-align: center;
@@ -463,43 +369,47 @@ fieldset label,
 }
 
 #pass-strength-result.short {
-	background-color: #f1adad;
-	border-color: #e35b5b;
+	background-color: lighten( $app_red, 80% );
+	border-color: $app_red;
 	opacity: 1;
 }
 
 #pass-strength-result.bad {
-	background-color: #fbc5a9;
-	border-color: #f78b53;
+	background-color: lighten( $app_orange, 80% );
+	border-color: $app_orange;
 	opacity: 1;
 }
 
 #pass-strength-result.good {
-	background-color: #ffe399;
-	border-color: #ffc733;
+	background-color: lighten( $app_yellow, 80% );
+	border-color: $app_yellow;
 	opacity: 1;
 }
 
 #pass-strength-result.strong {
-	background-color: #c1e1b9;
-	border-color: #83c373;
+	background-color: lighten( $app_green, 80% );
+	border-color: $app_green;
 	opacity: 1;
 }
 
-#pass1.short, #pass1-text.short {
-	border-color: #e35b5b;
+#pass1.short,
+#pass1-text.short {
+	border-color: $app_red;
 }
 
-#pass1.bad, #pass1-text.bad {
-	border-color: #f78b53;
+#pass1.bad,
+#pass1-text.bad {
+	border-color: $app_orange;
 }
 
-#pass1.good, #pass1-text.good {
-	border-color: #ffc733;
+#pass1.good,
+#pass1-text.good {
+	border-color: $app_yellow;
 }
 
-#pass1.strong, #pass1-text.strong {
-	border-color: #83c373;
+#pass1.strong,
+#pass1-text.strong {
+	border-color: $app_green;
 }
 
 .pw-weak {
@@ -725,9 +635,6 @@ table.form-table td .updated p {
 	cursor: pointer;
 }
 
-.color-option:hover,
-.color-option.selected {}
-
 .color-palette {
 	list-style: none;
 	display: grid;
@@ -781,113 +688,15 @@ table.form-table td .updated p {
 }
 
 /* Card styles */
-
 .card {
 	position: relative;
 	margin-top: 20px;
 	padding: 0.7em 2em 1em;
 	min-width: 255px;
 	max-width: 520px;
-	border: 1px solid #e5e5e5;
+	background: $white;
+	border: 1px solid $off_white;
 	box-shadow: 0 1px 1px rgba(0,0,0,0.04);
-	background: #fff;
-}
-
-/* Press this styles */
-
-.pressthis h4 {
-	margin: 2em 0 1em;
-}
-
-.pressthis textarea {
-	width: 100%;
-	font-size: 1em;
-}
-
-#pressthis-code-wrap {
-	overflow: auto;
-}
-
-.pressthis-bookmarklet-wrapper {
-	margin: 20px 0 8px;
-	vertical-align: top;
-	position: relative;
-	z-index: 1;
-}
-
-.pressthis-bookmarklet,
-.pressthis-bookmarklet:hover,
-.pressthis-bookmarklet:focus,
-.pressthis-bookmarklet:active {
-	display: inline-block;
-	position: relative;
-	cursor: move;
-	color: #333;
-	background: #e5e5e5;
-	border-radius: 5px;
-	border: 1px solid #b4b9be;
-	font-style: normal;
-	line-height: 16px;
-	font-size: 0.875rem;
-	text-decoration: none;
-}
-
-.pressthis-bookmarklet:active {
-	outline: none;
-}
-
-.pressthis-bookmarklet:after {
-	content: "";
-	width: 70%;
-	height: 55%;
-	z-index: -1;
-	position: absolute;
-	right: 10px;
-	bottom: 9px;
-	background: transparent;
-	-webkit-transform: skew(20deg) rotate(6deg);
-	transform: skew(20deg) rotate(6deg);
-}
-
-.pressthis-bookmarklet:hover:after {
-	-webkit-transform: skew(20deg) rotate(9deg);
-	transform: skew(20deg) rotate(9deg);
-}
-
-.pressthis-bookmarklet span {
-	display: inline-block;
-	margin: 0px 0 0;
-	padding: 0px 12px 8px 9px;
-}
-
-.pressthis-bookmarklet span:before {
-	color: #72777c;
-	font: normal 20px/1 dashicons;
-	content: "\f157";
-	position: relative;
-	display: inline-block;
-	top: 4px;
-	margin-right: 4px;
-}
-
-.pressthis-js-toggle {
-	margin-left: 10px;
-	padding: 0;
-	height: auto;
-	vertical-align: top;
-}
-
-/* to override the button class being applied */
-.pressthis-js-toggle.button.button {
-	margin-left: 10px;
-	padding: 0;
-	height: auto;
-	vertical-align: top;
-}
-
-.pressthis-js-toggle .dashicons {
-	margin: 5px 8px 6px 7px;
-	color: #555d66;
 }
 
 /*------------------------------------------------------------------------------
@@ -1063,7 +872,7 @@ table.form-table td .updated p {
 }
 
 .request-filesystem-credentials-dialog .ftp-password em {
-	color: #888;
+	color: $light_gray;
 }
 
 .request-filesystem-credentials-dialog label {
@@ -1113,26 +922,12 @@ table.form-table td .updated p {
 	text-align: center;
 }
 
-.privacy_requests thead td:first-child,
-.privacy_requests tfoot td:first-child {
-	border-left: 4px solid #fff;
-}
-
-.privacy_requests tbody th {
-	border-left: 4px solid #fff;
-	background: #fff;
-}
-
 .privacy_requests tbody .has-request-results th {
 	box-shadow: none;
 }
 
 .privacy_requests tbody .request-results th .notice {
 	margin: 0 0 5px;
-}
-
-.privacy_requests tbody td {
-	background: #fff;
 }
 
 .privacy_requests tbody .has-request-results td {
@@ -1149,14 +944,12 @@ table.form-table td .updated p {
 
 .privacy_requests .status-request-confirmed th,
 .privacy_requests .status-request-confirmed td {
-	background-color: #f7fcfe;
-	border-left-color: #00a0d2;
+	border-left-color: $app_green;
 }
 
 .privacy_requests .status-request-failed th,
 .privacy_requests .status-request-failed td {
-	background-color: #fef7f1;
-	border-left-color: #d64d21;
+	border-left-color:  $app_red;
 }
 
 .privacy_requests .export_personal_data_failed a {
@@ -1170,11 +963,10 @@ table.form-table td .updated p {
 .status-label.status-request-pending {
 	font-weight: normal;
 	font-style: italic;
-	color: #6c7781;
 }
 
 .status-label.status-request-failed {
-	color: #aa0000;
+	color:  $app_red;
 	font-weight: bold;
 }
 
@@ -1209,99 +1001,21 @@ table.form-table td .updated p {
 }
 
 .email-personal-data--sending::before {
-	color: #f56e28;
+	color: $app_red;
 	content: "\f463";
 	-webkit-animation: rotation 2s infinite linear;
 	animation: rotation 2s infinite linear;
 }
 
 .email-personal-data--sent::before {
-	color: #79ba49;
+	color: $app_green;
 	content: "\f147";
 }
 
-
-/* =Media Queries
+/* Media Queries
 -------------------------------------------------------------- */
 
 @media screen and ( max-width: 782px ) {
-	/* Input Elements */
-	textarea {
-		-webkit-appearance: none;
-	}
-
-	input[type="text"],
-	input[type="email"],
-	input[type="search"],
-	input[type="password"],
-	input[type="number"] {
-		-webkit-appearance: none;
-		padding: 6px 10px;
-	}
-
-	input[type="number"] {
-		height: 40px;
-	}
-
-	input.code {
-		padding-bottom: 5px;
-		padding-top: 10px;
-	}
-
-	input[type="checkbox"],
-	.widefat th input[type="checkbox"],
-	.widefat thead td input[type="checkbox"],
-	.widefat tfoot td input[type="checkbox"] {
-		-webkit-appearance: none;
-		padding: 10px;
-	}
-
-	.widefat th input[type="checkbox"],
-	.widefat thead td input[type="checkbox"],
-	.widefat tfoot td input[type="checkbox"] {
-		margin-bottom: 8px;
-	}
-
-	input[type="checkbox"]:checked:before,
-	.widefat th input[type="checkbox"]:before,
-	.widefat thead td input[type="checkbox"]:before,
-	.widefat tfoot td input[type="checkbox"]:before {
-		font: normal 30px/1 dashicons;
-		margin: -3px -5px;
-	}
-
-	input[type="radio"],
-	input[type="checkbox"] {
-		height: 25px;
-		width: 25px;
-	}
-
-	.app-admin p input[type="checkbox"],
-	.app-admin p input[type="radio"] {
-		margin-top: -3px;
-	}
-
-	input[type="radio"]:checked:before {
-		vertical-align: middle;
-		width: 9px;
-		height: 9px;
-		margin: 7px;
-		line-height: 16px;
-	}
-
-	.wp-upload-form input[type="submit"] {
-		margin-top: 10px;
-	}
-
-	.admin-main select {
-		height: 36px;
-		font-size: 16px;
-	}
-
-	.app-admin .button-cancel {
-		padding: 0;
-		font-size: 0.875rem;
-	}
 
 	#adduser .form-field input,
 	#createuser .form-field input {
@@ -1329,12 +1043,7 @@ table.form-table td .updated p {
 	}
 
 	.form-table table.color-palette {
-		margin-right: 10px;
-	}
-
-	textarea,
-	input {
-		font-size: 16px;
+		margin-right: 1em;
 	}
 
 	.form-table td input[type="text"],
@@ -1377,8 +1086,6 @@ table.form-table td .updated p {
 
 	#pass-strength-result {
 		width: 100%;
-		box-sizing: border-box;
-		padding: 8px;
 	}
 
 	p.search-box {

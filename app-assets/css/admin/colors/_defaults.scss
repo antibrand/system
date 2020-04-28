@@ -23,6 +23,13 @@ $warning_color: $app_yellow !default;
 $success_color: $app_green !default;
 
 // Forms.
+$form_background_color: inherit !default;
+$form_border_color: $light_gray !default;
+$form_text_color: $text_color !default;
+$form_action_background_color: $highlight_color !default;
+$form_action_border_color: $form_border_color !default;
+$form_action_text_color: $text_color !default;
+
 $form_focus: $link_action !default;
 $form_checked: $link_action !default;
 
