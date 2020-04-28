@@ -27,7 +27,7 @@ $text_color: #444444;
 $link_color: #0073aa;
 $link_action_color: lighten( $link_color, 10% );
 
-$highlight_color: #0073aa;
+$app_highlight_color: #0073aa;
 $notify_color: $app_orange;
 $error_color: $app_red;
 $warning_color: $app_yellow;
@@ -37,39 +37,39 @@ $success_color: $app_green;
 $menu_base_color: #23282d;
 $menu_text_color: #eee;
 $menu_icon_color: hsl( hue( $menu_base_color ), 7%, 95% );
-$button-color: $highlight_color;
-$form_checked: $highlight_color;
+$button_color: $app_highlight_color;
+$form_checked: $app_highlight_color;
 
 $menu-text: $menu_text_color;
-$menu-icon: $menu_icon_color;
-$menu-background: $menu_base_color;
+$menu_icon: $menu_icon_color;
+$menu_background: $menu_base_color;
 
-$menu-highlight-text: $menu_text_color;
-$menu-highlight-icon: $menu_text_color;
-$menu-highlight-background: $highlight_color;
+$menu_highlight_text: $menu_text_color;
+$menu_highlight_icon: $menu_text_color;
+$menu_highlight_background: $app_highlight_color;
 
-$menu-current-text: $menu-highlight-text;
-$menu-current-icon: $menu-highlight-icon;
-$menu-current-background: $menu-highlight-background;
+$menu_current_text: $menu_highlight_text;
+$menu_current_icon: $menu_highlight_icon;
+$menu_current_background: $menu_highlight_background;
 
-$menu-submenu-text: mix( $menu_base_color, $menu_text_color, 30% );
-$menu-submenu-background: #32373c;
-$menu-submenu-background-alt: desaturate( lighten( $menu-background, 7% ), 7% );
+$menu_submenu_text: mix( $menu_base_color, $menu_text_color, 30% );
+$menu_submenu_background: #32373c;
+$menu_submenu_background_alt: desaturate( lighten( $menu_background, 7% ), 7% );
 
-$menu-submenu-focus-text: $highlight_color;
-$menu-submenu-current-text: $menu_text_color;
+$menu_submenu_focus_text: $app_highlight_color;
+$menu_submenu_current_text: $menu_text_color;
 
-$menu-bubble-text: $menu_text_color;
-$menu-bubble-background: $notify_color;
-$menu-bubble-current-text: $menu_text_color;
-$menu-bubble-current-background: $menu-submenu-background;
+$menu_bubble_text: $menu_text_color;
+$menu_bubble_background: $notify_color;
+$menu_bubble_current_text: $menu_text_color;
+$menu_bubble_current_background: $menu_submenu_background;
 
-$menu-collapse-text: $menu-icon;
-$menu-collapse-icon: $menu-icon;
-$menu-collapse-focus-text: $menu_text_color;
-$menu-collapse-focus-icon: $menu-highlight-icon;
+$menu_collapse_text: $menu_icon;
+$menu_collapse_icon: $menu_icon;
+$menu_collapse_focus_text: $menu_text_color;
+$menu_collapse_focus_icon: $menu_highlight_icon;
 
-$adminbar-avatar-frame: lighten( $menu-background, 7% );
-$adminbar-input-background: lighten( $menu-background, 7% );
+$adminbar_avatar_frame: lighten( $menu_background, 7% );
+$adminbar_input_background: lighten( $menu_background, 7% );
 
-$menu-customizer-text: mix( $menu_base_color, $menu_text_color, 40% );
+$menu_customizer_text: mix( $menu_base_color, $menu_text_color, 40% );

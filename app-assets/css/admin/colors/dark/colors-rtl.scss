@@ -1,21 +1,21 @@
 $menu_base_color: #1c1c1c;
 $menu_icon_color: #999;
 $menu_text_color: #e5e5e5;
-$highlight_color: #3ad4fb;
+$app_highlight_color: #3ad4fb;
 $notify_color: #ffee00;
 
 $body_background: #252525;
 
-$menu-highlight-text: #fff;
-$menu-highlight-icon: $menu_base_color;
-$menu-highlight-background: #ffee00;
+$menu_highlight_text: #fff;
+$menu_highlight_icon: $menu_base_color;
+$menu_highlight_background: #ffee00;
 
-$menu-bubble-text: #fff;
+$menu_bubble_text: #fff;
 $menu-avatar-frame: #aaa;
-$menu-submenu-background: #333;
+$menu_submenu_background: #333;
 
-$menu-collapse-text: #777;
-$menu-collapse-focus-icon: #555;
+$menu_collapse_text: #777;
+$menu_collapse_focus_icon: #555;
 
 /**
  * Override default dark text colors
@@ -102,7 +102,7 @@ a,
 #screen-meta-links .show-settings:hover,
 #screen-meta-links .show-settings:active,
 #screen-meta-links .show-settings:focus {
-	color: $highlight_color;
+	color: $app_highlight_color;
 }
 
 input:disabled,
@@ -254,7 +254,7 @@ p.popular-tags,
 .wp-tab-panel,
 #contextual-help-back,
 .contextual-help-tabs .active a {
-	background: $menu-submenu-background;
+	background: $menu_submenu_background;
 	border-color: $menu_base_color;
 }
 
@@ -271,7 +271,7 @@ div.mce-statusbar,
 #post-status-info,
 .wp-switch-editor,
 .quicktags-toolbar {
-	background: $menu-submenu-background !important;
+	background: $menu_submenu_background !important;
 	border-color: $menu_base_color !important;
 	color: $menu_text_color !important;
 }
@@ -306,7 +306,7 @@ div.mce-statusbar,
 .wp-tab-active,
 ul.add-menu-item-tabs li.tabs,
 ul.category-tabs li.tabs {
-	background: $highlight_color;
+	background: $app_highlight_color;
 	border-color: $menu_base_color;
 	color: $menu_base_color;
 }
@@ -315,7 +315,7 @@ ul.category-tabs li.tabs {
 .qt-dfw:hover,
 .html-active .switch-html,
 .tmce-active .switch-tmce {
-	background: $highlight_color !important;
+	background: $app_highlight_color !important;
 	border-color: $menu_base_color !important;
 	color: $menu_base_color !important;
 }
@@ -351,7 +351,7 @@ ul.striped > :nth-child(2n+1), .alternate,
 /* Override the theme filter highlight color for this scheme */
 .theme-section.current,
 .theme-filter.current {
-	border-bottom-color: $highlight_color;
+	border-bottom-color: $app_highlight_color;
 }
 
 .button-link,

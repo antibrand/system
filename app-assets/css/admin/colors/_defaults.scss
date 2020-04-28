@@ -13,7 +13,7 @@ $body_background: $white !default;
 $text_color: #222222 !default;
 $link_color: #004499 !default;
 $link_action_color: lighten( $link_color, 12% ) !default;
-$highlight_color: $app_yellow !default;
+$app_highlight_color: $app_yellow !default;
 
 $notify_color: $app_orange !default;
 $error_color: $app_red !default;
@@ -35,7 +35,7 @@ $form_checked: $link_action_color !default;
 $button_background_color: inherit !default;
 $button_border_color: $light_gray !default;
 $button_text_color: $text_color !default;
-$button_action_background_color: $highlight_color !default;
+$button_action_background_color: $app_highlight_color !default;
 $button_action_border_color: $button_border_color !default;
 $button_action_text_color: $text_color !default;
 
@@ -43,37 +43,37 @@ $button_action_text_color: $text_color !default;
 $menu_base_color: #222 !default;
 $menu_text_color: $white !default;
 $menu_icon_color: darken( $menu_text_color, 25% ) !default;
-$button-color: $highlight_color !default;
+$button_color: $app_highlight_color !default;
 
-$menu-icon: $menu_icon_color !default;
-$menu-background: $menu_base_color !default;
+$menu_icon: $menu_icon_color !default;
+$menu_background: $menu_base_color !default;
 
-$menu-highlight-text: $menu_text_color !default;
-$menu-highlight-icon: $menu_text_color !default;
-$menu-highlight-background: $highlight_color !default;
+$menu_highlight_text: $menu_text_color !default;
+$menu_highlight_icon: $menu_text_color !default;
+$menu_highlight_background: $app_highlight_color !default;
 
-$menu-current-text: $menu-highlight-text !default;
-$menu-current-icon: $menu-highlight-icon !default;
-$menu-current-background: $menu-highlight-background !default;
+$menu_current_text: $menu_highlight_text !default;
+$menu_current_icon: $menu_highlight_icon !default;
+$menu_current_background: $menu_highlight_background !default;
 
-$menu-submenu-text: mix( $menu_base_color, $menu_text_color, 30% ) !default;
-$menu-submenu-background: darken( $menu_base_color, 7% ) !default;
-$menu-submenu-background-alt: desaturate( lighten( $menu-background, 7% ), 7% ) !default;
+$menu_submenu_text: mix( $menu_base_color, $menu_text_color, 30% ) !default;
+$menu_submenu_background: darken( $menu_base_color, 7% ) !default;
+$menu_submenu_background_alt: desaturate( lighten( $menu_background, 7% ), 7% ) !default;
 
-$menu-submenu-focus-text: $highlight_color !default;
-$menu-submenu-current-text: $menu_text_color !default;
+$menu_submenu_focus_text: $app_highlight_color !default;
+$menu_submenu_current_text: $menu_text_color !default;
 
-$menu-bubble-text: $menu_text_color !default;
-$menu-bubble-background: $notify_color !default;
-$menu-bubble-current-text: $menu_text_color !default;
-$menu-bubble-current-background: $menu-submenu-background !default;
+$menu_bubble_text: $menu_text_color !default;
+$menu_bubble_background: $notify_color !default;
+$menu_bubble_current_text: $menu_text_color !default;
+$menu_bubble_current_background: $menu_submenu_background !default;
 
-$menu-collapse-text: $menu-icon !default;
-$menu-collapse-icon: $menu-icon !default;
-$menu-collapse-focus-text: $menu_text_color !default;
-$menu-collapse-focus-icon: $menu-highlight-icon !default;
+$menu_collapse_text: $menu_icon !default;
+$menu_collapse_icon: $menu_icon !default;
+$menu_collapse_focus_text: $menu_text_color !default;
+$menu_collapse_focus_icon: $menu_highlight_icon !default;
 
-$adminbar-avatar-frame: lighten( $menu-background, 7% ) !default;
-$adminbar-input-background: lighten( $menu-background, 7% ) !default;
+$adminbar_avatar_frame: lighten( $menu_background, 7% ) !default;
+$adminbar_input_background: lighten( $menu_background, 7% ) !default;
 
-$menu-customizer-text: mix( $menu_base_color, $menu_text_color, 40% ) !default;
+$menu_customizer_text: mix( $menu_base_color, $menu_text_color, 40% ) !default;
