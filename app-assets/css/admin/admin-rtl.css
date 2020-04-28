@@ -537,6 +537,28 @@ body.mobile.modal-open .admin-page-wrap {
  * but also common features such as the user toolbar. For this
  * reason the file is not kept in the css/admin directory.
  */
+/**
+ * General form styles
+ */
+fieldset {
+  background-color: inherit;
+  border: solid 1px #888888;
+}
+
+fieldset legend {
+  font-weight: 700;
+}
+
+@supports (font-variation-settings: normal) {
+  fieldset legend {
+    font-weight: 600;
+  }
+}
+
+label {
+  cursor: pointer;
+}
+
 input[type="text"],
 input[type="password"],
 input[type="checkbox"],
@@ -556,8 +578,11 @@ input[type="week"],
 select,
 textarea {
   background-color: inherit;
-  border: 1px solid #888888;
+  border: solid 1px #888888;
+  border-radius: 0;
+  /* Reset mobile webkit's default element styling */
   outline: none;
+  font-size: 1rem;
   -webkit-transition: 0.05s border-color ease-in-out;
   transition: 0.05s border-color ease-in-out;
 }
@@ -583,14 +608,27 @@ textarea:focus {
   border-color: #005fd6;
 }
 
-/* rtl: ignore */
-input[type="email"],
-input[type="url"] {
+/**
+ * Specific input field styles
+ *
+ * Make sure dimensional changes match select.
+ */
+input {
+  /* rtl: ignore */
+}
+
+input[type="email"], input[type="url"] {
   direction: ltr;
 }
 
-input[type="checkbox"],
-input[type="radio"] {
+input[type="text"], input[type="url"], input[type="password"], input[type="email"], input[type="search"], input[type="tel"], input[type="number"], input[type="button"], input[type="reset"], input[type="submit"], input[type="image"] {
+  height: 2.5rem;
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  line-height: 1rem;
+}
+
+input[type="checkbox"], input[type="radio"] {
   display: inline-block;
   clear: none;
   width: 1em;
@@ -606,9 +644,7 @@ input[type="radio"] {
   transition: .05s border-color ease-in-out;
 }
 
-input[type="checkbox"]:before, input[type="checkbox"]:before,
-input[type="radio"]:before,
-input[type="radio"]:before {
+input[type="checkbox"]:before, input[type="checkbox"]:before, input[type="radio"]:before, input[type="radio"]:before {
   display: inline-block;
   width: 6px;
   height: 6px;
@@ -647,15 +683,6 @@ input[type="checkbox"]:checked:before {
   color: #005fd6;
 }
 
-@-moz-document url-prefix() {
-  input[type="checkbox"],
-  input[type="radio"],
-  .form-table input.tog {
-    margin-bottom: -1px;
-  }
-}
-
-/* Search */
 input[type="search"] {
   -webkit-appearance: textfield;
 }
@@ -664,35 +691,45 @@ input[type="search"]::-webkit-search-decoration {
   display: none;
 }
 
-textarea,
-input,
-select {
+input[type="button"], input[type="reset"], input[type="submit"], input[type="image"] {
   font-size: 0.875rem;
-  padding: 3px 5px;
-  border-radius: 0;
-  /* Reset mobile webkit's default element styling */
+  font-weight: bold;
+  font-weight: 700;
 }
 
+input[type="file"] {
+  cursor: pointer;
+}
+
+/**
+ * Select field styles
+ *
+ * Make sure dimensional changes match various
+ * text and submit type inputs.
+ */
+select {
+  height: 2.5rem;
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  line-height: 1rem;
+}
+
+/**
+ * Textarea styles
+ */
 textarea {
   overflow: auto;
-  padding: 2px 6px;
+  padding: 1rem;
   line-height: 1.4;
   resize: vertical;
 }
 
-input[type="file"] {
-  padding: 3px 0;
-  cursor: pointer;
-}
-
-label {
-  cursor: pointer;
-}
-
-input:not([type="checkbox"]):not([type="radio"]),
-select {
-  height: 3em;
-  padding: 0.5em 1em;
+@-moz-document url-prefix() {
+  input[type="checkbox"],
+  input[type="radio"],
+  .form-table input.tog {
+    margin-bottom: -1px;
+  }
 }
 
 input.code {
@@ -766,11 +803,6 @@ input[type="radio"].disabled:checked:before {
 /*------------------------------------------------------------------------------
   2.0 - Forms
 ------------------------------------------------------------------------------*/
-select {
-  padding: 0.5em 1em;
-  line-height: 1;
-}
-
 .button-cancel {
   padding: 0 5px;
   line-height: 2;
@@ -1847,6 +1879,10 @@ table.form-table td .updated p {
  */
 /**
  * General button styles
+ *
+ * Button padding of 0.75rem top & bottom plus
+ * the 1rem line height is to match the 2.5rem
+ * height of submit type inputs.
  */
 .button,
 .button-primary,
@@ -1854,13 +1890,13 @@ table.form-table td .updated p {
   display: inline-block;
   vertical-align: baseline;
   margin: 0;
-  padding: 0.75em 1em;
+  padding: 0.75rem 1rem;
   background: inherit;
   border: solid 1px #888888;
   font-size: 0.875rem;
   font-weight: bold;
   font-weight: 700;
-  line-height: 1;
+  line-height: 1rem;
   text-decoration: none;
   color: #222222;
   white-space: nowrap;

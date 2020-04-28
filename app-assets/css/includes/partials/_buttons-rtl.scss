@@ -21,6 +21,10 @@
 
 /**
  * General button styles
+ *
+ * Button padding of 0.75rem top & bottom plus
+ * the 1rem line height is to match the 2.5rem
+ * height of submit type inputs.
  */
 .button,
 .button-primary,
@@ -28,13 +32,13 @@
 	display: inline-block;
 	vertical-align: baseline;
 	margin: 0;
-	padding: 0.75em 1em;
+	padding: 0.75rem 1rem;
 	background: $button_background_color;
 	border: solid 1px $button_border_color;
 	font-size: $px14;
 	font-weight: bold;
 	font-weight: 700;
-	line-height: 1;
+	line-height: 1rem;
 	text-decoration: none;
 	color: $button_text_color;
 	white-space: nowrap;

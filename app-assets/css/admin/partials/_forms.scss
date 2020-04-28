@@ -6,8 +6,25 @@
 @import '../../includes/modules/_typography';
 @import '../../includes/modules/_colors';
 
-// Import variables specific to administration pages.
-// @import '../colors/_defaults';
+/**
+ * General form styles
+ */
+fieldset {
+	background-color: $form_background_color;
+	border: solid 1px $form_border_color;
+
+	legend {
+		font-weight: 700;
+
+		@supports ( font-variation-settings: normal ) {
+			font-weight: 600;
+		}
+	}
+}
+
+label {
+	cursor: pointer;
+}
 
 input[type="text"],
 input[type="password"],
@@ -28,9 +45,10 @@ input[type="week"],
 select,
 textarea {
 	background-color: $form_background_color;
-	border: 1px solid $form_border_color;
+	border: solid 1px $form_border_color;
+	border-radius: 0; /* Reset mobile webkit's default element styling */
 	outline: none;
-	-webkit-transition: 0.05s border-color ease-in-out;
+	font-size: 1rem;
 	transition: 0.05s border-color ease-in-out;
 
 	&:focus {
@@ -38,69 +56,138 @@ textarea {
 	}
 }
 
-/* rtl: ignore */
-input[type="email"],
-input[type="url"] {
-	direction: ltr;
-}
+/**
+ * Specific field styles
+ *
+ * Make sure dimensional changes match select.
+ */
+input {
 
-input[type="checkbox"],
-input[type="radio"] {
-	display: inline-block;
-	clear: none;
-	width: 1em;
-	height: 1em;
-	padding: 0 !important;
-	vertical-align: middle;
-	outline: 0;
-	line-height: 0;
-	text-align: center;
-	cursor: pointer;
-	-webkit-appearance: none;
-	transition: .05s border-color ease-in-out;
+	/* rtl: ignore */
+	&[type="email"],
+	&[type="url"] {
+		direction: ltr;
+	}
 
-	&:before,
-	&:before {
+	&[type="text"],
+	&[type="url"],
+	&[type="password"],
+	&[type="email"],
+	&[type="search"],
+	&[type="tel"],
+	&[type="number"],
+	&[type="button"],
+	&[type="reset"],
+	&[type="submit"],
+	&[type="image"] {
+		height: 2.5rem;
+		padding: 0 1rem;
+		font-size: $px14;
+		line-height: 1rem;
+	}
+
+	&[type="checkbox"],
+	&[type="radio"] {
 		display: inline-block;
-		width: 6px;
-		height: 6px;
+		clear: none;
+		width: 1em;
+		height: 1em;
+		padding: 0 !important;
 		vertical-align: middle;
-		font-family: 'dashicons';
-		speak: never;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
+		outline: 0;
+		line-height: 0;
+		text-align: center;
+		cursor: pointer;
+		-webkit-appearance: none;
+		transition: .05s border-color ease-in-out;
+
+		&:before,
+		&:before {
+			display: inline-block;
+			width: 6px;
+			height: 6px;
+			vertical-align: middle;
+			font-family: 'dashicons';
+			speak: never;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
 	}
-}
 
-input[type="radio"] {
-	border-radius: 50%;
-	margin-left: 4px;
-	line-height: 10px;
-
-	&:checked + label:before {
-		color: $light_gray;
-	}
-
-	&:checked:before {
-		content: "\2022";
-		text-indent: -9999px;
+	&[type="radio"] {
 		border-radius: 50%;
-		font-size: 24px;
-		width: 6px;
-		height: 6px;
-		margin: 4px;
-		line-height: 1;
-		background-color: $form_checked;
+		margin-left: 4px;
+		line-height: 10px;
+
+		&:checked + label:before {
+			color: $light_gray;
+		}
+
+		&:checked:before {
+			content: "\2022";
+			text-indent: -9999px;
+			border-radius: 50%;
+			font-size: 24px;
+			width: 6px;
+			height: 6px;
+			margin: 4px;
+			line-height: 1;
+			background-color: $form_checked;
+		}
+	}
+
+	&[type="checkbox"] {
+
+		&:checked:before {
+			content: "\f147";
+			margin-right: 0.3em;
+			color: $form_checked;
+		}
+	}
+
+	&[type="search"] {
+		-webkit-appearance: textfield;
+	}
+
+	&[type="search"]::-webkit-search-decoration {
+		display: none;
+	}
+
+	&[type="button"],
+	&[type="reset"],
+	&[type="submit"],
+	&[type="image"] {
+		font-size: $px14;
+		font-weight: bold;
+		font-weight: 700;
+	}
+
+	&[type="file"] {
+		cursor: pointer;
 	}
 }
 
-input[type="checkbox"] {
+/**
+ * Select field styles
+ *
+ * Make sure dimensional changes match various
+ * text and submit type inputs.
+ */
+ select {
+	height: 2.5rem;
+	padding: 0 1rem;
+	font-size: $px14;
+	line-height: 1rem;
+}
 
-	&:checked:before {
-		content: "\f147";
-		margin-right: 0.3em;
-		color: $form_checked;
-	}
+/**
+ * Textarea styles
+ */
+textarea {
+	overflow: auto;
+	padding: 1rem;
+	line-height: 1.4;
+	resize: vertical;
 }
 
 @-moz-document url-prefix() {
@@ -109,45 +196,6 @@ input[type="checkbox"] {
 	.form-table input.tog {
 		margin-bottom: -1px;
 	}
-}
-
-/* Search */
-input[type="search"] {
-	-webkit-appearance: textfield;
-}
-
-input[type="search"]::-webkit-search-decoration {
-	display: none;
-}
-
-textarea,
-input,
-select {
-	font-size: 0.875rem;
-	padding: 3px 5px;
-	border-radius: 0; /* Reset mobile webkit's default element styling */
-}
-
-textarea {
-	overflow: auto;
-	padding: 2px 6px;
-	line-height: 1.4;
-	resize: vertical;
-}
-
-input[type="file"] {
-	padding: 3px 0;
-	cursor: pointer;
-}
-
-label {
-	cursor: pointer;
-}
-
-input:not([type="checkbox"]):not([type="radio"]),
-select {
-	height: 3em;
-	padding: 0.5em 1em;
 }
 
 input.code {
@@ -219,11 +267,6 @@ input[type="radio"].disabled:checked:before {
 /*------------------------------------------------------------------------------
   2.0 - Forms
 ------------------------------------------------------------------------------*/
-
-select {
-	padding: 0.5em 1em;
-	line-height: 1;
-}
 
 .button-cancel {
 	padding: 0 5px;
