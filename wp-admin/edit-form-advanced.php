@@ -47,7 +47,6 @@ $_wp_editor_expand = $_content_editor_dfw = false;
 if ( post_type_supports(
 	$post_type, 'editor' )
 	&& ! wp_is_mobile()
-	&& ! ( $is_IE && preg_match( '/MSIE [5678]/', $_SERVER['HTTP_USER_AGENT'] ) )
 	&& apply_filters( 'wp_editor_expand', true, $post_type ) ) {
 
 	wp_enqueue_script( 'editor-expand' );
@@ -722,7 +721,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 								'resize'                  => false,
 								'wp_autoresize_on'        => $_wp_editor_expand,
 								'add_unload_trigger'      => false,
-								'wp_keep_scroll_position' => ! $is_IE,
+								'wp_keep_scroll_position' => true,
 							],
 						] ); ?>
 						<table id="post-status-info">

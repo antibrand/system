@@ -210,7 +210,7 @@ function wp_style_is( $handle, $list = 'enqueued' ) {
  * Works only if the stylesheet has already been added.
  *
  * Possible values for $key and $value:
- * 'conditional' string      Comments for IE 6, lte IE 7 etc.
+ * 'conditional' string      Comments for specific browsers or browser type.
  * 'rtl'         bool|string To declare an RTL stylesheet.
  * 'suffix'      string      Optional suffix, used in combination with RTL.
  * 'alt'         bool        For rel="alternate stylesheet".

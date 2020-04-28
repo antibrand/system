@@ -132,28 +132,13 @@ function wp_underscore_video_template() {
 /**
  * Prints the templates used in the media manager.
  *
- * @since 3.5.0
- *
- * @global bool $is_IE
+ * @since WP 3.5.0
  */
 function wp_print_media_templates() {
 
-	global $is_IE;
-	
 	$class = 'media-modal app-core-ui';
-	if ( $is_IE && strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7') !== false )
-		$class .= ' ie7';
+
 	?>
-	<!--[if lte IE 8]>
-	<style>
-		.attachment:focus {
-			outline: #1e8cbe solid;
-		}
-		.selected.attachment {
-			outline: #1e8cbe solid;
-		}
-	</style>
-	<![endif]-->
 	<script type="text/html" id="tmpl-media-frame">
 		<div class="media-frame-menu"></div>
 		<div class="media-frame-title"></div>

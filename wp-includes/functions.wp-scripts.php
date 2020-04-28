@@ -319,9 +319,9 @@ function wp_script_is( $handle, $list = 'enqueued' ) {
  * Works only if the script has already been added.
  *
  * Possible values for $key and $value:
- * 'conditional' string Comments for IE 6, lte IE 7, etc.
+ * 'conditional' string Comments for specific browsers or browser type.
  *
- * @since 4.2.0
+ * @since WP 4.2.0
  *
  * @see WP_Dependency::add_data()
  *

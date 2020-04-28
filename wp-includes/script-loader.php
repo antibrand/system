@@ -330,7 +330,6 @@ function wp_default_scripts( &$scripts ) {
 	$scripts->add( 'comment-reply', "/wp-includes/js/comment-reply$suffix.js", array(), false, 1 );
 
 	$scripts->add( 'json2', "/wp-includes/js/json2$suffix.js", array(), '2015-05-03' );
-	did_action( 'init' ) && $scripts->add_data( 'json2', 'conditional', 'lt IE 8' );
 
 	$scripts->add( 'underscore', "/wp-includes/js/underscore$dev_suffix.js", array(), '1.8.3', 1 );
 	$scripts->add( 'backbone', "/wp-includes/js/backbone$dev_suffix.js", array( 'underscore','jquery' ), '1.2.3', 1 );
@@ -986,12 +985,9 @@ function wp_default_styles( &$styles ) {
 	$styles->add( 'login',               "/wp-admin/css/login$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'install',             "/wp-admin/css/install$suffix.css" );
 	$styles->add( 'wp-color-picker',     "/wp-admin/css/color-picker$suffix.css" );
-	$styles->add( 'customize-controls',  "/wp-admin/css/customize-controls$suffix.css", [ 'wp-admin', 'colors', 'ie', 'imgareaselect' ] );
+	$styles->add( 'customize-controls',  "/wp-admin/css/customize-controls$suffix.css", [ 'wp-admin', 'colors', 'imgareaselect' ] );
 	$styles->add( 'customize-widgets',   "/wp-admin/css/customize-widgets$suffix.css", [ 'wp-admin', 'colors' ] );
 	$styles->add( 'customize-nav-menus', "/wp-admin/css/customize-nav-menus$suffix.css", [ 'wp-admin', 'colors' ] );
-
-	$styles->add( 'ie', "/wp-admin/css/ie$suffix.css" );
-	$styles->add_data( 'ie', 'conditional', 'lte IE 7' );
 
 	// Common dependencies
 	$styles->add( 'dashicons', "/wp-includes/css/dashicons$suffix.css" );
@@ -1004,7 +1000,6 @@ function wp_default_styles( &$styles ) {
 	$styles->add( 'wp-pointer',           "/wp-includes/css/wp-pointer$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'customize-preview',    "/wp-includes/css/customize-preview$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'wp-embed-template-ie', "/wp-includes/css/wp-embed-template-ie$suffix.css" );
-	$styles->add_data( 'wp-embed-template-ie', 'conditional', 'lte IE 8' );
 
 	// External libraries and friends
 	$styles->add( 'imgareaselect',       '/wp-includes/js/imgareaselect/imgareaselect.css', [], '0.9.8' );
@@ -1019,7 +1014,7 @@ function wp_default_styles( &$styles ) {
 		// admin
 		'admin', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'about', 'nav-menus',
 		'widgets', 'site-icon', 'install', 'wp-color-picker', 'customize-controls', 'customize-widgets', 'customize-nav-menus', 'customize-preview',
-		'ie', 'login',
+		'login',
 		// includes
 		'admin-bar', 'wp-auth-check', 'editor-buttons', 'media-views', 'wp-pointer',
 		'wp-jquery-ui-dialog'

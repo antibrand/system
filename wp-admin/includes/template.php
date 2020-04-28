@@ -2037,7 +2037,7 @@ function get_submit_button( $text = '', $type = 'primary large', $name = 'submit
 }
 
 /**
- *
+ * Begin admin HTML
  * @global bool $is_IE
  */
 function _wp_admin_html_begin() {

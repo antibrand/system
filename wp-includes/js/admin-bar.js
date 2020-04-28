@@ -178,7 +178,7 @@ if ( typeof(jQuery) != 'undefined' ) {
 		}
 
 		if ( navigator.userAgent && document.body.className.indexOf( 'no-font-face' ) === -1 &&
-			/Android (1.0|1.1|1.5|1.6|2.0|2.1)|Nokia|Opera Mini|w(eb)?OSBrowser|webOS|UCWEB|Windows Phone OS 7|XBLWP7|ZuneWP7|MSIE 7/.test( navigator.userAgent ) ) {
+			/Android (1.0|1.1|1.5|1.6|2.0|2.1)|Nokia|Opera Mini|w(eb)?OSBrowser|webOS|UCWEB|Windows Phone OS 7|XBLWP7|ZuneWP7/.test( navigator.userAgent ) ) {
 
 			document.body.className += ' no-font-face';
 		}
@@ -377,7 +377,7 @@ if ( typeof(jQuery) != 'undefined' ) {
 				w.scrollBy(0,-32);
 
 			if ( navigator.userAgent && document.body.className.indexOf( 'no-font-face' ) === -1 &&
-				/Android (1.0|1.1|1.5|1.6|2.0|2.1)|Nokia|Opera Mini|w(eb)?OSBrowser|webOS|UCWEB|Windows Phone OS 7|XBLWP7|ZuneWP7|MSIE 7/.test( navigator.userAgent ) ) {
+				/Android (1.0|1.1|1.5|1.6|2.0|2.1)|Nokia|Opera Mini|w(eb)?OSBrowser|webOS|UCWEB|Windows Phone OS 7|XBLWP7|ZuneWP7/.test( navigator.userAgent ) ) {
 
 				document.body.className += ' no-font-face';
 			}
