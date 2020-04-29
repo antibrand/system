@@ -49,6 +49,7 @@ textarea {
 	border-radius: 0; /* Reset mobile webkit's default element styling */
 	outline: none;
 	font-size: 1rem;
+	-webkit-transition: 0.05s border-color ease-in-out;
 	transition: 0.05s border-color ease-in-out;
 
 	&:focus {
@@ -88,24 +89,31 @@ textarea {
 
 	&[type="checkbox"],
 	&[type="radio"] {
-		display: inline-block;
+		display: -webkit-inline-box;
+		display: inline-flex;
+		-webkit-box-align: center;
+		        align-items: center;
+		-webkit-box-pack: center;
+		        justify-content: center;
 		clear: none;
 		width: 1em;
 		height: 1em;
-		padding: 0 !important;
+		margin-left: 0.3125rem;
+		padding: 0;
 		vertical-align: middle;
 		outline: 0;
-		line-height: 0;
+		line-height: 1;
 		text-align: center;
 		cursor: pointer;
 		-webkit-appearance: none;
+		-webkit-transition: .05s border-color ease-in-out;
 		transition: .05s border-color ease-in-out;
 
 		&:before,
 		&:before {
 			display: inline-block;
-			width: 6px;
-			height: 6px;
+			width: 0.325em;
+			height: 0.325em;
 			vertical-align: middle;
 			font-family: 'dashicons';
 			speak: never;
@@ -123,8 +131,6 @@ textarea {
 
 	&[type="radio"] {
 		border-radius: 50%;
-		margin-left: 4px;
-		line-height: 10px;
 
 		&:checked + label:before {
 			color: $light_gray;
@@ -134,9 +140,8 @@ textarea {
 			content: "\2022";
 			border-radius: 50%;
 			text-indent: -9999px;
-			width: 6px;
-			height: 6px;
-			margin: 4px;
+			width: 0.325em;
+			height: 0.325em;
 			font-size: 1.5rem;
 			line-height: 1;
 			background-color: $form_checked;
@@ -147,10 +152,11 @@ textarea {
 
 		&:checked:before {
 			content: "\f147";
-			margin: -15px 0 0 -19px;
-			width: 6px;
-			height: 6px;
+			margin: -0.6em 0 0 -0.7em;
+			width: 0.325em;
+			height: 0.325em;
 			font-size: 1.5rem;
+			line-height: 1;
 			color: $form_checked;
 		}
 	}
@@ -649,16 +655,8 @@ table.form-table td .updated p {
 	margin-bottom: 6px;
 }
 
-#profile-page .form-table #rich_editing {
-	margin-left: 5px
-}
-
-#your-profile legend {
-	font-size: 22px;
-}
-
 #display_name {
-	width: 15em;
+	min-width: 200px;
 }
 
 #adduser .form-field input,
@@ -666,12 +664,15 @@ table.form-table td .updated p {
 	width: 25em;
 }
 
+/**
+ * User color schemes
+ */
 .color-option {
 	display: inline-block;
 	width: 24%;
-	padding: 5px 15px 15px;
+	padding: 0.1875rem 1rem 1rem;
 	box-sizing: border-box;
-	margin-bottom: 3px;
+	margin-bottom: 0.1875rem;
 	border: solid 2px transparent;
 }
 

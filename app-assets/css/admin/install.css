@@ -757,14 +757,23 @@ input[type="text"], input[type="url"], input[type="password"], input[type="email
 }
 
 input[type="checkbox"], input[type="radio"] {
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   clear: none;
   width: 1em;
   height: 1em;
-  padding: 0 !important;
+  margin-right: 0.3125rem;
+  padding: 0;
   vertical-align: middle;
   outline: 0;
-  line-height: 0;
+  line-height: 1;
   text-align: center;
   cursor: pointer;
   -webkit-appearance: none;
@@ -774,8 +783,8 @@ input[type="checkbox"], input[type="radio"] {
 
 input[type="checkbox"]:before, input[type="checkbox"]:before, input[type="radio"]:before, input[type="radio"]:before {
   display: inline-block;
-  width: 6px;
-  height: 6px;
+  width: 0.325em;
+  height: 0.325em;
   vertical-align: middle;
   font-family: 'dashicons';
   speak: never;
@@ -789,8 +798,6 @@ input[type="checkbox"]:disabled, input[type="checkbox"].disabled, input[type="ch
 
 input[type="radio"] {
   border-radius: 50%;
-  margin-left: 4px;
-  line-height: 10px;
 }
 
 input[type="radio"]:checked + label:before {
@@ -801,24 +808,18 @@ input[type="radio"]:checked:before {
   content: "\2022";
   border-radius: 50%;
   text-indent: -9999px;
-  width: 6px;
-  height: 6px;
-  margin: 4px;
+  width: 0.325em;
+  height: 0.325em;
   font-size: 1.5rem;
   line-height: 1;
   background-color: #005fd6;
 }
 
-input[type="checkbox"] {
-  margin-left: 4px;
-  line-height: 10px;
-}
-
 input[type="checkbox"]:checked:before {
   content: "\f147";
-  margin: -15px 0 0 -19px;
-  width: 6px;
-  height: 6px;
+  margin: -0.6em 0 0 -0.7em;
+  width: 0.325em;
+  height: 0.325em;
   font-size: 1.5rem;
   line-height: 1;
   color: #005fd6;
@@ -1293,16 +1294,8 @@ table.form-table td .updated p {
   margin-bottom: 6px;
 }
 
-#profile-page .form-table #rich_editing {
-  margin-right: 5px;
-}
-
-#your-profile legend {
-  font-size: 22px;
-}
-
 #display_name {
-  width: 15em;
+  min-width: 200px;
 }
 
 #adduser .form-field input,
@@ -1310,13 +1303,16 @@ table.form-table td .updated p {
   width: 25em;
 }
 
+/**
+ * User color schemes
+ */
 .color-option {
   display: inline-block;
   width: 24%;
-  padding: 5px 15px 15px;
+  padding: 0.1875rem 1rem 1rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  margin-bottom: 3px;
+  margin-bottom: 0.1875rem;
   border: solid 2px transparent;
   cursor: pointer;
 }
