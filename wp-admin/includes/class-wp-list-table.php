@@ -387,7 +387,7 @@ class WP_List_Table {
 		}
 
 		// Print the add new link only if the current user can create posts.
-		if ( ( 'edit-post' || 'edit-page' ) == $this->screen->id && current_user_can( $post_type_object->cap->create_posts ) ) {
+		if ( ( 'edit-post' || 'edit-page' ) == $this->screen->id && current_user_can( 'publish_posts' ) ) {
 			$add_new = sprintf(
 				'<li class="list-table-add-new"><a href="%1s" class="page-title-action">%2s</a></li>',
 				esc_url( admin_url( $post_new_file ) ),
