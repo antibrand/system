@@ -782,7 +782,7 @@ classes exist in paginate_links() but not seen in list table output. */
 }
 
 .view-switch a:before {
-  color: #b4b9be;
+  color: #888888;
   display: inline-block;
   font-family: dashicons;
   font-size: 2.6rem;
@@ -794,7 +794,11 @@ classes exist in paginate_links() but not seen in list table output. */
 
 .view-switch a:hover:before,
 .view-switch a:focus:before {
-  color: #727272;
+  color: #005fd6;
+}
+
+.view-switch a.current {
+  cursor: default;
 }
 
 .view-switch a.current:before {
