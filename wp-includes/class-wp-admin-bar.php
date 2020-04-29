@@ -70,7 +70,7 @@ class WP_Admin_Bar {
 		add_action('wp_head', $header_callback);
 
 		wp_enqueue_script( 'admin-bar' );
-		wp_enqueue_style( 'admin-bar' );
+		wp_enqueue_style( 'user-toolbar' );
 
 		/**
 		 * Fires after WP_Admin_Bar is initialized.

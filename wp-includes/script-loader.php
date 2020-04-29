@@ -993,7 +993,7 @@ function wp_default_styles( &$styles ) {
 	$styles->add( 'dashicons', "/wp-includes/css/dashicons$suffix.css" );
 
 	// Includes CSS
-	$styles->add( 'admin-bar',            "/wp-includes/css/admin-bar$suffix.css", [ 'dashicons' ] );
+	$styles->add( 'user-toolbar',         "/app-assets/css/includes/user-toolbar$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'wp-auth-check',        "/wp-includes/css/wp-auth-check$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'editor-buttons',       "/wp-includes/css/editor$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'media-views',          "/wp-includes/css/media-views$suffix.css", [ 'dashicons', 'wp-mediaelement' ] );
@@ -1016,7 +1016,7 @@ function wp_default_styles( &$styles ) {
 		'widgets', 'site-icon', 'install', 'wp-color-picker', 'customize-controls', 'customize-widgets', 'customize-nav-menus', 'customize-preview',
 		'login',
 		// includes
-		'admin-bar', 'wp-auth-check', 'editor-buttons', 'media-views', 'wp-pointer',
+		'user-toolbar', 'wp-auth-check', 'editor-buttons', 'media-views', 'wp-pointer',
 		'wp-jquery-ui-dialog'
 	];
 
