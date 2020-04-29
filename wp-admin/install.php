@@ -171,7 +171,7 @@ function display_setup_form( $error = null ) {
 				<input name="admin_password2" type="password" id="pass2" autocomplete="off" />
 			</td>
 		</tr>
-		<tr class="pw-weak">
+		<tr class="password-weak">
 			<th scope="row"><?php _e( 'Confirm Password' ); ?></th>
 			<td>
 				<label>

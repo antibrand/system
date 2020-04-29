@@ -463,7 +463,7 @@ $new_user_ignore_pass = $creating && isset( $_POST['noconfirmation'] ) ? wp_unsl
 		<input name="pass2" type="password" id="pass2" autocomplete="off" />
 		</td>
 	</tr>
-	<tr class="pw-weak">
+	<tr class="password-weak">
 		<th><?php _e( 'Confirm Password' ); ?></th>
 		<td>
 			<label>

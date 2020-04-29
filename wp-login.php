@@ -679,7 +679,7 @@ case 'rp' :
 			</div>
 			<div id="pass-strength-result" class="hide-if-no-js" aria-live="polite"><?php _e( 'Strength indicator' ); ?></div>
 		</div>
-		<div class="pw-weak">
+		<div class="password-weak">
 			<label>
 				<input type="checkbox" name="pw_weak" class="pw-checkbox" />
 				<?php _e( 'Confirm use of weak password' ); ?>

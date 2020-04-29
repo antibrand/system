@@ -50,7 +50,7 @@
 		}
 
 		// Once zxcvbn loads, passwords strength is known.
-		$( '#pw-weak-text-label' ).html( userProfileL10n.warnWeak );
+		$( '#password-weak-text-label' ).html( userProfileL10n.warnWeak );
 	}
 
 	function bindPass1() {
@@ -167,7 +167,7 @@
 
 		$submitButtons = $submitButton.add( ' #createusersub' );
 
-		$weakRow = $( '.pw-weak' );
+		$weakRow = $( '.password-weak' );
 		$weakCheckbox = $weakRow.find( '.pw-checkbox' );
 		$weakCheckbox.change( function() {
 			$submitButtons.prop( 'disabled', ! $weakCheckbox.prop( 'checked' ) );

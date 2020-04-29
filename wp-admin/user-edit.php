@@ -584,12 +584,12 @@ if ( $show_password_fields = apply_filters( 'show_password_fields', true, $profi
 	<p class="description"><?php _e( 'Type your new password again.' ); ?></p>
 	</td>
 </tr>
-<tr class="pw-weak">
+<tr class="password-weak">
 	<th><?php _e( 'Confirm Password' ); ?></th>
 	<td>
 		<label>
 			<input type="checkbox" name="pw_weak" class="pw-checkbox" />
-			<span id="pw-weak-text-label"><?php _e( 'Confirm use of potentially weak password' ); ?></span>
+			<span id="password-weak-text-label"><?php _e( 'Confirm use of potentially weak password' ); ?></span>
 		</label>
 	</td>
 </tr>

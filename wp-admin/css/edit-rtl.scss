@@ -1267,7 +1267,7 @@ p.popular-tags a {
 	padding: 0;
 }
 
-.comment-ays-submit .button-cancel {
+.comment-ays-submit .cancel-post-publish-action {
 	margin-right: 1em;
 }
 
@@ -1677,6 +1677,11 @@ table.links-table {
 	#publishing-action .spinner {
 		float: none;
 		margin-top: -2px; /* Half of the Publish button's bottom margin. */
+	}
+
+	.cancel-post-publish-action {
+		padding: 0 5px;
+		line-height: 2;
 	}
 
 	/* Moderate Comment */

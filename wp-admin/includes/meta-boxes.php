@@ -125,7 +125,7 @@ switch ( $post->post_status ) {
 <?php endif; ?>
 </select>
  <a href="#post_status" class="save-post-status hide-if-no-js button"><?php _e('OK'); ?></a>
- <a href="#post_status" class="cancel-post-status hide-if-no-js button-cancel"><?php _e('Cancel'); ?></a>
+ <a href="#post_status" class="cancel-post-status hide-if-no-js cancel-post-publish-action"><?php _e('Cancel'); ?></a>
 </div>
 
 <?php } ?>
@@ -169,7 +169,7 @@ echo esc_html( $visibility_trans ); ?></span>
 
 <p>
  <a href="#visibility" class="save-post-visibility hide-if-no-js button"><?php _e('OK'); ?></a>
- <a href="#visibility" class="cancel-post-visibility hide-if-no-js button-cancel"><?php _e('Cancel'); ?></a>
+ <a href="#visibility" class="cancel-post-visibility hide-if-no-js cancel-post-publish-action"><?php _e('Cancel'); ?></a>
 </p>
 </div>
 <?php } ?>

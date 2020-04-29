@@ -292,11 +292,6 @@ textarea {
   2.0 - Forms
 ------------------------------------------------------------------------------*/
 
-.button-cancel {
-	padding: 0 5px;
-	line-height: 2;
-}
-
 .meta-box-sortables select {
 	max-width: 100%;
 }
@@ -327,13 +322,6 @@ p.submit {
 .textright p.submit {
 	border: none;
 	text-align: left;
-}
-
-table.form-table + p.submit,
-table.form-table + input + p.submit,
-table.form-table + input + input + p.submit {
-	border-top: none;
-	padding-top: 0;
 }
 
 #minor-publishing-actions input,
@@ -391,16 +379,6 @@ input[type="number"].tiny-text {
 button.wp-hide-pw > .dashicons {
 	position: relative;
 	top: 3px;
-}
-
-label,
-#your-profile label + a {
-	vertical-align: middle;
-}
-
-fieldset label,
-#your-profile label + a {
-	vertical-align: middle;
 }
 
 .options-media-php [for*="_size_"] {
@@ -469,8 +447,8 @@ fieldset label,
 	border-color: $app_green;
 }
 
-.pw-weak {
-	display:none;
+.password-weak {
+	display: none;
 }
 
 .indicator-hint {
@@ -482,8 +460,7 @@ fieldset label,
 	display: none;
 }
 
-.show-password #pass1-text
-{
+.show-password #pass1-text {
 	display: inline-block;
 }
 
@@ -595,10 +572,18 @@ ul#add-to-blog-users {
 	vertical-align: baseline;
 }
 
+/**
+ * Vertical align top to keep labels aligned with corresponding
+ * field inputs when there is a field description that grows
+ * the table cell height.
+ *
+ * Input fields have a height of 3rem so pad the th by half on top,
+ * 1.5rem, to vertically align labels with corresponding fields.
+ */
 .form-table th {
 	vertical-align: top;
 	text-align: right;
-	padding: 20px 0 20px 10px;
+	padding: 1.5rem 0 0 0.5em;
 	width: 200px;
 	line-height: 1.3;
 	font-weight: 600;
@@ -607,7 +592,6 @@ ul#add-to-blog-users {
 .form-table th.th-full, /* Not used by core. Back-compat for pre-4.8 */
 .form-table .td-full {
 	width: auto;
-	padding: 20px 0 20px 10px;
 	font-weight: 400;
 }
 
