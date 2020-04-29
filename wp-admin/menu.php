@@ -18,6 +18,12 @@
  * @global array $menu
  */
 
+// Get privacy notifications.
+$change_notice = '';
+if ( current_user_can( 'manage_privacy_options' ) && WP_Privacy_Policy_Content::text_change_check() ) {
+	$change_notice = ' <span class="update-plugins 1"><span class="plugin-count">' . number_format_i18n( 1 ) . '</span></span>';
+}
+
 /**
  * Dashboard & admin index page
  *
@@ -619,12 +625,6 @@ $menu[79] = [
 	'wp-menu-separator'
 ];
 */
-
-// Get privacy notifications.
-$change_notice = '';
-if ( current_user_can( 'manage_privacy_options' ) && WP_Privacy_Policy_Content::text_change_check() ) {
-	$change_notice = ' <span class="update-plugins 1"><span class="plugin-count">' . number_format_i18n( 1 ) . '</span></span>';
-}
 
 /**
  * Administrative tools & settings
