@@ -1,18 +1,18 @@
 <?php
 /**
- * User Profile Administration Screen.
+ * User profile administration screen
  *
  * @package App_Package
  * @subpackage Administration
  */
 
 /**
- * This is a profile page.
+ * Define this as a profile page
  *
- * @since 2.5.0
- * @var bool
+ * @since WP 2.5.0
+ * @var   bool
  */
-define('IS_PROFILE_PAGE', true);
+define( 'IS_PROFILE_PAGE', true );
 
-/** Load User Editing Page */
+// Load user edit page.
 require_once( dirname( __FILE__ ) . '/user-edit.php' );
