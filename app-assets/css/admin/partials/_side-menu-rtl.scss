@@ -244,7 +244,7 @@
 .folded #adminmenu li.wp-has-current-submenu,
 .folded #adminmenu li.current.menu-top,
 #adminmenu .wp-has-current-submenu .wp-submenu .wp-submenu-head {
-	background: $app_yellow;
+	background: $app_primary_color;
 	color: $text_color;
 }
 
@@ -492,7 +492,7 @@ ul#adminmenu a.wp-has-current-submenu {
 
 #collapse-button:hover,
 #collapse-button:focus {
-	color: #00b9eb;
+	color: $app_primary_color;
 }
 
 #collapse-button .collapse-button-icon,
