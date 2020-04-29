@@ -344,7 +344,9 @@ class WP_List_Table {
 	}
 
 	/**
-	 * Get an associative array ( id => link ) with the list
+	 * Get views
+	 *
+	 * Gets an associative array ( id => link ) with the list
 	 * of views available on this table.
 	 *
 	 * @since 3.1.0
@@ -352,18 +354,25 @@ class WP_List_Table {
 	 * @return array
 	 */
 	protected function get_views() {
-		return array();
+		return [];
 	}
 
 	/**
-	 * Display the list of views available on this table.
+	 * List table views
 	 *
-	 * @since 3.1.0
+	 * Displays the list of statuses/views available on this table.
+	 *
+	 * @access public
+	 * @since  1.0.0
+	 * @since  WP 3.1.0
+	 * @global string $typenow The post type ID.
+	 * @return string Returns the markup for the content type list
+	 *                of status/view links.
 	 */
 	public function views() {
 
 		// Access global variables.
-		global $typenow, $post_type, $post_type_object;
+		global $typenow;
 
 		$views = $this->get_views();
 
@@ -387,7 +396,13 @@ class WP_List_Table {
 		}
 
 		// Print the add new link only if the current user can create posts.
-		if ( ( 'edit-post' || 'edit-page' ) == $this->screen->id && current_user_can( 'publish_posts' ) ) {
+		if ( 'edit-post' == $this->screen->id && current_user_can( 'publish_posts' ) ) {
+			$add_new = sprintf(
+				'<li class="list-table-add-new"><a href="%1s" class="page-title-action">%2s</a></li>',
+				esc_url( admin_url( $post_new_file ) ),
+				esc_html( $post_type_object->labels->add_new )
+			);
+		} elseif ( 'edit-page' == $this->screen->id && current_user_can( 'publish_posts' ) ) {
 			$add_new = sprintf(
 				'<li class="list-table-add-new"><a href="%1s" class="page-title-action">%2s</a></li>',
 				esc_url( admin_url( $post_new_file ) ),
