@@ -4,38 +4,40 @@
  *
  * @package App_Package
  * @subpackage Customize
- * @since 4.4.0
+ * @since WP 4.4.0
  */
 
 /**
- * Customize Site Icon control class.
+ * Customize Site Icon control class
  *
  * Used only for custom functionality in JavaScript.
  *
- * @since 4.3.0
+ * @since WP 4.3.0
  *
  * @see WP_Customize_Cropped_Image_Control
  */
 class WP_Customize_Site_Icon_Control extends WP_Customize_Cropped_Image_Control {
 
 	/**
-	 * Control type.
+	 * Control type
 	 *
-	 * @since 4.3.0
-	 * @var string
+	 * @since  WP 4.3.0
+	 * @access public
+	 * @var    string
 	 */
 	public $type = 'site_icon';
 
 	/**
-	 * Constructor.
+	 * Constructor method
 	 *
-	 * @since 4.3.0
-	 *
+	 * @since WP 4.3.0
+	 * @access public
 	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
-	 * @param string               $id      Control ID.
-	 * @param array                $args    Optional. Arguments to override class property defaults.
+	 * @param string $id Control ID.
+	 * @param array $args Optional. Arguments to override class property defaults.
+	 * @return self
 	 */
-	public function __construct( $manager, $id, $args = array() ) {
+	public function __construct( $manager, $id, $args = [] ) {
 		parent::__construct( $manager, $id, $args );
 		add_action( 'customize_controls_print_styles', 'wp_site_icon', 99 );
 	}
@@ -43,10 +45,13 @@ class WP_Customize_Site_Icon_Control extends WP_Customize_Cropped_Image_Control 
 	/**
 	 * Renders a JS template for the content of the site icon control.
 	 *
-	 * @since 4.5.0
+	 * @since WP 4.5.0
+	 * @access public
+	 * @return string Returns the markup of the site icon control.
 	 */
 	public function content_template() {
-		?>
+
+	?>
 		<label for="{{ data.settings['default'] }}-button">
 			<# if ( data.label ) { #>
 				<span class="customize-control-title">{{ data.label }}</span>
@@ -93,6 +98,6 @@ class WP_Customize_Site_Icon_Control extends WP_Customize_Cropped_Image_Control 
 				</div>
 			</div>
 		<# } #>
-		<?php
+	<?php
 	}
 }
