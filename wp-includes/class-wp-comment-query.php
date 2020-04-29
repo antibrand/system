@@ -631,7 +631,8 @@ class WP_Comment_Query {
 
 		$number = absint( $this->query_vars['number'] );
 		$offset = absint( $this->query_vars['offset'] );
-		$paged = absint( $this->query_vars['paged'] );
+		$paged  = absint( $this->query_vars['paged'] );
+		$limits = '';
 
 		if ( ! empty( $number ) ) {
 			if ( $offset ) {

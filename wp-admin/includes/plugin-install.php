@@ -391,9 +391,10 @@ function install_plugin_install_status($api, $loop = false) {
 		$api = (object) $api;
 
 	// Default to a "new" plugin
-	$status = 'install';
-	$url = false;
+	$status      = 'install';
+	$url         = false;
 	$update_file = false;
+	$version     = '';
 
 	/*
 	 * Check to see if this plugin is known to be installed,
