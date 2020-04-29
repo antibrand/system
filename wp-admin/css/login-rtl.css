@@ -179,11 +179,6 @@ p {
   background: #fbfbfb;
 }
 
-.ie7 .login form .input,
-.ie8 .login form .input {
-  font-family: sans-serif;
-}
-
 .login-action-rp input[type="text"] {
   -webkit-box-shadow: none;
           box-shadow: none;

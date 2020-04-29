@@ -908,14 +908,6 @@ input[type="number"].tiny-text {
   margin-right: 6px;
 }
 
-.ie8 .tablenav .actions select {
-  width: 155px;
-}
-
-.ie8 .tablenav .actions select#cat {
-  width: 200px;
-}
-
 #timezone_string option {
   margin-left: 1em;
 }
@@ -2241,10 +2233,6 @@ a:focus .media-icon img,
   color: #124964;
   -webkit-box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
           box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
-}
-
-.ie8 a:focus {
-  outline: #5b9dd9 solid 1px;
 }
 
 #adminmenu a:focus,
@@ -3639,10 +3627,6 @@ form.upgrade .hint {
   font-weight: 600;
 }
 
-.ie8 #screen-options-wrap legend {
-  color: inherit;
-}
-
 .metabox-prefs label {
   display: inline-block;
   padding-right: 15px;
@@ -4109,13 +4093,6 @@ h1.nav-tab-wrapper,
   content: "";
   display: table;
   clear: both;
-}
-
-.ie8 .nav-tab-wrapper {
-  /* contain floats establishing a new block formatting context */
-  display: inline-block;
-  width: 100%;
-  vertical-align: top;
 }
 
 /*------------------------------------------------------------------------------
@@ -6372,6 +6349,7 @@ ul#adminmenu a.wp-has-current-submenu {
   position: absolute;
   top: 0;
   left: 0;
+  font-size: 0.875rem;
   line-height: 34px;
 }
 

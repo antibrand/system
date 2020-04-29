@@ -1030,14 +1030,6 @@ input[type="number"].tiny-text {
   margin-left: 6px;
 }
 
-.ie8 .tablenav .actions select {
-  width: 155px;
-}
-
-.ie8 .tablenav .actions select#cat {
-  width: 200px;
-}
-
 #timezone_string option {
   margin-right: 1em;
 }

@@ -682,11 +682,6 @@ span.wp-media-buttons-icon:before {
   max-width: 100%;
 }
 
-.ie8 #poststuff .inside #parent_id,
-.ie8 #poststuff .inside #page_template {
-  width: 250px;
-}
-
 .post-attributes-label-wrapper {
   margin-bottom: 0.5em;
 }
