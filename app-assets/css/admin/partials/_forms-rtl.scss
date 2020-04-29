@@ -365,15 +365,6 @@ input[type="number"].tiny-text {
 .tablenav .actions select {
 	float: right;
 	margin-left: 6px;
-	max-width: 200px;
-}
-
-.ie8 .tablenav .actions select {
-	width: 155px;
-}
-
-.ie8 .tablenav .actions select#cat {
-	width: 200px;
 }
 
 #timezone_string option {

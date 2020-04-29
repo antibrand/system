@@ -900,7 +900,6 @@ input[type="number"].tiny-text {
 .tablenav .actions select {
   float: right;
   margin-left: 6px;
-  max-width: 200px;
 }
 
 .ie8 .tablenav .actions select {

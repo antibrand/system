@@ -178,10 +178,6 @@ a:focus .media-icon img,
 		0 0 2px 1px rgba(30, 140, 190, .8);
 }
 
-.ie8 a:focus {
-	outline: #5b9dd9 solid 1px;
-}
-
 #adminmenu a:focus,
 .screen-reader-text:focus {
 	box-shadow: none;
@@ -1553,10 +1549,6 @@ form.upgrade .hint {
 	font-weight: 600;
 }
 
-.ie8 #screen-options-wrap legend {
-	color: inherit;
-}
-
 .metabox-prefs label {
 	display: inline-block;
 	padding-left: 15px;
@@ -2020,13 +2012,6 @@ h1.nav-tab-wrapper, /* Back-compat for pre-4.4 */
  	display: table;
  	clear: both;
  }
-
-.ie8 .nav-tab-wrapper {
-	/* contain floats establishing a new block formatting context */
-	display: inline-block;
-	width: 100%;
-	vertical-align: top;
-}
 
 /*------------------------------------------------------------------------------
   26.0 - Misc

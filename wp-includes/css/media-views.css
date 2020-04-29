@@ -883,11 +883,6 @@
   transform: translate(-50%, -70%);
 }
 
-.ie8 .app-core-ui .attachment img.icon {
-  top: 20%;
-  position: relative;
-}
-
 .app-core-ui .attachment .filename {
   position: absolute;
   left: 0;
@@ -2116,55 +2111,6 @@
 
 .wp-editor-wrap .uploader-editor.droppable .uploader-editor-title {
   display: block;
-}
-
-/**
- * IE7 Fixes
- */
-.ie7 .media-frame .attachments-browser {
-  position: static;
-}
-
-.ie7 .media-frame .embed-url input {
-  margin-top: 4px;
-  width: 90%;
-}
-
-.ie7 .compat-item {
-  width: 99%;
-}
-
-.ie7 .attachment-display-settings {
-  width: auto;
-}
-
-.ie7 .attachment-preview,
-.ie7 .attachment-preview .thumbnail {
-  width: 120px;
-  height: 120px;
-}
-
-.ie7 .media-frame .attachment .describe {
-  width: 102px;
-}
-
-.ie7 .media-sidebar .setting select {
-  max-width: 55%;
-}
-
-.ie7 .media-sidebar .setting input[type="text"],
-.ie7 .media-sidebar .setting input[type="password"],
-.ie7 .media-sidebar .setting input[type="email"],
-.ie7 .media-sidebar .setting input[type="number"],
-.ie7 .media-sidebar .setting input[type="search"],
-.ie7 .media-sidebar .setting input[type="tel"],
-.ie7 .media-sidebar .setting input[type="url"],
-.ie7 .media-sidebar .setting textarea {
-  width: 55%;
-}
-
-.ie7 .media-sidebar .setting .link-to-custom {
-  float: left;
 }
 
 /**
