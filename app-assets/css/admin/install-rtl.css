@@ -783,6 +783,10 @@ input[type="checkbox"]:before, input[type="checkbox"]:before, input[type="radio"
   -moz-osx-font-smoothing: grayscale;
 }
 
+input[type="checkbox"]:disabled, input[type="checkbox"].disabled, input[type="checkbox"]:disabled:checked:before, input[type="checkbox"].disabled:checked:before, input[type="radio"]:disabled, input[type="radio"].disabled, input[type="radio"]:disabled:checked:before, input[type="radio"].disabled:checked:before {
+  opacity: 0.7;
+}
+
 input[type="radio"] {
   border-radius: 50%;
   margin-left: 4px;
@@ -800,7 +804,7 @@ input[type="radio"]:checked:before {
   width: 6px;
   height: 6px;
   margin: 4px;
-  font-size: 24px;
+  font-size: 1.5rem;
   line-height: 1;
   background-color: #005fd6;
 }
@@ -810,7 +814,7 @@ input[type="checkbox"]:checked:before {
   margin: -15px 0 0 -19px;
   width: 6px;
   height: 6px;
-  font-size: 24px;
+  font-size: 1.5rem;
   color: #005fd6;
 }
 
@@ -834,6 +838,21 @@ input[type="file"] {
   cursor: pointer;
 }
 
+input[type="file"]:disabled, input[type="file"].disabled {
+  background: none;
+  cursor: default;
+}
+
+input[type="range"]:disabled, input[type="range"].disabled {
+  background: none;
+  cursor: default;
+}
+
+input:disabled, input.disabled {
+  background: rgba(204, 204, 204, 0.325);
+  color: rgba(136, 136, 136, 0.85);
+}
+
 /**
  * Select field styles
  *
@@ -851,6 +870,11 @@ select option {
   line-height: 1em;
 }
 
+select:disabled, select.disabled {
+  background: rgba(204, 204, 204, 0.325);
+  color: rgba(136, 136, 136, 0.85);
+}
+
 /**
  * Textarea styles
  */
@@ -861,6 +885,11 @@ textarea {
   resize: vertical;
 }
 
+textarea:disabled, textarea.disabled {
+  background: rgba(204, 204, 204, 0.325);
+  color: rgba(136, 136, 136, 0.85);
+}
+
 @-moz-document url-prefix() {
   input[type="checkbox"],
   input[type="radio"],
@@ -869,72 +898,34 @@ textarea {
   }
 }
 
-input.code {
-  padding-top: 6px;
+.form-invalid input,
+.form-invalid select {
+  border-color: #dd0000;
 }
 
-textarea.code {
-  line-height: 1.4;
-  padding: 4px 6px 1px 6px;
-}
-
-.form-invalid input, .form-invalid input:focus,
-.form-invalid select, .form-invalid select:focus {
-  border-color: #dd0000 !important;
-  -webkit-box-shadow: 0 0 2px rgba(204, 0, 0, 0.8);
-          box-shadow: 0 0 2px rgba(204, 0, 0, 0.8);
+.form-invalid input:focus,
+.form-invalid select:focus {
+  border-color: #dd0000;
 }
 
 .form-table .form-required.form-invalid td:after {
   content: "\f534";
   font: normal 20px/1 dashicons;
   color: #dd0000;
-  margin-right: -25px;
+  margin-right: 1.5rem;
   vertical-align: middle;
 }
 
-/* Adjust error indicator for password layout */
 .form-table .form-required.user-pass1-wrap.form-invalid td:after {
   content: '';
 }
 
-.form-table .form-required.user-pass1-wrap.form-invalid .password-input-wrapper:after {
+.form-table .form-required.form-required.user-pass1-wrap.form-invalid .password-input-wrapper:after {
   content: '\f534';
   font: normal 20px/1 dashicons;
   color: #dd0000;
-  margin: 0 -29px 0 6px;
+  margin: 0 1.5rem 0 0.5rem;
   vertical-align: middle;
-}
-
-input:disabled,
-input.disabled,
-select:disabled,
-select.disabled,
-textarea:disabled,
-textarea.disabled {
-  background: rgba(204, 204, 204, 0.5);
-  color: #cccccc;
-}
-
-input[type="file"]:disabled,
-input[type="file"].disabled,
-input[type="range"]:disabled,
-input[type="range"].disabled {
-  background: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  cursor: default;
-}
-
-input[type="checkbox"]:disabled,
-input[type="checkbox"].disabled,
-input[type="radio"]:disabled,
-input[type="radio"].disabled,
-input[type="checkbox"]:disabled:checked:before,
-input[type="checkbox"].disabled:checked:before,
-input[type="radio"]:disabled:checked:before,
-input[type="radio"].disabled:checked:before {
-  opacity: 0.7;
 }
 
 /*------------------------------------------------------------------------------

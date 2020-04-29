@@ -112,6 +112,13 @@ textarea {
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
 		}
+
+		&:disabled,
+		&.disabled,
+		&:disabled:checked:before,
+		&.disabled:checked:before {
+			opacity: 0.7;
+		}
 	}
 
 	&[type="radio"] {
@@ -130,7 +137,7 @@ textarea {
 			width: 6px;
 			height: 6px;
 			margin: 4px;
-			font-size: 24px;
+			font-size: 1.5rem;
 			line-height: 1;
 			background-color: $form_checked;
 		}
@@ -143,7 +150,7 @@ textarea {
 			margin: -15px 0 0 -19px;
 			width: 6px;
 			height: 6px;
-			font-size: 24px;
+			font-size: 1.5rem;
 			color: $form_checked;
 		}
 	}
@@ -169,6 +176,27 @@ textarea {
 		margin-bottom: 1em;
 		padding: 1em;
 		cursor: pointer;
+
+		&:disabled,
+		&.disabled {
+			background: none;
+			cursor: default;
+		}
+	}
+
+	&[type="range"] {
+
+		&:disabled,
+		&.disabled {
+			background: none;
+			cursor: default;
+		}
+	}
+
+	&:disabled,
+	&.disabled {
+		background: rgba($color: $pale_gray, $alpha: 0.325);
+		color: rgba($color: $light_gray, $alpha: 0.85);
 	}
 }
 
@@ -187,6 +215,12 @@ select {
 	option {
 		line-height: 1em;
 	}
+
+	&:disabled,
+	&.disabled {
+		background: rgba($color: $pale_gray, $alpha: 0.325);
+		color: rgba($color: $light_gray, $alpha: 0.85);
+	}
 }
 
 /**
@@ -197,6 +231,12 @@ textarea {
 	padding: 1rem;
 	line-height: 1.4;
 	resize: vertical;
+
+	&:disabled,
+	&.disabled {
+		background: rgba($color: $pale_gray, $alpha: 0.325);
+		color: rgba($color: $light_gray, $alpha: 0.85);
+	}
 }
 
 @-moz-document url-prefix() {
@@ -207,70 +247,45 @@ textarea {
 	}
 }
 
-input.code {
-	padding-top: 6px;
+.form-invalid {
+
+	input,
+	select {
+		border-color: $app_red;
+
+		&:focus {
+			border-color: $app_red;
+		}
+	}
 }
 
-textarea.code {
-	line-height: 1.4;
-	padding: 4px 6px 1px 6px;
-}
+.form-table {
 
-.form-invalid input, .form-invalid input:focus,
-.form-invalid select, .form-invalid select:focus {
-	border-color: $app_red !important;
-	box-shadow: 0 0 2px rgba( 204, 0, 0, 0.8 );
-}
+	.form-required {
 
-.form-table .form-required.form-invalid td:after {
-	content: "\f534";
-	font: normal 20px/1 dashicons;
-	color: $app_red;
-	margin-right: -25px;
-	vertical-align: middle;
-}
+		&.form-invalid td:after {
+			content: "\f534";
+			font: normal 20px/1 dashicons;
+			color: $app_red;
+			margin-right: 1.5rem;
+			vertical-align: middle;
+		}
 
-/* Adjust error indicator for password layout */
-.form-table .form-required.user-pass1-wrap.form-invalid td:after {
-	content: '';
-}
+		// Adjust error indicator for password layout.
+		&.user-pass1-wrap.form-invalid td:after {
+			content: '';
+		}
 
-.form-table .form-required.user-pass1-wrap.form-invalid .password-input-wrapper:after {
-	content: '\f534';
-	font: normal 20px/1 dashicons;
-	color: $app_red;
-	margin: 0 -29px 0 6px;
-	vertical-align: middle;
-}
-
-input:disabled,
-input.disabled,
-select:disabled,
-select.disabled,
-textarea:disabled,
-textarea.disabled {
-	background: rgba($color: $pale_gray, $alpha: 0.5);
-	color: $pale_gray;
-}
-
-input[type="file"]:disabled,
-input[type="file"].disabled,
-input[type="range"]:disabled,
-input[type="range"].disabled {
-	background: none;
-	box-shadow: none;
-	cursor: default;
-}
-
-input[type="checkbox"]:disabled,
-input[type="checkbox"].disabled,
-input[type="radio"]:disabled,
-input[type="radio"].disabled,
-input[type="checkbox"]:disabled:checked:before,
-input[type="checkbox"].disabled:checked:before,
-input[type="radio"]:disabled:checked:before,
-input[type="radio"].disabled:checked:before {
-	opacity: 0.7;
+		&.form-required.user-pass1-wrap {
+			&.form-invalid .password-input-wrapper:after {
+				content: '\f534';
+				font: normal 20px/1 dashicons;
+				color: $app_red;
+				margin: 0 1.5rem 0 0.5rem;
+				vertical-align: middle;
+			}
+		}
+	}
 }
 
 /*------------------------------------------------------------------------------
