@@ -92,6 +92,18 @@ var ajaxurl = '<?php echo admin_url( 'admin-ajax.php', 'relative' ); ?>',
 /**
  * Enqueue scripts for all admin pages.
  *
+ * Enqueue scripts & styles used on all admin pages,
+ * such as layout, admin menu, page header & footer.
+ *
+ * @since 1.0.0
+ */
+do_action( 'app_enqueue_scripts' );
+
+/**
+ * Enqueue scripts for a specific admin page.
+ *
+ * @todo Review this when styles page-specific styles ready.
+ *
  * @since WP 2.8.0
  * @param string $hook_suffix The current admin page.
  */
