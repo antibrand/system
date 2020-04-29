@@ -1544,12 +1544,15 @@ i.mce-i-wp_code:before {
   position: absolute;
   left: 16px;
   right: 16px;
-  bottom: 0;
-  top: 166px;
+  top: 3rem;
+}
+
+.has-text-field #wp-link #search-panel {
+  position: relative;
 }
 
 .has-text-field #wp-link .query-results {
-  top: 200px;
+  top: 3rem;
 }
 
 #wp-link li {

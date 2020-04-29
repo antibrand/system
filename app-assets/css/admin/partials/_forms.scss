@@ -199,6 +199,18 @@ input {
 		background: rgba($color: $pale_gray, $alpha: 0.325);
 		color: rgba($color: $light_gray, $alpha: 0.85);
 	}
+
+	// Hide arrows in Webkit number input.
+	&::-webkit-outer-spin-button,
+	&::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	// Hide arrows in Firefox number input.
+	&[type="number"] {
+		-moz-appearance: textfield;
+	}
 }
 
 /**
@@ -448,14 +460,7 @@ button.wp-hide-pw > .dashicons {
 	border-color: $app_green;
 }
 
-.password-weak {
-	display: none;
-}
-
-.indicator-hint {
-	padding-top: 8px;
-}
-
+.password-weak,
 #pass1-text,
 .show-password #pass1 {
 	display: none;
@@ -463,10 +468,6 @@ button.wp-hide-pw > .dashicons {
 
 .show-password #pass1-text {
 	display: inline-block;
-}
-
-.form-table span.description.important {
-	font-size: 12px;
 }
 
 p.search-box {
@@ -531,7 +532,7 @@ ul#add-to-blog-users {
 
 /* Colors for the wplink toolbar autocomplete. */
 .ui-autocomplete .ui-state-focus {
-	background-color: #ddd;
+	background-color: $pale_gray;
 }
 
 /* Colors for the tags autocomplete. */

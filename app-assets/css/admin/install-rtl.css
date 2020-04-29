@@ -860,6 +860,15 @@ input:disabled, input.disabled {
   color: rgba(136, 136, 136, 0.85);
 }
 
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 /**
  * Select field styles
  *
@@ -1094,14 +1103,7 @@ button.wp-hide-pw > .dashicons {
   border-color: #44aa11;
 }
 
-.password-weak {
-  display: none;
-}
-
-.indicator-hint {
-  padding-top: 8px;
-}
-
+.password-weak,
 #pass1-text,
 .show-password #pass1 {
   display: none;
@@ -1109,10 +1111,6 @@ button.wp-hide-pw > .dashicons {
 
 .show-password #pass1-text {
   display: inline-block;
-}
-
-.form-table span.description.important {
-  font-size: 12px;
 }
 
 p.search-box {
@@ -1177,7 +1175,7 @@ ul#add-to-blog-users {
 
 /* Colors for the wplink toolbar autocomplete. */
 .ui-autocomplete .ui-state-focus {
-  background-color: #ddd;
+  background-color: #cccccc;
 }
 
 /* Colors for the tags autocomplete. */
