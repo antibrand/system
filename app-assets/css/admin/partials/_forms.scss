@@ -169,6 +169,8 @@ input {
 	}
 
 	&[type="file"] {
+		margin-bottom: 1em;
+		padding: 1em;
 		cursor: pointer;
 	}
 }
