@@ -667,19 +667,28 @@ input[type="radio"]:checked + label:before {
 
 input[type="radio"]:checked:before {
   content: "\2022";
-  text-indent: -9999px;
   border-radius: 50%;
-  font-size: 24px;
+  text-indent: -9999px;
   width: 6px;
   height: 6px;
   margin: 4px;
+  font-size: 24px;
   line-height: 1;
   background-color: #005fd6;
 }
 
+input[type="checkbox"] {
+  margin-left: 4px;
+  line-height: 10px;
+}
+
 input[type="checkbox"]:checked:before {
   content: "\f147";
-  margin-right: 0.3em;
+  margin: -15px 0 0 -19px;
+  width: 6px;
+  height: 6px;
+  font-size: 24px;
+  line-height: 1;
   color: #005fd6;
 }
 
