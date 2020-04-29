@@ -199,6 +199,14 @@ textarea {
 		}
 	}
 
+	&.ui-autocomplete-loading,
+	&.ui-autocomplete-loading {
+		background-image: url( ../../images/loading.gif );
+		background-repeat: no-repeat;
+		background-position: right center;
+		visibility: visible;
+	}
+
 	&:disabled,
 	&.disabled {
 		background: rgba($color: $pale_gray, $alpha: 0.325);
@@ -499,14 +507,6 @@ p.search-box {
 	line-height: 1.5;
 	padding: 3px 5px;
 	height: 32px;
-}
-
-input[type="text"].ui-autocomplete-loading,
-input[type="email"].ui-autocomplete-loading {
-	background-image: url(../images/loading.gif);
-	background-repeat: no-repeat;
-	background-position: left center;
-	visibility: visible;
 }
 
 input.ui-autocomplete-input.open {

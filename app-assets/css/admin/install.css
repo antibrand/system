@@ -761,11 +761,11 @@ input[type="checkbox"], input[type="radio"] {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+      justify-content: center;
   clear: none;
   width: 1em;
   height: 1em;
@@ -853,6 +853,13 @@ input[type="file"]:disabled, input[type="file"].disabled {
 input[type="range"]:disabled, input[type="range"].disabled {
   background: none;
   cursor: default;
+}
+
+input.ui-autocomplete-loading, input.ui-autocomplete-loading {
+  background-image: url(../../images/loading.gif);
+  background-repeat: no-repeat;
+  background-position: right center;
+  visibility: visible;
 }
 
 input:disabled, input.disabled {
@@ -1137,14 +1144,6 @@ p.search-box {
   line-height: 1.5;
   padding: 3px 5px;
   height: 32px;
-}
-
-input[type="text"].ui-autocomplete-loading,
-input[type="email"].ui-autocomplete-loading {
-  background-image: url(../images/loading.gif);
-  background-repeat: no-repeat;
-  background-position: right center;
-  visibility: visible;
 }
 
 input.ui-autocomplete-input.open {

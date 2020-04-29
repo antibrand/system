@@ -855,6 +855,13 @@ input[type="range"]:disabled, input[type="range"].disabled {
   cursor: default;
 }
 
+input.ui-autocomplete-loading, input.ui-autocomplete-loading {
+  background-image: url(../../images/loading.gif);
+  background-repeat: no-repeat;
+  background-position: right center;
+  visibility: visible;
+}
+
 input:disabled, input.disabled {
   background: rgba(204, 204, 204, 0.325);
   color: rgba(136, 136, 136, 0.85);
@@ -1137,14 +1144,6 @@ p.search-box {
   line-height: 1.5;
   padding: 3px 5px;
   height: 32px;
-}
-
-input[type="text"].ui-autocomplete-loading,
-input[type="email"].ui-autocomplete-loading {
-  background-image: url(../images/loading.gif);
-  background-repeat: no-repeat;
-  background-position: left center;
-  visibility: visible;
 }
 
 input.ui-autocomplete-input.open {
