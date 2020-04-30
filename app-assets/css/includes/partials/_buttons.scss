@@ -83,8 +83,8 @@
 	&:disabled,
 	&.disabled,
 	&.button-disabled {
-		color: $light_gray !important;
-		background: $pale_gray !important;
+		color: $light_gray;
+		background: $pale_gray;
 		cursor: default;
 	}
 }

@@ -1081,7 +1081,6 @@ ul#add-to-blog-users {
 
 .form-table th,
 .form-wrap label {
-  color: #222;
   font-weight: 400;
   text-shadow: none;
   vertical-align: baseline;
@@ -2637,7 +2636,7 @@ img.emoji {
 
 .postbox .hndle,
 .stuffbox .hndle {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #cccccc;
 }
 
 .quicktags,
@@ -2746,7 +2745,31 @@ hr {
 #media-items a.delete-permanently,
 #nav-menu-footer .menu-delete,
 #delete-link a.delete {
-  color: #a00;
+  color: #dd0000;
+}
+
+.row-actions span.delete a:hover, .row-actions span.delete a:focus,
+.row-actions span.trash a:hover,
+.row-actions span.trash a:focus,
+.row-actions span.spam a:hover,
+.row-actions span.spam a:focus,
+.plugins a.delete:hover,
+.plugins a.delete:focus,
+#all-plugins-table .plugins a.delete:hover,
+#all-plugins-table .plugins a.delete:focus,
+#search-plugins-table .plugins a.delete:hover,
+#search-plugins-table .plugins a.delete:focus,
+.submitbox .submitdelete:hover,
+.submitbox .submitdelete:focus,
+#media-items a.delete:hover,
+#media-items a.delete:focus,
+#media-items a.delete-permanently:hover,
+#media-items a.delete-permanently:focus,
+#nav-menu-footer .menu-delete:hover,
+#nav-menu-footer .menu-delete:focus,
+#delete-link a.delete:hover,
+#delete-link a.delete:focus {
+  color: #ff1111;
 }
 
 abbr.required,
@@ -3512,11 +3535,8 @@ form.upgrade .hint {
   display: none;
   margin: 0 0px -1px 20px;
   position: relative;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  border: 1px solid #cccccc;
   border-top: none;
-  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.025);
-          box-shadow: 0 1px 0 rgba(0, 0, 0, 0.025);
 }
 
 #screen-options-link-wrap,
@@ -3524,11 +3544,7 @@ form.upgrade .hint {
   float: left;
   height: 28px;
   margin: 0 6px 0 0;
-  border: 1px solid #ddd;
   border-top: none;
-  background: #fff;
-  -webkit-box-shadow: 0 1px 1px -1px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 1px 1px -1px rgba(0, 0, 0, 0.1);
 }
 
 #screen-meta-links .screen-meta-toggle {
@@ -3537,18 +3553,10 @@ form.upgrade .hint {
 }
 
 #screen-meta-links .show-settings {
-  border: 0;
-  background: none;
   border-radius: 0;
-  color: #72777c;
+  border-top: none;
   line-height: 1.7;
   padding: 3px 16px 3px 6px;
-}
-
-#screen-meta-links .show-settings:hover,
-#screen-meta-links .show-settings:active,
-#screen-meta-links .show-settings:focus {
-  color: #333;
 }
 
 #screen-meta-links .show-settings:active {
@@ -3571,7 +3579,6 @@ form.upgrade .hint {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-decoration: none !important;
-  color: #72777c;
 }
 
 #screen-meta-links .screen-meta-active:after {
@@ -3673,10 +3680,9 @@ form.upgrade .hint {
   bottom: 0;
   right: 150px;
   left: 170px;
-  border: 1px solid #e1e1e1;
+  border: 1px solid #cccccc;
   border-top: none;
   border-bottom: none;
-  background: #f6fbfd;
 }
 
 #contextual-help-wrap.no-sidebar #contextual-help-back {
@@ -3720,15 +3726,18 @@ form.upgrade .hint {
 .contextual-help-tabs .active {
   padding: 0;
   margin: 0 0 0 -1px;
-  border-right: 2px solid #00a0d2;
-  background: #f6fbfd;
-  -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02), 0 1px 0 rgba(0, 0, 0, 0.02);
-          box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02), 0 1px 0 rgba(0, 0, 0, 0.02);
 }
 
 .contextual-help-tabs .active a {
-  border-color: #e1e1e1;
-  color: #333;
+  font-weight: 700;
+  font-weight: bolder;
+  color: #005fd6;
+}
+
+@supports (font-variation-settings: normal) {
+  .contextual-help-tabs .active a {
+    font-weight: 800;
+  }
 }
 
 .contextual-help-tabs-wrap {
@@ -3987,7 +3996,6 @@ html.wp-toolbar {
 ------------------------------------------------------------------------------*/
 #wpfooter {
   padding: 10px 20px;
-  color: #555d66;
 }
 
 #wpfooter p {
@@ -5617,7 +5625,7 @@ img {
   }
   /* General Metabox */
   .postbox {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   .metabox-holder h3.hndle,
   .metabox-holder .stuffbox > h3,

@@ -482,8 +482,8 @@ b, strong, optgroup {
 .button-secondary:disabled,
 .button-secondary.disabled,
 .button-secondary.button-disabled {
-  color: #888888 !important;
-  background: #cccccc !important;
+  color: #888888;
+  background: #cccccc;
   cursor: default;
 }
 
@@ -1209,7 +1209,6 @@ ul#add-to-blog-users {
 
 .form-table th,
 .form-wrap label {
-  color: #222;
   font-weight: 400;
   text-shadow: none;
   vertical-align: baseline;

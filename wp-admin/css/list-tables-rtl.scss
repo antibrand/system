@@ -195,28 +195,13 @@
 	box-shadow: none;
 }
 
-#replyerror {
-	border-color: #ddd;
-	background-color: #f9f9f9;
-}
-
 /* @todo: is this used? */
 .commentlist .avatar {
 	vertical-align: text-top;
 }
 
-#the-comment-list tr.undo,
-#the-comment-list div.undo {
-	background-color: #f5f5f5;
-}
-
-#the-comment-list .unapproved th,
-#the-comment-list .unapproved td {
-	background-color: #fef7f1;
-}
-
 #the-comment-list .unapproved th.check-column {
-	border-right: 4px solid #d54e21;
+	border-right: 4px solid $app_red;
 }
 
 #the-comment-list .unapproved th.check-column input {
@@ -224,11 +209,11 @@
 }
 
 #the-comment-list .approve a {
-	color: #006505;
+	color: $app_green;
 }
 
 #the-comment-list .unapprove a {
-	color: #d98500;
+	color: $app_yellow;
 }
 
 #the-comment-list th,

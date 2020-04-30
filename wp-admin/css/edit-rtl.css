@@ -215,10 +215,7 @@ body.post-new-php .submitbox .submitdelete {
 .postbox {
   position: relative;
   min-width: 255px;
-  border: 1px solid #e5e5e5;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
-          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
-  background: #fff;
+  border: solid 1px #cccccc;
 }
 
 #trackback_url {
@@ -1105,7 +1102,6 @@ ul.categorychecklist li {
 p.description,
 .form-wrap p {
   margin: 2px 0 5px;
-  color: #666;
 }
 
 h1 ~ p.description {

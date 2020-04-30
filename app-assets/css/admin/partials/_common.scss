@@ -153,7 +153,13 @@ td {
 	line-height: inherit;
 }
 
-/* Any change to the default link style must be applied to button-link too. */
+/**
+ * Links
+ *
+ * Any change to the default link style ought to be applied to button-link too.
+ *
+ * @see ../../includes/partials/buttons.scss
+ */
 a {
 	color: $link_color;
 	-webkit-transition-property: border, background, color;
@@ -600,7 +606,7 @@ img.emoji {
 
 .postbox .hndle,
 .stuffbox .hndle {
-	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid $pale_gray;
 }
 
 .quicktags,
@@ -708,7 +714,12 @@ hr {
 #media-items a.delete-permanently,
 #nav-menu-footer .menu-delete,
 #delete-link a.delete {
-	color: #a00;
+	color: $app_red;
+
+	&:hover,
+	&:focus {
+		color: lighten($color: $app_red, $amount: 10%)
+	}
 }
 
 abbr.required,
@@ -1464,8 +1475,7 @@ form.upgrade .hint {
 	display: none;
 	margin: 0 20px -1px 0px;
 	position: relative;
-	background-color: #fff;
-	border: 1px solid #ddd;
+	border: 1px solid $pale_gray;
 	border-top: none;
 	box-shadow: 0 1px 0 rgba(0,0,0,.025);
 }
@@ -1475,10 +1485,7 @@ form.upgrade .hint {
 	float: right;
 	height: 28px;
 	margin: 0 0 0 6px;
-	border: 1px solid #ddd;
 	border-top: none;
-	background: #fff;
-	box-shadow: 0 1px 1px -1px rgba(0,0,0,0.1);
 }
 
 #screen-meta-links .screen-meta-toggle {
@@ -1487,18 +1494,10 @@ form.upgrade .hint {
 }
 
 #screen-meta-links .show-settings {
-	border: 0;
-	background: none;
 	border-radius: 0;
-	color: #72777c;
+	border-top: none;
 	line-height: 1.7;
 	padding: 3px 6px 3px 16px;
-}
-
-#screen-meta-links .show-settings:hover,
-#screen-meta-links .show-settings:active,
-#screen-meta-links .show-settings:focus {
-	color: #333;
 }
 
 #screen-meta-links .show-settings:active {
@@ -1520,7 +1519,6 @@ form.upgrade .hint {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-decoration: none !important;
-	color: #72777c;
 }
 
 #screen-meta-links .screen-meta-active:after {
@@ -1624,10 +1622,9 @@ form.upgrade .hint {
 	bottom: 0;
 	left: 150px;
 	right: 170px;
-	border: 1px solid #e1e1e1;
+	border: 1px solid $pale_gray;
 	border-top: none;
 	border-bottom: none;
-	background: #f6fbfd;
 }
 
 #contextual-help-wrap.no-sidebar #contextual-help-back {
@@ -1671,14 +1668,15 @@ form.upgrade .hint {
 .contextual-help-tabs .active {
 	padding: 0;
 	margin: 0 -1px 0 0;
-	border-left: 2px solid #00a0d2;
-	background: #f6fbfd;
-	box-shadow: 0 2px 0 rgba(0,0,0,0.02), 0 1px 0 rgba(0,0,0,0.02);
 }
 
 .contextual-help-tabs .active a {
-	border-color: #e1e1e1;
-	color: #333;
+	font-weight: 700;
+	font-weight: bolder;
+
+	@supports( font-variation-settings: normal ) {
+		font-weight: 800;
+	}
 }
 
 .contextual-help-tabs-wrap {
@@ -1934,7 +1932,6 @@ html.wp-toolbar {
 
 #wpfooter {
 	padding: 10px 20px;
-	color: #555d66;
 }
 
 #wpfooter p {
@@ -3551,7 +3548,7 @@ img {
 
 	/* General Metabox */
 	.postbox {
-		font-size: 14px;
+		font-size: $px14;
 	}
 
 	.metabox-holder h3.hndle, /* Back-compat for pre-4.4 */

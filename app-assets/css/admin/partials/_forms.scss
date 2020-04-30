@@ -53,7 +53,7 @@ textarea {
 	transition: 0.05s border-color ease-in-out;
 
 	&:focus {
-		border-color: $form_action_border_color;;
+		border-color: $form_action_border_color;
 	}
 }
 
@@ -573,7 +573,6 @@ ul#add-to-blog-users {
 
 .form-table th,
 .form-wrap label {
-	color: #222;
 	font-weight: 400;
 	text-shadow: none;
 	vertical-align: baseline;
