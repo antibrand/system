@@ -479,19 +479,6 @@ code {
 	background-color: #fff;
 }
 
-.widgets-chooser ul,
-#widgets-left .widget-in-question .widget-top,
-#available-widgets .widget-top:hover,
-div#widgets-right .widget-top:hover,
-#widgets-left .widget-top:hover {
-	border-color: #999;
-	box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-}
-
-.sorthelper {
-	background-color: #ccf3fa;
-}
-
 .ac_match,
 .subsubsub a.current {
 	color: #000;
@@ -578,22 +565,9 @@ img.emoji {
 	line-height: 1.4em;
 }
 
-.widget .widget-top,
-.menu-item-handle {
-	background: #fafafa;
-	color: #222;
-}
-
 .postbox .hndle,
 .stuffbox .hndle {
-	border-bottom: 1px solid $pale_gray;
-}
-
-.quicktags,
-.search {
-	background-color: $pale_gray;
-	color: #000;
-	font-size: 12px;
+	border-bottom: 1px solid $form_border_color;
 }
 
 .icon32 {
@@ -605,7 +579,6 @@ img.emoji {
 #bulk-titles div a:before,
 .notice-dismiss:before {
 	background: none;
-	color: #72777c;
 	content: "\f153";
 	display: block;
 	font: normal 16px/20px dashicons;
@@ -624,7 +597,7 @@ img.emoji {
 .tagchecklist .ntdelbutton .remove-tag-icon:before {
 	margin-right: 2px;
 	border-radius: 50%;
-	color: #ffee00;
+	color: $app_highlight_color;
 	/* vertically center the icon cross browsers */
 	line-height: 1.28;
 }
@@ -1807,7 +1780,7 @@ html.wp-toolbar {
 }
 
 .sortable-placeholder {
-	border: 1px dashed #b4b9be;
+	border: 1px dashed $form_border_color;
 	margin-bottom: 20px;
 }
 
@@ -1917,9 +1890,8 @@ html.wp-toolbar {
 	font-size: 14px;
 	line-height: 24px;
 	font-weight: 600;
-	background: #e5e5e5;
-	color: #555;
 	text-decoration: none;
+	color: $text_color;
 	white-space: nowrap;
 }
 
@@ -1930,29 +1902,21 @@ h3 .nav-tab, /* Back-compat for pre-4.4 */
 	line-height: 16px;
 }
 
-.nav-tab:hover,
-.nav-tab:focus {
-	background-color: #fff;
-	color: #444;
-}
-
 .nav-tab-active,
 .nav-tab:focus:active {
 	box-shadow: none;
+	color: $link_color;
 }
 
 .nav-tab-active {
 	margin-bottom: -1px;
-	color: #444;
 }
 
 .nav-tab-active,
 .nav-tab-active:hover,
 .nav-tab-active:focus,
 .nav-tab-active:focus:active {
-	border-bottom: 1px solid #f1f1f1;
 	background: inherit;
-	color: #000;
 }
 
 h1.nav-tab-wrapper, /* Back-compat for pre-4.4 */
@@ -3090,37 +3054,6 @@ img {
 	border-radius: 50%;
 }
 
-.handlediv,
-.postbox .handlediv.button-link,
-.item-edit,
-.toggle-indicator,
-.accordion-section-title:after {
-	color: #72777c;
-}
-
-.widget-action {
-	color: #555d66; /* #fafafa background in the Widgets screen */
-}
-
-.widget-top:hover .widget-action,
-.widget-action:focus,
-.handlediv:hover,
-.handlediv:focus,
-.postbox .handlediv.button-link:hover,
-.postbox .handlediv.button-link:focus,
-.item-edit:hover,
-.item-edit:focus,
-.sidebar-name:hover .toggle-indicator,
-.accordion-section-title:hover:after {
-	color: #222;
-}
-
-.widget-top .widget-action:focus .toggle-indicator:before {
-	box-shadow:
-		0 0 0 1px #5b9dd9,
-		0 0 2px 1px rgba(30,140,190,.8);
-}
-
 .control-section .accordion-section-title:after,
 .accordion-section-title:after {
 	float: left;
@@ -3167,7 +3100,6 @@ img {
 	display: none;
 	padding: 10px 20px 15px;
 	overflow: hidden;
-	background: #fff;
 }
 
 .accordion-section-title {
@@ -3216,20 +3148,11 @@ img {
 	border-left: none;
 	padding: 10px 14px 11px 10px;
 	line-height: 21px;
-	background: #fff;
 }
 
 .control-section .accordion-section-title:after,
 .customize-pane-child .accordion-section-title:after {
 	top: calc(50% - 10px); /* Arrow height is 20px, so use half of that to vertically center */
-}
-
-.js .control-section:hover .accordion-section-title,
-.js .control-section .accordion-section-title:hover,
-.js .control-section.open .accordion-section-title,
-.js .control-section .accordion-section-title:focus {
-	color: #222;
-	background: #f5f5f5;
 }
 
 .control-section.open .accordion-section-title {

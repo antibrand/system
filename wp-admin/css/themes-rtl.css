@@ -91,8 +91,6 @@ body.js .theme-browser.search-loading {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  background: #fff;
-  background: rgba(255, 255, 255, 0.65);
 }
 
 /* Activate and Customize buttons, shown on hover and focus */
@@ -102,8 +100,6 @@ body.js .theme-browser.search-loading {
   -webkit-transition: opacity 0.1s ease-in-out;
   transition: opacity 0.1s ease-in-out;
   height: auto;
-  background: rgba(244, 244, 244, 0.7);
-  border-right: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .theme-browser .theme:hover .theme-actions,
@@ -211,7 +207,7 @@ body.js .theme-browser.search-loading {
  * The currently active theme
  */
 .theme-browser .theme.active .theme-name {
-  background: #23282d;
+  background: #222;
   color: #fff;
   padding-left: 110px;
   font-weight: 300;
@@ -249,18 +245,7 @@ body.js .theme-browser.search-loading {
   box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1);
 }
 
-.theme-browser .theme.active .theme-actions .button-primary {
-  margin-left: 0;
-  color: #eee;
-}
-
-.theme-browser .theme.active .theme-actions .button-primary:hover, .theme-browser .theme.active .theme-actions .button-primary:focus {
-  color: #444;
-}
-
 .theme-browser .theme .theme-author {
-  background: #23282d;
-  color: #eee;
   display: none;
   font-size: 14px;
   margin: 0 10px;
@@ -498,7 +483,6 @@ body.js .theme-browser.search-loading {
   right: 190px;
   left: 30px;
   bottom: 3%;
-  background: #fff;
   -webkit-box-shadow: 0 1px 20px 5px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 20px 5px rgba(0, 0, 0, 0.1);
   z-index: 10000;
@@ -529,11 +513,10 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
   right: 0;
   left: 0;
   padding: 10px 25px 5px;
-  background: #f3f3f3;
   z-index: 30;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #888888;
 }
 
 .theme-overlay .theme-actions a {
@@ -549,7 +532,7 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 
 .broken-themes a.delete-theme,
 .theme-overlay .theme-actions .delete-theme {
-  color: #a00;
+  color: #dd0000;
   text-decoration: none;
   border-color: transparent;
   -webkit-box-shadow: none;
@@ -567,9 +550,9 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 .broken-themes a.delete-theme:focus,
 .theme-overlay .theme-actions .delete-theme:hover,
 .theme-overlay .theme-actions .delete-theme:focus {
-  background: #d54e21;
+  background: #dd0000;
   color: #fff;
-  border-color: #d54e21;
+  border-color: #dd0000;
 }
 
 .theme-overlay .theme-actions .active-theme,
@@ -684,8 +667,6 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 }
 
 .theme-overlay .current-label {
-  background: #32373c;
-  color: #fff;
   font-size: 11px;
   display: inline-block;
   padding: 2px 8px;
@@ -698,7 +679,6 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 }
 
 .theme-overlay .theme-name {
-  color: #23282d;
   font-size: 32px;
   margin: 10px 0 0;
   line-height: 1.3;
@@ -707,7 +687,6 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 }
 
 .theme-overlay .theme-version {
-  color: #72777c;
   font-size: 13px;
   font-weight: 400;
   float: none;
@@ -717,7 +696,6 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 
 .theme-overlay .theme-author {
   margin: 15px 0 25px;
-  color: #72777c;
   font-size: 16px;
   font-weight: 400;
   line-height: inherit;
@@ -728,7 +706,6 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 }
 
 .theme-overlay .theme-description {
-  color: #555;
   font-size: 15px;
   font-weight: 400;
   line-height: 1.5;
@@ -736,8 +713,7 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 }
 
 .theme-overlay .theme-tags {
-  border-top: 3px solid #eee;
-  color: #82878c;
+  border-top: 3px solid #888888;
   font-size: 13px;
   font-weight: 400;
   margin: 30px 0 0 0;
@@ -745,15 +721,14 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 }
 
 .theme-overlay .theme-tags span {
-  color: #444;
   font-weight: 600;
   margin-left: 5px;
 }
 
 .theme-overlay .parent-theme {
-  background: #f7fcfe;
-  border: 1px solid #eee;
-  border-right: 4px solid #00a0d2;
+  background: #ffffff;
+  border: 1px solid #888888;
+  border-right: 4px solid #ffee00;
   font-size: 14px;
   font-weight: 400;
   margin-top: 30px;
@@ -1811,7 +1786,7 @@ body.full-overlay-active {
 .install-theme-info .theme-screenshot {
   margin: 15px 0;
   width: 258px;
-  border: 1px solid #ccc;
+  border: 1px solid #888888;
 }
 
 .install-theme-info .theme-details {

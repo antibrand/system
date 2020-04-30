@@ -22,6 +22,7 @@ html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockq
 
 article, aside, details, div, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
+  background-color: inherit;
 }
 
 audio, canvas, progress, video {
@@ -391,6 +392,7 @@ h4,
 h5,
 h6 {
   margin-top: 1em;
+  background-color: inherit;
 }
 
 h1,
@@ -1956,6 +1958,7 @@ table.form-table td .updated p {
   -webkit-box-shadow: none;
           box-shadow: none;
   background: none;
+  border: none;
   outline: none;
   text-align: left;
   text-decoration: underline;
@@ -2511,20 +2514,6 @@ code {
   background-color: #fff;
 }
 
-.widgets-chooser ul,
-#widgets-left .widget-in-question .widget-top,
-#available-widgets .widget-top:hover,
-div#widgets-right .widget-top:hover,
-#widgets-left .widget-top:hover {
-  border-color: #999;
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.sorthelper {
-  background-color: #ccf3fa;
-}
-
 .ac_match,
 .subsubsub a.current {
   color: #000;
@@ -2614,22 +2603,9 @@ img.emoji {
   line-height: 1.4em;
 }
 
-.widget .widget-top,
-.menu-item-handle {
-  background: #fafafa;
-  color: #222;
-}
-
 .postbox .hndle,
 .stuffbox .hndle {
-  border-bottom: 1px solid #cccccc;
-}
-
-.quicktags,
-.search {
-  background-color: #cccccc;
-  color: #000;
-  font-size: 12px;
+  border-bottom: 1px solid #888888;
 }
 
 .icon32 {
@@ -2641,7 +2617,6 @@ img.emoji {
 #bulk-titles div a:before,
 .notice-dismiss:before {
   background: none;
-  color: #72777c;
   content: "\f153";
   display: block;
   font: normal 16px/20px dashicons;
@@ -3876,7 +3851,7 @@ html.wp-toolbar {
 }
 
 .sortable-placeholder {
-  border: 1px dashed #b4b9be;
+  border: 1px dashed #888888;
   margin-bottom: 20px;
 }
 
@@ -3988,9 +3963,8 @@ html.wp-toolbar {
   font-size: 14px;
   line-height: 24px;
   font-weight: 600;
-  background: #e5e5e5;
-  color: #555;
   text-decoration: none;
+  color: #222222;
   white-space: nowrap;
 }
 
@@ -4001,30 +3975,22 @@ h3 .nav-tab,
   line-height: 16px;
 }
 
-.nav-tab:hover,
-.nav-tab:focus {
-  background-color: #fff;
-  color: #444;
-}
-
 .nav-tab-active,
 .nav-tab:focus:active {
   -webkit-box-shadow: none;
           box-shadow: none;
+  color: #004499;
 }
 
 .nav-tab-active {
   margin-bottom: -1px;
-  color: #444;
 }
 
 .nav-tab-active,
 .nav-tab-active:hover,
 .nav-tab-active:focus,
 .nav-tab-active:focus:active {
-  border-bottom: 1px solid #f1f1f1;
   background: inherit;
-  color: #000;
 }
 
 h1.nav-tab-wrapper,
@@ -5197,37 +5163,6 @@ img {
   border-radius: 50%;
 }
 
-.handlediv,
-.postbox .handlediv.button-link,
-.item-edit,
-.toggle-indicator,
-.accordion-section-title:after {
-  color: #72777c;
-}
-
-.widget-action {
-  color: #555d66;
-  /* #fafafa background in the Widgets screen */
-}
-
-.widget-top:hover .widget-action,
-.widget-action:focus,
-.handlediv:hover,
-.handlediv:focus,
-.postbox .handlediv.button-link:hover,
-.postbox .handlediv.button-link:focus,
-.item-edit:hover,
-.item-edit:focus,
-.sidebar-name:hover .toggle-indicator,
-.accordion-section-title:hover:after {
-  color: #222;
-}
-
-.widget-top .widget-action:focus .toggle-indicator:before {
-  -webkit-box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
-          box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
-}
-
 .control-section .accordion-section-title:after,
 .accordion-section-title:after {
   float: left;
@@ -5275,7 +5210,6 @@ img {
   display: none;
   padding: 10px 20px 15px;
   overflow: hidden;
-  background: #fff;
 }
 
 .accordion-section-title {
@@ -5324,21 +5258,12 @@ img {
   border-left: none;
   padding: 10px 14px 11px 10px;
   line-height: 21px;
-  background: #fff;
 }
 
 .control-section .accordion-section-title:after,
 .customize-pane-child .accordion-section-title:after {
   top: calc(50% - 10px);
   /* Arrow height is 20px, so use half of that to vertically center */
-}
-
-.js .control-section:hover .accordion-section-title,
-.js .control-section .accordion-section-title:hover,
-.js .control-section.open .accordion-section-title,
-.js .control-section .accordion-section-title:focus {
-  color: #222;
-  background: #f5f5f5;
 }
 
 .control-section.open .accordion-section-title {

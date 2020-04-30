@@ -639,7 +639,6 @@ border color while dragging a file over the uploader drop area */
 .edit-attachment-frame .edit-media-header .left,
 .edit-attachment-frame .edit-media-header .right {
   cursor: pointer;
-  color: #72777c;
   background-color: transparent;
   height: 50px;
   width: 50px;
@@ -684,8 +683,8 @@ border color while dragging a file over the uploader drop area */
 .edit-attachment-frame .edit-media-header .right:hover,
 .edit-attachment-frame .edit-media-header .left:focus,
 .edit-attachment-frame .edit-media-header .right:focus {
-  background: #ddd;
-  border-color: #cccccc;
+  background: #ffee00;
+  border-color: #888888;
   color: #000;
   outline: none;
   -webkit-box-shadow: none;
@@ -805,7 +804,6 @@ border color while dragging a file over the uploader drop area */
 
 .edit-attachment-frame .attachment-info .filename {
   font-weight: 400;
-  color: #666;
 }
 
 .edit-attachment-frame .attachment-info .thumbnail {

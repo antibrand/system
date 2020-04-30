@@ -1032,8 +1032,7 @@ a.post-state-format.format-link:before {
 	max-height: 200px;
 	overflow: auto;
 	padding: 0 0.9em;
-	border: solid 1px #ddd;
-	background-color: #fdfdfd;
+	border: solid 1px $form_border_color;
 }
 
 div.tabs-panel-active {

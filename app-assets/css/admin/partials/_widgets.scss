@@ -9,7 +9,6 @@
 .widget-top {
 	font-size: 13px;
 	font-weight: 600;
-	background: #f7f7f7;
 }
 
 .widget-top .widget-action {
@@ -46,17 +45,6 @@
 	display: none;
 }
 
-.in-widget-title,
-#widgets-right a.widget-control-edit,
-#available-widgets .widget-description {
-	color: #666;
-}
-
-.deleting .widget-title,
-.deleting .widget-top .widget-action .toggle-indicator:before {
-	color: #a0a5aa;
-}
-
 /* Media Widgets */
 .app-core-ui .media-widget-control.selected .placeholder,
 .app-core-ui .media-widget-control.selected .not-selected,
@@ -85,7 +73,7 @@
 }
 
 .media-widget-control .placeholder {
-	border: 1px dashed #b4b9be;
+	border: 1px dashed $form_border_color;
 	box-sizing: border-box;
 	cursor: pointer;
 	line-height: 20px;
@@ -156,7 +144,7 @@
 
 .media-frame #embed-url-field.invalid,
 .media-widget-image-link > .link:invalid {
-	border: 1px solid #dc3232;
+	border: 1px solid $app_red;
 }
 
 .media-widget-image-link {
@@ -175,10 +163,6 @@
 .media-widget-preview.media_gallery,
 .media-widget-preview.media_image {
 	cursor: pointer;
-}
-
-.media-widget-preview .placeholder {
-	background: #f1f1f1;
 }
 
 .media-widget-gallery-preview .gallery-item {
@@ -328,12 +312,6 @@
 	padding: 0 0 15px;
 	margin: 0;
 	font-style: normal;
-	color: #72777c;
-}
-
-.widget-holder .description,
-.inactive-sidebar .description {
-	color: #555d66;
 }
 
 #widgets-right .widgets-holder-wrap .description {
@@ -572,10 +550,6 @@ div#widgets-right .closed .widgets-sortables {
 	display: none;
 }
 
-.widget-inside {
-	background: #fff;
-}
-
 /* Dragging widgets over the available widget area show's a "Deactivate" message */
 #removing-widget {
 	display: none;
@@ -655,13 +629,11 @@ div#widgets-right .widget-top:hover,
 }
 
 .widgets-chooser ul {
-	border: 1px solid #ccc;
+	border: 1px solid $form_border_color;
 }
 
 .widgets-chooser li {
 	padding: 10px 15px 10px 35px;
-	border-bottom: 1px solid #ccc;
-	background: #fff;
 	margin: 0;
 	cursor: pointer;
 	outline: none;
@@ -669,18 +641,11 @@ div#widgets-right .widget-top:hover,
 	transition: background 0.2s ease-in-out;
 }
 
- /* @todo looks like these hover/focus states are overridden by .widgets-chooser-selected */
-.widgets-chooser li:hover,
-.widgets-chooser li:focus {
-	background: rgba(255,255,255,0.7);
-}
-
 .widgets-chooser li:focus:before {
 	content: "\f147";
 	display: block;
 	-webkit-font-smoothing: antialiased;
 	font: normal 26px/1 dashicons;
-	color: #555d66;
 	position: absolute;
 	top: 7px;
 	left: 5px;
@@ -691,8 +656,9 @@ div#widgets-right .widget-top:hover,
 }
 
 .widgets-chooser li.widgets-chooser-selected {
-	background: #00a0d2;
-	color: #fff;
+	background: $app_highlight_color;
+	color: $text_color;
+	font-weight: 700;
 }
 
 .widgets-chooser li.widgets-chooser-selected:before,
@@ -701,7 +667,7 @@ div#widgets-right .widget-top:hover,
 	display: block;
 	-webkit-font-smoothing: antialiased;
 	font: normal 26px/1 dashicons;
-	color: #fff;
+	color: $text_color;
 	position: absolute;
 	top: 7px;
 	left: 5px;

@@ -130,47 +130,6 @@ ul.striped > :nth-child(odd),
 }
 
 /**
- * Media
- */
-.media-modal,
-.media-modal-content,
-.media-frame-content {
-	background: $body_background;
-	border-color: $form_border_color;
-}
-
-.app-core-ui .attachment
-.media-frame-toolbar .media-toolbar,
-.media-sidebar,
-.media-menu .separator,
-.media-router .active,
-.media-router > a.active:last-child,
-.media-frame.hide-router .media-frame-title,
-.media-selection .button-link,
-.attachment-info,
-.edit-attachment-frame .attachment-info,
-.edit-attachment-frame .attachment-info .details,
-.edit-attachment-frame .attachment-info .settings,
-.media-modal .imgedit-wrap .imgedit-settings,
-.media-modal .imgedit-group,
-.upload-php .media-modal-close,
-.edit-attachment-frame .edit-media-header .left,
-.edit-attachment-frame .edit-media-header .right,
-.image-details .column-settings,
-.image-details .column-settings h3, /* Back-compat for pre-4.4 */
-.image-details .column-settings h2,
-.drag-drop #drag-drop-area {
-	border-color: $form_border_color;
-}
-
-.edit-attachment-frame .edit-media-header .left.disabled,
-.edit-attachment-frame .edit-media-header .right.disabled,
-.edit-attachment-frame .edit-media-header .left.disabled:hover,
-.edit-attachment-frame .edit-media-header .right.disabled:hover {
-	color: darken($color: $form_text_color, $amount: 60%);
-}
-
-/**
  * Forms
  *
  * Overrides default styles compiled from
@@ -275,6 +234,66 @@ input {
 		color: $link_action_color;
 	}
 }
+
+/**
+ * Media
+ */
+.media-modal,
+.media-modal-content,
+.media-frame-content {
+	background: $body_background;
+	border-color: $form_border_color;
+}
+
+.app-core-ui .attachment
+.media-frame-toolbar .media-toolbar,
+.media-sidebar,
+.media-menu .separator,
+.media-router .active,
+.media-router > a.active:last-child,
+.media-frame.hide-router .media-frame-title,
+.media-selection .button-link,
+.attachment-info,
+.edit-attachment-frame .attachment-info,
+.edit-attachment-frame .attachment-info .details,
+.edit-attachment-frame .attachment-info .settings,
+.media-modal .imgedit-wrap .imgedit-settings,
+.media-modal .imgedit-group,
+.upload-php .media-modal-close,
+.edit-attachment-frame .edit-media-header .left,
+.edit-attachment-frame .edit-media-header .right,
+.image-details .column-settings,
+.image-details .column-settings h3, /* Back-compat for pre-4.4 */
+.image-details .column-settings h2,
+.drag-drop #drag-drop-area,
+.widget-top,
+.menu-item-handle,
+.widget-inside,
+#menu-settings-column .accordion-container,
+#menu-management .menu-edit,
+.manage-menus,
+table.widefat,
+.stuffbox,
+p.popular-tags,
+.widgets-holder-wrap,
+.wp-editor-container,
+.popular-tags,
+.feature-filter,
+.imgedit-group,
+.comment-ays {
+	border-color: $form_border_color;
+}
+
+.edit-attachment-frame .edit-media-header .left.disabled,
+.edit-attachment-frame .edit-media-header .right.disabled,
+.edit-attachment-frame .edit-media-header .left.disabled:hover,
+.edit-attachment-frame .edit-media-header .right.disabled:hover {
+	color: darken($color: $form_text_color, $amount: 60%);
+}
+
+/**
+* Themes
+*/
 
 /**
  * Unique styles

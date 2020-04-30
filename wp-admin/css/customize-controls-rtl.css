@@ -1,3 +1,10 @@
+/**
+ * General app color variables
+ *
+ * These styles are primarily used in administration pages,
+ * but also common features such as the user toolbar. For this
+ * reason the file is not kept in the css/admin directory.
+ */
 body {
   overflow: hidden;
   -webkit-text-size-adjust: 100%;
@@ -2372,8 +2379,7 @@ p.customize-section-description {
   text-align: left;
   /* Because there're only one or two actions, match the UI pattern of media modals and right-align the action. */
   padding: 10px 25px;
-  background: #eee;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #888888;
 }
 
 .wp-customizer .theme-overlay .theme-actions .theme-install.preview {
@@ -2457,7 +2463,6 @@ body.cheatin h1 {
   clear: both;
   color: #555d66;
   font-size: 24px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   margin: 30px 0 0 0;
   padding: 0;
   padding-bottom: 7px;
