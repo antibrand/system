@@ -1,51 +1,87 @@
 /**
- * SASS/SCSS color variables
- *
- * @link https://sass-lang.com/documentation/variables
+ * Sefault dark color scheme
  */
 
- // Color name variables.
-$white: #ffffff;
-$off_white: #eeeeee;
-$pale_gray: #cccccc;
-$light_gray: #888888;
-$medium_gray: #555555;
-$dark_gray: #333333;
-$near_black: #121212;
-$black: #000000;
-$app_green: #44aa11;
-$app_yellow: #ffbb00;
-$app_orange: #ee6600;
-$app_red: #dd0000;
+// Import general app variables.
+@import '../../../includes/modules/_colors';
 
-// Global app admin variables.
-$body_background: #252525;
+// Global app color variables.
+$app_primary_color: $app_yellow;
+$app_secondary_color: #222222;
+$app_tertiary_color: #3ad4fb;
+$app_highlight_color: $app_yellow;
+
+$body_background: $app_secondary_color;
 $text_color: $white;
-$link_color: #3ad4fb;
-$link_action_color: darken( $link_color, 10% );
-$app_highlight_color: #3ad4fb;
+$link_color: $app_tertiary_color;
+$link_action_color: lighten( $link_color, 12% );
 
 $notify_color: $app_orange;
 $error_color: $app_red;
 $warning_color: $app_yellow;
 $success_color: $app_green;
 
-$menu_base_color: #1c1c1c;
-$menu_text_color: $white;
-$menu_icon_color: hsl( hue( $menu_base_color ), 7%, 95% );
+// Form color variables.
+$form_background_color: lighten($color: $app_secondary_color, $amount: 5%);
+$form_border_color: lighten($color: $app_secondary_color, $amount: 5%);
+$form_text_color: $text_color;
+$form_action_background_color: $form_background_color;
+$form_action_border_color: $link_action_color;
+$form_action_text_color: $text_color;
+
+$form_focus: $link_action_color;
+$form_checked: $link_action_color;
+
+// Button color variables.
+$button_background_color: $app_tertiary_color;
+$button_border_color: lighten($color: $app_secondary_color, $amount: 5%);
+$button_text_color: $text_color;
+$button_action_background_color: $app_highlight_color;
+$button_action_border_color: $button_border_color;
+$button_action_text_color: $text_color;
+
+// Admin menu & admin-bar color variables.
+$menu_base_color: $app_secondary_color;
+$menu_text_color: $text_color;
+$menu_icon_color: darken( $menu_text_color, 25% );
 $button_color: $app_highlight_color;
-$form_checked: $app_highlight_color;
 
-$menu_highlight_text: #fff;
-$menu_highlight_icon: $menu_base_color;
-$menu_highlight_background: #ffee00;
+$menu_icon: $menu_icon_color;
+$menu_background: $menu_base_color;
 
-$menu_bubble_text: #fff;
-$menu-avatar-frame: #aaa;
-$menu_submenu_background: #333;
+$menu_highlight_text: $menu_text_color;
+$menu_highlight_icon: $menu_text_color;
+$menu_highlight_background: $app_highlight_color;
 
-$menu_collapse_text: #777;
-$menu_collapse_focus_icon: #555;
+$menu_current_text: $menu_highlight_text;
+$menu_current_icon: $menu_highlight_icon;
+$menu_current_background: $menu_highlight_background;
+
+$menu_submenu_text: mix( $menu_base_color, $menu_text_color, 30% );
+$menu_submenu_background: darken( $menu_base_color, 7% );
+$menu_submenu_background_alt: desaturate( lighten( $menu_background, 7% ), 7% );
+
+$menu_submenu_focus_text: $app_highlight_color;
+$menu_submenu_current_text: $menu_text_color;
+
+$menu_bubble_text: $menu_text_color;
+$menu_bubble_background: $notify_color;
+$menu_bubble_current_text: $menu_text_color;
+$menu_bubble_current_background: $menu_submenu_background;
+
+$menu_collapse_text: $menu_icon;
+$menu_collapse_icon: $menu_icon;
+$menu_collapse_focus_text: $menu_text_color;
+$menu_collapse_focus_icon: $menu_highlight_icon;
+
+$adminbar_avatar_frame: lighten( $menu_background, 7% );
+$adminbar_input_background: lighten( $menu_background, 7% );
+
+$menu_customizer_text: mix( $menu_base_color, $menu_text_color, 40% );
+
+body {
+	background-color: $app_secondary_color;
+}
 
 /**
  * Override default dark text colors
@@ -131,11 +167,14 @@ textarea,
 	color: $menu_text_color;
 }
 
-a,
-#screen-meta-links .show-settings:hover,
-#screen-meta-links .show-settings:active,
-#screen-meta-links .show-settings:focus {
-	color: $app_highlight_color;
+a {
+	color: $link_color;
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $link_action_color;
+	}
 }
 
 input:disabled,
@@ -230,7 +269,6 @@ textarea.disabled,
 .postbox,
 .postbox .hndle,
 .stuffbox .hndle,
-.welcome-panel,
 .js #dashboard_quick_press .drafts,
 .activity-block,
 #dashboard_activity .subsubsub,
@@ -289,8 +327,8 @@ p.popular-tags,
 .contextual-help-tabs .active a,
 .widefat thead th,
 .widefat thead td {
-	background: $menu_submenu_background;
-	border-color: $menu_base_color;
+	background-color: $form_background_color;
+	border-color: darken($color: $white, $amount: 70%);
 }
 
 .wp-editor-container,
@@ -306,7 +344,7 @@ div.mce-statusbar,
 #post-status-info,
 .wp-switch-editor,
 .quicktags-toolbar {
-	background: $menu_submenu_background !important;
+	background: $menu_submenu_background;
 	border-color: $menu_base_color !important;
 	color: $menu_text_color !important;
 }
@@ -404,7 +442,7 @@ ul.striped > :nth-child(2n+1), .alternate,
 .media-modal .trash-attachment,
 .media-modal .untrash-attachment,
 .button-link-delete {
-	color: #f00;
+	color: $app_red;
 }
 
 .plugins .active td,

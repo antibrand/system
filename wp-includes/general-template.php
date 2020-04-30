@@ -3888,16 +3888,14 @@ function paginate_links( $args = '' ) {
  *         '#07273E', '#14568A', '#D54E21', '#2683AE'
  *     ) );
  *
- * @since 2.5.0
- *
+ * @since  WP 2.5.0
  * @global array $_wp_admin_css_colors
- *
- * @param string $key    The unique key for this theme.
- * @param string $name   The name of the theme.
- * @param string $url    The URL of the CSS file containing the color scheme.
- * @param array  $colors Optional. An array of CSS color definition strings which are used
+ * @param  string $key    The unique key for this theme.
+ * @param  string $name   The name of the theme.
+ * @param  string $url    The URL of the CSS file containing the color scheme.
+ * @param  array  $colors Optional. An array of CSS color definition strings which are used
  *                       to give the user a feel for the theme.
- * @param array  $icons {
+ * @param  array  $icons {
  *     Optional. CSS color definitions used to color any SVG icons.
  *
  *     @type string $base    SVG icon base color.
@@ -3905,24 +3903,27 @@ function paginate_links( $args = '' ) {
  *     @type string $current SVG icon color of current admin menu link.
  * }
  */
-function wp_admin_css_color( $key, $name, $url, $colors = array(), $icons = array() ) {
+function wp_admin_css_color( $key, $name, $url, $colors = [], $icons = [] ) {
+
 	global $_wp_admin_css_colors;
 
-	if ( !isset($_wp_admin_css_colors) )
-		$_wp_admin_css_colors = array();
+	if ( ! isset( $_wp_admin_css_colors ) ) {
+		$_wp_admin_css_colors = [];
+	}
 
-	$_wp_admin_css_colors[$key] = (object) array(
-		'name' => $name,
-		'url' => $url,
-		'colors' => $colors,
+	$_wp_admin_css_colors[$key] = (object) [
+		'name'        => $name,
+		'url'         => $url,
+		'colors'      => $colors,
 		'icon_colors' => $icons,
-	);
+	];
 }
 
 /**
  * Registers the default Admin color schemes
  *
- * @since 3.0.0
+ * @since WP 3.0.0 User color schemes feature.
+ * @since 1.0.0 Using `app_assets_url`.
  */
 function register_admin_color_schemes() {
 
@@ -3931,8 +3932,8 @@ function register_admin_color_schemes() {
 
 	wp_admin_css_color( 'default', _x( 'Default', 'admin color scheme' ),
 		false,
-		array( '#e3e3e3', '#cccccc', '#888888', '#222222' ),
-		array( 'base' => '#888888', 'focus' => '#cccccc', 'current' => '#cccccc' )
+		[ '#e3e3e3', '#cccccc', '#888888', '#222222' ],
+		[ 'base' => '#888888', 'focus' => '#cccccc', 'current' => '#cccccc' ]
 	);
 
 	// Other color schemes are not available when running out of src
@@ -3941,15 +3942,15 @@ function register_admin_color_schemes() {
 	}
 
 	wp_admin_css_color( 'dark', _x( 'Dark', 'admin color scheme' ),
-		admin_url( "css/colors/dark/colors$suffix.css" ),
-		array( '#1e1e1e', '#333333', '#ffee00', '#3ad4fb' ),
-		array( 'base' => '#999999', 'focus' => '#cccccc', 'current' => '#cccccc' )
+		app_assets_url( "css/admin/colors/dark/colors$suffix.css" ),
+		[ '#1e1e1e', '#333333', '#ffee00', '#3ad4fb' ],
+		[ 'base' => '#999999', 'focus' => '#cccccc', 'current' => '#cccccc' ]
 	);
 
 	wp_admin_css_color( 'fresh', _x( 'Fresh (Classic)', 'admin color scheme' ),
-		admin_url( "css/colors/fresh/colors$suffix.css" ),
-		array( '#222222', '#333333', '#0073aa', '#00a0d2' ),
-		array( 'base' => '#82878c', 'focus' => '#00a0d2', 'current' => '#ffffff' )
+		app_assets_url( "css/admin/colors/fresh/colors$suffix.css" ),
+		[ '#222222', '#333333', '#0073aa', '#00a0d2' ],
+		[ 'base' => '#82878c', 'focus' => '#00a0d2', 'current' => '#ffffff' ]
 	);
 
 }
@@ -3959,24 +3960,24 @@ function register_admin_color_schemes() {
  *
  * @see WP_Styles::_css_href and its {@see 'style_loader_src'} filter.
  *
- * @since 2.3.0
- *
- * @param string $file file relative to wp-admin/ without its ".css" extension.
+ * @since  WP 2.3.0
+ * @param  string $file file relative to wp-admin/ without its ".css" extension.
  * @return string
  */
 function wp_admin_css_uri( $file = 'wp-admin' ) {
-	if ( defined('WP_INSTALLING') ) {
+
+	if ( defined( 'WP_INSTALLING' ) ) {
 		$_file = "./$file.css";
 	} else {
-		$_file = admin_url("$file.css");
+		$_file = admin_url( "$file.css" );
 	}
+
 	$_file = add_query_arg( 'version', get_bloginfo( 'version' ),  $_file );
 
 	/**
 	 * Filters the URI of an admin CSS file.
 	 *
 	 * @since 2.3.0
-	 *
 	 * @param string $_file Relative path to the file with query arguments attached.
 	 * @param string $file  Relative path to the file, minus its ".css" extension.
 	 */
@@ -3998,7 +3999,6 @@ function wp_admin_css_uri( $file = 'wp-admin' ) {
  * stylesheet link to that generated URL is printed.
  *
  * @since 2.3.0
- *
  * @param string $file       Optional. Style handle name or file name (without ".css" extension) relative
  * 	                         to wp-admin/. Defaults to 'wp-admin'.
  * @param bool   $force_echo Optional. Force the stylesheet link to be printed rather than enqueued.
