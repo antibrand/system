@@ -755,6 +755,12 @@ classes exist in paginate_links() but not seen in list table output. */
   text-decoration: none;
 }
 
+.view-switch a:hover, .view-switch a:focus, .view-switch a:active, .view-switch a.current {
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 .view-switch a:before {
   color: #888888;
   display: inline-block;

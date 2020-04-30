@@ -100,12 +100,74 @@ body {
 		border-color: $form_border_color;
 	}
 }
+
+.striped > tbody > :nth-child(odd),
+ul.striped > :nth-child(odd),
+.alternate {
+	background-color: lighten($color: $body_background, $amount: 3%);
+}
+
 .activity-block,
 #dashboard_activity .subsubsub,
 .metabox-holder .postbox-container .empty-container,
 #screen-meta,
 #contextual-help-back {
 	border-color: $form_border_color;
+}
+
+.view-switch a {
+	&:hover,
+	&:focus,
+	&:active,
+	&.current {
+		outline: none;
+		box-shadow: none;
+
+		&:before {
+			color: $app_tertiary_color
+		}
+	}
+}
+
+/**
+ * Media
+ */
+.media-modal,
+.media-modal-content,
+.media-frame-content {
+	background: $body_background;
+	border-color: $form_border_color;
+}
+
+.app-core-ui .attachment
+.media-frame-toolbar .media-toolbar,
+.media-sidebar,
+.media-menu .separator,
+.media-router .active,
+.media-router > a.active:last-child,
+.media-frame.hide-router .media-frame-title,
+.media-selection .button-link,
+.attachment-info,
+.edit-attachment-frame .attachment-info,
+.edit-attachment-frame .attachment-info .details,
+.edit-attachment-frame .attachment-info .settings,
+.media-modal .imgedit-wrap .imgedit-settings,
+.media-modal .imgedit-group,
+.upload-php .media-modal-close,
+.edit-attachment-frame .edit-media-header .left,
+.edit-attachment-frame .edit-media-header .right,
+.image-details .column-settings,
+.image-details .column-settings h3, /* Back-compat for pre-4.4 */
+.image-details .column-settings h2,
+.drag-drop #drag-drop-area {
+	border-color: $form_border_color;
+}
+
+.edit-attachment-frame .edit-media-header .left.disabled,
+.edit-attachment-frame .edit-media-header .right.disabled,
+.edit-attachment-frame .edit-media-header .left.disabled:hover,
+.edit-attachment-frame .edit-media-header .right.disabled:hover {
+	color: darken($color: $form_text_color, $amount: 60%);
 }
 
 /**

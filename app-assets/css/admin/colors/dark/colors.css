@@ -29,12 +29,69 @@ a:hover, a:focus {
   border-color: #626262;
 }
 
+.striped > tbody > :nth-child(odd),
+ul.striped > :nth-child(odd),
+.alternate {
+  background-color: #2a2a2a;
+}
+
 .activity-block,
 #dashboard_activity .subsubsub,
 .metabox-holder .postbox-container .empty-container,
 #screen-meta,
 #contextual-help-back {
   border-color: #626262;
+}
+
+.view-switch a:hover, .view-switch a:focus, .view-switch a:active, .view-switch a.current {
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.view-switch a:hover:before, .view-switch a:focus:before, .view-switch a:active:before, .view-switch a.current:before {
+  color: #3ad4fb;
+}
+
+/**
+ * Media
+ */
+.media-modal,
+.media-modal-content,
+.media-frame-content {
+  background: #222;
+  border-color: #626262;
+}
+
+.app-core-ui .attachment
+.media-frame-toolbar .media-toolbar,
+.media-sidebar,
+.media-menu .separator,
+.media-router .active,
+.media-router > a.active:last-child,
+.media-frame.hide-router .media-frame-title,
+.media-selection .button-link,
+.attachment-info,
+.edit-attachment-frame .attachment-info,
+.edit-attachment-frame .attachment-info .details,
+.edit-attachment-frame .attachment-info .settings,
+.media-modal .imgedit-wrap .imgedit-settings,
+.media-modal .imgedit-group,
+.upload-php .media-modal-close,
+.edit-attachment-frame .edit-media-header .left,
+.edit-attachment-frame .edit-media-header .right,
+.image-details .column-settings,
+.image-details .column-settings h3,
+.image-details .column-settings h2,
+.drag-drop #drag-drop-area {
+  border-color: #626262;
+}
+
+.edit-attachment-frame .edit-media-header .left.disabled,
+.edit-attachment-frame .edit-media-header .right.disabled,
+.edit-attachment-frame .edit-media-header .left.disabled:hover,
+.edit-attachment-frame .edit-media-header .right.disabled:hover {
+  color: #666666;
 }
 
 /**

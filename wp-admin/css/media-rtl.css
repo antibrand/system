@@ -8,7 +8,7 @@
 .media-item .describe {
   border-collapse: collapse;
   width: 100%;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #888888;
   clear: both;
   cursor: default;
 }
@@ -242,7 +242,7 @@
 
 .find-box-head {
   background: #fcfcfc;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #888888;
   height: 36px;
   font-size: 18px;
   font-weight: 600;
@@ -336,7 +336,7 @@
 .find-box-buttons {
   padding: 0.5em 16px;
   background: #fcfcfc;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #888888;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -389,13 +389,13 @@ form.upgrade .hint {
 #poststuff .inside .the-tagcloud {
   margin: 5px 0 10px;
   padding: 0.5em;
-  border: 1px solid #ddd;
+  border: 1px solid #888888;
   line-height: 1.8em;
   word-spacing: 3px;
 }
 
 .drag-drop #drag-drop-area {
-  border: 4px dashed #b4b9be;
+  border: 4px dashed #888888;
   height: 200px;
 }
 
@@ -405,7 +405,6 @@ form.upgrade .hint {
 }
 
 .drag-drop-inside p {
-  color: #a0a5aa;
   font-size: 14px;
   margin: 5px 0;
   display: none;
@@ -464,10 +463,9 @@ border color while dragging a file over the uploader drop area */
   width: auto;
   margin-top: 12px;
   padding: 0 16px;
-  border-right: 4px solid #dd3d36;
+  border-right: 4px solid #888888;
   -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
-  background-color: #fff;
 }
 
 .upload-php .mode-grid .hide-sidebar .media-sidebar {
@@ -540,8 +538,8 @@ border color while dragging a file over the uploader drop area */
 }
 
 .media-frame.mode-grid .selected.attachment {
-  -webkit-box-shadow: inset 0 0 0 5px #f1f1f1, inset 0 0 0 7px #ccc;
-          box-shadow: inset 0 0 0 5px #f1f1f1, inset 0 0 0 7px #ccc;
+  -webkit-box-shadow: inset 0 0 0 5px #f1f1f1, inset 0 0 0 7px #cccccc;
+          box-shadow: inset 0 0 0 5px #f1f1f1, inset 0 0 0 7px #cccccc;
 }
 
 .media-frame.mode-grid .attachment.details {
@@ -628,6 +626,10 @@ border color while dragging a file over the uploader drop area */
   overflow: hidden;
 }
 
+.media-modal {
+  background-color: #ffffff;
+}
+
 .upload-php .media-modal-close .media-modal-icon:before {
   content: "\f335";
   font-size: 22px;
@@ -645,7 +647,7 @@ border color while dragging a file over the uploader drop area */
   position: absolute;
   text-align: center;
   border: 0;
-  border-right: 1px solid #ddd;
+  border-right: 1px solid #888888;
   -webkit-transition: color .1s ease-in-out, background .1s ease-in-out;
   transition: color .1s ease-in-out, background .1s ease-in-out;
 }
@@ -683,7 +685,7 @@ border color while dragging a file over the uploader drop area */
 .edit-attachment-frame .edit-media-header .left:focus,
 .edit-attachment-frame .edit-media-header .right:focus {
   background: #ddd;
-  border-color: #ccc;
+  border-color: #cccccc;
   color: #000;
   outline: none;
   -webkit-box-shadow: none;
@@ -709,7 +711,7 @@ border color while dragging a file over the uploader drop area */
 .edit-attachment-frame .edit-media-header .right.disabled,
 .edit-attachment-frame .edit-media-header .left.disabled:hover,
 .edit-attachment-frame .edit-media-header .right.disabled:hover {
-  color: #ccc;
+  color: #cccccc;
   background: inherit;
   cursor: default;
   pointer-events: none;
@@ -787,8 +789,7 @@ border color while dragging a file over the uploader drop area */
   -webkit-box-shadow: inset 0px 4px 4px -4px rgba(0, 0, 0, 0.1);
           box-shadow: inset 0px 4px 4px -4px rgba(0, 0, 0, 0.1);
   border-bottom: 0;
-  border-right: 1px solid #ddd;
-  background: #f3f3f3;
+  border-right: 1px solid #888888;
 }
 
 .edit-attachment-frame .attachment-info .details,
@@ -799,7 +800,7 @@ border color while dragging a file over the uploader drop area */
   float: none;
   margin-bottom: 15px;
   padding-bottom: 15px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #888888;
 }
 
 .edit-attachment-frame .attachment-info .filename {
@@ -964,7 +965,7 @@ border color while dragging a file over the uploader drop area */
 }
 
 .imgedit-menu .button.disabled {
-  border-color: #ccc;
+  border-color: #cccccc;
   background-color: #ddd;
   color: #72777c;
   filter: alpha(opacity=50);

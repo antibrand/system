@@ -736,6 +736,14 @@ classes exist in paginate_links() but not seen in list table output. */
 	text-align: center;
 	line-height: 2rem;
 	text-decoration: none;
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.current {
+		outline: none;
+		box-shadow: none;
+	}
 }
 
 .view-switch a:before {

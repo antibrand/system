@@ -3,7 +3,7 @@
 .media-item .describe {
 	border-collapse: collapse;
 	width: 100%;
-	border-top: 1px solid #ddd;
+	border-top: 1px solid $form_border_color;
 	clear: both;
 	cursor: default;
 }
@@ -234,7 +234,7 @@
 
 .find-box-head {
 	background: #fcfcfc;
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid $form_border_color;
 	height: 36px;
 	font-size: 18px;
 	font-weight: 600;
@@ -327,7 +327,7 @@
 .find-box-buttons {
 	padding: 0.5em 16px;
 	background: #fcfcfc;
-	border-top: 1px solid #ddd;
+	border-top: 1px solid $form_border_color;
 	position: absolute;
 	bottom: 0;
 	right: 0;
@@ -382,13 +382,13 @@ form.upgrade .hint {
 #poststuff .inside .the-tagcloud {
 	margin: 5px 0 10px;
 	padding: 0.5em;
-	border: 1px solid #ddd;
+	border: 1px solid $form_border_color;
 	line-height: 1.8em;
 	word-spacing: 3px;
 }
 
 .drag-drop #drag-drop-area {
-	border: 4px dashed #b4b9be;
+	border: 4px dashed $form_border_color;
 	height: 200px;
 }
 
@@ -398,7 +398,6 @@ form.upgrade .hint {
 }
 
 .drag-drop-inside p {
-	color: #a0a5aa;
 	font-size: 14px;
 	margin: 5px 0;
 	display: none;
@@ -458,9 +457,8 @@ border color while dragging a file over the uploader drop area */
 	width: auto;
 	margin-top: 12px;
 	padding: 0 16px;
-	border-right: 4px solid #dd3d36;
+	border-right: 4px solid $form_border_color;
  	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
-	background-color: #fff;
 }
 
 .upload-php .mode-grid .hide-sidebar .media-sidebar {
@@ -533,7 +531,7 @@ border color while dragging a file over the uploader drop area */
 .media-frame.mode-grid .selected.attachment {
 	box-shadow:
 		inset 0 0 0 5px #f1f1f1,
-		inset 0 0 0 7px #ccc;
+		inset 0 0 0 7px $pale_gray;
 }
 
 .media-frame.mode-grid .attachment.details {
@@ -621,6 +619,10 @@ border color while dragging a file over the uploader drop area */
 	overflow: hidden;
 }
 
+.media-modal {
+	background-color: $body_background;
+}
+
 .upload-php .media-modal-close .media-modal-icon:before {
 	content: "\f335";
 	font-size: 22px;
@@ -630,7 +632,6 @@ border color while dragging a file over the uploader drop area */
 .edit-attachment-frame .edit-media-header .left,
 .edit-attachment-frame .edit-media-header .right {
 	cursor: pointer;
-	color: #72777c;
 	background-color: transparent;
 	height: 50px;
 	width: 50px;
@@ -638,7 +639,7 @@ border color while dragging a file over the uploader drop area */
 	position: absolute;
 	text-align: center;
 	border: 0;
-	border-right: 1px solid #ddd;
+	border-right: 1px solid $form_border_color;
 	transition: color .1s ease-in-out, background .1s ease-in-out;
 }
 
@@ -673,8 +674,8 @@ border color while dragging a file over the uploader drop area */
 .edit-attachment-frame .edit-media-header .right:hover,
 .edit-attachment-frame .edit-media-header .left:focus,
 .edit-attachment-frame .edit-media-header .right:focus {
-	background: #ddd;
-	border-color: #ccc;
+	background: $app_highlight_color;
+	border-color: $form_border_color;
 	color: #000;
 	outline: none;
 	box-shadow: none;
@@ -699,7 +700,7 @@ border color while dragging a file over the uploader drop area */
 .edit-attachment-frame .edit-media-header .right.disabled,
 .edit-attachment-frame .edit-media-header .left.disabled:hover,
 .edit-attachment-frame .edit-media-header .right.disabled:hover {
-	color: #ccc;
+	color: $pale_gray;
 	background: inherit;
 	cursor: default;
 	pointer-events: none;
@@ -772,8 +773,7 @@ border color while dragging a file over the uploader drop area */
 	height: 100%;
 	box-shadow: inset 0px 4px 4px -4px rgba(0, 0, 0, 0.1);
 	border-bottom: 0;
-	border-right: 1px solid #ddd;
-	background: #f3f3f3;
+	border-right: 1px solid $form_border_color;
 }
 
 .edit-attachment-frame .attachment-info .details,
@@ -783,12 +783,11 @@ border color while dragging a file over the uploader drop area */
 	float: none;
 	margin-bottom: 15px;
 	padding-bottom: 15px;
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid $form_border_color;
 }
 
 .edit-attachment-frame .attachment-info .filename {
 	font-weight: 400;
-	color: #666;
 }
 
 .edit-attachment-frame .attachment-info .thumbnail {
@@ -950,7 +949,7 @@ border color while dragging a file over the uploader drop area */
 }
 
 .imgedit-menu .button.disabled {
-	border-color: #ccc;
+	border-color: $pale_gray;
 	background-color: #ddd;
 	color: #72777c;
 	filter: alpha(opacity=50);

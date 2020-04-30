@@ -124,20 +124,7 @@ p.popular-tags,
 .feature-filter,
 .imgedit-group,
 .comment-ays {
-	border: 1px solid #e5e5e5;
-	box-shadow: 0 1px 1px rgba(0,0,0,0.04);
-}
-
-table.widefat,
-.wp-editor-container,
-.stuffbox,
-p.popular-tags,
-.widgets-holder-wrap,
-.popular-tags,
-.feature-filter,
-.imgedit-group,
-.comment-ays {
-	background: #fff;
+	border: 1px solid $form_border_color;
 }
 
 /* general */
@@ -381,12 +368,12 @@ code {
 
 .widefat thead th,
 .widefat thead td {
-	border-bottom: 1px solid #e1e1e1;
+	border-bottom: 1px solid $form_border_color;
 }
 
 .widefat tfoot th,
 .widefat tfoot td {
-	border-top: 1px solid #e1e1e1;
+	border-top: 1px solid $form_border_color;
 	border-bottom: none;
 }
 
@@ -520,7 +507,7 @@ div#widgets-right .widget-top:hover,
 .striped > tbody > :nth-child(odd),
 ul.striped > :nth-child(odd),
 .alternate {
-	background-color: #f9f9f9;
+	background-color: darken($color: $body_background, $amount: 3%);
 }
 
 .bar {
@@ -1715,31 +1702,13 @@ html.wp-toolbar {
 	box-sizing: border-box;
 }
 
-.widefat th,
-.widefat td {
-	color: #555;
-}
-
 .widefat thead td,
 .widefat tfoot td {
 	font-weight: 400;
 }
 
-.widefat thead tr th,
-.widefat thead tr td,
-.widefat tfoot tr th,
-.widefat tfoot tr td {
-	color: #333;
-}
-
 .widefat td p {
 	margin: 2px 0 0.8em;
-}
-
-.widefat p,
-.widefat ol,
-.widefat ul {
-	color: #333;
 }
 
 .widefat .column-comment p {
