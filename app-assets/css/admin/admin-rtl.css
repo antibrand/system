@@ -3769,7 +3769,7 @@ html.wp-toolbar {
 }
 
 .metabox-holder .postbox-container .empty-container {
-  border: 3px dashed #b4b9be;
+  border: 3px dotted #cccccc;
   height: 250px;
   position: relative;
 }

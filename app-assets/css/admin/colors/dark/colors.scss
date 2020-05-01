@@ -14,7 +14,7 @@ $app_highlight_color: $app_yellow;
 $body_background: #222;
 $text_color: $white;
 $link_color: $app_tertiary_color;
-$link_action_color: lighten( $link_color, 20% );
+$link_action_color: lighten( $link_color, 25% );
 
 $notify_color: $app_orange;
 $error_color: $app_red;
@@ -22,8 +22,8 @@ $warning_color: $app_yellow;
 $success_color: $app_green;
 
 // Form color variables.
-$form_background_color: lighten($color: $app_secondary_color, $amount: 5%);
-$form_border_color: lighten($color: $app_secondary_color, $amount: 25%);
+$form_background_color: lighten( $color: $app_secondary_color, $amount: 5% );
+$form_border_color: lighten( $color: $app_secondary_color, $amount: 25% );
 $form_text_color: $text_color;
 $form_action_background_color: $form_background_color;
 $form_action_border_color: $link_action_color;
@@ -34,7 +34,7 @@ $form_checked: $link_action_color;
 
 // Button color variables.
 $button_background_color: $app_tertiary_color;
-$button_border_color: lighten($color: $app_secondary_color, $amount: 5%);
+$button_border_color: lighten( $color: $app_secondary_color, $amount: 5% );
 $button_text_color: $black;
 $button_action_background_color: $app_highlight_color;
 $button_action_border_color: $button_border_color;
@@ -104,7 +104,7 @@ body {
 .striped > tbody > :nth-child(odd),
 ul.striped > :nth-child(odd),
 .alternate {
-	background-color: lighten($color: $body_background, $amount: 3%);
+	background-color: lighten( $color: $body_background, $amount: 3% );
 }
 
 .activity-block,
@@ -188,8 +188,8 @@ input {
 
 	&:disabled,
 	&.disabled {
-		background: darken($color: $form_background_color, $amount: 3.5%);
-		color: darken($color: $form_text_color, $amount: 60%);
+		background: darken( $color: $form_background_color, $amount: 3.5% );
+		color: darken( $color: $form_text_color, $amount: 60% );
 	}
 }
 
@@ -220,8 +220,8 @@ input {
 	&:disabled,
 	&.disabled,
 	&.button-disabled {
-		background: lighten($color: $body_background, $amount: 10%);
-		color: darken($color: $text_color, $amount: 60%) ;
+		background: lighten( $color: $body_background, $amount: 10% );
+		color: darken( $color: $text_color, $amount: 60% ) ;
 	}
 }
 
@@ -288,7 +288,7 @@ p.popular-tags,
 .edit-attachment-frame .edit-media-header .right.disabled,
 .edit-attachment-frame .edit-media-header .left.disabled:hover,
 .edit-attachment-frame .edit-media-header .right.disabled:hover {
-	color: darken($color: $form_text_color, $amount: 60%);
+	color: darken( $color: $form_text_color, $amount: 60% );
 }
 
 /**

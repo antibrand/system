@@ -18,7 +18,7 @@ a {
 }
 
 a:hover, a:focus {
-  color: #9eeafd;
+  color: #b7effe;
 }
 
 .postbox {
@@ -104,7 +104,7 @@ input[type="url"]:focus,
 input[type="week"]:focus,
 select:focus,
 textarea:focus {
-  border-color: #9eeafd;
+  border-color: #b7effe;
 }
 
 input[type="radio"]:checked + label:before {
@@ -112,11 +112,11 @@ input[type="radio"]:checked + label:before {
 }
 
 input[type="radio"]:checked:before {
-  background-color: #9eeafd;
+  background-color: #b7effe;
 }
 
 input[type="checkbox"]:checked:before {
-  color: #9eeafd;
+  color: #b7effe;
 }
 
 input:disabled, input.disabled {
@@ -173,7 +173,7 @@ input:disabled, input.disabled {
 }
 
 .button-link:hover, .button-link:focus, .button-link:active {
-  color: #9eeafd;
+  color: #b7effe;
 }
 
 /**
