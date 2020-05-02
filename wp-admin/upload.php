@@ -69,7 +69,7 @@ if ( 'grid' === $mode ) {
 	require_once( ABSPATH . 'wp-admin/admin-header.php' );
 	?>
 	<div class="wrap" id="wp-media-grid" data-search="<?php _admin_search_query() ?>">
-		<h1 class="wp-heading-inline"><?php echo esc_html( $title ); ?></h1>
+		<h1><?php echo esc_html( $title ); ?></h1>
 
 		<hr class="wp-header-end">
 
@@ -209,7 +209,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 ?>
 
 <div class="wrap">
-<h1 class="wp-heading-inline"><?php echo esc_html( $title ); ?></h1>
+<h1><?php echo esc_html( $title ); ?></h1>
 
 <?php
 if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {

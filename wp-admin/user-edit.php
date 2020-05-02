@@ -233,7 +233,7 @@ if ( isset( $errors ) && is_wp_error( $errors ) ) : ?>
 <?php endif; ?>
 
 	<div class="wrap" id="profile-page">
-		<h1 class="wp-heading-inline"><?php echo esc_html( $title ); ?></h1>
+		<h1><?php echo esc_html( $title ); ?></h1>
 
 		<?php
 		if ( ! IS_PROFILE_PAGE ) {

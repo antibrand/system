@@ -211,7 +211,7 @@ if ( isset( $_REQUEST['updated'] ) && $_REQUEST['updated'] == 'true' && ! empty(
 }
 	?>
 <div class="wrap">
-	<h1 class="wp-heading-inline"><?php esc_html_e( 'Users' ); ?></h1>
+	<h1><?php esc_html_e( 'Users' ); ?></h1>
 
 	<?php
 	if ( current_user_can( 'create_users') ) : ?>

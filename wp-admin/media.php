@@ -99,7 +99,7 @@ case 'edit' :
 ?>
 
 <div class="wrap">
-<h1 class="wp-heading-inline"><?php
+<h1><?php
 echo esc_html( $title );
 ?></h1>
 

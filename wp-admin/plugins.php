@@ -628,7 +628,7 @@ if ( ! empty( $invalid ) ) {
 
 	});
 	</script>
-	<h1 class="wp-heading-inline"><?php echo esc_html( $title ); ?></h1>
+	<h1><?php echo esc_html( $title ); ?></h1>
 
 	<p class="description"><?php _e( 'Plugins extend the functionality of the website management system.' ); ?></p>
 

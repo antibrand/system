@@ -276,7 +276,7 @@ if ( is_plugin_active( 'wpcat2tag-importer/wpcat2tag-importer.php' ) ) {
 ?>
 
 <div class="wrap">
-<h1 class="wp-heading-inline"><?php echo esc_html( $title ); ?></h1>
+<h1><?php echo esc_html( $title ); ?></h1>
 
 <?php
 if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {

@@ -192,7 +192,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 ?>
 
 <div class="wrap">
-<h1 class="wp-heading-inline"><?php
+<h1><?php
 if ( $post_id ) {
 	/* translators: %s: link to post */
 	printf( __( 'Comments on &#8220;%s&#8221;' ),

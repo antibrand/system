@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Page title.
 $title = sprintf(
-	'<h1 class="wp-heading-inline">%1s %2s</h1>',
+	'<h1>%1s %2s</h1>',
 	get_bloginfo( 'name' ),
 	__( 'Display Options', 'antibrand' )
 );

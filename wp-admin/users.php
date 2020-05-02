@@ -527,7 +527,7 @@ default:
 
 <div class="wrap">
 
-	<h1 class="wp-heading-inline"><?php echo esc_html( $title ); ?></h1>
+	<h1><?php echo esc_html( $title ); ?></h1>
 
 	<?php
 	if ( strlen( $usersearch ) ) {

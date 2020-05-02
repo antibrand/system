@@ -295,7 +295,7 @@ $bulk_counts = array_filter( $bulk_counts );
 require_once( ABSPATH . 'wp-admin/admin-header.php' );
 ?>
 <div class="wrap">
-<h1 class="wp-heading-inline"><?php
+<h1><?php
 echo esc_html( $post_type_object->labels->name );
 ?></h1>
 
