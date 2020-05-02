@@ -86,10 +86,10 @@ if ( $get_theme_tags ) {
 
 <div class="wrap theme-info-page">
 	<h1><?php _e( 'Active Theme Information', 'antibrand' ); ?></h1>
-	<p class="description"><?php echo apply_filters( 'igp_theme_page_description', $get_theme_desc ); ?></p>
+	<p class="description"><?php echo apply_filters( 'ab_theme_page_description', $get_theme_desc ); ?></p>
 	<hr />
 	<main>
-		<h2><?php echo apply_filters( 'igp_theme_page_details_title', esc_html__( 'Theme Details', 'antibrand' ) ); ?></h2>
+		<h2><?php echo apply_filters( 'ab_theme_page_details_title', esc_html__( 'Theme Details', 'antibrand' ) ); ?></h2>
 		<ul>
 			<li><strong><?php esc_html_e( 'Theme Name: ', 'antibrand' ); ?></strong><?php echo $get_theme_name; ?></li>
 			<?php if ( $get_template ) : ?>
