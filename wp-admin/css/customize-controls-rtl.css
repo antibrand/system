@@ -1,10 +1,3 @@
-/**
- * General app color variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- */
 body {
   overflow: hidden;
   -webkit-text-size-adjust: 100%;

@@ -4,13 +4,6 @@
 /**
  * Browser reset
  */
-/**
- * General app color variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- */
 html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, button, input, select, textarea, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -344,34 +337,6 @@ b, strong, optgroup {
  *
  * These styles are primarily used in administration pages.
  */
-/**
- * General app typography variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- */
-/**
-  * Font sizes
-  *
-  * The font size variables presume a browser default of 16px,
-  * in which case the variable number is equivelent to a px number.
-  *
-  * SASS can't have variables beginning with a numeral.
-  */
-/**
- * Font stack variables
- *
- * The $sans and $serif stacks are default. The $inter and $crimson
- * stacks are used in @supports( font-variation-settings ) queries.
- */
-/**
- * General app color variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 1rem;
@@ -422,8 +387,8 @@ h3 {
  * Main content area of the admin
  */
 .app-content a {
-  -webkit-transition: color .1s;
-  transition: color .1s;
+  -webkit-transition: all .15s;
+  transition: all .15s;
 }
 
 /**
@@ -458,7 +423,9 @@ body.mobile.modal-open .admin-page-wrap {
 }
 
 .admin-page-content {
+  position: relative;
   height: 100%;
+  min-height: 100vh;
 }
 
 .admin-page-content,
@@ -472,8 +439,7 @@ body.mobile.modal-open .admin-page-wrap {
 }
 
 .app-content {
-  padding-bottom: 65px;
-  float: left;
+  padding-bottom: 4rem;
   width: 100%;
   overflow: visible !important;
 }
@@ -510,34 +476,6 @@ body.mobile.modal-open .admin-page-wrap {
 
 /**
  * Administration form styles
- */
-/**
- * General app typography variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- */
-/**
-  * Font sizes
-  *
-  * The font size variables presume a browser default of 16px,
-  * in which case the variable number is equivelent to a px number.
-  *
-  * SASS can't have variables beginning with a numeral.
-  */
-/**
- * Font stack variables
- *
- * The $sans and $serif stacks are default. The $inter and $crimson
- * stacks are used in @supports( font-variation-settings ) queries.
- */
-/**
- * General app color variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
  */
 /**
  * General form styles
@@ -714,8 +652,7 @@ input[type="button"], input[type="reset"], input[type="submit"], input[type="ima
 }
 
 input[type="file"] {
-  margin-bottom: 1em;
-  padding: 1em;
+  padding: 0.425em 1em;
   cursor: pointer;
 }
 
@@ -1825,34 +1762,6 @@ table.form-table td .updated p {
 }
 
 /**
- * General app typography variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- */
-/**
-  * Font sizes
-  *
-  * The font size variables presume a browser default of 16px,
-  * in which case the variable number is equivelent to a px number.
-  *
-  * SASS can't have variables beginning with a numeral.
-  */
-/**
- * Font stack variables
- *
- * The $sans and $serif stacks are default. The $inter and $crimson
- * stacks are used in @supports( font-variation-settings ) queries.
- */
-/**
- * General app color variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- */
-/**
  * General button styles
  *
  * Button padding of 0.75rem top & bottom plus
@@ -1877,6 +1786,8 @@ table.form-table td .updated p {
   white-space: nowrap;
   cursor: pointer;
   -webkit-appearance: none;
+  -webkit-transition: all .15s;
+  transition: all .15s;
 }
 
 .button.button-small,
@@ -2010,34 +1921,6 @@ table.form-table td .updated p {
 /**
  * Styles common to all administration screens
  */
-/**
- * General app typography variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- */
-/**
-  * Font sizes
-  *
-  * The font size variables presume a browser default of 16px,
-  * in which case the variable number is equivelent to a px number.
-  *
-  * SASS can't have variables beginning with a numeral.
-  */
-/**
- * Font stack variables
- *
- * The $sans and $serif stacks are default. The $inter and $crimson
- * stacks are used in @supports( font-variation-settings ) queries.
- */
-/**
- * General app color variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- */
 /* 2 columns main area */
 #taxonomy-form {
   float: right;
@@ -2158,7 +2041,7 @@ p.popular-tags,
 .feature-filter,
 .imgedit-group,
 .comment-ays {
-  border: 1px solid #888888;
+  border: 1px solid #cccccc;
 }
 
 /* general */
@@ -2396,12 +2279,12 @@ code {
 
 .widefat thead th,
 .widefat thead td {
-  border-bottom: 1px solid #888888;
+  border-bottom: 1px solid #cccccc;
 }
 
 .widefat tfoot th,
 .widefat tfoot td {
-  border-top: 1px solid #888888;
+  border-top: 1px solid #cccccc;
   border-bottom: none;
 }
 
@@ -2496,10 +2379,8 @@ code {
 
 .app-core-ui .button.page-title-action,
 .app-core-ui .button.page-title-action:active {
-  margin-right: 4px;
-  padding: 5px 8px 4px;
   position: relative;
-  vertical-align: text-bottom;
+  vertical-align: bottom;
   text-decoration: none;
   line-height: normal;
   cursor: pointer;
@@ -2605,7 +2486,7 @@ img.emoji {
 
 .postbox .hndle,
 .stuffbox .hndle {
-  border-bottom: 1px solid #888888;
+  border-bottom: 1px solid #cccccc;
 }
 
 .icon32 {
@@ -3672,16 +3553,8 @@ form.upgrade .hint {
 
 .contextual-help-tabs a {
   display: block;
-  padding: 5px 12px 5px 5px;
-  line-height: 18px;
+  padding: 0.3em 0.5em;
   text-decoration: none;
-  border: 1px solid transparent;
-  border-left: none;
-  border-right: none;
-}
-
-.contextual-help-tabs a:hover {
-  color: #333;
 }
 
 .contextual-help-tabs .active {
@@ -3851,7 +3724,7 @@ html.wp-toolbar {
 }
 
 .sortable-placeholder {
-  border: 1px dashed #888888;
+  border: 1px dashed #cccccc;
   margin-bottom: 20px;
 }
 
@@ -5487,9 +5360,6 @@ img {
   #screen-meta-links {
     min-height: 36px;
   }
-  .wrap h1.wp-heading-inline {
-    margin-bottom: 0.5em;
-  }
   /* Feedback Messages */
   .notice,
   .wrap div.updated,
@@ -5689,34 +5559,6 @@ img {
 
 /**
  * Styles for administration menu
- */
-/**
- * General app typography variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- */
-/**
-  * Font sizes
-  *
-  * The font size variables presume a browser default of 16px,
-  * in which case the variable number is equivelent to a px number.
-  *
-  * SASS can't have variables beginning with a numeral.
-  */
-/**
- * Font stack variables
- *
- * The $sans and $serif stacks are default. The $inter and $crimson
- * stacks are used in @supports( font-variation-settings ) queries.
- */
-/**
- * General app color variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
  */
 .icon16 {
   height: 18px;
@@ -6532,27 +6374,6 @@ li#wp-admin-bar-menu-toggle {
 
 /**
  * Localization
- */
-/**
- * General app typography variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- */
-/**
-  * Font sizes
-  *
-  * The font size variables presume a browser default of 16px,
-  * in which case the variable number is equivelent to a px number.
-  *
-  * SASS can't have variables beginning with a numeral.
-  */
-/**
- * Font stack variables
- *
- * The $sans and $serif stacks are default. The $inter and $crimson
- * stacks are used in @supports( font-variation-settings ) queries.
  */
 /* he_IL: Have <em> be bold rather than italic. */
 .locale-he-il em {

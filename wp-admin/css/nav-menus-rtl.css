@@ -1,10 +1,3 @@
-/**
- * General app color variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- */
 /* @todo: determine if this is truly for nav menus only */
 .no-js #message {
   display: block;
@@ -66,7 +59,7 @@ ul.add-menu-item-tabs li {
   display: none;
 }
 
-.admin-main {
+.nav-menus-php .admin-main {
   position: relative;
 }
 

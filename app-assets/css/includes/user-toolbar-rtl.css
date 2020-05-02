@@ -1,34 +1,6 @@
 /**
  * User toolbar styles
  */
-/**
- * General app color variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- */
-/**
- * General app typography variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- */
-/**
-  * Font sizes
-  *
-  * The font size variables presume a browser default of 16px,
-  * in which case the variable number is equivelent to a px number.
-  *
-  * SASS can't have variables beginning with a numeral.
-  */
-/**
- * Font stack variables
- *
- * The $sans and $serif stacks are default. The $inter and $crimson
- * stacks are used in @supports( font-variation-settings ) queries.
- */
 #wpadminbar * {
   height: auto;
   width: auto;

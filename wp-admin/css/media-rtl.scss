@@ -3,7 +3,7 @@
 .media-item .describe {
 	border-collapse: collapse;
 	width: 100%;
-	border-top: 1px solid $form_border_color;
+	border-top: 1px solid $box_border_color;
 	clear: both;
 	cursor: default;
 }
@@ -234,7 +234,7 @@
 
 .find-box-head {
 	background: #fcfcfc;
-	border-bottom: 1px solid $form_border_color;
+	border-bottom: 1px solid $box_border_color;
 	height: 36px;
 	font-size: 18px;
 	font-weight: 600;
@@ -327,7 +327,7 @@
 .find-box-buttons {
 	padding: 0.5em 16px;
 	background: #fcfcfc;
-	border-top: 1px solid $form_border_color;
+	border-top: 1px solid $box_border_color;
 	position: absolute;
 	bottom: 0;
 	right: 0;
@@ -382,13 +382,13 @@ form.upgrade .hint {
 #poststuff .inside .the-tagcloud {
 	margin: 5px 0 10px;
 	padding: 0.5em;
-	border: 1px solid $form_border_color;
+	border: 1px solid $box_border_color;
 	line-height: 1.8em;
 	word-spacing: 3px;
 }
 
 .drag-drop #drag-drop-area {
-	border: 4px dashed $form_border_color;
+	border: 4px dashed $box_border_color;
 	height: 200px;
 }
 
@@ -457,7 +457,7 @@ border color while dragging a file over the uploader drop area */
 	width: auto;
 	margin-top: 12px;
 	padding: 0 16px;
-	border-right: 4px solid $form_border_color;
+	border-right: 4px solid $box_border_color;
  	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -639,7 +639,7 @@ border color while dragging a file over the uploader drop area */
 	position: absolute;
 	text-align: center;
 	border: 0;
-	border-right: 1px solid $form_border_color;
+	border-right: 1px solid $box_border_color;
 	transition: color .1s ease-in-out, background .1s ease-in-out;
 }
 
@@ -675,7 +675,7 @@ border color while dragging a file over the uploader drop area */
 .edit-attachment-frame .edit-media-header .left:focus,
 .edit-attachment-frame .edit-media-header .right:focus {
 	background: $app_highlight_color;
-	border-color: $form_border_color;
+	border-color: $box_border_color;
 	color: #000;
 	outline: none;
 	box-shadow: none;
@@ -773,7 +773,7 @@ border color while dragging a file over the uploader drop area */
 	height: 100%;
 	box-shadow: inset 0px 4px 4px -4px rgba(0, 0, 0, 0.1);
 	border-bottom: 0;
-	border-right: 1px solid $form_border_color;
+	border-right: 1px solid $box_border_color;
 }
 
 .edit-attachment-frame .attachment-info .details,
@@ -783,7 +783,7 @@ border color while dragging a file over the uploader drop area */
 	float: none;
 	margin-bottom: 15px;
 	padding-bottom: 15px;
-	border-bottom: 1px solid $form_border_color;
+	border-bottom: 1px solid $box_border_color;
 }
 
 .edit-attachment-frame .attachment-info .filename {

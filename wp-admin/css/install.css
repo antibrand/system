@@ -1,13 +1,6 @@
 /**
  * Browser reset
  */
-/**
- * General app color variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- */
 html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, button, input, select, textarea, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -270,41 +263,6 @@ b, strong, optgroup {
   zoom: 1;
 }
 
-/**
- * General app color variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- */
-/**
- * General app typography variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- */
-/**
-  * Font sizes
-  *
-  * The font size variables presume a browser default of 16px,
-  * in which case the variable number is equivelent to a px number.
-  *
-  * SASS can't have variables beginning with a numeral.
-  */
-/**
- * Font stack variables
- *
- * The $sans and $serif stacks are default. The $inter and $crimson
- * stacks are used in @supports( font-variation-settings ) queries.
- */
-/**
- * General app color variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- */
 .app-header {
   width: 100%;
   padding: 2rem;

@@ -124,7 +124,7 @@ p.popular-tags,
 .feature-filter,
 .imgedit-group,
 .comment-ays {
-	border: 1px solid $form_border_color;
+	border: 1px solid $box_border_color;
 }
 
 /* general */
@@ -361,12 +361,12 @@ code {
 
 .widefat thead th,
 .widefat thead td {
-	border-bottom: 1px solid $form_border_color;
+	border-bottom: 1px solid $box_border_color;
 }
 
 .widefat tfoot th,
 .widefat tfoot td {
-	border-top: 1px solid $form_border_color;
+	border-top: 1px solid $box_border_color;
 	border-bottom: none;
 }
 
@@ -461,10 +461,8 @@ code {
 
 .app-core-ui .button.page-title-action,
 .app-core-ui .button.page-title-action:active {
-	margin-right: 4px;
-	padding: 5px 8px 4px;
 	position: relative;
-	vertical-align: text-bottom;
+	vertical-align: bottom;
 	text-decoration: none;
 	line-height: normal;
 	cursor: pointer;
@@ -567,7 +565,7 @@ img.emoji {
 
 .postbox .hndle,
 .stuffbox .hndle {
-	border-bottom: 1px solid $form_border_color;
+	border-bottom: 1px solid $box_border_color;
 }
 
 .icon32 {
@@ -1604,16 +1602,8 @@ form.upgrade .hint {
 
 .contextual-help-tabs a {
 	display: block;
-	padding: 5px 12px 5px 5px;
-	line-height: 18px;
+	padding: 0.3em 0.5em;
 	text-decoration: none;
-	border: 1px solid transparent;
-	border-left: none;
-	border-right: none;
-}
-
-.contextual-help-tabs a:hover {
-	color: #333;
 }
 
 .contextual-help-tabs .active {
@@ -1780,7 +1770,7 @@ html.wp-toolbar {
 }
 
 .sortable-placeholder {
-	border: 1px dashed $form_border_color;
+	border: 1px dashed $box_border_color;
 	margin-bottom: 20px;
 }
 
@@ -3392,10 +3382,6 @@ img {
 
 	#screen-meta-links {
 		min-height: 36px;
-	}
-
-	.wrap h1.wp-heading-inline {
-		margin-bottom: 0.5em;
 	}
 
 	/* Feedback Messages */

@@ -1,47 +1,20 @@
+/**
+ * Themes
+ */
+
 @import '../../app-assets/css/includes/modules/_colors';
-
-
-/*------------------------------------------------------------------------------
-  16.1 - Manage Themes
-------------------------------------------------------------------------------*/
+@import '../../app-assets/css/includes/modules/_typography';
 
 body.js .theme-browser.search-loading {
 	display: none;
 }
 
-.theme-browser {
-	margin-top: 2rem;
-
-	.themes {
-		clear: both;
-	}
-}
-
-.themes-php:not(.network-admin) .wrap h1 {
-	margin-bottom: 15px;
-}
-
-.themes-php .wrap h1 .button {
-	margin-right: 20px;
-}
-
-/* Search form */
+// Search form.
 .themes-php .search-form {
 	display: inline;
 }
 
-.themes-php .wp-filter-search {
-	position: relative;
-	top: -2px;
-	right: 20px;
-	margin: 0;
-	width: 280px;
-	font-size: 16px;
-	font-weight: 300;
-	line-height: 1.5;
-}
-
-/* Position admin messages */
+// Position admin messages.
 .theme .notice,
 .theme .notice.is-dismissible {
 	right: 0;
@@ -51,22 +24,20 @@ body.js .theme-browser.search-loading {
 	top: 0;
 }
 
-/**
- * Main theme element
- * (has flexible margins)
- */
-.theme-browser .theme {
-	cursor: pointer;
-	float: right;
-	margin: 0 0 4% 4%;
-	position: relative;
-	width: 30.6%;
-	border: 1px solid #ddd;
-	-webkit-box-shadow: 0 1px 1px -1px rgba(0,0,0,0.1);
-	        box-shadow: 0 1px 1px -1px rgba(0,0,0,0.1);
-	-webkit-box-sizing: border-box;
-	   -moz-box-sizing: border-box;
-	        box-sizing: border-box;
+///
+/// Main theme element
+///
+.theme-browser {
+	margin-top: 2rem;
+
+	.theme {
+		cursor: pointer;
+		float: right;
+		margin: 0 0 4% 4%;
+		position: relative;
+		width: 30.6%;
+		border: 1px solid $form_border_color;
+	}
 }
 
 .theme-browser .theme:nth-child(3n) {
@@ -79,21 +50,17 @@ body.js .theme-browser.search-loading {
 }
 
 .theme-browser .theme .theme-name {
-	font-size: 15px;
-	font-weight: 600;
-	height: 18px;
+	position: relative;
+	z-index: 2;
 	margin: 0;
-	padding: 15px;
-	-webkit-box-shadow: inset 0 1px 0 rgba(0,0,0,0.1);
-	        box-shadow: inset 0 1px 0 rgba(0,0,0,0.1);
-	overflow: hidden;
+	padding: 1em;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+	font-size: $px15;
 }
 
 /* Activate and Customize buttons, shown on hover and focus */
 .theme-browser .theme .theme-actions {
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 	opacity: 0;
 	-webkit-transition: opacity 0.1s ease-in-out;
 	transition: opacity 0.1s ease-in-out;
@@ -103,7 +70,6 @@ body.js .theme-browser.search-loading {
 .theme-browser .theme:hover .theme-actions,
 .theme-browser .theme.focus .theme-actions,
 .theme-browser .theme:focus .theme-actions {
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 	opacity: 1;
 }
 
@@ -149,7 +115,7 @@ body.js .theme-browser.search-loading {
 
 .theme-browser .theme:hover .theme-screenshot,
 .theme-browser .theme:focus .theme-screenshot {
-	background: #fff;
+	background: $white;
 }
 
 .theme-browser.rendered .theme:hover .theme-screenshot img,
@@ -166,7 +132,7 @@ body.js .theme-browser.search-loading {
 	right: 20%;
 	background: #23282d;
 	background: rgba(0,0,0,0.7);
-	color: #fff;
+	color: $white;
 	font-size: 15px;
 	text-shadow: 0 1px 0 rgba(0,0,0,0.6);
 	-webkit-font-smoothing: antialiased;
@@ -176,12 +142,6 @@ body.js .theme-browser.search-loading {
 	border-radius: 3px;
 	-webkit-transition: opacity 0.1s ease-in-out;
 	transition: opacity 0.1s ease-in-out;
-}
-
-.theme-browser .theme:focus {
-	border-color: #5b9dd9;
-	-webkit-box-shadow: 0 0 2px rgba( 30, 140, 190, 0.8 );
-	        box-shadow: 0 0 2px rgba( 30, 140, 190, 0.8 );
 }
 
 .theme-browser .theme:focus .more-details {
@@ -204,9 +164,8 @@ body.js .theme-browser.search-loading {
  */
 .theme-browser .theme.active .theme-name {
 	background: #222;
-	color: #fff;
+	color: $white;
 	padding-left: 110px;
-	font-weight: 300;
 	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.5);
 	        box-shadow: inset 0 1px 1px rgba(0,0,0,0.5);
 }
@@ -216,7 +175,7 @@ body.js .theme-browser.search-loading {
 }
 
 .theme-browser .theme.active .theme-name span {
-	font-weight: 600;
+	color: $app_highlight_color;
 }
 
 .theme-browser .theme.active .theme-actions {
@@ -233,10 +192,10 @@ body.js .theme-browser.search-loading {
 .theme-browser .theme .theme-actions {
 	position: absolute;
 	top: 50%;
+	z-index: 3;
 	-webkit-transform: translateY(-50%);
 	transform: translateY(-50%);
 	left: 0;
-	padding: 10px 15px;
 	-webkit-box-shadow: inset 0 1px 0 rgba(0,0,0,0.1);
 	        box-shadow: inset 0 1px 0 rgba(0,0,0,0.1);
 }
@@ -262,6 +221,13 @@ body.js .theme-browser.search-loading {
 /**
  * Add new theme
  */
+.add-theme-wrap {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 1em;
+}
+
 .theme-browser .theme.add-new-theme {
 	border: none;
 	-webkit-box-shadow: none;
@@ -269,17 +235,20 @@ body.js .theme-browser.search-loading {
 }
 
 .theme-browser .theme.add-new-theme a {
-	text-decoration: none;
 	display: block;
 	position: relative;
 	z-index: 1;
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		color: $text_color;
+	}
 }
 
 .theme-browser .theme.add-new-theme a:after {
 	display: block;
 	content: "";
-	background: transparent;
-	background: rgba(0, 0, 0, 0);
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -287,16 +256,9 @@ body.js .theme-browser.search-loading {
 	bottom: 0;
 	padding: 0;
 	text-shadow: none;
-	border: 5px dashed #d5d2ca;
-	border: 5px dashed rgba(0, 0, 0, 0.1);
-	-webkit-box-sizing: border-box;
-	   -moz-box-sizing: border-box;
-	        box-sizing: border-box;
 }
 
 .theme-browser .theme.add-new-theme span:after {
-	background: #e5e5e5;
-	background: rgba(153, 153, 153, 0.1);
 	border-radius: 50%;
 	display: inline-block;
 	content: "\f132";
@@ -306,14 +268,12 @@ body.js .theme-browser.search-loading {
 	height: 100px;
 	vertical-align: middle;
 	text-align: center;
-	color: rgb(153, 153, 153);
 	position: absolute;
 	top: 30%;
 	right: 50%;
 	margin-right: -50px;
 	text-indent: -4px;
 	padding: 0;
-	text-shadow: none;
 	z-index:4;
 }
 
@@ -328,35 +288,20 @@ body.js .theme-browser.search-loading {
 
 .theme-browser .theme.add-new-theme a:hover span:after,
 .theme-browser .theme.add-new-theme a:focus span:after {
-	background: #fff;
-	color: $link_color;
+	background: $white;
+	color: $app_highlight_color;
 }
 
 .theme-browser .theme.add-new-theme a:hover:after,
 .theme-browser .theme.add-new-theme a:focus:after {
 	border-color: transparent;
-	color: #fff;
-	background: $link_color;
+	color: $text_color;
+	background: $app_highlight_color;
 	content: "";
 }
 
 .theme-browser .theme.add-new-theme .theme-name {
-	background: none;
 	text-align: center;
-	-webkit-box-shadow: none;
-	        box-shadow: none;
-	font-weight: 400;
-	position: relative;
-	top: 0;
-	margin-top: -18px;
-	padding-top: 0;
-	padding-bottom: 48px;
-}
-
-.theme-browser .theme.add-new-theme a:hover .theme-name,
-.theme-browser .theme.add-new-theme a:focus .theme-name {
-	color: #fff;
-	z-index: 2;
 }
 
 /**
@@ -479,9 +424,12 @@ body.js .theme-browser.search-loading {
 	right: 190px;
 	left: 30px;
 	bottom: 3%;
+	background-color: $body_background;
 	-webkit-box-shadow: 0 1px 20px 5px rgba(0, 0, 0, 0.1);
-	        box-shadow: 0 1px 20px 5px rgba(0, 0, 0, 0.1);
-	z-index: 10000; /* Over WP Pointers. */
+			box-shadow: 0 1px 20px 5px rgba(0, 0, 0, 0.1);
+
+	// Over pointers
+	z-index: 10000;
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
 	        box-sizing: border-box;
@@ -513,7 +461,7 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
 	        box-sizing: border-box;
-	border-top: 1px solid $form_border_color;
+	border-top: 1px solid $box_border_color;
 }
 
 .theme-overlay .theme-actions a {
@@ -530,11 +478,6 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 .broken-themes a.delete-theme,
 .theme-overlay .theme-actions .delete-theme {
 	color: $app_red;
-	text-decoration: none;
-	border-color: transparent;
-	-webkit-box-shadow: none;
-	        box-shadow: none;
-	background: transparent;
 }
 
 .theme-overlay .theme-actions .delete-theme {
@@ -548,8 +491,7 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 .theme-overlay .theme-actions .delete-theme:hover,
 .theme-overlay .theme-actions .delete-theme:focus {
 	background: $app_red;
-	color: #fff;
-	border-color: $app_red;
+	color: $white;
 }
 
 .theme-overlay .theme-actions .active-theme,
@@ -575,7 +517,7 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 
 /* First screenshot, shown big */
 .theme-overlay .screenshot {
-	border: 1px solid #fff;
+	border: 1px solid $white;
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
 	        box-sizing: border-box;
@@ -706,7 +648,7 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 }
 
 .theme-overlay .theme-tags {
-	border-top: 3px solid $form_border_color;
+	border-top: 3px solid $box_border_color;
 	font-size: 13px;
 	font-weight: 400;
 	margin: 30px 0 0 0;
@@ -720,7 +662,7 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 
 .theme-overlay .parent-theme {
 	background: $white;
-	border: 1px solid $form_border_color;
+	border: 1px solid $box_border_color;
 	border-right: 4px solid $app_highlight_color;
 	font-size: 14px;
 	font-weight: 400;
@@ -754,12 +696,12 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 }
 
 .single-theme .theme-overlay .theme-about {
-	padding: 30px 30px 70px;
+	padding: 2rem;
 	position: static;
 }
 
 .single-theme .theme-overlay .theme-actions {
-	position: absolute;
+	position: static;
 }
 
 /**
@@ -934,16 +876,6 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 		font-size: 13px;
 	}
 
-	.themes-php .wp-filter-search {
-		float: none;
-		clear: both;
-		right: 0;
-		left: 0;
-		margin: -5px 0 20px 0;
-		width: 100%;
-		max-width: 280px;
-	}
-
 	.theme-browser .theme.add-new-theme span:after {
 		font: normal 60px/90px dashicons;
 		width: 80px;
@@ -1058,10 +990,9 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 		}
 
 		.wp-upload-form {
-			border: 1px solid #ccc;
+			border: 1px solid $form_border_color;
 			margin-top: 2em;
 			padding: 2em;
-			max-width: 480px;
 		}
 
 		.install-help {
@@ -1683,7 +1614,7 @@ body.full-overlay-active {
 
 .wp-full-overlay-footer .devices button:hover,
 .wp-full-overlay-footer .devices button:focus {
-	background-color: #fff;
+	background-color: $white;
 }
 
 .wp-full-overlay-footer .devices button:focus,
@@ -1829,7 +1760,7 @@ body.full-overlay-active {
 .install-theme-info .theme-screenshot {
 	margin: 15px 0;
 	width: 258px;
-	border: 1px solid $form_border_color;
+	border: 1px solid $box_border_color;
 }
 
 .install-theme-info .theme-details {
@@ -1860,7 +1791,7 @@ body.full-overlay-active {
 }
 
 .theme-install-overlay .wp-full-overlay-sidebar-content {
-	background: #fff;
+	background: $white;
 	border-top: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
 }

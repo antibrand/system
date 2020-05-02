@@ -206,7 +206,7 @@
 	bottom: -45px;
 	height: auto;
 	overflow: initial;
-	border-top: 1px solid $form_border_color;
+	border-top: 1px solid $box_border_color;
 }
 
 @media screen and (max-width: 782px) {
@@ -251,7 +251,7 @@
 	padding: 0 16px 24px;
 	z-index: 75;
 	background: #f3f3f3;
-	border-left: 1px solid $form_border_color;
+	border-left: 1px solid $box_border_color;
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
 }
@@ -508,7 +508,7 @@
 	height: 0;
 	margin: 12px 20px;
 	padding: 0;
-	border-top: 1px solid $form_border_color;
+	border-top: 1px solid $box_border_color;
 }
 
 /**
@@ -557,7 +557,7 @@
 .media-router > a.active:last-child {
 	margin: -1px -1px 0;
 	background: #fff;
-	border: 1px solid $form_border_color;
+	border: 1px solid $box_border_color;
 	border-bottom: none;
 }
 
@@ -615,7 +615,7 @@
 	margin: 0;
 	overflow: auto;
 	background: $body_background;
-	border-top: 1px solid $form_border_color;
+	border-top: 1px solid $box_border_color;
 }
 
 .media-frame-toolbar {
@@ -651,7 +651,7 @@
 }
 
 .media-frame.hide-router .media-frame-title {
-	border-bottom: 1px solid $form_border_color;
+	border-bottom: 1px solid $box_border_color;
 	box-shadow: 0 4px 4px -4px rgba( 0, 0, 0, 0.1 );
 }
 
@@ -763,7 +763,12 @@
 	user-select: none;
 	box-sizing: border-box;
 
+	&:hover {
+		border-color: $form_action_border_color;
+	}
+
 	&:focus {
+		border-color: $form_action_border_color;
 		box-shadow: 0 0 0 3px $app_highlight_color;
 	}
 }
@@ -1486,7 +1491,7 @@
 	min-height: 60px;
 	margin-bottom: 16px;
 	line-height: 18px;
-	border-bottom: 1px solid $form_border_color;
+	border-bottom: 1px solid $box_border_color;
 	padding-bottom: 11px;
 }
 
@@ -1620,7 +1625,7 @@
 
 .media-modal .imgedit-wrap .imgedit-settings {
 	background: #f3f3f3;
-	border-left: 1px solid $form_border_color;
+	border-left: 1px solid $box_border_color;
 	padding: 20px 16px 16px;
 	position: absolute;
 	top: 0;
@@ -1633,7 +1638,7 @@
 .media-modal .imgedit-group {
 	background: none;
 	border: none;
-	border-bottom: 1px solid $form_border_color;
+	border-bottom: 1px solid $box_border_color;
 	box-shadow: none;
 	margin: 0;
 	margin-bottom: 16px;
@@ -1809,7 +1814,7 @@
 
 .image-details .column-settings {
 	background: #f3f3f3;
-	border-right: 1px solid $form_border_color;
+	border-right: 1px solid $box_border_color;
 	min-height: 100%;
 	width: 55%;
 	position: absolute;
@@ -1821,7 +1826,7 @@
 .image-details .column-settings h2 {
 	margin: 20px;
 	padding-top: 20px;
-	border-top: 1px solid $form_border_color;
+	border-top: 1px solid $box_border_color;
 	color: #23282d;
 }
 

@@ -179,8 +179,7 @@ textarea {
 	}
 
 	&[type="file"] {
-		margin-bottom: 1em;
-		padding: 1em;
+		padding: 0.425em 1em;
 		cursor: pointer;
 
 		&:disabled,

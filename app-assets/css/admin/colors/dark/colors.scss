@@ -13,6 +13,9 @@ $app_highlight_color: $app_yellow;
 
 $body_background: #222;
 $text_color: $white;
+$box_background_color: lighten( $color: $app_secondary_color, $amount: 2.5% );
+$box_border_color: lighten( $color: $app_secondary_color, $amount: 12% );
+$box_text_color: inherit !default;
 $link_color: $app_tertiary_color;
 $link_action_color: lighten( $link_color, 25% );
 
@@ -94,10 +97,11 @@ body {
 }
 
 .postbox {
-	border-color: $form_border_color;
+	background-color: $box_background_color;
+	border-color: $box_border_color;
 
 	.hndle {
-		border-color: $form_border_color;
+		border-color: $box_border_color;
 	}
 }
 
@@ -112,7 +116,7 @@ ul.striped > :nth-child(odd),
 .metabox-holder .postbox-container .empty-container,
 #screen-meta,
 #contextual-help-back {
-	border-color: $form_border_color;
+	border-color: $box_border_color;
 }
 
 .view-switch a {
@@ -137,7 +141,7 @@ ul.striped > :nth-child(odd),
  */
  fieldset {
 	background-color: $body_background;
-	border-color: $form_border_color;
+	border-color: $box_border_color;
 }
 
 input[type="text"],
@@ -242,7 +246,7 @@ input {
 .media-modal-content,
 .media-frame-content {
 	background: $body_background;
-	border-color: $form_border_color;
+	border-color: $box_border_color;
 }
 
 .app-core-ui .attachment
@@ -281,7 +285,7 @@ p.popular-tags,
 .feature-filter,
 .imgedit-group,
 .comment-ays {
-	border-color: $form_border_color;
+	border-color: $box_border_color;
 }
 
 .edit-attachment-frame .edit-media-header .left.disabled,
@@ -292,8 +296,18 @@ p.popular-tags,
 }
 
 /**
-* Themes
-*/
+ * Themes
+ */
+.theme-browser .theme.add-new-theme a:hover span:after,
+.theme-browser .theme.add-new-theme a:focus span:after {
+	background: $white;
+	color: $app_highlight_color;
+}
+
+.theme-browser .theme.add-new-theme a:hover:after,
+.theme-browser .theme.add-new-theme a:focus:after {
+	background: $app_highlight_color;
+}
 
 /**
  * Unique styles

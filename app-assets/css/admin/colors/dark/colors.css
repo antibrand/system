@@ -1,13 +1,6 @@
 /**
  * Sefault dark color scheme
  */
-/**
- * General app color variables
- *
- * These styles are primarily used in administration pages,
- * but also common features such as the user toolbar. For this
- * reason the file is not kept in the css/admin directory.
- */
 body {
   background: #222;
   color: #ffffff;
@@ -22,11 +15,12 @@ a:hover, a:focus {
 }
 
 .postbox {
-  border-color: #626262;
+  background-color: #282828;
+  border-color: #414141;
 }
 
 .postbox .hndle {
-  border-color: #626262;
+  border-color: #414141;
 }
 
 .striped > tbody > :nth-child(odd),
@@ -40,7 +34,7 @@ ul.striped > :nth-child(odd),
 .metabox-holder .postbox-container .empty-container,
 #screen-meta,
 #contextual-help-back {
-  border-color: #626262;
+  border-color: #414141;
 }
 
 .view-switch a:hover, .view-switch a:focus, .view-switch a:active, .view-switch a.current {
@@ -61,7 +55,7 @@ ul.striped > :nth-child(odd),
  */
 fieldset {
   background-color: #222;
-  border-color: #626262;
+  border-color: #414141;
 }
 
 input[type="text"],
@@ -183,7 +177,7 @@ input:disabled, input.disabled {
 .media-modal-content,
 .media-frame-content {
   background: #222;
-  border-color: #626262;
+  border-color: #414141;
 }
 
 .app-core-ui .attachment
@@ -222,7 +216,7 @@ p.popular-tags,
 .feature-filter,
 .imgedit-group,
 .comment-ays {
-  border-color: #626262;
+  border-color: #414141;
 }
 
 .edit-attachment-frame .edit-media-header .left.disabled,
@@ -233,8 +227,19 @@ p.popular-tags,
 }
 
 /**
-* Themes
-*/
+ * Themes
+ */
+.theme-browser .theme.add-new-theme a:hover span:after,
+.theme-browser .theme.add-new-theme a:focus span:after {
+  background: #ffffff;
+  color: #ffee00;
+}
+
+.theme-browser .theme.add-new-theme a:hover:after,
+.theme-browser .theme.add-new-theme a:focus:after {
+  background: #ffee00;
+}
+
 /**
  * Unique styles
  *
