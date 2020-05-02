@@ -243,7 +243,7 @@ require_once(ABSPATH . 'wp-admin/admin-header.php');
 ?>
 
 <div class="wrap">
-<h1 class="wp-heading-inline"><?php echo esc_html( $title ); ?></h1>
+<h1><?php echo esc_html( $title ); ?></h1>
 
 <?php if ( current_user_can( 'install_themes' ) ) : ?>
 	<a href="theme-install.php" class="button page-title-action"><?php echo esc_html_x( 'Add New', 'theme' ); ?></a>

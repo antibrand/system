@@ -1008,7 +1008,7 @@ themes.view.Preview = themes.view.Details.extend({
 // a wrapper that will hold all the theme elements
 themes.view.Themes = wp.Backbone.View.extend({
 
-	className: 'themes wp-clearfix',
+	className: 'themes',
 	$overlay: $( 'div.theme-overlay' ),
 
 	// Number to keep track of scroll position
