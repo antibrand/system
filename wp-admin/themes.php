@@ -217,74 +217,72 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 		echo '<div class="error"><p>' . __( 'ERROR:' ) . ' ' . $ct->errors()->get_error_message() . '</p></div>';
 	}
 
-	/**
-	 * Certain error codes are less fatal than others. We can still display theme information in most cases.
-	 * if ( ! $ct->errors() || ( 1 == count( $ct->errors()->get_error_codes() )
-	 * && in_array( $ct->errors()->get_error_code(), array(
-	 *     'theme_no_parent',
-	 *     'theme_parent_invalid',
-	 *     'theme_no_index'
-	 * ) ) ) ) : ?>
-	 *
-	 * @todo Rework this so that it is not depenent on the admin menu.
-	 *       Use checks for theme options and add customizer & admin
-	 *       links accordingly.
-	 */
+		/**
+		 * Current theme action links
+		 *
+		 * Checks for features that the current theme supports
+		 * then adds links accordingly.
+		 */
+		$current_theme_action_links = '';
 
-		// Pretend you didn't see this.
-		$current_theme_actions = [];
+		// Only if the current user has customize permission.
+		if ( current_user_can( 'customize' ) ) {
 
-		if ( is_array( $submenu ) && isset( $submenu['themes.php'] ) ) {
+			// Customizer link.
+			$current_theme_action_links .= sprintf(
+				'<a class="button hide-if-no-customize" href="%1s">%2s</a>',
+				esc_url( admin_url( 'customize.php' ) ),
+				__( 'Customize' )
+			);
 
-			foreach ( (array) $submenu['themes.php'] as $item ) {
+			// Logo link.
+			if ( current_theme_supports( 'custom-logo' ) ) {
+				$current_theme_action_links .= sprintf(
+					'<a class="button hide-if-no-customize" href="%1s">%2s</a>',
+					esc_url( admin_url( 'customize.php' ) . '?autofocus[control]=custom_logo' ),
+					__( 'Identity' )
+				);
+			}
 
-				$class = '';
+			// Menus link.
+			if ( current_theme_supports( 'menus' ) ) {
+				$current_theme_action_links .= sprintf(
+					'<a class="button hide-if-no-customize" href="%1s">%2s</a>',
+					esc_url( admin_url( 'customize.php' ) . '?autofocus[panel]=nav_menus' ),
+					__( 'Menus' )
+				);
+			}
 
-				if ( 'themes.php' == $item[2] || 'theme-editor.php' == $item[2] || 0 === strpos( $item[2], 'customize.php' ) ) {
-					continue;
-				}
+			// Widgets link.
+			if ( current_theme_supports( 'widgets' ) ) {
+				$current_theme_action_links .= sprintf(
+					'<a class="button hide-if-no-customize" href="%1s">%2s</a>',
+					esc_url( admin_url( 'customize.php' ) . '?autofocus[panel]=widgets' ),
+					__( 'Widgets' )
+				);
+			}
 
-				// 0 = name, 1 = capability, 2 = file
-				if ( ( strcmp( $self, $item[2]) == 0 && empty( $parent_file ) ) || ( $parent_file && ( $item[2] == $parent_file ) ) ) {
-					$class = ' current';
-				}
+			// Header image link.
+			if ( current_theme_supports( 'custom-header' ) ) {
+				$current_theme_action_links .= sprintf(
+					'<a class="button hide-if-no-customize" href="%1s">%2s</a>',
+					esc_url( admin_url( 'customize.php' ) . '?autofocus[control]=header_image' ),
+					__( 'Header' )
+				);
+			}
 
-				if ( ! empty( $submenu[$item[2]] ) ) {
-
-					$submenu[$item[2]] = array_values( $submenu[$item[2]] ); // Re-index.
-					$menu_hook         = get_plugin_page_hook( $submenu[$item[2]][0][2], $item[2] );
-
-					if ( file_exists( WP_PLUGIN_DIR . "/{$submenu[$item[2]][0][2]}") || ! empty( $menu_hook ) ) {
-						$current_theme_actions[] = "<a class='button$class' href='admin.php?page={$submenu[$item[2]][0][2]}'>{$item[0]}</a>";
-					} else {
-						$current_theme_actions[] = "<a class='button$class' href='{$submenu[$item[2]][0][2]}'>{$item[0]}</a>";
-					}
-
-				} elseif ( ! empty( $item[2] ) && current_user_can( $item[1] ) ) {
-
-					$menu_file = $item[2];
-
-					if ( current_user_can( 'customize' ) ) {
-
-						if ( 'custom-header' === $menu_file ) {
-							$current_theme_actions[] = "<a class='button hide-if-no-customize$class' href='customize.php?autofocus[control]=header_image'>{$item[0]}</a>";
-						} elseif ( 'custom-background' === $menu_file ) {
-							$current_theme_actions[] = "<a class='button hide-if-no-customize$class' href='customize.php?autofocus[control]=background_image'>{$item[0]}</a>";
-						}
-					}
-
-					if ( false !== ( $pos = strpos( $menu_file, '?' ) ) ) {
-						$menu_file = substr( $menu_file, 0, $pos );
-					}
-
-					if ( file_exists( ABSPATH . "wp-admin/$menu_file" ) ) {
-						$current_theme_actions[] = "<a class='button$class' href='{$item[2]}'>{$item[0]}</a>";
-					} else {
-						$current_theme_actions[] = "<a class='button$class' href='themes.php?page={$item[2]}'>{$item[0]}</a>";
-					}
-				}
+			// Site background link.
+			if ( current_theme_supports( 'custom-background' ) ) {
+				$current_theme_action_links .= sprintf(
+					'<a class="button hide-if-no-customize" href="%1s">%2s</a>',
+					esc_url( admin_url( 'customize.php' ) . '?autofocus[control]=background_image' ),
+					__( 'Background' )
+				);
 			}
 		}
+
+		// Apply a filter.
+		$current_theme_action_links = apply_filters( 'current_theme_action_links', $current_theme_action_links );
 
 	?>
 
@@ -329,6 +327,8 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 		<span class="more-details" id="<?php echo $aria_action; ?>"><?php _e( 'Theme Details' ); ?></span>
 
 		<div class="theme-author"><?php printf( __( 'By %s' ), $theme['author'] ); ?></div>
+
+		<?php if ( $theme['name'] ) ?>
 
 		<div class="theme-id-container">
 			<?php if ( $theme['active'] ) { ?>
@@ -545,15 +545,31 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 				<# } #>
 
 				<# if ( data.tags ) { #>
-					<p class="theme-tags"><span><?php _e( 'Tags:' ); ?></span> {{{ data.tags }}}</p>
+					<?php
+					$get_theme    = wp_get_theme();
+					$get_tags     = $get_theme->get( 'Tags' );
+					$count_tags   = count($get_tags);
+  					$tags_counted = 0;
+					?>
+					<p class="theme-tags"><span><?php _e( 'Features: ' ); ?></span>
+						<?php
+						foreach ( $get_tags as $get_tag ) {
+							echo ucwords( str_replace( '-', ' ', $get_tag ) );
+							$tags_counted = $tags_counted + 1;
+
+							if ( $tags_counted < $count_tags ) {
+								echo ', ';
+							}
+						}
+						?>
+					</p>
 				<# } #>
 			</div>
 		</div>
 
 		<div class="theme-actions">
 			<div class="active-theme">
-				<a href="{{{ data.actions.customize }}}" class="button button-primary customize load-customize hide-if-no-customize"><?php _e( 'Customize' ); ?></a>
-				<?php echo implode( ' ', $current_theme_actions ); ?>
+				<?php echo $current_theme_action_links; ?>
 			</div>
 			<div class="inactive-theme">
 				<?php
