@@ -2072,14 +2072,6 @@ a:hover, a:focus {
   color: #005fd6;
 }
 
-a:focus,
-a:focus .media-icon img,
-.wp-person a:focus .gravatar {
-  color: #124964;
-  -webkit-box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
-          box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
-}
-
 #adminmenu a:focus,
 .screen-reader-text:focus {
   -webkit-box-shadow: none;
@@ -3565,12 +3557,6 @@ form.upgrade .hint {
 .contextual-help-tabs .active a {
   font-weight: 700;
   font-weight: bolder;
-}
-
-@supports (font-variation-settings: normal) {
-  .contextual-help-tabs .active a {
-    font-weight: 800;
-  }
 }
 
 .contextual-help-tabs-wrap {
