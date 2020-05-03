@@ -403,46 +403,6 @@ if ( current_theme_supports( 'menus' ) || current_theme_supports( 'widgets' ) ) 
 	];
 }
 
-if ( current_theme_supports( 'custom-header' ) && current_user_can( 'customize') ) {
-
-	$customize_header_url = add_query_arg(
-		[
-			'autofocus' => [
-				'control' => 'header_image'
-			]
-		],
-		$customize_url
-	);
-
-	$submenu['themes.php'][20] = [
-		__( 'Header' ),
-		$appearance_cap,
-		esc_url( $customize_header_url ),
-		'',
-		'hide-if-no-customize'
-	];
-}
-
-if ( current_theme_supports( 'custom-background' ) && current_user_can( 'customize') ) {
-
-	$customize_background_url = add_query_arg(
-		[
-			'autofocus' => [
-				'control' => 'background_image'
-			]
-		],
-		$customize_url
-	);
-
-	$submenu['themes.php'][25] = [
-		__( 'Background' ),
-		$appearance_cap,
-		esc_url( $customize_background_url ),
-		'',
-		'hide-if-no-customize'
-	];
-}
-
 unset( $customize_url );
 unset( $appearance_cap );
 
