@@ -56,7 +56,7 @@ $form_focus: $link_action_color !default;
 $form_checked: $link_action_color !default;
 
 // Button color variables.
-$button_background_color: inherit !default;
+$button_background_color: $white !default;
 $button_border_color: $light_gray !default;
 $button_text_color: $text_color !default;
 $button_action_background_color: $app_highlight_color !default;
