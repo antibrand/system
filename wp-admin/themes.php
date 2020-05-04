@@ -309,14 +309,12 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 				?>
 			<div class="theme<?php if ( $theme['active'] ) echo ' active'; ?>" tabindex="0" aria-describedby="<?php echo $aria_action . ' ' . $aria_name; ?>">
 				<?php if ( ! empty( $theme['screenshot'][0] ) ) { ?>
-					<div class="theme-screenshot">
-						<figure>
-							<img src="<?php echo $theme['screenshot'][0]; ?>" alt="<?php _e( 'Theme cover image' ); ?>" width="640" height="480" />
-							<figcaption class="screen-reader-text"><?php _e( 'Theme cover image' ); ?></figcaption>
-						</figure>
-					</div>
+					<figure class="theme-cover-image">
+						<img src="<?php echo $theme['screenshot'][0]; ?>" alt="<?php _e( 'Theme cover image' ); ?>" width="640" height="480" />
+						<figcaption class="screen-reader-text"><?php _e( 'Theme cover image' ); ?></figcaption>
+					</figure>
 				<?php } else { ?>
-					<div class="theme-screenshot blank"></div>
+					<div class="theme-cover-image blank"></div>
 				<?php } ?>
 
 				<?php if ( $theme['hasUpdate'] ) : ?>
@@ -477,14 +475,12 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 ?>
 <script id="tmpl-theme" type="text/template">
 	<# if ( data.screenshot[0] ) { #>
-		<div class="theme-screenshot">
-			<figure>
-				<img src="{{ data.screenshot[0] }}" alt="<?php _e( 'Theme cover image' ); ?>" width="640" height="480" />
-				<figcaption class="screen-reader-text"><?php _e( 'Theme cover image' ); ?></figcaption>
-			</figure>
-		</div>
+		<figure class="theme-cover-image">
+			<img src="{{ data.screenshot[0] }}" alt="<?php _e( 'Theme cover image' ); ?>" width="640" height="480" />
+			<figcaption class="screen-reader-text"><?php _e( 'Theme cover image' ); ?></figcaption>
+		</figure>
 	<# } else { #>
-		<div class="theme-screenshot blank"></div>
+		<div class="theme-cover-image blank"></div>
 	<# } #>
 
 	<# if ( data.hasUpdate ) { #>
@@ -550,16 +546,19 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 	<div class="theme-backdrop"></div>
 	<div class="theme-wrap" role="document">
 		<div class="theme-header">
-			<button class="theme-prev dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Show previous theme' ); ?></span></button>
-			<button class="theme-next dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Show next theme' ); ?></span></button>
-			<button class="close dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Close details dialog' ); ?></span></button>
+			<button class="button theme-prev dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Show previous theme' ); ?></span></button>
+			<button class="button theme-next dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Show next theme' ); ?></span></button>
+			<button class="button close dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Close details dialog' ); ?></span></button>
 		</div>
 		<div class="theme-about">
-			<div class="theme-screenshots">
+			<div class="theme-cover-wrap">
 			<# if ( data.screenshot[0] ) { #>
-				<div class="screenshot"><img src="{{ data.screenshot[0] }}" alt="<?php _e( 'Theme cover image' ); ?>" width="1200" height="900" /></div>
+				<figure class="theme-cover-image">
+					<img src="{{ data.screenshot[0] }}" alt="<?php _e( 'Theme cover image' ); ?>" width="1200" height="900" />
+					<figcaption class="screen-reader-text"><?php _e( 'Theme cover image' ); ?></figcaption>
+				</figure>
 			<# } else { #>
-				<div class="screenshot blank"></div>
+				<div class="theme-cover-image blank"></div>
 			<# } #>
 			</div>
 

@@ -201,12 +201,12 @@ class WP_Themes_List_Table extends WP_List_Table {
 
 			?>
 
-			<span class="screenshot hide-if-customize">
+			<span class="theme-cover-image hide-if-customize">
 				<?php if ( $screenshot = $theme->get_screenshot() ) : ?>
 					<img src="<?php echo esc_url( $screenshot ); ?>" alt="" />
 				<?php endif; ?>
 			</span>
-			<a href="<?php echo wp_customize_url( $stylesheet ); ?>" class="screenshot load-customize hide-if-no-customize">
+			<a href="<?php echo wp_customize_url( $stylesheet ); ?>" class="theme-cover-image load-customize hide-if-no-customize">
 				<?php if ( $screenshot = $theme->get_screenshot() ) : ?>
 					<img src="<?php echo esc_url( $screenshot ); ?>" alt="" />
 				<?php endif; ?>

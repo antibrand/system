@@ -240,6 +240,25 @@ input {
 }
 
 /**
+ * List views
+ */
+.widefat thead,
+.widefat tfoot {
+	border-color: $box_border_color;
+}
+
+/**
+ * Editor
+ */
+.wp-editor-container,
+.mce-panel.mce-menu,
+div.mce-toolbar-grp,
+.wp-editor-expand #wp-content-editor-tools,
+#post-status-info {
+	border-color: $box_border_color !important;
+}
+
+/**
  * Media
  */
 .media-modal,
@@ -298,6 +317,34 @@ p.popular-tags,
 /**
  * Themes
  */
+.theme-overlay .theme-wrap,
+.theme-browser .themes.single-theme .theme-overlay .theme-wrap {
+	background-color: $box_background_color;
+	border-color: $box_border_color;
+}
+
+.theme-browser .theme,
+.theme-id-container {
+	border-color: $form_border_color;
+}
+
+.theme-overlay .theme-actions .theme-action-buttons .delete-theme {
+	background-color: $box_background_color;
+
+	&:hover,
+	&:focus {
+		background: $app_red;
+	}
+}
+
+.theme-browser .theme .theme-cover-image.blank,
+.theme-overlay .screenshot.blank {
+	&:before {
+		color: $box_border_color;
+	}
+}
+
+// Add new theme from WordPress.
 .theme-browser .theme.add-new-theme a:hover span:after,
 .theme-browser .theme.add-new-theme a:focus span:after {
 	background: $white;

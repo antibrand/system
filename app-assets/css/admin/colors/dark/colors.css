@@ -171,6 +171,25 @@ input:disabled, input.disabled {
 }
 
 /**
+ * List views
+ */
+.widefat thead,
+.widefat tfoot {
+  border-color: #414141;
+}
+
+/**
+ * Editor
+ */
+.wp-editor-container,
+.mce-panel.mce-menu,
+div.mce-toolbar-grp,
+.wp-editor-expand #wp-content-editor-tools,
+#post-status-info {
+  border-color: #414141 !important;
+}
+
+/**
  * Media
  */
 .media-modal,
@@ -229,6 +248,30 @@ p.popular-tags,
 /**
  * Themes
  */
+.theme-overlay .theme-wrap,
+.theme-browser .themes.single-theme .theme-overlay .theme-wrap {
+  background-color: #282828;
+  border-color: #414141;
+}
+
+.theme-browser .theme,
+.theme-id-container {
+  border-color: #626262;
+}
+
+.theme-overlay .theme-actions .theme-action-buttons .delete-theme {
+  background-color: #282828;
+}
+
+.theme-overlay .theme-actions .theme-action-buttons .delete-theme:hover, .theme-overlay .theme-actions .theme-action-buttons .delete-theme:focus {
+  background: #dd0000;
+}
+
+.theme-browser .theme .theme-cover-image.blank:before,
+.theme-overlay .screenshot.blank:before {
+  color: #414141;
+}
+
 .theme-browser .theme.add-new-theme a:hover span:after,
 .theme-browser .theme.add-new-theme a:focus span:after {
   background: #ffffff;

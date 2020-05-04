@@ -10,24 +10,13 @@ html.ios {
 }
 
 body {
-	font-family: Georgia, "Times New Roman", "Bitstream Charter", Times, serif;
 	font-size: 16px;
 	line-height: 1.5;
-	color: #333;
 	margin: 9px 10px;
 	max-width: 100%;
 	-webkit-font-smoothing: antialiased !important;
 	overflow-wrap: break-word;
 	word-wrap: break-word; /* Old syntax */
-}
-
-body.rtl {
-	font-family: Tahoma, "Times New Roman", "Bitstream Charter", Times, serif;
-}
-
-body.locale-he-il,
-body.locale-vi {
-	font-family: Arial, "Times New Roman", "Bitstream Charter", Times, serif;
 }
 
 body.wp-autoresize {

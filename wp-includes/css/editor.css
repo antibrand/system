@@ -238,11 +238,11 @@ div.mce-tab:focus {
 /* TinyMCE panel */
 div.mce-panel {
   border: 0;
-  background: #fff;
+  background: inherit;
 }
 
 .mce-panel.mce-menu {
-  border: 1px solid #ddd;
+  border: 1px solid #cccccc;
 }
 
 div.mce-tab {
@@ -251,8 +251,8 @@ div.mce-tab {
 
 /* TinyMCE toolbars */
 div.mce-toolbar-grp {
-  border-bottom: 1px solid #ddd;
-  background: #f5f5f5;
+  border-bottom: 1px solid #cccccc;
+  background: inherit;
   padding: 0;
   position: relative;
 }
@@ -1088,7 +1088,7 @@ i.mce-i-wp_code:before {
 
 .wp-editor-container {
   clear: both;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #cccccc;
 }
 
 .wp-editor-area {
@@ -1121,7 +1121,9 @@ i.mce-i-wp_code:before {
 }
 
 .wp-editor-tabs {
-  float: right;
+  position: absolute;
+  right: 0.3em;
+  bottom: 1px;
 }
 
 .wp-switch-editor {
@@ -1132,7 +1134,7 @@ i.mce-i-wp_code:before {
   top: 1px;
   background: #ebebeb;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 0.875rem;
   font-weight: 700;
   line-height: 19px;
   color: #555555;
@@ -1849,11 +1851,6 @@ div.wp-link-input input {
 /* rtl:ignore */
 .mce-rtl .mce-listbox i.mce-caret {
   left: 6px;
-}
-
-html:lang(he-il) .rtl .wp-switch-editor,
-html:lang(he-il) .rtl .quicktags-toolbar input {
-  font-family: Arial, sans-serif;
 }
 
 /* HiDPI */

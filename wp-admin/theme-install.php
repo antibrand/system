@@ -218,11 +218,11 @@ if ( $tab ) {
 
 <script id="tmpl-theme" type="text/template">
 	<# if ( data.screenshot_url ) { #>
-		<div class="theme-screenshot">
+		<figure class="theme-cover-image">
 			<img src="{{ data.screenshot_url }}" alt="" />
-		</div>
+		</figure>
 	<# } else { #>
-		<div class="theme-screenshot blank"></div>
+		<div class="theme-cover-image blank"></div>
 	<# } #>
 	<span class="more-details"><?php _ex( 'Details &amp; Preview', 'theme' ); ?></span>
 	<div class="theme-author">
@@ -287,7 +287,9 @@ if ( $tab ) {
 						?>
 					</span>
 
-					<img class="theme-screenshot" src="{{ data.screenshot_url }}" alt="" />
+					<figure>
+						<img class="theme-cover-image" src="{{ data.screenshot_url }}" alt="" />
+					</figure>
 
 					<div class="theme-details">
 						<# if ( data.rating ) { #>
