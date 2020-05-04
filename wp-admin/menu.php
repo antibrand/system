@@ -389,12 +389,6 @@ $submenu['themes.php'][5] = [
 	'hide-if-no-customize'
 ];
 
-$submenu['themes.php'][6] = [
-	__( 'WordPress Themes' ),
-	$appearance_cap,
-	'theme-install.php'
-];
-
 if ( current_theme_supports( 'menus' ) || current_theme_supports( 'widgets' ) ) {
 	$submenu['themes.php'][15] = [
 		__( 'Menus' ),

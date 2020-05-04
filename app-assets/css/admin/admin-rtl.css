@@ -3078,6 +3078,16 @@ th.action-links {
   }
 }
 
+.install-action-buttons p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.install-action-buttons p .button {
+  margin-right: 0.3em;
+}
+
 /*------------------------------------------------------------------------------
   4.0 - Notifications
 ------------------------------------------------------------------------------*/
