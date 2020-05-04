@@ -40,10 +40,6 @@ body.js .theme-browser.search-loading {
 	}
 }
 
-.theme-browser .theme:nth-child(3n) {
-	margin-left: 0;
-}
-
 .theme-browser .theme:hover,
 .theme-browser .theme:focus {
 	cursor: pointer;
@@ -100,15 +96,19 @@ body.js .theme-browser.search-loading {
 .theme-browser .theme .theme-screenshot:after {
 	content: "";
 	display: block;
-	padding-top: 66.66666%; /* using a 3/2 aspect ratio */
+
+	// Creates a 3:2 aspect ratio.
+	padding-top: 66.66666%;
+	padding-top: calc(100% / 1.5);
 }
 
 .theme-browser .theme .theme-screenshot img {
+	display: block;
+	width: 100%;
 	height: auto;
 	position: absolute;
 	right: 0;
 	top: 0;
-	width: 100%;
 	-webkit-transition: opacity 0.2s ease-in-out;
 	transition: opacity 0.2s ease-in-out;
 }
@@ -239,6 +239,7 @@ body.js .theme-browser.search-loading {
 	position: relative;
 	z-index: 1;
 	text-decoration: none;
+	transition: none;
 
 	&:hover,
 	&:focus {
@@ -309,22 +310,17 @@ body.js .theme-browser.search-loading {
  * Shown when clicking a theme
  */
 .theme-overlay .theme-backdrop {
-	position: absolute;
-	right: -20px;
+	position: fixed;
+	right: 0;
 	left: 0;
 	top: 0;
 	bottom: 0;
-	background: #f1f1f1;
-	background: rgba( 238, 238, 238, 0.9 );
-	z-index: 10000; /* Over WP Pointers. */
+	background: rgba($color: $black, $alpha: 0.7);
+	z-index: 10001;
 }
 
 .theme-overlay .theme-header {
-	position: absolute;
-	top: 0;
-	right: 0;
-	left: 0;
-	height: 48px;
+	height: 3rem;
 	border-bottom: 1px solid #ddd;
 }
 
@@ -354,8 +350,8 @@ body.js .theme-browser.search-loading {
 }
 
 /* Left and right navigation */
-.theme-overlay .theme-header .right,
-.theme-overlay .theme-header .left {
+.theme-overlay .theme-header .theme-next,
+.theme-overlay .theme-header .theme-prev {
 	cursor: pointer;
 	color: #72777c;
 	background-color: transparent;
@@ -371,12 +367,12 @@ body.js .theme-browser.search-loading {
 
 .theme-overlay .theme-header .close:focus,
 .theme-overlay .theme-header .close:hover,
-.theme-overlay .theme-header .right:focus,
-.theme-overlay .theme-header .right:hover,
-.theme-overlay .theme-header .left:focus,
-.theme-overlay .theme-header .left:hover {
+.theme-overlay .theme-header .theme-next:focus,
+.theme-overlay .theme-header .theme-next:hover,
+.theme-overlay .theme-header .theme-prev:focus,
+.theme-overlay .theme-header .theme-prev:hover {
 	background: #ddd;
-	border-color: #ccc;
+	border-color: $box_border_color;
 	color: #000;
 }
 
@@ -386,50 +382,48 @@ body.js .theme-browser.search-loading {
 }
 
 .theme-overlay .theme-header .close:focus,
-.theme-overlay .theme-header .right:focus,
-.theme-overlay .theme-header .left:focus {
+.theme-overlay .theme-header .theme-next:focus,
+.theme-overlay .theme-header .theme-prev:focus {
     -webkit-box-shadow: none;
             box-shadow: none;
     outline: none;
 }
 
-.theme-overlay .theme-header .left.disabled,
-.theme-overlay .theme-header .right.disabled,
-.theme-overlay .theme-header .left.disabled:hover,
-.theme-overlay .theme-header .right.disabled:hover {
+.theme-overlay .theme-header .theme-prev.disabled,
+.theme-overlay .theme-header .theme-next.disabled,
+.theme-overlay .theme-header .theme-prev.disabled:hover,
+.theme-overlay .theme-header .theme-next.disabled:hover {
 	color: #ccc;
 	background: inherit;
 	cursor: inherit;
 }
 
-.theme-overlay .theme-header .right:before,
-.theme-overlay .theme-header .left:before {
+.theme-overlay .theme-header .theme-next:before,
+.theme-overlay .theme-header .theme-prev:before {
 	font: normal 20px/50px dashicons !important;
 	display: inline;
 	font-weight: 300;
 }
 
-.theme-overlay .theme-header .left:before {
+.theme-overlay .theme-header .theme-prev:before {
 	content: "\f345";
 }
 
-.theme-overlay .theme-header .right:before {
+.theme-overlay .theme-header .theme-next:before {
 	content: "\f341";
 }
 
 .theme-overlay .theme-wrap {
 	clear: both;
 	position: fixed;
-	top: 9%;
-	right: 190px;
-	left: 30px;
-	bottom: 3%;
+	top: calc(4vw + 32px);
+	right: 8vw;
+	left: 8vw;
+	bottom: 4vw;
 	background-color: $body_background;
 	-webkit-box-shadow: 0 1px 20px 5px rgba(0, 0, 0, 0.1);
 			box-shadow: 0 1px 20px 5px rgba(0, 0, 0, 0.1);
-
-	// Over pointers
-	z-index: 10000;
+	z-index: 10002;
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
 	        box-sizing: border-box;
@@ -440,33 +434,29 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 	right: 70px;
 }
 
+.theme-about {
+	display: flex;
+}
+
 .theme-overlay .theme-about {
-	position: absolute;
-	top: 49px;
-	bottom: 57px;
-	right: 0;
-	left: 0;
 	overflow: auto;
-	padding: 2% 4%;
+	padding: 2rem 2rem 3rem;
 }
 
 .theme-overlay .theme-actions {
-	position: absolute;
-	text-align: center;
-	bottom: 0;
-	right: 0;
-	left: 0;
-	padding: 10px 25px 5px;
+	padding: 0 2rem 2rem;
 	z-index: 30;
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
 	        box-sizing: border-box;
-	border-top: 1px solid $box_border_color;
 }
 
 .theme-overlay .theme-actions a {
-	margin-left: 5px;
-	margin-bottom: 5px;
+	margin-top: 0.5em;
+
+	&:not(:last-of-type) {
+		margin-left: 0.3em;
+	}
 }
 
 /* Hide-if-customize for items we can't add classes to */
@@ -478,12 +468,6 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 .broken-themes a.delete-theme,
 .theme-overlay .theme-actions .delete-theme {
 	color: $app_red;
-}
-
-.theme-overlay .theme-actions .delete-theme {
-	position: absolute;
-	left: 10px;
-	bottom: 5px;
 }
 
 .broken-themes a.delete-theme:hover,
@@ -504,14 +488,43 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 	display: block;
 }
 
+.theme-action-buttons {
+	display: flex;
+	justify-content: space-between;
+}
+
+.theme-actions {
+	h2 {
+		display: none;
+	}
+
+	p {
+		margin: 0;
+	}
+}
+
+.themes-php.modal-open {
+	.theme-actions {
+		h2 {
+			display: block;
+		}
+
+		p {
+			// Only 0.5em because button links in the p
+			// have 0.5em top margin, so 1em total.
+			margin-top: 0.5em;
+		}
+	}
+}
+
 /**
  * Theme Screenshots gallery
  */
 .theme-overlay .theme-screenshots {
-	float: right;
-	margin: 0 0 0 30px;
-	width: 55%;
-	max-width: 1200px; /* Recommended theme screenshot width, set here to avoid stretching */
+	margin-left: 2rem;
+	width: 100%;
+	min-width: 40%;
+	max-width: 37.5em;
 	text-align: center;
 }
 
@@ -553,7 +566,7 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 /* Other screenshots, shown small and square */
 .theme-overlay .screenshot.thumb {
 	background: #ccc;
-	border: 1px solid #eee;
+	border: 1px solid $box_border_color;
 	float: none;
 	display: inline-block;
 	margin: 10px 5px 0;
@@ -597,8 +610,7 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
  * Theme heading information
  */
 .theme-overlay .theme-info {
-	width: 40%;
-	float: right;
+	padding-bottom: 3rem;
 }
 
 .theme-overlay .current-label {
@@ -642,18 +654,14 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 }
 
 .theme-overlay .theme-description {
-	font-size: 15px;
-	font-weight: 400;
-	line-height: 1.5;
-	margin: 30px 0 0 0;
+	margin-top: 2rem;
 }
 
 .theme-overlay .theme-tags {
-	border-top: 3px solid $box_border_color;
-	font-size: 13px;
-	font-weight: 400;
-	margin: 30px 0 0 0;
-	padding-top: 20px;
+	border-top: 1px solid $box_border_color;
+	font-size: $px14;
+	margin-top: 2rem;
+	padding: 1rem 0;
 }
 
 .theme-overlay .theme-tags span {
@@ -662,17 +670,7 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 }
 
 .theme-overlay .parent-theme {
-	background: $white;
-	border: 1px solid $box_border_color;
-	border-right: 4px solid $app_highlight_color;
-	font-size: 14px;
-	font-weight: 400;
-	margin-top: 30px;
-	padding: 10px 20px 10px 10px;
-}
-
-.theme-overlay .parent-theme strong {
-	font-weight: 700;
+	font-size: $px14;
 }
 
 /**
@@ -710,23 +708,6 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
  *
  * Shuffles theme columns around based on screen width
  */
-
-@media only screen and (min-width: 2000px) {
-	.admin-page-wrap .theme-browser .theme {
-		width: 17.6%;
-		margin: 0 0 3% 3%;
-	}
-
-	.admin-page-wrap .theme-browser .theme:nth-child(3n),
-	.admin-page-wrap .theme-browser .theme:nth-child(4n) {
-		margin-left: 3%;
-	}
-
-	.admin-page-wrap .theme-browser .theme:nth-child(5n) {
-		margin-left: 0;
-	}
-}
-
 @media only screen and (min-width: 1680px) {
 	.theme-overlay .theme-wrap {
 		width: 1450px;
@@ -734,72 +715,13 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 	}
 }
 
-/* Maximum screenshot width reaches 440px */
-@media only screen and (min-width: 1640px) {
-	.theme-browser .theme {
-		width: 22.7%;
-		margin: 0 0 3% 3%;
-	}
-	.theme-browser .theme .theme-screenshot:after {
-		padding-top: 75%; /* using a 4/3 aspect ratio */
-	}
-
-	.theme-browser .theme:nth-child(3n) {
-		margin-left: 3%;
-	}
-
-	.theme-browser .theme:nth-child(4n) {
-		margin-left: 0;
-	}
-}
-/* Maximum screenshot width reaches 440px */
-@media only screen and (max-width: 1120px) {
-	.theme-browser .theme {
-		width: 47.5%;
-		margin-left: 0;
-	}
-
-	.theme-browser .theme:nth-child(even) {
-		margin-left: 0;
-	}
-
-	.theme-browser .theme:nth-child(odd) {
-		margin-left: 5%;
-	}
-}
-
-/* Admin menu is folded */
-@media only screen and (max-width: 900px) {
-	.theme-overlay .theme-wrap {
-		right: 65px;
-	}
-}
-
 @media only screen and (max-width: 780px) {
-	body.folded .theme-overlay .theme-wrap,
-	.theme-overlay .theme-wrap {
-		top: 0; /* The adminmenu isn't fixed on mobile, so this can use the full viewport height */
-		left: 0;
-		bottom: 0;
-		right: 0;
-		padding: 70px 20px 20px;
-		border: none;
-		z-index: 100000; /* should overlap #wpadminbar. */
-		position: fixed;
-	}
 
 	.theme-browser .theme.active .theme-name span {
 		/* Hide the "Active: " label on smaller screens. */
 		display: none;
 	}
 
-	.theme-overlay .theme-screenshots {
-		width: 40%;
-	}
-
-	.theme-overlay .theme-info {
-		width: 50%;
-	}
 	.single-theme .theme-wrap {
 		padding: 10px;
 	}
@@ -837,22 +759,11 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 		width: 100%;
 		margin-left: 0;
 	}
-
-	.theme-browser .theme:nth-child(2n),
-	.theme-browser .theme:nth-child(3n) {
-		margin-left: 0;
-	}
 }
 
 @media only screen and (max-width: 650px) {
 	.theme-overlay .theme-description {
 		margin-right: 0;
-	}
-
-	.theme-overlay .theme-actions .delete-theme {
-		position: relative;
-		left: auto;
-		bottom: auto;
 	}
 
 	.theme-overlay .theme-actions .inactive-theme {
@@ -1854,16 +1765,21 @@ body.full-overlay-active {
 }
 
 @media screen and ( max-width: 782px ) {
-	.available-theme .action-links .delete-theme {
-		float: none;
-		margin: 0;
-		padding: 0;
-		clear: both;
+
+	.theme-overlay .theme-wrap {
+		top: calc(4vw + 46px);
 	}
 
-	.available-theme .action-links .delete-theme a {
-		padding: 0;
+	.theme-about {
+		flex-direction: column;
 	}
+
+	.theme-info {
+		margin-top: 1em;
+	}
+}
+
+@media screen and ( max-width: 782px ) {
 
 	.broken-themes table {
 		width: 100%;

@@ -653,8 +653,8 @@ themes.view.Details = wp.Backbone.View.extend({
 	events: {
 		'click': 'collapse',
 		'click .delete-theme': 'deleteTheme',
-		'click .left': 'previousTheme',
-		'click .right': 'nextTheme',
+		'click .theme-prev': 'previousTheme',
+		'click .theme-next': 'nextTheme',
 		'click #update-theme': 'updateTheme'
 	},
 
@@ -757,12 +757,12 @@ themes.view.Details = wp.Backbone.View.extend({
 
 		// Disable Left/Right when at the start or end of the collection
 		if ( this.model.cid === this.model.collection.at(0).cid ) {
-			this.$el.find( '.left' )
+			this.$el.find( '.theme-prev' )
 				.addClass( 'disabled' )
 				.prop( 'disabled', true );
 		}
 		if ( this.model.cid === this.model.collection.at( this.model.collection.length - 1 ).cid ) {
-			this.$el.find( '.right' )
+			this.$el.find( '.theme-next' )
 				.addClass( 'disabled' )
 				.prop( 'disabled', true );
 		}
@@ -1173,7 +1173,8 @@ themes.view.Themes = wp.Backbone.View.extend({
 
 		// 'Add new theme' element shown at the end of the grid
 		if ( ! themes.isInstall && themes.data.settings.canInstall ) {
-			this.$el.append( '<div class="theme add-new-theme"><a href="' + themes.data.settings.installURI + '"><div class="theme-screenshot"><span></span></div><h2 class="theme-name">' + l10n.addNew + '</h2></a></div>' );
+			// @todo Move this into the WordPress themes plugin (?).
+			// this.$el.append( '<div class="theme add-new-theme"><a href="' + themes.data.settings.installURI + '"><div class="theme-screenshot"><span></span></div><h2 class="theme-name">' + l10n.addNew + '</h2></a></div>' );
 		}
 
 		this.parent.page++;

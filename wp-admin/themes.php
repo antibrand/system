@@ -142,7 +142,7 @@ wp_localize_script( 'theme', '_wpThemeSettings', [
 		'adminUrl'      => parse_url( admin_url(), PHP_URL_PATH ),
 	],
  	'l10n' => [
- 		'addNew'            => __( 'Add New Theme' ),
+ 		'addNew'            => __( 'Add Theme from WordPress' ),
  		'search'            => __( 'Search Installed Themes' ),
  		'searchPlaceholder' => __( 'Search installed themes...' ),
 		'themesFound'       => __( 'Number of Themes found: %d' ),
@@ -295,74 +295,97 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 	?>
 	<div class="<?php echo esc_attr( $class_name ); ?>">
 		<div class="themes">
+			<?php
 
-	<?php
-	/*
-	* This PHP is synchronized with the tmpl-theme template below!
-	*/
+			do_action( 'themes_list_after' );
 
-	foreach ( $themes as $theme ) :
-		$aria_action = esc_attr( $theme['id'] . '-action' );
-		$aria_name   = esc_attr( $theme['id'] . '-name' );
-		?>
-	<div class="theme<?php if ( $theme['active'] ) echo ' active'; ?>" tabindex="0" aria-describedby="<?php echo $aria_action . ' ' . $aria_name; ?>">
-		<?php if ( ! empty( $theme['screenshot'][0] ) ) { ?>
-			<div class="theme-screenshot">
-				<img src="<?php echo $theme['screenshot'][0]; ?>" alt="" />
-			</div>
-		<?php } else { ?>
-			<div class="theme-screenshot blank"></div>
-		<?php } ?>
+			/*
+			 * This PHP is synchronized with the tmpl-theme template below!
+			 */
 
-		<?php if ( $theme['hasUpdate'] ) : ?>
-			<div class="update-message notice inline notice-warning notice-alt">
-			<?php if ( $theme['hasPackage'] ) : ?>
-				<p><?php _e( 'New version available. <button class="button-link" type="button">Update now</button>' ); ?></p>
-			<?php else : ?>
-				<p><?php _e( 'New version available.' ); ?></p>
-			<?php endif; ?>
-			</div>
-		<?php endif; ?>
-
-		<span class="more-details" id="<?php echo $aria_action; ?>"><?php _e( 'Theme Details' ); ?></span>
-
-		<div class="theme-author"><?php printf( __( 'By %s' ), $theme['author'] ); ?></div>
-
-		<?php if ( $theme['name'] ) ?>
-
-		<div class="theme-id-container">
-			<?php if ( $theme['active'] ) { ?>
-				<h2 class="theme-name" id="<?php echo $aria_name; ?>">
-					<?php
-					// Translators: %s: theme name.
-					printf( __( '<span>Active:</span> %s' ), $theme['name'] );
-					?>
-				</h2>
-			<?php } else { ?>
-				<h2 class="theme-name" id="<?php echo $aria_name; ?>"><?php echo $theme['name']; ?></h2>
-			<?php } ?>
-
-			<div class="theme-actions">
-
-			<?php if ( $theme['active'] ) { ?>
-				<?php if ( $theme['actions']['customize'] && current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) { ?>
-					<a class="button button-primary customize load-customize hide-if-no-customize" href="<?php echo $theme['actions']['customize']; ?>"><?php _e( 'Customize' ); ?></a>
-				<?php } ?>
-			<?php } else { ?>
-				<?php
-				// Translators: %s: Theme name.
-				$aria_label = sprintf( _x( 'Activate %s', 'theme' ), '{{ data.name }}' );
+			foreach ( $themes as $theme ) :
+				$aria_action = esc_attr( $theme['id'] . '-action' );
+				$aria_name   = esc_attr( $theme['id'] . '-name' );
 				?>
-				<a class="button activate" href="<?php echo $theme['actions']['activate']; ?>" aria-label="<?php echo esc_attr( $aria_label ); ?>"><?php _e( 'Activate' ); ?></a>
-				<?php if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) { ?>
-					<a class="button button-primary load-customize hide-if-no-customize" href="<?php echo $theme['actions']['customize']; ?>"><?php _e( 'Live Preview' ); ?></a>
+			<div class="theme<?php if ( $theme['active'] ) echo ' active'; ?>" tabindex="0" aria-describedby="<?php echo $aria_action . ' ' . $aria_name; ?>">
+				<?php if ( ! empty( $theme['screenshot'][0] ) ) { ?>
+					<div class="theme-screenshot">
+						<figure>
+							<img src="<?php echo $theme['screenshot'][0]; ?>" alt="<?php _e( 'Theme cover image' ); ?>" width="640" height="480" />
+							<figcaption class="screen-reader-text"><?php _e( 'Theme cover image' ); ?></figcaption>
+						</figure>
+					</div>
+				<?php } else { ?>
+					<div class="theme-screenshot blank"></div>
 				<?php } ?>
-			<?php } ?>
 
+				<?php if ( $theme['hasUpdate'] ) : ?>
+					<div class="update-message notice inline notice-warning notice-alt">
+					<?php if ( $theme['hasPackage'] ) : ?>
+						<p><?php _e( 'New version available. <button class="button-link" type="button">Update now</button>' ); ?></p>
+					<?php else : ?>
+						<p><?php _e( 'New version available.' ); ?></p>
+					<?php endif; ?>
+					</div>
+				<?php endif; ?>
+
+				<span class="more-details" id="<?php echo $aria_action; ?>"><?php _e( 'Theme Details' ); ?></span>
+
+				<div class="theme-author"><?php printf( __( 'By %s' ), $theme['author'] ); ?></div>
+
+				<?php if ( $theme['name'] ) ?>
+
+				<div class="theme-id-container">
+					<?php if ( $theme['active'] ) { ?>
+						<h2 class="theme-name" id="<?php echo $aria_name; ?>">
+							<?php
+							// Translators: %s: theme name.
+							printf( __( '<span>Active:</span> %s' ), $theme['name'] );
+							?>
+						</h2>
+					<?php } else { ?>
+						<h2 class="theme-name" id="<?php echo $aria_name; ?>"><?php echo $theme['name']; ?></h2>
+					<?php } ?>
+
+					<div class="theme-actions">
+
+					<?php if ( $theme['active'] ) { ?>
+
+						<h2><?php _e( 'Manage This Theme' ); ?></h2>
+
+						<div class="theme-action-buttons">
+							<p>
+								<?php if ( $theme['actions']['customize'] && current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) { ?>
+								<a class="button button-primary customize load-customize hide-if-no-customize" href="<?php echo $theme['actions']['customize']; ?>"><?php _e( 'Customize' ); ?></a>
+								<?php } ?>
+							</p>
+						</div>
+
+					<?php } else { ?>
+
+						<h2><?php _e( 'Use This Theme' ); ?></h2>
+
+						<div class="theme-action-buttons">
+							<p>
+								<?php
+								// Translators: %s: Theme name.
+								$aria_label = sprintf( _x( 'Activate %s', 'theme' ), '{{ data.name }}' );
+								?>
+								<a class="button activate" href="<?php echo $theme['actions']['activate']; ?>" aria-label="<?php echo esc_attr( $aria_label ); ?>"><?php _e( 'Activate' ); ?></a>
+								<?php if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) { ?>
+								<a class="button button-primary load-customize hide-if-no-customize" href="<?php echo $theme['actions']['customize']; ?>"><?php _e( 'Live Preview' ); ?></a>
+								<?php } ?>
+							</p>
+						</div>
+					<?php } ?>
+
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>
-	<?php endforeach; ?>
+			<?php endforeach;
+
+			do_action( 'themes_list_after' );
+			?>
 		</div>
 	</div>
 	<div class="theme-overlay" tabindex="0" role="dialog" aria-label="<?php esc_attr_e( 'Theme Details' ); ?>"></div>
@@ -455,7 +478,10 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 <script id="tmpl-theme" type="text/template">
 	<# if ( data.screenshot[0] ) { #>
 		<div class="theme-screenshot">
-			<img src="{{ data.screenshot[0] }}" alt="" />
+			<figure>
+				<img src="{{ data.screenshot[0] }}" alt="<?php _e( 'Theme cover image' ); ?>" width="640" height="480" />
+				<figcaption class="screen-reader-text"><?php _e( 'Theme cover image' ); ?></figcaption>
+			</figure>
 		</div>
 	<# } else { #>
 		<div class="theme-screenshot blank"></div>
@@ -491,16 +517,30 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
 		<div class="theme-actions">
 			<# if ( data.active ) { #>
+
+				<h2><?php _e( 'Manage This Theme' ); ?></h2>
+
 				<# if ( data.actions.customize ) { #>
-					<a class="button button-primary customize load-customize hide-if-no-customize" href="{{{ data.actions.customize }}}"><?php _e( 'Customize' ); ?></a>
+					<div class="theme-action-buttons">
+						<p>
+							<a class="button button-primary customize load-customize hide-if-no-customize" href="{{{ data.actions.customize }}}"><?php _e( 'Customize' ); ?></a>
+						</p>
+					</div>
 				<# } #>
 			<# } else { #>
-				<?php
-				/* translators: %s: Theme name */
-				$aria_label = sprintf( _x( 'Activate %s', 'theme' ), '{{ data.name }}' );
-				?>
-				<a class="button activate" href="{{{ data.actions.activate }}}" aria-label="<?php echo $aria_label; ?>"><?php _e( 'Activate' ); ?></a>
-				<a class="button button-primary load-customize hide-if-no-customize" href="{{{ data.actions.customize }}}"><?php _e( 'Live Preview' ); ?></a>
+
+				<h2><?php _e( 'Use This Theme' ); ?></h2>
+
+				<div class="theme-action-buttons">
+					<p>
+						<?php
+						/* translators: %s: Theme name */
+						$aria_label = sprintf( _x( 'Activate %s', 'theme' ), '{{ data.name }}' );
+						?>
+						<a class="button activate" href="{{{ data.actions.activate }}}" aria-label="<?php echo $aria_label; ?>"><?php _e( 'Activate' ); ?></a>
+						<a class="button button-primary load-customize hide-if-no-customize" href="{{{ data.actions.customize }}}"><?php _e( 'Live Preview' ); ?></a>
+					</p>
+				</div>
 			<# } #>
 		</div>
 	</div>
@@ -510,14 +550,14 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 	<div class="theme-backdrop"></div>
 	<div class="theme-wrap" role="document">
 		<div class="theme-header">
-			<button class="left dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Show previous theme' ); ?></span></button>
-			<button class="right dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Show next theme' ); ?></span></button>
+			<button class="theme-prev dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Show previous theme' ); ?></span></button>
+			<button class="theme-next dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Show next theme' ); ?></span></button>
 			<button class="close dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Close details dialog' ); ?></span></button>
 		</div>
 		<div class="theme-about">
 			<div class="theme-screenshots">
 			<# if ( data.screenshot[0] ) { #>
-				<div class="screenshot"><img src="{{ data.screenshot[0] }}" alt="" /></div>
+				<div class="screenshot"><img src="{{ data.screenshot[0] }}" alt="<?php _e( 'Theme cover image' ); ?>" width="1200" height="900" /></div>
 			<# } else { #>
 				<div class="screenshot blank"></div>
 			<# } #>
@@ -569,22 +609,35 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
 		<div class="theme-actions">
 			<div class="active-theme">
-				<?php echo $current_theme_action_links; ?>
+
+				<h2><?php _e( 'Manage This Theme' ); ?></h2>
+
+				<div class="theme-action-buttons">
+					<p><?php echo $current_theme_action_links; ?></p>
+				</div>
 			</div>
 			<div class="inactive-theme">
-				<?php
-				/* translators: %s: Theme name */
-				$aria_label = sprintf( _x( 'Activate %s', 'theme' ), '{{ data.name }}' );
-				?>
-				<# if ( data.actions.activate ) { #>
-					<a href="{{{ data.actions.activate }}}" class="button activate" aria-label="<?php echo $aria_label; ?>"><?php _e( 'Activate' ); ?></a>
-				<# } #>
-				<a href="{{{ data.actions.customize }}}" class="button button-primary load-customize hide-if-no-customize"><?php _e( 'Live Preview' ); ?></a>
-			</div>
 
-			<# if ( ! data.active && data.actions['delete'] ) { #>
-				<a href="{{{ data.actions['delete'] }}}" class="button delete-theme"><?php _e( 'Delete' ); ?></a>
-			<# } #>
+				<h2><?php _e( 'Use This Theme' ); ?></h2>
+
+				<div class="theme-action-buttons">
+					<p>
+						<?php
+						/* translators: %s: Theme name */
+						$aria_label = sprintf( _x( 'Activate %s', 'theme' ), '{{ data.name }}' );
+						?>
+						<# if ( data.actions.activate ) { #>
+							<a href="{{{ data.actions.activate }}}" class="button activate" aria-label="<?php echo $aria_label; ?>"><?php _e( 'Activate' ); ?></a>
+						<# } #>
+						<a href="{{{ data.actions.customize }}}" class="button button-primary load-customize hide-if-no-customize"><?php _e( 'Live Preview' ); ?></a>
+					</p>
+					<p>
+						<# if ( ! data.active && data.actions['delete'] ) { #>
+							<a href="{{{ data.actions['delete'] }}}" class="button delete-theme"><?php _e( 'Delete' ); ?></a>
+						<# } #>
+					</p>
+				</div>
+			</div>
 		</div>
 	</div>
 </script>

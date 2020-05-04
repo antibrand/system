@@ -149,12 +149,7 @@ td {
  */
 a {
 	color: $link_color;
-	-webkit-transition-property: border, background, color;
-	transition-property: border, background, color;
-	-webkit-transition-duration: .05s;
-	        transition-duration: .05s;
-	-webkit-transition-timing-function: ease-in-out;
-			transition-timing-function: ease-in-out;
+	transition: all .15s;
 
 	&:hover,
 	&:focus {
@@ -179,12 +174,6 @@ q:before,
 q:after {
 	content: "";
 	content: none;
-}
-
-p {
-	font-size: 1rem;
-	line-height: 1.5;
-	margin: 1em 0;
 }
 
 blockquote {

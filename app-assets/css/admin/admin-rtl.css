@@ -386,6 +386,10 @@ h3 {
 /**
  * Main content area of the admin
  */
+.app-content p {
+  margin-top: 1em;
+}
+
 .app-content a {
   -webkit-transition: all .15s;
   transition: all .15s;
@@ -2060,12 +2064,8 @@ td {
 /* Any change to the default link style must be applied to button-link too. */
 a {
   color: #004499;
-  -webkit-transition-property: border, background, color;
-  transition-property: border, background, color;
-  -webkit-transition-duration: .05s;
-  transition-duration: .05s;
-  -webkit-transition-timing-function: ease-in-out;
-  transition-timing-function: ease-in-out;
+  -webkit-transition: all .15s;
+  transition: all .15s;
 }
 
 a:hover, a:focus {
@@ -2090,12 +2090,6 @@ q:before,
 q:after {
   content: "";
   content: none;
-}
-
-p {
-  font-size: 1rem;
-  line-height: 1.5;
-  margin: 1em 0;
 }
 
 blockquote {

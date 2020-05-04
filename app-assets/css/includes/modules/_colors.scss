@@ -27,12 +27,18 @@ $app_highlight_color: $app_yellow !default;
 
 $body_background: $white !default;
 $text_color: $app_secondary_color !default;
+
+/// Box colors are used to distinguish sections, such as
+/// meta boxes, and to create content dividers.
 $box_background_color: inherit !default;
 $box_border_color: $pale_gray !default;
 $box_text_color: inherit !default;
+
+// Standard links.
 $link_color: $app_tertiary_color !default;
 $link_action_color: lighten( $link_color, 12% ) !default;
 
+// Bring attention to messages and user actions.
 $notify_color: $app_orange !default;
 $error_color: $app_red !default;
 $warning_color: $app_yellow !default;
