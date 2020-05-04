@@ -1776,10 +1776,11 @@ table.form-table td .updated p {
 .button-primary,
 .button-secondary {
   display: inline-block;
+  height: 2.5rem;
   vertical-align: baseline;
   margin: 0;
   padding: 0.75rem 1rem;
-  background: inherit;
+  background: #ffffff;
   border: solid 1px #888888;
   font-size: 0.875rem;
   font-weight: bold;
@@ -1855,8 +1856,8 @@ table.form-table td .updated p {
 .button-secondary:disabled,
 .button-secondary.disabled,
 .button-secondary.button-disabled {
-  color: #888888 !important;
-  background: #cccccc !important;
+  color: #888888;
+  background: #cccccc;
   cursor: default;
 }
 

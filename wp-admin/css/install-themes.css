@@ -1,0 +1,47 @@
+/**
+ * Install themes
+ */
+.theme-install.updated-message:before {
+  content: '';
+}
+
+.theme-install-php .wp-filter {
+  padding-left: 20px;
+}
+
+.theme-install-php a.upload,
+.theme-install-php a.browse-themes {
+  cursor: pointer;
+}
+
+.upload-view-toggle .browse,
+.plugin-install-tab-upload .upload-view-toggle .upload {
+  display: none;
+}
+
+.plugin-install-tab-upload .upload-view-toggle .browse {
+  display: inline;
+}
+
+.theme-install-php .add-new-theme {
+  display: none !important;
+}
+
+.theme-details .theme-rating {
+  line-height: 23px;
+}
+
+.theme-details .star-rating {
+  display: inline;
+}
+
+.theme-details .num-ratings,
+.theme-details .no-rating {
+  font-size: 11px;
+  color: #72777c;
+}
+
+.theme-details .no-rating {
+  display: block;
+  line-height: 20px;
+}

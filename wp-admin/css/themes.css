@@ -121,7 +121,7 @@ body.js .theme-browser.search-loading {
 }
 
 .theme-browser .theme .theme-actions .button {
-  float: none;
+  margin-right: 0.3em;
   background-color: #ffffff;
 }
 
@@ -440,7 +440,7 @@ body.js .theme-browser.search-loading {
 }
 
 .theme-overlay .theme-actions a {
-  margin-top: 0.5em;
+  margin: 0.3em 0.3em 0 0;
 }
 
 .theme-overlay .theme-actions a:not(:last-of-type) {
@@ -667,6 +667,8 @@ body.js .theme-browser.search-loading {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   margin: 0;
 }
 
@@ -680,6 +682,21 @@ body.js .theme-browser.search-loading {
 
 .themes-php.modal-open .theme-actions p {
   margin-top: 0.5em;
+}
+
+/* Already installed theme */
+.theme-browser .theme .theme-installed {
+  background: #004499;
+}
+
+.theme-browser .theme .notice-success p:before {
+  color: #79ba49;
+  content: "\f147";
+  display: inline-block;
+  font: normal 20px/1 'dashicons';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  vertical-align: top;
 }
 
 .theme-browser .theme .theme-cover-image.blank:before,
@@ -722,43 +739,6 @@ body.js .theme-browser.search-loading {
 /*------------------------------------------------------------------------------
   16.2 - Install Themes
 ------------------------------------------------------------------------------*/
-/* Already installed theme */
-.theme-browser .theme .theme-installed {
-  background: #004499;
-}
-
-.theme-browser .theme .notice-success p:before {
-  color: #79ba49;
-  content: "\f147";
-  display: inline-block;
-  font: normal 20px/1 'dashicons';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  vertical-align: top;
-}
-
-.theme-install.updated-message:before {
-  content: '';
-}
-
-.theme-install-php .wp-filter {
-  padding-left: 20px;
-}
-
-.theme-install-php a.upload,
-.theme-install-php a.browse-themes {
-  cursor: pointer;
-}
-
-.upload-view-toggle .browse,
-.plugin-install-tab-upload .upload-view-toggle .upload {
-  display: none;
-}
-
-.plugin-install-tab-upload .upload-view-toggle .browse {
-  display: inline;
-}
-
 .upload-theme-wrap .upload-theme {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -822,29 +802,6 @@ p.no-themes-local {
 
 .no-results p.no-themes {
   display: block;
-}
-
-.theme-install-php .add-new-theme {
-  display: none !important;
-}
-
-.theme-details .theme-rating {
-  line-height: 23px;
-}
-
-.theme-details .star-rating {
-  display: inline;
-}
-
-.theme-details .num-ratings,
-.theme-details .no-rating {
-  font-size: 11px;
-  color: #72777c;
-}
-
-.theme-details .no-rating {
-  display: block;
-  line-height: 20px;
 }
 
 /*------------------------------------------------------------------------------
@@ -1246,8 +1203,8 @@ body.full-overlay-active {
   border-radius: 0 !important;
 }
 
-.app-core-ui .wp-full-overlay .collapse-sidebar:hover,
-.app-core-ui .wp-full-overlay .collapse-sidebar:focus {
+.wp-full-overlay .collapse-sidebar:hover,
+.wp-full-overlay .collapse-sidebar:focus {
   color: #004499;
 }
 
@@ -1644,14 +1601,11 @@ body.full-overlay-active {
   .theme-info {
     margin-top: 1em;
   }
-}
-
-@media screen and (max-width: 782px) {
   .broken-themes table {
     width: 100%;
   }
   .theme-install-overlay .wp-full-overlay-header .theme-install {
-    margin-top: 6px;
+    margin-top: 0.5em;
     line-height: normal;
   }
   .theme-browser .theme .theme-actions .button {
@@ -1659,8 +1613,8 @@ body.full-overlay-active {
   }
   .theme-browser .theme.active .theme-actions,
   .theme-browser .theme .theme-actions {
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
   }
 }
 

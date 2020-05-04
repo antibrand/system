@@ -161,7 +161,7 @@ body.js .theme-browser.search-loading {
 			height: auto;
 
 			.button {
-				float: none;
+				margin-right: 0.3em;
 				background-color: $white;
 
 				&:not(:last-of-type) {
@@ -548,7 +548,7 @@ body.js .theme-browser.search-loading {
 		z-index: 30;
 
 		a {
-			margin-top: 0.5em;
+			margin: 0.3em 0.3em 0 0;
 
 			&:not(:last-of-type) {
 				margin-right: 0.3em;
@@ -786,6 +786,7 @@ body.js .theme-browser.search-loading {
 
 	p {
 		display: flex;
+		flex-wrap: wrap;
 		margin: 0;
 	}
 
@@ -806,6 +807,21 @@ body.js .theme-browser.search-loading {
 			margin-top: 0.5em;
 		}
 	}
+}
+
+/* Already installed theme */
+.theme-browser .theme .theme-installed {
+	background: $link_color;
+}
+
+.theme-browser .theme .notice-success p:before {
+	color: #79ba49;
+	content: "\f147";
+	display: inline-block;
+	font: normal 20px/1 'dashicons';
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	vertical-align: top;
 }
 
 // No screenshot placeholder.
@@ -844,42 +860,6 @@ body.js .theme-browser.search-loading {
 /*------------------------------------------------------------------------------
   16.2 - Install Themes
 ------------------------------------------------------------------------------*/
-
-/* Already installed theme */
-.theme-browser .theme .theme-installed {
-	background: $link_color;
-}
-.theme-browser .theme .notice-success p:before {
-	color: #79ba49;
-	content: "\f147";
-	display: inline-block;
-	font: normal 20px/1 'dashicons';
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	vertical-align: top;
-}
-
-.theme-install.updated-message:before {
-	content: '';
-}
-
-.theme-install-php .wp-filter {
-	padding-left: 20px;
-}
-
-.theme-install-php a.upload,
-.theme-install-php a.browse-themes {
-	cursor: pointer;
-}
-
-.upload-view-toggle .browse,
-.plugin-install-tab-upload .upload-view-toggle .upload {
-	display: none;
-}
-
-.plugin-install-tab-upload .upload-view-toggle .browse {
-	display: inline;
-}
 
 .upload-theme-wrap {
 
@@ -960,28 +940,7 @@ p.no-themes-local {
 	display: block;
 }
 
-.theme-install-php .add-new-theme {
-	display: none !important;
-}
 
-.theme-details .theme-rating {
-	line-height: 23px;
-}
-
-.theme-details .star-rating {
-	display: inline;
-}
-
-.theme-details .num-ratings,
-.theme-details .no-rating {
-	font-size: 11px;
-	color: #72777c;
-}
-
-.theme-details .no-rating {
-	display: block;
-	line-height: 20px;
-}
 
 /*------------------------------------------------------------------------------
   16.3 - Custom Header Screen
@@ -1389,8 +1348,8 @@ body.full-overlay-active {
 	border-radius: 0 !important;
 }
 
-.app-core-ui .wp-full-overlay .collapse-sidebar:hover,
-.app-core-ui .wp-full-overlay .collapse-sidebar:focus {
+.wp-full-overlay .collapse-sidebar:hover,
+.wp-full-overlay .collapse-sidebar:focus {
 	color: $link_color;
 }
 
@@ -1798,16 +1757,13 @@ body.full-overlay-active {
 	.theme-info {
 		margin-top: 1em;
 	}
-}
-
-@media screen and ( max-width: 782px ) {
 
 	.broken-themes table {
 		width: 100%;
 	}
 
 	.theme-install-overlay .wp-full-overlay-header .theme-install {
-		margin-top: 6px;
+		margin-top: 0.5em;
 		line-height: normal;
 	}
 
@@ -1817,8 +1773,8 @@ body.full-overlay-active {
 
 	.theme-browser .theme.active .theme-actions,
 	.theme-browser .theme .theme-actions {
-		padding-top: 8px;
-		padding-bottom: 8px;
+		padding-top: 0.5em;
+		padding-bottom: 0.5em;
 	}
 }
 
