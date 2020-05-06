@@ -454,32 +454,43 @@ function wp_network_dashboard_right_now() {
  * @param string $error_msg Optional. Error message. Default false.
  */
 function wp_dashboard_quick_press( $error_msg = false ) {
+
 	global $post_ID;
 
 	if ( ! current_user_can( 'edit_posts' ) ) {
 		return;
 	}
 
-	/* Check if a new auto-draft (= no new post_ID) is needed or if the old can be used */
-	$last_post_id = (int) get_user_option( 'dashboard_quick_press_last_post_id' ); // Get the last post_ID
+	// Check if a new auto-draft (= no new post_ID) is needed or if the old can be used.
+	// Get the last post_ID.
+	$last_post_id = (int) get_user_option( 'dashboard_quick_press_last_post_id' );
+
 	if ( $last_post_id ) {
+
 		$post = get_post( $last_post_id );
-		if ( empty( $post ) || $post->post_status != 'auto-draft' ) { // auto-draft doesn't exists anymore
+
+		if ( empty( $post ) || $post->post_status != 'auto-draft' ) { // auto-draft doesn't exists anymore.
 			$post = get_default_post_to_edit( 'post', true );
-			update_user_option( get_current_user_id(), 'dashboard_quick_press_last_post_id', (int) $post->ID ); // Save post_ID
+			update_user_option( get_current_user_id(), 'dashboard_quick_press_last_post_id', (int) $post->ID ); // Save post_ID.
+
 		} else {
-			$post->post_title = ''; // Remove the auto draft title
+			$post->post_title = ''; // Remove the auto draft title.
 		}
 	} else {
-		$post = get_default_post_to_edit( 'post' , true);
+
+		$post    = get_default_post_to_edit( 'post' , true );
 		$user_id = get_current_user_id();
+
 		// Don't create an option if this is a super admin who does not belong to this site.
-		if ( in_array( get_current_blog_id(), array_keys( get_blogs_of_user( $user_id ) ) ) )
-			update_user_option( $user_id, 'dashboard_quick_press_last_post_id', (int) $post->ID ); // Save post_ID
+		if ( in_array( get_current_blog_id(), array_keys( get_blogs_of_user( $user_id ) ) ) ) {
+			update_user_option( $user_id, 'dashboard_quick_press_last_post_id', (int) $post->ID ); // Save post_ID.
+		}
 	}
 
 	$post_ID = (int) $post->ID;
 ?>
+
+	<p class="description"><?php _e( 'Save a thought or a note as a standard post to be completed & published at a later time.' ); ?></p>
 
 	<form name="post" action="<?php echo esc_url( admin_url( 'post.php' ) ); ?>" method="post" id="quick-press" class="initial-form hide-if-no-js">
 
@@ -499,7 +510,7 @@ function wp_dashboard_quick_press( $error_msg = false ) {
 		</div>
 
 		<div class="textarea-wrap" id="description-wrap">
-			<label class="screen-reader-text prompt" for="content" id="content-prompt-text"><?php _e( 'What&#8217;s on your mind?' ); ?></label>
+			<label class="screen-reader-text prompt" for="content" id="content-prompt-text"><?php _e( 'Draft content' ); ?></label>
 			<textarea name="content" id="content" class="mceEditor" rows="3" cols="15" autocomplete="off"></textarea>
 		</div>
 

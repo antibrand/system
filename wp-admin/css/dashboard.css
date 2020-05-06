@@ -358,7 +358,7 @@
 /* Dashboard Quick Draft */
 #dashboard_quick_press .inside {
   margin: 0;
-  padding: 0;
+  padding: 1em;
 }
 
 #dashboard_quick_press div.updated {
@@ -368,7 +368,11 @@
 }
 
 #dashboard_quick_press form {
-  margin: 12px;
+  margin-top: 1em;
+}
+
+#dashboard_quick_press p.description {
+  margin: 0;
 }
 
 #dashboard_quick_press .drafts,
