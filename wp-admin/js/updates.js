@@ -186,7 +186,7 @@
 			if ( 'customize' === pagenow ) {
 				$( '.customize-themes-notifications' ).append( $adminNotice );
 			} else {
-				$( '.wrap' ).find( '> h1' ).after( $adminNotice );
+				$( '.wrap' ).find( '> h1' ).before( $adminNotice );
 			}
 		}
 

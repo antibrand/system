@@ -489,7 +489,7 @@ $document.ready( function() {
 	if ( ! $headerEnd.length ) {
 		$headerEnd = $( '.wrap h1, .wrap h2' ).first();
 	}
-	$( 'div.updated, div.error, div.notice' ).not( '.inline, .below-h2' ).insertAfter( $headerEnd );
+	$( 'div.updated, div.error, div.notice' ).not( '.inline, .below-h2' ).insertBefore( $headerEnd );
 
 	// Make notices dismissible
 	function makeNoticesDismissible() {
