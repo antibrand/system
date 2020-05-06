@@ -1789,8 +1789,8 @@ table.form-table td .updated p {
   white-space: nowrap;
   cursor: pointer;
   -webkit-appearance: none;
-  -webkit-transition: all .15s;
-  transition: all .15s;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
 }
 
 .button.button-small,
@@ -3095,22 +3095,31 @@ div.error {
   border-left: 4px solid transparent;
   -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
-  margin: 5px 15px 2px;
-  padding: 1px 12px;
+  margin-top: 2rem;
+  padding: 1em;
+}
+
+.notice h2,
+.notice p,
+div.updated h2,
+div.updated p,
+div.error h2,
+div.error p {
+  margin: 0;
+}
+
+.notice h2 + p,
+.notice p + p,
+div.updated h2 + p,
+div.updated p + p,
+div.error h2 + p,
+div.error p + p {
+  margin-top: 1em;
 }
 
 div[class="update-message"] {
   /* back-compat for pre-4.6 */
   padding: 0.5em 12px 0.5em 0;
-}
-
-.notice p,
-.notice-title,
-div.updated p,
-div.error p,
-.form-table td .notice p {
-  margin: 0.5em 0;
-  padding: 2px;
 }
 
 .error a {
@@ -3194,14 +3203,6 @@ div.error {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   vertical-align: top;
-}
-
-.wrap .notice,
-.wrap div.updated,
-.wrap div.error,
-.media-upload-form .notice,
-.media-upload-form div.error {
-  margin: 5px 0 15px;
 }
 
 .wrap #templateside .notice {

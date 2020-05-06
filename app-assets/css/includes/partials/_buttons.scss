@@ -45,7 +45,7 @@
 	white-space: nowrap;
 	cursor: pointer;
 	-webkit-appearance: none;
-	transition: all .15s;
+	transition: all .1s linear;
 
 	&.button-small {
 		font-size: $px11;

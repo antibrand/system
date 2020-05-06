@@ -1142,21 +1142,21 @@ div.updated,
 div.error {
 	border-left: 4px solid transparent;
 	box-shadow: 0 1px 1px 0 rgba( 0, 0, 0, 0.1 );
-	margin: 5px 15px 2px;
-	padding: 1px 12px;
+	margin-top: 2rem;
+	padding: 1em;
+
+	h2,
+	p {
+		margin: 0;
+
+		&+ p {
+			margin-top: 1em;
+		}
+	}
 }
 
 div[class="update-message"] { /* back-compat for pre-4.6 */
 	padding: 0.5em 12px 0.5em 0;
-}
-
-.notice p,
-.notice-title,
-div.updated p,
-div.error p,
-.form-table td .notice p {
-	margin: 0.5em 0;
-	padding: 2px;
 }
 
 .error a {
@@ -1241,14 +1241,6 @@ div.error {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	vertical-align: top;
-}
-
-.wrap .notice,
-.wrap div.updated,
-.wrap div.error,
-.media-upload-form .notice,
-.media-upload-form div.error {
-	margin: 5px 0 15px;
 }
 
 .wrap #templateside .notice {

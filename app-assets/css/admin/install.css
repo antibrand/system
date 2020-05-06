@@ -358,8 +358,8 @@ b, strong, optgroup {
   white-space: nowrap;
   cursor: pointer;
   -webkit-appearance: none;
-  -webkit-transition: all .15s;
-  transition: all .15s;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
 }
 
 .button.button-small,
