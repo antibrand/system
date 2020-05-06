@@ -453,12 +453,6 @@ $submenu['plugins.php'][5] = [
 ];
 
 	if ( ! is_multisite() ) {
-		/* translators: add new plugin */
-		$submenu['plugins.php'][10] = [
-			_x( 'WordPress Plugins', 'plugin' ),
-			'install_plugins',
-			'plugin-install.php'
-		];
 
 		$submenu['plugins.php'][15] = [
 			_x( 'Plugin Editor', 'plugin editor' ),
