@@ -128,7 +128,15 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	if ( is_array( $extra_stats ) )
 		$post_body = array_merge( $post_body, $extra_stats );
 
-	$url = $http_url = 'http://api.wordpress.org/core/version-check/1.7/?' . http_build_query( $query, null, '&' );
+	/**
+	 * Disable version API URL
+	 *
+	 * @todo Review this.
+	 *
+	 * Formerly:
+	 * $url = $http_url = 'http://api.wordpress.org/core/version-check/1.7/?';
+	 */
+	$url = $http_url = '' . http_build_query( $query, null, '&' );
 	if ( $ssl = wp_http_supports( array( 'ssl' ) ) )
 		$url = set_url_scheme( $url, 'https' );
 
@@ -329,7 +337,15 @@ function wp_update_plugins( $extra_stats = array() ) {
 		$options['body']['update_stats'] = wp_json_encode( $extra_stats );
 	}
 
-	$url = $http_url = 'http://api.wordpress.org/plugins/update-check/1.1/';
+	/**
+	 * Disable plugins API URL
+	 *
+	 * @todo Reinstate in WordPress Plugins plugin.
+	 *
+	 * Formerly:
+	 * $url = $http_url = 'http://api.wordpress.org/plugins/update-check/1.1/';
+	 */
+	$url = $http_url = '';
 	if ( $ssl = wp_http_supports( array( 'ssl' ) ) )
 		$url = set_url_scheme( $url, 'https' );
 
@@ -473,7 +489,7 @@ function wp_update_themes( $extra_stats = array() ) {
 
 	// Update last_checked for current to prevent multiple blocking requests if request hangs
 	$last_update->last_checked = time();
-	set_site_transient( 'update_themes', $last_update );
+	// set_site_transient( 'update_themes', $last_update );
 
 	$request['themes'] = $themes;
 
@@ -511,21 +527,35 @@ function wp_update_themes( $extra_stats = array() ) {
 		$options['body']['update_stats'] = wp_json_encode( $extra_stats );
 	}
 
-	$url = $http_url = 'http://api.wordpress.org/themes/update-check/1.1/';
+	/**
+	 * Disable themes API URL
+	 *
+	 * @todo Reinstate in WordPress Themes plugin.
+	 *
+	 * Formerly:
+	 * $url = $http_url = 'http://api.wordpress.org/themes/update-check/1.1/';
+	 */
+	$url = $http_url = '';
 	if ( $ssl = wp_http_supports( array( 'ssl' ) ) )
 		$url = set_url_scheme( $url, 'https' );
 
 	$raw_response = wp_remote_post( $url, $options );
 	if ( $ssl && is_wp_error( $raw_response ) ) {
-		trigger_error(
-			sprintf(
-				/* translators: %s: support forums URL */
-				__( 'An unexpected error occurred. Something may be wrong with wordpress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
-				__( 'https://wordpress.org/support/' )
-			) . ' ' . __( '(Could not establish a secure connection to wordpress.org. Please contact your server administrator.)' ),
-			headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
-		);
-		$raw_response = wp_remote_post( $http_url, $options );
+		/**
+		 * Disable error for now
+		 *
+		 * @todo Reinstate in WordPress Themes plugin.
+		 *
+		 * trigger_error(
+		 * 	sprintf(
+		 * 		// translators: %s: support forums URL.
+		 * 		__( 'An unexpected error occurred. Something may be wrong with wordpress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
+		 * 		__( 'https://wordpress.org/support/' )
+		 * 	) . ' ' . __( '(Could not establish a secure connection to wordpress.org. Please contact your server administrator.)' ),
+		 * 	headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
+		 * );
+		 * $raw_response = wp_remote_post( $http_url, $options );
+		 */
 	}
 
 	if ( is_wp_error( $raw_response ) || 200 != wp_remote_retrieve_response_code( $raw_response ) ) {
@@ -543,7 +573,7 @@ function wp_update_themes( $extra_stats = array() ) {
 		$new_update->translations = $response['translations'];
 	}
 
-	set_site_transient( 'update_themes', $new_update );
+	// set_site_transient( 'update_themes', $new_update );
 }
 
 /**

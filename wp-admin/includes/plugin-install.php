@@ -144,7 +144,15 @@ function plugins_api( $action, $args = array() ) {
 		// include an unmodified $wp_version
 		include( ABSPATH . WPINC . '/version.php' );
 
-		$url = $http_url = 'http://api.wordpress.org/plugins/info/1.0/';
+		/**
+		 * Disable plugins API URL
+		 *
+		 * @todo Reinstate in WordPress Plugins plugin.
+		 *
+		 * Formerly:
+		 * $url = $http_url = 'http://api.wordpress.org/plugins/info/1.0/';
+		 */
+		$url = $http_url = '';
 		if ( $ssl = wp_http_supports( array( 'ssl' ) ) )
 			$url = set_url_scheme( $url, 'https' );
 

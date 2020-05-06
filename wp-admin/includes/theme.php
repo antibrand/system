@@ -444,7 +444,7 @@ function themes_api( $action, $args = array() ) {
 		// include an unmodified $wp_version
 		include( ABSPATH . WPINC . '/version.php' );
 
-		$url = $http_url = 'http://api.wordpress.org/themes/info/1.0/';
+		$url = $http_url = '';
 		if ( $ssl = wp_http_supports( array( 'ssl' ) ) )
 			$url = set_url_scheme( $url, 'https' );
 
@@ -554,6 +554,9 @@ function wp_prepare_themes_for_js( $themes = null ) {
 		$updates_transient = get_site_transient( 'update_themes' );
 		if ( isset( $updates_transient->response ) ) {
 			$updates = $updates_transient->response;
+
+			// Disable update notifications display.
+			// $updates = '';
 		}
 	}
 

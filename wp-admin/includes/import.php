@@ -130,10 +130,17 @@ function wp_get_popular_importers() {
 	$popular_importers = get_site_transient( $cache_key );
 
 	if ( ! $popular_importers ) {
+		/**
+		 * Importers API URL, removed:
+		 * http://api.wordpress.org/core/importers/1.1/
+		 *
+		 * @todo Remove this when import plugin is available or
+		 *       import functionality is included.
+		 */
 		$url = add_query_arg( array(
 			'locale'  => $locale,
 			'version' => $wp_version,
-		), 'http://api.wordpress.org/core/importers/1.1/' );
+		), '' ); // http://api.wordpress.org/core/importers/1.1/
 		$options = array( 'user-agent' => 'WordPress/' . $wp_version . '; ' . home_url( '/' ) );
 
 		if ( wp_http_supports( array( 'ssl' ) ) ) {
