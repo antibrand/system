@@ -293,78 +293,73 @@ $bulk_messages = apply_filters( 'bulk_post_updated_messages', $bulk_messages, $b
 $bulk_counts = array_filter( $bulk_counts );
 
 require_once( ABSPATH . 'wp-admin/admin-header.php' );
+
 ?>
-<div class="wrap">
-<h1><?php
-echo esc_html( $post_type_object->labels->name );
-?></h1>
+	<div class="wrap">
+		<h1><?php echo esc_html( $post_type_object->labels->name ); ?></h1>
 
-<?php
-if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {
-	/* translators: %s: search keywords */
-	printf( ' <p class="subtitle">' . __( 'Search results for &#8220;%s&#8221;' ) . '</p>', get_search_query() );
-}
-?>
+		<?php
+		if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {
+			/* translators: %s: search keywords */
+			printf( ' <p class="subtitle">' . __( 'Search results for &#8220;%s&#8221;' ) . '</p>', get_search_query() );
+		}
 
-<hr class="wp-header-end">
+		// If we have a bulk message to issue:
+		$messages = array();
+		foreach ( $bulk_counts as $message => $count ) {
+			if ( isset( $bulk_messages[ $post_type ][ $message ] ) )
+				$messages[] = sprintf( $bulk_messages[ $post_type ][ $message ], number_format_i18n( $count ) );
+			elseif ( isset( $bulk_messages['post'][ $message ] ) )
+				$messages[] = sprintf( $bulk_messages['post'][ $message ], number_format_i18n( $count ) );
 
-<?php
-// If we have a bulk message to issue:
-$messages = array();
-foreach ( $bulk_counts as $message => $count ) {
-	if ( isset( $bulk_messages[ $post_type ][ $message ] ) )
-		$messages[] = sprintf( $bulk_messages[ $post_type ][ $message ], number_format_i18n( $count ) );
-	elseif ( isset( $bulk_messages['post'][ $message ] ) )
-		$messages[] = sprintf( $bulk_messages['post'][ $message ], number_format_i18n( $count ) );
+			if ( $message == 'trashed' && isset( $_REQUEST['ids'] ) ) {
+				$ids = preg_replace( '/[^0-9,]/', '', $_REQUEST['ids'] );
+				$messages[] = '<a href="' . esc_url( wp_nonce_url( "edit.php?post_type=$post_type&doaction=undo&action=untrash&ids=$ids", "bulk-posts" ) ) . '">' . __('Undo') . '</a>';
+			}
+		}
 
-	if ( $message == 'trashed' && isset( $_REQUEST['ids'] ) ) {
-		$ids = preg_replace( '/[^0-9,]/', '', $_REQUEST['ids'] );
-		$messages[] = '<a href="' . esc_url( wp_nonce_url( "edit.php?post_type=$post_type&doaction=undo&action=untrash&ids=$ids", "bulk-posts" ) ) . '">' . __('Undo') . '</a>';
-	}
-}
+		if ( $messages )
+			echo '<div id="message" class="updated notice is-dismissible"><p>' . join( ' ', $messages ) . '</p></div>';
+		unset( $messages );
 
-if ( $messages )
-	echo '<div id="message" class="updated notice is-dismissible"><p>' . join( ' ', $messages ) . '</p></div>';
-unset( $messages );
+		$_SERVER['REQUEST_URI'] = remove_query_arg( array( 'locked', 'skipped', 'updated', 'deleted', 'trashed', 'untrashed' ), $_SERVER['REQUEST_URI'] );
+		?>
 
-$_SERVER['REQUEST_URI'] = remove_query_arg( array( 'locked', 'skipped', 'updated', 'deleted', 'trashed', 'untrashed' ), $_SERVER['REQUEST_URI'] );
-?>
+		<div class="list-table-top">
 
-<div class="list-table-top">
+			<?php $wp_list_table->views(); ?>
 
-	<?php $wp_list_table->views(); ?>
+			<form method="get" id="search-<?php echo $post_type; ?>-list" class="search-form">
+				<?php $wp_list_table->search_box( $post_type_object->labels->search_items, 'post' ); ?>
+			</form>
 
-	<form method="get" id="search-<?php echo $post_type; ?>-list" class="search-form">
-		<?php $wp_list_table->search_box( $post_type_object->labels->search_items, 'post' ); ?>
-	</form>
+		</div>
 
-</div>
+		<form id="posts-filter" method="get">
 
-<form id="posts-filter" method="get">
+			<input type="hidden" name="post_status" class="post_status_page" value="<?php echo ! empty( $_REQUEST['post_status'] ) ? esc_attr( $_REQUEST['post_status'] ) : 'all'; ?>" />
+			<input type="hidden" name="post_type" class="post_type_page" value="<?php echo $post_type; ?>" />
 
-<input type="hidden" name="post_status" class="post_status_page" value="<?php echo ! empty( $_REQUEST['post_status'] ) ? esc_attr( $_REQUEST['post_status'] ) : 'all'; ?>" />
-<input type="hidden" name="post_type" class="post_type_page" value="<?php echo $post_type; ?>" />
+			<?php if ( ! empty( $_REQUEST['author'] ) ) { ?>
+			<input type="hidden" name="author" value="<?php echo esc_attr( $_REQUEST['author'] ); ?>" />
+			<?php } ?>
 
-<?php if ( ! empty( $_REQUEST['author'] ) ) { ?>
-<input type="hidden" name="author" value="<?php echo esc_attr( $_REQUEST['author'] ); ?>" />
-<?php } ?>
+			<?php if ( ! empty( $_REQUEST['show_sticky'] ) ) { ?>
+			<input type="hidden" name="show_sticky" value="1" />
+			<?php } ?>
 
-<?php if ( ! empty( $_REQUEST['show_sticky'] ) ) { ?>
-<input type="hidden" name="show_sticky" value="1" />
-<?php } ?>
+			<?php $wp_list_table->display(); ?>
 
-<?php $wp_list_table->display(); ?>
+		</form>
 
-</form>
+		<?php
+		if ( $wp_list_table->has_items() )
+			$wp_list_table->inline_edit();
+		?>
 
-<?php
-if ( $wp_list_table->has_items() )
-	$wp_list_table->inline_edit();
-?>
+		<div id="ajax-response"></div>
 
-<div id="ajax-response"></div>
-<br class="clear" />
-</div>
+	</div><!-- .wrap -->
 
 <?php
 include( ABSPATH . 'wp-admin/admin-footer.php' );
