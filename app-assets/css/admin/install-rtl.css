@@ -596,6 +596,7 @@ input[type="url"],
 input[type="week"],
 select,
 textarea {
+  max-width: 100%;
   background-color: inherit;
   border: solid 1px #888888;
   border-radius: 0;

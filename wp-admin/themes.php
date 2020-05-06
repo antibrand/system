@@ -18,7 +18,7 @@ if ( ! current_user_can( 'switch_themes' ) && ! current_user_can( 'edit_theme_op
 	);
 }
 
-if ( current_user_can( 'switch_themes' ) && isset($_GET['action'] ) ) {
+if ( current_user_can( 'switch_themes' ) && isset( $_GET['action'] ) ) {
 
 	if ( 'activate' == $_GET['action'] ) {
 
@@ -318,7 +318,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 				<?php } ?>
 
 				<?php if ( $theme['hasUpdate'] ) : ?>
-					<div class="update-message notice inline notice-warning notice-alt">
+					<div class="update-message notice inline notice-warning notice-alt no-border">
 					<?php if ( $theme['hasPackage'] ) : ?>
 						<p><?php _e( 'New version available. <button class="button-link" type="button">Update now</button>' ); ?></p>
 					<?php else : ?>
@@ -485,9 +485,9 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
 	<# if ( data.hasUpdate ) { #>
 		<# if ( data.hasPackage ) { #>
-			<div class="update-message notice inline notice-warning notice-alt"><p><?php _e( 'New version available. <button class="button-link" type="button">Update now</button>' ); ?></p></div>
+			<div class="update-message notice inline notice-warning notice-alt no-border"><p><?php _e( 'New version available. <button class="button-link" type="button">Update now</button>' ); ?></p></div>
 		<# } else { #>
-			<div class="update-message notice inline notice-warning notice-alt"><p><?php _e( 'New version available.' ); ?></p></div>
+			<div class="update-message notice inline notice-warning notice-alt no-border"><p><?php _e( 'New version available.' ); ?></p></div>
 		<# } #>
 	<# } #>
 
@@ -572,7 +572,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 				<# } #>
 
 				<# if ( data.hasUpdate ) { #>
-				<div class="notice notice-warning notice-alt notice-large">
+				<div class="notice notice-warning notice-alt notice-large no-border">
 					<h3 class="notice-title"><?php _e( 'Update Available' ); ?></h3>
 					{{{ data.update }}}
 				</div>

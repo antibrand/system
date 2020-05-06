@@ -1222,6 +1222,12 @@ div.error {
 	border-left-color: $notify_color;
 }
 
+.notice {
+	&.no-border {
+		border: none !important;
+	}
+}
+
 .update-message p:before,
 .updating-message p:before,
 .updated-message p:before,
@@ -1267,7 +1273,7 @@ div.error {
 .import-php .updating-message:before,
 .button.updating-message:before,
 .button.installing:before {
-	color: #f56e28;
+	color: $app_orange;
 	content: "\f463";
 }
 

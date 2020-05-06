@@ -1,3 +1,10 @@
+/**
+ * Plugins
+ */
+
+ @import '../../app-assets/css/includes/modules/_colors';
+ @import '../../app-assets/css/includes/modules/_typography';
+
 .upload-plugin-wrap {
 
 	.upload-plugin {
@@ -30,10 +37,9 @@
 		}
 
 		.wp-upload-form {
-			border: 1px solid #ccc;
 			margin-top: 2em;
 			padding: 2em;
-			max-width: 480px;
+			border: 1px solid $form_border_color;
 		}
 
 		.install-help {

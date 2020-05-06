@@ -521,6 +521,7 @@ input[type="url"],
 input[type="week"],
 select,
 textarea {
+  max-width: 100%;
   background-color: inherit;
   border: solid 1px #888888;
   border-radius: 0;
@@ -3176,6 +3177,10 @@ div.error {
   border-left-color: #ee6600;
 }
 
+.notice.no-border {
+  border: none !important;
+}
+
 .update-message p:before,
 .updating-message p:before,
 .updated-message p:before,
@@ -3221,7 +3226,7 @@ div.error {
 .import-php .updating-message:before,
 .button.updating-message:before,
 .button.installing:before {
-  color: #f56e28;
+  color: #ee6600;
   content: "\f463";
 }
 

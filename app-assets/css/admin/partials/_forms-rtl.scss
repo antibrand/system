@@ -44,6 +44,7 @@ input[type="url"],
 input[type="week"],
 select,
 textarea {
+	max-width: 100%;
 	background-color: $form_background_color;
 	border: solid 1px $form_border_color;
 	border-radius: 0; /* Reset mobile webkit's default element styling */
