@@ -606,86 +606,93 @@ if ( ! empty( $invalid ) ) {
 		</div>
 		<?php endif; ?>
 <?php elseif ( isset( $_GET['activate'] ) ) : ?>
-	<div id="message" class="updated notice is-dismissible"><p><?php _e('Plugin <strong>activated</strong>.' ) ?></p></div>
-<?php elseif (isset( $_GET['activate-multi'] ) ) : ?>
-	<div id="message" class="updated notice is-dismissible"><p><?php _e('Selected plugins <strong>activated</strong>.' ); ?></p></div>
+	<div id="message" class="updated notice is-dismissible"><p><?php _e( 'Plugin <strong>activated</strong>.' ) ?></p></div>
+<?php elseif ( isset( $_GET['activate-multi'] ) ) : ?>
+	<div id="message" class="updated notice is-dismissible"><p><?php _e( 'Selected plugins <strong>activated</strong>.' ); ?></p></div>
 <?php elseif ( isset( $_GET['deactivate'] ) ) : ?>
-	<div id="message" class="updated notice is-dismissible"><p><?php _e('Plugin <strong>deactivated</strong>.' ) ?></p></div>
-<?php elseif (isset( $_GET['deactivate-multi'] ) ) : ?>
-	<div id="message" class="updated notice is-dismissible"><p><?php _e('Selected plugins <strong>deactivated</strong>.' ); ?></p></div>
+	<div id="message" class="updated notice is-dismissible"><p><?php _e( 'Plugin <strong>deactivated</strong>.' ) ?></p></div>
+<?php elseif ( isset( $_GET['deactivate-multi'] ) ) : ?>
+	<div id="message" class="updated notice is-dismissible"><p><?php _e( 'Selected plugins <strong>deactivated</strong>.' ); ?></p></div>
 <?php elseif ( 'update-selected' == $action ) : ?>
-	<div id="message" class="updated notice is-dismissible"><p><?php _e('All selected plugins are up to date.' ); ?></p></div>
-<?php endif; ?>
+	<div id="message" class="updated notice is-dismissible"><p><?php _e( 'All selected plugins are up to date.' ); ?></p></div>
+<?php endif;
 
-<div class="wrap">
-	<script>
-	// Toggle the plugin upload interface.
-	jQuery(document).ready( function($) {
-		$( '#upload-plugin-toggle' ).click( function() {
-			$(this).text( $(this).text() == "<?php _e( 'Upload Plugin' ); ?>" ? "<?php _e( 'Close Upload' ); ?>" : "<?php _e( 'Upload Plugin' ); ?>" );
-			$( '#upload-plugin' ).toggleClass( 'upload-plugin-open' );
+?>
+	<div class="wrap">
+		<script>
+		// Toggle the plugin upload interface.
+		jQuery(document).ready( function($) {
+			$( '#upload-plugin-toggle' ).click( function() {
+				$(this).text( $(this).text() == "<?php _e( 'Upload Plugin' ); ?>" ? "<?php _e( 'Close Upload' ); ?>" : "<?php _e( 'Upload Plugin' ); ?>" );
+				$( '#upload-plugin' ).toggleClass( 'upload-plugin-open' );
+			});
+
 		});
+		</script>
+		<h1><?php echo esc_html( $title ); ?></h1>
 
-	});
-	</script>
-	<h1><?php echo esc_html( $title ); ?></h1>
+		<p class="description"><?php _e( 'Plugins extend the functionality of the website management system.' ); ?></p>
 
-	<p class="description"><?php _e( 'Plugins extend the functionality of the website management system.' ); ?></p>
+		<div class="upload-plugin-wrap">
 
-	<div class="upload-plugin-wrap">
-		<div id="upload-plugin" class="upload-plugin">
-			<p class="install-help"><?php _e( 'If you have a plugin in a .zip format, you may install it by uploading it here.' ); ?></p>
-			<form method="post" enctype="multipart/form-data" class="wp-upload-form" action="<?php echo self_admin_url( 'update.php?action=upload-plugin' ); ?>">
-				<?php wp_nonce_field( 'plugin-upload' ); ?>
-				<label class="screen-reader-text" for="pluginzip"><?php _e( 'Plugin zip file' ); ?></label>
-				<input type="file" id="pluginzip" name="pluginzip" />
-				<?php submit_button( __( 'Install Now' ), '', 'install-plugin-submit', false ); ?>
-			</form>
+			<div id="upload-plugin" class="upload-plugin">
+
+				<p class="install-help"><?php _e( 'If you have a plugin in a .zip format, you may install it by uploading it here.' ); ?></p>
+
+				<form method="post" enctype="multipart/form-data" class="wp-upload-form" action="<?php echo self_admin_url( 'update.php?action=upload-plugin' ); ?>">
+
+					<?php wp_nonce_field( 'plugin-upload' ); ?>
+					<label class="screen-reader-text" for="pluginzip"><?php _e( 'Plugin zip file' ); ?></label>
+					<input type="file" id="pluginzip" name="pluginzip" />
+					<?php submit_button( __( 'Install Now' ), '', 'install-plugin-submit', false ); ?>
+
+				</form>
+			</div>
 		</div>
-	</div>
 
-	<?php
-	if ( strlen( $s ) ) {
+		<?php
+		if ( strlen( $s ) ) {
 
-		// Translators: %s: search keywords
-		printf( '<p class="subtitle">' . __( 'Search results for &#8220;%s&#8221;' ) . '</p>', esc_html( urldecode( $s ) ) );
-	}
-	?>
+			// Translators: %s: search keywords
+			printf( '<p class="subtitle">' . __( 'Search results for &#8220;%s&#8221;' ) . '</p>', esc_html( urldecode( $s ) ) );
+		}
 
-	<hr class="wp-header-end">
+		/**
+		 * Fires before the plugins list table is rendered.
+		 *
+		 * This hook also fires before the plugins list table is rendered in the Network Admin.
+		 *
+		 * Please note: The 'active' portion of the hook name does not refer to whether the current
+		 * view is for active plugins, but rather all plugins actively-installed.
+		 *
+		 * @since WP 3.0.0
+		 *
+		 * @param array $plugins_all An array containing all installed plugins.
+		 */
+		do_action( 'pre_current_active_plugins', $plugins['all'] ); ?>
 
-	<?php
-	/**
-	 * Fires before the plugins list table is rendered.
-	 *
-	 * This hook also fires before the plugins list table is rendered in the Network Admin.
-	 *
-	 * Please note: The 'active' portion of the hook name does not refer to whether the current
-	 * view is for active plugins, but rather all plugins actively-installed.
-	 *
-	 * @since WP 3.0.0
-	 *
-	 * @param array $plugins_all An array containing all installed plugins.
-	 */
-	do_action( 'pre_current_active_plugins', $plugins['all'] ); ?>
+		<div class="list-table-top">
 
-	<?php $wp_list_table->views(); ?>
+		<?php $wp_list_table->views(); ?>
 
-	<form class="search-form search-plugins" method="get">
-		<?php $wp_list_table->search_box( __( 'Search Installed Plugins' ), 'plugin' ); ?>
-	</form>
+		<form class="search-form search-plugins" method="get">
+			<?php $wp_list_table->search_box( __( 'Search Installed Plugins' ), 'plugin' ); ?>
+		</form>
 
-	<form method="post" id="bulk-action-form">
+		</div>
 
-		<input type="hidden" name="plugin_status" value="<?php echo esc_attr( $status ) ?>" />
-		<input type="hidden" name="paged" value="<?php echo esc_attr( $page ) ?>" />
+		<form method="post" id="bulk-action-form">
 
-		<?php $wp_list_table->display(); ?>
+			<input type="hidden" name="plugin_status" value="<?php echo esc_attr( $status ) ?>" />
+			<input type="hidden" name="paged" value="<?php echo esc_attr( $page ) ?>" />
 
-	</form>
+			<?php $wp_list_table->display(); ?>
 
-	<span class="spinner"></span>
-</div>
+		</form>
+
+		<span class="spinner"></span>
+
+	</div><!-- .wrap -->
 
 <?php
 wp_print_request_filesystem_credentials_modal();
