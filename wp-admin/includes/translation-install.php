@@ -73,8 +73,8 @@ function translations_api( $type, $args = null ) {
 			 * 		__( 'https://wordpress.org/support/' )
 			 * 	) . ' ' . __( '(Could not establish a secure connection to wordpress.org. Please contact your server administrator.)' ),
 			 * 	headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
-			 */
-			);
+			 * );
+			 * */
 
 			$request = wp_remote_post( $http_url, $options );
 		}
