@@ -300,9 +300,14 @@ function update_right_now_message() {
 			$msg .= '<a href="' . network_admin_url( 'update-core.php' ) . '" class="button" aria-describedby="wp-version">' . __( 'Update' ) . '</a> ';
 	}
 
-	/* translators: 1: version number, 2: theme name */
 	$content = sprintf(
-		'<p>%1s <span id="wp-version">%2s</span> %3s %4s<p>',
+		'<h3>%1s</h3>',
+		__( 'System' )
+	);
+
+	/* translators: 1: version number, 2: theme name */
+	$content .= sprintf(
+		'<p>%1s <span id="wp-version">%2s</span> %3s %4s</p>',
 		APP_NAME,
 		get_bloginfo( 'version' ),
 		__( 'using the' ),
@@ -317,7 +322,7 @@ function update_right_now_message() {
 	);
 
 	/**
-	 * Filters the text displayed in the 'At a Glance' dashboard widget.
+	 * Filters the text displayed in the 'Site Overview' dashboard widget.
 	 *
 	 * Prior to 3.8.0, the widget was named 'Right Now'.
 	 *

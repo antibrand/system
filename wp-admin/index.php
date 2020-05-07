@@ -68,7 +68,7 @@ $screen->add_help_tab( [
 
 $help  = '<p>' . __( 'The boxes on your Dashboard screen are:' ) . '</p>';
 if ( current_user_can( 'edit_posts' ) )
-	$help .= '<p>' . __( '<strong>At A Glance</strong> &mdash; Displays a summary of the content on your site and identifies which theme and version of the website management system that you are using.' ) . '</p>';
+	$help .= '<p>' . __( '<strong>Site Overview</strong> &mdash; Displays a summary of the content on your site and identifies which theme and version of the website management system that you are using.' ) . '</p>';
 	$help .= '<p>' . __( '<strong>Activity</strong> &mdash; Shows the upcoming scheduled posts, recently published posts, and the most recent comments on your posts and allows you to moderate them.' ) . '</p>';
 if ( is_blog_admin() && current_user_can( 'edit_posts' ) )
 	$help .= '<p>' . __( "<strong>Quick Draft</strong> &mdash; Allows you to create a new post and save it as a draft. Also displays links to the 5 most recent draft posts you've started." ) . '</p>';
@@ -83,7 +83,16 @@ $screen->add_help_tab( [
 
 unset( $help );
 
-$screen->set_help_sidebar( '' );
+/**
+ * Help sidebar content
+ *
+ * This system adds no content to the help sidebar
+ * but there is a filter applied for adding content.
+ *
+ * @since 1.0.0
+ */
+$set_help_sidebar = apply_filters( 'set_help_sidebar_index', '' );
+$screen->set_help_sidebar( $set_help_sidebar );
 
 include( ABSPATH . 'wp-admin/admin-header.php' );
 

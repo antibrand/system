@@ -26,14 +26,14 @@ function wp_dashboard_setup() {
 
 	// Right Now
 	if ( is_blog_admin() && current_user_can('edit_posts') )
-		wp_add_dashboard_widget( 'dashboard_right_now', __( 'At a Glance' ), 'wp_dashboard_right_now' );
+		wp_add_dashboard_widget( 'dashboard_right_now', __( 'Site Overview' ), 'wp_dashboard_right_now' );
 
 	if ( is_network_admin() )
 		wp_add_dashboard_widget( 'network_dashboard_right_now', __( 'Right Now' ), 'wp_network_dashboard_right_now' );
 
 	// Activity Widget
 	if ( is_blog_admin() ) {
-		wp_add_dashboard_widget( 'dashboard_activity', __( 'Activity' ), 'wp_dashboard_site_activity' );
+		wp_add_dashboard_widget( 'dashboard_activity', __( 'Site Activity' ), 'wp_dashboard_site_activity' );
 	}
 
 	// QuickPress Widget
@@ -228,74 +228,73 @@ function wp_dashboard() {
 /**
  * Dashboard widget that displays some basic stats about the site.
  *
- * Formerly 'Right Now'. A streamlined 'At a Glance' as of 3.8.
- *
  * @since 2.7.0
  */
 function wp_dashboard_right_now() {
 ?>
 	<div class="main">
-	<ul>
-	<?php
-	// Posts and Pages
-	foreach ( array( 'post', 'page' ) as $post_type ) {
-		$num_posts = wp_count_posts( $post_type );
-		if ( $num_posts && $num_posts->publish ) {
-			if ( 'post' == $post_type ) {
-				$text = _n( '%s Post', '%s Posts', $num_posts->publish );
-			} else {
-				$text = _n( '%s Page', '%s Pages', $num_posts->publish );
+		<h3><?php _e( 'Content' ); ?></h3>
+		<ul>
+			<?php
+			// Posts and Pages
+			foreach ( array( 'post', 'page' ) as $post_type ) {
+				$num_posts = wp_count_posts( $post_type );
+				if ( $num_posts && $num_posts->publish ) {
+					if ( 'post' == $post_type ) {
+						$text = _n( '%s Post', '%s Posts', $num_posts->publish );
+					} else {
+						$text = _n( '%s Page', '%s Pages', $num_posts->publish );
+					}
+					$text = sprintf( $text, number_format_i18n( $num_posts->publish ) );
+					$post_type_object = get_post_type_object( $post_type );
+					if ( $post_type_object && current_user_can( $post_type_object->cap->edit_posts ) ) {
+						printf( '<li class="%1$s-count"><a href="edit.php?post_type=%1$s">%2$s</a></li>', $post_type, $text );
+					} else {
+						printf( '<li class="%1$s-count"><span>%2$s</span></li>', $post_type, $text );
+					}
+
+				}
 			}
-			$text = sprintf( $text, number_format_i18n( $num_posts->publish ) );
-			$post_type_object = get_post_type_object( $post_type );
-			if ( $post_type_object && current_user_can( $post_type_object->cap->edit_posts ) ) {
-				printf( '<li class="%1$s-count"><a href="edit.php?post_type=%1$s">%2$s</a></li>', $post_type, $text );
-			} else {
-				printf( '<li class="%1$s-count"><span>%2$s</span></li>', $post_type, $text );
+			// Comments
+			$num_comm = wp_count_comments();
+			if ( $num_comm && ( $num_comm->approved || $num_comm->moderated ) ) {
+				$text = sprintf( _n( '%s Comment', '%s Comments', $num_comm->approved ), number_format_i18n( $num_comm->approved ) );
+				?>
+				<li class="comment-count"><a href="edit-comments.php"><?php echo $text; ?></a></li>
+				<?php
+				$moderated_comments_count_i18n = number_format_i18n( $num_comm->moderated );
+				/* translators: %s: number of comments in moderation */
+				$text = sprintf( _nx( '%s in moderation', '%s in moderation', $num_comm->moderated, 'comments' ), $moderated_comments_count_i18n );
+				/* translators: %s: number of comments in moderation */
+				$aria_label = sprintf( _nx( '%s comment in moderation', '%s comments in moderation', $num_comm->moderated, 'comments' ), $moderated_comments_count_i18n );
+				?>
+				<li class="comment-mod-count<?php
+					if ( ! $num_comm->moderated ) {
+						echo ' hidden';
+					}
+				?>"><a href="edit-comments.php?comment_status=moderated" aria-label="<?php esc_attr_e( $aria_label ); ?>"><?php echo $text; ?></a></li>
+				<?php
 			}
 
-		}
-	}
-	// Comments
-	$num_comm = wp_count_comments();
-	if ( $num_comm && ( $num_comm->approved || $num_comm->moderated ) ) {
-		$text = sprintf( _n( '%s Comment', '%s Comments', $num_comm->approved ), number_format_i18n( $num_comm->approved ) );
-		?>
-		<li class="comment-count"><a href="edit-comments.php"><?php echo $text; ?></a></li>
-		<?php
-		$moderated_comments_count_i18n = number_format_i18n( $num_comm->moderated );
-		/* translators: %s: number of comments in moderation */
-		$text = sprintf( _nx( '%s in moderation', '%s in moderation', $num_comm->moderated, 'comments' ), $moderated_comments_count_i18n );
-		/* translators: %s: number of comments in moderation */
-		$aria_label = sprintf( _nx( '%s comment in moderation', '%s comments in moderation', $num_comm->moderated, 'comments' ), $moderated_comments_count_i18n );
-		?>
-		<li class="comment-mod-count<?php
-			if ( ! $num_comm->moderated ) {
-				echo ' hidden';
+			/**
+			 * Filters the array of extra elements to list in the 'Site Overview'
+			 * dashboard widget.
+			 *
+			 * Prior to 3.8.0, the widget was named 'Right Now'. Each element
+			 * is wrapped in list-item tags on output.
+			 *
+			 * @since 3.8.0
+			 *
+			 * @param array $items Array of extra 'Site Overview' widget items.
+			 */
+			$elements = apply_filters( 'dashboard_glance_items', array() );
+
+			if ( $elements ) {
+				echo '<li>' . implode( "</li>\n<li>", $elements ) . "</li>\n";
 			}
-		?>"><a href="edit-comments.php?comment_status=moderated" aria-label="<?php esc_attr_e( $aria_label ); ?>"><?php echo $text; ?></a></li>
-		<?php
-	}
 
-	/**
-	 * Filters the array of extra elements to list in the 'At a Glance'
-	 * dashboard widget.
-	 *
-	 * Prior to 3.8.0, the widget was named 'Right Now'. Each element
-	 * is wrapped in list-item tags on output.
-	 *
-	 * @since 3.8.0
-	 *
-	 * @param array $items Array of extra 'At a Glance' widget items.
-	 */
-	$elements = apply_filters( 'dashboard_glance_items', array() );
-
-	if ( $elements ) {
-		echo '<li>' . implode( "</li>\n<li>", $elements ) . "</li>\n";
-	}
-
-	?>
-	</ul>
+			?>
+		</ul>
 	<?php
 	update_right_now_message();
 
@@ -304,7 +303,7 @@ function wp_dashboard_right_now() {
 
 		/**
 		 * Filters the link title attribute for the 'Search Engines Discouraged'
-		 * message displayed in the 'At a Glance' dashboard widget.
+		 * message displayed in the 'Site Overview' dashboard widget.
 		 *
 		 * Prior to 3.8.0, the widget was named 'Right Now'.
 		 *
@@ -317,7 +316,7 @@ function wp_dashboard_right_now() {
 
 		/**
 		 * Filters the link label for the 'Search Engines Discouraged' message
-		 * displayed in the 'At a Glance' dashboard widget.
+		 * displayed in the 'Site Overview' dashboard widget.
 		 *
 		 * Prior to 3.8.0, the widget was named 'Right Now'.
 		 *
@@ -340,7 +339,7 @@ function wp_dashboard_right_now() {
 	ob_start();
 
 	/**
-	 * Fires at the end of the 'At a Glance' dashboard widget.
+	 * Fires at the end of the 'Site Overview' dashboard widget.
 	 *
 	 * Prior to 3.8.0, the widget was named 'Right Now'.
 	 *
@@ -349,7 +348,7 @@ function wp_dashboard_right_now() {
 	do_action( 'rightnow_end' );
 
 	/**
-	 * Fires at the end of the 'At a Glance' dashboard widget.
+	 * Fires at the end of the 'Site Overview' dashboard widget.
 	 *
 	 * Prior to 3.8.0, the widget was named 'Right Now'.
 	 *

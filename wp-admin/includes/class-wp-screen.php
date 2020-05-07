@@ -1029,7 +1029,7 @@ final class WP_Screen {
 				}
 				echo '<label for="wp_welcome_panel-hide">';
 				echo '<input type="checkbox" id="wp_welcome_panel-hide"' . checked( (bool) $welcome_checked, true, false ) . ' />';
-				echo _x( 'Welcome', 'Welcome panel' ) . "</label>\n";
+				echo _x( 'Top Panel', 'Top panel' ) . "</label>\n";
 			}
 		?>
 		</fieldset>

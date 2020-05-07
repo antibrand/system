@@ -312,10 +312,23 @@
 
 #dashboard_right_now .main {
 	padding: 0 12px 11px;
-}
 
-#dashboard_right_now .main p {
-	margin: 0;
+	h3 {
+		font-weight: 700;
+
+		&:not(:first-of-type) {
+			padding-top: 0.75em;
+			border-top: solid 1px $box_border_color;
+		}
+	}
+
+	p {
+		margin: 0.25em 0 0;
+
+		&:first-of-type {
+			margin-top: 1em;
+		}
+	}
 }
 
 #dashboard_right_now #wp-version-message .button {
@@ -332,8 +345,7 @@
 #dashboard-widgets h3.mu-storage {
 	margin: 0 0 10px;
 	padding: 0;
-	font-size: 14px;
-	font-weight: 400;
+	font-size: $px14;
 }
 
 /* Dashboard right now - Colors */
@@ -478,19 +490,24 @@ form.initial-form.quickpress-open input#title {
 }
 
 #dashboard_quick_press .drafts ul {
-	margin: 0 12px;
+	margin: 1em 0 0;
 }
 
 #dashboard_quick_press .drafts li {
 	margin-bottom: 1em;
 }
-#dashboard_quick_press .drafts li time {
-	color: #72777c;
-}
 
 #dashboard_quick_press .drafts p {
 	margin: 0;
 	word-wrap: break-word;
+}
+
+#dashboard_quick_press .drafts a {
+	font-weight: 700;
+
+	@supports( font-variation-settings: normal ) {
+		font-weight: 600;
+	}
 }
 
 #dashboard_quick_press .draft-title {
@@ -507,15 +524,17 @@ form.initial-form.quickpress-open input#title {
 #dashboard-widgets h4, /* Back-compat for pre-4.4 */
 #dashboard-widgets h3,
 #dashboard_quick_press .drafts h2 {
-	margin: 0 12px 8px;
+	margin: 0.75em 0 0;
 	padding: 0;
-	font-size: 14px;
-	font-weight: 400;
-	color: #222;
+	font-size: $px14;
 }
 
 #dashboard_quick_press .drafts h2 {
 	line-height: inherit;
+}
+
+#dashboard-widgets .inside ul {
+	margin-top: 1em;
 }
 
 #dashboard-widgets .inside h4, /* Back-compat for pre-4.4 */
@@ -586,23 +605,25 @@ form.initial-form.quickpress-open input#title {
 #published-posts ul {
 	clear: both;
 	margin-bottom: 0;
+
+	span {
+		display: inline-block;
+		margin-left: 5px;
+		min-width: 150px;
+	}
 }
 
-#future-posts li,
-#published-posts li {
-	margin-bottom: 8px;
-}
+#future-posts a,
+#published-posts a {
+	font-weight: 700;
 
-#future-posts ul span,
-#published-posts ul span {
-	display: inline-block;
-	margin-left: 5px;
-	min-width: 150px;
-	color: #72777c;
+	@supports( font-variation-settings: normal ) {
+		font-weight: 600;
+	}
 }
 
 .activity-block {
-	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid $box_border_color;
 	margin: 0 -12px;
 	padding: 8px 12px 4px;
 }
