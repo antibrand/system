@@ -154,12 +154,14 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 
 	$response = wp_remote_post( $url, $options );
 	if ( $ssl && is_wp_error( $response ) ) {
-		trigger_error(
-			/* translators: %s: support forums URL */
-			__( 'An unexpected error occurred. Please contact your server administrator.' ),
-			headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
-		);
-		$response = wp_remote_post( $http_url, $options );
+		/**
+		 * trigger_error(
+		 * 	// Translators: %s: support forums URL.
+		 * 	__( 'An unexpected error occurred. Please contact your server administrator.' ),
+		 * 	headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
+		 * );
+		 * $response = wp_remote_post( $http_url, $options );
+		 */
 	}
 
 	if ( is_wp_error( $response ) || 200 != wp_remote_retrieve_response_code( $response ) ) {
