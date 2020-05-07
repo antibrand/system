@@ -18,6 +18,15 @@
  * @global array $menu
  */
 
+/**
+ * Get plugins path
+ *
+ * Used to check for active plugins with the `is_plugin_active` function.
+ *
+ * @link https://developer.wordpress.org/reference/functions/is_plugin_active/
+ */
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
 // Get privacy notifications.
 $change_notice = '';
 if ( current_user_can( 'manage_privacy_options' ) && WP_Privacy_Policy_Content::text_change_check() ) {
@@ -390,11 +399,26 @@ $submenu['themes.php'][5] = [
 ];
 
 if ( current_theme_supports( 'menus' ) || current_theme_supports( 'widgets' ) ) {
+
 	$submenu['themes.php'][15] = [
 		__( 'Menus' ),
 		'edit_theme_options',
 		'nav-menus.php'
 	];
+}
+
+/**
+ * Additional framework submenu hook
+ *
+ * Requires the permission to install themes.
+ *
+ * Used by the WordPress Themes plugin to add a page link if
+ * the plugin is installed & activated.
+ *
+ * @since 1.0.0
+ */
+if ( is_plugin_active( 'wp-themes/index.php' ) && current_user_can( 'install_themes' ) ) {
+	do_action( 'framework_submenu_item' );
 }
 
 unset( $customize_url );
@@ -411,6 +435,7 @@ if ( ! is_multisite() ) {
  * @since 3.0.0
  */
 function _add_themes_utility_last() {
+
 	// Must use API on the admin_menu hook, direct modification is only possible on/before the _admin_menu hook.
 	add_submenu_page(
 		'themes.php',
