@@ -537,7 +537,7 @@ get_current_screen()->add_help_tab( [
  * @since 1.0.0
  */
 $set_help_sidebar = apply_filters( 'set_help_sidebar_plugins', '' );
-$screen->set_help_sidebar( $set_help_sidebar );
+get_current_screen()->set_help_sidebar( $set_help_sidebar );
 
 get_current_screen()->set_screen_reader_content( [
 	'heading_views'      => __( 'Filter plugins list' ),

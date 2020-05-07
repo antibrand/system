@@ -40,18 +40,51 @@ if ( $_POST ) {
 $title = __('Upload New Media');
 $parent_file = 'upload.php';
 
-get_current_screen()->add_help_tab( array(
-'id'		=> 'overview',
-'title'		=> __('Overview'),
-'content'	=>
-	'<p>' . __('You can upload media files here without creating a post first. This allows you to upload files to use with posts and pages later and/or to get a web link for a particular file that you can share. There are three options for uploading files:') . '</p>' .
-	'<ul>' .
-		'<li>' . __('<strong>Drag and drop</strong> your files into the area below. Multiple files are allowed.') . '</li>' .
-		'<li>' . __('Clicking <strong>Select Files</strong> opens a navigation window showing you files in your operating system. Selecting <strong>Open</strong> after clicking on the file you want activates a progress bar on the uploader screen.') . '</li>' .
-		'<li>' . __('Revert to the <strong>Browser Uploader</strong> by clicking the link below the drag and drop box.') . '</li>' .
-	'</ul>'
-) );
-get_current_screen()->set_help_sidebar( '' );
+$help = sprintf(
+	'<h3>%1s</h3>',
+	__( 'Overview' )
+);
+
+$help .= sprintf(
+	'<p>%1s</p>',
+	__( 'You can upload media files here without creating a post first. This allows you to upload files to use with posts and pages later and/or to get a web link for a particular file that you can share. There are three options for uploading files:' )
+);
+
+$help .= '<ul>';
+
+$help .= sprintf(
+	'<li>%1s</li>',
+	__( '<strong>Drag and drop</strong> your files into the area below. Multiple files are allowed.' )
+);
+
+$help .= sprintf(
+	'<li>%1s</li>',
+	__( 'Clicking <strong>Select Files</strong> opens a navigation window showing you files in your operating system. Selecting <strong>Open</strong> after clicking on the file you want activates a progress bar on the uploader screen.' )
+);
+
+$help .= sprintf(
+	'<li>%1s</li>',
+	__( 'Revert to the <strong>Browser Uploader</strong> by clicking the link below the drag and drop box.' )
+);
+
+$help .= '</ul>';
+
+get_current_screen()->add_help_tab( [
+	'id'      => 'overview',
+	'title'	  => __( 'Overview' ),
+	'content' => $help
+] );
+
+/**
+ * Help sidebar content
+ *
+ * This system adds no content to the help sidebar
+ * but there is a filter applied for adding content.
+ *
+ * @since 1.0.0
+ */
+$set_help_sidebar = apply_filters( 'set_help_sidebar_media_new', '' );
+get_current_screen()->set_help_sidebar( $set_help_sidebar );
 
 require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
@@ -61,19 +94,27 @@ if ( get_user_setting('uploader') || isset( $_GET['browser-uploader'] ) )
 	$form_class .= ' html-uploader';
 ?>
 <div class="wrap">
+
 	<h1><?php echo esc_html( $title ); ?></h1>
 
 	<form enctype="multipart/form-data" method="post" action="<?php echo admin_url('media-new.php'); ?>" class="<?php echo esc_attr( $form_class ); ?>" id="file-form">
 
-	<?php media_upload_form(); ?>
+		<div class="media-upload-form-wrap">
+			<?php media_upload_form(); ?>
+		</div>
 
-	<script type="text/javascript">
-	var post_id = <?php echo $post_id; ?>, shortform = 3;
-	</script>
-	<input type="hidden" name="post_id" id="post_id" value="<?php echo $post_id; ?>" />
-	<?php wp_nonce_field('media-form'); ?>
-	<div id="media-items" class="hide-if-no-js"></div>
+		<script type="text/javascript">
+			var post_id = <?php echo $post_id; ?>, shortform = 3;
+		</script>
+
+		<input type="hidden" name="post_id" id="post_id" value="<?php echo $post_id; ?>" />
+
+		<?php wp_nonce_field( 'media-form' ); ?>
+
+		<div id="media-items" class="hide-if-no-js"></div>
+
 	</form>
+
 </div>
 
 <?php

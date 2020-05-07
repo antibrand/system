@@ -1,4 +1,5 @@
 @import '../../app-assets/css/includes/modules/_colors';
+@import '../../app-assets/css/includes/modules/_typography';
 
 .media-item .describe {
 	border-collapse: collapse;
@@ -191,12 +192,39 @@
 	width: 15%;
 }
 
+.upload-flash-bypass {
+	text-align: center;
+}
+
 .js .html-uploader #plupload-upload-ui {
 	display: none;
 }
 
 .js .html-uploader #html-upload-ui {
-	display: block;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 3em 0;
+
+	p {
+		&:first-of-type {
+			font-weight: 700;
+
+			@supports (font-variation-settings: normal) {
+				font-weight: 600;
+			}
+		}
+
+		&:not(:first-of-type) {
+			margin-top: 2em;
+		}
+	}
+}
+
+.js .html-uploader #async-upload-wrap {
+	margin-top: 2em;
+	padding: 2em;
+	border: 1px solid $form_border_color;
 }
 
 .media-upload-form .media-item.error,
@@ -408,7 +436,8 @@ form.upgrade .hint {
 }
 
 .drag-drop-inside p.drag-drop-info {
-	font-size: 20px;
+	font-size: $px20;
+	font-weight: 700;
 }
 
 .drag-drop .drag-drop-inside p,

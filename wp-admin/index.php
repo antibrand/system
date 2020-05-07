@@ -34,7 +34,12 @@ if ( wp_is_mobile() ) {
 $title       = __( 'Dashboard' );
 $parent_file = 'index.php';
 
-$help = '<p>' . __( 'Welcome to your dashboard. This is the screen you will see when you log in to your site, and gives you access to all the site management features. You can get help for any screen by clicking the Help tab above the screen title.' ) . '</p>';
+$help = sprintf(
+	'<h3>%1s</h3>',
+	__( 'Overview' )
+);
+
+$help .= '<p>' . __( 'Welcome to your dashboard. This is the screen you will see when you log in to your site, and gives you access to all the site management features. You can get help for any screen by clicking the Help tab above the screen title.' ) . '</p>';
 
 $screen = get_current_screen();
 
@@ -44,8 +49,12 @@ $screen->add_help_tab( [
 	'content' => $help,
 ] );
 
-// Help tabs.
-$help  = '<p>' . __( 'The left-hand navigation menu provides links to all of the administration screens, with submenu items displayed on hover. You can minimize this menu to a narrow icon strip by clicking on the Collapse Menu arrow at the bottom.' ) . '</p>';
+$help = sprintf(
+	'<h3>%1s</h3>',
+	__( 'Navigation' )
+);
+
+$help .= '<p>' . __( 'The left-hand navigation menu provides links to all of the administration screens, with submenu items displayed on hover. You can minimize this menu to a narrow icon strip by clicking on the Collapse Menu arrow at the bottom.' ) . '</p>';
 
 $help .= '<p>' . __( 'Links in the toolbar at the top of the screen connect your dashboard and the front end of your site, and provide access to your profile and helpful information.' ) . '</p>';
 
@@ -55,7 +64,12 @@ $screen->add_help_tab( [
 	'content' => $help,
 ] );
 
-$help  = '<p>' . __( 'You can use the following controls to arrange your Dashboard screen to suit your workflow. This is true on most other administration screens as well.' ) . '</p>';
+$help = sprintf(
+	'<h3>%1s</h3>',
+	__( 'Layout' )
+);
+
+$help .= '<p>' . __( 'You can use the following controls to arrange your Dashboard screen to suit your workflow. This is true on most other administration screens as well.' ) . '</p>';
 $help .= '<p>' . __( '<strong>Screen Options</strong> &mdash; Use the Screen Options tab to choose which Dashboard boxes to show.' ) . '</p>';
 $help .= '<p>' . __( '<strong>Drag and Drop</strong> &mdash; To rearrange the boxes, drag and drop by clicking on the title bar of the selected box and releasing when you see a gray dotted-line rectangle appear in the location you want to place the box.' ) . '</p>';
 $help .= '<p>' . __( '<strong>Box Controls</strong> &mdash; Click the title bar of the box to expand or collapse it. Some boxes added by plugins may have configurable content, and will show a &#8220;Configure&#8221; link in the title bar if you hover over it.' ) . '</p>';
@@ -66,7 +80,12 @@ $screen->add_help_tab( [
 	'content' => $help,
 ] );
 
-$help  = '<p>' . __( 'The boxes on your Dashboard screen are:' ) . '</p>';
+$help = sprintf(
+	'<h3>%1s</h3>',
+	__( 'Content' )
+);
+
+$help .= '<p>' . __( 'The boxes on your Dashboard screen are:' ) . '</p>';
 if ( current_user_can( 'edit_posts' ) )
 	$help .= '<p>' . __( '<strong>Site Overview</strong> &mdash; Displays a summary of the content on your site and identifies which theme and version of the website management system that you are using.' ) . '</p>';
 	$help .= '<p>' . __( '<strong>Activity</strong> &mdash; Shows the upcoming scheduled posts, recently published posts, and the most recent comments on your posts and allows you to moderate them.' ) . '</p>';

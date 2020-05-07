@@ -192,12 +192,46 @@
   width: 15%;
 }
 
+.upload-flash-bypass {
+  text-align: center;
+}
+
 .js .html-uploader #plupload-upload-ui {
   display: none;
 }
 
 .js .html-uploader #html-upload-ui {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 3em 0;
+}
+
+.js .html-uploader #html-upload-ui p:first-of-type {
+  font-weight: 700;
+}
+
+@supports (font-variation-settings: normal) {
+  .js .html-uploader #html-upload-ui p:first-of-type {
+    font-weight: 600;
+  }
+}
+
+.js .html-uploader #html-upload-ui p:not(:first-of-type) {
+  margin-top: 2em;
+}
+
+.js .html-uploader #async-upload-wrap {
+  margin-top: 2em;
+  padding: 2em;
+  border: 1px solid #888888;
 }
 
 .media-upload-form .media-item.error,
@@ -408,7 +442,8 @@ form.upgrade .hint {
 }
 
 .drag-drop-inside p.drag-drop-info {
-  font-size: 20px;
+  font-size: 1.25rem;
+  font-weight: 700;
 }
 
 .drag-drop .drag-drop-inside p,

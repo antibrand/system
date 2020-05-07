@@ -189,7 +189,7 @@ if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' )
  * @since 1.0.0
  */
 $set_help_sidebar = apply_filters( 'set_help_sidebar_themes', '' );
-$screen->set_help_sidebar( $set_help_sidebar );
+get_current_screen()->set_help_sidebar( $set_help_sidebar );
 
 if ( current_user_can( 'switch_themes' ) ) {
 	$themes = wp_prepare_themes_for_js();

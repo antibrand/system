@@ -1944,6 +1944,8 @@ do_action( 'post-plupload-upload-ui' ); ?>
 </div>
 
 <div id="html-upload-ui" class="hide-if-js">
+
+	<p class="max-upload-size"><?php printf( __( 'Maximum upload file size: %s.' ), esc_html( size_format( $max_upload_size ) ) ); ?></p>
 	<?php
 	/**
 	 * Fires before the upload button in the media upload interface.
@@ -1952,13 +1954,12 @@ do_action( 'post-plupload-upload-ui' ); ?>
 	 */
 	do_action( 'pre-html-upload-ui' );
 	?>
-	<p id="async-upload-wrap">
+	<div id="async-upload-wrap">
 		<label class="screen-reader-text" for="async-upload"><?php _e('Upload'); ?></label>
 		<input type="file" name="async-upload" id="async-upload" />
 		<?php submit_button( __( 'Upload' ), 'primary', 'html-upload', false ); ?>
 		<a href="#" onclick="try{top.tb_remove();}catch(e){}; return false;"><?php _e('Cancel'); ?></a>
-	</p>
-	<div class="clear"></div>
+	</div>
 <?php
 /**
  * Fires after the upload button in the media upload interface.
@@ -1969,7 +1970,6 @@ do_action( 'post-html-upload-ui' );
 ?>
 </div>
 
-<p class="max-upload-size"><?php printf( __( 'Maximum upload file size: %s.' ), esc_html( size_format( $max_upload_size ) ) ); ?></p>
 <?php
 
 	/**

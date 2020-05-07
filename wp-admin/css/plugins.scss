@@ -43,12 +43,15 @@
 		}
 
 		.install-help {
-			font-size: 1.0625rem;
 			font-style: normal;
-			font-weight: bold;
+			font-weight: 700;
 			margin: 0;
 			padding: 0;
 			text-align: center;
+
+			@supports (font-variation-settings: normal) {
+				font-weight: 600;
+			}
 		}
 	}
 }

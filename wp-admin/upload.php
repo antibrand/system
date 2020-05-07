@@ -43,23 +43,57 @@ if ( 'grid' === $mode ) {
 		'queryVars' => (object) $vars
 	) );
 
-	get_current_screen()->add_help_tab( array(
+	$help = sprintf(
+		'<h3>%1s</h3>',
+		__( 'Overview' )
+	);
+
+	$help .= sprintf(
+		'<p>%1s</p>',
+		__( 'All the files you&#8217;ve uploaded are listed in the Media Library, with the most recent uploads listed first.' )
+	);
+
+	$help .= sprintf(
+		'<p>%1s</p>',
+		__( 'You can view your media in a simple visual grid or a list with columns. Switch between these views using the icons to the left above the media.' )
+	);
+
+	$help .= sprintf(
+		'<p>%1s</p>',
+		__( 'To delete media items, click the Bulk Select button at the top of the screen. Select any items you wish to delete, then click the Delete Selected button. Clicking the Cancel Selection button takes you back to viewing your media.' )
+	);
+
+	get_current_screen()->add_help_tab( [
 		'id'		=> 'overview',
 		'title'		=> __( 'Overview' ),
-		'content'	=>
-			'<p>' . __( 'All the files you&#8217;ve uploaded are listed in the Media Library, with the most recent uploads listed first.' ) . '</p>' .
-			'<p>' . __( 'You can view your media in a simple visual grid or a list with columns. Switch between these views using the icons to the left above the media.' ) . '</p>' .
-			'<p>' . __( 'To delete media items, click the Bulk Select button at the top of the screen. Select any items you wish to delete, then click the Delete Selected button. Clicking the Cancel Selection button takes you back to viewing your media.' ) . '</p>'
-	) );
+		'content'	=> $help
+	] );
 
-	get_current_screen()->add_help_tab( array(
+	$help = sprintf(
+		'<h3>%1s</h3>',
+		__( 'Attachment Details' )
+	);
+
+	$help .= sprintf(
+		'<p>%1s</p>',
+		__( 'Clicking an item will display an Attachment Details dialog, which allows you to preview media and make quick edits. Any changes you make to the attachment details will be automatically saved.' )
+	);
+
+	$help .= sprintf(
+		'<p>%1s</p>',
+		__( 'Use the arrow buttons at the top of the dialog, or the left and right arrow keys on your keyboard, to navigate between media items quickly.' )
+	);
+
+	$help .= sprintf(
+		'<p>%1s</p>',
+		__( 'You can also delete individual items and access the extended edit screen from the details dialog.' )
+	);
+
+	get_current_screen()->add_help_tab( [
 		'id'		=> 'attachment-details',
 		'title'		=> __( 'Attachment Details' ),
-		'content'	=>
-			'<p>' . __( 'Clicking an item will display an Attachment Details dialog, which allows you to preview media and make quick edits. Any changes you make to the attachment details will be automatically saved.' ) . '</p>' .
-			'<p>' . __( 'Use the arrow buttons at the top of the dialog, or the left and right arrow keys on your keyboard, to navigate between media items quickly.' ) . '</p>' .
-			'<p>' . __( 'You can also delete individual items and access the extended edit screen from the details dialog.' ) . '</p>'
-	) );
+		'content'	=> $help
+	] );
 
 	/**
 	 * Help sidebar content
@@ -70,7 +104,7 @@ if ( 'grid' === $mode ) {
 	 * @since 1.0.0
 	 */
 	$set_help_sidebar = apply_filters( 'set_help_sidebar_upload_grid', '' );
-	$screen->set_help_sidebar( $set_help_sidebar );
+	get_current_screen()->set_help_sidebar( $set_help_sidebar );
 
 	$title = __('Media Library');
 	$parent_file = 'upload.php';
