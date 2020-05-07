@@ -85,6 +85,7 @@ if ( ! is_multisite() ) {
 		$cap = 'update_languages';
 	}
 
+	/*
 	$submenu['index.php'][10] = array(
 		sprintf(
 			'%1s %2s',
@@ -96,10 +97,11 @@ if ( ! is_multisite() ) {
 	);
 
 	unset( $cap );
+	*/
 }
 
 // Separator before content management items.
-/**
+/*
 $menu[4] = [
 	'',
 	'read',
@@ -575,7 +577,7 @@ $submenu['users.php'][20] = [
 	'privacy.php'
 ];
 
-/**
+/*
  * Tools entries
  *
 $menu[75] = [
@@ -589,7 +591,7 @@ $menu[75] = [
 ];*/
 
 // Separator before Admin.
-/**
+/*
 $menu[79] = [
 	'',
 	'read',

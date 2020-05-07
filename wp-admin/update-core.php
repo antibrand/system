@@ -790,7 +790,7 @@ if ( 'upgrade-core' == $action ) {
 
 		<h1><?php _e( 'Manage Updates' ); ?></h1>
 
-		<p><?php _e( 'This page currently does nothing. It shall remain in place as development progresses on the website management system. The current idea is to keep the core updates functionality intact so that it may be modified by those who use the system to create their own with their own update infrastructure.' ); ?></p>
+		<p style="max-width: 768px"><?php _e( 'This page currently does nothing. It shall remain in place as development progresses on the website management system. The current idea is to keep the core updates functionality intact so that it may be modified by those who use the system to create their own with their own update infrastructure.' ); ?></p>
 
 		<?php
 		if ( $upgrade_error ) {
