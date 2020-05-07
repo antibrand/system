@@ -34,6 +34,12 @@ if ( wp_is_mobile() ) {
 $title       = __( 'Dashboard' );
 $parent_file = 'index.php';
 
+if ( is_user_admin() ) {
+	add_screen_option( 'layout_columns', [ 'max' => 4, 'default' => 3 ] );
+} else {
+	add_screen_option( 'layout_columns', [ 'max' => 4, 'default' => 2 ] );
+}
+
 $help = sprintf(
 	'<h3>%1s</h3>',
 	__( 'Overview' )

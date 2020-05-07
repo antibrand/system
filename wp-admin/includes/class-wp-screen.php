@@ -1099,7 +1099,9 @@ final class WP_Screen {
 
 		?>
 		<fieldset class='columns-prefs'>
-		<legend class="screen-layout"><?php _e( 'Layout' ); ?></legend><?php
+		<legend class="screen-layout"><?php _e( 'Layout' ); ?></legend>
+		<p class="description"><?php _e( 'Column preferences may not affect small screen layouts.' ); ?></p>
+		<?php
 			for ( $i = 1; $i <= $num; ++$i ):
 				?>
 				<label class="columns-prefs-<?php echo $i; ?>">
