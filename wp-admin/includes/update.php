@@ -302,7 +302,7 @@ function update_right_now_message() {
 
 	/* translators: 1: version number, 2: theme name */
 	$content = sprintf(
-		'%1s %2s %3s %4s',
+		'<p>%1s <span id="wp-version">%2s</span> %3s %4s<p>',
 		APP_NAME,
 		get_bloginfo( 'version' ),
 		__( 'using the' ),
@@ -310,20 +310,24 @@ function update_right_now_message() {
 		__( 'theme.' )
 	);
 
+	$content .= sprintf(
+		'<p>%1s <span id="php-version">%2s</span></p>',
+		__( 'Server running PHP version' ),
+		phpversion()
+	);
+
 	/**
 	 * Filters the text displayed in the 'At a Glance' dashboard widget.
 	 *
 	 * Prior to 3.8.0, the widget was named 'Right Now'.
 	 *
-	 * @since 4.4.0
-	 *
+	 * @since WP 4.4.0
+	 * @since 1.0.0 Modified by this fork.
 	 * @param string $content Default text.
 	 */
 	$content = apply_filters( 'update_right_now_text', $content );
 
-	$msg .= sprintf( '<span id="wp-version">' . $content . '</span>', get_bloginfo( 'version', 'display' ), $theme_name );
-
-	echo "<p id='wp-version-message'>$msg</p>";
+	echo $content;
 }
 
 /**
