@@ -1519,6 +1519,7 @@ form.upgrade .hint {
 .metabox-prefs .screen-options label {
 	margin-top: 0;
 	margin-bottom: 0;
+	font-size: $px14;
 	vertical-align: middle;
 }
 
@@ -1585,6 +1586,7 @@ form.upgrade .hint {
 	border-style: solid;
 	border-width: 0 0 0 2px;
 	border-color: transparent;
+	font-size: $px15;
 }
 
 .contextual-help-tabs a {
@@ -1610,8 +1612,15 @@ form.upgrade .hint {
 
 .help-tab-content {
 	display: none;
-	margin: 0 22px 12px 0;
-	line-height: 1.6em;
+	font-size: $px14;
+
+	h3,
+	h4,
+	p,
+	ul,
+	ol {
+		margin-top: 1em;
+	}
 }
 
 .help-tab-content.active {
@@ -1626,8 +1635,20 @@ form.upgrade .hint {
 .contextual-help-sidebar {
 	width: 150px;
 	float: right;
-	padding: 0 8px 0 12px;
+	padding: 0 0.75em 1em 0;
 	overflow: auto;
+
+	h4 {
+		margin: 1em 0 0;
+		font-size: $px15;
+		line-height: 1.25;
+	}
+
+	p {
+		margin: 1em 0 0;
+		font-size: $px14;
+		line-height: 1.3;
+	}
 }
 
 /*------------------------------------------------------------------------------

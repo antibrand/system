@@ -78,12 +78,17 @@ $parent_file = 'themes.php';
 // Help tab: Overview.
 if ( current_user_can( 'switch_themes' ) ) {
 
-	$help_overview  = '<p>' . __( 'This screen is used for managing your installed themes. Aside from the default theme(s) included with your installation, themes are designed and developed by third parties.' ) . '</p>' .
+	$help_overview = sprintf(
+		'<h3>%1s</h3>',
+		__( 'Overview' )
+	);
+
+	$help_overview  .= '<p>' . __( 'This screen is used for managing your installed themes. Aside from the default theme(s) included with your installation, themes are designed and developed by third parties.' ) . '</p>' .
 		'<p>' . __( 'From this screen you can:' ) . '</p>' .
-		'<ul><li>' . __( 'Hover or tap to see Activate and Live Preview buttons' ) . '</li>' .
-		'<li>' . __( 'Click on the theme to see the theme name, version, author, description, tags, and the Delete link' ) . '</li>' .
-		'<li>' . __( 'Click Customize for the current theme or Live Preview for any other theme to see a live preview' ) . '</li></ul>' .
-		'<p>' . __( 'The current theme is displayed highlighted as the first theme.' ) . '</p>' .
+		'<ul><li>' . __( 'Hover or tap to see "Activate" and "Live Preview" buttons.' ) . '</li>' .
+		'<li>' . __( 'Click on the theme to see the theme name, version, author, description, tags, and the delete button.' ) . '</li>' .
+		'<li>' . __( 'Click "Customize" for the current theme or "Live Preview" for any other theme to see a live preview.' ) . '</li></ul>' .
+		'<p>' . __( 'The current theme is displayed as the first theme in the list or grid.' ) . '</p>' .
 		'<p>' . __( 'The search for installed themes will search for terms in their name, description, author, or tag.' ) . ' <span id="live-search-desc">' . __( 'The search results will be updated as you type.' ) . '</span></p>';
 
 	get_current_screen()->add_help_tab( [
@@ -97,24 +102,77 @@ if ( current_user_can( 'switch_themes' ) ) {
 if ( current_user_can( 'install_themes' ) ) {
 
 	if ( is_multisite() ) {
-		$help_install = '<p>' . __( 'Installing themes on Multisite can only be done from the Network Admin section.' ) . '</p>';
+
+		$help_install = sprintf(
+			'<h3>%1s</h3>',
+			__( 'Adding Themes' )
+		);
+
+		$help_install .= '<p>' . __( 'Installing themes on a multisite network can only be done from the Network Admin section.' ) . '</p>';
+
+		get_current_screen()->add_help_tab( [
+			'id'      => 'adding-themes',
+			'title'   => __( 'Adding Themes' ),
+			'content' => $help_install
+		] );
+
 	} else {
-		$help_install = '<p>' . sprintf( __( 'If you would like to see more themes to choose from, click on the &#8220;Add New&#8221; button and you will be able to browse or search for additional themes from the <a href="%s">WordPress Theme Directory</a>. Themes in the WordPress Theme Directory are designed and developed by third parties.' ), __( 'https://wordpress.org/themes/' ) ) . '</p>';
+
+		$help_install = sprintf(
+			'<h3>%1s</h3>',
+			__( 'Uploading Themes' )
+		);
+
+		$help_install .= '<p>' . __( 'Click or tap on the "Upload Theme" button to expose the upload form. Browse your device to find the location of a valid theme in a .zip folder, then choose "Install Now".' ) . '</p>';
+
+		get_current_screen()->add_help_tab( [
+			'id'      => 'adding-themes',
+			'title'   => __( 'Uploading Themes' ),
+			'content' => $help_install
+		] );
 	}
 
-	get_current_screen()->add_help_tab( [
-		'id'      => 'adding-themes',
-		'title'   => __( 'Adding Themes' ),
-		'content' => $help_install
-	] );
+	/**
+	 * Help sidebar if user can install themes
+	 *
+	 * Adds a notice about the available WordPress themes plugin.
+	 * Also provides a link to the GitHub repository.description
+	 *
+	 * @todo Change the text when the plugin is ready to use.
+	 * @todo Change the link when a page is available on the antibrand website.
+	 * @todo Change this as needed for your fork of the system and/or
+	 *       the themes plugin.
+	 */
+	$sidebar = sprintf(
+		'<h4>%1s</h4>',
+		__( 'Install from WordPress' )
+	);
+
+	$sidebar .= sprintf(
+		'<p>%1s</p>',
+		__( 'The antibrand project is working on a plugin that will restore the WordPress theme installation interface for those who wish to opt in for such service.' )
+	);
+
+	$sidebar .= sprintf(
+		'<p><a href="%1s" target="_blank" rel="noindex, nofollow">%2s</a></p>',
+		esc_url( 'https://github.com/antibrand/wp-themes' ),
+		'(https://github.com/antibrand/wp-themes)'
+	);
+
+	get_current_screen()->set_help_sidebar( $sidebar );
 }
 
 // Help tab: Previewing and Customizing.
 if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) {
 
-	$help_customize =
-		'<p>' . __( 'Tap or hover on any theme then click the Live Preview button to see a live preview of that theme and change theme options in a separate, full-screen view. You can also find a Live Preview button at the bottom of the theme details screen. Any installed theme can be previewed and customized in this way.' ) . '</p>'.
-		'<p>' . __( 'The theme being previewed is fully interactive &mdash; navigate to different pages to see how the theme handles posts, archives, and other page templates. The settings may differ depending on what theme features the theme being previewed supports. To accept the new settings and activate the theme all in one step, click the Publish &amp; Activate button above the menu.' ) . '</p>' .
+	$help_customize = sprintf(
+		'<h3>%1s</h3>',
+		__( 'Previewing and Customizing' )
+	);
+
+	$help_customize .=
+		'<p>' . __( 'Tap or hover on any theme then click the "Live Preview button" to see a live preview of that theme and change theme options in a separate, full-screen view. You can also find a Live Preview button at the bottom of the theme details screen. Any installed theme can be previewed and customized in this way.' ) . '</p>'.
+		'<p>' . __( 'The theme being previewed is fully interactive &mdash; navigate to different pages to see how the theme handles posts, archives, and other page templates. The settings may differ depending on what theme features the theme being previewed supports. To accept the new settings and activate the theme all in one step, click the "Publish &amp; Activate" button above the menu.' ) . '</p>' .
 		'<p>' . __( 'When previewing on smaller monitors, you can use the collapse icon at the bottom of the left-hand pane. This will hide the pane, giving you more room to preview your site in the new theme. To bring the pane back, click on the collapse icon again.' ) . '</p>';
 
 	get_current_screen()->add_help_tab( [
@@ -123,8 +181,6 @@ if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' )
 		'content'	=> $help_customize
 	] );
 }
-
-get_current_screen()->set_help_sidebar( '' );
 
 if ( current_user_can( 'switch_themes' ) ) {
 	$themes = wp_prepare_themes_for_js();
@@ -159,6 +215,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 ?>
 
 	<div class="wrap">
+
 		<script>
 		// Toggle the theme upload interface.
 		jQuery(document).ready( function($) {
@@ -169,9 +226,11 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
 		});
 		</script>
+
 		<h1><?php echo esc_html( $title ); ?>
 			<span class="theme-count screen-reader-text"><?php echo ! empty( $_GET['search'] ) ? __( '&hellip;' ) : count( $themes ); ?></span>
 		</h1>
+		<p class="description"><?php _e( 'Themes provide the public-facing content framework of the site, as well as the look & feel.' ); ?></p>
 
 		<div class="add-theme-wrap">
 			<?php if ( ! is_multisite() && current_user_can( 'install_themes' ) ) : ?>
@@ -188,9 +247,9 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 		</div>
 
 	<?php if ( ! validate_current_theme() || isset( $_GET['broken'] ) ) : ?>
-	<div id="message1" class="updated notice is-dismissible">
-		<p><?php _e( 'The active theme is broken. Reverting to the default theme.' ); ?></p>
-	</div>
+		<div id="message1" class="updated notice is-dismissible">
+			<p><?php _e( 'The active theme is broken. Reverting to the default theme.' ); ?></p>
+		</div>
 	<?php elseif ( isset( $_GET['activated'] ) ) : ?>
 
 		<?php if ( isset( $_GET['previewed'] ) ) { ?>
