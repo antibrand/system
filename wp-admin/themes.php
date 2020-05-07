@@ -158,8 +158,6 @@ if ( current_user_can( 'install_themes' ) ) {
 		esc_url( 'https://github.com/antibrand/wp-themes' ),
 		'(https://github.com/antibrand/wp-themes)'
 	);
-
-	get_current_screen()->set_help_sidebar( $sidebar );
 }
 
 // Help tab: Previewing and Customizing.
@@ -181,6 +179,17 @@ if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' )
 		'content'	=> $help_customize
 	] );
 }
+
+/**
+ * Help sidebar content
+ *
+ * This system adds no content to the help sidebar
+ * but there is a filter applied for adding content.
+ *
+ * @since 1.0.0
+ */
+$set_help_sidebar = apply_filters( 'set_help_sidebar_themes', '' );
+$screen->set_help_sidebar( $set_help_sidebar );
 
 if ( current_user_can( 'switch_themes' ) ) {
 	$themes = wp_prepare_themes_for_js();
