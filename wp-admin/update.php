@@ -152,7 +152,7 @@ if ( isset( $_GET['action'] ) ) {
 
 		require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
-		$title = sprintf( __( 'Installing Plugin: %s' ), $api->name . ' ' . $api->version );
+		$title = sprintf( __( 'Installing plugin: %s' ), $api->name . ' ' . $api->version );
 		$nonce = 'install-plugin_' . $plugin;
 		$url   = 'update.php?action=install-plugin&plugin=' . urlencode( $plugin );
 
@@ -183,7 +183,7 @@ if ( isset( $_GET['action'] ) ) {
 
 		require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
-		$title = sprintf( __( 'Installing Plugin from uploaded file: %s' ), esc_html( basename( $file_upload->filename ) ) );
+		$title = sprintf( __( 'Installing plugin from uploaded file: %s' ), esc_html( basename( $file_upload->filename ) ) );
 		$nonce = 'plugin-upload';
 		$url   = add_query_arg( [ 'package' => $file_upload->id ], 'update.php?action=upload-plugin' );
 
