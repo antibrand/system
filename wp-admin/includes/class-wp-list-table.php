@@ -426,7 +426,7 @@ class WP_List_Table {
 				esc_url( admin_url( $post_new_file ) ),
 				esc_html( 'Upload Plugin' )
 			);
-		} elseif ( current_user_can( $post_type_object->cap->create_posts ) ) {
+		} elseif ( $post_type_object && current_user_can( $post_type_object->cap->create_posts ) ) {
 			$add_new = sprintf(
 				'<li class="list-table-add-new"><a href="%1s" class="page-title-action">%2s</a></li>',
 				esc_url( admin_url( $post_new_file ) ),
