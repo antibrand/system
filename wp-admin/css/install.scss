@@ -1,7 +1,20 @@
 @import '../../app-assets/css/includes/partials/_reset';
 @import '../../app-assets/css/includes/modules/_colors';
 @import '../../app-assets/css/includes/modules/_typography';
-@import '../../app-assets/css/includes/modules/_colors';
+@import '../../app-assets/css/includes/partials/_buttons';
+@import '../../app-assets/css/admin/partials/_forms';
+@import '../../app-assets/css/admin/partials/_typography';
+
+body {
+	font-family: $sans;
+	font-size: $px16;
+	line-height: 1.4em;
+	color: $text_color;
+
+	@supports( font-variation-settings: normal ) {
+		font-family: $inter;
+	}
+}
 
 .app-header {
 	width: 100%;
@@ -38,12 +51,32 @@
 			margin-top: 0.25em;
 			font-size: $px18;
 			line-height: 1.2;
+
+			@supports( font-variation-settings: normal ) {
+				font-weight: 550;
+			}
 		}
 	}
 }
 
 .setup-install-wrap {
+	max-width: 1280px;
+	margin: 0 auto;
 	padding: 0 2rem;
+
+	.setup-config-content {
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		p,
+		ul,
+		ol {
+			margin-top: 1em;
+		}
+	}
 
 	header {
 		h2 {
@@ -62,41 +95,14 @@
 			}
 		}
 	}
-
-	fieldset {
-		padding: 0.5em 1.5em 1em;
-		border: solid 1px $light_gray;
-
-		&:not(:first-of-type) {
-			margin-top: 1em;
-		}
-
-		legend {
-			padding: 0.5em;
-			font-size: $px19;
-			font-weight: bold;
-		}
-	}
-
-	.button {
-		-webkit-transition: background-color .15s, border-color .15s;
-		transition: background-color .15s, border-color .15s;
-		font-size: 1rem;
-		color: #1c1c1c;
-	}
-
-	input {
-		&:not([type="submit"]) {
-			padding: 0.5em 0.75em;
-		}
-	}
 }
 
 .app-footer {
+	max-width: 1280px;
+	margin: 2rem auto;
 	padding: 0 2rem;
 	font-size: 0.85em;
 	font-style: italic;
-	color: #666;
 }
 
 .setup-config-field {
@@ -120,20 +126,6 @@ dl {
 a img {
 	border:0
 }
-abbr {
-	border: 0;
-	font-variant: normal;
-}
-
-fieldset {
-	border: 0;
-	padding: 0;
-	margin: 0;
-}
-
-label {
-	font-weight: bold;
-}
 
 .language-chooser .step {
 	margin: 20px 0 15px -30px;
@@ -144,14 +136,6 @@ label {
 	font-size: 14px;
 	line-height: 33px;
 	vertical-align: middle;
-}
-
-textarea {
-	border: 1px solid #ddd;
-	width: 100%;
-	-webkit-box-sizing: border-box;
-	   -moz-box-sizing: border-box;
-	        box-sizing: border-box;
 }
 
 .form-table {
@@ -183,13 +167,6 @@ textarea {
 .form-table p {
 	margin: 4px 0 0 0;
 	font-size: 11px;
-}
-
-.form-table input {
-	line-height: 20px;
-	font-size: 15px;
-	padding: 3px 5px;
-	border: 1px solid #ddd;
 }
 
 .form-table input[type=text],
@@ -230,14 +207,17 @@ textarea {
 }
 
 .wp-hide-pw > .dashicons {
-	line-height: inherit;
+	position: relative;
+	height: 0.5em;
+	line-height: 1;
+	vertical-align: text-top;
 }
 
 #pass-strength-result {
 	background-color: #eee;
 	border: 1px solid #ddd;
 	color: #222;
-	margin: -2px 5px 5px 0px;
+	margin: 0.5em;
 	padding: 3px 5px;
 	text-align: center;
 	width: 218px;
@@ -345,30 +325,6 @@ textarea {
 		border: 0;
 		margin: 0;
 	}
-
-	textarea,
-	input {
-		font-size: 16px;
-	}
-
-	.form-table td input[type="text"],
-	.form-table td input[type="email"],
-	.form-table td input[type="url"],
-	.form-table td input[type="password"],
-	.form-table td select,
-	.form-table td textarea,
-	.form-table span.description {
-		width: 100%;
-		font-size: 16px;
-		line-height: 1.5;
-		padding: 7px 10px;
-		display: block;
-		max-width: none;
-		-webkit-box-sizing: border-box;
-		   -moz-box-sizing: border-box;
-		        box-sizing: border-box;
-	}
-
 }
 
 .language-chooser select {

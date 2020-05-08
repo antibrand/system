@@ -41,15 +41,15 @@
  *
  *    This software is typically described in file documentation and in
  *    display text as a website management system. You may want to find
- *    `website management system` and `Website Management System` to
+ *    `website management system` and `system` to
  *    replace with your own description.
  */
 
 // Define a name of the website management system.
-define( 'APP_NAME', 'Website Management System' );
+define( 'APP_NAME', 'system' );
 
 // Define a tagline of the website management system.
-define( 'APP_TAGLINE', 'Generic, white-label website and content management' );
+define( 'APP_TAGLINE', 'generic, white-label website and content management' );
 
 // Define a URL for the website management system.
 define( 'APP_WEBSITE', 'https://antibrand.dev/' );

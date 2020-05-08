@@ -45,7 +45,7 @@ function wp_initial_constants() {
 
 		// Define a name of the website management system.
 		if ( ! defined( 'APP_NAME' ) ) {
-			define( 'APP_NAME', 'Website Management System' );
+			define( 'APP_NAME', 'system' );
 		}
 
 		// Define a tagline of the website management system.

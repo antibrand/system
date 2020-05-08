@@ -2,6 +2,7 @@
 @import '../../app-assets/css/includes/modules/_colors';
 @import '../../app-assets/css/includes/modules/_typography';
 @import '../../app-assets/css/includes/modules/_colors';
+@import '../../app-assets/css/admin/partials/_typography';
 
 @import url(forms.min.css);
 @import url(l10n.min.css);
@@ -231,13 +232,6 @@ textarea {
 	font-size: 11px;
 }
 
-.form-table input {
-	line-height: 20px;
-	font-size: 15px;
-	padding: 3px 5px;
-	border: 1px solid #ddd;
-}
-
 .form-table input[type=text],
 .form-table input[type=email],
 .form-table input[type=url],
@@ -276,14 +270,17 @@ textarea {
 }
 
 .wp-hide-pw > .dashicons {
-	line-height: inherit;
+	position: relative;
+	height: 0.5em;
+	line-height: 1;
+	vertical-align: text-top;
 }
 
 #pass-strength-result {
 	background-color: #eee;
 	border: 1px solid #ddd;
 	color: #222;
-	margin: -2px 0px 5px 5px;
+	margin: 0.5em;
 	padding: 3px 5px;
 	text-align: center;
 	width: 218px;

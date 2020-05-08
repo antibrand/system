@@ -145,7 +145,7 @@ switch( $step ) :
 	// Begin case 0 content.
 ?>
 	<div class="setup-install-wrap setup-install-introduction">
-		<main class="setup-config-content global-wrapper">
+		<main class="setup-config-content">
 			<header>
 				<h2><?php _e( 'Setup Introduction' ); ?></h2>
 			</header>
@@ -191,7 +191,7 @@ switch( $step ) :
 	// Begin case 1 content.
 ?>
 	<div class="setup-install-wrap setup-install-installation">
-		<main class="setup-config-content global-wrapper">
+		<main class="setup-config-content">
 			<header>
 				<h2><?php _e( 'System Configuration' ); ?></h2>
 			</header>
@@ -202,7 +202,7 @@ switch( $step ) :
 					<p class="setup-config-field setup-config-app-name">
 						<label for="app_name"><?php _e( 'Application Name' ); ?></label>
 						<br /><span class="setup-config-field-description"><?php _e( 'Enter the name to use for your website management system.' ); ?></span>
-						<br /><input name="app_name" id="app_name" type="text" size="25" value="<?php echo htmlspecialchars( _x( 'Website Management System', 'example name for the website management system' ), ENT_QUOTES ); ?>" placeholder="<?php echo htmlspecialchars( _x( 'Website Management System', 'example name for the website management system' ), ENT_QUOTES ); ?>" />
+						<br /><input name="app_name" id="app_name" type="text" size="25" value="<?php echo htmlspecialchars( _x( 'system', 'example name for the website management system' ), ENT_QUOTES ); ?>" placeholder="<?php echo htmlspecialchars( _x( 'system', 'example name for the website management system' ), ENT_QUOTES ); ?>" />
 					</p>
 					<p class="setup-config-field setup-config-app-tagline">
 						<label for="app_tagline"><?php _e( 'Application Tagline' ); ?></label>

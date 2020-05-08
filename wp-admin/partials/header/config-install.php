@@ -20,9 +20,10 @@ if ( is_rtl() ) {
 }
 
 // Get the identity image or white label logo.
-$app_logo = APP_LOGO;
+$app_logo = dirname( dirname( $_SERVER['PHP_SELF'] ) ) . '/app-assets/images/app-icon.jpg';
 
 // Link for the logo image.
+
 $app_link = APP_WEBSITE;
 
 // Conditional logo markup.
@@ -33,14 +34,12 @@ if ( $app_logo && defined( 'APP_WEBSITE' ) ) {
 		$app_logo,
 		APP_NAME
 	);
-} elseif ( $app_logo ) {
+} else {
 	$app_logo = sprintf(
 		'<img src="%1s" class="app-logo-image" alt="%2s" itemprop="logo" width="512" height="512">',
 		$app_logo,
 		APP_NAME
 	);
-} else {
-	$app_logo = '';
 }
 
 // Identity colors
@@ -91,28 +90,28 @@ if ( defined( 'APP_SECONDARY_COLOR' ) ) {
 	<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
 	<?php wp_admin_css( 'buttons', true ); ?>
 	<?php wp_admin_css( 'install', true ); ?>
-	<style>
+	<!-- style>
 		body {
-			background-color: <?php echo $app_bg_color; ?>;
-			color: <?php echo $app_color; ?>
+			background-color: <?php // echo $app_bg_color; ?>;
+			color: <?php // echo $app_color; ?>
 		}
 		.dark-mode {
-			background-color: <?php echo $app_dark_bg_color; ?>;
-			color: <?php echo $app_dark_color; ?>
+			background-color: <?php // echo $app_dark_bg_color; ?>;
+			color: <?php // echo $app_dark_color; ?>
 		}
 		.setup-install-wrap .button {
-			background-color: <?php echo $app_primary_color; ?>;
-			border-color: <?php echo $app_primary_color; ?>
+			background-color: <?php // echo $app_primary_color; ?>;
+			border-color: <?php // echo $app_primary_color; ?>
 		}
 		.setup-install-wrap .button:hover,
 		.setup-install-wrap .button:focus {
-			background-color: <?php echo $app_secondary_color; ?>;
-			border-color: <?php echo $app_secondary_color; ?>
+			background-color: <?php // echo $app_secondary_color; ?>;
+			border-color: <?php // echo $app_secondary_color; ?>
 		}
 		.dark-mode code {
 			color: #222222
 		}
-	</style>
+	</style> -->
 </head>
 <body class="<?php echo $body_classes; ?>">
 	<header class="app-header">

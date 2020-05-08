@@ -9,11 +9,14 @@
 /**
  * General form styles
  */
-fieldset {
+ fieldset {
+	margin-top: 2rem;
+	padding: 1.5em;
 	background-color: $form_background_color;
 	border: solid 1px $form_border_color;
 
 	legend {
+		padding: 0 1em;
 		font-weight: 700;
 
 		@supports ( font-variation-settings: normal ) {
@@ -23,7 +26,12 @@ fieldset {
 }
 
 label {
+	font-weight: 700;
 	cursor: pointer;
+
+	@supports ( font-variation-settings: normal ) {
+		font-weight: 600;
+	}
 }
 
 input[type="text"],
@@ -400,11 +408,6 @@ input[type="number"].tiny-text {
 
 #timezone_string option {
 	margin-right: 1em;
-}
-
-button.wp-hide-pw > .dashicons {
-	position: relative;
-	top: 3px;
 }
 
 .options-media-php [for*="_size_"] {
