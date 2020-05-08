@@ -46,9 +46,9 @@ require( ABSPATH . WPINC . '/functions.wp-styles.php' );
  * @param WP_Scripts $scripts WP_Scripts object.
  */
 function wp_default_scripts( &$scripts ) {
-	include( ABSPATH . WPINC . '/version.php' ); // include an unmodified $wp_version
+	include( ABSPATH . WPINC . '/version.php' ); // include an unmodified $app_version
 
-	$develop_src = false !== strpos( $wp_version, '-src' );
+	$develop_src = false !== strpos( $app_version, '-src' );
 
 	if ( ! defined( 'SCRIPT_DEBUG' ) ) {
 		define( 'SCRIPT_DEBUG', $develop_src );
@@ -919,11 +919,11 @@ function wp_default_scripts( &$scripts ) {
  */
 function wp_default_styles( &$styles ) {
 
-	// Include an unmodified $wp_version.
+	// Include an unmodified $app_version.
 	include( ABSPATH . WPINC . '/version.php' );
 
 	if ( ! defined( 'SCRIPT_DEBUG' ) ) {
-		define( 'SCRIPT_DEBUG', false !== strpos( $wp_version, '-src' ) );
+		define( 'SCRIPT_DEBUG', false !== strpos( $app_version, '-src' ) );
 	}
 
 	if ( ! $guessurl = site_url() ) {

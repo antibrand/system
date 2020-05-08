@@ -2,9 +2,18 @@
 /**
  * The version string
  *
+ * @global string $app_version
+ */
+$app_version = '1.0.0';
+
+/**
+ * The WordPress version string
+ *
+ * Using the version from whence this was derived.
+ *
  * @global string $wp_version
  */
-$wp_version = '1.0.0';
+$wp_version = '4.9.8';
 
 /**
  * Holds the DB revision, increments when changes are made to the DB schema.
@@ -25,7 +34,7 @@ $tinymce_version = '4800-20180716';
  *
  * @global string $required_php_version
  */
-$required_php_version = '5.4';
+$required_php_version = '5.6';
 
 /**
  * Holds the required MySQL version
