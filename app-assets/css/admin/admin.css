@@ -2016,11 +2016,6 @@ table.form-table td .updated p {
   cursor: default;
 }
 
-td .button {
-  height: auto;
-  vertical-align: middle;
-}
-
 /**
  * Button links
  *
