@@ -96,7 +96,9 @@ $page_tabs = [
 
 	<h2><?php esc_html_e( 'Requests for Data Export' ); ?></h2>
 
-	<?php $requests_table->views(); ?>
+	<div class="list-table-top">
+		<?php $requests_table->views(); ?>
+	</div>
 
 	<form class="search-form wp-clearfix">
 		<?php $requests_table->search_box( __( 'Search Requests' ), 'requests' ); ?>

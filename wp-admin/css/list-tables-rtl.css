@@ -625,6 +625,14 @@ th.asc a:focus span.sorting-indicator {
   margin: 2em 0 1em;
 }
 
+.tablenav.top {
+  margin: 1.5em 0 0.5em 0;
+}
+
+.tablenav.top.privacy_requests {
+  margin: 0;
+}
+
 .tablenav.themes {
   max-width: 98%;
 }
