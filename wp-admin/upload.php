@@ -249,7 +249,7 @@ get_current_screen()->add_help_tab( array(
  * @since 1.0.0
  */
 $set_help_sidebar = apply_filters( 'set_help_sidebar_upload', '' );
-$screen->set_help_sidebar( $set_help_sidebar );
+get_current_screen()->set_help_sidebar( $set_help_sidebar );
 
 get_current_screen()->set_screen_reader_content( array(
 	'heading_views'      => __( 'Filter media items list' ),
