@@ -1163,6 +1163,7 @@ class WP_List_Table {
 	 * @since 3.1.0
 	 */
 	public function display() {
+
 		$singular = $this->_args['singular'];
 
 		$this->display_tablenav( 'top' );
@@ -1212,11 +1213,12 @@ class WP_List_Table {
 	 * @param string $which
 	 */
 	protected function display_tablenav( $which ) {
+
 		if ( 'top' === $which ) {
 			wp_nonce_field( 'bulk-' . $this->_args['plural'] );
 		}
 		?>
-	<div class="tablenav <?php echo esc_attr( $which ); ?>">
+	<div class="tablenav <?php echo esc_attr( $which ); ?> <?php echo $this->_args['plural']; ?>">
 
 		<?php if ( $this->has_items() ): ?>
 		<div class="alignleft actions bulkactions">
