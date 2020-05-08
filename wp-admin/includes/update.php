@@ -286,7 +286,9 @@ function update_nag() {
 
 // Called directly from dashboard
 function update_right_now_message() {
+
 	$theme_name = wp_get_theme();
+
 	if ( current_user_can( 'switch_themes' ) ) {
 		$theme_name = sprintf( '<a href="themes.php">%1$s</a>', $theme_name );
 	}
@@ -294,6 +296,7 @@ function update_right_now_message() {
 	$msg = '';
 
 	if ( current_user_can('update_core') ) {
+
 		$cur = get_preferred_from_update_core();
 
 		if ( isset( $cur->response ) && $cur->response == 'upgrade' )
@@ -305,14 +308,14 @@ function update_right_now_message() {
 		__( 'System' )
 	);
 
-	/* translators: 1: version number, 2: theme name */
+	// Translators: 1: version number, 2: theme name.
 	$content .= sprintf(
-		'<p>%1s <span id="wp-version">%2s</span> %3s %4s</p>',
+		'<p>%1s <span id="wp-version">%2s</span> %3s %4s %5s</p>',
 		APP_NAME,
 		get_bloginfo( 'version' ),
-		__( 'using the' ),
+		__( 'with' ),
 		$theme_name,
-		__( 'theme.' )
+		__( 'activated' )
 	);
 
 	$content .= sprintf(
