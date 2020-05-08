@@ -315,7 +315,7 @@ foreach ( array_merge( $builtin, $types ) as $ptype ) {
 }
 unset( $ptype, $ptype_obj, $ptype_for_id, $ptype_menu_position, $menu_icon, $i, $tax, $post_new_file );
 
-/**
+/*
 $menu[54] = [
 	'',
 	'read',
@@ -325,6 +325,7 @@ $menu[54] = [
 ];
 */
 
+/*
 $menu[55] = [
 	__( 'Content' ),
 	'edit_others_posts',
@@ -358,6 +359,7 @@ $submenu['options-content.php'][20] = [
 	'edit_others_posts',
 	'content-taxes.php'
 ];
+*/
 
 if ( current_user_can( 'switch_themes' ) ) {
 	$appearance_cap = 'switch_themes';
