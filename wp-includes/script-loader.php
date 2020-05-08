@@ -915,58 +915,39 @@ function wp_default_scripts( &$scripts ) {
  * property, the default version, and text direction for the object.
  *
  * @since 2.6.0
- *
  * @param WP_Styles $styles
  */
 function wp_default_styles( &$styles ) {
-	include( ABSPATH . WPINC . '/version.php' ); // include an unmodified $wp_version
 
-	if ( ! defined( 'SCRIPT_DEBUG' ) )
+	// Include an unmodified $wp_version.
+	include( ABSPATH . WPINC . '/version.php' );
+
+	if ( ! defined( 'SCRIPT_DEBUG' ) ) {
 		define( 'SCRIPT_DEBUG', false !== strpos( $wp_version, '-src' ) );
-
-	if ( ! $guessurl = site_url() )
-		$guessurl = wp_guess_url();
-
-	$styles->base_url = $guessurl;
-	$styles->content_url = defined('WP_CONTENT_URL')? WP_CONTENT_URL : '';
-	$styles->default_version = get_bloginfo( 'version' );
-	$styles->text_direction = function_exists( 'is_rtl' ) && is_rtl() ? 'rtl' : 'ltr';
-	$styles->default_dirs = array('/wp-admin/', '/wp-includes/css/');
-
-	// Open Sans is no longer used by core, but may be relied upon by themes and plugins.
-	$open_sans_font_url = '';
-
-	/* translators: If there are characters in your language that are not supported
-	 * by Open Sans, translate this to 'off'. Do not translate into your own language.
-	 */
-	if ( 'off' !== _x( 'on', 'Open Sans font: on or off' ) ) {
-		$subsets = 'latin,latin-ext';
-
-		/* translators: To add an additional Open Sans character subset specific to your language,
-		 * translate this to 'greek', 'cyrillic' or 'vietnamese'. Do not translate into your own language.
-		 */
-		$subset = _x( 'no-subset', 'Open Sans font: add new subset (greek, cyrillic, vietnamese)' );
-
-		if ( 'cyrillic' == $subset ) {
-			$subsets .= ',cyrillic,cyrillic-ext';
-		} elseif ( 'greek' == $subset ) {
-			$subsets .= ',greek,greek-ext';
-		} elseif ( 'vietnamese' == $subset ) {
-			$subsets .= ',vietnamese';
-		}
-
-		// Hotlink Open Sans, for now
-		$open_sans_font_url = "https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=$subsets";
 	}
 
+	if ( ! $guessurl = site_url() ) {
+		$guessurl = wp_guess_url();
+	}
+
+	$styles->base_url        = $guessurl;
+	$styles->content_url     = defined( 'WP_CONTENT_URL' )? WP_CONTENT_URL : '';
+	$styles->default_version = get_bloginfo( 'version' );
+	$styles->text_direction  = function_exists( 'is_rtl' ) && is_rtl() ? 'rtl' : 'ltr';
+	$styles->default_dirs    = [ '/wp-admin/', '/wp-includes/css/' ];
+
 	// Register a stylesheet for the selected admin color scheme.
-	$styles->add( 'colors', true, array( 'wp-admin' ) );
+	$styles->add( 'colors', true, [ 'wp-admin' ] );
 
-	$suffix = SCRIPT_DEBUG ? '' : '.min';
+	// Load minified stylesheets unless SCRIPT_DEBUG is true.
+	if ( SCRIPT_DEBUG ) {
+		$suffix = '';
+	} else {
+		$suffix = '.min';
+	}
 
-	// Admin CSS.
+	// Admin stylesheets.
 	$styles->add( 'admin',       "/app-assets/css/admin/admin$suffix.css" );
-	$styles->add( 'forms',       "/wp-admin/css/forms$suffix.css" );
 	$styles->add( 'dashboard',   "/wp-admin/css/dashboard$suffix.css" );
 	$styles->add( 'list-tables', "/wp-admin/css/list-tables$suffix.css" );
 	$styles->add( 'edit',        "/wp-admin/css/edit$suffix.css" );
@@ -974,25 +955,23 @@ function wp_default_styles( &$styles ) {
 	$styles->add( 'media',       "/wp-admin/css/media$suffix.css" );
 	$styles->add( 'themes',      "/wp-admin/css/themes$suffix.css" );
 	$styles->add( 'plugins',     "/wp-admin/css/plugins$suffix.css" );
-	$styles->add( 'about',       "/wp-admin/css/about$suffix.css" );
 	$styles->add( 'nav-menus',   "/wp-admin/css/nav-menus$suffix.css" );
 	$styles->add( 'widgets',     "/wp-admin/css/widgets$suffix.css", [ 'wp-pointer' ] );
 	$styles->add( 'site-icon',   "/wp-admin/css/site-icon$suffix.css" );
 	$styles->add( 'code-editor', "/wp-admin/css/code-editor$suffix.css", [ 'wp-codemirror' ] );
 
-	$styles->add( 'wp-admin', false, [ 'dashicons', 'admin', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'about', 'nav-menus', 'widgets', 'site-icon' ] );
+	$styles->add( 'wp-admin', false, [ 'dashicons', 'admin', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'nav-menus', 'widgets', 'site-icon' ] );
 
 	$styles->add( 'login',               "/wp-admin/css/login$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'install',             "/wp-admin/css/install$suffix.css" );
-	$styles->add( 'wp-color-picker',     "/wp-admin/css/color-picker$suffix.css" );
 	$styles->add( 'customize-controls',  "/wp-admin/css/customize-controls$suffix.css", [ 'wp-admin', 'colors', 'imgareaselect' ] );
 	$styles->add( 'customize-widgets',   "/wp-admin/css/customize-widgets$suffix.css", [ 'wp-admin', 'colors' ] );
 	$styles->add( 'customize-nav-menus', "/wp-admin/css/customize-nav-menus$suffix.css", [ 'wp-admin', 'colors' ] );
 
-	// Common dependencies
+	// Common stylesheets.
 	$styles->add( 'dashicons', "/wp-includes/css/dashicons$suffix.css" );
 
-	// Includes CSS
+	// Includes stylesheets.
 	$styles->add( 'user-toolbar',         "/app-assets/css/includes/user-toolbar$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'wp-auth-check',        "/wp-includes/css/wp-auth-check$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'editor-buttons',       "/wp-includes/css/editor$suffix.css", [ 'dashicons' ] );
@@ -1001,7 +980,7 @@ function wp_default_styles( &$styles ) {
 	$styles->add( 'customize-preview',    "/wp-includes/css/customize-preview$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'wp-embed-template-ie', "/wp-includes/css/wp-embed-template-ie$suffix.css" );
 
-	// External libraries and friends
+	// External library stylesheets.
 	$styles->add( 'imgareaselect',       '/wp-includes/js/imgareaselect/imgareaselect.css', [], '0.9.8' );
 	$styles->add( 'wp-jquery-ui-dialog', "/wp-includes/css/jquery-ui-dialog$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'mediaelement',        "/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css", [], '4.2.6-78496d1' );
@@ -1009,19 +988,23 @@ function wp_default_styles( &$styles ) {
 	$styles->add( 'thickbox',            '/wp-includes/js/thickbox/thickbox.css', [ 'dashicons' ] );
 	$styles->add( 'wp-codemirror',       '/wp-includes/js/codemirror/codemirror.min.css', [], '5.29.1-alpha-ee20357' );
 
-	// RTL CSS
+	// RTL stylesheets.
 	$rtl_styles = [
-		// admin
-		'admin', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'about', 'nav-menus',
-		'widgets', 'site-icon', 'install', 'wp-color-picker', 'customize-controls', 'customize-widgets', 'customize-nav-menus', 'customize-preview',
+
+		// Admin stylesheets.
+		'admin', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'nav-menus',
+		'widgets', 'site-icon', 'install', 'customize-controls', 'customize-widgets', 'customize-nav-menus', 'customize-preview',
 		'login',
-		// includes
+
+		// Includes stylesheets.
 		'user-toolbar', 'wp-auth-check', 'editor-buttons', 'media-views', 'wp-pointer',
 		'wp-jquery-ui-dialog'
 	];
 
 	foreach ( $rtl_styles as $rtl_style ) {
+
 		$styles->add_data( $rtl_style, 'rtl', 'replace' );
+
 		if ( $suffix ) {
 			$styles->add_data( $rtl_style, 'suffix', $suffix );
 		}
@@ -1031,22 +1014,25 @@ function wp_default_styles( &$styles ) {
 /**
  * Reorder JavaScript scripts array to place prototype before jQuery.
  *
- * @since 2.3.1
- *
+ * @since WP 2.3.1
  * @param array $js_array JavaScript scripts array
  * @return array Reordered array, if needed.
  */
 function wp_prototype_before_jquery( $js_array ) {
-	if ( false === $prototype = array_search( 'prototype', $js_array, true ) )
-		return $js_array;
 
-	if ( false === $jquery = array_search( 'jquery', $js_array, true ) )
+	if ( false === $prototype = array_search( 'prototype', $js_array, true ) ) {
 		return $js_array;
+	}
 
-	if ( $prototype < $jquery )
+	if ( false === $jquery = array_search( 'jquery', $js_array, true ) ) {
 		return $js_array;
+	}
 
-	unset($js_array[$prototype]);
+	if ( $prototype < $jquery ) {
+		return $js_array;
+	}
+
+	unset( $js_array[$prototype] );
 
 	array_splice( $js_array, $jquery, 0, 'prototype' );
 
@@ -1058,7 +1044,7 @@ function wp_prototype_before_jquery( $js_array ) {
  *
  * These localizations require information that may not be loaded even by init.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  */
 function wp_just_in_time_script_localization() {
 
@@ -1077,7 +1063,7 @@ function wp_just_in_time_script_localization() {
 		 * enter 'characters_excluding_spaces' or 'characters_including_spaces'. Otherwise, enter 'words'.
 		 * Do not translate into your own language.
 		 */
-		'type' => _x( 'words', 'Word count type. Do not translate!' ),
+		'type'       => _x( 'words', 'Word count type. Do not translate!' ),
 		'shortcodes' => ! empty( $GLOBALS['shortcode_tags'] ) ? array_keys( $GLOBALS['shortcode_tags'] ) : array()
 	) );
 }
