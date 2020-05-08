@@ -219,26 +219,69 @@ wp_enqueue_script( 'media' );
 
 add_screen_option( 'per_page' );
 
-get_current_screen()->add_help_tab( array(
+$help_overview = sprintf(
+	'<h3>%1s</h3>',
+	__( 'Overview' )
+);
+
+$help_overview .= sprintf(
+	'<p>%1s</p>',
+	__( 'All the files you&#8217;ve uploaded are listed in the Media Library, with the most recent uploads listed first. You can use the Screen Options tab to customize the display of this screen.' )
+);
+
+$help_overview .= sprintf(
+	'<p>%1s</p>',
+	__( 'You can narrow the list by file type/status or by date using the dropdown menus above the media table.' )
+);
+
+$help_overview .= sprintf(
+	'<p>%1s</p>',
+	__( 'You can view your media in a simple visual grid or a list with columns. Switch between these views using the icons to the left above the media.' )
+);
+
+$help_overview = apply_filters( 'help_upload_overview', $help_overview );
+
+get_current_screen()->add_help_tab( [
 'id'		=> 'overview',
-'title'		=> __('Overview'),
-'content'	=>
-	'<p>' . __( 'All the files you&#8217;ve uploaded are listed in the Media Library, with the most recent uploads listed first. You can use the Screen Options tab to customize the display of this screen.' ) . '</p>' .
-	'<p>' . __( 'You can narrow the list by file type/status or by date using the dropdown menus above the media table.' ) . '</p>' .
-	'<p>' . __( 'You can view your media in a simple visual grid or a list with columns. Switch between these views using the icons to the left above the media.' ) . '</p>'
-) );
-get_current_screen()->add_help_tab( array(
-'id'		=> 'actions-links',
-'title'		=> __('Available Actions'),
-'content'	=>
-	'<p>' . __( 'Hovering over a row reveals action links: Edit, Delete Permanently, and View. Clicking Edit or on the media file&#8217;s name displays a simple screen to edit that individual file&#8217;s metadata. Clicking Delete Permanently will delete the file from the media library (as well as from any posts to which it is currently attached). View will take you to the display page for that file.' ) . '</p>'
-) );
-get_current_screen()->add_help_tab( array(
-'id'		=> 'attaching-files',
-'title'		=> __('Attaching Files'),
-'content'	=>
-	'<p>' . __( 'If a media file has not been attached to any content, you will see that in the Uploaded To column, and can click on Attach to launch a small popup that will allow you to search for existing content and attach the file.' ) . '</p>'
-) );
+'title'		=> __( 'Overview' ),
+'content'	=> $help_overview
+] );
+
+$help_actions = sprintf(
+	'<h3>%1s</h3>',
+	__( 'Available Actions' )
+);
+
+$help_actions .= sprintf(
+	'<p>%1s</p>',
+	__( 'Hovering over a row reveals action links: Edit, Delete Permanently, and View. Clicking Edit or on the media file&#8217;s name displays a simple screen to edit that individual file&#8217;s metadata. Clicking Delete Permanently will delete the file from the media library (as well as from any posts to which it is currently attached). View will take you to the display page for that file.' )
+);
+
+$help_actions = apply_filters( 'help_upload_actions', $help_actions );
+
+get_current_screen()->add_help_tab( [
+	'id'		=> 'actions-links',
+	'title'		=> __( 'Available Actions' ),
+	'content'	=> $help_actions
+] );
+
+$help_files = sprintf(
+	'<h3>%1s</h3>',
+	__( 'Attaching Files' )
+);
+
+$help_files .= sprintf(
+	'<p>%1s</p>',
+	__( 'If a media file has not been attached to any content, you will see that in the Uploaded To column, and can click on Attach to launch a small popup that will allow you to search for existing content and attach the file.' )
+);
+
+$help_files = apply_filters( 'help_upload_files', $help_files );
+
+get_current_screen()->add_help_tab( [
+	'id'		=> 'attaching-files',
+	'title'		=> __( 'Attaching Files' ),
+	'content'	=> $help_files
+] );
 
 /**
  * Help sidebar content
