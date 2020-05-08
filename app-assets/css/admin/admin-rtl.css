@@ -2358,12 +2358,14 @@ code {
   font-size: 13px;
 }
 
+.list-table-views,
 .subsubsub {
   list-style: none;
   padding: 0;
   font-size: 1rem;
 }
 
+.list-table-views li,
 .subsubsub li {
   display: inline-block;
   margin: 0;
@@ -2371,10 +2373,12 @@ code {
   white-space: nowrap;
 }
 
+.list-table-views li.list-table-add-new,
 .subsubsub li.list-table-add-new {
   font-weight: 600;
 }
 
+.list-table-views li.list-table-add-new:after,
 .subsubsub li.list-table-add-new:after {
   content: '|';
   display: inline-block;
@@ -2382,22 +2386,27 @@ code {
   font-weight: normal;
 }
 
+.list-table-views li.list-table-add-new button,
 .subsubsub li.list-table-add-new button {
   border: none;
   color: #004499;
 }
 
+.list-table-views a,
 .subsubsub a {
   line-height: 2;
   padding: .2em;
   text-decoration: none;
 }
 
+.list-table-views a .count,
+.list-table-views a.current .count,
 .subsubsub a .count,
 .subsubsub a.current .count {
   font-weight: 400;
 }
 
+.list-table-views a.current,
 .subsubsub a.current {
   font-weight: 600;
   border: none;

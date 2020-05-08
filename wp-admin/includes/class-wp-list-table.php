@@ -426,6 +426,12 @@ class WP_List_Table {
 				esc_url( admin_url( $post_new_file ) ),
 				esc_html( 'Upload Plugin' )
 			);
+		} elseif ( current_user_can( $post_type_object->cap->create_posts ) ) {
+			$add_new = sprintf(
+				'<li class="list-table-add-new"><a href="%1s" class="page-title-action">%2s</a></li>',
+				esc_url( admin_url( $post_new_file ) ),
+				esc_html( $post_type_object->labels->add_new )
+			);
 		} else {
 			$add_new = null;
 		}
@@ -439,7 +445,7 @@ class WP_List_Table {
 		 * The dynamic portion of the hook name, `$this->screen->id`, refers
 		 * to the ID of the current screen, usually a string.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @param string[] $views An array of available list table views.
 		 */
@@ -451,7 +457,7 @@ class WP_List_Table {
 
 		$this->screen->render_screen_reader_content( 'heading_views' );
 
-		echo "<ul class='subsubsub'>\n";
+		echo "<ul class='list-table-views'>\n";
 
 		echo $add_new;
 
@@ -471,7 +477,7 @@ class WP_List_Table {
 	 * @return array
 	 */
 	protected function get_bulk_actions() {
-		return array();
+		return [];
 	}
 
 	/**
