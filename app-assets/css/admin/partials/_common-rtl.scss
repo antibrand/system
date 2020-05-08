@@ -317,6 +317,24 @@ code {
 	}
 }
 
+p.description,
+.form-wrap p {
+	margin: 2px 0 5px;
+}
+
+h1 ~ p.description {
+	margin: 0.5em 0 0;
+	font-size: 1rem;
+}
+
+p.help,
+p.description,
+span.description,
+.form-wrap p {
+	font-size: $px13;
+	font-style: italic;
+}
+
 /* .widefat - main style for tables */
 .widefat {
 	border-spacing: 0;
@@ -1424,14 +1442,19 @@ form.upgrade .hint {
 
 #screen-meta-links .screen-meta-toggle {
 	position: relative;
-	top: 0;
+	top: -1px;
 }
 
 #screen-meta-links .show-settings {
 	border-radius: 0;
-	border-top: none;
+	border-color: $box_border_color;
+	border-top-color: transparent;
 	line-height: 1.7;
 	padding: 3px 16px 3px 6px;
+
+	&:hover {
+		border: 1px solid $form_border_color;
+	}
 }
 
 #screen-meta-links .show-settings:active {
@@ -1479,8 +1502,6 @@ form.upgrade .hint {
 #contextual-help-wrap h5 {
 	margin: 0;
 	padding: 8px 0;
- 	font-size: 13px;
-	font-weight: 600;
 }
 
 .metabox-prefs label {
@@ -1954,6 +1975,7 @@ h1.nav-tab-wrapper, /* Back-compat for pre-4.4 */
 
 #template > div {
 	margin-left: 16em;
+	padding-left: 1em;
 }
 #template .notice {
 	margin-top: 1em;

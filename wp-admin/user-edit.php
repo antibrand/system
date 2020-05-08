@@ -47,21 +47,64 @@ if ( current_user_can( 'edit_users' ) && ! is_user_admin() ) {
 	$parent_file = 'profile.php';
 }
 
-$profile_help = '<p>' . __( 'Your profile contains information about your account as well as some personal options related to using the website management system.' ) . '</p>' .
-	'<p>' . __( 'You can change your password, turn on keyboard shortcuts, change the color scheme of your administration screens, and turn off the WYSIWYG (visual) editor, among other things. You can hide the user toolbar from the front end of your site, however it cannot be disabled on the admin screens.' ) . '</p>' .
-	'<p>' . __( 'You can select the language you wish to use while using the administration screen without affecting the language site visitors see.' ) . '</p>' .
-	'<p>' . __( 'Your username cannot be changed, but you can use other fields to enter your real name or a nickname, and change which name to display on your posts.' ) . '</p>' .
-	'<p>' . __( 'You can log out of other devices, such as your phone or a public computer, by clicking the Log Out Everywhere Else button.' ) . '</p>' .
-	'<p>' . __( 'Required fields are indicated; the rest are optional. Profile information will only be displayed if your theme is set up to do so.' ) . '</p>' .
-	'<p>' . __( 'Remember to click the Update Profile button when you are finished.' ) . '</p>';
+$help_overview = sprintf(
+	'<h3>%1s</h3>',
+	__( 'Overview' )
+);
+
+$help_overview .= sprintf(
+	'<p>%1s</p>',
+	__( 'Your profile contains information about your account as well as some personal options related to using the website management system.' )
+);
+
+$help_overview .= sprintf(
+	'<p>%1s</p>',
+	__( 'You can change your password, turn on keyboard shortcuts, change the color scheme of your administration screens, and turn off the WYSIWYG (visual) editor, among other things. You can hide the user toolbar from the front end of your site, however it cannot be disabled on the admin screens.' )
+);
+
+$help_overview .= sprintf(
+	'<p>%1s</p>',
+	__( 'You can select the language you wish to use while using the administration screen without affecting the language site visitors see.' )
+);
+
+$help_overview .= sprintf(
+	'<p>%1s</p>',
+	__( 'Your username cannot be changed, but you can use other fields to enter your real name or a nickname, and change which name to display on your posts.' )
+);
+
+$help_overview .= sprintf(
+	'<p>%1s</p>',
+	__( 'You can log out of other devices, such as your phone or a public computer, by clicking the Log Out Everywhere Else button.' )
+);
+
+$help_overview .= sprintf(
+	'<p>%1s</p>',
+	__( 'Required fields are indicated; the rest are optional. Profile information will only be displayed if your theme is set up to do so.' )
+);
+
+$help_overview .= sprintf(
+	'<p>%1s</p>',
+	__( 'Remember to click the Update Profile button when you are finished.' )
+);
+
+$help_overview  = apply_filters( 'help_users_edit_overview', $help_overview  );
 
 get_current_screen()->add_help_tab( [
 	'id'      => 'overview',
 	'title'   => __( 'Overview' ),
-	'content' => $profile_help,
+	'content' => $help_overview,
 ] );
 
-get_current_screen()->set_help_sidebar( '' );
+/**
+ * Help sidebar content
+ *
+ * This system adds no content to the help sidebar
+ * but there is a filter applied for adding content.
+ *
+ * @since 1.0.0
+ */
+$set_help_sidebar = apply_filters( 'set_help_sidebar_user_edit', '' );
+get_current_screen()->set_help_sidebar( $set_help_sidebar );
 
 $wp_http_referer = remove_query_arg( [ 'update', 'delete_count', 'user_id' ], $wp_http_referer );
 $user_can_edit   = current_user_can( 'edit_posts' ) || current_user_can( 'edit_pages' );

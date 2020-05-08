@@ -13,22 +13,50 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Not allowed.' );
 }
 
-?>
-<h4><?php _e( 'Overview of the Data Export Tool' ); ?></h4>
-<p>
-	<?php _e( 'The export personal data tool generates a file in .zip format containing the personal data which exists for a user account.' ); ?>
-	<?php _e( 'The tool uses email validation to send a user’s request to an administrator.' ); ?>
-</p>
-<p>
-	<?php _e( 'This tool only gathers data from the website management system and participating plugins.' ); ?>
-	<?php _e( 'Other efforts may be necessary to fulfill export requests.' ); ?>
-</p>
-<p>
-	<?php _e( 'The following information is exported as personal data:' ); ?>
-</p>
-<ul>
-	<li><?php _e( 'About the Website' ); ?></li>
-	<li><?php _e( 'User Information' ); ?></li>
-	<li><?php _e( 'Comments' ); ?></li>
-	<li><?php _e( 'Media' ); ?></li>
-</ul>
+$help = sprintf(
+	'<h3>%1s</h3>',
+	__( 'Overview of the Data Export Tool' )
+);
+
+$help .= sprintf(
+	'<p>%1s <br />%2s</p>',
+	__( 'The export personal data tool generates a file in .zip format containing the personal data which exists for a user account.' ),
+	__( 'The tool uses email validation to send a user’s request to an administrator.' )
+);
+
+$help .= sprintf(
+	'<p>%1s <br />%2s</p>',
+	__( 'This tool only gathers data from the website management system and participating plugins.' ),
+	__( 'Other efforts may be necessary to fulfill export requests.' )
+);
+
+$help .= sprintf(
+	'<p>%1s</p>',
+	__( 'The following information is exported as personal data:' )
+);
+
+$help .= '<ul>';
+
+$help .= sprintf(
+	'<li>%1s</li>',
+	__( 'About the Website' )
+);
+
+$help .= sprintf(
+	'<li>%1s</li>',
+	__( 'User Information' )
+);
+
+$help .= sprintf(
+	'<li>%1s</li>',
+	__( 'Comments' )
+);
+
+$help .= sprintf(
+	'<li>%1s</li>',
+	__( 'Media' )
+);
+
+$help .= '</ul>';
+
+echo $help;

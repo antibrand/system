@@ -54,8 +54,9 @@ if ( post_type_supports(
 	$_wp_editor_expand   = ( get_user_setting( 'editor_expand', 'on' ) === 'on' );
 }
 
-if ( wp_is_mobile() )
+if ( wp_is_mobile() ) {
 	wp_enqueue_script( 'jquery-touch-punch' );
+}
 
 /**
  * Post ID global
@@ -101,7 +102,7 @@ if ( $thumbnail_support ) {
 	wp_enqueue_media( [ 'post' => $post_ID ] );
 }
 
-// Add the local autosave notice HTML
+// Add the local autosave notice HTML.
 add_action( 'admin_footer', '_local_storage_notice' );
 
 /**
@@ -424,7 +425,17 @@ add_screen_option( 'layout_columns', [ 'max' => 2, 'default' => 2 ] );
 
 if ( 'post' == $post_type ) {
 
-	$customize_display = '<p>' . __( 'The title field and the big Post Editing Area are fixed in place, but you can reposition all the other boxes using drag and drop. You can also minimize or expand them by clicking the title bar of each box. Use the Screen Options tab to unhide more boxes (Excerpt, Send Trackbacks, Custom Fields, Discussion, Slug, Author) or to choose a 1- or 2-column layout for this screen.' ) . '</p>';
+	$customize_display = sprintf(
+		'<h3>%1s</h3>',
+		__( 'Customizing This Display' )
+	);
+
+	$customize_display .= sprintf(
+		'<p>%1s</p>',
+		__( 'The title field and the big Post Editing Area are fixed in place, but you can reposition all the other boxes using drag and drop. You can also minimize or expand them by clicking the title bar of each box. Use the Screen Options tab to unhide more boxes (Excerpt, Send Trackbacks, Custom Fields, Discussion, Slug, Author) or to choose a 1- or 2-column layout for this screen.' )
+	);
+
+	$customize_display = apply_filters( 'help_customize_edit_form', $customize_display );
 
 	get_current_screen()->add_help_tab( [
 		'id'      => 'customize-display',
@@ -432,7 +443,12 @@ if ( 'post' == $post_type ) {
 		'content' => $customize_display,
 	] );
 
-	$title_and_editor = '<p>' . __( '<strong>Title</strong> &mdash; Enter a title for your post. After you enter a title, you\'ll see the permalink below, which you can edit.' ) . '</p>';
+	$title_and_editor = sprintf(
+		'<h3>%1s</h3>',
+		__( 'Title and Post Editor' )
+	);
+
+	$title_and_editor .= '<p>' . __( '<strong>Title</strong> &mdash; Enter a title for your post. After you enter a title, you\'ll see the permalink below, which you can edit.' ) . '</p>';
 
 	$title_and_editor .= '<p>' . __( '<strong>Post editor</strong> &mdash; Enter the text for your post. There are two modes of editing: Visual and Text. Choose the mode by clicking on the appropriate tab.' ) . '</p>';
 
@@ -446,19 +462,37 @@ if ( 'post' == $post_type ) {
 
 	$title_and_editor .= '<p>' . __( 'Keyboard users: When you\'re working in the visual editor, you can use <kbd>Alt + F10</kbd> to access the toolbar.' ) . '</p>';
 
+	$title_and_editor = apply_filters( 'help_title_post_edit_form', $title_and_editor );
+
 	get_current_screen()->add_help_tab( [
 		'id'      => 'title-post-editor',
 		'title'   => __( 'Title and Post Editor' ),
 		'content' => $title_and_editor,
 	] );
 
-	get_current_screen()->set_help_sidebar( '' );
+	/**
+	 * Help sidebar content
+	 *
+	 * This system adds no content to the help sidebar
+	 * but there is a filter applied for adding content.
+	 *
+	 * @since 1.0.0
+	 */
+	$set_help_sidebar = apply_filters( 'set_help_sidebar_edit_posts', '' );
+	get_current_screen()->set_help_sidebar( $set_help_sidebar );
 
 } elseif ( 'page' == $post_type ) {
 
-	$about_pages = '<p>' . __( 'Pages are similar to posts in that they have a title, body text, and associated metadata, but they are different in that they are not part of the chronological blog stream, kind of like permanent posts. Pages are not categorized or tagged, but can have a hierarchy. You can nest pages under other pages by making one the "Parent" of the other, creating a group of pages.' ) . '</p>';
+	$about_pages = sprintf(
+		'<h3>%1s</h3>',
+		__( 'About Pages' )
+	);
+
+	$about_pages .= '<p>' . __( 'Pages are similar to posts in that they have a title, body text, and associated metadata, but they are different in that they are not part of the chronological blog stream, kind of like permanent posts. Pages are not categorized or tagged, but can have a hierarchy. You can nest pages under other pages by making one the "Parent" of the other, creating a group of pages.' ) . '</p>';
 
 	$about_pages .= '<p>' . __( 'Creating a Page is very similar to creating a Post, and the screens can be customized in the same way using drag and drop, the Screen Options tab, and expanding/collapsing boxes as you choose. This screen also has the distraction-free writing space, available in both the Visual and Text modes via the Fullscreen buttons. The Page editor mostly works the same as the Post editor, but there are some Page-specific features in the Page Attributes box.' ) . '</p>';
+
+	$about_pages = apply_filters( 'help_about_pages', $about_pages );
 
 	get_current_screen()->add_help_tab( [
 		'id'      => 'about-pages',
@@ -466,28 +500,76 @@ if ( 'post' == $post_type ) {
 		'content' => $about_pages,
 	] );
 
-	get_current_screen()->set_help_sidebar( '' );
+	/**
+	 * Help sidebar content
+	 *
+	 * This system adds no content to the help sidebar
+	 * but there is a filter applied for adding content.
+	 *
+	 * @since 1.0.0
+	 */
+	$set_help_sidebar = apply_filters( 'set_help_sidebar_edit_pages', '' );
+	get_current_screen()->set_help_sidebar( $set_help_sidebar );
 
 } elseif ( 'attachment' == $post_type ) {
+
+	$media_overview = sprintf(
+		'<h3>%1s</h3>',
+		__( 'Overview' )
+	);
+
+	$media_overview .= sprintf(
+		'<p>%1s</p>',
+		__( 'This screen allows you to edit four fields for metadata in a file within the media library.' )
+	);
+
+	$media_overview .= sprintf(
+		'<p>%1s</p>',
+		__( 'For images only, you can click on Edit Image under the thumbnail to expand out an inline image editor with icons for cropping, rotating, or flipping the image as well as for undoing and redoing. The boxes on the right give you more options for scaling the image, for cropping it, and for cropping the thumbnail in a different way than you crop the original image. You can click on Help in those boxes to get more information.' )
+	);
+
+	$media_overview .= sprintf(
+		'<p>%1s</p>',
+		__( 'Note that you crop the image by clicking on it (the Crop icon is already selected) and dragging the cropping frame to select the desired part. Then click Save to retain the cropping.' )
+	);
+
+	$media_overview .= sprintf(
+		'<p>%1s</p>',
+		__( 'Remember to click Update Media to save metadata entered or changed.' )
+	);
+
+	$media_overview = apply_filters( 'help_media_overview', $media_overview );
 
 	get_current_screen()->add_help_tab( [
 		'id'      => 'overview',
 		'title'   => __( 'Overview' ),
-		'content' =>
-			'<p>' . __( 'This screen allows you to edit four fields for metadata in a file within the media library.' ) . '</p>' .
-			'<p>' . __( 'For images only, you can click on Edit Image under the thumbnail to expand out an inline image editor with icons for cropping, rotating, or flipping the image as well as for undoing and redoing. The boxes on the right give you more options for scaling the image, for cropping it, and for cropping the thumbnail in a different way than you crop the original image. You can click on Help in those boxes to get more information.' ) . '</p>' .
-			'<p>' . __( 'Note that you crop the image by clicking on it (the Crop icon is already selected) and dragging the cropping frame to select the desired part. Then click Save to retain the cropping.' ) . '</p>' .
-			'<p>' . __( 'Remember to click Update Media to save metadata entered or changed.' ) . '</p>'
+		'content' => $media_overview
 	] );
 
-	get_current_screen()->set_help_sidebar( '' );
+	/**
+	 * Help sidebar content
+	 *
+	 * This system adds no content to the help sidebar
+	 * but there is a filter applied for adding content.
+	 *
+	 * @since 1.0.0
+	 */
+	$set_help_sidebar = apply_filters( 'set_help_sidebar_edit_media', '' );
+	get_current_screen()->set_help_sidebar( $set_help_sidebar );
 }
 
 if ( 'post' == $post_type || 'page' == $post_type ) {
 
-	$inserting_media = '<p>' . __( 'You can upload and insert media (images, audio, documents, etc.) by clicking the Add Media button. You can select from the images and files already uploaded to the Media Library, or upload new media to add to your page or post. To create an image gallery, select the images to add and click the "Create a new gallery" button.' ) . '</p>';
+	$inserting_media = sprintf(
+		'<h3>%1s</h3>',
+		__( 'Inserting Media' )
+	);
+
+	$inserting_media .= '<p>' . __( 'You can upload and insert media (images, audio, documents, etc.) by clicking the Add Media button. You can select from the images and files already uploaded to the Media Library, or upload new media to add to your page or post. To create an image gallery, select the images to add and click the "Create a new gallery" button.' ) . '</p>';
 
 	$inserting_media .= '<p>' . __( 'You can also embed media from many popular websites including Twitter, YouTube, Flickr and others by pasting the media URL on its own line into the content of your post/page.' ) . '</p>';
+
+	$inserting_media = apply_filters( 'help_inserting_media', $inserting_media );
 
 	get_current_screen()->add_help_tab( [
 		'id'      => 'inserting-media',
@@ -498,7 +580,12 @@ if ( 'post' == $post_type || 'page' == $post_type ) {
 
 if ( 'post' == $post_type ) {
 
-	$publish_box = '<p>' . __( 'Several boxes on this screen contain settings for how your content will be published, including:' ) . '</p>';
+	$publish_box = sprintf(
+		'<h3>%1s</h3>',
+		__( 'Publish Settings' )
+	);
+
+	$publish_box .= '<p>' . __( 'Several boxes on this screen contain settings for how your content will be published, including:' ) . '</p>';
 
 	$publish_box .= '<ul><li>' .
 		__( '<strong>Publish</strong> &mdash; You can set the terms of publishing your post in the Publish box. For Status, Visibility, and Publish (immediately), click on the Edit link to reveal more options. Visibility includes options for password-protecting a post or making it stay at the top of your blog indefinitely (sticky). The Password protected option allows you to set an arbitrary password for each post. The Private option hides the post from everyone except editors and administrators. Publish (immediately) allows you to set a future or past date and time, so you can schedule a post to be published in the future or backdate a post.' ) .
@@ -516,13 +603,22 @@ if ( 'post' == $post_type ) {
 
 	$publish_box .= '</ul>';
 
+	$publish_box = apply_filters( 'help_publish_box', $publish_box );
+
 	get_current_screen()->add_help_tab( [
 		'id'      => 'publish-box',
 		'title'   => __( 'Publish Settings' ),
 		'content' => $publish_box,
 	] );
 
-	$discussion_settings = '<p>' . __( '<strong>Discussion</strong> &mdash; You can turn comments on or off, and if there are comments on the post, you can see them here and moderate them.' ) . '</p>';
+	$discussion_settings = sprintf(
+		'<h3>%1s</h3>',
+		__( 'Discussion Settings' )
+	);
+
+	$discussion_settings .= '<p>' . __( '<strong>Discussion</strong> &mdash; You can turn comments on or off, and if there are comments on the post, you can see them here and moderate them.' ) . '</p>';
+
+	$discussion_settings = apply_filters( 'help_discussion_settings', $discussion_settings );
 
 	get_current_screen()->add_help_tab( [
 		'id'      => 'discussion-settings',
@@ -532,11 +628,18 @@ if ( 'post' == $post_type ) {
 
 } elseif ( 'page' == $post_type ) {
 
-	$page_attributes = '<p>' . __( '<strong>Parent</strong> &mdash; You can arrange your pages in hierarchies. For example, you could have an "About" page that has "Life Story" and "My Dog" pages under it. There are no limits to how many levels you can nest pages.' ) . '</p>';
+	$page_attributes = sprintf(
+		'<h3>%1s</h3>',
+		__( 'Page Attributes' )
+	);
+
+	$page_attributes .= '<p>' . __( '<strong>Parent</strong> &mdash; You can arrange your pages in hierarchies. For example, you could have an "About" page that has "Life Story" and "My Dog" pages under it. There are no limits to how many levels you can nest pages.' ) . '</p>';
 
 	$page_attributes .= '<p>' . __( '<strong>Template</strong> &mdash; Some themes have custom templates you can use for certain pages that might have additional features or custom layouts. If so, you\'ll see them in this dropdown menu.' ) . '</p>';
 
 	$page_attributes .= '<p>' . __( '<strong>Order</strong> &mdash; Pages are usually ordered alphabetically, but you can choose your own order by entering a number (1 for first, etc.) in this field.' ) . '</p>';
+
+	$page_attributes = apply_filters( 'help_page_attributes', $page_attributes );
 
 	get_current_screen()->add_help_tab( [
 		'id' => 'page-attributes',

@@ -3961,7 +3961,7 @@ function get_avatar_data( $id_or_email, $args = null ) {
 	if ( ( 'mm' ) == $args['default'] ) {
 		$url = site_url( '/wp-includes/images/default-profile-image.png' );
 	} else {
-		$url = site_url( '/wp-includes/images/blank.png' );
+		$url = site_url( '/wp-includes/images/no-avatar.png' );
 	}
 
 	$url = add_query_arg(

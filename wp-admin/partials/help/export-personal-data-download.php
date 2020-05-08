@@ -13,15 +13,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Not allowed.' );
 }
 
-?>
-<h4><?php _e( 'Downloading Personal Data' ); ?></h4>
+$help = sprintf(
+	'<h3>%1s</h3>',
+	__( 'Downloading Personal Data' )
+);
 
-<p>
-	<?php _e( '' ); ?>
-	<?php _e( '' ); ?>
-</p>
+$help .= sprintf(
+	'<p>%1s</p>',
+	__( '' )
+);
 
-<p>
-	<?php _e( '' ); ?>
-	<?php _e( '' ); ?>
-</p>
+echo $help;

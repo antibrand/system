@@ -504,28 +504,61 @@ add_thickbox();
 
 add_screen_option( 'per_page', [ 'default' => 999 ] );
 
+$help_overview = sprintf(
+	'<h3>%1s</h3>',
+	__( 'Overview' )
+);
+
+$help_overview .= sprintf(
+	'<p>%1s</p>',
+	__( 'Plugins extend and expand functionality. Once a plugin is installed, you may activate it or deactivate it here.' )
+);
+
+$help_overview .= sprintf(
+	'<p>%1s <span id="live-search-desc" class="hide-if-no-js">%2s</span></p>',
+	__( 'The search for installed plugins will search for terms in their name, description, or author.' ),
+	__( 'The search results will be updated as you type.' )
+);
+
+$help_overview .= sprintf(
+	'<p>%1s <a href="%2s">%3s</a> %4s</p>',
+	__( 'If you would like to see more plugins to choose from, click on the &#8220;Add New&#8221; button and you will be able to browse or search for additional plugins from the' ),
+	esc_url( 'https://wordpress.org/plugins/' ),
+	__( 'WordPress Plugin Directory' ),
+	__( '. Plugins in the WordPress Plugin Directory are designed and developed by third parties.' )
+);
+
+$help_overview = apply_filters( 'help_plugins_overview', $help_overview );
+
 get_current_screen()->add_help_tab( [
 	'id'		=> 'overview',
 	'title'		=> __( 'Overview' ),
-	'content'	=>
-		'<p>' . __( 'Plugins extend and expand functionality. Once a plugin is installed, you may activate it or deactivate it here.' ) . '</p>' .
-		'<p>' . __( 'The search for installed plugins will search for terms in their name, description, or author.' ) . ' <span id="live-search-desc" class="hide-if-no-js">' . __( 'The search results will be updated as you type.' ) . '</span></p>' .
-		'<p>' . sprintf(
-			/* translators: %s: Plugin Directory URL */
-			__( 'If you would like to see more plugins to choose from, click on the &#8220;Add New&#8221; button and you will be able to browse or search for additional plugins from the <a href="%s">WordPress Plugin Directory</a>. Plugins in the WordPress Plugin Directory are designed and developed by third parties.' ),
-			__( 'https://wordpress.org/plugins/' )
-		) . '</p>'
+	'content'	=> $help_overview
 ] );
+
+$help_troubleshooting = sprintf(
+	'<h3>%1s</h3>',
+	__( 'Troubleshooting' )
+);
+
+$help_troubleshooting .= sprintf(
+	'<p>%1s</p>',
+	__( 'Most of the time, plugins play nicely with the core of the application and with other plugins. Sometimes, though, a plugin&#8217;s code will get in the way of another plugin, causing compatibility issues. If your site starts doing strange things, this may be the problem. Try deactivating all your plugins and re-activating them in various combinations until you isolate which one(s) caused the issue.' )
+);
+
+$help_troubleshooting .= sprintf(
+	'<p>%1s <code>%2s</code> %3s</p>',
+	__( 'If something goes wrong with a plugin and you can&#8217;t use the application, delete or rename that file in the' ),
+	WP_PLUGIN_DIR,
+	__( 'directory and it will be automatically deactivated.' )
+);
+
+$help_troubleshooting = apply_filters( 'help_plugins_troubleshooting', $help_troubleshooting );
+
 get_current_screen()->add_help_tab( [
 	'id'		=> 'compatibility-problems',
 	'title'		=> __( 'Troubleshooting' ),
-	'content'	=>
-		'<p>' . __( 'Most of the time, plugins play nicely with the core of the application and with other plugins. Sometimes, though, a plugin&#8217;s code will get in the way of another plugin, causing compatibility issues. If your site starts doing strange things, this may be the problem. Try deactivating all your plugins and re-activating them in various combinations until you isolate which one(s) caused the issue.' ) . '</p>' .
-		'<p>' . sprintf(
-			// Translators: WP_PLUGIN_DIR constant value.
-			__( 'If something goes wrong with a plugin and you can&#8217;t use the application, delete or rename that file in the %s directory and it will be automatically deactivated.' ),
-			'<code>' . WP_PLUGIN_DIR . '</code>'
-		) . '</p>'
+	'content'	=> $help_troubleshooting
 ] );
 
 /**

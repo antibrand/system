@@ -16,36 +16,83 @@ if ( ! current_user_can( 'manage_options' ) ) {
 $title       = __( 'Writing Settings' );
 $parent_file = 'options-general.php';
 
+$help_overview = sprintf(
+	'<h3>%1s</h3>',
+	__( 'Overview' )
+);
+
+$help_overview .= sprintf(
+	'<p>%1s</p>',
+	__( 'You can submit content in several different ways; this screen holds the settings for all of them. The top section controls the editor within the dashboard, while the rest control external publishing methods.' )
+);
+
+$help_overview .= sprintf(
+	'<p>%1s</p>',
+	__( 'You must click the Save Changes button at the bottom of the screen for new settings to take effect.' )
+);
+
+$help_overview = apply_filters( 'help_options_writing_overview', $help_overview );
+
 get_current_screen()->add_help_tab( [
 	'id'      => 'overview',
 	'title'   => __( 'Overview' ),
-	'content' => '<p>' . __( 'You can submit content in several different ways; this screen holds the settings for all of them. The top section controls the editor within the dashboard, while the rest control external publishing methods. For more information on any of these methods, use the documentation links.' ) . '</p>' .
-		'<p>' . __( 'You must click the Save Changes button at the bottom of the screen for new settings to take effect.' ) . '</p>',
+	'content' => $help_overview
 ] );
 
-/** This filter is documented in wp-admin/options.php */
+// This filter is documented in wp-admin/options.php.
 if ( apply_filters( 'enable_post_by_email_configuration', true ) ) {
+
+	$help_postemail = sprintf(
+		'<h3>%1s</h3>',
+		__( 'Post Via Email' )
+	);
+
+	$help_postemail .= sprintf(
+		'<p>%1s</p>',
+		__( 'Post via email settings allow you to send your installation an email with the content of your post. You must set up a secret email account with POP3 access to use this, and any mail received at this address will be posted, so it&#8217;s a good idea to keep this address very secret.' )
+	);
+
 	get_current_screen()->add_help_tab( [
 		'id'      => 'options-postemail',
 		'title'   => __( 'Post Via Email' ),
-		'content' => '<p>' . __( 'Post via email settings allow you to send your installation an email with the content of your post. You must set up a secret email account with POP3 access to use this, and any mail received at this address will be posted, so it&#8217;s a good idea to keep this address very secret.' ) . '</p>',
+		'content' => $help_postemail
 	] );
 }
 
-/** This filter is documented in wp-admin/options-writing.php */
+// This filter is documented in wp-admin/options-writing.php.
 if ( apply_filters( 'enable_update_services_configuration', true ) ) {
+
+	$help_services = sprintf(
+		'<h3>%1s</h3>',
+		__( 'Update Services' )
+	);
+
+	$help_services .= sprintf(
+		'<p>%1s</p>',
+		__( 'Will automatically alert various services of your new posts.' )
+	);
+
 	get_current_screen()->add_help_tab( [
 		'id'      => 'options-services',
 		'title'   => __( 'Update Services' ),
-		'content' => '<p>' . __( 'Will automatically alert various services of your new posts.' ) . '</p>',
+		'content' => $help_services
 	] );
 }
 
-get_current_screen()->set_help_sidebar( '' );
+/**
+ * Help sidebar content
+ *
+ * This system adds no content to the help sidebar
+ * but there is a filter applied for adding content.
+ *
+ * @since 1.0.0
+ */
+$set_help_sidebar = apply_filters( 'set_help_sidebar_options_writing', '' );
+get_current_screen()->set_help_sidebar( $set_help_sidebar );
 
 include( ABSPATH . 'wp-admin/admin-header.php' );
-?>
 
+?>
 	<div class="wrap">
 
 		<h1><?php echo esc_html( $title ); ?></h1>

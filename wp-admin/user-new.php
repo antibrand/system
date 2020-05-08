@@ -29,24 +29,27 @@ if ( is_multisite() ) {
 	add_filter( 'wpmu_signup_user_notification_email', 'admin_created_user_email' );
 }
 
-if ( isset($_REQUEST['action']) && 'adduser' == $_REQUEST['action'] ) {
+if ( isset( $_REQUEST['action'] ) && 'adduser' == $_REQUEST['action'] ) {
+
 	check_admin_referer( 'add-user', '_wpnonce_add-user' );
 
 	$user_details = null;
-	$user_email = wp_unslash( $_REQUEST['email'] );
+	$user_email   = wp_unslash( $_REQUEST['email'] );
+
 	if ( false !== strpos( $user_email, '@' ) ) {
 		$user_details = get_user_by( 'email', $user_email );
 	} else {
 		if ( current_user_can( 'manage_network_users' ) ) {
 			$user_details = get_user_by( 'login', $user_email );
 		} else {
-			wp_redirect( add_query_arg( array('update' => 'enter_email'), 'user-new.php' ) );
+			wp_redirect( add_query_arg( [ 'update' => 'enter_email' ], 'user-new.php' ) );
 			die();
 		}
 	}
 
-	if ( !$user_details ) {
-		wp_redirect( add_query_arg( array('update' => 'does_not_exist'), 'user-new.php' ) );
+	if ( ! $user_details ) {
+		wp_redirect( add_query_arg( [ 'update' => 'does_not_exist' ], 'user-new.php' ) );
+
 		die();
 	}
 
@@ -58,34 +61,38 @@ if ( isset($_REQUEST['action']) && 'adduser' == $_REQUEST['action'] ) {
 		);
 	}
 
-	// Adding an existing user to this blog
+	// Adding an existing user to this blog.
 	$new_user_email = $user_details->user_email;
-	$redirect = 'user-new.php';
-	$username = $user_details->user_login;
-	$user_id = $user_details->ID;
+	$redirect       = 'user-new.php';
+	$username       = $user_details->user_login;
+	$user_id        = $user_details->ID;
+
 	if ( $username != null && array_key_exists( $blog_id, get_blogs_of_user( $user_id ) ) ) {
-		$redirect = add_query_arg( array('update' => 'addexisting'), 'user-new.php' );
+		$redirect = add_query_arg( [ 'update' => 'addexisting' ], 'user-new.php' );
 	} else {
+
 		if ( isset( $_POST[ 'noconfirmation' ] ) && current_user_can( 'manage_network_users' ) ) {
-			$result = add_existing_user_to_blog( array( 'user_id' => $user_id, 'role' => $_REQUEST[ 'role' ] ) );
+			$result = add_existing_user_to_blog( [ 'user_id' => $user_id, 'role' => $_REQUEST['role'] ] );
 
 			if ( ! is_wp_error( $result ) ) {
-				$redirect = add_query_arg( array( 'update' => 'addnoconfirmation', 'user_id' => $user_id ), 'user-new.php' );
+				$redirect = add_query_arg( [ 'update' => 'addnoconfirmation', 'user_id' => $user_id ], 'user-new.php' );
 			} else {
-				$redirect = add_query_arg( array( 'update' => 'could_not_add' ), 'user-new.php' );
+				$redirect = add_query_arg( [ 'update' => 'could_not_add' ], 'user-new.php' );
 			}
+
 		} else {
+
 			$newuser_key = wp_generate_password( 20, false );
-			add_option( 'new_user_' . $newuser_key, array( 'user_id' => $user_id, 'email' => $user_details->user_email, 'role' => $_REQUEST[ 'role' ] ) );
+
+			add_option( 'new_user_' . $newuser_key, [ 'user_id' => $user_id, 'email' => $user_details->user_email, 'role' => $_REQUEST['role'] ] );
 
 			$roles = get_editable_roles();
-			$role = $roles[ $_REQUEST['role'] ];
+			$role  = $roles[ $_REQUEST['role'] ];
 
 			/**
 			 * Fires immediately after a user is invited to join a site, but before the notification is sent.
 			 *
-			 * @since 4.4.0
-			 *
+			 * @since WP 4.4.0
 			 * @param int    $user_id     The invited user's ID.
 			 * @param array  $role        The role of invited user.
 			 * @param string $newuser_key The key of the invitation.
@@ -94,7 +101,7 @@ if ( isset($_REQUEST['action']) && 'adduser' == $_REQUEST['action'] ) {
 
 			$switched_locale = switch_to_locale( get_user_locale( $user_details ) );
 
-			/* translators: 1: Site name, 2: site URL, 3: role, 4: activation URL */
+			// Translators: 1: Site name, 2: site URL, 3: role, 4: activation URL.
 			$message = __( 'Hi,
 
 You\'ve been invited to join \'%1$s\' at
@@ -108,12 +115,16 @@ Please click the following link to confirm the invite:
 				restore_previous_locale();
 			}
 
-			$redirect = add_query_arg( array('update' => 'add'), 'user-new.php' );
+			$redirect = add_query_arg( [ 'update' => 'add' ], 'user-new.php' );
 		}
 	}
+
 	wp_redirect( $redirect );
+
 	die();
-} elseif ( isset($_REQUEST['action']) && 'createuser' == $_REQUEST['action'] ) {
+
+} elseif ( isset( $_REQUEST['action'] ) && 'createuser' == $_REQUEST['action'] ) {
+
 	check_admin_referer( 'create-user', '_wpnonce_create-user' );
 
 	if ( ! current_user_can( 'create_users' ) ) {
@@ -125,106 +136,199 @@ Please click the following link to confirm the invite:
 	}
 
 	if ( ! is_multisite() ) {
+
 		$user_id = edit_user();
 
 		if ( is_wp_error( $user_id ) ) {
 			$add_user_errors = $user_id;
+
 		} else {
-			if ( current_user_can( 'list_users' ) )
+
+			if ( current_user_can( 'list_users' ) ) {
 				$redirect = 'users.php?update=add&id=' . $user_id;
-			else
+			} else {
 				$redirect = add_query_arg( 'update', 'add', 'user-new.php' );
+			}
+				
 			wp_redirect( $redirect );
+
 			die();
 		}
+
 	} else {
-		// Adding a new user to this site
+
+		// Adding a new user to this site.
 		$new_user_email = wp_unslash( $_REQUEST['email'] );
-		$user_details = wpmu_validate_user_signup( $_REQUEST['user_login'], $new_user_email );
-		if ( is_wp_error( $user_details[ 'errors' ] ) && !empty( $user_details[ 'errors' ]->errors ) ) {
-			$add_user_errors = $user_details[ 'errors' ];
+		$user_details   = wpmu_validate_user_signup( $_REQUEST['user_login'], $new_user_email );
+
+		if ( is_wp_error( $user_details['errors'] ) && ! empty( $user_details['errors']->errors ) ) {
+			$add_user_errors = $user_details['errors'];
 		} else {
+
 			/**
 			 * Filters the user_login, also known as the username, before it is added to the site.
 			 *
-			 * @since 2.0.3
-			 *
+			 * @since WP 2.0.3
 			 * @param string $user_login The sanitized username.
 			 */
 			$new_user_login = apply_filters( 'pre_user_login', sanitize_user( wp_unslash( $_REQUEST['user_login'] ), true ) );
-			if ( isset( $_POST[ 'noconfirmation' ] ) && current_user_can( 'manage_network_users' ) ) {
-				add_filter( 'wpmu_signup_user_notification', '__return_false' ); // Disable confirmation email
-				add_filter( 'wpmu_welcome_user_notification', '__return_false' ); // Disable welcome email
+
+			if ( isset( $_POST['noconfirmation'] ) && current_user_can( 'manage_network_users' ) ) {
+
+				// Disable confirmation email.
+				add_filter( 'wpmu_signup_user_notification', '__return_false' );
+
+				// Disable welcome email.
+				add_filter( 'wpmu_welcome_user_notification', '__return_false' );
 			}
-			wpmu_signup_user( $new_user_login, $new_user_email, array( 'add_to_blog' => get_current_blog_id(), 'new_role' => $_REQUEST['role'] ) );
+
+			wpmu_signup_user( $new_user_login, $new_user_email, [ 'add_to_blog' => get_current_blog_id(), 'new_role' => $_REQUEST['role'] ] );
 			if ( isset( $_POST[ 'noconfirmation' ] ) && current_user_can( 'manage_network_users' ) ) {
+
 				$key = $wpdb->get_var( $wpdb->prepare( "SELECT activation_key FROM {$wpdb->signups} WHERE user_login = %s AND user_email = %s", $new_user_login, $new_user_email ) );
+
 				$new_user = wpmu_activate_signup( $key );
+
 				if ( is_wp_error( $new_user ) ) {
-					$redirect = add_query_arg( array( 'update' => 'addnoconfirmation' ), 'user-new.php' );
+					$redirect = add_query_arg( [ 'update' => 'addnoconfirmation' ], 'user-new.php' );
 				} elseif ( ! is_user_member_of_blog( $new_user['user_id'] ) ) {
-					$redirect = add_query_arg( array( 'update' => 'created_could_not_add' ), 'user-new.php' );
+					$redirect = add_query_arg( [ 'update' => 'created_could_not_add' ], 'user-new.php' );
 				} else {
-					$redirect = add_query_arg( array( 'update' => 'addnoconfirmation', 'user_id' => $new_user['user_id'] ), 'user-new.php' );
+					$redirect = add_query_arg( [ 'update' => 'addnoconfirmation', 'user_id' => $new_user['user_id'] ], 'user-new.php' );
 				}
 			} else {
-				$redirect = add_query_arg( array('update' => 'newuserconfirmation'), 'user-new.php' );
+				$redirect = add_query_arg( [ 'update' => 'newuserconfirmation' ], 'user-new.php' );
 			}
+
 			wp_redirect( $redirect );
+
 			die();
 		}
 	}
 }
 
-$title = __('Add New User');
+$title       = __( 'Add New User' );
 $parent_file = 'users.php';
 
 $do_both = false;
-if ( is_multisite() && current_user_can('promote_users') && current_user_can('create_users') )
+
+if ( is_multisite() && current_user_can( 'promote_users' ) && current_user_can( 'create_users' ) ) {
 	$do_both = true;
-
-$help = '<p>' . __('To add a new user to your site, fill in the form on this screen and click the Add New User button at the bottom.') . '</p>';
-
-if ( is_multisite() ) {
-	$help .= '<p>' . __('Because this is a multisite installation, you may add accounts that already exist on the Network by specifying a username or email, and defining a role. For more options, such as specifying a password, you have to be a Network Administrator and use the hover link under an existing user&#8217;s name to Edit the user profile under Network Admin > All Users.') . '</p>' .
-	'<p>' . __('New users will receive an email letting them know they&#8217;ve been added as a user for your site. This email will also contain their password. Check the box if you don&#8217;t want the user to receive a welcome email.') . '</p>';
-} else {
-	$help .= '<p>' . __('New users are automatically assigned a password, which they can change after logging in. You can view or edit the assigned password by clicking the Show Password button. The username cannot be changed once the user has been added.') . '</p>' .
-
-	'<p>' . __('By default, new users will receive an email letting them know they&#8217;ve been added as a user for your site. This email will also contain a password reset link. Uncheck the box if you don&#8217;t want to send the new user a welcome email.') . '</p>';
 }
 
-$help .= '<p>' . __('Remember to click the Add New User button at the bottom of this screen when you are finished.') . '</p>';
+$help_overview = sprintf(
+	'<h3>%1s</h3>',
+	__( 'Overview' )
+);
 
-get_current_screen()->add_help_tab( array(
+$help_overview .= sprintf(
+	'<p>%1s</p>',
+	__( 'To add a new user to your site, fill in the form on this screen and click the Add New User button at the bottom.' )
+);
+
+if ( is_multisite() ) {
+
+	$help_overview .= sprintf(
+		'<p>%1s</p>',
+		__( 'Because this is a multisite installation, you may add accounts that already exist on the Network by specifying a username or email, and defining a role. For more options, such as specifying a password, you have to be a Network Administrator and use the hover link under an existing user&#8217;s name to Edit the user profile under Network Admin > All Users.' )
+	);
+
+	$help_overview .= sprintf(
+		'<p>%1s</p>',
+		__( 'New users will receive an email letting them know they&#8217;ve been added as a user for your site. This email will also contain their password. Check the box if you don&#8217;t want the user to receive a welcome email.' )
+	);
+
+} else {
+
+	$help_overview .= sprintf(
+		'<p>%1s</p>',
+		__( 'New users are automatically assigned a password, which they can change after logging in. You can view or edit the assigned password by clicking the Show Password button. The username cannot be changed once the user has been added.' )
+	);
+
+	$help_overview .= sprintf(
+		'<p>%1s</p>',
+		__( 'By default, new users will receive an email letting them know they&#8217;ve been added as a user for your site. This email will also contain a password reset link. Uncheck the box if you don&#8217;t want to send the new user a welcome email.' )
+	);
+}
+
+$help_overview .= sprintf(
+	'<p>%1s</p>',
+	__( 'Remember to click the Add New User button at the bottom of this screen when you are finished.' )
+);
+
+$help_overview = apply_filters( 'help_user_new_overview', $help_overview );
+
+get_current_screen()->add_help_tab( [
 	'id'      => 'overview',
-	'title'   => __('Overview'),
-	'content' => $help,
-) );
+	'title'   => __( 'Overview' ),
+	'content' => $help_overview,
+] );
 
-get_current_screen()->add_help_tab( array(
-'id'      => 'user-roles',
-'title'   => __('User Roles'),
-'content' => '<p>' . __('Here is a basic overview of the different user roles and the permissions associated with each one:') . '</p>' .
-				'<ul>' .
-				'<li>' . __('Subscribers can read comments/comment/receive newsletters, etc. but cannot create regular site content.') . '</li>' .
-				'<li>' . __('Contributors can write and manage their posts but not publish posts or upload media files.') . '</li>' .
-				'<li>' . __('Authors can publish and manage their own posts, and are able to upload files.') . '</li>' .
-				'<li>' . __('Editors can publish posts, manage posts as well as manage other people&#8217;s posts, etc.') . '</li>' .
-				'<li>' . __('Administrators have access to all the administration features.') . '</li>' .
-				'</ul>'
-) );
+$help_user_roles = sprintf(
+	'<h3>%1s</h3>',
+	__( 'User Roles' )
+);
 
-get_current_screen()->set_help_sidebar( '' );
+$help_user_roles .= sprintf(
+	'<p>%1s</p>',
+	__( 'Here is a basic overview of the different user roles and the permissions associated with each one:' )
+);
 
-wp_enqueue_script('wp-ajax-response');
+$help_user_roles .= '<ul>';
+
+$help_user_roles .= sprintf(
+	'<li>%1s</li>',
+	__( 'Subscribers can read comments/comment/receive newsletters, etc. but cannot create regular site content.' )
+);
+
+$help_user_roles .= sprintf(
+	'<li>%1s</li>',
+	__( 'Contributors can write and manage their posts but not publish posts or upload media files.' )
+);
+
+$help_user_roles .= sprintf(
+	'<li>%1s</li>',
+	__( 'Authors can publish and manage their own posts, and are able to upload files.' )
+);
+
+$help_user_roles .= sprintf(
+	'<li>%1s</li>',
+	__( 'Editors can publish posts, manage posts as well as manage other people&#8217;s posts, etc.' )
+);
+
+$help_user_roles .= sprintf(
+	'<li>%1s</li>',
+	__( 'Administrators have access to all the administration features.' )
+);
+
+$help_user_roles .= '</ul>';
+
+$help_user_roles = apply_filters( 'help_user_roles', $help_user_roles );
+
+get_current_screen()->add_help_tab( [
+	'id'      => 'user-roles',
+	'title'   => __( 'User Roles' ),
+	'content' => $help_user_roles
+] );
+
+/**
+ * Help sidebar content
+ *
+ * This system adds no content to the help sidebar
+ * but there is a filter applied for adding content.
+ *
+ * @since 1.0.0
+ */
+$set_help_sidebar = apply_filters( 'set_help_sidebar_user_new', '' );
+get_current_screen()->set_help_sidebar( $set_help_sidebar );
+
+wp_enqueue_script( 'wp-ajax-response' );
 wp_enqueue_script( 'user-profile' );
 
 /**
  * Filters whether to enable user auto-complete for non-super admins in Multisite.
  *
- * @since 3.4.0
- *
+ * @since WP 3.4.0
  * @param bool $enable Whether to enable auto-complete for non-super admins. Default false.
  */
 if ( is_multisite() && current_user_can( 'promote_users' ) && ! wp_is_large_network( 'users' )
@@ -235,18 +339,25 @@ if ( is_multisite() && current_user_can( 'promote_users' ) && ! wp_is_large_netw
 
 require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
-if ( isset($_GET['update']) ) {
+if ( isset( $_GET['update'] ) ) {
+
 	$messages = array();
+
 	if ( is_multisite() ) {
+
 		$edit_link = '';
+
 		if ( ( isset( $_GET['user_id'] ) ) ) {
+
 			$user_id_new = absint( $_GET['user_id'] );
+
 			if ( $user_id_new ) {
 				$edit_link = esc_url( add_query_arg( 'wp_http_referer', urlencode( wp_unslash( $_SERVER['REQUEST_URI'] ) ), get_edit_user_link( $user_id_new ) ) );
 			}
 		}
 
 		switch ( $_GET['update'] ) {
+
 			case "newuserconfirmation":
 				$messages[] = __('Invitation email sent to new user. A confirmation link must be clicked before their account is created.');
 				break;
