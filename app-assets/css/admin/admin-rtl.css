@@ -6239,7 +6239,7 @@ ul#adminmenu a.wp-has-current-submenu {
   height: 17px;
   border-radius: 11px;
   background-color: #ee6600;
-  color: #222222;
+  color: #ffffff;
   font-size: 9px;
   line-height: 17px;
   text-align: center;
@@ -6248,8 +6248,8 @@ ul#adminmenu a.wp-has-current-submenu {
 
 #adminmenu li.current a .awaiting-mod,
 #adminmenu li a.wp-has-current-submenu .update-plugins {
-  background-color: #00b9eb;
-  color: #fff;
+  background-color: #ee6600;
+  color: #ffffff;
 }
 
 #adminmenu li span.count-0 {

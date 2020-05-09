@@ -29,8 +29,8 @@ foreach ( array( 'term_name', 'comment_author_name', 'link_name', 'link_target',
 	add_filter( $filter, '_wp_specialchars', 30 );
 }
 
-// Kses only for textarea saves
-foreach ( array( 'pre_term_description', 'pre_link_description', 'pre_link_notes', 'pre_user_description' ) as $filter ) {
+// Kses only for textarea saves.
+foreach ( array( 'pre_term_description', 'pre_link_description', 'pre_link_notes' ) as $filter ) {
 	add_filter( $filter, 'wp_filter_kses' );
 }
 
@@ -42,9 +42,22 @@ if ( is_admin() ) {
 	add_filter( 'comment_text', 'wp_kses_post' );
 }
 
+/**
+ * Filters for the TinyMCE editor on user profile screens
+ *
+ * Removed `pre_user_description` from the array above labeled
+ * "Kses only for textarea saves" to allow HTML in the user
+ * description.
+ *
+ * @since 1.0.0 Since development of this WMS.
+ */
+add_filter( 'get_the_author_description', 'wptexturize' );
+add_filter( 'get_the_author_description', 'convert_chars' );
+add_filter( 'get_the_author_description', 'wpautop' );
+
 // Email saves
 foreach ( array( 'pre_comment_author_email', 'pre_user_email' ) as $filter ) {
-	add_filter( $filter, 'trim'           );
+	add_filter( $filter, 'trim' );
 	add_filter( $filter, 'sanitize_email' );
 	add_filter( $filter, 'wp_filter_kses' );
 }

@@ -32,7 +32,7 @@ if ( IS_PROFILE_PAGE ) {
 	$title = __( 'Profile' );
 } else {
 	// Translators: %s: user's display name.
-	$title = __( 'Edit User %s' );
+	$title = __( 'Edit User: %s' );
 }
 
 if ( current_user_can( 'edit_users' ) && ! IS_PROFILE_PAGE ) {
@@ -276,19 +276,8 @@ if ( isset( $errors ) && is_wp_error( $errors ) ) : ?>
 <?php endif; ?>
 
 	<div class="wrap" id="profile-page">
+
 		<h1><?php echo esc_html( $title ); ?></h1>
-
-		<?php
-		if ( ! IS_PROFILE_PAGE ) {
-			if ( current_user_can( 'create_users' ) ) { ?>
-				<a href="user-new.php" class="button page-title-action"><?php echo esc_html_x( 'Add New', 'user' ); ?></a>
-			<?php } elseif ( is_multisite() && current_user_can( 'promote_users' ) ) { ?>
-				<a href="user-new.php" class="button page-title-action"><?php echo esc_html_x( 'Add Existing', 'user' ); ?></a>
-			<?php }
-		}
-		?>
-
-		<hr class="wp-header-end">
 
 		<form id="your-profile" action="<?php echo esc_url( self_admin_url( IS_PROFILE_PAGE ? 'profile.php' : 'user-edit.php' ) ); ?>" method="post" novalidate="novalidate"<?php
 			/**
@@ -583,18 +572,33 @@ if ( isset( $errors ) && is_wp_error( $errors ) ) : ?>
 			<?php endforeach ?>
 			</table>
 
-			<h2><?php IS_PROFILE_PAGE ? _e( 'About Yourself' ) : _e( 'About the user' ); ?></h2>
+			<?php
+			if ( IS_PROFILE_PAGE ) {
+				$about_label = __( 'About Yourself' );
+			} else {
+				$about_label = __( 'About the User' );
+			}
+
+			echo apply_filters( 'user_bio_desc_label', sprintf(
+				'<h2>%1s</h2>',
+				$about_label
+			) );
+			?>
 
 			<table class="form-table">
 				<tr class="user-description-wrap">
 					<th><label for="description"><?php _e( 'Biographical Info' ); ?></label></th>
 					<td>
-						<textarea name="description" id="description" rows="5" cols="30">
-							<?php echo $profileuser->description; ?>
-						</textarea>
-						<p class="description">
-							<?php _e( 'Share a little biographical information to fill out your profile. This may be shown publicly.' ); ?>
-						</p>
+						<?php
+						// TinyMCE editor for user bio.
+						$description = get_user_meta( $user_id, 'description', true );
+						wp_editor( $description, 'description' );
+
+						echo apply_filters( 'user_bio_desc_description', sprintf(
+							'<p class="description">%1s</p>',
+							__( 'Share a little biographical information to fill out your profile. This may be shown publicly.' )
+						) );
+						?>
 					</td>
 				</tr>
 

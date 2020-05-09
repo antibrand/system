@@ -957,10 +957,11 @@ function wp_default_styles( &$styles ) {
 	$styles->add( 'plugins',     "/wp-admin/css/plugins$suffix.css" );
 	$styles->add( 'nav-menus',   "/wp-admin/css/nav-menus$suffix.css" );
 	$styles->add( 'widgets',     "/wp-admin/css/widgets$suffix.css", [ 'wp-pointer' ] );
+	$styles->add( 'profile',     "/wp-admin/css/profile$suffix.css" );
 	$styles->add( 'site-icon',   "/wp-admin/css/site-icon$suffix.css" );
 	$styles->add( 'code-editor', "/wp-admin/css/code-editor$suffix.css", [ 'wp-codemirror' ] );
 
-	$styles->add( 'wp-admin', false, [ 'dashicons', 'admin', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'nav-menus', 'widgets', 'site-icon' ] );
+	$styles->add( 'wp-admin', false, [ 'dashicons', 'admin', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'nav-menus', 'widgets', 'profile', 'site-icon' ] );
 
 	$styles->add( 'login',               "/wp-admin/css/login$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'install',             "/wp-admin/css/install$suffix.css" );
@@ -993,7 +994,7 @@ function wp_default_styles( &$styles ) {
 
 		// Admin stylesheets.
 		'admin', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'nav-menus',
-		'widgets', 'site-icon', 'install', 'customize-controls', 'customize-widgets', 'customize-nav-menus', 'customize-preview',
+		'widgets', 'profile', 'site-icon', 'install', 'customize-controls', 'customize-widgets', 'customize-nav-menus', 'customize-preview',
 		'login',
 
 		// Includes stylesheets.
