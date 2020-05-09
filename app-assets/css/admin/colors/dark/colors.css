@@ -171,6 +171,14 @@ input:disabled, input.disabled {
 }
 
 /**
+ * Dashboard
+ */
+#dashboard_right_now .main h3:not(:first-of-type),
+.js #dashboard_quick_press .drafts {
+  border-color: #414141;
+}
+
+/**
  * List views
  */
 .widefat thead,
