@@ -66,6 +66,11 @@ _wp_admin_html_begin();
 
 ?>
 <title><?php echo $admin_title; ?></title>
+
+<link rel="preload" href="<?php echo site_url( 'app-assets/fonts/inter/inter-upright-var.woff2' ); ?>" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="<?php echo site_url( 'app-assets/fonts/inter/inter-italic-var.woff2' ); ?>" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="<?php echo site_url( 'app-assets/fonts/crimson/crimson-pro-roman.woff' ); ?>" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="<?php echo site_url( 'app-assets/fonts/crimson/crimson-pro-italic.woff' ); ?>" as="font" type="font/woff" crossorigin>
 <?php
 
 wp_enqueue_style( 'colors' );
