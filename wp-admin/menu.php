@@ -495,7 +495,10 @@ unset( $update_data );
 if ( current_user_can('list_users') ) {
 
 	$menu[70] = [
-		__( 'Accounts' ),
+		sprintf(
+			__( 'Accounts %s' ),
+			$change_notice
+		),
 		'list_users',
 		'users.php',
 		'',
@@ -607,10 +610,7 @@ $menu[79] = [
  * Administrative tools & settings
  */
 $menu[80] = [
-	sprintf(
-		__( 'Admin Tools %s' ),
-		$change_notice
-	),
+	__( 'Admin Tools' ),
 	'manage_options',
 	'options-general.php',
 	'',
