@@ -49,7 +49,7 @@
 define( 'APP_NAME', 'system' );
 
 // Define a tagline of the website management system.
-define( 'APP_TAGLINE', 'generic, white-label website and content management' );
+define( 'APP_TAGLINE', 'generic, white-label website management' );
 
 // Define a URL for the website management system.
 define( 'APP_WEBSITE', 'https://antibrand.dev/' );
