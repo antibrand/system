@@ -101,10 +101,6 @@
   font-size: 14px;
 }
 
-.welcome-panel p {
-  color: #72777c;
-}
-
 .welcome-panel a {
   text-decoration: none;
 }
@@ -389,6 +385,7 @@
 
 #dashboard_quick_press .drafts,
 #dashboard_quick_press .easy-blogging {
+  margin-top: 1em;
   padding: 10px 0 0;
 }
 
