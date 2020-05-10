@@ -140,13 +140,13 @@ function wp_admin_bar_my_account_item( $wp_admin_bar ) {
 
 	$avatar = get_avatar( $user_id, 26 );
 	/* translators: %s: current user's display name */
-	$howdy  = sprintf( __( 'Howdy, %s' ), '<span class="display-name">' . $current_user->display_name . '</span>' );
+	$hello  = sprintf( __( 'Hello, %s' ), '<span class="display-name">' . $current_user->display_name . '</span>' );
 	$class  = empty( $avatar ) ? '' : 'with-avatar';
 
 	$wp_admin_bar->add_menu( array(
 		'id'        => 'my-account',
 		'parent'    => 'top-secondary',
-		'title'     => $howdy . $avatar,
+		'title'     => $hello . $avatar,
 		'href'      => $profile_url,
 		'meta'      => array(
 			'class'     => $class,

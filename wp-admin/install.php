@@ -115,7 +115,7 @@ function display_setup_form( $error = null ) {
 
 	if ( ! is_null( $error ) ) {
 ?>
-<h1><?php _ex( 'Welcome', 'Howdy' ); ?></h1>
+<h1><?php _ex( 'Welcome', 'Hello' ); ?></h1>
 <p class="message"><?php echo $error; ?></p>
 <?php } ?>
 <form id="setup" method="post" action="install.php?step=2" novalidate="novalidate">

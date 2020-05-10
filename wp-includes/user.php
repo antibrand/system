@@ -2657,7 +2657,7 @@ function send_confirmation_on_profile_email() {
 		$sitename = wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES );
 
 		/* translators: Do not translate USERNAME, ADMIN_URL, EMAIL, SITENAME, SITEURL: those are placeholders. */
-		$email_text = __( 'Howdy ###USERNAME###,
+		$email_text = __( 'Hello, ###USERNAME###,
 
 You recently requested to have the email address on your account changed.
 
@@ -2919,7 +2919,7 @@ function _wp_privacy_send_request_confirmation_notification( $request_id ) {
 
 	/* translators: Do not translate SITENAME, USER_EMAIL, DESCRIPTION, MANAGE_URL, SITEURL; those are placeholders. */
 	$email_text = __(
-		'Howdy,
+		'Hello,
 
 A user data privacy request has been confirmed on ###SITENAME###:
 
@@ -3075,7 +3075,7 @@ function _wp_privacy_send_erasure_fulfillment_notification( $request_id ) {
 	if ( empty( $email_data['privacy_policy_url'] ) ) {
 		/* translators: Do not translate SITENAME, SITEURL; those are placeholders. */
 		$email_text = __(
-			'Howdy,
+			'Hello,
 
 Your request to erase your personal data on ###SITENAME### has been completed.
 
@@ -3088,7 +3088,7 @@ All at ###SITENAME###
 	} else {
 		/* translators: Do not translate SITENAME, SITEURL, PRIVACY_POLICY_URL; those are placeholders. */
 		$email_text = __(
-			'Howdy,
+			'Hello,
 
 Your request to erase your personal data on ###SITENAME### has been completed.
 
@@ -3301,7 +3301,7 @@ function wp_send_user_request( $request_id ) {
 
 	/* translators: Do not translate DESCRIPTION, CONFIRM_URL, SITENAME, SITEURL: those are placeholders. */
 	$email_text = __(
-		'Howdy,
+		'Hello,
 
 A request has been made to perform the following action on your account:
 
