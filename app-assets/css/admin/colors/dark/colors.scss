@@ -17,7 +17,7 @@ $box_background_color: lighten( $color: $app_secondary_color, $amount: 2.5% );
 $box_border_color: lighten( $color: $app_secondary_color, $amount: 12% );
 $box_text_color: inherit !default;
 $link_color: $app_tertiary_color;
-$link_action_color: lighten( $link_color, 25% );
+$link_action_color: lighten( $link_color, 22% );
 
 $notify_color: $app_orange;
 $error_color: $app_red;
@@ -31,17 +31,17 @@ $form_text_color: $text_color;
 $form_action_background_color: $form_background_color;
 $form_action_border_color: $link_action_color;
 $form_action_text_color: $text_color;
-
 $form_focus: $link_action_color;
 $form_checked: $link_action_color;
+$form_placeholder_color: lighten( $color: $form_background_color, $amount: 40% );
 
 // Button color variables.
-$button_background_color: $app_tertiary_color;
-$button_border_color: lighten( $color: $app_secondary_color, $amount: 5% );
-$button_text_color: $black;
+$button_background_color: $form_background_color;
+$button_border_color: $form_border_color;
+$button_text_color: $text_color;
 $button_action_background_color: $app_highlight_color;
 $button_action_border_color: $button_border_color;
-$button_action_text_color: $button_text_color;
+$button_action_text_color: $app_secondary_color;
 
 // Admin menu & admin-bar color variables.
 $menu_base_color: $app_secondary_color;
@@ -77,10 +77,17 @@ $menu_collapse_icon: $menu_icon;
 $menu_collapse_focus_text: $menu_text_color;
 $menu_collapse_focus_icon: $menu_highlight_icon;
 
+$menu_customizer_text: mix( $menu_base_color, $menu_text_color, 40% );
+
 $adminbar_avatar_frame: lighten( $menu_background, 7% );
 $adminbar_input_background: lighten( $menu_background, 7% );
 
-$menu_customizer_text: mix( $menu_base_color, $menu_text_color, 40% );
+$editor_button_background_color: $form_background_color;
+$editor_button_border_color: $form_border_color;
+$editor_button_text_color: darken( $text_color, 25% );
+$editor_button_action_background_color: $app_highlight_color;
+$editor_button_action_border_color: $button_border_color;
+$editor_button_action_text_color: $button_text_color;
 
 body {
 	background: $body_background;
@@ -197,6 +204,26 @@ input {
 	}
 }
 
+::-webkit-input-placeholder {
+	color: $form_placeholder_color !important;
+}
+
+::-moz-placeholder {
+	color: $form_placeholder_color !important;
+}
+
+:-ms-input-placeholder {
+	color: $form_placeholder_color !important;
+}
+
+::-ms-input-placeholder {
+	color: $form_placeholder_color !important;
+}
+
+::placeholder {
+	color: $form_placeholder_color !important;
+}
+
 /**
  * Buttons
  *
@@ -210,6 +237,17 @@ input {
 	border-color: $button_border_color;
 	color: $button_text_color;
 
+	#post-body .misc-pub-post-status,
+	#post-body #visibility,
+	.curtime #timestamp,
+	#post-body .misc-pub-revisions,
+	span.wp-media-buttons-icon {
+
+		&:before {
+			color: darken( $text_color, 25% );
+		}
+	}
+
 	&.hover,
 	&:hover,
 	&.focus,
@@ -218,6 +256,17 @@ input {
 	&:active {
 		background: $button_action_background_color;
 		color: $button_action_text_color;
+
+		#post-body .misc-pub-post-status,
+		#post-body #visibility,
+		.curtime #timestamp,
+		#post-body .misc-pub-revisions,
+		span.wp-media-buttons-icon {
+
+			&:before {
+				color: $button_action_text_color;
+			}
+		}
 	}
 
 	&[disabled],
@@ -240,6 +289,21 @@ input {
 }
 
 /**
+ * Common
+ */
+#screen-options-wrap, #contextual-help-wrap {
+	background-color: $box_background_color;
+
+	fieldset {
+		background-color: $box_background_color;
+	}
+}
+
+#screen-meta-links .show-settings {
+	border-color: $box_border_color;
+}
+
+/**
  * Dashboard
  */
 #dashboard_right_now .main h3:not(:first-of-type),
@@ -257,13 +321,100 @@ input {
 
 /**
  * Editor
+ *
+ * Typically needs !important to override native
+ * TinyMCE sking colors.
  */
+#titlediv #title {
+
+	&:hover,
+	&:focus {
+		border-color: $form_action_border_color;
+	}
+}
+
 .wp-editor-container,
+.wp-switch-editor,
 .mce-panel.mce-menu,
 div.mce-toolbar-grp,
-.wp-editor-expand #wp-content-editor-tools,
-#post-status-info {
-	border-color: $box_border_color !important;
+#post-status-info,
+div.mce-statusbar,
+.quicktags-toolbar {
+	background-color: $box_background_color !important;
+	border-color: $form_border_color !important;
+}
+
+.wp-editor-expand #wp-content-editor-tools {
+	border-color: $form_border_color !important;
+}
+
+.wp-switch-editor,
+.tmce-active .switch-tmce,
+.html-active .switch-html {
+	background-color: $button_background_color !important;
+	color: $link_color !important;
+
+	&:hover,
+	&:focus {
+		background-color: $button_action_background_color !important;
+		border-color: $button_action_border_color !important;
+		color: $button_action_text_color !important;
+	}
+}
+
+.tmce-active .switch-tmce,
+.html-active .switch-html {
+	border-bottom-color: $body_background !important;
+	color: $text_color !important;
+
+	&:hover,
+	&:focus {
+		background-color: $button_background_color !important;
+		border-bottom-color: $body_background !important;
+		color: $text_color !important;
+	}
+}
+
+.mce-toolbar .mce-btn-group .mce-btn.mce-listbox {
+	background-color: $form_background_color !important;
+	color: $text_color !important;
+}
+
+.mce-menubtn.mce-fixed-width span {
+	color: $form_placeholder_color !important;
+}
+
+.mce-btn button,
+.mce-toolbar .mce-ico {
+	color: $editor_button_text_color !important;
+}
+
+.mce-toolbar .mce-btn-group .mce-first,
+.mce-toolbar .mce-btn-group .mce-last {
+	background-color: $form_background_color !important;
+}
+
+.mce-toolbar .mce-btn-group .mce-btn:hover,
+.mce-toolbar .mce-btn-group .mce-btn:focus,
+.qt-dfw:hover, .qt-dfw:focus {
+	background-color: $form_background_color !important;
+	border-color: $form_action_border_color !important;
+}
+
+.mce-toolbar .mce-btn-group .mce-btn.mce-active,
+.mce-toolbar .mce-btn-group .mce-btn:active,
+.qt-dfw.active {
+	background-color: $form_background_color !important;
+	border-color: $form_action_border_color !important;
+}
+
+.submitbox .submitdelete {
+	color: $white;
+
+	&:hover,
+	&:focus {
+		color: $white;
+	}
 }
 
 /**
@@ -320,6 +471,36 @@ p.popular-tags,
 .edit-attachment-frame .edit-media-header .left.disabled:hover,
 .edit-attachment-frame .edit-media-header .right.disabled:hover {
 	color: darken( $color: $form_text_color, $amount: 60% );
+}
+
+ul.category-tabs li.tabs,
+ul.add-menu-item-tabs li.tabs,
+.wp-tab-active,
+div.mce-inline-toolbar-grp {
+	background-color: $box_background_color;
+	border-color: $form_border_color;
+}
+
+.wp-tab-panel,
+.categorydiv div.tabs-panel,
+.customlinkdiv div.tabs-panel,
+.posttypediv div.tabs-panel,
+.taxonomydiv div.tabs-panel {
+	border-color: $form_border_color;
+}
+
+ul.category-tabs li.tabs,
+ul.add-menu-item-tabs li.tabs,
+.wp-tab-active {
+	border-bottom-color: $box_background_color;
+}
+
+#side-sortables .category-tabs .tabs a,
+#side-sortables .add-menu-item-tabs .tabs a,
+.wp-tab-bar .wp-tab-active a,
+#post-body ul.category-tabs li.tabs a,
+#post-body ul.add-menu-item-tabs li.tabs a {
+	color: $text_color;
 }
 
 /**

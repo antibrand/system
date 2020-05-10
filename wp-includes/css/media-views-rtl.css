@@ -213,6 +213,7 @@
   bottom: -45px;
   height: auto;
   overflow: initial;
+  padding: 0 1em;
   border-top: 1px solid #cccccc;
 }
 

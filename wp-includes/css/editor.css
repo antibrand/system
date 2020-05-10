@@ -242,7 +242,8 @@ div.mce-panel {
 }
 
 .mce-panel.mce-menu {
-  border: 1px solid #cccccc;
+  background-color: inherit;
+  border: 1px solid #888888;
 }
 
 div.mce-tab {
@@ -258,7 +259,8 @@ div.mce-toolbar-grp {
 }
 
 div.mce-inline-toolbar-grp {
-  border: 1px solid #a0a5aa;
+  background-color: #ffffff;
+  border: 1px solid #888888;
   border-radius: 2px;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
@@ -273,6 +275,11 @@ div.mce-inline-toolbar-grp {
   max-width: 98%;
   z-index: 100100;
   /* Same as the other TinyMCE "panels" */
+}
+
+.admin-color-dark div.mce-inline-toolbar-grp {
+  background-color: inherit;
+  border-color: #cccccc;
 }
 
 div.mce-inline-toolbar-grp > div.mce-stack-layout {
@@ -413,21 +420,17 @@ div.mce-path {
 .mce-toolbar .mce-btn-group .mce-btn:focus,
 .qt-dfw:hover,
 .qt-dfw:focus {
-  background: #fafafa;
-  border-color: #555d66;
-  color: #23282d;
-  -webkit-box-shadow: inset 0 1px 0 #fff, 0 1px 0 rgba(0, 0, 0, 0.08);
-          box-shadow: inset 0 1px 0 #fff, 0 1px 0 rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  border-color: #005fd6;
+  color: #222222;
   outline: none;
 }
 
 .mce-toolbar .mce-btn-group .mce-btn.mce-active,
 .mce-toolbar .mce-btn-group .mce-btn:active,
 .qt-dfw.active {
-  background: #ebebeb;
-  border-color: #555d66;
-  -webkit-box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.3);
-          box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.3);
+  background: #ffffff;
+  border-color: #005fd6;
 }
 
 .mce-btn.mce-active,
@@ -438,23 +441,9 @@ div.mce-path {
   color: inherit;
 }
 
-.mce-toolbar .mce-btn-group .mce-btn.mce-active:hover,
-.mce-toolbar .mce-btn-group .mce-btn.mce-active:focus {
-  border-color: #23282d;
-}
-
 .mce-toolbar .mce-btn-group .mce-btn.mce-disabled:hover,
 .mce-toolbar .mce-btn-group .mce-btn.mce-disabled:focus {
-  color: #a0a5aa;
-  background: none;
-  border-color: #ddd;
-  text-shadow: 0 1px 0 #fff;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.mce-toolbar .mce-btn-group .mce-btn.mce-disabled:focus {
-  border-color: #555d66;
+  color: #cccccc;
 }
 
 .mce-toolbar .mce-btn-group .mce-first,
@@ -775,6 +764,7 @@ div.mce-menu .mce-menu-item-sep,
   overflow-x: hidden;
   text-overflow: ellipsis;
   width: 82px;
+  color: #888888;
 }
 
 /* Charmap modal */
@@ -1105,14 +1095,6 @@ i.mce-i-wp_code:before {
           box-sizing: border-box;
 }
 
-.rtl .wp-editor-area {
-  font-family: Tahoma, Monaco, monospace;
-}
-
-.locale-he-il .wp-editor-area {
-  font-family: Arial, Monaco, monospace;
-}
-
 .wp-editor-container textarea.wp-editor-area {
   width: 100%;
   margin: 0;
@@ -1128,43 +1110,27 @@ i.mce-i-wp_code:before {
 
 .wp-switch-editor {
   float: left;
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
   position: relative;
-  top: 1px;
-  background: #ebebeb;
-  cursor: pointer;
+  top: 2px;
+  margin: 0.5em 0 0 0.25em;
+  padding: 0.5em 0.75em;
+  background-color: #eeeeee;
+  border: 1px solid #cccccc;
   font-size: 0.875rem;
   font-weight: 700;
-  line-height: 19px;
-  color: #555555;
-  height: 20px;
-  margin: 5px 0 0 5px;
-  padding: 3px 8px 4px;
-  border: 1px solid #e5e5e5;
+  line-height: 1;
+  color: #888888;
+  cursor: pointer;
 }
 
-.wp-switch-editor:focus {
-  -webkit-box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
-          box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
-  outline: none;
-}
-
-.wp-switch-editor:active,
-.html-active .switch-html:focus,
-.tmce-active .switch-tmce:focus {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.wp-switch-editor:active {
-  background-color: #f5f5f5;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+.wp-switch-editor:hover, .wp-switch-editor:focus {
+  background-color: #ffee00;
+  border-color: #888888;
+  color: #222222;
 }
 
 .js .tmce-active .wp-editor-area {
-  color: #fff;
+  color: #ffffff;
 }
 
 .tmce-active .quicktags-toolbar {
@@ -1173,9 +1139,19 @@ i.mce-i-wp_code:before {
 
 .tmce-active .switch-tmce,
 .html-active .switch-html {
-  background: #f5f5f5;
+  background-color: #ffffff;
   color: #222222;
-  border-bottom-color: #f5f5f5;
+  border-bottom-color: #ffffff;
+  cursor: default;
+}
+
+.tmce-active .switch-tmce:hover, .tmce-active .switch-tmce:focus,
+.html-active .switch-html:hover,
+.html-active .switch-html:focus {
+  background-color: #ffffff;
+  border-color: #cccccc;
+  border-bottom-color: #ffffff;
+  color: #222222;
 }
 
 .wp-media-buttons {

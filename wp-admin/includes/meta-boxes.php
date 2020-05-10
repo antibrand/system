@@ -279,7 +279,7 @@ if ( current_user_can( "delete_post", $post->ID ) ) {
 	else
 		$delete_text = __('Move to Trash');
 	?>
-<a class="submitdelete deletion" href="<?php echo get_delete_post_link($post->ID); ?>"><?php echo $delete_text; ?></a><?php
+<a class="button submitdelete deletion" href="<?php echo get_delete_post_link($post->ID); ?>"><?php echo $delete_text; ?></a><?php
 } ?>
 </div>
 

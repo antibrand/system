@@ -657,7 +657,6 @@ hr {
 .plugins a.delete,
 #all-plugins-table .plugins a.delete,
 #search-plugins-table .plugins a.delete,
-.submitbox .submitdelete,
 #media-items a.delete,
 #media-items a.delete-permanently,
 #nav-menu-footer .menu-delete,
@@ -666,7 +665,18 @@ hr {
 
 	&:hover,
 	&:focus {
-		color: lighten($color: $app_red, $amount: 10%)
+		color: lighten($color: $app_red, $amount: 10%);
+	}
+}
+
+.submitbox .submitdelete {
+	border-color: $app_red;
+	color: $app_red;
+
+	&:hover,
+	&:focus {
+		background-color: $app_red;
+		color: $white;
 	}
 }
 
@@ -679,7 +689,6 @@ span.required,
 .plugins a.delete:hover,
 #all-plugins-table .plugins a.delete:hover,
 #search-plugins-table .plugins a.delete:hover,
-.submitbox .submitdelete:hover,
 #media-items a.delete:hover,
 #media-items a.delete-permanently:hover,
 #nav-menu-footer .menu-delete:hover,
@@ -721,6 +730,7 @@ span.required,
 
 #publishing-action .spinner {
 	float: right;
+	margin: 5px 5px 0;
 }
 
 #misc-publishing-actions {

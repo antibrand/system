@@ -11,7 +11,7 @@ a {
 }
 
 a:hover, a:focus {
-  color: #b7effe;
+  color: #a8ecfd;
 }
 
 .postbox {
@@ -98,7 +98,7 @@ input[type="url"]:focus,
 input[type="week"]:focus,
 select:focus,
 textarea:focus {
-  border-color: #b7effe;
+  border-color: #a8ecfd;
 }
 
 input[type="radio"]:checked + label:before {
@@ -106,16 +106,32 @@ input[type="radio"]:checked + label:before {
 }
 
 input[type="radio"]:checked:before {
-  background-color: #b7effe;
+  background-color: #a8ecfd;
 }
 
 input[type="checkbox"]:checked:before {
-  color: #b7effe;
+  color: #a8ecfd;
 }
 
 input:disabled, input.disabled {
   background: #262626;
   color: #666666;
+}
+
+::-webkit-input-placeholder {
+  color: #959595 !important;
+}
+
+:-ms-input-placeholder {
+  color: #959595 !important;
+}
+
+::-ms-input-placeholder {
+  color: #959595 !important;
+}
+
+::placeholder {
+  color: #959595 !important;
 }
 
 /**
@@ -127,9 +143,27 @@ input:disabled, input.disabled {
 .button,
 .button-primary,
 .button-secondary {
-  background: #3ad4fb;
-  border-color: #2f2f2f;
-  color: #000000;
+  background: #2f2f2f;
+  border-color: #626262;
+  color: #ffffff;
+}
+
+.button #post-body .misc-pub-post-status:before,
+.button #post-body #visibility:before,
+.button .curtime #timestamp:before,
+.button #post-body .misc-pub-revisions:before,
+.button span.wp-media-buttons-icon:before,
+.button-primary #post-body .misc-pub-post-status:before,
+.button-primary #post-body #visibility:before,
+.button-primary .curtime #timestamp:before,
+.button-primary #post-body .misc-pub-revisions:before,
+.button-primary span.wp-media-buttons-icon:before,
+.button-secondary #post-body .misc-pub-post-status:before,
+.button-secondary #post-body #visibility:before,
+.button-secondary .curtime #timestamp:before,
+.button-secondary #post-body .misc-pub-revisions:before,
+.button-secondary span.wp-media-buttons-icon:before {
+  color: #bfbfbf;
 }
 
 .button.hover, .button:hover, .button.focus, .button:focus, .button.active, .button:active,
@@ -146,7 +180,95 @@ input:disabled, input.disabled {
 .button-secondary.active,
 .button-secondary:active {
   background: #ffee00;
-  color: #000000;
+  color: #222222;
+}
+
+.button.hover #post-body .misc-pub-post-status:before,
+.button.hover #post-body #visibility:before,
+.button.hover .curtime #timestamp:before,
+.button.hover #post-body .misc-pub-revisions:before,
+.button.hover span.wp-media-buttons-icon:before, .button:hover #post-body .misc-pub-post-status:before,
+.button:hover #post-body #visibility:before,
+.button:hover .curtime #timestamp:before,
+.button:hover #post-body .misc-pub-revisions:before,
+.button:hover span.wp-media-buttons-icon:before, .button.focus #post-body .misc-pub-post-status:before,
+.button.focus #post-body #visibility:before,
+.button.focus .curtime #timestamp:before,
+.button.focus #post-body .misc-pub-revisions:before,
+.button.focus span.wp-media-buttons-icon:before, .button:focus #post-body .misc-pub-post-status:before,
+.button:focus #post-body #visibility:before,
+.button:focus .curtime #timestamp:before,
+.button:focus #post-body .misc-pub-revisions:before,
+.button:focus span.wp-media-buttons-icon:before, .button.active #post-body .misc-pub-post-status:before,
+.button.active #post-body #visibility:before,
+.button.active .curtime #timestamp:before,
+.button.active #post-body .misc-pub-revisions:before,
+.button.active span.wp-media-buttons-icon:before, .button:active #post-body .misc-pub-post-status:before,
+.button:active #post-body #visibility:before,
+.button:active .curtime #timestamp:before,
+.button:active #post-body .misc-pub-revisions:before,
+.button:active span.wp-media-buttons-icon:before,
+.button-primary.hover #post-body .misc-pub-post-status:before,
+.button-primary.hover #post-body #visibility:before,
+.button-primary.hover .curtime #timestamp:before,
+.button-primary.hover #post-body .misc-pub-revisions:before,
+.button-primary.hover span.wp-media-buttons-icon:before,
+.button-primary:hover #post-body .misc-pub-post-status:before,
+.button-primary:hover #post-body #visibility:before,
+.button-primary:hover .curtime #timestamp:before,
+.button-primary:hover #post-body .misc-pub-revisions:before,
+.button-primary:hover span.wp-media-buttons-icon:before,
+.button-primary.focus #post-body .misc-pub-post-status:before,
+.button-primary.focus #post-body #visibility:before,
+.button-primary.focus .curtime #timestamp:before,
+.button-primary.focus #post-body .misc-pub-revisions:before,
+.button-primary.focus span.wp-media-buttons-icon:before,
+.button-primary:focus #post-body .misc-pub-post-status:before,
+.button-primary:focus #post-body #visibility:before,
+.button-primary:focus .curtime #timestamp:before,
+.button-primary:focus #post-body .misc-pub-revisions:before,
+.button-primary:focus span.wp-media-buttons-icon:before,
+.button-primary.active #post-body .misc-pub-post-status:before,
+.button-primary.active #post-body #visibility:before,
+.button-primary.active .curtime #timestamp:before,
+.button-primary.active #post-body .misc-pub-revisions:before,
+.button-primary.active span.wp-media-buttons-icon:before,
+.button-primary:active #post-body .misc-pub-post-status:before,
+.button-primary:active #post-body #visibility:before,
+.button-primary:active .curtime #timestamp:before,
+.button-primary:active #post-body .misc-pub-revisions:before,
+.button-primary:active span.wp-media-buttons-icon:before,
+.button-secondary.hover #post-body .misc-pub-post-status:before,
+.button-secondary.hover #post-body #visibility:before,
+.button-secondary.hover .curtime #timestamp:before,
+.button-secondary.hover #post-body .misc-pub-revisions:before,
+.button-secondary.hover span.wp-media-buttons-icon:before,
+.button-secondary:hover #post-body .misc-pub-post-status:before,
+.button-secondary:hover #post-body #visibility:before,
+.button-secondary:hover .curtime #timestamp:before,
+.button-secondary:hover #post-body .misc-pub-revisions:before,
+.button-secondary:hover span.wp-media-buttons-icon:before,
+.button-secondary.focus #post-body .misc-pub-post-status:before,
+.button-secondary.focus #post-body #visibility:before,
+.button-secondary.focus .curtime #timestamp:before,
+.button-secondary.focus #post-body .misc-pub-revisions:before,
+.button-secondary.focus span.wp-media-buttons-icon:before,
+.button-secondary:focus #post-body .misc-pub-post-status:before,
+.button-secondary:focus #post-body #visibility:before,
+.button-secondary:focus .curtime #timestamp:before,
+.button-secondary:focus #post-body .misc-pub-revisions:before,
+.button-secondary:focus span.wp-media-buttons-icon:before,
+.button-secondary.active #post-body .misc-pub-post-status:before,
+.button-secondary.active #post-body #visibility:before,
+.button-secondary.active .curtime #timestamp:before,
+.button-secondary.active #post-body .misc-pub-revisions:before,
+.button-secondary.active span.wp-media-buttons-icon:before,
+.button-secondary:active #post-body .misc-pub-post-status:before,
+.button-secondary:active #post-body #visibility:before,
+.button-secondary:active .curtime #timestamp:before,
+.button-secondary:active #post-body .misc-pub-revisions:before,
+.button-secondary:active span.wp-media-buttons-icon:before {
+  color: #222222;
 }
 
 .button[disabled], .button:disabled, .button.disabled, .button.button-disabled,
@@ -167,7 +289,22 @@ input:disabled, input.disabled {
 }
 
 .button-link:hover, .button-link:focus, .button-link:active {
-  color: #b7effe;
+  color: #a8ecfd;
+}
+
+/**
+ * Common
+ */
+#screen-options-wrap, #contextual-help-wrap {
+  background-color: #282828;
+}
+
+#screen-options-wrap fieldset, #contextual-help-wrap fieldset {
+  background-color: #282828;
+}
+
+#screen-meta-links .show-settings {
+  border-color: #414141;
 }
 
 /**
@@ -188,13 +325,99 @@ input:disabled, input.disabled {
 
 /**
  * Editor
+ *
+ * Typically needs !important to override native
+ * TinyMCE sking colors.
  */
+#titlediv #title:hover, #titlediv #title:focus {
+  border-color: #a8ecfd;
+}
+
 .wp-editor-container,
+.wp-switch-editor,
 .mce-panel.mce-menu,
 div.mce-toolbar-grp,
-.wp-editor-expand #wp-content-editor-tools,
-#post-status-info {
-  border-color: #414141 !important;
+#post-status-info,
+div.mce-statusbar,
+.quicktags-toolbar {
+  background-color: #282828 !important;
+  border-color: #626262 !important;
+}
+
+.wp-editor-expand #wp-content-editor-tools {
+  border-color: #626262 !important;
+}
+
+.wp-switch-editor,
+.tmce-active .switch-tmce,
+.html-active .switch-html {
+  background-color: #2f2f2f !important;
+  color: #3ad4fb !important;
+}
+
+.wp-switch-editor:hover, .wp-switch-editor:focus,
+.tmce-active .switch-tmce:hover,
+.tmce-active .switch-tmce:focus,
+.html-active .switch-html:hover,
+.html-active .switch-html:focus {
+  background-color: #ffee00 !important;
+  border-color: #626262 !important;
+  color: #222222 !important;
+}
+
+.tmce-active .switch-tmce,
+.html-active .switch-html {
+  border-bottom-color: #222 !important;
+  color: #ffffff !important;
+}
+
+.tmce-active .switch-tmce:hover, .tmce-active .switch-tmce:focus,
+.html-active .switch-html:hover,
+.html-active .switch-html:focus {
+  background-color: #2f2f2f !important;
+  border-bottom-color: #222 !important;
+  color: #ffffff !important;
+}
+
+.mce-toolbar .mce-btn-group .mce-btn.mce-listbox {
+  background-color: #2f2f2f !important;
+  color: #ffffff !important;
+}
+
+.mce-menubtn.mce-fixed-width span {
+  color: #959595 !important;
+}
+
+.mce-btn button,
+.mce-toolbar .mce-ico {
+  color: #bfbfbf !important;
+}
+
+.mce-toolbar .mce-btn-group .mce-first,
+.mce-toolbar .mce-btn-group .mce-last {
+  background-color: #2f2f2f !important;
+}
+
+.mce-toolbar .mce-btn-group .mce-btn:hover,
+.mce-toolbar .mce-btn-group .mce-btn:focus,
+.qt-dfw:hover, .qt-dfw:focus {
+  background-color: #2f2f2f !important;
+  border-color: #a8ecfd !important;
+}
+
+.mce-toolbar .mce-btn-group .mce-btn.mce-active,
+.mce-toolbar .mce-btn-group .mce-btn:active,
+.qt-dfw.active {
+  background-color: #2f2f2f !important;
+  border-color: #a8ecfd !important;
+}
+
+.submitbox .submitdelete {
+  color: #ffffff;
+}
+
+.submitbox .submitdelete:hover, .submitbox .submitdelete:focus {
+  color: #ffffff;
 }
 
 /**
@@ -251,6 +474,36 @@ p.popular-tags,
 .edit-attachment-frame .edit-media-header .left.disabled:hover,
 .edit-attachment-frame .edit-media-header .right.disabled:hover {
   color: #666666;
+}
+
+ul.category-tabs li.tabs,
+ul.add-menu-item-tabs li.tabs,
+.wp-tab-active,
+div.mce-inline-toolbar-grp {
+  background-color: #282828;
+  border-color: #626262;
+}
+
+.wp-tab-panel,
+.categorydiv div.tabs-panel,
+.customlinkdiv div.tabs-panel,
+.posttypediv div.tabs-panel,
+.taxonomydiv div.tabs-panel {
+  border-color: #626262;
+}
+
+ul.category-tabs li.tabs,
+ul.add-menu-item-tabs li.tabs,
+.wp-tab-active {
+  border-bottom-color: #282828;
+}
+
+#side-sortables .category-tabs .tabs a,
+#side-sortables .add-menu-item-tabs .tabs a,
+.wp-tab-bar .wp-tab-active a,
+#post-body ul.category-tabs li.tabs a,
+#post-body ul.add-menu-item-tabs li.tabs a {
+  color: #ffffff;
 }
 
 /**

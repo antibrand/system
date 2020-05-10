@@ -2768,7 +2768,6 @@ hr {
 .plugins a.delete,
 #all-plugins-table .plugins a.delete,
 #search-plugins-table .plugins a.delete,
-.submitbox .submitdelete,
 #media-items a.delete,
 #media-items a.delete-permanently,
 #nav-menu-footer .menu-delete,
@@ -2787,8 +2786,6 @@ hr {
 #all-plugins-table .plugins a.delete:focus,
 #search-plugins-table .plugins a.delete:hover,
 #search-plugins-table .plugins a.delete:focus,
-.submitbox .submitdelete:hover,
-.submitbox .submitdelete:focus,
 #media-items a.delete:hover,
 #media-items a.delete:focus,
 #media-items a.delete-permanently:hover,
@@ -2800,6 +2797,16 @@ hr {
   color: #ff1111;
 }
 
+.submitbox .submitdelete {
+  border-color: #dd0000;
+  color: #dd0000;
+}
+
+.submitbox .submitdelete:hover, .submitbox .submitdelete:focus {
+  background-color: #dd0000;
+  color: #ffffff;
+}
+
 abbr.required,
 span.required,
 .file-error,
@@ -2809,7 +2816,6 @@ span.required,
 .plugins a.delete:hover,
 #all-plugins-table .plugins a.delete:hover,
 #search-plugins-table .plugins a.delete:hover,
-.submitbox .submitdelete:hover,
 #media-items a.delete:hover,
 #media-items a.delete-permanently:hover,
 #nav-menu-footer .menu-delete:hover,
@@ -2850,6 +2856,7 @@ span.required,
 
 #publishing-action .spinner {
   float: right;
+  margin: 5px 5px 0;
 }
 
 #misc-publishing-actions {

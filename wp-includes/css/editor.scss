@@ -237,7 +237,8 @@ div.mce-panel {
 }
 
 .mce-panel.mce-menu {
-	border: 1px solid $box_border_color;
+	background-color: $form_background_color;
+	border: 1px solid $form_border_color;
 }
 
 div.mce-tab {
@@ -253,7 +254,8 @@ div.mce-toolbar-grp {
 }
 
 div.mce-inline-toolbar-grp {
-	border: 1px solid #a0a5aa;
+	background-color: $white;
+	border: 1px solid $form_border_color;
 	border-radius: 2px;
 	box-shadow: 0 1px 3px rgba( 0, 0, 0, 0.15 );
 	box-sizing: border-box;
@@ -265,6 +267,11 @@ div.mce-inline-toolbar-grp {
 	user-select: none;
 	max-width: 98%;
 	z-index: 100100; /* Same as the other TinyMCE "panels" */
+}
+
+.admin-color-dark div.mce-inline-toolbar-grp {
+	background-color: $box_background_color;
+	border-color: $box_border_color;
 }
 
 div.mce-inline-toolbar-grp > div.mce-stack-layout {
@@ -403,19 +410,17 @@ div.mce-path {
 .mce-toolbar .mce-btn-group .mce-btn:focus,
 .qt-dfw:hover,
 .qt-dfw:focus {
-	background: #fafafa;
-	border-color: #555d66;
-	color: #23282d;
-	box-shadow: inset 0 1px 0 #fff, 0 1px 0 rgba( 0, 0, 0, 0.08 );
+	background: $white;
+	border-color: $form_action_border_color;
+	color: $text_color;
 	outline: none;
 }
 
 .mce-toolbar .mce-btn-group .mce-btn.mce-active,
 .mce-toolbar .mce-btn-group .mce-btn:active,
 .qt-dfw.active {
-	background: #ebebeb;
-	border-color: #555d66;
-	box-shadow: inset 0 2px 5px -3px rgba( 0, 0, 0, 0.3 );
+	background: $white;
+	border-color: $form_action_border_color;
 }
 
 .mce-btn.mce-active,
@@ -426,22 +431,9 @@ div.mce-path {
 	color: inherit;
 }
 
-.mce-toolbar .mce-btn-group .mce-btn.mce-active:hover,
-.mce-toolbar .mce-btn-group .mce-btn.mce-active:focus {
-	border-color: #23282d;
-}
-
 .mce-toolbar .mce-btn-group .mce-btn.mce-disabled:hover,
 .mce-toolbar .mce-btn-group .mce-btn.mce-disabled:focus {
-	color: #a0a5aa;
-	background: none;
-	border-color: #ddd;
-	text-shadow: 0 1px 0 #fff;
-	box-shadow: none;
-}
-
-.mce-toolbar .mce-btn-group .mce-btn.mce-disabled:focus {
-	border-color: #555d66;
+	color: $pale_gray;
 }
 
 .mce-toolbar .mce-btn-group .mce-first,
@@ -754,6 +746,7 @@ div.mce-menu .mce-menu-item-sep,
 	overflow-x: hidden;
 	text-overflow: ellipsis;
 	width: 82px;
+	color: $form_placeholder_color;
 }
 
 /* Charmap modal */
@@ -1082,14 +1075,6 @@ i.mce-i-wp_code:before {
 	box-sizing: border-box;
 }
 
-.rtl .wp-editor-area {
-	font-family: Tahoma, Monaco, monospace;
-}
-
-.locale-he-il .wp-editor-area {
-	font-family: Arial, Monaco, monospace;
-}
-
 .wp-editor-container textarea.wp-editor-area {
 	width: 100%;
 	margin: 0;
@@ -1104,41 +1089,28 @@ i.mce-i-wp_code:before {
 
 .wp-switch-editor {
 	float: left;
-	box-sizing: content-box;
 	position: relative;
-	top: 1px;
-	background: #ebebeb;
-	cursor: pointer;
+	top: 2px;
+	margin: 0.5em 0 0 0.25em;
+	padding: 0.5em 0.75em;
+	background-color: $off_white;
+	border: 1px solid $box_border_color;
 	font-size: $px14;
 	font-weight: 700;
-	line-height: 19px;
-	color: $medium_gray;
-	height: 20px;
-	margin: 5px 0 0 5px;
-	padding: 3px 8px 4px;
-	border: 1px solid #e5e5e5;
-}
+	line-height: 1;
+	color: $light_gray;
+	cursor: pointer;
 
-.wp-switch-editor:focus {
-	box-shadow:
-		0 0 0 1px #5b9dd9,
-		0 0 2px 1px rgba(30, 140, 190, .8);
-	outline: none;
-}
-
-.wp-switch-editor:active,
-.html-active .switch-html:focus,
-.tmce-active .switch-tmce:focus {
-	box-shadow: none;
-}
-
-.wp-switch-editor:active {
-	background-color: #f5f5f5;
-	box-shadow: none;
+	&:hover,
+	&:focus {
+		background-color: $button_action_background_color;
+		border-color: $button_action_border_color;
+		color: $button_action_text_color;
+	}
 }
 
 .js .tmce-active .wp-editor-area {
-	color: #fff;
+	color: $white;
 }
 
 .tmce-active .quicktags-toolbar {
@@ -1147,9 +1119,18 @@ i.mce-i-wp_code:before {
 
 .tmce-active .switch-tmce,
 .html-active .switch-html {
-	background: #f5f5f5;
+	background-color: $white;
 	color: $text_color;
-	border-bottom-color: #f5f5f5;
+	border-bottom-color: $white;
+	cursor: default;
+
+	&:hover,
+	&:focus {
+		background-color: $white;
+		border-color: $box_border_color;
+		border-bottom-color: $white;
+		color: $button_action_text_color;
+	}
 }
 
 .wp-media-buttons {
