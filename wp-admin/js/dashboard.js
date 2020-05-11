@@ -5,9 +5,9 @@ window.wp = window.wp || {};
 jQuery(document).ready( function($) {
 	var topPanel = $( '#top-panel' ),
 		topPanelHide = $('#app_top_panel-hide'),
-		updateWelcomePanel;
+		updateTopPanel;
 
-	updateWelcomePanel = function( visible ) {
+	updateTopPanel = function( visible ) {
 		$.post( ajaxurl, {
 			action: 'update-top-panel',
 			visible: visible,
@@ -20,17 +20,17 @@ jQuery(document).ready( function($) {
 	}
 
 
-	$('.top-panel-close, .welcome-panel-dismiss a', topPanel).click( function(e) {
+	$('.top-panel-close, .top-panel-dismiss a', topPanel).click( function(e) {
 
 		e.preventDefault();
 		topPanel.addClass('hidden');
-		updateWelcomePanel( 0 );
+		updateTopPanel( 0 );
 		$('#app_top_panel-hide').prop('checked', false);
 	});
 
 	topPanelHide.click( function() {
 		topPanel.toggleClass('hidden', ! this.checked );
-		updateWelcomePanel( this.checked ? 1 : 0 );
+		updateTopPanel( this.checked ? 1 : 0 );
 	});
 
 	// These widgets are sometimes populated via ajax
