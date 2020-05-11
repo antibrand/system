@@ -13,6 +13,7 @@
 			tab_activeclass  : 'active',
 			tab_attribute    : 'href',
 			tab_animation    : false,
+			tab_anispeed     : 400,
 			tab_autorotate   : false,
 			tab_deeplinking  : false,
 			tab_pauseonhover : true,
@@ -57,7 +58,8 @@
 						'tab_mouseevent',
 						'tab_activeclass',
 						'tab_attribute',
-						'tab_tab_animation',
+						'tab_animation',
+						'tab_anispeed',
 						'tab_autorotate',
 						'tab_deeplinking',
 						'tab_pauseonhover',
@@ -105,11 +107,9 @@
 
 							_tab_container.find( currentTab ).animate(
 								{ opacity : 'show' },
-								250,
-								function() {
-									_this.trigger( '_after' );
-								}
+								$this.opts.tab_anispeed
 							);
+							_this.trigger( '_after' );
 
 						} else {
 							_tab_container.find( currentTab ).show();
