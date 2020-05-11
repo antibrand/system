@@ -1024,12 +1024,12 @@ final class WP_Screen {
 					if ( '' === $welcome_checked ) {
 						$welcome_checked = '1';
 					}
-					if ( '2' === $welcome_checked && wp_get_current_user()->user_email != get_option( 'admin_email' ) ) {
-						$welcome_checked = false;
+					if ( '2' === $top_panel_checked && wp_get_current_user()->user_email != get_option( 'admin_email' ) ) {
+						$top_panel_checked = false;
 					}
 				}
-				echo '<label for="wp_welcome_panel-hide">';
-				echo '<input type="checkbox" id="wp_welcome_panel-hide"' . checked( (bool) $welcome_checked, true, false ) . ' />';
+				echo '<label for="app_top_panel-hide">';
+				echo '<input type="checkbox" id="app_top_panel-hide"' . checked( (bool) $top_panel_checked, true, false ) . ' />';
 				echo _x( 'Top Panel', 'Top panel' ) . "</label>\n";
 			}
 

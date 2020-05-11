@@ -1418,6 +1418,7 @@ function wp_ajax_hidden_columns() {
  * @since 3.1.0
  */
 function wp_ajax_update_top_panel() {
+
 	check_ajax_referer( 'top-panel-nonce', 'toppanelnonce' );
 
 	if ( ! current_user_can( 'edit_theme_options' ) )
