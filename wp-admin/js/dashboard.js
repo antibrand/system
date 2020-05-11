@@ -3,7 +3,7 @@ var ajaxWidgets, ajaxPopulateWidgets, quickPressLoad;
 window.wp = window.wp || {};
 
 jQuery(document).ready( function($) {
-	var welcomePanel = $( '#welcome-panel' ),
+	var welcomePanel = $( '#top-panel' ),
 		welcomePanelHide = $('#wp_welcome_panel-hide'),
 		updateWelcomePanel;
 
