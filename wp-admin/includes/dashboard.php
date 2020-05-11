@@ -9,6 +9,13 @@
 /**
  * Get intro panel file
  *
+ * Used to get filtered location of the intro panel
+ * per user role.
+ *
+ * Gets files at `app-views/backend/content/$file.php`.
+ * A rework of the original WP version is maintained at
+ * `app-views/backend/content/intro-panel-welcome.original.php`.
+ *
  * @return void
  */
 function app_get_intro_content( $file ) {
@@ -44,8 +51,7 @@ function wp_welcome_panel() {
 
 	// Administrator.
 	} elseif ( current_user_can( 'manage_options' ) ) {
-		// $panel = include( ABSPATH . 'app-views/backend/content/intro-panel-administrator.php' );
-		$panel = app_get_intro_content( ABSPATH . 'app-views/backend/content/intro-panel-administrator.php' );
+		$panel = include( ABSPATH . 'app-views/backend/content/intro-panel-administrator.php' );
 
 	// Editor.
 	} elseif ( current_user_can( 'edit_others_posts' ) ) {
@@ -67,103 +73,7 @@ function wp_welcome_panel() {
 		$panel = '';
 	}
 
-	echo apply_filters( 'app_get_intro_content', $panel );
-
-	return;
-
-	// App version.
-	$version = get_bloginfo( 'version' );
-
-	/**
-	 * Welcome panel description
-	 *
-	 * Uses the white label tagline if available.
-	 */
-	if ( defined( 'APP_TAGLINE' ) ) {
-		$description = APP_TAGLINE;
-	} else {
-		$description = __( 'Following are some links to help manage your website:' );
-	}
-
-	?>
-	<div class="welcome-panel-content">
-		<h2>
-		<?php echo sprintf(
-			'%1s %2s %3s',
-			__( 'Welcome to' ),
-			APP_NAME,
-			$version
-		); ?>
-		</h2>
-		<p class="description welcome-description"><?php echo $description; ?></p>
-		<div class="welcome-panel-column-container">
-			<div class="welcome-panel-column">
-				<h3><?php _e( 'Get Started' ); ?></h3>
-				<ul>
-					<li>
-						<a href="<?php echo admin_url( 'about.php' ); ?>">
-							<?php echo __( 'The features of ' ) . APP_NAME; ?>
-						</a>
-					</li>
-				<?php if ( current_user_can( 'manage_options' ) ) : ?>
-					<li>
-						<a href="<?php echo admin_url( 'options-general.php' ); ?>">
-							<?php _e( 'Manage website settings' ); ?>
-						</a>
-					</li>
-				<?php endif; ?>
-				<?php if ( current_user_can( 'customize' ) ) : ?>
-					<li>
-						<a class="load-customize hide-if-no-customize" href="<?php echo wp_customize_url(); ?>">
-							<?php _e( 'Customize your website' ); ?>
-						</a>
-					</li>
-				<?php endif; ?>
-				</ul>
-			</div>
-			<div class="welcome-panel-column">
-				<h3><?php _e( 'Next Steps' ); ?></h3>
-				<ul>
-				<?php if ( 'page' == get_option( 'show_on_front' ) && ! get_option( 'page_for_posts' ) ) : ?>
-					<li><?php printf( '<a href="%s">' . __( 'Edit your front page' ) . '</a>', get_edit_post_link( get_option( 'page_on_front' ) ) ); ?></li>
-					<li><?php printf( '<a href="%s">' . __( 'Add additional pages' ) . '</a>', admin_url( 'post-new.php?post_type=page' ) ); ?></li>
-				<?php elseif ( 'page' == get_option( 'show_on_front' ) ) : ?>
-					<li><?php printf( '<a href="%s">' . __( 'Edit your front page' ) . '</a>', get_edit_post_link( get_option( 'page_on_front' ) ) ); ?></li>
-					<li><?php printf( '<a href="%s">' . __( 'Add additional pages' ) . '</a>', admin_url( 'post-new.php?post_type=page' ) ); ?></li>
-					<li><?php printf( '<a href="%s">' . __( 'Add a blog or news post' ) . '</a>', admin_url( 'post-new.php' ) ); ?></li>
-				<?php else : ?>
-					<li><?php printf( '<a href="%s">' . __( 'Add a blog or news post' ) . '</a>', admin_url( 'post-new.php' ) ); ?></li>
-					<li><?php printf( '<a href="%s">' . __( 'Add an informational page' ) . '</a>', admin_url( 'post-new.php?post_type=page' ) ); ?></li>
-				<?php endif; ?>
-					<li><?php printf( '<a href="%s">' . __( 'Upload photos & media' ) . '</a>', admin_url( 'upload.php' ) ); ?></li>
-				</ul>
-			</div>
-			<div class="welcome-panel-column welcome-panel-last">
-				<h3><?php _e( 'More Actions' ); ?></h3>
-				<ul>
-				<?php if ( current_theme_supports( 'widgets' ) || current_theme_supports( 'menus' ) ) : ?>
-					<li><?php
-						if ( current_theme_supports( 'widgets' ) && current_theme_supports( 'menus' ) ) {
-							printf( __( 'Manage <a href="%1$s">widgets</a> or <a href="%2$s">menus</a>' ),
-								admin_url( 'widgets.php' ), admin_url( 'nav-menus.php' ) );
-						} elseif ( current_theme_supports( 'widgets' ) ) {
-							echo '<a href="' . admin_url( 'widgets.php' ) . '">' . __( 'Manage widgets' ) . '</a>';
-						} else {
-							echo '<a href="' . admin_url( 'nav-menus.php' ) . '">' . __( 'Manage menus' ) . '</a>';
-						}
-					?></li>
-				<?php endif; ?>
-				<?php if ( current_user_can( 'manage_options' ) ) : ?>
-					<li><?php printf( '<a href="%s">' . __( 'Manage discussions' ) . '</a>', admin_url( 'options-discussion.php' ) ); ?></li>
-				<?php endif; ?>
-				<?php if ( current_user_can( 'add_users' ) ) : ?>
-					<li><?php printf( '<a href="%s">' . __( 'Manage website users' ) . '</a>', admin_url( 'users.php' ) ); ?></li>
-				<?php endif; ?>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<?php
+	return apply_filters( 'app_get_intro_content', $panel );
 }
 
 /**

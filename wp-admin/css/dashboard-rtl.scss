@@ -85,6 +85,8 @@
 /* Welcome Panel */
 .welcome-panel {
 	position: relative;
+	min-height: 60px;
+	overflow: auto;
 	margin: 2.5em 0;
 	font-size: 13px;
 }
@@ -107,7 +109,9 @@
 	text-decoration: none;
 }
 
-.welcome-panel .welcome-description {
+.welcome-panel .welcome-description,
+.welcome-panel .intro-description,
+.intro-panel .intro-description {
 	font-size: 16px;
 	margin: 0;
 }
@@ -149,7 +153,8 @@
 	white-space: normal;
 }
 
-.welcome-panel-content {
+.welcome-panel-content,
+.intro-panel-content {
 	max-width: 1500px;
 }
 

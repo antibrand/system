@@ -10,7 +10,7 @@
 $version = get_bloginfo( 'version' );
 
 /**
- * Welcome panel description
+ * Intro panel description
  *
  * Uses the white label tagline if available.
  */
@@ -20,17 +20,9 @@ if ( defined( 'APP_TAGLINE' ) ) {
 	$description = __( 'Following are some links to help manage your website:' );
 }
 
+$current_user = wp_get_current_user();
+$user_data    = get_userdata( $current_user );
+// $user_name    = $user_data->display_name;
+
 ?>
-<div class="welcome-panel-content">
-
-	<h2>
-	<?php echo sprintf(
-		'%1s %2s %3s',
-		__( 'Welcome to' ),
-		APP_NAME,
-		$version
-	); ?>
-	</h2>
-	<p class="description welcome-description"><?php echo $description; ?></p>
-
-</div>
+<div class="intro-panel-content"></div>
