@@ -1413,17 +1413,17 @@ function wp_ajax_hidden_columns() {
 }
 
 /**
- * Ajax handler for updating whether to display the welcome panel.
+ * Ajax handler for updating whether to display the top panel.
  *
  * @since 3.1.0
  */
-function wp_ajax_update_welcome_panel() {
-	check_ajax_referer( 'top-panel-nonce', 'welcomepanelnonce' );
+function wp_ajax_update_top_panel() {
+	check_ajax_referer( 'top-panel-nonce', 'toppanelnonce' );
 
 	if ( ! current_user_can( 'edit_theme_options' ) )
 		wp_die( -1 );
 
-	update_user_meta( get_current_user_id(), 'show_welcome_panel', empty( $_POST['visible'] ) ? 0 : 1 );
+	update_user_meta( get_current_user_id(), 'show_top_panel', empty( $_POST['visible'] ) ? 0 : 1 );
 
 	wp_die( 1 );
 }

@@ -3,7 +3,7 @@ var ajaxWidgets, ajaxPopulateWidgets, quickPressLoad;
 window.wp = window.wp || {};
 
 jQuery(document).ready( function($) {
-	var welcomePanel = $( '#top-panel' ),
+	var welcomePanel = $( '#welcome-panel' ),
 		welcomePanelHide = $('#wp_welcome_panel-hide'),
 		updateWelcomePanel;
 
@@ -11,7 +11,7 @@ jQuery(document).ready( function($) {
 		$.post( ajaxurl, {
 			action: 'update-top-panel',
 			visible: visible,
-			welcomepanelnonce: $( '#welcomepanelnonce' ).val()
+			toppanelnonce: $( '#toppanelnonce' ).val()
 		});
 	};
 
@@ -19,7 +19,7 @@ jQuery(document).ready( function($) {
 		welcomePanel.removeClass('hidden');
 	}
 
-	$('.top-panel-close, .top-panel-dismiss a', welcomePanel).click( function(e) {
+	$('.top-panel-close, .welcome-panel-dismiss a', welcomePanel).click( function(e) {
 		e.preventDefault();
 		welcomePanel.addClass('hidden');
 		updateWelcomePanel( 0 );

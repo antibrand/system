@@ -1003,6 +1003,7 @@ final class WP_Screen {
 	 * @global array $wp_meta_boxes
 	 */
 	public function render_meta_boxes_preferences() {
+
 		global $wp_meta_boxes;
 
 		if ( ! isset( $wp_meta_boxes[ $this->id ] ) ) {
@@ -1012,14 +1013,14 @@ final class WP_Screen {
 		<fieldset class="metabox-prefs">
 		<legend><?php _e( 'Boxes' ); ?></legend>
 		<?php
-			meta_box_prefs( $this );
 
-			if ( 'dashboard' === $this->id && has_action( 'welcome_panel' ) && current_user_can( 'edit_theme_options' ) ) {
-				if ( isset( $_GET['welcome'] ) ) {
-					$welcome_checked = empty( $_GET['welcome'] ) ? 0 : 1;
-					update_user_meta( get_current_user_id(), 'show_welcome_panel', $welcome_checked );
+			// Top panel preference checkbox.
+			if ( 'dashboard' === $this->id && has_action( 'dashboard_top_panel' ) && current_user_can( 'edit_theme_options' ) ) {
+				if ( isset( $_GET['top-panel'] ) ) {
+					$welcome_checked = empty( $_GET['top-panel'] ) ? 0 : 1;
+					update_user_meta( get_current_user_id(), 'show_top_panel', $welcome_checked );
 				} else {
-					$welcome_checked = get_user_meta( get_current_user_id(), 'show_welcome_panel', true );
+					$welcome_checked = get_user_meta( get_current_user_id(), 'show_top_panel', true );
 					if ( '' === $welcome_checked ) {
 						$welcome_checked = '1';
 					}
@@ -1031,6 +1032,9 @@ final class WP_Screen {
 				echo '<input type="checkbox" id="wp_welcome_panel-hide"' . checked( (bool) $welcome_checked, true, false ) . ' />';
 				echo _x( 'Top Panel', 'Top panel' ) . "</label>\n";
 			}
+
+			// All other preference checkboxes.
+			meta_box_prefs( $this );
 		?>
 		</fieldset>
 		<?php
