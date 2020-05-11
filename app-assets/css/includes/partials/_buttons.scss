@@ -58,8 +58,14 @@
 	&.button-hero {
 		height: auto;
 		padding: 1em 2em;
+		background-color: $button_action_background_color;
 		font-size: $px17;
 		line-height: 1.4;
+
+		&:hover,
+		&:focus {
+			background-color: lighten( $button_action_background_color, 10% );
+		}
 	}
 
 	&:active,

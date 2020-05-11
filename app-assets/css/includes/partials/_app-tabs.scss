@@ -62,6 +62,7 @@
 	}
 
 	.app-tab-content {
+		display: none;
 		padding: 2em 0 1em;
 	}
 }
@@ -70,6 +71,14 @@
 	.app-tabs {
 		.app-tabs-list {
 			padding: 0 0.5em 0 0;
+		}
+	}
+}
+
+.no-js {
+	.app-tabs {
+		.app-tab-content {
+			display: block;
 		}
 	}
 }

@@ -1997,8 +1997,17 @@ table.form-table td .updated p {
 .button-secondary.button-hero {
   height: auto;
   padding: 1em 2em;
+  background-color: #ffee00;
   font-size: 1.0625rem;
   line-height: 1.4;
+}
+
+.button.button-hero:hover, .button.button-hero:focus,
+.button-primary.button-hero:hover,
+.button-primary.button-hero:focus,
+.button-secondary.button-hero:hover,
+.button-secondary.button-hero:focus {
+  background-color: #fff133;
 }
 
 .button:active, .button:focus,
@@ -2155,11 +2164,16 @@ table.form-table td .updated p {
 }
 
 .app-tabs .app-tab-content {
+  display: none;
   padding: 2em 0 1em;
 }
 
 .rtl .app-tabs .app-tabs-list {
   padding: 0 0.5em 0 0;
+}
+
+.no-js .app-tabs .app-tab-content {
+  display: block;
 }
 
 /**

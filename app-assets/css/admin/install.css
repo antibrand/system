@@ -378,8 +378,17 @@ b, strong, optgroup {
 .button-secondary.button-hero {
   height: auto;
   padding: 1em 2em;
+  background-color: #ffee00;
   font-size: 1.0625rem;
   line-height: 1.4;
+}
+
+.button.button-hero:hover, .button.button-hero:focus,
+.button-primary.button-hero:hover,
+.button-primary.button-hero:focus,
+.button-secondary.button-hero:hover,
+.button-secondary.button-hero:focus {
+  background-color: #fff133;
 }
 
 .button:active, .button:focus,
