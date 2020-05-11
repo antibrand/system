@@ -3959,9 +3959,9 @@ function get_avatar_data( $id_or_email, $args = null ) {
 	);
 
 	if ( ( 'mm' ) == $args['default'] ) {
-		$url = site_url( '/wp-includes/images/default-profile-image.png' );
+		$url = app_assets_url( 'images/mystery-generic.png' );
 	} else {
-		$url = site_url( '/wp-includes/images/no-avatar.png' );
+		$url = app_assets_url( 'images/no-avatar.png' );
 	}
 
 	$url = add_query_arg(
