@@ -37,10 +37,10 @@
 				var _container = $this;
 			}
 
-			var _tabs = _container.find( '> div' );
+			var _app_tabs = _container.find( '> div' );
 
 			// Caching.
-			_tabs.each( function() {
+			_app_tabs.each( function() {
 				_cache_div.push( $(this).css( 'display' ) );
 			});
 
@@ -71,10 +71,10 @@
 
 				$this.opts['active'] = $this.opts.deeplinking ? deep_link() : ( $this.data( 'active' ) || options.active )
 
-				_tabs.hide();
+				_app_tabs.hide();
 
 				if ( $this.opts.active ) {
-					_tabs.eq( $this.opts.active - 1 ).show();
+					_app_tabs.eq( $this.opts.active - 1 ).show();
 					elements.eq( $this.opts.active - 1 ).addClass( options.activeclass );
 				}
 
@@ -87,7 +87,7 @@
 						_this.trigger( '_before' );
 						elements.removeClass( options.activeclass );
 						_this.addClass( options.activeclass );
-						_tabs.hide();
+						_app_tabs.hide();
 
 						i = elements.index(_this);
 
@@ -101,7 +101,7 @@
 
 							_container.find( currentTab ).animate(
 								{ opacity: 'show' },
-								'slow',
+								250,
 								function() {
 									_this.trigger( '_after' );
 								}
@@ -218,7 +218,7 @@
 						$(this).removeClass( options.activeclass );
 					});
 
-					_tabs.each( function(i) {
+					_app_tabs.each( function(i) {
 						$(this).removeAttr( 'style' ).css( 'display', _cache_div[i] );
 					});
 				});
