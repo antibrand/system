@@ -131,7 +131,7 @@ themes.view.Appearance = wp.Backbone.View.extend({
 });
 
 // Set up the Collection for our theme data
-// @has 'id' 'name' 'screenshot' 'author' 'authorURI' 'version' 'active' ...
+// @has 'id' 'name' 'cover' 'icon' 'screenshot' 'author' 'authorURI' 'version' 'active' ...
 themes.Collection = Backbone.Collection.extend({
 
 	model: themes.Model,
@@ -668,8 +668,8 @@ themes.view.Details = wp.Backbone.View.extend({
 		this.activeTheme();
 		// Set up navigation events
 		this.navigation();
-		// Checks screenshot size
-		this.screenshotCheck( this.$el );
+		// Checks cover image size
+		this.coverCheck( this.$el );
 		// Contain "tabbing" inside the overlay
 		this.containFocus( this.$el );
 	},
@@ -841,18 +841,18 @@ themes.view.Details = wp.Backbone.View.extend({
 		return false;
 	},
 
-	// Checks if the theme screenshot is the old 300px width version
+	// Checks if the theme cover image is small
 	// and adds a corresponding class if it's true
-	screenshotCheck: function( el ) {
-		var screenshot, image;
+	coverCheck: function( el ) {
+		var cover, image;
 
-		screenshot = el.find( '.screenshot img' );
+		cover = el.find( '.cover img' );
 		image = new Image();
-		image.src = screenshot.attr( 'src' );
+		image.src = cover.attr( 'src' );
 
 		// Width check
 		if ( image.width && image.width <= 300 ) {
-			el.addClass( 'small-screenshot' );
+			el.addClass( 'small-cover-image' );
 		}
 	}
 });
@@ -1174,7 +1174,7 @@ themes.view.Themes = wp.Backbone.View.extend({
 		// 'Add new theme' element shown at the end of the grid
 		if ( ! themes.isInstall && themes.data.settings.canInstall ) {
 			// @todo Move this into the WordPress themes plugin (?).
-			// this.$el.append( '<div class="theme add-new-theme"><a href="' + themes.data.settings.installURI + '"><div class="theme-screenshot"><span></span></div><h2 class="theme-name">' + l10n.addNew + '</h2></a></div>' );
+			// this.$el.append( '<div class="theme add-new-theme"><a href="' + themes.data.settings.installURI + '"><div class="theme-cover-image"><span></span></div><h2 class="theme-name">' + l10n.addNew + '</h2></a></div>' );
 		}
 
 		this.parent.page++;

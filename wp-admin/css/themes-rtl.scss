@@ -525,6 +525,7 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 }
 
 /* First screenshot, shown big */
+.cover-image,
 .theme-overlay .screenshot {
 	border: 1px solid $white;
 	-webkit-box-sizing: border-box;
@@ -596,10 +597,27 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 	opacity: 0.8;
 }
 
-/* No screenshot placeholder */
+// No screenshot placeholder.
 .theme-browser .theme .theme-cover-image.blank,
+.theme-browser .theme .theme-screenshot.blank,
+.theme-overlay .cover-image.blank,
 .theme-overlay .screenshot.blank {
-	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAALElEQVQYGWO8d+/efwYkoKioiMRjYGBC4WHhUK6A8T8QIJt8//59ZC493AAAQssKpBK4F5AAAAAASUVORK5CYII=);
+
+	&:before {
+		content: '\f530';
+		font-family: dashicons;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		font-size: 4rem;
+		color: $pale_gray;
+	}
 }
 
 /**

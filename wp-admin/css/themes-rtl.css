@@ -520,6 +520,7 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 }
 
 /* First screenshot, shown big */
+.cover-image,
 .theme-overlay .screenshot {
   border: 1px solid #ffffff;
   -webkit-box-sizing: border-box;
@@ -594,10 +595,32 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
   opacity: 0.8;
 }
 
-/* No screenshot placeholder */
-.theme-browser .theme .theme-cover-image.blank,
-.theme-overlay .screenshot.blank {
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAALElEQVQYGWO8d+/efwYkoKioiMRjYGBC4WHhUK6A8T8QIJt8//59ZC493AAAQssKpBK4F5AAAAAASUVORK5CYII=);
+.theme-browser .theme .theme-cover-image.blank:before,
+.theme-browser .theme .theme-screenshot.blank:before,
+.theme-overlay .cover-image.blank:before,
+.theme-overlay .screenshot.blank:before {
+  content: '\f530';
+  font-family: dashicons;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 4rem;
+  color: #cccccc;
 }
 
 /**

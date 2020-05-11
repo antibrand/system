@@ -621,6 +621,7 @@ body.js .theme-browser.search-loading {
 	}
 
 	// .theme-overlay .screenshot
+	.cover-image,
 	.screenshot {
 		border: 1px solid $white;
 		-webkit-box-sizing: border-box;
@@ -841,6 +842,8 @@ body.js .theme-browser.search-loading {
 
 // No screenshot placeholder.
 .theme-browser .theme .theme-cover-image.blank,
+.theme-browser .theme .theme-screenshot.blank,
+.theme-overlay .cover-image.blank,
 .theme-overlay .screenshot.blank {
 
 	&:before {

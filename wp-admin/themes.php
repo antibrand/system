@@ -376,9 +376,9 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 				$aria_name   = esc_attr( $theme['id'] . '-name' );
 				?>
 			<div class="theme<?php if ( $theme['active'] ) echo ' active'; ?>" tabindex="0" aria-describedby="<?php echo $aria_action . ' ' . $aria_name; ?>">
-				<?php if ( ! empty( $theme['screenshot'][0] ) ) { ?>
+				<?php if ( ! empty( $theme['cover'][0] ) ) { ?>
 					<figure class="theme-cover-image">
-						<img src="<?php echo $theme['screenshot'][0]; ?>" alt="<?php _e( 'Theme cover image' ); ?>" width="640" height="480" />
+						<img src="<?php echo $theme['cover'][0]; ?>" alt="<?php _e( 'Theme cover image' ); ?>" width="640" height="480" />
 						<figcaption class="screen-reader-text"><?php _e( 'Theme cover image' ); ?></figcaption>
 					</figure>
 				<?php } else { ?>
@@ -468,7 +468,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 		<p><?php _e( 'The following themes are installed but incomplete.' ); ?></p>
 
 		<?php
-		$can_delete = current_user_can( 'delete_themes' );
+		$can_delete  = current_user_can( 'delete_themes' );
 		$can_install = current_user_can( 'install_themes' );
 		?>
 		<table>
@@ -542,10 +542,15 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
  */
 ?>
 <script id="tmpl-theme" type="text/template">
-	<# if ( data.screenshot[0] ) { #>
+	<# if ( data.cover[0] ) { #>
 		<figure class="theme-cover-image">
-			<img src="{{ data.screenshot[0] }}" alt="<?php _e( 'Theme cover image' ); ?>" width="640" height="480" />
+			<img src="{{ data.cover[0] }}" alt="<?php _e( 'Theme cover image' ); ?>" width="640" height="480" />
 			<figcaption class="screen-reader-text"><?php _e( 'Theme cover image' ); ?></figcaption>
+		</figure>
+	<# } else if ( data.screenshot[0] ) { #>
+		<figure class="theme-cover-image">
+			<img src="{{ data.screenshot[0] }}" alt="<?php _e( 'Theme screenshot' ); ?>" width="640" height="480" />
+			<figcaption class="screen-reader-text"><?php _e( 'Theme screenshot' ); ?></figcaption>
 		</figure>
 	<# } else { #>
 		<div class="theme-cover-image blank"></div>
@@ -620,10 +625,15 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 		</div>
 		<div class="theme-about">
 			<div class="theme-cover-wrap">
-			<# if ( data.screenshot[0] ) { #>
+			<# if ( data.cover[0] ) { #>
 				<figure class="theme-cover-image">
-					<img src="{{ data.screenshot[0] }}" alt="<?php _e( 'Theme cover image' ); ?>" width="1200" height="900" />
+					<img src="{{ data.cover[0] }}" alt="<?php _e( 'Theme cover image' ); ?>" width="1200" height="900" />
 					<figcaption class="screen-reader-text"><?php _e( 'Theme cover image' ); ?></figcaption>
+				</figure>
+			<# } else if ( data.screenshot[0] ) { #>
+				<figure class="theme-cover-image">
+					<img src="{{ data.screenshot[0] }}" alt="<?php _e( 'Theme screenshot' ); ?>" width="1200" height="900" />
+					<figcaption class="screen-reader-text"><?php _e( 'Theme screenshot' ); ?></figcaption>
 				</figure>
 			<# } else { #>
 				<div class="theme-cover-image blank"></div>

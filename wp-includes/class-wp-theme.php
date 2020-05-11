@@ -336,8 +336,7 @@ final class WP_Theme implements ArrayAccess {
 	 */
 	public function __isset( $offset ) {
 		static $properties = array(
-			'name', 'title', 'version', 'parent_theme', 'template_dir', 'stylesheet_dir', 'template', 'stylesheet',
-			'screenshot', 'description', 'author', 'tags', 'theme_root', 'theme_root_uri',
+			'name', 'title', 'version', 'parent_theme', 'template_dir', 'stylesheet_dir', 'template', 'stylesheet', 'cover', 'icon', 'screenshot', 'description', 'author', 'tags', 'theme_root', 'theme_root_uri',
 		);
 
 		return in_array( $offset, $properties );
@@ -368,6 +367,10 @@ final class WP_Theme implements ArrayAccess {
 				return $this->get_template();
 			case 'stylesheet' :
 				return $this->get_stylesheet();
+			case 'cover' :
+				return $this->get_theme_cover( 'relative' );
+			case 'icon' :
+				return $this->get_theme_icon( 'relative' );
 			case 'screenshot' :
 				return $this->get_screenshot( 'relative' );
 			// 'author' and 'description' did not previously return translated data.
@@ -473,6 +476,10 @@ final class WP_Theme implements ArrayAccess {
 				return $this->get_template_directory();
 			case 'Stylesheet Dir' :
 				return $this->get_stylesheet_directory();
+			case 'Cover' :
+				return $this->get_theme_cover( 'relative' );
+			case 'Icon' :
+				return $this->get_theme_icon( 'relative' );
 			case 'Screenshot' :
 				return $this->get_screenshot( 'relative' );
 			case 'Tags' :
@@ -531,7 +538,7 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * @since 3.4.0
 	 *
-	 * @param string $key Type of data to store (theme, screenshot, headers, post_templates)
+	 * @param string $key Type of data to store (theme, cover, icon, screenshot, headers, post_templates)
 	 * @param string $data Data to store
 	 * @return bool Return value from wp_cache_add()
 	 */
@@ -546,7 +553,7 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * @since 3.4.0
 	 *
-	 * @param string $key Type of data to retrieve (theme, screenshot, headers, post_templates)
+	 * @param string $key Type of data to retrieve (theme, cover, icon, screenshot, headers, post_templates)
 	 * @return mixed Retrieved data
 	 */
 	private function cache_get( $key ) {
@@ -559,7 +566,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @since 3.4.0
 	 */
 	public function cache_delete() {
-		foreach ( array( 'theme', 'screenshot', 'headers', 'post_templates' ) as $key )
+		foreach ( array( 'theme', 'cover', 'icon', 'screenshot', 'headers', 'post_templates' ) as $key )
 			wp_cache_delete( $key . '-' . $this->cache_hash, 'themes' );
 		$this->template = $this->textdomain_loaded = $this->theme_root_uri = $this->parent = $this->errors = $this->headers_sanitized = $this->name_translated = null;
 		$this->headers = array();
@@ -927,38 +934,149 @@ final class WP_Theme implements ArrayAccess {
 	}
 
 	/**
-	 * Returns the main screenshot file for the theme.
+	 * Return the main cover image file for the theme
+	 *
+	 * The main cover image is called cover.png. gif and jpg extensions are also allowed.
+	 * Recommended size is 1200px by 900px.
+	 *
+	 * Cover images for a theme must be in the stylesheet directory. (In the case of child
+	 * themes, parent theme cover images are not inherited.)
+	 *
+	 * @since 1.8.8
+	 *
+	 * @param string $uri Type of URL to return, either 'relative' or an absolute URI. Defaults to absolute URI.
+	 * @return string|false Cover image file. False if the theme does not have a cover image.
+	 */
+	public function get_theme_cover( $uri = 'uri' ) {
+
+		$cover = $this->cache_get( 'cover' );
+
+		if ( $cover ) {
+
+			if ( 'relative' == $uri ) {
+				return $cover;
+			}
+
+			return $this->get_stylesheet_directory_uri() . '/' . $cover;
+
+		} elseif ( 0 === $cover ) {
+			return false;
+		}
+
+		foreach ( array( 'png', 'gif', 'jpg', 'jpeg' ) as $ext ) {
+
+			if ( file_exists( $this->get_stylesheet_directory() . "/cover.$ext" ) ) {
+
+				$this->cache_add( 'cover', 'cover.' . $ext );
+
+				if ( 'relative' == $uri ) {
+					return 'cover.' . $ext;
+				}
+
+				return $this->get_stylesheet_directory_uri() . '/' . 'cover.' . $ext;
+			}
+		}
+
+		$this->cache_add( 'cover', 0 );
+
+		return false;
+	}
+
+	/**
+	 * Return the main icon image file for the theme
+	 *
+	 * The main icon image is called icon.png. gif and jpg extensions are also allowed.
+	 * Recommended size is 512px by 512px.
+	 *
+	 * Cover images for a theme must be in the stylesheet directory. (In the case of child
+	 * themes, parent theme icon images are not inherited.)
+	 *
+	 * @since 1.8.8
+	 *
+	 * @param string $uri Type of URL to return, either 'relative' or an absolute URI. Defaults to absolute URI.
+	 * @return string|false Cover image file. False if the theme does not have a icon image.
+	 */
+	public function get_theme_icon( $uri = 'uri' ) {
+
+		$icon = $this->cache_get( 'icon' );
+
+		if ( $icon ) {
+
+			if ( 'relative' == $uri ) {
+				return $icon;
+			}
+
+			return $this->get_stylesheet_directory_uri() . '/' . $icon;
+
+		} elseif ( 0 === $icon ) {
+			return false;
+		}
+
+		foreach ( array( 'png', 'gif', 'jpg', 'jpeg' ) as $ext ) {
+
+			if ( file_exists( $this->get_stylesheet_directory() . "/icon.$ext" ) ) {
+
+				$this->cache_add( 'icon', 'icon.' . $ext );
+
+				if ( 'relative' == $uri ) {
+					return 'icon.' . $ext;
+				}
+
+				return $this->get_stylesheet_directory_uri() . '/' . 'icon.' . $ext;
+			}
+		}
+
+		$this->cache_add( 'icon', 0 );
+
+		return false;
+	}
+
+	/**
+	 * Return the main screenshot file for the theme
 	 *
 	 * The main screenshot is called screenshot.png. gif and jpg extensions are also allowed.
+	 * Recommended size is 1200px by 900px.
 	 *
 	 * Screenshots for a theme must be in the stylesheet directory. (In the case of child
 	 * themes, parent theme screenshots are not inherited.)
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @param string $uri Type of URL to return, either 'relative' or an absolute URI. Defaults to absolute URI.
 	 * @return string|false Screenshot file. False if the theme does not have a screenshot.
 	 */
 	public function get_screenshot( $uri = 'uri' ) {
+
 		$screenshot = $this->cache_get( 'screenshot' );
+
 		if ( $screenshot ) {
-			if ( 'relative' == $uri )
+
+			if ( 'relative' == $uri ) {
 				return $screenshot;
+			}
+
 			return $this->get_stylesheet_directory_uri() . '/' . $screenshot;
+
 		} elseif ( 0 === $screenshot ) {
 			return false;
 		}
 
 		foreach ( array( 'png', 'gif', 'jpg', 'jpeg' ) as $ext ) {
+
 			if ( file_exists( $this->get_stylesheet_directory() . "/screenshot.$ext" ) ) {
+
 				$this->cache_add( 'screenshot', 'screenshot.' . $ext );
-				if ( 'relative' == $uri )
+
+				if ( 'relative' == $uri ) {
 					return 'screenshot.' . $ext;
+				}
+
 				return $this->get_stylesheet_directory_uri() . '/' . 'screenshot.' . $ext;
 			}
 		}
 
 		$this->cache_add( 'screenshot', 0 );
+
 		return false;
 	}
 

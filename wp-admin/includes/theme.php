@@ -588,10 +588,12 @@ function wp_prepare_themes_for_js( $themes = null ) {
 			) );
 		}
 
-		$prepared_themes[ $slug ] = array(
+		$prepared_themes[ $slug ] = [
 			'id'           => $slug,
 			'name'         => $theme->display( 'Name' ),
-			'screenshot'   => array( $theme->get_screenshot() ), // @todo multiple
+			'cover'        => [ $theme->get_theme_cover() ],
+			'icon'         => [ $theme->get_theme_icon() ],
+			'screenshot'   => [ $theme->get_screenshot() ],
 			'description'  => $theme->display( 'Description' ),
 			'author'       => $theme->display( 'Author', false, true ),
 			'authorAndUri' => $theme->display( 'Author' ),
@@ -602,12 +604,12 @@ function wp_prepare_themes_for_js( $themes = null ) {
 			'hasUpdate'    => isset( $updates[ $slug ] ),
 			'hasPackage'   => isset( $updates[ $slug ] ) && ! empty( $updates[ $slug ][ 'package' ] ),
 			'update'       => get_theme_update_available( $theme ),
-			'actions'      => array(
+			'actions'      => [
 				'activate' => current_user_can( 'switch_themes' ) ? wp_nonce_url( admin_url( 'themes.php?action=activate&amp;stylesheet=' . $encoded_slug ), 'switch-theme_' . $slug ) : null,
 				'customize' => $customize_action,
 				'delete'   => current_user_can( 'delete_themes' ) ? wp_nonce_url( admin_url( 'themes.php?action=delete&amp;stylesheet=' . $encoded_slug ), 'delete-theme_' . $slug ) : null,
-			),
-		);
+			],
+		];
 	}
 
 	// Remove 'delete' action if theme has an active child
@@ -646,10 +648,15 @@ function customize_themes_print_templates() {
 			</div>
 			<div class="theme-about wp-clearfix">
 				<div class="theme-cover-wrap">
-				<# if ( data.screenshot && data.screenshot[0] ) { #>
+				<# if ( data.cover && data.cover[0] ) { #>
+					<figure class="theme-cover-image">
+						<img src="{{ data.cover[0] }}" alt="" />
+						<figcaption class="screen-reader-text"><?php _e( 'Theme cover image' ); ?></figcaption>
+					</figure>
+				<# } elseif ( data.screenshot && data.screenshot[0] ) { #>
 					<figure class="theme-cover-image">
 						<img src="{{ data.screenshot[0] }}" alt="" />
-						<figcaption class="screen-reader-text"><?php _e( 'Theme cover image' ); ?></figcaption>
+						<figcaption class="screen-reader-text"><?php _e( 'Theme screenshot' ); ?></figcaption>
 					</figure>
 				<# } else { #>
 					<div class="theme-cover-image blank"></div>

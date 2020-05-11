@@ -72,7 +72,11 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 			<div class="theme" tabindex="0" aria-describedby="{{ data.section }}-{{ data.theme.id }}-action">
 		<# } #>
 
-			<# if ( data.theme.screenshot && data.theme.screenshot[0] ) { #>
+			<# if ( data.theme.cover && data.theme.cover[0] ) { #>
+				<div class="theme-cover-image">
+					<img data-src="{{ data.theme.cover[0] }}" alt="" />
+				</div>
+			<# } elseif ( data.theme.screenshot && data.theme.screenshot[0] ) { #>
 				<div class="theme-screenshot">
 					<img data-src="{{ data.theme.screenshot[0] }}" alt="" />
 				</div>
