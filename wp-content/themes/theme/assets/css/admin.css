@@ -21,3 +21,6 @@
  *
  * SASS can't have variables beginning with a numeral.
  */
+.theme-info-page {
+  max-width: 640px;
+}

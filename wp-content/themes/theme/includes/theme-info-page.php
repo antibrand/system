@@ -27,7 +27,8 @@ $get_theme_desc   = $get_theme->get( 'Description' );
 $get_theme_vers   = $get_theme->get( 'Version' );
 $get_theme_domain = $get_theme->get( 'TextDomain' );
 $get_theme_tags   = $get_theme->get( 'Tags' );
-$screenshot_src   = $get_theme->get_screenshot();
+$get_theme_cover  = $get_theme->get_theme_cover();
+$get_theme_icon   = $get_theme->get_theme_icon();
 
 // Text if data is not provided by the theme.
 $not_provided = __( 'Not provided in the stylesheet header', 'antibrand' );
@@ -85,11 +86,16 @@ if ( $get_theme_tags ) {
 ?>
 
 <div class="wrap theme-info-page">
+
 	<h1><?php _e( 'Active Theme Information', 'antibrand' ); ?></h1>
 	<p class="description"><?php echo apply_filters( 'ab_theme_page_description', $get_theme_desc ); ?></p>
+
 	<hr />
 	<main>
 		<h2><?php echo apply_filters( 'ab_theme_page_details_title', esc_html__( 'Theme Details', 'antibrand' ) ); ?></h2>
+
+		<img class="avatar alignright" src="<?php echo esc_url( $get_theme_icon ); ?>" alt="<?php echo $theme_name; ?>" width="80" height="80" />
+
 		<ul>
 			<li><strong><?php esc_html_e( 'Theme Name: ', 'antibrand' ); ?></strong><?php echo $get_theme_name; ?></li>
 			<?php if ( $get_template ) : ?>
@@ -103,8 +109,8 @@ if ( $get_theme_tags ) {
 			<li><strong><?php esc_html_e( 'Text Domain: ', 'antibrand' ); ?></strong><?php echo $domain; ?></li>
 			<li><strong><?php esc_html_e( 'Tags: ', 'antibrand' ); ?></strong><?php echo implode( ', ', $tags ); ?></li>
 		</ul>
-		<?php if ( $screenshot_src ) : ?>
-			<a href="<?php echo $get_theme_uri; ?>" target="_blank" rel="nofollow"><img src="<?php echo esc_url( $screenshot_src ); ?>" style="max-width: 640px;" /></a>
+		<?php if ( $get_theme_cover ) : ?>
+			<a href="<?php echo $get_theme_uri; ?>" target="_blank" rel="nofollow"><img src="<?php echo esc_url( $get_theme_cover ); ?>" /></a>
 		<?php endif; ?>
 	</main>
 </div><!-- .wrap -->
