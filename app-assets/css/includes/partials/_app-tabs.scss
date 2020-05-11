@@ -1,0 +1,75 @@
+///
+/// Styles for the jQuery tabs library
+///
+/// Included in this directory as themes may want to
+/// access the tabs for frontend display.
+///
+/// Styles are kept generic for minimal correction when
+/// implementing in themes.
+///
+/// Some additional admin styles may be found at:
+/// `..app-assets/css/admin/partials/common$suffix`.
+///
+
+// Import general app variables.
+@import '../modules/_typography';
+@import '../modules/_colors';
+
+/**
+ * App tabs library
+ *
+ * .app-tabs is the container class.
+ */
+.app-tabs {
+
+	.app-tabs-list {
+		list-style: none;
+		margin: 2em 0 0;
+		padding: 0 0 0 0.5em;
+		border-bottom: solid 1px $box_border_color;
+
+		.app-tab {
+			display: inline-block;
+			position: relative;
+			top: 1px;
+			margin: 0 0.15em;
+			border: solid 1px $box_border_color;
+			border-radius: 5px 5px 0px 0px;
+
+			a {
+				display: block;
+				padding: 0.75em 1em;
+				background-color: $white;
+				font-weight: bold;
+				line-height: 1;
+				text-decoration: none;
+				color: inherit;
+
+				@supports( font-variation-settings: normal ) {
+					font-weight: 550;
+				}
+			}
+
+			&.active {
+				border-bottom-color: $white;
+
+				a {
+					color: revert;
+					cursor: default;
+				}
+			}
+		}
+	}
+
+	.app-tab-content {
+		padding: 2em 0 1em;
+	}
+}
+
+.rtl {
+	.app-tabs {
+		.app-tabs-list {
+			padding: 0 0.5em 0 0;
+		}
+	}
+}

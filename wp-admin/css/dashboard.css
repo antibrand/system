@@ -80,7 +80,7 @@
 }
 
 /* Welcome Panel */
-.welcome-panel {
+.top-panel {
   position: relative;
   min-height: 60px;
   overflow: auto;
@@ -88,32 +88,32 @@
   font-size: 13px;
 }
 
-.welcome-panel h2 {
+.top-panel h2 {
   margin: 0;
   font-size: 21px;
   line-height: 1.2;
 }
 
-.welcome-panel h3 {
+.top-panel h3 {
   margin: 1.33em 0 0;
 }
 
-.welcome-panel li {
+.top-panel li {
   font-size: 14px;
 }
 
-.welcome-panel a {
+.top-panel a {
   text-decoration: none;
 }
 
-.welcome-panel .welcome-description,
-.welcome-panel .intro-description,
-.intro-panel .intro-description {
+.top-panel .welcome-description,
+.top-panel .intro-description,
+.top-panel .intro-description {
   font-size: 16px;
   margin: 0;
 }
 
-.welcome-panel .welcome-panel-close {
+.top-panel .top-panel-close {
   position: absolute;
   z-index: 10;
   top: 0.5em;
@@ -125,7 +125,7 @@
   text-decoration: none;
 }
 
-.welcome-panel .welcome-panel-close:before {
+.top-panel .top-panel-close:before {
   content: "\f153";
   display: inline-block;
   margin-right: 0.3em;
@@ -142,7 +142,7 @@
   transition: all .1s ease-in-out;
 }
 
-.app-core-ui .welcome-panel .button.button-hero {
+.app-core-ui .top-panel .button.button-hero {
   margin: 15px 13px 3px 0;
   padding: 12px 36px;
   height: auto;
@@ -151,46 +151,46 @@
   white-space: normal;
 }
 
-.welcome-panel-content,
-.intro-panel-content {
+.top-panel-content,
+.top-panel-content {
   max-width: 1500px;
 }
 
-.welcome-panel .welcome-panel-column-container {
+.top-panel .top-panel-column-container {
   clear: both;
   position: relative;
 }
 
-.welcome-panel .welcome-panel-column {
+.top-panel .top-panel-column {
   width: 32%;
   min-width: 200px;
   float: left;
 }
 
-.welcome-panel .welcome-panel-column:first-child {
+.top-panel .top-panel-column:first-child {
   width: 36%;
 }
 
-.welcome-panel-column p.hide-if-no-customize {
+.top-panel-column p.hide-if-no-customize {
   margin-top: 10px;
 }
 
-.welcome-panel-column p {
+.top-panel-column p {
   margin-top: 7px;
   color: #444;
 }
 
-.welcome-panel .welcome-widgets-menus {
+.top-panel .welcome-widgets-menus {
   line-height: 16px;
 }
 
-.welcome-panel .welcome-panel-column ul {
+.top-panel .top-panel-column ul {
   margin: 1em 1em 1em 0;
   padding-left: 1em;
   list-style: unset;
 }
 
-.welcome-panel .welcome-panel-column li {
+.top-panel .top-panel-column li {
   line-height: 16px;
   padding: 0 0 8px;
   font-weight: bold;
@@ -198,17 +198,52 @@
 }
 
 @supports (font-variation-settings: normal) {
-  .welcome-panel .welcome-panel-column li {
+  .top-panel .top-panel-column li {
     font-weight: 525;
   }
 }
 
-.welcome-panel .welcome-icon {
+.top-panel .welcome-icon {
   background: transparent !important;
 }
 
+.dashboard-panel-section-intro {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem 2rem 0 0;
+}
+
+@media screen and (max-width: 799px) {
+  .dashboard-panel-section-intro {
+    display: block;
+  }
+}
+
+.dashboard-panel-section-intro h4 {
+  margin: 0;
+  font-size: 1.25em;
+}
+
+.dashboard-panel-section-intro figure {
+  margin: 0 1em 0 0;
+}
+
+@media screen and (max-width: 799px) {
+  .dashboard-panel-section-intro figure {
+    float: left;
+  }
+}
+
+.dashboard-panel-section-intro div {
+  margin-bottom: 2rem;
+}
+
+.dashboard-panel-section-intro div p:first-of-type {
+  margin: 0;
+}
+
 /* Welcome Panel and Right Now common Icons style */
-.welcome-panel .welcome-icon:before,
 #dashboard_right_now li a:before,
 #dashboard_right_now li span:before {
   color: #82878c;
@@ -221,38 +256,6 @@
   -moz-osx-font-smoothing: grayscale;
   text-decoration: none !important;
   vertical-align: top;
-}
-
-/* Welcome Panel specific Icons styles */
-.welcome-panel .welcome-write-blog:before,
-.welcome-panel .welcome-edit-page:before {
-  content: "\f119";
-  top: -3px;
-}
-
-.welcome-panel .welcome-add-page:before {
-  content: "\f132";
-  top: -1px;
-}
-
-.welcome-panel .welcome-view-site:before {
-  content: "\f115";
-  top: -2px;
-}
-
-.welcome-panel .welcome-widgets-menus:before {
-  content: "\f116";
-  top: -2px;
-}
-
-.welcome-panel .welcome-comments:before {
-  content: "\f117";
-  top: -1px;
-}
-
-.welcome-panel .welcome-learn-more:before {
-  content: "\f118";
-  top: -1px;
 }
 
 /* Right Now specific Icons styles */
@@ -998,17 +1001,17 @@ a.rsswidget {
 }
 
 @media screen and (max-width: 870px) {
-  .welcome-panel .welcome-panel-column,
-  .welcome-panel .welcome-panel-column:first-child {
+  .top-panel .top-panel-column,
+  .top-panel .top-panel-column:first-child {
     display: block;
     float: none;
     width: 100%;
   }
-  .welcome-panel .welcome-panel-column li {
+  .top-panel .top-panel-column li {
     display: inline-block;
     margin-right: 13px;
   }
-  .welcome-panel .welcome-panel-column ul {
+  .top-panel .top-panel-column ul {
     margin: 0.4em 0 0;
   }
 }
@@ -1048,7 +1051,7 @@ a.rsswidget {
 /* Smartphone */
 @media screen and (max-width: 600px) {
   /* Keep the close icon from overlapping the Welcome text. */
-  .welcome-panel .welcome-panel-close {
+  .top-panel .top-panel-close {
     overflow: hidden;
     text-indent: 40px;
     white-space: nowrap;
@@ -1059,7 +1062,7 @@ a.rsswidget {
     right: 5px;
   }
   /* Make the close icon larger for tappability. */
-  .welcome-panel .welcome-panel-close:before {
+  .top-panel .top-panel-close:before {
     font-size: 20px;
     top: 5px;
     left: -35px;

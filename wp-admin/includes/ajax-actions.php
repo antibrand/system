@@ -1418,7 +1418,7 @@ function wp_ajax_hidden_columns() {
  * @since 3.1.0
  */
 function wp_ajax_update_welcome_panel() {
-	check_ajax_referer( 'welcome-panel-nonce', 'welcomepanelnonce' );
+	check_ajax_referer( 'top-panel-nonce', 'welcomepanelnonce' );
 
 	if ( ! current_user_can( 'edit_theme_options' ) )
 		wp_die( -1 );

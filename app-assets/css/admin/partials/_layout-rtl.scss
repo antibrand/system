@@ -22,6 +22,17 @@ body {
 	}
 }
 
+.hidden,
+.js .closed .inside,
+.js .hide-if-js,
+.no-js .hide-if-no-js,
+.js.app-core-ui .hide-if-js,
+.js .app-core-ui .hide-if-js,
+.no-js.app-core-ui .hide-if-no-js,
+.no-js .app-core-ui .hide-if-no-js {
+	display: none;
+}
+
 /* 2 column liquid layout */
 .admin-page-wrap {
 	height: auto;

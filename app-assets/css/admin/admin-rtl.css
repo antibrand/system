@@ -417,6 +417,17 @@ body.mobile.modal-open .admin-page-wrap {
   height: 100%;
 }
 
+.hidden,
+.js .closed .inside,
+.js .hide-if-js,
+.no-js .hide-if-no-js,
+.js.app-core-ui .hide-if-js,
+.js .app-core-ui .hide-if-js,
+.no-js.app-core-ui .hide-if-no-js,
+.no-js .app-core-ui .hide-if-no-js {
+  display: none;
+}
+
 /* 2 column liquid layout */
 .admin-page-wrap {
   height: auto;
@@ -2098,6 +2109,60 @@ table.form-table td .updated p {
 }
 
 /**
+ * App tabs library
+ *
+ * .app-tabs is the container class.
+ */
+.app-tabs .app-tabs-list {
+  list-style: none;
+  margin: 2em 0 0;
+  padding: 0 0 0 0.5em;
+  border-bottom: solid 1px #cccccc;
+}
+
+.app-tabs .app-tabs-list .app-tab {
+  display: inline-block;
+  position: relative;
+  top: 1px;
+  margin: 0 0.15em;
+  border: solid 1px #cccccc;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.app-tabs .app-tabs-list .app-tab a {
+  display: block;
+  padding: 0.75em 1em;
+  background-color: #ffffff;
+  font-weight: bold;
+  line-height: 1;
+  text-decoration: none;
+  color: inherit;
+}
+
+@supports (font-variation-settings: normal) {
+  .app-tabs .app-tabs-list .app-tab a {
+    font-weight: 550;
+  }
+}
+
+.app-tabs .app-tabs-list .app-tab.active {
+  border-bottom-color: #ffffff;
+}
+
+.app-tabs .app-tabs-list .app-tab.active a {
+  color: revert;
+  cursor: default;
+}
+
+.app-tabs .app-tab-content {
+  padding: 2em 0 1em;
+}
+
+.rtl .app-tabs .app-tabs-list {
+  padding: 0 0.5em 0 0;
+}
+
+/**
  * Styles common to all administration screens
  */
 /* 2 columns main area */
@@ -2191,17 +2256,6 @@ table.form-table td .updated p {
           box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
   text-decoration: none;
   outline: none;
-}
-
-.hidden,
-.js .closed .inside,
-.js .hide-if-js,
-.no-js .hide-if-no-js,
-.js.app-core-ui .hide-if-js,
-.js .app-core-ui .hide-if-js,
-.no-js.app-core-ui .hide-if-no-js,
-.no-js .app-core-ui .hide-if-no-js {
-  display: none;
 }
 
 /* @todo: Take a second look. Large chunks of shared color, from the colors.css merge */
@@ -2649,6 +2703,10 @@ img.emoji {
           box-shadow: none !important;
 }
 
+.app-tabs .app-tabs-list .app-tab.active a {
+  color: #004499;
+}
+
 /*------------------------------------------------------------------------------
   1.0 - Text Styles
 ------------------------------------------------------------------------------*/
@@ -2711,8 +2769,8 @@ img.emoji {
   outline: 0;
 }
 
-.welcome-panel .welcome-panel-close:hover:before,
-.welcome-panel .welcome-panel-close:focus:before,
+.top-panel .top-panel-close:hover:before,
+.top-panel .top-panel-close:focus:before,
 .tagchecklist .ntdelbutton:hover .remove-tag-icon:before,
 .tagchecklist .ntdelbutton:focus .remove-tag-icon:before,
 #bulk-titles div a:hover:before,

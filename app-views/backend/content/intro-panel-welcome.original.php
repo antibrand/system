@@ -23,7 +23,7 @@ if ( defined( 'APP_TAGLINE' ) ) {
 }
 
 ?>
-<div class="welcome-panel-content">
+<div class="top-panel-content">
 	<h2>
 	<?php echo sprintf(
 		'%1s %2s %3s',
@@ -33,8 +33,8 @@ if ( defined( 'APP_TAGLINE' ) ) {
 	); ?>
 	</h2>
 	<p class="description welcome-description"><?php echo $description; ?></p>
-	<div class="welcome-panel-column-container">
-		<div class="welcome-panel-column">
+	<div class="top-panel-column-container">
+		<div class="top-panel-column">
 			<h3><?php _e( 'Get Started' ); ?></h3>
 			<ul>
 				<li>
@@ -58,7 +58,7 @@ if ( defined( 'APP_TAGLINE' ) ) {
 			<?php endif; ?>
 			</ul>
 		</div>
-		<div class="welcome-panel-column">
+		<div class="top-panel-column">
 			<h3><?php _e( 'Next Steps' ); ?></h3>
 			<ul>
 			<?php if ( 'page' == get_option( 'show_on_front' ) && ! get_option( 'page_for_posts' ) ) : ?>
@@ -75,7 +75,7 @@ if ( defined( 'APP_TAGLINE' ) ) {
 				<li><?php printf( '<a href="%s">' . __( 'Upload photos & media' ) . '</a>', admin_url( 'upload.php' ) ); ?></li>
 			</ul>
 		</div>
-		<div class="welcome-panel-column welcome-panel-last">
+		<div class="top-panel-column top-panel-last">
 			<h3><?php _e( 'More Actions' ); ?></h3>
 			<ul>
 			<?php if ( current_theme_supports( 'widgets' ) || current_theme_supports( 'menus' ) ) : ?>

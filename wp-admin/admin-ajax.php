@@ -51,7 +51,7 @@ $core_actions_post = array(
 	'delete-meta', 'delete-post', 'trash-post', 'untrash-post', 'delete-page', 'dim-comment',
 	'add-link-category', 'add-tag', 'get-tagcloud', 'get-comments', 'replyto-comment',
 	'edit-comment', 'add-menu-item', 'add-meta', 'add-user', 'closed-postboxes',
-	'hidden-columns', 'update-welcome-panel', 'menu-get-metabox', 'wp-link-ajax',
+	'hidden-columns', 'update-top-panel', 'menu-get-metabox', 'wp-link-ajax',
 	'menu-locations-save', 'menu-quick-search', 'meta-box-order', 'get-permalink',
 	'sample-permalink', 'inline-save', 'inline-save-tax', 'find_posts', 'widgets-order',
 	'save-widget', 'delete-inactive-widgets', 'set-post-thumbnail', 'date_format', 'time_format',
