@@ -359,6 +359,12 @@ To get started with moderating, editing, and deleting comments, please visit the
 		)
 	);
 
+	if ( ! is_multisite() ) {
+		update_user_meta( $user_id, 'show_top_panel', 1 );
+	} elseif ( ! is_super_admin( $user_id ) && ! metadata_exists( 'user', $user_id, 'show_top_panel' ) ) {
+		update_user_meta( $user_id, 'show_top_panel', 2 );
+	}
+
 	if ( is_multisite() ) {
 
 		// Flush rules to pick up the new page.

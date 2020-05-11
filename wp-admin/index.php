@@ -139,7 +139,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 			$classes .= ' hidden';
 		} ?>
 
-		<div id="welcome-panel" class="<?php echo esc_attr( $classes ); ?>">
+		<div id="top-panel" class="<?php echo esc_attr( $classes ); ?>">
 
 			<?php wp_nonce_field( 'top-panel-nonce', 'toppanelnonce', false ); ?>
 
