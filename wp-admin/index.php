@@ -15,6 +15,7 @@ require_once( ABSPATH . 'wp-admin/includes/dashboard.php' );
 wp_dashboard_setup();
 
 wp_enqueue_script( 'dashboard' );
+wp_enqueue_script( 'app-tabs' );
 
 if ( current_user_can( 'install_plugins' ) ) {
 	wp_enqueue_script( 'plugin-install' );
