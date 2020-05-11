@@ -52,39 +52,42 @@ $learn_link = apply_filters( 'dashboard_learn_link', $learn_link );
 $current_user = wp_get_current_user();
 $user_id      = get_current_user_id();
 $user_name    = $current_user->display_name;
-$avatar       = get_avatar(
-	$user_id,
-	64,
-	'',
-	$current_user->display_name,
-	[
-		'class'         => 'intro-panel-avatar alignnone',
-		'force_display' => true
-		]
-);
 
 // Get theme data.
-$get_theme  = wp_get_theme();
-$theme_name = $get_theme->get( 'Name' );
-$theme_desc = $get_theme->get( 'Description' );
+$get_theme         = wp_get_theme();
+$theme_name        = $get_theme->get( 'Name' );
+$theme_description = $get_theme->get( 'Description' );
+$theme_tags        = $get_theme->get( 'Tags' );
+$theme_icon        = $get_theme->get_theme_icon();
 
 // Theme description.
-if ( $theme_desc ) {
+if ( $theme_description ) {
 	$theme_description = sprintf(
-		'<p class="description">%1s</p>',
-		$theme_desc
+		'<p>%1s</p>',
+		$theme_description
 	);
 } else {
 	$theme_description = '';
 }
 
+// Theme tags.
+if ( $theme_tags ) {
+	$theme_tags = sprintf(
+		'<p><strong>%1s</strong> %2s</p>',
+		__( 'Tags:' ),
+		implode( ', ', $theme_tags )
+	);
+} else {
+	$theme_tags = '';
+}
+
 ?>
-<div class="top-panel">
+<div class="top-panel-inner">
 
 	<?php echo $panel_heading; ?>
 	<?php echo $panel_description; ?>
 
-	<div class='app-tabs top-panel-tabbed-content' data-toggle="app-tabs" data-tab_animation="true" data-tab_anispeed="250" data-tab_mouseevent="click">
+	<div class='app-tabs top-panel-tabbed-content' data-toggle="app-tabs" data-tab_mouseevent="click">
 
 		<ul class='app-tabs-list app-tabs-horizontal hide-if-no-js'>
 			<li class="app-tab"><a href="#manage"><?php _e( 'Manage' ); ?></a>
@@ -107,7 +110,7 @@ if ( $theme_desc ) {
 
 						<figure>
 							<a href="<?php echo esc_url( admin_url( 'profile.php' ) ); ?>">
-								<?php echo $avatar; ?>
+								<img class="avatar" src="<?php echo esc_url( get_avatar_url( $user_id ) ); ?>" alt="<?php echo $user_name; ?>" width="64" height="64" />
 							</a>
 							<figcaption class="screen-reader-text"><?php echo $user_name; ?></figcaption>
 						</figure>
@@ -118,7 +121,7 @@ if ( $theme_desc ) {
 								esc_html__( 'Hello,' ),
 								$user_name
 							); ?>
-							<p><?php _e( 'This site may display your profile in posts that you author, and it offers user-defined color schemes.' ); ?></p>
+							<p><?php _e( 'This site may display your profile details in posts that you author, depending on the theme and plugins used. You can edit yoyr details, set your images, and change your color schemes.' ); ?></p>
 							<p class="dashboard-panel-call-to-action"><a class="button button-primary button-hero" href="<?php echo esc_url( admin_url( 'profile.php' ) ); ?>"><?php _e( 'Manage Your Profile' ); ?></a></p>
 						</div>
 
@@ -197,14 +200,17 @@ if ( $theme_desc ) {
 
 						<figure>
 							<a href="<?php echo esc_url( wp_customize_url() ); ?>">
-								<img class="avatar" src="<?php echo esc_url( app_assets_url( 'images/app-icon.jpg' ) ); ?>" alt="<?php echo $theme_name; ?>" width="64" height="64" />
+								<img class="avatar" src="<?php echo esc_url( $theme_icon ); ?>" alt="<?php echo $theme_name; ?>" width="64" height="64" />
 							</a>
 							<figcaption class="screen-reader-text"><?php echo $theme_name; ?></figcaption>
 						</figure>
 
 						<div>
-							<h4><?php echo __( 'Active theme: ' ) . $theme_name; ?></h4>
+							<h4><?php echo __( 'Active Theme: ' ) . $theme_name; ?></h4>
+
 							<?php echo $theme_description; ?>
+							<?php echo $theme_tags; ?>
+
 							<p class="dashboard-panel-call-to-action"><a class="button button-primary button-hero load-customize hide-if-no-customize" href="<?php echo esc_url( wp_customize_url() . '?url=' . site_url() . '&return=' . site_url() ); ?>"><?php _e( 'Website Customizer' ); ?></a></p>
 						</div>
 

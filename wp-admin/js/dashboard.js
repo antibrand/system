@@ -3,31 +3,31 @@ var ajaxWidgets, ajaxPopulateWidgets, quickPressLoad;
 window.wp = window.wp || {};
 
 jQuery(document).ready( function($) {
-	var welcomePanel = $( '#top-panel' ),
-		welcomePanelHide = $('#wp_welcome_panel-hide'),
+	var topPanel = $( '#top-panel' ),
+		topPanelHide = $('#app_top_panel-hide'),
 		updateWelcomePanel;
 
 	updateWelcomePanel = function( visible ) {
 		$.post( ajaxurl, {
 			action: 'update-top-panel',
 			visible: visible,
-			welcomepanelnonce: $( '#welcomepanelnonce' ).val()
+			toppanelnonce: $( '#toppanelnonce' ).val()
 		});
 	};
 
-	if ( welcomePanel.hasClass('hidden') && welcomePanelHide.prop('checked') ) {
-		welcomePanel.removeClass('hidden');
+	if ( topPanel.hasClass('hidden') && topPanelHide.prop('checked') ) {
+		topPanel.removeClass('hidden');
 	}
 
-	$('.top-panel-close, .top-panel-dismiss a', welcomePanel).click( function(e) {
+	$('.top-panel-close, .top-panel-dismiss a', topPanel).click( function(e) {
 		e.preventDefault();
-		welcomePanel.addClass('hidden');
+		topPanel.addClass('hidden');
 		updateWelcomePanel( 0 );
-		$('#wp_welcome_panel-hide').prop('checked', false);
+		$('#app_top_panel-hide').prop('checked', false);
 	});
 
-	welcomePanelHide.click( function() {
-		welcomePanel.toggleClass('hidden', ! this.checked );
+	topPanelHide.click( function() {
+		topPanel.toggleClass('hidden', ! this.checked );
 		updateWelcomePanel( this.checked ? 1 : 0 );
 	});
 

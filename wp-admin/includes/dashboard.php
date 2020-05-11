@@ -35,7 +35,7 @@ function app_get_intro_content( $file ) {
  * @since WP 3.3.0 WordPress released the "Welcome" panel.
  * @since 1.0.0 Completely reworked for this management system.
  */
-function wp_welcome_panel() {
+function app_dashboard_top_panel() {
 
 	/**
 	 * Get intro panel content by user role.

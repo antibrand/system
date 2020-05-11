@@ -82,13 +82,14 @@
 	max-width: 100%;
 }
 
-/* Welcome Panel */
+/* Top Panel */
 .top-panel {
 	position: relative;
 	min-height: 60px;
 	overflow: auto;
-	margin: 2.5em 0;
-	font-size: 13px;
+	margin: 1em 0;
+	font-size: $px14;
+	line-height: 1.325;
 }
 
 .top-panel h2 {
@@ -220,6 +221,7 @@
 	}
 
 	figure {
+		min-width: 64px;
 		margin: 0 1em 0 0;
 
 		@media screen and ( max-width: 799px ) {
@@ -229,12 +231,6 @@
 
 	div {
 		margin-bottom: 2rem;
-
-		p {
-			&:first-of-type {
-				margin: 0;
-			}
-		}
 	}
 }
 

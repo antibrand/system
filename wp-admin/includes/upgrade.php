@@ -291,10 +291,12 @@ To get started with moderating, editing, and deleting comments, please visit the
 	update_option( 'widget_categories', array ( 2 => array ( 'title' => '', 'count' => 0, 'hierarchical' => 0, 'dropdown' => 0 ), '_multiwidget' => 1 ) );
 	update_option( 'widget_meta', array ( 2 => array ( 'title' => '' ), '_multiwidget' => 1 ) );
 	update_option( 'sidebars_widgets', array( 'wp_inactive_widgets' => array(), 'sidebar-1' => array( 0 => 'search-2', 1 => 'recent-posts-2', 2 => 'recent-comments-2', 3 => 'archives-2', 4 => 'categories-2', 5 => 'meta-2' ), 'sidebar-2' => array(), 'sidebar-3' => array(), 'array_version' => 3 ) );
-	if ( ! is_multisite() )
-		update_user_meta( $user_id, 'show_welcome_panel', 1 );
-	elseif ( ! is_super_admin( $user_id ) && ! metadata_exists( 'user', $user_id, 'show_welcome_panel' ) )
-		update_user_meta( $user_id, 'show_welcome_panel', 2 );
+
+	if ( ! is_multisite() ) {
+		update_user_meta( $user_id, 'show_top_panel', 1 );
+	} elseif ( ! is_super_admin( $user_id ) && ! metadata_exists( 'user', $user_id, 'show_top_panel' ) ) {
+		update_user_meta( $user_id, 'show_top_panel', 2 );
+	}
 
 	if ( is_multisite() ) {
 		// Flush rules to pick up the new page.

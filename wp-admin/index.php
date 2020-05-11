@@ -127,27 +127,34 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 
 		<h1><?php echo esc_html( $title ); ?></h1>
 
-	<?php if ( has_action( 'welcome_panel' ) && current_user_can( 'edit_theme_options' ) ) :
+	<?php if ( has_action( 'dashboard_top_panel' ) && current_user_can( 'edit_theme_options' ) ) :
 		$classes = 'top-panel';
 
-		$option = get_user_meta( get_current_user_id(), 'show_welcome_panel', true );
+		$option = get_user_meta( get_current_user_id(), 'show_top_panel', true );
 
 		// 0 = hide, 1 = toggled to show or single site creator, 2 = multisite site owner.
 		$hide = '0' === $option || ( '2' === $option && wp_get_current_user()->user_email != get_option( 'admin_email' ) );
-		if ( $hide )
-			$classes .= ' hidden'; ?>
+
+		if ( $hide ) {
+			$classes .= ' hidden';
+		} ?>
 
 		<div id="top-panel" class="<?php echo esc_attr( $classes ); ?>">
-			<?php wp_nonce_field( 'top-panel-nonce', 'welcomepanelnonce', false ); ?>
-			<a class="top-panel-close" href="<?php echo esc_url( admin_url( '?welcome=0' ) ); ?>" aria-label="<?php esc_attr_e( 'Dismiss the welcome panel' ); ?>"><?php _e( 'Dismiss' ); ?></a>
-			<?php
+
+			<?php wp_nonce_field( 'top-panel-nonce', 'toppanelnonce', false );
+
+			/**
+			 * Add content to the top panel
+			 *
+			 * @since 1.0.0
+			 */
+			do_action( 'dashboard_top_panel' );
+
 			/**
 			 * Add content to the welcome panel
 			 *
-			 * To remove the default welcome panel, use remove_action():
-			 * remove_action( 'welcome_panel', 'wp_welcome_panel' );
-			 *
-			 * @since WP 3.5.0
+			 * @since      WP 3.5.0
+			 * @deprecated 1.0.0 Not used by this website management system.
 			 */
 			do_action( 'welcome_panel' );
 			?>
