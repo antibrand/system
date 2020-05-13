@@ -31,7 +31,7 @@
  *
  *    Namespaces encapsulate code and help solve naming conflicts.
  *
- *    Find `App_Namespace` and replace with something unique to your system,
+ *    Find `AppNamespace` and replace with something unique to your system,
  *    include underscores between words.
  *
  *    The namespace name PHP and compound names starting with this name
