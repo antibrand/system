@@ -132,7 +132,7 @@ td {
 /* Any change to the default link style must be applied to button-link too. */
 a {
 	color: $link_color;
-	transition: all .15s;
+	color-adjust: exact !important;
 
 	&:hover,
 	&:focus {
@@ -161,11 +161,6 @@ q:after {
 
 blockquote {
 	margin: 1em;
-}
-
-li,
-dd {
-	margin-bottom: 6px;
 }
 
 .update-core-php h2 {
@@ -1428,6 +1423,14 @@ form.upgrade .hint {
 	margin: 0;
 	padding: 8px 20px 12px;
 	position: relative;
+
+	fieldset {
+		margin-top: 1em;
+
+		legend {
+			padding: 0;
+		}
+	}
 }
 
 #contextual-help-wrap {
@@ -1514,7 +1517,6 @@ form.upgrade .hint {
 }
 
 #screen-options-wrap h5, /* Back-compat for old plugins */
-#screen-options-wrap legend,
 #contextual-help-wrap h5 {
 	margin: 0;
 	padding: 8px 0;
@@ -1721,10 +1723,6 @@ html.wp-toolbar {
 
 .postbox-container .meta-box-sortables {
 	box-sizing: border-box;
-}
-
-.app-content .metabox-holder {
-	padding-top: 10px;
 }
 
 .metabox-holder .postbox-container .empty-container {

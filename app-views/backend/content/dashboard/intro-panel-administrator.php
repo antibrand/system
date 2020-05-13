@@ -10,6 +10,19 @@
 $version = get_bloginfo( 'version' );
 
 /**
+ * Top panel tabs
+ */
+if ( isset( $_GET['tab-active'] ) ) {
+	$tab_active = empty( $_GET['tab-active'] ) ? '' : 'tab-active';
+	update_user_meta( get_current_user_id(), 'top_panel_tab', $tab_active );
+} else {
+	$tab_active = get_user_meta( get_current_user_id(), 'top_panel_tab', 'tab-active' );
+	if ( '' === $tab_active ) {
+		$tab_active = 'tab-active';
+	}
+}
+
+/**
  * Intro panel description
  *
  * Uses the white label tagline if available.
@@ -81,24 +94,74 @@ if ( $theme_tags ) {
 	$theme_tags = '';
 }
 
+/**
+ * Dashboard widgets tab
+ *
+ * Hide the "Widgets" tab and content if no dashboard widgets
+ * have been registered for this screen.
+ */
+global $wp_meta_boxes;
+$screen = get_current_screen();
+
+if ( ! isset( $wp_meta_boxes[$screen->id] ) ) {
+	$no_widgets = ' style="display: none !important"';
+} else {
+	$no_widgets = '';
+}
+
+$user_greeting = sprintf(
+	'<h3>%1s %2s</h3>',
+	esc_html__( 'Hello,' ),
+	$user_name
+);
+
 ?>
 <div class="top-panel-inner">
 
-	<?php echo $panel_heading; ?>
-	<?php echo $panel_description; ?>
+	<?php // echo $panel_heading; ?>
+	<?php // echo $panel_description; ?>
 
-	<div class='app-tabs top-panel-tabbed-content' data-toggle="app-tabs" data-tab_mouseevent="click">
+	<div class='app-tabs top-panel-tabbed-content' data-tabbed="tabbed" data-tabevent="click">
 
 		<ul class='app-tabs-list app-tabs-horizontal hide-if-no-js'>
+			<li class="app-tab active"><a href="#overview"><?php _e( 'Overview' ); ?></a>
 			<li class="app-tab"><a href="#manage"><?php _e( 'Manage' ); ?></a>
 			<li class="app-tab"><a href="#customize"><?php _e( 'Customize' ); ?></a>
+			<li class="app-tab"<?php echo $no_widgets; ?>><a href="#widgets"><?php _e( 'Widgets' ); ?></a>
+			<li class="app-tab"><a href="#drafts"><?php _e( 'Drafts' ); ?></a>
 		</ul>
+
+		<div id='overview' class="app-tab-content top-panel-tab">
+
+			<header>
+				<h2><?php _e( 'Site Overview' ); ?></h2>
+				<p class="description"><?php _e( '' ); ?></p>
+			</header>
+
+			<div class="top-panel-column-container">
+
+				<div class="top-panel-column">
+
+					
+
+					
+
+				</div>
+
+				<div class="top-panel-column">
+					<?php app_site_overview(); ?>
+				</div>
+
+			</div>
+
+		</div>
 
 		<div id='manage' class="app-tab-content top-panel-tab">
 
-			<h2><?php _e( 'Manage Your Site' ); ?></h2>
-
-			<p class="description"><?php _e( 'This dashboard provides handy links to the various features of the website management system.' ); ?></p>
+			<header>
+				<h2><?php _e( 'Manage Your Site' ); ?></h2>
+				<p class="description"><?php _e( 'This dashboard provides handy links to the various features of the website management system.' ); ?></p>
+			</header>
 
 			<div class="top-panel-column-container">
 
@@ -106,7 +169,7 @@ if ( $theme_tags ) {
 
 					<h3><?php _e( 'Get Started' ); ?></h3>
 
-					<div class="dashboard-panel-section-intro dashboard-panel-user-greeting">
+					<div class="dashboard-panel-section-intro dashboard-panel-user">
 
 						<figure>
 							<a href="<?php echo esc_url( admin_url( 'profile.php' ) ); ?>">
@@ -116,12 +179,8 @@ if ( $theme_tags ) {
 						</figure>
 
 						<div>
-							<?php echo sprintf(
-								'<h4>%1s %2s.</h4>',
-								esc_html__( 'Hello,' ),
-								$user_name
-							); ?>
 							<p><?php _e( 'This site may display your profile details in posts that you author, depending on the theme and plugins used. You can edit yoyr details, set your images, and change your color schemes.' ); ?></p>
+
 							<p class="dashboard-panel-call-to-action"><a class="button button-primary button-hero" href="<?php echo esc_url( admin_url( 'profile.php' ) ); ?>"><?php _e( 'Manage Your Profile' ); ?></a></p>
 						</div>
 
@@ -186,19 +245,20 @@ if ( $theme_tags ) {
 
 		<div id='customize' class="app-tab-content top-panel-tab hide-if-no-js">
 
-			<h2><?php _e( 'Customize Your Site' ); ?></h2>
-
-			<p class="description"><?php _e( 'Choose layout options, color schemes, and more.' ); ?></p>
+			<header>
+				<h2><?php _e( 'Customize Your Site' ); ?></h2>
+				<p class="description"><?php _e( 'Choose layout options, color schemes, and more.' ); ?></p>
+			</header>
 
 			<div class="top-panel-column-container">
 
 				<div class="top-panel-column">
 
-					<h3><?php _e( 'More Options' ); ?></h3>
+					<h3><?php _e( 'Active Theme' ); ?></h3>
 
-					<div class="dashboard-panel-section-intro dashboard-panel-theme-greeting">
+					<div class="dashboard-panel-section-intro dashboard-panel-theme">
 
-						<figure>
+						<figure class="alignright">
 							<a href="<?php echo esc_url( wp_customize_url() ); ?>">
 								<img class="avatar" src="<?php echo esc_url( $theme_icon ); ?>" alt="<?php echo $theme_name; ?>" width="64" height="64" />
 							</a>
@@ -206,12 +266,12 @@ if ( $theme_tags ) {
 						</figure>
 
 						<div>
-							<h4><?php echo __( 'Active Theme: ' ) . $theme_name; ?></h4>
+							<h4><?php echo $theme_name; ?></h4>
 
 							<?php echo $theme_description; ?>
 							<?php echo $theme_tags; ?>
 
-							<p class="dashboard-panel-call-to-action"><a class="button button-primary button-hero load-customize hide-if-no-customize" href="<?php echo esc_url( wp_customize_url() . '?url=' . site_url() . '&return=' . site_url() ); ?>"><?php _e( 'Website Customizer' ); ?></a></p>
+							<p class="dashboard-panel-call-to-action"><a class="button button-primary button-hero load-customize hide-if-no-customize" href="<?php echo esc_url( wp_customize_url() . '?url=' . site_url() . '&return=' . site_url() ); ?>"><?php _e( 'Launch Customizer' ); ?></a></p>
 						</div>
 
 					</div>
@@ -240,6 +300,33 @@ if ( $theme_tags ) {
 				</div>
 
 			</div>
-		</div><!-- #customize -->
+		</div>
+
+		<div id='widgets' class="app-tab-content top-panel-tab"<?php echo $no_widgets; ?>>
+
+			<header>
+				<h2><?php _e( 'Widgets' ); ?></h2>
+				<p class="description"><?php _e( 'The following widgets are registered by plugins or themes.' ); ?></p>
+			</header>
+
+			<div id="dashboard-widgets-wrap">
+
+				<?php wp_dashboard(); ?>
+
+			</div><!-- #dashboard-widgets-wrap -->
+
+		</div><!-- #widgets -->
+
+		<div id='drafts' class="app-tab-content top-panel-tab">
+
+			<header>
+				<h2><?php _e( 'Draft Posts' ); ?></h2>
+				<p class="description"><?php _e( 'Create or follow up on draft post content.' ); ?></p>
+			</header>
+
+			<?php wp_dashboard_quick_press(); ?>
+
+		</div><!-- #drafts -->
+
 	</div><!-- .app-tabs -->
-</div><!-- .top-panel -->
+</div><!-- .top-panel-inner -->

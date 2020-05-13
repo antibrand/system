@@ -388,7 +388,7 @@ b, strong, optgroup {
 .button-primary.button-hero:focus,
 .button-secondary.button-hero:hover,
 .button-secondary.button-hero:focus {
-  background-color: #fff133;
+  background-color: #ffee00;
 }
 
 .button:active, .button:focus,
@@ -420,6 +420,7 @@ b, strong, optgroup {
 .button-secondary:active {
   background: #ffee00;
   color: #222222;
+  color-adjust: exact !important;
 }
 
 .button[disabled], .button:disabled, .button.disabled, .button.button-disabled,
@@ -869,30 +870,6 @@ textarea:disabled, textarea.disabled {
 
 select[multiple] {
   height: auto;
-}
-
-.submit {
-  padding: 1.5em 0;
-  margin: 5px 0;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  border: none;
-}
-
-form p.submit a.cancel:hover {
-  text-decoration: none;
-}
-
-p.submit {
-  text-align: left;
-  max-width: 100%;
-  margin-top: 20px;
-  padding-top: 10px;
-}
-
-.textright p.submit {
-  border: none;
-  text-align: right;
 }
 
 #minor-publishing-actions input,

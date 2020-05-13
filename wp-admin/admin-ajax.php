@@ -77,6 +77,7 @@ $core_actions_post = [
 	'closed-postboxes',
 	'hidden-columns',
 	'update-top-panel',
+	'update-top-panel-tab',
 	'menu-get-metabox',
 	'wp-link-ajax',
 	'menu-locations-save',

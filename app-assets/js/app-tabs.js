@@ -9,20 +9,20 @@
 
 		// Default options.
 		var defaults = {
-			tab_mouseevent   : 'click',
-			tab_activeclass  : 'active',
-			tab_attribute    : 'href',
-			tab_animation    : false,
-			tab_anispeed     : 400,
-			tab_autorotate   : false,
-			tab_deeplinking  : false,
-			tab_pauseonhover : true,
-			tab_delay        : 2000,
-			tab_active       : 1,
-			tab_container    : false,
-			tab_controls     : {
-				tab_prev : '.prev-tab',
-				tab_next : '.next-tab'
+			tabevent        : 'click',
+			tabactiveclass  : 'active',
+			tabattribute    : 'href',
+			tabanimation    : false,
+			tabanispeed     : 400,
+			tabrotate   : false,
+			tabdeeplinking  : false,
+			tabpausehover : true,
+			tabdelay        : 2000,
+			tabactive       : 1,
+			tabcontainer    : false,
+			tabcontrols     : {
+				tabprev : '.prev-tab',
+				tabnext : '.next-tab'
 			}
 		};
 
@@ -32,13 +32,13 @@
 
 			var $this = $(this), _cache_li = [], _cache_div = [];
 
-			if ( options.tab_container ) {
-				var _tab_container = $( options.tab_container );
+			if ( options.tabcontainer ) {
+				var _tabcontainer = $( options.tabcontainer );
 			} else {
-				var _tab_container = $this;
+				var _tabcontainer = $this;
 			}
 
-			var _app_tabs = _tab_container.find( '> div' );
+			var _app_tabs = _tabcontainer.find( '> div' );
 
 			// Caching.
 			_app_tabs.each( function() {
@@ -46,7 +46,7 @@
 			});
 
 			// Autorotate.
-			var elements = $this.find( '> ul > li' ), i = options.tab_active - 1; // ungly
+			var elements = $this.find( '> ul > li' ), i = options.tabactive - 1; // ungly
 
 			if ( ! $this.data( 'app_tabs-init' ) ) {
 
@@ -55,29 +55,29 @@
 
 				$.map(
 					[
-						'tab_mouseevent',
-						'tab_activeclass',
-						'tab_attribute',
-						'tab_animation',
-						'tab_anispeed',
-						'tab_autorotate',
-						'tab_deeplinking',
-						'tab_pauseonhover',
-						'tab_delay',
-						'tab_container'
+						'tabevent',
+						'tabactiveclass',
+						'tabattribute',
+						'tabanimation',
+						'tabanispeed',
+						'tabrotate',
+						'tabdeeplinking',
+						'tabpausehover',
+						'tabdelay',
+						'tabcontainer'
 					],
 					function( val, i ) {
 						$this.opts[val] = $this.data(val) || options[val];
 					}
 				);
 
-				$this.opts['tab_active'] = $this.opts.tab_deeplinking ? deep_link() : ( $this.data( 'tab_active' ) || options.tab_active )
+				$this.opts['tabactive'] = $this.opts.tabdeeplinking ? deep_link() : ( $this.data( 'tabactive' ) || options.tabactive )
 
 				_app_tabs.hide();
 
-				if ( $this.opts.tab_active ) {
-					_app_tabs.eq( $this.opts.tab_active - 1 ).show();
-					elements.eq( $this.opts.tab_active - 1 ).addClass( options.tab_activeclass );
+				if ( $this.opts.tabactive ) {
+					_app_tabs.eq( $this.opts.tabactive - 1 ).show();
+					elements.eq( $this.opts.tabactive - 1 ).addClass( options.tabactiveclass );
 				}
 
 				var fn = eval(
@@ -85,34 +85,34 @@
 					function( e, tab ) {
 
 						if ( tab ) {
-							var _this = elements.find( 'a[' + $this.opts.tab_attribute + '="' + tab +'"]' ).parent();
+							var _this = elements.find( 'a[' + $this.opts.tabattribute + '="' + tab +'"]' ).parent();
 						} else {
 							var _this = $(this);
 						}
 
 						_this.trigger( '_before' );
-						elements.removeClass( options.tab_activeclass );
-						_this.addClass( options.tab_activeclass );
+						elements.removeClass( options.tabactiveclass );
+						_this.addClass( options.tabactiveclass );
 						_app_tabs.hide();
 
 						i = elements.index( _this );
 
-						var currentTab = tab || _this.find( 'a' ).attr( $this.opts.tab_attribute );
+						var currentTab = tab || _this.find( 'a' ).attr( $this.opts.tabattribute );
 
-						if ( $this.opts.tab_deeplinking ) {
+						if ( $this.opts.tabdeeplinking ) {
 							location.hash = currentTab;
 						}
 
-						if ( $this.opts.tab_animation ) {
+						if ( $this.opts.tabanimation ) {
 
-							_tab_container.find( currentTab ).animate(
+							_tabcontainer.find( currentTab ).animate(
 								{ opacity : 'show' },
-								$this.opts.tab_anispeed
+								$this.opts.tabanispeed
 							);
 							_this.trigger( '_after' );
 
 						} else {
-							_tab_container.find( currentTab ).show();
+							_tabcontainer.find( currentTab ).show();
 							_this.trigger( '_after' );
 						}
 
@@ -120,7 +120,7 @@
 					}
 				);
 
-				var init = eval( "elements." + $this.opts.tab_mouseevent + "(fn)" );
+				var init = eval( "elements." + $this.opts.tabevent + "(fn)" );
 
 				init;
 
@@ -130,34 +130,34 @@
 					// Wrap around.
 					i = ++i % elements.length;
 
-					$this.opts.tab_mouseevent == 'hover' ? elements.eq(i).trigger( 'mouseover' ) : elements.eq(i).click();
+					$this.opts.tabevent == 'hover' ? elements.eq(i).trigger( 'mouseover' ) : elements.eq(i).click();
 
-					if ( $this.opts.tab_autorotate ) {
+					if ( $this.opts.tabrotate ) {
 
 						clearTimeout(t);
 						t = setTimeout( forward, $this.opts.delay );
 
 						$this.mouseover( function () {
-							if ( $this.opts.tab_pauseonhover ) {
+							if ( $this.opts.tabpausehover ) {
 								clearTimeout(t);
 							}
 						});
 					}
 				}
 
-				if ( $this.opts.tab_autorotate ) {
+				if ( $this.opts.tabrotate ) {
 
-					t = setTimeout( forward, $this.opts.tab_delay );
+					t = setTimeout( forward, $this.opts.tabdelay );
 
 					$this.hover( function() {
-						if ( $this.opts.tab_pauseonhover ) {
+						if ( $this.opts.tabpausehover ) {
 							clearTimeout(t);
 						}
 					}, function() {
-						t = setTimeout( forward, $this.opts.tab_delay );
+						t = setTimeout( forward, $this.opts.tabdelay );
 					});
 
-					if ( $this.opts.tab_pauseonhover ) {
+					if ( $this.opts.tabpausehover ) {
 						$this.on( "mouseleave", function() {
 							clearTimeout(t); t = setTimeout( forward, $this.opts.delay );
 						});
@@ -168,7 +168,7 @@
 
 					var ids = [];
 					elements.find( 'a' ).each( function() {
-						ids.push( $(this).attr( $this.opts.tab_attribute ) );
+						ids.push( $(this).attr( $this.opts.tabattribute ) );
 					});
 
 					var index = $.inArray( location.hash, ids )
@@ -176,7 +176,7 @@
 					if ( index > -1 ) {
 						return index + 1
 					} else {
-						return ( $this.data( 'active' ) || options.tab_active )
+						return ( $this.data( 'active' ) || options.tabactive )
 					}
 
 				}
@@ -196,11 +196,11 @@
 					elements.eq( i ).click();
 				}
 
-				$this.find( options.tab_controls.tab_next ).click( function() {
+				$this.find( options.tabcontrols.tabnext ).click( function() {
 					move( 'forward' );
 				});
 
-				$this.find( options.tab_controls.tab_prev ).click( function() {
+				$this.find( options.tabcontrols.tabprev ).click( function() {
 					move( 'backward' );
 				});
 
@@ -219,7 +219,7 @@
 				$this.on ( 'destroy', function() {
 
 					$(this).removeData().find( '> ul li' ).each( function(i) {
-						$(this).removeClass( options.tab_activeclass );
+						$(this).removeClass( options.tabactiveclass );
 					});
 
 					_app_tabs.each( function(i) {
@@ -231,7 +231,7 @@
 	};
 
 	$(document).ready( function () {
-		$( '[data-toggle="app-tabs"]' ).app_tabs();
+		$( '[data-tabbed="tabbed"]' ).app_tabs();
 	} );
 
 })( jQuery );

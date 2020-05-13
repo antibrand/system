@@ -1009,33 +1009,53 @@ final class WP_Screen {
 		if ( ! isset( $wp_meta_boxes[ $this->id ] ) ) {
 			return;
 		}
-		?>
-		<fieldset class="metabox-prefs">
-		<legend><?php _e( 'Boxes' ); ?></legend>
-		<?php
 
-			// Top panel preference checkbox.
-			if ( 'dashboard' === $this->id && has_action( 'dashboard_top_panel' ) && current_user_can( 'edit_theme_options' ) ) {
-				if ( isset( $_GET['top-panel'] ) ) {
-					$top_panel_checked = empty( $_GET['top-panel'] ) ? 0 : 1;
-					update_user_meta( get_current_user_id(), 'show_top_panel', $top_panel_checked );
-				} else {
-					$top_panel_checked = get_user_meta( get_current_user_id(), 'show_top_panel', true );
-					if ( '' === $top_panel_checked ) {
-						$top_panel_checked = '1';
+		// Top panel preference checkbox.
+		if ( 'dashboard' === $this->id && has_action( 'dashboard_top_panel' ) && current_user_can( 'edit_theme_options' ) ) {
+
+			?>
+			<fieldset class="metabox-prefs">
+				<legend><?php _e( 'Top Panel' ); ?></legend>
+
+				<p class="description"><?php _e( 'Tabbed content at the top of this page.' ); ?></p>
+				<?php
+
+					// Top panel preference checkbox.
+					if ( 'dashboard' === $this->id && has_action( 'dashboard_top_panel' ) && current_user_can( 'edit_theme_options' ) ) {
+						if ( isset( $_GET['top-panel'] ) ) {
+							$top_panel_checked = empty( $_GET['top-panel'] ) ? 0 : 1;
+							update_user_meta( get_current_user_id(), 'show_top_panel', $top_panel_checked );
+						} else {
+							$top_panel_checked = get_user_meta( get_current_user_id(), 'show_top_panel', true );
+							if ( '' === $top_panel_checked ) {
+								$top_panel_checked = '1';
+							}
+							if ( '2' === $top_panel_checked && wp_get_current_user()->user_email != get_option( 'admin_email' ) ) {
+								$top_panel_checked = false;
+							}
+						}
+						echo '<label for="app_top_panel-hide">';
+						echo '<input type="checkbox" id="app_top_panel-hide"' . checked( (bool) $top_panel_checked, true, false ) . ' />';
+						echo _x( 'Display panel', 'Top panel' ) . "</label>\n";
 					}
-					if ( '2' === $top_panel_checked && wp_get_current_user()->user_email != get_option( 'admin_email' ) ) {
-						$top_panel_checked = false;
-					}
-				}
-				echo '<label for="app_top_panel-hide">';
-				echo '<input type="checkbox" id="app_top_panel-hide"' . checked( (bool) $top_panel_checked, true, false ) . ' />';
-				echo _x( 'Top Panel', 'Top panel' ) . "</label>\n";
+				?>
+			</fieldset>
+			<?php
 			}
 
-			// All other preference checkboxes.
-			meta_box_prefs( $this );
+		// Legend text.
+		if ( 'dashboard' === $this->id ) {
+			$legend      = esc_html__( 'Widgets Tab' );
+			$description = esc_html__( 'Display widgets that have been registered by plugins or themes.' );
+		} else {
+			$legend      = esc_html__( 'Additional Content' );
+			$description = esc_html__( 'Display boxes with secondary forms and content.' );
+		}
 		?>
+		<fieldset class="metabox-prefs">
+			<legend><?php echo $legend; ?></legend>
+			<p class="description"><?php echo $description; ?></p>
+			<?php meta_box_prefs( $this ); ?>
 		</fieldset>
 		<?php
 	}
@@ -1103,7 +1123,7 @@ final class WP_Screen {
 
 		?>
 		<fieldset class='columns-prefs'>
-		<legend class="screen-layout"><?php _e( 'Layout' ); ?></legend>
+		<legend class="screen-layout"><?php _e( 'Widgets Layout' ); ?></legend>
 		<p class="description"><?php _e( 'Column preferences may not affect small screen layouts.' ); ?></p>
 		<?php
 			for ( $i = 1; $i <= $num; ++$i ):

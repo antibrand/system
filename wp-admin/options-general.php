@@ -101,13 +101,13 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 		<table class="form-table">
 
 		<tr>
-			<th scope="row"><label for="blogname"><?php _e( 'Site Title' ) ?></label></th>
+			<th scope="row"><label for="blogname"><?php _e( 'Site Name' ) ?></label></th>
 
 			<td><input name="blogname" type="text" id="blogname" value="<?php form_option( 'blogname' ); ?>" class="regular-text" /></td>
 		</tr>
 
 		<tr>
-			<th scope="row"><label for="blogdescription"><?php _e( 'Tagline' ) ?></label></th>
+			<th scope="row"><label for="blogdescription"><?php _e( 'Site Description' ) ?></label></th>
 
 			<td>
 				<input name="blogdescription" type="text" id="blogdescription" aria-describedby="tagline-description" value="<?php form_option( 'blogdescription' ); ?>" class="regular-text" />
@@ -143,7 +143,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 		<?php } ?>
 
 		<tr>
-			<th scope="row"><label for="new_admin_email"><?php _e( 'Email Address' ); ?></label></th>
+			<th scope="row"><label for="new_admin_email"><?php _e( 'Administrative Email' ); ?></label></th>
 
 			<td>
 				<input name="new_admin_email" type="email" id="new_admin_email" aria-describedby="new-admin-email-description" value="<?php form_option( 'admin_email' ); ?>" class="regular-text ltr" />
@@ -176,11 +176,11 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 		<?php if ( ! is_multisite() ) { ?>
 
 		<tr>
-			<th scope="row"><?php _e( 'Membership' ) ?></th>
+			<th scope="row"><?php _e( 'Site Membership' ) ?></th>
 
 			<td>
 				<fieldset>
-					<legend class="screen-reader-text"><span><?php _e( 'Membership' ) ?></span></legend>
+					<legend class="screen-reader-text"><span><?php _e( 'Site Membership' ) ?></span></legend>
 
 					<label for="users_can_register">
 						<input name="users_can_register" type="checkbox" id="users_can_register" value="1" <?php checked( '1', get_option( 'users_can_register' ) ); ?> />
@@ -446,7 +446,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 							'<p><strong>' . __( 'Preview:' ) . '</strong> <span class="example">' . date_i18n( get_option( 'time_format' ) ) . '</span>' .
 							"<span class='spinner'></span>\n" . '</p>';
 
-						echo "\t<p class='date-time-doc'>" . __( '<a href="https://codex.wordpress.org/Formatting_Date_and_Time">Documentation on date and time formatting</a>.' ) . "</p>\n";
+						echo "\t<p class='date-time-doc'>" . __( '<a href="http://php.net/date">Documentation on date and time formatting</a>.' ) . "</p>\n";
 						?>
 					</fieldset>
 				</td>

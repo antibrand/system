@@ -1430,6 +1430,20 @@ function wp_ajax_update_top_panel() {
 }
 
 /**
+ * Ajax handler for updating the top panel active tab.
+ *
+ * @since 3.1.0
+ */
+function wp_ajax_update_top_panel_tab() {
+
+	check_ajax_referer( 'top-panel-tab-nonce', 'toppaneltabnonce' );
+
+	update_user_meta( get_current_user_id(), 'top_panel_tab', empty( $_POST['active'] ) ? '' : 'active' );
+
+	wp_die( 1 );
+}
+
+/**
  * Ajax handler for retrieving menu meta boxes.
  *
  * @since 3.1.0

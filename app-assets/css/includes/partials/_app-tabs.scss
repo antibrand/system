@@ -63,7 +63,65 @@
 
 	.app-tab-content {
 		display: none;
-		padding: 2em 0 1em;
+		position: relative;
+		overflow: hidden;
+		padding: 2em 1em 1em;
+
+		.app-tab-columns {
+			display: flex;
+
+			@media screen and ( max-width: 768px ) {
+				flex-direction: column;
+			}
+
+			& > div {
+				width: auto;
+
+				@media screen and ( max-width: 768px ) {
+					width: 100%;
+				}
+
+				&:not( :last-of-type ) {
+					margin-right: 2rem;
+				}
+			}
+
+			&.app-tab-columns-two {
+				& > div {
+					width: 50%;
+
+					@media screen and ( max-width: 768px ) {
+						width: 100%;
+					}
+				}
+			}
+
+			&.app-tab-columns-three {
+				& > div {
+					width: 33.33325%;
+					width: calc( 100% / 3 );
+
+					@media screen and ( max-width: 768px ) {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+
+	// .app-tabs[data-tab_mouseevent="hover"]
+	&[data-tab_mouseevent="hover"] {
+		.app-tabs-list {
+			.app-tab {
+				&.active {
+
+					// Pointer when using hover.
+					a {
+						cursor: pointer;
+					}
+				}
+			}
+		}
 	}
 }
 

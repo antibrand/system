@@ -64,7 +64,7 @@
 
 		&:hover,
 		&:focus {
-			background-color: lighten( $button_action_background_color, 10% );
+			background-color: $button_action_background_color;
 		}
 	}
 
@@ -85,6 +85,7 @@
 	&:active {
 		background: $button_action_background_color;
 		color: $button_action_text_color;
+		color-adjust: exact !important;
 	}
 
 	&[disabled],

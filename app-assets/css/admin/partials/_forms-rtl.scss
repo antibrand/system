@@ -334,30 +334,6 @@ select[multiple] {
 	height: auto;
 }
 
-.submit {
-	padding: 1.5em 0;
-	margin: 5px 0;
-	border-bottom-right-radius: 3px;
-	border-bottom-left-radius: 3px;
-	border: none;
-}
-
-form p.submit a.cancel:hover {
-	text-decoration: none;
-}
-
-p.submit {
-	text-align: right;
-	max-width: 100%;
-	margin-top: 20px;
-	padding-top: 10px;
-}
-
-.textright p.submit {
-	border: none;
-	text-align: left;
-}
-
 #minor-publishing-actions input,
 #major-publishing-actions input,
 #minor-publishing-actions .preview {

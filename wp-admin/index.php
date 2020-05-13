@@ -73,7 +73,7 @@ $screen->add_help_tab( [
 
 $help = sprintf(
 	'<h3>%1s</h3>',
-	__( 'Layout' )
+	__( 'Widgets Layout' )
 );
 
 $help .= '<p>' . __( 'You can use the following controls to arrange your Dashboard screen to suit your workflow. This is true on most other administration screens as well.' ) . '</p>';
@@ -83,7 +83,7 @@ $help .= '<p>' . __( '<strong>Box Controls</strong> &mdash; Click the title bar 
 
 $screen->add_help_tab( [
 	'id'      => 'help-layout',
-	'title'   => __( 'Layout' ),
+	'title'   => __( 'Widgets Layout' ),
 	'content' => $help,
 ] );
 
@@ -160,15 +160,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 			do_action( 'welcome_panel' );
 			?>
 		</div>
-	<?php endif; ?>
+	</div><!-- .wrap -->
+	<?php endif;
 
-		<div id="dashboard-widgets-wrap">
-
-			<?php wp_dashboard(); ?>
-
-		</div><!-- dashboard-widgets-wrap -->
-
-	</div><!-- wrap -->
-
-<?php
 require( ABSPATH . 'wp-admin/admin-footer.php' );

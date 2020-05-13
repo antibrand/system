@@ -799,30 +799,6 @@ select[multiple] {
   height: auto;
 }
 
-.submit {
-  padding: 1.5em 0;
-  margin: 5px 0;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border: none;
-}
-
-form p.submit a.cancel:hover {
-  text-decoration: none;
-}
-
-p.submit {
-  text-align: right;
-  max-width: 100%;
-  margin-top: 20px;
-  padding-top: 10px;
-}
-
-.textright p.submit {
-  border: none;
-  text-align: left;
-}
-
 #minor-publishing-actions input,
 #major-publishing-actions input,
 #minor-publishing-actions .preview {
@@ -2007,7 +1983,7 @@ table.form-table td .updated p {
 .button-primary.button-hero:focus,
 .button-secondary.button-hero:hover,
 .button-secondary.button-hero:focus {
-  background-color: #fff133;
+  background-color: #ffee00;
 }
 
 .button:active, .button:focus,
@@ -2039,6 +2015,7 @@ table.form-table td .updated p {
 .button-secondary:active {
   background: #ffee00;
   color: #222222;
+  color-adjust: exact !important;
 }
 
 .button[disabled], .button:disabled, .button.disabled, .button.button-disabled,
@@ -2165,7 +2142,63 @@ table.form-table td .updated p {
 
 .app-tabs .app-tab-content {
   display: none;
-  padding: 2em 0 1em;
+  position: relative;
+  overflow: hidden;
+  padding: 2em 1em 1em;
+}
+
+.app-tabs .app-tab-content .app-tab-columns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media screen and (max-width: 768px) {
+  .app-tabs .app-tab-content .app-tab-columns {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.app-tabs .app-tab-content .app-tab-columns > div {
+  width: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .app-tabs .app-tab-content .app-tab-columns > div {
+    width: 100%;
+  }
+}
+
+.app-tabs .app-tab-content .app-tab-columns > div:not(:last-of-type) {
+  margin-right: 2rem;
+}
+
+.app-tabs .app-tab-content .app-tab-columns.app-tab-columns-two > div {
+  width: 50%;
+}
+
+@media screen and (max-width: 768px) {
+  .app-tabs .app-tab-content .app-tab-columns.app-tab-columns-two > div {
+    width: 100%;
+  }
+}
+
+.app-tabs .app-tab-content .app-tab-columns.app-tab-columns-three > div {
+  width: 33.33325%;
+  width: calc( 100% / 3);
+}
+
+@media screen and (max-width: 768px) {
+  .app-tabs .app-tab-content .app-tab-columns.app-tab-columns-three > div {
+    width: 100%;
+  }
+}
+
+.app-tabs[data-tab_mouseevent="hover"] .app-tabs-list .app-tab.active a {
+  cursor: pointer;
 }
 
 .rtl .app-tabs .app-tabs-list {
@@ -2307,8 +2340,7 @@ td {
 /* Any change to the default link style must be applied to button-link too. */
 a {
   color: #004499;
-  -webkit-transition: all .15s;
-  transition: all .15s;
+  color-adjust: exact !important;
 }
 
 a:hover, a:focus {
@@ -2337,11 +2369,6 @@ q:after {
 
 blockquote {
   margin: 1em;
-}
-
-li,
-dd {
-  margin-bottom: 6px;
 }
 
 .update-core-php h2 {
@@ -3641,6 +3668,16 @@ form.upgrade .hint {
   position: relative;
 }
 
+#screen-options-wrap fieldset,
+#contextual-help-wrap fieldset {
+  margin-top: 1em;
+}
+
+#screen-options-wrap fieldset legend,
+#contextual-help-wrap fieldset legend {
+  padding: 0;
+}
+
 #contextual-help-wrap {
   overflow: auto;
   margin-right: 0 !important;
@@ -3725,7 +3762,6 @@ form.upgrade .hint {
 }
 
 #screen-options-wrap h5,
-#screen-options-wrap legend,
 #contextual-help-wrap h5 {
   margin: 0;
   padding: 8px 0;
@@ -3932,10 +3968,6 @@ html.wp-toolbar {
 .postbox-container .meta-box-sortables {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-}
-
-.app-content .metabox-holder {
-  padding-top: 10px;
 }
 
 .metabox-holder .postbox-container .empty-container {

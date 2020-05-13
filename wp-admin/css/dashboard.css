@@ -1,54 +1,109 @@
-.app-content #dashboard-widgets.columns-1 .postbox-container {
-  width: 100%;
-}
-
-.app-content #dashboard-widgets.columns-2 .postbox-container {
-  width: 49.5%;
-}
-
-.app-content #dashboard-widgets.columns-2 #postbox-container-2,
-.app-content #dashboard-widgets.columns-2 #postbox-container-3,
-.app-content #dashboard-widgets.columns-2 #postbox-container-4 {
-  float: right;
-  width: 50.5%;
-}
-
-.app-content #dashboard-widgets.columns-3 .postbox-container {
-  width: 33.5%;
-}
-
-.app-content #dashboard-widgets.columns-3 #postbox-container-1 {
-  width: 33%;
-}
-
-.app-content #dashboard-widgets.columns-3 #postbox-container-3,
-.app-content #dashboard-widgets.columns-3 #postbox-container-4 {
-  float: right;
-}
-
-.app-content #dashboard-widgets.columns-4 .postbox-container {
-  width: 25%;
-}
-
-#dashboard-widgets .postbox-container {
-  width: 25%;
+/**
+ * Dashboard widgets
+ */
+#dashboard-widgets-wrap {
+  overflow: hidden;
+  margin-top: 2rem;
 }
 
 #dashboard-widgets-wrap .columns-3 #postbox-container-4 .empty-container {
   border: none !important;
 }
 
-#dashboard-widgets-wrap {
-  overflow: hidden;
-  margin: 0 -8px;
+#dashboard-widgets {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  grid-gap: 0.35em 0.35em;
+  width: 100%;
+  height: 100%;
 }
 
-#dashboard-widgets .postbox .inside {
+@media screen and (max-width: 1280px) {
+  #dashboard-widgets {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 960px) {
+  #dashboard-widgets {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 640px) {
+  #dashboard-widgets {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+#dashboard-widgets.columns-3 {
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+}
+
+@media screen and (max-width: 960px) {
+  #dashboard-widgets.columns-3 {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 640px) {
+  #dashboard-widgets.columns-3 {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+#dashboard-widgets.columns-2 {
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+}
+
+@media screen and (max-width: 640px) {
+  #dashboard-widgets.columns-2 {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+#dashboard-widgets.columns-1 {
+  -ms-grid-columns: (1fr)[1];
+      grid-template-columns: repeat(1, 1fr);
+}
+
+#dashboard-widgets .postbox-container .postbox {
+  position: relative;
+  padding-bottom: 1em;
+  border: solid 1px #cccccc;
+}
+
+#dashboard-widgets .postbox-container .postbox.closed {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+#dashboard-widgets .postbox-container .postbox .inside {
   margin-bottom: 0;
 }
 
+#dashboard-widgets .postbox-container .postbox .inside ul {
+  margin-top: 1em;
+}
+
+#dashboard-widgets .postbox-container .postbox form .submit {
+  float: none;
+  margin: .5em 0 0;
+  padding: 0;
+  border: none;
+}
+
 #dashboard-widgets .meta-box-sortables {
-  margin: 0 8px;
   min-height: 100px;
 }
 
@@ -97,6 +152,10 @@
 
 .top-panel h3 {
   margin: 1.33em 0 0;
+}
+
+.top-panel h3 ~ div {
+  margin-top: 1em;
 }
 
 .top-panel li {
@@ -158,42 +217,44 @@
 }
 
 .top-panel .top-panel-column-container {
-  clear: both;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   position: relative;
 }
 
-.top-panel .top-panel-column {
-  width: 32%;
-  min-width: 200px;
-  float: left;
+.top-panel .top-panel-column-container .top-panel-column {
+  min-width: 25%;
 }
 
-.top-panel .top-panel-column:first-child {
-  width: 36%;
+.top-panel .top-panel-column-container .top-panel-column:not(:last-of-type) {
+  margin-right: 2rem;
+}
+
+@media screen and (max-width: 782px) {
+  .top-panel .top-panel-column-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .top-panel .top-panel-column-container .top-panel-column {
+    min-width: 100%;
+  }
 }
 
 .top-panel-column p.hide-if-no-customize {
   margin-top: 10px;
 }
 
-.top-panel-column p {
-  margin-top: 7px;
-  color: #444;
-}
-
-.top-panel .welcome-widgets-menus {
-  line-height: 16px;
-}
-
 .top-panel .top-panel-column ul {
   margin: 1em 1em 1em 0;
-  padding-left: 1em;
-  list-style: unset;
+  padding: 0;
+  list-style: none;
 }
 
 .top-panel .top-panel-column li {
-  line-height: 16px;
-  padding: 0 0 8px;
+  padding: 0.25em 0;
   font-weight: bold;
   font-weight: 600;
 }
@@ -208,11 +269,17 @@
   background: transparent !important;
 }
 
+.app-tabs .app-tab-content header {
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  border-bottom: solid 1px #cccccc;
+}
+
 .dashboard-panel-section-intro {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 1rem 2rem 0 0;
+  padding-right: 2rem;
 }
 
 @media screen and (max-width: 799px) {
@@ -341,12 +408,6 @@
   overflow: hidden;
 }
 
-#dashboard-widgets h3.mu-storage {
-  margin: 0 0 10px;
-  padding: 0;
-  font-size: 0.875rem;
-}
-
 /* Dashboard right now - Colors */
 #dashboard_right_now .sub {
   color: #555d66;
@@ -395,6 +456,12 @@
 }
 
 /* Dashboard Quick Draft - Form styling */
+#quick-press input[type="text"],
+#quick-press textarea {
+  width: 100%;
+  max-width: 640px;
+}
+
 input#save-post {
   float: left;
 }
@@ -418,18 +485,13 @@ form.initial-form.quickpress-open input#title {
   resize: vertical;
 }
 
-#dashboard-widgets .postbox form .submit {
-  margin: -39px 0;
-  float: right;
-}
-
 #description-wrap {
   margin-top: 12px;
 }
 
 #title-wrap #title-prompt-text,
 .textarea-wrap #content-prompt-text {
-  color: #72777c;
+  color: #888888;
 }
 
 #title-wrap #title-prompt-text {
@@ -450,11 +512,6 @@ form.initial-form.quickpress-open input#title {
 .textarea-wrap #content-prompt-text {
   font-size: 1.1em;
   padding: 7px 8px;
-}
-
-.textarea-wrap textarea#content {
-  margin: 0 0 8px;
-  padding: 6px 7px;
 }
 
 #quick-press textarea#content {
@@ -490,11 +547,11 @@ form.initial-form.quickpress-open input#title {
   margin: 1em 0 0;
 }
 
-#dashboard_quick_press .drafts li {
+.app-tab-column__recent-drafts .drafts li {
   margin-bottom: 1em;
 }
 
-#dashboard_quick_press .drafts p {
+.app-tab-column__recent-drafts .drafts p {
   margin: 0;
   word-wrap: break-word;
 }
@@ -518,21 +575,8 @@ form.initial-form.quickpress-open input#title {
   margin: 0 5px 0 0;
 }
 
-/* Dashboard common styles */
-#dashboard-widgets h4,
-#dashboard-widgets h3,
-#dashboard_quick_press .drafts h2 {
-  margin: 0.75em 0 0;
-  padding: 0;
-  font-size: 0.875rem;
-}
-
 #dashboard_quick_press .drafts h2 {
   line-height: inherit;
-}
-
-#dashboard-widgets .inside ul {
-  margin-top: 1em;
 }
 
 /* Dashboard activity widget */
@@ -603,7 +647,6 @@ form.initial-form.quickpress-open input#title {
 #published-posts ul span {
   display: inline-block;
   margin-right: 5px;
-  min-width: 150px;
 }
 
 #future-posts a,
@@ -620,8 +663,6 @@ form.initial-form.quickpress-open input#title {
 
 .activity-block {
   border-bottom: 1px solid #cccccc;
-  margin: 0 -12px;
-  padding: 8px 12px 4px;
 }
 
 .activity-block:last-child {
@@ -629,7 +670,7 @@ form.initial-form.quickpress-open input#title {
 }
 
 .activity-block .subsubsub li {
-  color: #ddd;
+  color: #888888;
 }
 
 /* Dashboard activity widget - Comments */
@@ -712,13 +753,6 @@ form.initial-form.quickpress-open input#title {
 
 #dashboard-widgets form .textarea-wrap textarea {
   width: 100%;
-}
-
-#dashboard-widgets .postbox form .submit {
-  float: none;
-  margin: .5em 0 0;
-  padding: 0;
-  border: none;
 }
 
 #dashboard-widgets-wrap #dashboard-widgets .postbox form .submit #publish {
@@ -927,77 +961,6 @@ a.rsswidget {
 
 /* =Media Queries
 -------------------------------------------------------------- */
-/* one column on the dash */
-@media only screen and (max-width: 799px) {
-  .app-content #dashboard-widgets .postbox-container {
-    width: 100%;
-  }
-}
-
-/* two columns on the dash, but keep the setting if one is selected */
-@media only screen and (min-width: 800px) and (max-width: 1499px) {
-  .app-content #dashboard-widgets .postbox-container {
-    width: 49.5%;
-  }
-  .app-content #dashboard-widgets #postbox-container-2,
-  .app-content #dashboard-widgets #postbox-container-3,
-  .app-content #dashboard-widgets #postbox-container-4 {
-    float: right;
-    width: 50.5%;
-  }
-  #dashboard-widgets #postbox-container-3 .empty-container,
-  #dashboard-widgets #postbox-container-4 .empty-container {
-    border: 0 none;
-    height: 0;
-    min-height: 0;
-  }
-  #dashboard-widgets #postbox-container-3 .empty-container:after,
-  #dashboard-widgets #postbox-container-4 .empty-container:after {
-    display: none;
-  }
-  .admin-main .app-content #dashboard-widgets.columns-1 .postbox-container {
-    width: 100%;
-  }
-  .admin-main .app-content .metabox-holder.columns-1 .postbox-container .empty-container {
-    border: 0 none;
-    height: 0;
-    min-height: 0;
-  }
-  /* show the radio buttons for column prefs only for one or two columns */
-  .index-php .screen-layout,
-  .index-php .columns-prefs {
-    display: block;
-  }
-  .metabox-holder .postbox-container .empty-container:after {
-    display: block;
-  }
-}
-
-/* three columns on the dash */
-@media only screen and (min-width: 1500px) and (max-width: 1800px) {
-  .app-content #dashboard-widgets .postbox-container {
-    width: 33.5%;
-  }
-  .app-content #dashboard-widgets #postbox-container-1 {
-    width: 33%;
-  }
-  .app-content #dashboard-widgets #postbox-container-3,
-  .app-content #dashboard-widgets #postbox-container-4 {
-    float: right;
-  }
-  #dashboard-widgets #postbox-container-4 .empty-container {
-    border: 0 none;
-    height: 0;
-    min-height: 0;
-  }
-  #dashboard-widgets #postbox-container-4 .empty-container:after {
-    display: none;
-  }
-  .metabox-holder .postbox-container .empty-container:after {
-    display: block;
-  }
-}
-
 @media screen and (max-width: 870px) {
   .top-panel .top-panel-column,
   .top-panel .top-panel-column:first-child {

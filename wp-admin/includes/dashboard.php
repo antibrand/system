@@ -43,31 +43,31 @@ function app_dashboard_top_panel() {
 
 	// Developer.
 	if ( current_user_can( 'develop' ) ) {
-		$panel = app_get_intro_content( ABSPATH . 'app-views/backend/content/intro-panel-developer.php' );
+		$panel = app_get_intro_content( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-developer.php' );
 
 	// Network administrator.
 	} elseif ( current_user_can( 'manage_network' ) ) {
-		$panel = app_get_intro_content( ABSPATH . 'app-views/backend/content/intro-panel-network.php' );
+		$panel = app_get_intro_content( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-network.php' );
 
 	// Administrator.
 	} elseif ( current_user_can( 'manage_options' ) ) {
-		$panel = include( ABSPATH . 'app-views/backend/content/intro-panel-administrator.php' );
+		$panel = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-administrator.php' );
 
 	// Editor.
 	} elseif ( current_user_can( 'edit_others_posts' ) ) {
-		$panel = app_get_intro_content( ABSPATH . 'app-views/backend/content/intro-panel-editor.php' );
+		$panel = app_get_intro_content( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-editor.php' );
 
 	// Author.
 	} elseif ( current_user_can( 'publish_posts' ) ) {
-		$panel = app_get_intro_content( ABSPATH . 'app-views/backend/content/intro-panel-author.php' );
+		$panel = app_get_intro_content( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-author.php' );
 
 	// Contributor.
 	} elseif ( current_user_can( 'edit_posts' ) ) {
-		$panel = app_get_intro_content( ABSPATH . 'app-views/backend/content/intro-panel-contributor.php' );
+		$panel = app_get_intro_content( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-contributor.php' );
 
 	// Subscriber.
 	} elseif ( current_user_can( 'read' ) ) {
-		$panel = app_get_intro_content( ABSPATH . 'app-views/backend/content/intro-panel-subscriber.php' );
+		$panel = app_get_intro_content( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-subscriber.php' );
 
 	} else {
 		$panel = '';
@@ -95,32 +95,15 @@ function wp_dashboard_setup() {
 	$screen = get_current_screen();
 
 	// Register wdgets and controls.
-
-	// Site Overview.
-	if ( is_blog_admin() && current_user_can( 'edit_posts' ) ) {
-		wp_add_dashboard_widget( 'dashboard_right_now', __( 'Site Overview' ), 'wp_dashboard_right_now' );
-	}
+	wp_add_dashboard_widget( 'sample_widget_one', __( 'Sample Widget One' ), 'app_sample_dashboard_widget_one' );
+	wp_add_dashboard_widget( 'sample_widget_two', __( 'Sample Widget Two' ), 'app_sample_dashboard_widget_two' );
 
 	if ( is_network_admin() ) {
 		wp_add_dashboard_widget( 'network_dashboard_right_now', __( 'Right Now' ), 'wp_network_dashboard_right_now' );
 	}
 
 	// Activity widget.
-	if ( is_blog_admin() ) {
-		wp_add_dashboard_widget( 'dashboard_activity', __( 'Site Activity' ), 'wp_dashboard_site_activity' );
-	}
-
-	// Quick draft widget.
-	if ( is_blog_admin() && current_user_can( get_post_type_object( 'post' )->cap->create_posts ) ) {
-
-		$quick_draft_title = sprintf(
-			'<span class="hide-if-no-js">%1$s</span> <span class="hide-if-js">%2$s</span>',
-			__( 'Quick Draft' ),
-			__( 'Your Recent Drafts' )
-		);
-
-		wp_add_dashboard_widget( 'dashboard_quick_press', $quick_draft_title, 'wp_dashboard_quick_press' );
-	}
+	if ( is_blog_admin() ) {	}
 
 	if ( is_network_admin() ) {
 
@@ -332,6 +315,207 @@ function wp_dashboard() {
 	wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false );
 	wp_nonce_field( 'meta-box-order', 'meta-box-order-nonce', false );
 
+}
+
+
+/**
+ * Sample dashboard widgets
+ *
+ * Using this for testing while the system is in development.
+ * This may be retained to aid in development of forks.
+ *
+ * @todo Remove this if no longer desired.
+ */
+function app_sample_dashboard_widget_one() {
+
+?>
+	<h3><?php _e( 'Sample Dashboard Widget #1' ); ?></h3>
+
+	<p><?php _e( 'Using this for testing while the system is in development.' ); ?></p>
+
+	<p><?php _e( 'This may be retained to aid in development of forks.' ); ?></p>
+<?php
+}
+
+function app_sample_dashboard_widget_two() {
+
+?>
+	<h3><?php _e( 'Sample Dashboard Widget #2' ); ?></h3>
+
+	<p><?php _e( 'Using this for testing while the system is in development.' ); ?></p>
+
+	<p><?php _e( 'This may be retained to aid in development of forks.' ); ?></p>
+<?php
+}
+
+/**
+ * Site Overview
+ *
+ * Displays some basic stats about the site.
+ *
+ * @since 1.0.0
+ */
+function app_site_overview() {
+
+?>
+	<div class="main">
+		<h3><?php _e( 'Content' ); ?></h3>
+		<ul>
+			<?php
+			// Posts and pages.
+			foreach ( [ 'post', 'page' ] as $post_type ) {
+
+				$num_posts = wp_count_posts( $post_type );
+
+				if ( $num_posts && $num_posts->publish ) {
+
+					if ( 'post' == $post_type ) {
+						$text = _n( '%s Post', '%s Posts', $num_posts->publish );
+					} else {
+						$text = _n( '%s Page', '%s Pages', $num_posts->publish );
+					}
+
+					$text = sprintf( $text, number_format_i18n( $num_posts->publish ) );
+					$post_type_object = get_post_type_object( $post_type );
+
+					if ( $post_type_object && current_user_can( $post_type_object->cap->edit_posts ) ) {
+						printf( '<li class="%1$s-count"><a href="edit.php?post_type=%1$s">%2$s</a></li>', $post_type, $text );
+					} else {
+						printf( '<li class="%1$s-count"><span>%2$s</span></li>', $post_type, $text );
+					}
+
+				}
+			}
+			// Comments.
+			$num_comm = wp_count_comments();
+
+			if ( $num_comm && ( $num_comm->approved || $num_comm->moderated ) ) {
+
+				$text = sprintf( _n( '%s Comment', '%s Comments', $num_comm->approved ), number_format_i18n( $num_comm->approved ) );
+
+				?>
+				<li class="comment-count"><a href="edit-comments.php"><?php echo $text; ?></a></li>
+				<?php
+
+				$moderated_comments_count_i18n = number_format_i18n( $num_comm->moderated );
+
+				// Translators: %s: number of comments in moderation.
+				$text = sprintf( _nx( '%s in moderation', '%s in moderation', $num_comm->moderated, 'comments' ), $moderated_comments_count_i18n );
+
+				// Translators: %s: number of comments in moderation.
+				$aria_label = sprintf( _nx( '%s comment in moderation', '%s comments in moderation', $num_comm->moderated, 'comments' ), $moderated_comments_count_i18n );
+
+				?>
+				<li class="comment-mod-count<?php if ( ! $num_comm->moderated ) { echo ' hidden'; } ?>">
+					<a href="edit-comments.php?comment_status=moderated" aria-label="<?php esc_attr_e( $aria_label ); ?>"><?php echo $text; ?></a>
+				</li>
+				<?php
+			}
+
+			/**
+			 * Filters the array of extra elements to list in the 'Site Overview'
+			 * dashboard widget.
+			 *
+			 * Prior to 3.8.0, the widget was named 'Right Now'. Each element
+			 * is wrapped in list-item tags on output.
+			 *
+			 * @since WP 3.8.0
+			 * @param array $items Array of extra 'Site Overview' widget items.
+			 */
+			$elements = apply_filters( 'dashboard_glance_items', [] );
+
+			if ( $elements ) {
+				echo '<li>' . implode( "</li>\n<li>", $elements ) . "</li>\n";
+			}
+
+			?>
+		</ul>
+
+		<h3><?php _e( 'Accounts' ); ?></h3>
+
+		<ul>
+		<?php
+		$result = count_users();
+
+		foreach( $result['avail_roles'] as $role => $count ) {
+
+			if ( 'none' != $role ) {
+				echo '<li><a href="' . esc_url( admin_url( 'users.php?role=' . $role ) ) . '">' . $count . ' ' . _n( ucwords( $role ), ucwords( $role ) . 's', $count ) . '</a></li>';
+			}
+
+		}
+		?>
+		</ul>
+	<?php
+
+	update_right_now_message();
+
+	// Check if search engines are asked not to index this site.
+	if ( ! is_network_admin() && ! is_user_admin() && current_user_can( 'manage_options' ) && '0' == get_option( 'blog_public' ) ) {
+
+		/**
+		 * Filters the link title attribute for the 'Search Engines Discouraged'
+		 * message displayed in the 'Site Overview' dashboard widget.
+		 *
+		 * Prior to WP 3.8.0, the widget was named 'Right Now'.
+		 *
+		 * @since WP 3.0.0
+		 * @since WP 4.5.0 The default for `$title` was updated to an empty string.
+		 *
+		 * @param string $title Default attribute text.
+		 */
+		$title = apply_filters( 'privacy_on_link_title', '' );
+
+		/**
+		 * Filters the link label for the 'Search Engines Discouraged' message
+		 * displayed in the 'Site Overview' dashboard widget.
+		 *
+		 * Prior to WP 3.8.0, the widget was named 'Right Now'.
+		 *
+		 * @since WP 3.0.0
+		 *
+		 * @param string $content Default text.
+		 */
+		$content    = apply_filters( 'privacy_on_link_text' , __( 'Search Engines Discouraged' ) );
+		$title_attr = '' === $title ? '' : " title='$title'";
+
+		echo "<p><a href='options-reading.php'$title_attr>$content</a></p>";
+	}
+
+	?>
+	</div>
+	<?php
+	/*
+		* activity_box_end has a core action, but only prints content when multisite.
+		* Using an output buffer is the only way to really check if anything's displayed here.
+		*/
+	ob_start();
+
+	/**
+	 * Fires at the end of the 'Site Overview' dashboard widget.
+	 *
+	 * Prior to WP 3.8.0, the widget was named 'Right Now'.
+	 *
+	 * @since WP 2.5.0
+	 */
+	do_action( 'rightnow_end' );
+
+	/**
+	 * Fires at the end of the 'Site Overview' dashboard widget.
+	 *
+	 * Prior to WP 3.8.0, the widget was named 'Right Now'.
+	 *
+	 * @since WP 2.0.0
+	 */
+	do_action( 'activity_box_end' );
+
+	$actions = ob_get_clean();
+
+	if ( ! empty( $actions ) ) : ?>
+	<div class="sub">
+		<?php echo $actions; ?>
+	</div>
+	<?php endif;
 }
 
 /**
@@ -629,55 +813,73 @@ function wp_dashboard_quick_press( $error_msg = false ) {
 
 	$post_ID = (int) $post->ID;
 ?>
+	<div class="top-panel-column-container hide-if-no-js">
 
-	<p class="description"><?php _e( 'Save a thought or a note as a standard post to be completed & published at a later time.' ); ?></p>
+		<div class="top-panel-column app-tab-column__quick-draft">
 
-	<form name="post" action="<?php echo esc_url( admin_url( 'post.php' ) ); ?>" method="post" id="quick-press" class="initial-form hide-if-no-js">
+			<h3><?php _e( 'Quick Draft' ); ?></h3>
 
-		<?php if ( $error_msg ) : ?>
-		<div class="error"><?php echo $error_msg; ?></div>
-		<?php endif; ?>
+			<p class="description"><?php _e( 'Save a thought or a note as a standard post to be completed & published at a later time.' ); ?></p>
 
-		<div class="input-text-wrap" id="title-wrap">
-			<label class="screen-reader-text prompt" for="title" id="title-prompt-text">
+			<form name="post" action="<?php echo esc_url( admin_url( 'post.php' ) ); ?>" method="post" id="quick-press" class="initial-form">
 
-				<?php
-				// This filter is documented in wp-admin/edit-form-advanced.php'
-				echo apply_filters( 'enter_title_here', __( 'Title' ), $post );
-				?>
-			</label>
-			<input type="text" name="post_title" id="title" autocomplete="off" />
+				<?php if ( $error_msg ) : ?>
+				<div class="error"><?php echo $error_msg; ?></div>
+				<?php endif; ?>
+
+				<div class="input-text-wrap" id="title-wrap">
+					<label class="screen-reader-text prompt" for="title" id="title-prompt-text">
+
+						<?php
+						// This filter is documented in wp-admin/edit-form-advanced.php'
+						echo apply_filters( 'enter_title_here', __( 'Title' ), $post );
+						?>
+					</label>
+					<input type="text" name="post_title" id="title" autocomplete="off" />
+				</div>
+
+				<div class="textarea-wrap" id="description-wrap">
+					<label class="screen-reader-text prompt" for="content" id="content-prompt-text"><?php _e( 'Draft content' ); ?></label>
+					<textarea name="content" id="content" class="mceEditor" rows="3" cols="15" autocomplete="off"></textarea>
+				</div>
+
+				<p class="submit">
+					<input type="hidden" name="action" id="quickpost-action" value="post-quickdraft-save" />
+					<input type="hidden" name="post_ID" value="<?php echo $post_ID; ?>" />
+					<input type="hidden" name="post_type" value="post" />
+
+					<?php wp_nonce_field( 'add-post' ); ?>
+
+					<?php submit_button( __( 'Save Draft' ), 'primary', 'save', false, [ 'id' => 'save-post' ] ); ?>
+				</p>
+
+			</form>
+
 		</div>
 
-		<div class="textarea-wrap" id="description-wrap">
-			<label class="screen-reader-text prompt" for="content" id="content-prompt-text"><?php _e( 'Draft content' ); ?></label>
-			<textarea name="content" id="content" class="mceEditor" rows="3" cols="15" autocomplete="off"></textarea>
+		<div id="dashboard-recent-drafts" class="top-panel-column app-tab-column__recent-drafts">
+
+			<h3><?php _e( 'Recent Drafts' ); ?></h3>
+
+			<p class="description"><?php _e( 'The following posts have not been published.' ); ?></p>
+
+			<?php app_dashboard_recent_drafts(); ?>
 		</div>
-
-		<p class="submit">
-			<input type="hidden" name="action" id="quickpost-action" value="post-quickdraft-save" />
-			<input type="hidden" name="post_ID" value="<?php echo $post_ID; ?>" />
-			<input type="hidden" name="post_type" value="post" />
-			<?php wp_nonce_field( 'add-post' ); ?>
-			<?php submit_button( __( 'Save Draft' ), 'primary', 'save', false, [ 'id' => 'save-post' ] ); ?>
-			<br class="clear" />
-		</p>
-
-	</form>
+	</div>
 	<?php
-
-	wp_dashboard_recent_drafts();
 }
 
 /**
  * Show recent drafts of the user on the dashboard
  *
- * @since WP 2.7.0
- * @param array $drafts
+ * @since  WP 2.7.0
+ * @param  array $drafts Array of posts.
+ * @return mixed Returns the markup of the recent draft posts by current user.
  */
-function wp_dashboard_recent_drafts( $drafts = false ) {
+function app_dashboard_recent_drafts( $drafts = false ) {
 
 	if ( ! $drafts ) {
+
 		$query_args = [
 			'post_type'      => 'post',
 			'post_status'    => 'draft',
@@ -694,41 +896,58 @@ function wp_dashboard_recent_drafts( $drafts = false ) {
 		 * @param array $query_args The query arguments for the 'Recent Drafts' dashboard widget.
 		 */
 		$query_args = apply_filters( 'dashboard_recent_drafts_query_args', $query_args );
+		$drafts     = get_posts( $query_args );
+	}
+?>
+		<div class="drafts">
 
-		$drafts = get_posts( $query_args );
-		if ( ! $drafts ) {
-			return;
- 		}
- 	}
+			<ul>
+			<?php
 
-	echo '<div class="drafts">';
-	if ( count( $drafts ) > 3 ) {
-		echo '<p class="view-all"><a href="' . esc_url( admin_url( 'edit.php?post_status=draft' ) ) . '">' . __( 'View all drafts' ) . "</a></p>\n";
- 	}
-	echo '<h2 class="hide-if-no-js">' . __( 'Your Recent Drafts' ) . "</h2>\n<ul>";
+			$drafts = array_slice( $drafts, 0, 4 );
 
-	$drafts = array_slice( $drafts, 0, 3 );
+			foreach ( $drafts as $draft ) {
 
-	foreach ( $drafts as $draft ) {
+				$url   = get_edit_post_link( $draft->ID );
+				$title = _draft_or_post_title( $draft->ID );
+				?>
 
-		$url   = get_edit_post_link( $draft->ID );
-		$title = _draft_or_post_title( $draft->ID );
+				<li>
+					<p class="draft-title"><a href="<?php echo esc_url( $url ); ?>" aria-label="<?php echo esc_attr( sprintf( __( 'Edit &#8220;%s&#8221;' ), $title ) ); ?>"><?php echo esc_html( $title ); ?></a>
 
-		echo "<li>\n";
+					<time datetime="<?php echo get_the_time( 'c', $draft ); ?>"><?php echo get_the_time( __( 'F j, Y' ), $draft ); ?></time></p>
 
-		// Translators: %s: post title.
-		echo '<div class="draft-title"><a href="' . esc_url( $url ) . '" aria-label="' . esc_attr( sprintf( __( 'Edit &#8220;%s&#8221;' ), $title ) ) . '">' . esc_html( $title ) . '</a>';
+					<?php if ( $the_content = wp_trim_words( $draft->post_content, 10 ) ) {
+						echo '<p>' . $the_content . '</p>';
+					} ?>
 
-		echo '<time datetime="' . get_the_time( 'c', $draft ) . '">' . get_the_time( __( 'F j, Y' ), $draft ) . '</time></div>';
+				</li>
+			<?php } ?>
 
-		if ( $the_content = wp_trim_words( $draft->post_content, 10 ) ) {
-			echo '<p>' . $the_content . '</p>';
-		 }
+			</ul>
 
-		echo "</li>\n";
-	 }
+			<?php
+			// Print "view all" link if more than 4 draft posts.
+			if ( count( $drafts ) > 4 ) {
 
-	echo "</ul>\n</div>";
+				echo sprintf(
+					'<p class="view-all"><a href="%1s">%2s</a></p>',
+					esc_url( admin_url( 'edit.php?post_status=draft' ) ),
+					__( 'View all drafts' )
+				);
+			}
+
+			// Print notice if no draft posts.
+			if ( count( $drafts ) < 1 ) {
+
+				echo sprintf(
+					'<p>%1s</p>',
+					__( 'No draft posts are available.' )
+				);
+			}
+			?>
+		</div>
+	<?php
 }
 
 /**
