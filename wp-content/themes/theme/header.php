@@ -9,7 +9,7 @@
  * @subpackage AB_Theme
  * @since      1.0.0
  *
- * @todo       Add hooks for nav above or below header.
+ * @todo Add hooks for nav above or below header.
  */
 
 // Conditional canonical link.
@@ -21,10 +21,31 @@ if ( is_home() && ! is_front_page() ) {
     $canonical = get_permalink();
 }
 
-// Begin HTML output.
 ?>
 <!doctype html>
-<?php do_action( 'before_html' ); ?>
+<?php
+/**
+ * Before HTML methods
+ *
+ * Made available for plugins. For instance, Advanced Custom Fields
+ * requires the `acf_head()` function to run before the `<html>` element
+ * for frontend forms.
+ *
+ * Check for the `before_html()` function which runs the `before_html`
+ * hook. If it is not found the do the action here. This is a failsafe
+ * in case the theme is used in a system, such as WordPress, which does
+ * not have the `before_html()` function.
+ *
+ * @since 1.0.0
+ */
+if ( function_exists( 'before_html' ) ) {
+	before_hetml();
+} else {
+	do_action( 'before_html' );
+}
+
+// Begin HTML output.
+?>
 <html <?php language_attributes(); ?> class="no-js">
 <head id="<?php echo get_bloginfo( 'wpurl' ); ?>" data-template-set="<?php echo get_template(); ?>">
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
