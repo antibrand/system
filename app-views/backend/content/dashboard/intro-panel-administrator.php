@@ -55,13 +55,13 @@ if ( defined( 'APP_TAGLINE' ) ) {
 }
 
 // Learn more link.
-if ( defined( 'APP_WEBSITE' ) ) {
-	$learn_link = esc_url( APP_WEBSITE );
+if ( APP_WEBSITE ) {
+	$learn_link = APP_WEBSITE;
 } else {
-	$learn_link = esc_url( 'https://antibrand.dev' );
+	$learn_link = admin_url( 'about.php' );
 }
 
-$learn_link = apply_filters( 'dashboard_learn_link', $learn_link );
+// $learn_link = apply_filters( 'dashboard_learn_link', $learn_link );
 
 // Get the current user data for the greeting.
 $current_user = wp_get_current_user();
@@ -112,7 +112,7 @@ if ( ! isset( $wp_meta_boxes[$screen->id] ) ) {
 }
 
 $user_greeting = sprintf(
-	'<h3>%1s %2s</h3>',
+	'%1s %2s',
 	esc_html__( 'Hello,' ),
 	$user_name
 );
@@ -137,24 +137,10 @@ $user_greeting = sprintf(
 
 			<header>
 				<h2><?php _e( 'Site Overview' ); ?></h2>
-				<p class="description"><?php _e( '' ); ?></p>
+				<p class="description"><?php _e( 'This information is provided to you as a site administrator.' ); ?></p>
 			</header>
 
-			<div class="top-panel-column-container">
-
-				<div class="top-panel-column">
-
-					
-
-					
-
-				</div>
-
-				<div class="top-panel-column">
-					<?php Dashboard :: site_overview(); ?>
-				</div>
-
-			</div>
+			<?php Dashboard :: site_overview_tab(); ?>
 
 		</div>
 
@@ -183,7 +169,7 @@ $user_greeting = sprintf(
 						<div>
 							<p><?php _e( 'This site may display your profile details in posts that you author, depending on the theme and plugins used. You can edit yoyr details, set your images, and change your color schemes.' ); ?></p>
 
-							<p class="dashboard-panel-call-to-action"><a class="button button-primary button-hero" href="<?php echo esc_url( admin_url( 'profile.php' ) ); ?>"><?php _e( 'Manage Your Profile' ); ?></a></p>
+							<p class="dashboard-panel-call-to-action"><a class="button button-primary button-hero" href="<?php echo esc_url( admin_url( 'profile.php' ) ); ?>"><?php _e( 'Manage Your Profile' ); ?></a><br /><a href="<?php echo esc_url( admin_url( 'users.php' ) ); ?>"><?php _e( 'View all accounts' ); ?></a></p>
 						</div>
 
 					</div>
@@ -195,27 +181,27 @@ $user_greeting = sprintf(
 					<ul>
 
 					<?php if ( 'page' == get_option( 'show_on_front' ) && ! get_option( 'page_for_posts' ) ) : ?>
-						<li><?php printf( '<a href="%s" class="dashboard-icon dashboard-edit-page">' . __( 'Edit your front page' ) . '</a>', get_edit_post_link( get_option( 'page_on_front' ) ) ); ?></li>
+						<li><?php printf( '<a href="%s"><span class="dashboard-icon dashboard-edit-page"></span>' . __( 'Edit your front page' ) . '</a>', get_edit_post_link( get_option( 'page_on_front' ) ) ); ?></li>
 
-						<li><?php printf( '<a href="%s" class="dashboard-icon dashboard-add-page">' . __( 'Add additional pages' ) . '</a>', admin_url( 'post-new.php?post_type=page' ) ); ?></li>
+						<li><?php printf( '<a href="%s"><span class="dashboard-icon dashboard-add-page"></span>' . __( 'Add additional pages' ) . '</a>', admin_url( 'post-new.php?post_type=page' ) ); ?></li>
 
 					<?php elseif ( 'page' == get_option( 'show_on_front' ) ) : ?>
-						<li><?php printf( '<a href="%s" class="dashboard-icon dashboard-edit-page">' . __( 'Edit your front page' ) . '</a>', get_edit_post_link( get_option( 'page_on_front' ) ) ); ?></li>
+						<li><?php printf( '<a href="%s"><span class="dashboard-icon dashboard-edit-page"></span>' . __( 'Edit your front page' ) . '</a>', get_edit_post_link( get_option( 'page_on_front' ) ) ); ?></li>
 
-						<li><?php printf( '<a href="%s" class="dashboard-icon dashboard-add-page">' . __( 'Add additional pages' ) . '</a>', admin_url( 'post-new.php?post_type=page' ) ); ?></li>
+						<li><?php printf( '<a href="%s"><span class="dashboard-icon dashboard-add-page"></span>' . __( 'Add additional pages' ) . '</a>', admin_url( 'post-new.php?post_type=page' ) ); ?></li>
 
-						<li><?php printf( '<a href="%s" class="dashboard-icon dashboard-write-blog">' . __( 'Add a blog post' ) . '</a>', admin_url( 'post-new.php' ) ); ?></li>
+						<li><?php printf( '<a href="%s"><span class="dashboard-icon dashboard-write-blog"></span>' . __( 'Add a blog post' ) . '</a>', admin_url( 'post-new.php' ) ); ?></li>
 
 					<?php else : ?>
-						<li><?php printf( '<a href="%s" class="dashboard-icon dashboard-write-blog">' . __( 'Write your first blog post' ) . '</a>', admin_url( 'post-new.php' ) ); ?></li>
+						<li><?php printf( '<a href="%s"><span class="dashboard-icon dashboard-write-blog"></span>' . __( 'Write your first blog post' ) . '</a>', admin_url( 'post-new.php' ) ); ?></li>
 
-						<li><?php printf( '<a href="%s" class="dashboard-icon dashboard-add-page">' . __( 'Add an About page' ) . '</a>', admin_url( 'post-new.php?post_type=page' ) ); ?></li>
+						<li><?php printf( '<a href="%s"><span class="dashboard-icon dashboard-add-page"></span>' . __( 'Add an About page' ) . '</a>', admin_url( 'post-new.php?post_type=page' ) ); ?></li>
 
-						<li><?php printf( '<a href="%s" class="dashboard-icon dashboard-setup-home">' . __( 'Set up your homepage' ) . '</a>', current_user_can( 'customize' ) ? add_query_arg( 'autofocus[section]', 'static_front_page', admin_url( 'customize.php' ) ) : admin_url( 'options-reading.php' ) ); ?></li>
+						<li><?php printf( '<a href="%s"><span class="dashboard-icon dashboard-setup-home"></span>' . __( 'Set up your homepage' ) . '</a>', current_user_can( 'customize' ) ? add_query_arg( 'autofocus[section]', 'static_front_page', admin_url( 'customize.php' ) ) : admin_url( 'options-reading.php' ) ); ?></li>
 					<?php endif; ?>
 
 					<?php if ( current_user_can( 'manage_options' ) ) : ?>
-						<li><?php printf( '<a href="%s" class="dashboard-icon dashboard-settings">' . __( 'Manage your settings' ) . '</a>', admin_url( 'options-general.php' ) ); ?></li>
+						<li><?php printf( '<a href="%s"><span class="dashboard-icon dashboard-settings"></span>' . __( 'Manage your settings' ) . '</a>', admin_url( 'options-general.php' ) ); ?></li>
 					<?php endif; ?>
 					</ul>
 				</div>
@@ -226,18 +212,18 @@ $user_greeting = sprintf(
 					<ul>
 
 					<?php if ( current_user_can( 'upload_files' ) ) : ?>
-						<li><?php printf( '<a href="%s" class="dashboard-icon dashboard-media">' . __( 'Manage media' ) . '</a>', admin_url( 'upload.php' ) ); ?></li>
+						<li><?php printf( '<a href="%s"><span class="dashboard-icon dashboard-media"></span>' . __( 'Manage media' ) . '</a>', admin_url( 'upload.php' ) ); ?></li>
 					<?php endif; ?>
 
 					<?php if ( current_theme_supports( 'widgets' ) ) : ?>
-						<li><?php printf( '<a href="%s" class="dashboard-icon dashboard-widgets">' . __( 'Manage widgets' ) . '</a>', admin_url( 'widgets.php' ) ); ?></li>
+						<li><?php printf( '<a href="%s"><span class="dashboard-icon dashboard-widgets"></span>' . __( 'Manage widgets' ) . '</a>', admin_url( 'widgets.php' ) ); ?></li>
 					<?php endif; ?>
 
 					<?php if ( current_theme_supports( 'menus' ) ) : ?>
-						<li><?php printf( '<a href="%s" class="dashboard-icon dashboard-menus">' . __( 'Manage menus' ) . '</a>', admin_url( 'nav-menus.php' ) ); ?></li>
+						<li><?php printf( '<a href="%s"><span class="dashboard-icon dashboard-menus"></span>' . __( 'Manage menus' ) . '</a>', admin_url( 'nav-menus.php' ) ); ?></li>
 					<?php endif; ?>
 
-						<li><?php printf( '<a href="%s" target="_blank" rel="nofollow" class="dashboard-icon dashboard-learn-more">' . __( 'Learn more' ) . '</a>', esc_url( $learn_link ) ); ?></li>
+						<li><?php printf( '<a href="%1s"><span class="dashboard-icon dashboard-learn-more"></span>' . __( 'Learn more' ) . '</a>', esc_url( $learn_link ) ); ?></li>
 					</ul>
 				</div>
 
@@ -283,10 +269,10 @@ $user_greeting = sprintf(
 
 					<h3><?php _e( 'Content Options' ); ?></h3>
 					<ul>
-						<li><a class="dashboard-icon customize-icon-site" href="<?php echo esc_url( wp_customize_url() . '?url=' . site_url() . '&autofocus[section]=title_tagline&return=' . site_url() ); ?>"><?php _e( 'Site identity' ); ?></a></li>
-						<li><a class="dashboard-icon customize-icon-layout" href="<?php echo esc_url( wp_customize_url() ); ?>"><?php _e( 'Page layouts' ); ?></a></li>
-						<li><a class="dashboard-icon customize-icon-blog" href="<?php echo esc_url( wp_customize_url() ); ?>"><?php _e( 'Blog & archives content' ); ?></a></li>
-						<li><a class="dashboard-icon customize-icon-bio" href="<?php echo esc_url( wp_customize_url() ); ?>"><?php _e( 'Author Biographies' ); ?></a></li>
+						<li><a href="<?php echo esc_url( wp_customize_url() . '?url=' . site_url() . '&autofocus[section]=title_tagline&return=' . site_url() ); ?>"><span class="dashboard-icon customize-icon-site"></span><?php _e( 'Site identity' ); ?></a></li>
+						<li><a href="<?php echo esc_url( wp_customize_url() ); ?>"><span class="dashboard-icon customize-icon-layout"></span><?php _e( 'Page layouts' ); ?></a></li>
+						<li><a href="<?php echo esc_url( wp_customize_url() ); ?>"><span class="dashboard-icon customize-icon-blog"></span><?php _e( 'Blog & archives content' ); ?></a></li>
+						<li><a href="<?php echo esc_url( wp_customize_url() ); ?>"><span class="dashboard-icon customize-icon-bio"></span><?php _e( 'Author Biographies' ); ?></a></li>
 					</ul>
 				</div>
 
@@ -294,10 +280,10 @@ $user_greeting = sprintf(
 
 					<h3><?php _e( 'Appearance Options' ); ?></h3>
 					<ul>
-						<li><a class="dashboard-icon customize-icon-schemes" href="<?php echo esc_url( wp_customize_url() ); ?>"><?php _e( 'Choose color schemes' ); ?></a></li>
-						<li><a class="dashboard-icon customize-icon-headers" href="<?php echo esc_url( wp_customize_url() ); ?>"><?php _e( 'Set site & page headers' ); ?></a></li>
-						<li><a class="dashboard-icon customize-icon-typography" href="<?php echo esc_url( wp_customize_url() . '?url=' . site_url() . '&autofocus[section]=typography_options&return=' . site_url() ); ?>"><?php _e( 'Design your typography' ); ?></a></li>
-						<li><a class="dashboard-icon customize-icon-background" href="<?php echo esc_url( wp_customize_url() . '?url=' . site_url() . '&autofocus[section]=background_image&return=' . site_url() ); ?>"><?php _e( 'Site background' ); ?></a></li>
+						<li><a href="<?php echo esc_url( wp_customize_url() ); ?>"><span class="dashboard-icon customize-icon-schemes"></span><?php _e( 'Choose color schemes' ); ?></a></li>
+						<li><a href="<?php echo esc_url( wp_customize_url() ); ?>"><span class="dashboard-icon customize-icon-headers"></span><?php _e( 'Set site & page headers' ); ?></a></li>
+						<li><a href="<?php echo esc_url( wp_customize_url() . '?url=' . site_url() . '&autofocus[section]=typography_options&return=' . site_url() ); ?>"><span class="dashboard-icon customize-icon-typography"></span><?php _e( 'Design your typography' ); ?></a></li>
+						<li><a href="<?php echo esc_url( wp_customize_url() . '?url=' . site_url() . '&autofocus[section]=background_image&return=' . site_url() ); ?>"><span class="dashboard-icon customize-icon-background"></span><?php _e( 'Site background' ); ?></a></li>
 					</ul>
 				</div>
 

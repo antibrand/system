@@ -204,7 +204,16 @@
 	position: relative;
 
 	.top-panel-column {
-		min-width: 25%;
+		min-width: 160px;
+		max-width: 480px;
+
+		@media screen and (max-width: 782px) {
+			max-width: 100%;
+		}
+
+		&:first-of-type {
+			min-width: 320px;
+		}
 
 		&:not( :last-of-type ) {
 			margin-right: 2rem;
@@ -253,6 +262,15 @@
 			margin-bottom: 1em;
 			padding-bottom: 1em;
 			border-bottom: solid 1px $box_border_color;
+		}
+
+		.dashboard-overview-item {
+			margin: 0;
+			padding: 0.25em 0;
+
+			&:first-of-type {
+				margin-top: 1em;
+			}
 		}
 	}
 }

@@ -224,7 +224,18 @@
 }
 
 .top-panel .top-panel-column-container .top-panel-column {
-  min-width: 25%;
+  min-width: 160px;
+  max-width: 480px;
+}
+
+@media screen and (max-width: 782px) {
+  .top-panel .top-panel-column-container .top-panel-column {
+    max-width: 100%;
+  }
+}
+
+.top-panel .top-panel-column-container .top-panel-column:first-of-type {
+  min-width: 320px;
 }
 
 .top-panel .top-panel-column-container .top-panel-column:not(:last-of-type) {
@@ -273,6 +284,15 @@
   margin-bottom: 1em;
   padding-bottom: 1em;
   border-bottom: solid 1px #cccccc;
+}
+
+.app-tabs .app-tab-content .dashboard-overview-item {
+  margin: 0;
+  padding: 0.25em 0;
+}
+
+.app-tabs .app-tab-content .dashboard-overview-item:first-of-type {
+  margin-top: 1em;
 }
 
 .dashboard-panel-section-intro {

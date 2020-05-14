@@ -27,7 +27,10 @@ class Dashboard {
 			// Set variable for new instance.
 			$instance = new self;
 
+			// Instantiate the widgets API.
 			$instance->dashboard_widgets();
+
+			// Instantiate the help content.
 			$instance->help();
 		}
 
@@ -408,140 +411,122 @@ class Dashboard {
 	}
 
 	/**
-	 * Site Overview
+	 * Site Overview tab
 	 *
-	 * Displays some basic stats about the site.
+	 * Displays information about the site in the top panel tabbed content.
 	 *
 	 * @since 1.0.0
 	 * @access public
 	 * @return mixed Returns the markup of the Site Overview content.
 	 */
-	public function site_overview() {
+	public function site_overview_tab() {
 
 	?>
-		<div class="main">
-			<h3><?php _e( 'Content' ); ?></h3>
-			<ul>
+		<div class="top-panel-column-container">
+
+			<div class="top-panel-column">
+
 				<?php
-				// Posts and pages.
-				foreach ( [ 'post', 'page' ] as $post_type ) {
 
-					$num_posts = wp_count_posts( $post_type );
-
-					if ( $num_posts && $num_posts->publish ) {
-
-						if ( 'post' == $post_type ) {
-							$text = _n( '%s Post', '%s Posts', $num_posts->publish );
-						} else {
-							$text = _n( '%s Page', '%s Pages', $num_posts->publish );
-						}
-
-						$text = sprintf( $text, number_format_i18n( $num_posts->publish ) );
-						$post_type_object = get_post_type_object( $post_type );
-
-						if ( $post_type_object && current_user_can( $post_type_object->cap->edit_posts ) ) {
-							printf( '<li class="%1$s-count"><a href="edit.php?post_type=%1$s">%2$s</a></li>', $post_type, $text );
-						} else {
-							printf( '<li class="%1$s-count"><span>%2$s</span></li>', $post_type, $text );
-						}
-
-					}
-				}
-				// Comments.
-				$num_comm = wp_count_comments();
-
-				if ( $num_comm && ( $num_comm->approved || $num_comm->moderated ) ) {
-
-					$text = sprintf( _n( '%s Comment', '%s Comments', $num_comm->approved ), number_format_i18n( $num_comm->approved ) );
-
-					?>
-					<li class="comment-count"><a href="edit-comments.php"><?php echo $text; ?></a></li>
-					<?php
-
-					$moderated_comments_count_i18n = number_format_i18n( $num_comm->moderated );
-
-					// Translators: %s: number of comments in moderation.
-					$text = sprintf( _nx( '%s in moderation', '%s in moderation', $num_comm->moderated, 'comments' ), $moderated_comments_count_i18n );
-
-					// Translators: %s: number of comments in moderation.
-					$aria_label = sprintf( _nx( '%s comment in moderation', '%s comments in moderation', $num_comm->moderated, 'comments' ), $moderated_comments_count_i18n );
-
-					?>
-					<li class="comment-mod-count<?php if ( ! $num_comm->moderated ) { echo ' hidden'; } ?>">
-						<a href="edit-comments.php?comment_status=moderated" aria-label="<?php esc_attr_e( $aria_label ); ?>"><?php echo $text; ?></a>
-					</li>
-					<?php
-				}
-
-				/**
-				 * Filters the array of extra elements to list in the 'Site Overview'
-				 * dashboard widget.
-				 *
-				 * Prior to 3.8.0, the widget was named 'Right Now'. Each element
-				 * is wrapped in list-item tags on output.
-				 *
-				 * @since WP 3.8.0
-				 * @param array $items Array of extra 'Site Overview' widget items.
-				 */
-				$elements = apply_filters( 'dashboard_glance_items', [] );
-
-				if ( $elements ) {
-					echo '<li>' . implode( "</li>\n<li>", $elements ) . "</li>\n";
-				}
-
+				// Include the system overview.
+				$this->system_overview();
 				?>
-			</ul>
+			</div>
 
-			<h3><?php _e( 'Accounts' ); ?></h3>
+			<div class="top-panel-column">
 
-			<ul>
-			<?php
-			$result = count_users();
+				<h3><?php _e( 'Content' ); ?></h3>
 
-			foreach( $result['avail_roles'] as $role => $count ) {
+				<ul>
+					<?php
+					// Posts and pages.
+					foreach ( [ 'post', 'page' ] as $post_type ) {
 
-				if ( 'none' != $role ) {
-					echo '<li><a href="' . esc_url( admin_url( 'users.php?role=' . $role ) ) . '">' . $count . ' ' . _n( ucwords( $role ), ucwords( $role ) . 's', $count ) . '</a></li>';
+						$num_posts = wp_count_posts( $post_type );
+
+						if ( $num_posts && $num_posts->publish ) {
+
+							if ( 'post' == $post_type ) {
+								$text = _n( '%s Post', '%s Posts', $num_posts->publish );
+							} else {
+								$text = _n( '%s Page', '%s Pages', $num_posts->publish );
+							}
+
+							$text = sprintf( $text, number_format_i18n( $num_posts->publish ) );
+							$post_type_object = get_post_type_object( $post_type );
+
+							if ( $post_type_object && current_user_can( $post_type_object->cap->edit_posts ) ) {
+								printf( '<li class="%1$s-count"><a href="edit.php?post_type=%1$s">%2$s</a></li>', $post_type, $text );
+							} else {
+								printf( '<li class="%1$s-count"><span>%2$s</span></li>', $post_type, $text );
+							}
+
+						}
+					}
+					// Comments.
+					$num_comm = wp_count_comments();
+
+					if ( $num_comm && ( $num_comm->approved || $num_comm->moderated ) ) {
+
+						$text = sprintf( _n( '%s Comment', '%s Comments', $num_comm->approved ), number_format_i18n( $num_comm->approved ) );
+
+						?>
+						<li class="comment-count"><a href="edit-comments.php"><?php echo $text; ?></a></li>
+						<?php
+
+						$moderated_comments_count_i18n = number_format_i18n( $num_comm->moderated );
+
+						// Translators: %s: number of comments in moderation.
+						$text = sprintf( _nx( '%s in moderation', '%s in moderation', $num_comm->moderated, 'comments' ), $moderated_comments_count_i18n );
+
+						// Translators: %s: number of comments in moderation.
+						$aria_label = sprintf( _nx( '%s comment in moderation', '%s comments in moderation', $num_comm->moderated, 'comments' ), $moderated_comments_count_i18n );
+
+						?>
+						<li class="comment-mod-count<?php if ( ! $num_comm->moderated ) { echo ' hidden'; } ?>">
+							<a href="edit-comments.php?comment_status=moderated" aria-label="<?php esc_attr_e( $aria_label ); ?>"><?php echo $text; ?></a>
+						</li>
+						<?php
+					}
+
+					/**
+					 * Filters the array of extra elements to list in the 'Site Overview'
+					 * dashboard widget.
+					 *
+					 * Prior to 3.8.0, the widget was named 'Right Now'. Each element
+					 * is wrapped in list-item tags on output.
+					 *
+					 * @since WP 3.8.0
+					 * @param array $items Array of extra 'Site Overview' widget items.
+					 */
+					$elements = apply_filters( 'dashboard_glance_items', [] );
+
+					if ( $elements ) {
+						echo '<li>' . implode( "</li>\n<li>", $elements ) . "</li>\n";
+					}
+
+					?>
+				</ul>
+			</div>
+
+			<div class="top-panel-column">
+
+				<h3><?php _e( 'Accounts' ); ?></h3>
+
+				<ul>
+				<?php
+				$result = count_users();
+
+				foreach( $result['avail_roles'] as $role => $count ) {
+
+					if ( 'none' != $role ) {
+						echo '<li><a href="' . esc_url( admin_url( 'users.php?role=' . $role ) ) . '">' . $count . ' ' . _n( ucwords( $role ), ucwords( $role ) . 's', $count ) . '</a></li>';
+					}
+
 				}
-
-			}
-			?>
-			</ul>
-		<?php
-
-		update_right_now_message();
-
-		// Check if search engines are asked not to index this site.
-		if ( ! is_network_admin() && ! is_user_admin() && current_user_can( 'manage_options' ) && '0' == get_option( 'blog_public' ) ) {
-
-			/**
-			 * Filters the link title attribute for the 'Search Engines Discouraged'
-			 * message displayed in the 'Site Overview' dashboard widget.
-			 *
-			 * Prior to WP 3.8.0, the widget was named 'Right Now'.
-			 *
-			 * @since WP 3.0.0
-			 * @since WP 4.5.0 The default for `$title` was updated to an empty string.
-			 * @param string $title Default attribute text.
-			 */
-			$title = apply_filters( 'privacy_on_link_title', '' );
-
-			/**
-			 * Filters the link label for the 'Search Engines Discouraged' message
-			 * displayed in the 'Site Overview' dashboard widget.
-			 *
-			 * Prior to WP 3.8.0, the widget was named 'Right Now'.
-			 *
-			 * @since WP 3.0.0
-			 * @param string $content Default text.
-			 */
-			$content    = apply_filters( 'privacy_on_link_text' , __( 'Search Engines Discouraged' ) );
-			$title_attr = '' === $title ? '' : " title='$title'";
-
-			echo "<p><a href='options-reading.php'$title_attr>$content</a></p>";
-		}
-
-		?>
+				?>
+				</ul>
+			</div>
 		</div>
 		<?php
 		/*
@@ -575,6 +560,108 @@ class Dashboard {
 			<?php echo $actions; ?>
 		</div>
 		<?php endif;
+	}
+
+	/**
+	 * Update system overview
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function system_overview() {
+
+		$theme_name = wp_get_theme();
+
+		if ( current_user_can( 'switch_themes' ) ) {
+			$theme_name = sprintf( '<a href="themes.php">%1$s</a>', $theme_name );
+		}
+
+		$content = sprintf(
+			'<h3>%1s %2s</h3>',
+			APP_NAME,
+			get_bloginfo( 'version' )
+		);
+
+		$content .= sprintf(
+			'
+			<div class="dashboard-panel-section-intro dashboard-panel-system">
+				<figure>
+					<a href="%1s">
+						<img class="avatar" src="%2s" alt="%3s" width="64" height="64" />
+					</a>
+					<figcaption class="screen-reader-text">%4s</figcaption>
+				</figure>
+				<div>
+			',
+			esc_url( admin_url( 'about.php' ) ),
+			esc_url( app_assets_url( 'images/server-icon-round.jpg' ) ),
+			__( '' ),
+			__( '' )
+		);
+
+		$content .= sprintf(
+			'<p class="dashboard-overview-item"><strong>%1s</strong> <span id="active-theme">%2s</span></p>',
+			__( 'Active theme:' ),
+			$theme_name
+		);
+
+		$content .= sprintf(
+			'<p class="dashboard-overview-item"><strong>%1s</strong> <span id="php-version">%2s</span></p>',
+			__( 'PHP version:' ),
+			phpversion()
+		);
+
+		// Check if search engines are asked not to index this site.
+		if ( ! is_network_admin() && ! is_user_admin() && current_user_can( 'manage_options' ) && '0' == get_option( 'blog_public' ) ) {
+
+			/**
+			 * Filters the link title attribute for the 'Search Engines Discouraged'
+			 * message displayed in the 'Site Overview' dashboard widget.
+			 *
+			 * Prior to WP 3.8.0, the widget was named 'Right Now'.
+			 *
+			 * @since WP 3.0.0
+			 * @since WP 4.5.0 The default for `$title` was updated to an empty string.
+			 * @param string $title Default attribute text.
+			 */
+			$title = apply_filters( 'privacy_on_link_title', '' );
+
+			/**
+			 * Filters the link label for the 'Search Engines Discouraged' message
+			 * displayed in the 'Site Overview' dashboard widget.
+			 *
+			 * Prior to WP 3.8.0, the widget was named 'Right Now'.
+			 *
+			 * @since WP 3.0.0
+			 * @param string $content Default text.
+			 */
+			$link_text    = apply_filters( 'privacy_on_link_text' , __( 'Search Engines Discouraged' ) );
+			$title_attr = '' === $title ? '' : " title='$title'";
+
+			$content .= "<p class='dashboard-overview-item'><a href='options-reading.php'$title_attr>$link_text</a></p>";
+		}
+
+		$content .= sprintf(
+			'<p class="dashboard-panel-call-to-action"><a class="button button-primary button-hero" href="%1s">%2s</a></p>',
+			esc_url( admin_url( 'about.php' ) ),
+			__( 'More Information' )
+		);
+
+		$content .= '</div></div>';
+
+		/**
+		 * Filters the text displayed in the 'Site Overview' dashboard widget.
+		 *
+		 * Prior to 3.8.0, the widget was named 'Right Now'.
+		 *
+		 * @since WP 4.4.0
+		 * @since 1.0.0 Modified by this fork.
+		 * @param string $content Default text.
+		 */
+		$content = apply_filters( 'update_right_now_text', $content );
+
+		echo $content;
 	}
 
 	/**
