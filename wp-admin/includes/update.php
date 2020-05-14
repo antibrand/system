@@ -284,60 +284,6 @@ function update_nag() {
 	echo "<div class='update-nag'>$msg</div>";
 }
 
-// Called directly from dashboard
-function update_right_now_message() {
-
-	$theme_name = wp_get_theme();
-
-	if ( current_user_can( 'switch_themes' ) ) {
-		$theme_name = sprintf( '<a href="themes.php">%1$s</a>', $theme_name );
-	}
-
-	$msg = '';
-
-	if ( current_user_can('update_core') ) {
-
-		$cur = get_preferred_from_update_core();
-
-		if ( isset( $cur->response ) && $cur->response == 'upgrade' )
-			$msg .= '<a href="' . network_admin_url( 'update-core.php' ) . '" class="button" aria-describedby="wp-version">' . __( 'Update' ) . '</a> ';
-	}
-
-	$content = sprintf(
-		'<h3>%1s</h3>',
-		__( 'System' )
-	);
-
-	// Translators: 1: version number, 2: theme name.
-	$content .= sprintf(
-		'<p>%1s <span id="wp-version">%2s</span> %3s %4s %5s</p>',
-		APP_NAME,
-		get_bloginfo( 'version' ),
-		__( 'with' ),
-		$theme_name,
-		__( 'activated' )
-	);
-
-	$content .= sprintf(
-		'<p>%1s <span id="php-version">%2s</span></p>',
-		__( 'Server running PHP version' ),
-		phpversion()
-	);
-
-	/**
-	 * Filters the text displayed in the 'Site Overview' dashboard widget.
-	 *
-	 * Prior to 3.8.0, the widget was named 'Right Now'.
-	 *
-	 * @since WP 4.4.0
-	 * @since 1.0.0 Modified by this fork.
-	 * @param string $content Default text.
-	 */
-	$content = apply_filters( 'update_right_now_text', $content );
-
-	echo $content;
-}
-
 /**
  * @since 2.9.0
  *
