@@ -462,6 +462,10 @@
   max-width: 640px;
 }
 
+#quick-press .dashboard-quick-draft-error {
+  margin: 1em 0;
+}
+
 input#save-post {
   float: left;
 }

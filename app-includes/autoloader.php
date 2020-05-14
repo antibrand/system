@@ -6,7 +6,7 @@
  * @subpackage Administration
  */
 
-declare(strict_types=1);
+namespace AppNamespace;
 
 /*
  * A map of classes to files to be used when determining which file to load
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * the value is the path to the relevant file.
  */
 const MAP = [
-	'AppNamespace/Dashboard' => __DIR__ . '/classes/class-dashboard.php',
+	'AppNamespace\Admin\Dashboard' => __DIR__ . '/classes/class-dashboard.php',
 ];
 
 spl_autoload_register(

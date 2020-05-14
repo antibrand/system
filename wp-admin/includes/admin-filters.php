@@ -7,9 +7,6 @@
  * @since 4.3.0
  */
 
-// Dashboard hooks.
-add_action( 'activity_box_end', 'wp_dashboard_quota' );
-
 // Media hooks.
 add_action( 'attachment_submitbox_misc_actions', 'attachment_submitbox_metadata' );
 

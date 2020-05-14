@@ -6,6 +6,8 @@
  * @subpackage Administration
  */
 
+use \AppNamespace\Admin\Dashboard as Dashboard;
+
 // App version.
 $version = get_bloginfo( 'version' );
 
@@ -149,7 +151,7 @@ $user_greeting = sprintf(
 				</div>
 
 				<div class="top-panel-column">
-					<?php app_site_overview(); ?>
+					<?php Dashboard :: site_overview(); ?>
 				</div>
 
 			</div>
@@ -311,7 +313,7 @@ $user_greeting = sprintf(
 
 			<div id="dashboard-widgets-wrap">
 
-				<?php wp_dashboard(); ?>
+				<?php Dashboard :: dashboard(); ?>
 
 			</div><!-- #dashboard-widgets-wrap -->
 
@@ -324,7 +326,7 @@ $user_greeting = sprintf(
 				<p class="description"><?php _e( 'Create or follow up on draft post content.' ); ?></p>
 			</header>
 
-			<?php wp_dashboard_quick_press(); ?>
+			<?php Dashboard :: dashboard_draft_posts(); ?>
 
 		</div><!-- #drafts -->
 

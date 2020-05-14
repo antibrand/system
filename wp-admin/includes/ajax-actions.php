@@ -1055,10 +1055,15 @@ function wp_ajax_replyto_comment( $action ) {
 	$position = ( isset($_POST['position']) && (int) $_POST['position'] ) ? (int) $_POST['position'] : '-1';
 
 	ob_start();
+
 	if ( isset( $_REQUEST['mode'] ) && 'dashboard' == $_REQUEST['mode'] ) {
-		require_once( ABSPATH . 'wp-admin/includes/dashboard.php' );
-		_wp_dashboard_recent_comments_row( $comment );
+
+		$dashboard = new \AppNamespace\Admin\Dashboard();
+
+		$dashboard->dashboard_recent_comments_row( $comment );
+
 	} else {
+
 		if ( isset( $_REQUEST['mode'] ) && 'single' == $_REQUEST['mode'] ) {
 			$wp_list_table = _get_list_table('WP_Post_Comments_List_Table', array( 'screen' => 'edit-comments' ) );
 		} else {
