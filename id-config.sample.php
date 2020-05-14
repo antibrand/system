@@ -52,7 +52,7 @@ define( 'APP_NAME', 'system' );
 define( 'APP_TAGLINE', 'generic, white-label website management' );
 
 // Define a URL for the website management system.
-define( 'APP_WEBSITE', 'https://antibrand.dev/' );
+define( 'APP_WEBSITE', '' );
 
 // Define a logo or icon path for the website management system.
 define( 'APP_LOGO', dirname( dirname( $_SERVER['PHP_SELF'] ) ) . '/app-assets/images/app-icon.jpg' );
