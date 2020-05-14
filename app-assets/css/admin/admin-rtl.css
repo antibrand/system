@@ -2119,6 +2119,7 @@ table.form-table td .updated p {
   display: block;
   padding: 0.75em 1em;
   background-color: #ffffff;
+  border-radius: 5px 5px 0px 0px;
   font-weight: bold;
   line-height: 1;
   text-decoration: none;
