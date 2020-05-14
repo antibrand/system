@@ -2088,7 +2088,7 @@ table.form-table td .updated p {
   list-style: none;
   margin: 2em 0 0;
   padding: 0 0 0 0.5em;
-  border-bottom: solid 1px #cccccc;
+  border-bottom: solid 1px #888888;
 }
 
 .app-tabs .app-tabs-list .app-tab {
@@ -2096,7 +2096,7 @@ table.form-table td .updated p {
   position: relative;
   top: 1px;
   margin: 0 0.15em;
-  border: solid 1px #cccccc;
+  border: solid 1px #888888;
   border-radius: 5px 5px 0px 0px;
 }
 
