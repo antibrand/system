@@ -85,6 +85,13 @@ if ( $theme_description ) {
 	$theme_description = '';
 }
 
+// Theme icon.
+if ( $theme_icon ) {
+	$customize_icon = $theme_icon;
+} else {
+	$customize_icon = app_assets_url( 'images/customize-icon-round.jpg' );
+}
+
 // Theme tags.
 if ( $theme_tags ) {
 	$theme_tags = sprintf(
@@ -248,7 +255,7 @@ $user_greeting = sprintf(
 
 						<figure class="alignright">
 							<a href="<?php echo esc_url( wp_customize_url() ); ?>">
-								<img class="avatar" src="<?php echo esc_url( $theme_icon ); ?>" alt="<?php echo $theme_name; ?>" width="64" height="64" />
+								<img class="avatar" src="<?php echo esc_url( $customize_icon ); ?>" alt="<?php echo $theme_name; ?>" width="64" height="64" />
 							</a>
 							<figcaption class="screen-reader-text"><?php echo $theme_name; ?></figcaption>
 						</figure>
