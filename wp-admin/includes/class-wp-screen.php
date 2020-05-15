@@ -667,11 +667,26 @@ final class WP_Screen {
 	 */
 	public function render_content_tabs() {
 
+		$tabs = $this->get_content_tabs();
+
+		if ( is_array( $tabs ) && count( $tabs ) > 1 ) {
+
+			$tabbed       = ' data-tabbed="tabbed"';
+			$wrap_class   = 'registered-content-wrap app-tabs';
+			$panel_class  = 'registered-content app-tab-content';
+
+		} else {
+			$tabbed       = '';
+			$wrap_class   = 'registered-content-wrap';
+			$panel_class  = 'registered-content';
+		}
+
 		?>
-		<div class='app-tabs hide-if-no-js' data-tabbed="tabbed" data-tabevent="click">
-			<ul class="app-tabs-list">
+		<div class="<?php echo $wrap_class; ?>" <?php echo $tabbed; ?> >
+			<?php if ( count( $tabs ) > 1 ) : ?>
+			<ul class="app-tabs-list hide-if-no-js">
 				<?php
-				foreach ( $this->get_content_tabs() as $tab ) :
+				foreach ( $tabs as $tab ) :
 
 					$panel_id  = "tab-panel-{$tab['id']}";
 					$tab_class = 'app-tab';
@@ -688,18 +703,18 @@ final class WP_Screen {
 					} else {
 						$icon = null;
 					}
-				?>
-					<li class="<?php echo $tab_class; ?>">
-						<a href="<?php echo esc_url( "#$panel_id" ); ?>" aria-controls="<?php echo esc_attr( $panel_id ); ?>">
-							<?php echo $icon . $tab['tab']; ?>
-						</a>
-				<?php
+					?>
+						<li class="<?php echo $tab_class; ?>">
+							<a href="<?php echo esc_url( "#$panel_id" ); ?>" aria-controls="<?php echo esc_attr( $panel_id ); ?>">
+								<?php echo $icon . $tab['tab']; ?>
+							</a>
+					<?php
 				endforeach;
 				?>
 			</ul>
+			<?php endif; ?>
 
 			<?php
-			$panel_class = 'app-tab-content';
 			foreach ( $this->get_content_tabs() as $tab ) :
 				$panel_id = "tab-panel-{$tab['id']}";
 			?>
