@@ -30,6 +30,9 @@ class Dashboard {
 			// Instantiate the widgets API.
 			$instance->dashboard_widgets();
 
+			// Instantiate the tabbed content.
+			$instance->tabs();
+
 			// Instantiate the help content.
 			$instance->help();
 		}
@@ -48,36 +51,10 @@ class Dashboard {
 	public function __construct() {
 
 		// Add the top panel content.
-		add_action( 'dashboard_top_panel', [ $this, 'panel_content' ] );
+		add_action( 'dashboard_top_panel', [ $this, 'tabs' ] );
 
 		// Add dashboard quota to the activity box.
 		add_action( 'activity_box_end', [ $this, 'dashboard_quota' ] );
-	}
-
-	/**
-	 * Get intro panel file
-	 *
-	 * Used to get filtered location of the intro panel
-	 * per user role.
-	 *
-	 * Gets files at `app-views/backend/content/$file.php`.
-	 * A rework of the original WP version is maintained at
-	 * `app-views/backend/content/intro-panel-welcome.original.php`.
-	 *
-	 * @since  1.0.0
-	 * @access protected
-	 * @return string Returns an empty file URI string.
-	 */
-	protected function get_panel_content( $file ) {
-
-		// Begin output buffering.
-		ob_start();
-
-		// Include the file.
-		include( $file );
-
-		// Return the content and stop buffering.
-		return ob_get_clean();
 	}
 
 	/**
@@ -100,11 +77,11 @@ class Dashboard {
 
 		// Developer.
 		if ( current_user_can( 'develop' ) ) {
-			$panel = $this->get_panel_content( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-developer.php' );
+			$panel = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-developer.php' );
 
 		// Network administrator.
 		} elseif ( current_user_can( 'manage_network' ) ) {
-			$panel = $this->get_panel_content( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-network.php' );
+			$panel = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-network.php' );
 
 		// Administrator.
 		} elseif ( current_user_can( 'manage_options' ) ) {
@@ -112,25 +89,88 @@ class Dashboard {
 
 		// Editor.
 		} elseif ( current_user_can( 'edit_others_posts' ) ) {
-			$panel = $this->get_panel_content( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-editor.php' );
+			$panel = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-editor.php' );
 
 		// Author.
 		} elseif ( current_user_can( 'publish_posts' ) ) {
-			$panel = $this->get_panel_content( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-author.php' );
+			$panel = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-author.php' );
 
 		// Contributor.
 		} elseif ( current_user_can( 'edit_posts' ) ) {
-			$panel = $this->get_panel_content( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-contributor.php' );
+			$panel = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-contributor.php' );
 
 		// Subscriber.
 		} elseif ( current_user_can( 'read' ) ) {
-			$panel = $this->get_panel_content( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-subscriber.php' );
+			$panel = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-subscriber.php' );
 
 		} else {
 			$panel = '';
 		}
 
 		return apply_filters( 'app_get_panel_content', $panel );
+	}
+
+	/**
+	 * Tabbed content
+	 *
+	 * Add content to the tabbed section of the dashboard page.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @return mixed Returns the markup of the tabbed content.
+	 */
+	public function tabs() {
+
+		$screen = get_current_screen();
+		if ( 'dashboard' != $screen->id ) {
+			return;
+		}
+
+		$title = sprintf(
+			'<h2>%1s</h2>',
+			__( 'One' )
+		);
+
+		$screen->add_content_tab( [
+			'id'       => 'one',
+			'class'    => 'dashboard-tab',
+			'tab'      => __( 'One' ),
+			'icon'     => 'dashicons dashicons-palmtree',
+			'title'    => $title,
+			'content'  => 'One content.',
+			'callback' => null
+		] );
+
+		$title = sprintf(
+			'<h2>%1s</h2>',
+			__( 'Two' )
+		);
+
+		$screen->add_content_tab( [
+			'id'      => 'two',
+			'class'   => 'dashboard-tab',
+			'tab'     => __( 'Two' ),
+			'icon'    => 'dashicons dashicons-album',
+			'title'   => $title,
+			'content' => 'Two content.',
+			'callback' => null
+		] );
+
+		$title = sprintf(
+			'<h2>%1s</h2>',
+			__( 'Three' )
+		);
+
+		$screen->add_content_tab( [
+			'id'      => 'three',
+			'class'   => 'dashboard-tab',
+			'tab'     => __( 'Three' ),
+			'icon'    => 'dashicons dashicons-carrot',
+			'title'   => $title,
+			'content' => 'Three content.',
+			'callback' => null
+		] );
+
 	}
 
 	/**
