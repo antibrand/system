@@ -563,13 +563,12 @@ final class WP_Screen {
 	/**
 	 * Gets the content tabs registered for the screen.
 	 *
-	 * @since WP 3.4.0
-	 * @since WP 4.4.0 Content tabs are ordered by their priority.
+	 * @since 1.0.0
 	 * @return array Content tabs with arguments.
 	 */
 	public function get_content_tabs() {
 
-		$help_tabs = $this->content_tabs;
+		$content_tabs = $this->content_tabs;
 
 		$priorities = [];
 
@@ -599,7 +598,7 @@ final class WP_Screen {
 	/**
 	 * Gets the arguments for a content tab.
 	 *
-	 * @since WP 3.4.0
+	 * @since 1.0.0
 	 * @param string $id Content Tab ID.
 	 * @return array Content tab arguments.
 	 */
@@ -613,38 +612,41 @@ final class WP_Screen {
 	}
 
 	/**
-	 * Add a help tab to the contextual content for the screen.
+	 * Add content tab
+	 *
+	 * Adds a content tab to the tabbed content for the screen.
 	 * Call this on the load-$pagenow hook for the relevant screen.
 	 *
-	 * @since WP 3.3.0
-	 * @since WP 4.4.0 The `$priority` argument was added.
+	 * @since 1.0.0
 	 * @param array $args {
 	 *     Array of arguments used to display the content tab.
 	 *
-	 *     @type string $title    Title for the tab. Default false.
-	 *     @type string $id       Tab ID. Must be HTML-safe. Default false.
-	 *     @type string $content  Optional. Content tab content in plain text or HTML. Default empty string.
-	 *     @type string $callback Optional. A callback to generate the tab content. Default false.
+	 *     @type string $tab      Label for the tab. Default null.
+	 *     @type string $title    Title for the tab content. Default null.
+	 *     @type string $id       Tab ID. Must be HTML-safe. Default null.
+	 *     @type string $content  Optional. Tab content in plain text or HTML. Default null.
+	 *     @type string $callback Optional. A callback to generate the tab content. Default null.
 	 *     @type int    $priority Optional. The priority of the tab, used for ordering. Default 10.
 	 * }
 	 */
 	public function add_content_tab( $args ) {
 
 		$defaults = [
-			'tab'      => false,
-			'title'    => false,
-			'id'       => false,
-			'class'    => false,
-			'content'  => '',
-			'callback' => false,
+			'tab'      => null,
+			'title'    => null,
+			'id'       => null,
+			'class'    => null,
+			'icon'     => null,
+			'content'  => null,
+			'callback' => null,
 			'priority' => 10,
 		];
 
 		$args       = wp_parse_args( $args, $defaults );
 		$args['id'] = sanitize_html_class( $args['id'] );
 
-		// Ensure we have an ID and title.
-		if ( ! $args['id'] || ! $args['title'] ) {
+		// Ensure we have an ID and tab.
+		if ( ! $args['id'] || ! $args['tab'] ) {
 			return;
 		}
 
@@ -653,10 +655,100 @@ final class WP_Screen {
 	}
 
 	/**
+	 * Render content tabs
+	 *
+	 * Renders the markup for the tabbed content container,
+	 * the list of tab items, and the content container of
+	 * each tab.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return mixed Returns the markup of the tabs and the tabs container.
+	 */
+	public function render_content_tabs() {
+
+		?>
+		<div class='app-tabs hide-if-no-js' data-tabbed="tabbed" data-tabevent="click">
+			<ul class="app-tabs-list">
+				<?php
+				foreach ( $this->get_content_tabs() as $tab ) :
+
+					$panel_id  = "tab-panel-{$tab['id']}";
+					$tab_class = 'app-tab';
+
+					if ( ! empty( $tab['class'] ) ) {
+						$tab_class .= ' ' . $tab['class'];
+					}
+
+					if ( ! empty( $tab['icon'] ) ) {
+						$icon = sprintf(
+							'<span class="app-tab-icon %1s"></span> ',
+							$tab['icon']
+						);
+					} else {
+						$icon = null;
+					}
+				?>
+					<li class="<?php echo $tab_class; ?>">
+						<a href="<?php echo esc_url( "#$panel_id" ); ?>" aria-controls="<?php echo esc_attr( $panel_id ); ?>">
+							<?php echo $icon . $tab['tab']; ?>
+						</a>
+				<?php
+				endforeach;
+				?>
+			</ul>
+
+			<?php
+			$panel_class = 'app-tab-content';
+			foreach ( $this->get_content_tabs() as $tab ) :
+				$panel_id = "tab-panel-{$tab['id']}";
+			?>
+			<div id="<?php echo esc_attr( $panel_id ); ?>" class="<?php echo $panel_class; ?>">
+				<?php echo $tab['title']; ?>
+				<?php
+				// Print tab content.
+				echo $tab['content'];
+
+				// If it exists, fire tab callback.
+				if ( ! empty( $tab['callback'] ) ) {
+					call_user_func_array( $tab['callback'], [ $this, $tab ] );
+				}
+				?>
+			</div>
+			<?php endforeach; ?>
+		</div>
+		<?php
+
+	}
+
+	/**
+	 * Remove content tab
+	 *
+	 * Removes a content tab from the contextual content for the screen.
+	 *
+	 * @since 1.0.0
+	 * @param string $id The content tab ID.
+	 */
+	public function remove_content_tab( $id ) {
+		unset( $this->content_tabs[ $id ] );
+	}
+
+	/**
+	 * Remove content tabs
+	 *
+	 * Removes all content tabs from the contextual content for the screen.
+	 *
+	 * @since 1.0.0
+	 */
+	public function remove_content_tabs() {
+		$this->content_tabs = [];
+	}
+
+	/**
 	 * Gets the help tabs registered for the screen.
 	 *
-	 * @since WP 3.4.0
-	 * @since WP 4.4.0 Help tabs are ordered by their priority.
+	 * @since  WP 3.4.0
+	 * @since  WP 4.4.0 Help tabs are ordered by their priority.
 	 * @return array Help tabs with arguments.
 	 */
 	public function get_help_tabs() {
@@ -691,8 +783,8 @@ final class WP_Screen {
 	/**
 	 * Gets the arguments for a help tab.
 	 *
-	 * @since WP 3.4.0
-	 * @param string $id Help Tab ID.
+	 * @since  WP 3.4.0
+	 * @param  string $id Help Tab ID.
 	 * @return array Help tab arguments.
 	 */
 	public function get_help_tab( $id ) {
@@ -723,10 +815,10 @@ final class WP_Screen {
 	public function add_help_tab( $args ) {
 
 		$defaults = [
-			'title'    => false,
-			'id'       => false,
-			'content'  => '',
-			'callback' => false,
+			'title'    => null,
+			'id'       => null,
+			'content'  => null,
+			'callback' => null,
 			'priority' => 10,
 		];
 
@@ -764,7 +856,7 @@ final class WP_Screen {
 	/**
 	 * Gets the content from a contextual help sidebar.
 	 *
-	 * @since WP 3.4.0
+	 * @since  WP 3.4.0
 	 * @return string Contents of the help sidebar.
 	 */
 	public function get_help_sidebar() {
@@ -791,7 +883,7 @@ final class WP_Screen {
 	 * provisioned in layout_columns is returned. If the screen does not support
 	 * selecting the number of layout columns, 0 is returned.
 	 *
-	 * @since WP 3.4.0
+	 * @since  WP 3.4.0
 	 * @return int Number of columns to display.
 	 */
 	public function get_columns() {
@@ -801,9 +893,9 @@ final class WP_Screen {
  	/**
 	 * Get the accessible hidden headings and text used in the screen.
 	 *
-	 * @since 4WP .4.0
 	 * @see set_screen_reader_content() For more information on the array format.
 	 *
+	 * @since  WP 4.4.0
 	 * @return array An associative array of screen reader text strings.
 	 */
 	public function get_screen_reader_content() {
@@ -813,8 +905,8 @@ final class WP_Screen {
 	/**
 	 * Get a screen reader text string.
 	 *
-	 * @since WP 4.4.0
-	 * @param string $key Screen reader text array named key.
+	 * @since  WP 4.4.0
+	 * @param  string $key Screen reader text array named key.
 	 * @return string Screen reader text string.
 	 */
 	public function get_screen_reader_text( $key ) {
@@ -873,71 +965,13 @@ final class WP_Screen {
 	 */
 	public function render_screen_meta() {
 
-		/**
-		 * Filters the legacy contextual help list.
-		 *
-		 * @since WP 2.7.0
-		 * @deprecated WP 3.3.0 Use get_current_screen()->add_help_tab() or
-		 *                   get_current_screen()->remove_help_tab() instead.
-		 *
-		 * @param array     $old_compat_help Old contextual help.
-		 * @param WP_Screen $this            Current WP_Screen instance.
-		 */
-		self::$old_compat_help = apply_filters( 'contextual_help_list', self::$old_compat_help, $this );
-
-		$old_help = isset( self::$old_compat_help[ $this->id ] ) ? self::$old_compat_help[ $this->id ] : '';
-
-		/**
-		 * Filters the legacy contextual help text.
-		 *
-		 * @since WP 2.7.0
-		 * @deprecated WP 3.3.0 Use get_current_screen()->add_help_tab() or
-		 *                   get_current_screen()->remove_help_tab() instead.
-		 *
-		 * @param string    $old_help  Help text that appears on the screen.
-		 * @param string    $screen_id Screen ID.
-		 * @param WP_Screen $this      Current WP_Screen instance.
-		 *
-		 */
-		$old_help = apply_filters( 'contextual_help', $old_help, $this->id, $this );
-
-		// Default help only if there is no old-style block of text and no new-style help tabs.
-		if ( empty( $old_help ) && ! $this->get_help_tabs() ) {
-
-			/**
-			 * Filters the default legacy contextual help text.
-			 *
-			 * @since WP 2.8.0
-			 * @deprecated WP 3.3.0 Use get_current_screen()->add_help_tab() or
-			 *                   get_current_screen()->remove_help_tab() instead.
-			 *
-			 * @param string $old_help_default Default contextual help text.
-			 */
-			$default_help = apply_filters( 'default_contextual_help', '' );
-
-			if ( $default_help ) {
-				$old_help = '<p>' . $default_help . '</p>';
-			}
-		}
-
-		if ( $old_help ) {
-
-			$this->add_help_tab( [
-				'id'      => 'old-contextual-help',
-				'title'   => __( 'Overview' ),
-				'content' => $old_help,
-			] );
-		}
-
 		$help_sidebar = $this->get_help_sidebar();
-
-		$help_class = 'hidden';
+		$help_class   = 'hidden';
 
 		if ( ! $help_sidebar ) {
 			$help_class .= ' no-sidebar';
 		}
 
-		// Time to render!
 		?>
 		<div id="screen-meta" class="metabox-prefs">
 
@@ -952,8 +986,7 @@ final class WP_Screen {
 						foreach ( $this->get_help_tabs() as $tab ) :
 							$link_id  = "tab-link-{$tab['id']}";
 							$panel_id = "tab-panel-{$tab['id']}";
-							?>
-
+						?>
 							<li id="<?php echo esc_attr( $link_id ); ?>"<?php echo $class; ?>>
 								<a href="<?php echo esc_url( "#$panel_id" ); ?>" aria-controls="<?php echo esc_attr( $panel_id ); ?>">
 									<?php echo esc_html( $tab['title'] ); ?>
@@ -975,18 +1008,21 @@ final class WP_Screen {
 					<div class="contextual-help-tabs-wrap">
 						<?php
 						$classes = 'help-tab-content active';
-						foreach ( $this->get_help_tabs() as $tab ):
-							$panel_id = "tab-panel-{$tab['id']}";
-							?>
 
+						foreach ( $this->get_help_tabs() as $tab ):
+
+							$panel_id = "tab-panel-{$tab['id']}";
+
+							?>
 							<div id="<?php echo esc_attr( $panel_id ); ?>" class="<?php echo $classes; ?>">
 								<?php
 								// Print tab content.
 								echo $tab['content'];
 
 								// If it exists, fire tab callback.
-								if ( ! empty( $tab['callback'] ) )
+								if ( ! empty( $tab['callback'] ) ) {
 									call_user_func_array( $tab['callback'], array( $this, $tab ) );
+								}
 								?>
 							</div>
 						<?php
