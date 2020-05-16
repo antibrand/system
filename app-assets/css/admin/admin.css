@@ -3849,57 +3849,35 @@ form.upgrade .hint {
 }
 
 #contextual-help-columns {
-  position: relative;
-}
-
-#contextual-help-back {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 150px;
-  right: 170px;
-  border: 1px solid #cccccc;
-  border-top: none;
-  border-bottom: none;
-}
-
-#contextual-help-wrap.no-sidebar #contextual-help-back {
-  right: 0;
-  border-right-width: 0;
-  border-bottom-right-radius: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .contextual-help-tabs {
   float: left;
-  width: 150px;
+  min-width: 160px;
   margin: 0;
+  padding-bottom: 1em;
 }
 
 .contextual-help-tabs ul {
   margin: 1em 0;
 }
 
-.contextual-help-tabs li {
-  margin-bottom: 0;
+.contextual-help-tabs ul li {
+  margin-top: 0.5em;
   list-style-type: none;
-  border-style: solid;
-  border-width: 0 0 0 2px;
-  border-color: transparent;
   font-size: 0.9375rem;
 }
 
-.contextual-help-tabs a {
+.contextual-help-tabs ul li a {
   display: block;
-  padding: 0.3em 0.5em;
+  padding: 0 1em;
   text-decoration: none;
 }
 
-.contextual-help-tabs .active {
-  padding: 0;
-  margin: 0 -1px 0 0;
-}
-
-.contextual-help-tabs .active a {
+.contextual-help-tabs ul li.active a {
   font-weight: 700;
   font-weight: bolder;
 }
@@ -3933,7 +3911,7 @@ form.upgrade .hint {
 }
 
 .contextual-help-sidebar {
-  width: 150px;
+  min-width: 160px;
   float: right;
   padding: 0 0.75em 1em 0;
   overflow: auto;
