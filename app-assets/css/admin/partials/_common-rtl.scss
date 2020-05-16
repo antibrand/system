@@ -253,6 +253,7 @@ code {
 	li {
 		display: inline-block;
 		margin: 0;
+		margin-left: 0.03em;
 		padding: 0;
 		white-space: nowrap;
 
@@ -260,7 +261,7 @@ code {
 			font-weight: 600;
 
 			&:after {
-				content: '|';
+				// content: '|';
 				display: inline-block;
 				margin-right: 0.35em;
 				font-weight: normal;
@@ -274,18 +275,46 @@ code {
 	}
 
 	a {
-		line-height: 2;
-		padding: .2em;
+		display: inline-block;
+		vertical-align: baseline;
+		margin: 0;
+		padding: 0.75rem 1rem;
+		background: $button_background_color;
+		border: solid 1px $button_border_color;
+		font-size: $px14;
+		font-weight: bold;
+		font-weight: 700;
+		line-height: 1;
 		text-decoration: none;
+		color: $button_text_color;
+		white-space: nowrap;
+		cursor: pointer;
+		-webkit-appearance: none;
+		transition: all .1s linear;
+
+		&.hover,
+		&:hover,
+		&.focus,
+		&:focus,
+		&.active,
+		&:active {
+			background: $button_action_background_color;
+			color: $button_action_text_color;
+			color-adjust: exact !important;
+		}
+
+		&[disabled],
+		&:disabled,
+		&.disabled,
+		&.button-disabled {
+			color: $light_gray;
+			background: $pale_gray;
+			cursor: default;
+		}
 
 		.count,
 		&.current .count {
 			font-weight: 400;
-		}
-
-		&.current {
-			font-weight: 600;
-			border: none;
 		}
 	}
 }

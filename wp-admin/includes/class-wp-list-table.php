@@ -398,37 +398,37 @@ class WP_List_Table {
 		// Print the add new link only if the current user can create posts.
 		if ( 'edit-post' == $this->screen->id && current_user_can( 'publish_posts' ) ) {
 			$add_new = sprintf(
-				'<li class="list-table-add-new"><a href="%1s" class="page-title-action">%2s</a></li>',
+				'<li class="list-table-add-new"><a href="%1s" class="button">%2s</a></li>',
 				esc_url( admin_url( $post_new_file ) ),
 				esc_html( $post_type_object->labels->add_new )
 			);
 		} elseif ( 'edit-page' == $this->screen->id && current_user_can( 'publish_posts' ) ) {
 			$add_new = sprintf(
-				'<li class="list-table-add-new"><a href="%1s" class="page-title-action">%2s</a></li>',
+				'<li class="list-table-add-new"><a href="%1s" class="button">%2s</a></li>',
 				esc_url( admin_url( $post_new_file ) ),
 				esc_html( $post_type_object->labels->add_new )
 			);
 		} elseif ( 'users' == $this->screen->id && current_user_can( 'create_users' ) ) {
 			$add_new = sprintf(
-				'<li class="list-table-add-new"><a href="%1s" class="page-title-action">%2s</a></li>',
+				'<li class="list-table-add-new"><a href="%1s" class="button">%2s</a></li>',
 				esc_url( admin_url( 'user-new.php' ) ),
 				esc_html_x( 'Add New', 'user' )
 			);
 		} elseif ( 'users-network' == $this->screen->id && is_multisite() && current_user_can( 'promote_users' ) ) {
 			$add_new = sprintf(
-				'<li class="list-table-add-new"><a href="%1s" class="page-title-action">%2s</a></li>',
+				'<li class="list-table-add-new"><a href="%1s" class="button">%2s</a></li>',
 				esc_url( admin_url( 'user-new.php' ) ),
 				esc_html_x( 'Add Existing', 'user' )
 			);
 		} elseif ( 'plugins' == $this->screen->id && current_user_can( 'upload_plugins' ) ) {
 			$add_new = sprintf(
-				'<li class="list-table-add-new"><button id="upload-plugin-toggle" href="%1s" class="upload-view-toggle page-title-action">%2s</button></li>',
+				'<li class="list-table-add-new"><button id="upload-plugin-toggle" href="%1s" class="upload-view-toggle button">%2s</button></li>',
 				esc_url( admin_url( $post_new_file ) ),
 				esc_html( 'Upload Plugin' )
 			);
 		} elseif ( $post_type_object && current_user_can( $post_type_object->cap->create_posts ) ) {
 			$add_new = sprintf(
-				'<li class="list-table-add-new"><a href="%1s" class="page-title-action">%2s</a></li>',
+				'<li class="list-table-add-new"><a href="%1s" class="button">%2s</a></li>',
 				esc_url( admin_url( $post_new_file ) ),
 				esc_html( $post_type_object->labels->add_new )
 			);
@@ -464,7 +464,7 @@ class WP_List_Table {
 		foreach ( $views as $class => $view ) {
 			$views[ $class ] = "\t<li class='$class'>$view";
 		}
-		echo implode( " |</li>\n", $views ) . "</li>\n";
+		echo implode( "</li>\n", $views ) . "</li>\n";
 		echo '</ul>';
 	}
 

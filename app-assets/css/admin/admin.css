@@ -2455,6 +2455,7 @@ code {
 .subsubsub li {
   display: inline-block;
   margin: 0;
+  margin-right: 0.03em;
   padding: 0;
   white-space: nowrap;
 }
@@ -2466,7 +2467,6 @@ code {
 
 .list-table-views li.list-table-add-new:after,
 .subsubsub li.list-table-add-new:after {
-  content: '|';
   display: inline-block;
   margin-left: 0.35em;
   font-weight: normal;
@@ -2480,9 +2480,45 @@ code {
 
 .list-table-views a,
 .subsubsub a {
-  line-height: 2;
-  padding: .2em;
+  display: inline-block;
+  vertical-align: baseline;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  background: #ffffff;
+  border: solid 1px #888888;
+  font-size: 0.875rem;
+  font-weight: bold;
+  font-weight: 700;
+  line-height: 1;
   text-decoration: none;
+  color: #222222;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+}
+
+.list-table-views a.hover, .list-table-views a:hover, .list-table-views a.focus, .list-table-views a:focus, .list-table-views a.active, .list-table-views a:active,
+.subsubsub a.hover,
+.subsubsub a:hover,
+.subsubsub a.focus,
+.subsubsub a:focus,
+.subsubsub a.active,
+.subsubsub a:active {
+  background: #ffee00;
+  color: #222222;
+  color-adjust: exact !important;
+}
+
+.list-table-views a[disabled], .list-table-views a:disabled, .list-table-views a.disabled, .list-table-views a.button-disabled,
+.subsubsub a[disabled],
+.subsubsub a:disabled,
+.subsubsub a.disabled,
+.subsubsub a.button-disabled {
+  color: #888888;
+  background: #cccccc;
+  cursor: default;
 }
 
 .list-table-views a .count,
@@ -2490,12 +2526,6 @@ code {
 .subsubsub a .count,
 .subsubsub a.current .count {
   font-weight: 400;
-}
-
-.list-table-views a.current,
-.subsubsub a.current {
-  font-weight: 600;
-  border: none;
 }
 
 .list-table-top {
