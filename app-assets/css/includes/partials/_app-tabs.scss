@@ -41,22 +41,34 @@
 				display: block;
 				padding: 0.75em 1em;
 				background-color: $white;
-				font-weight: bold;
 				line-height: 1;
 				text-decoration: none;
-				color: inherit;
+				color: $medium_gray;
 
 				@supports( font-variation-settings: normal ) {
-					font-weight: 550;
+					font-weight: 500;
+				}
+
+				&:hover,
+				&:focus,
+				&:active {
+					color: $text_color;
 				}
 			}
 
 			&.active {
+
+				// Same as background color for the open folder effect.
 				border-bottom-color: $white;
 
 				a {
-					color: revert;
+					font-weight: bold;
+					color: $text_color;
 					cursor: default;
+
+					@supports( font-variation-settings: normal ) {
+						font-weight: 700;
+					}
 				}
 			}
 		}

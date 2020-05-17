@@ -2103,16 +2103,19 @@ table.form-table td .updated p {
   display: block;
   padding: 0.75em 1em;
   background-color: #ffffff;
-  font-weight: bold;
   line-height: 1;
   text-decoration: none;
-  color: inherit;
+  color: #555555;
 }
 
 @supports (font-variation-settings: normal) {
   .app-tabs .app-tabs-list .app-tab a {
-    font-weight: 550;
+    font-weight: 500;
   }
+}
+
+.app-tabs .app-tabs-list .app-tab a:hover, .app-tabs .app-tabs-list .app-tab a:focus, .app-tabs .app-tabs-list .app-tab a:active {
+  color: #222222;
 }
 
 .app-tabs .app-tabs-list .app-tab.active {
@@ -2120,8 +2123,15 @@ table.form-table td .updated p {
 }
 
 .app-tabs .app-tabs-list .app-tab.active a {
-  color: revert;
+  font-weight: bold;
+  color: #222222;
   cursor: default;
+}
+
+@supports (font-variation-settings: normal) {
+  .app-tabs .app-tabs-list .app-tab.active a {
+    font-weight: 700;
+  }
 }
 
 .app-tabs .app-tab-content {
@@ -2742,10 +2752,6 @@ img.emoji {
   padding: 0 !important;
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
-}
-
-.app-tabs .app-tabs-list .app-tab.active a {
-  color: #004499;
 }
 
 /*------------------------------------------------------------------------------

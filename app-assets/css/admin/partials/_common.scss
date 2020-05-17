@@ -538,23 +538,6 @@ img.emoji {
 	box-shadow: none !important;
 }
 
-///
-/// Styles for the jQuery tabs library
-///
-.app-tabs {
-	.app-tabs-list {
-		.app-tab {
-
-			&.active {
-				a {
-					color: $link_color;
-				}
-			}
-		}
-	}
-}
-
-
 /*------------------------------------------------------------------------------
   1.0 - Text Styles
 ------------------------------------------------------------------------------*/
