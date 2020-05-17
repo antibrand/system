@@ -1,6 +1,6 @@
 <?php
 /**
- * List Table API: WP_Plugin_Install_List_Table class
+ * List Table API: Plugin_Install_List_Table class
  *
  * @package App_Package
  * @subpackage Administration
@@ -15,9 +15,9 @@ namespace AppNamespace\Admin;
  * @since WP 3.1.0
  * @access private
  *
- * @see WP_List_Table
+ * @see List_Table
  */
-class WP_Plugin_Install_List_Table extends WP_List_Table {
+class Plugin_Install_List_Table extends List_Table {
 
 	public $order   = 'ASC';
 	public $orderby = null;

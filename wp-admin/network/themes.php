@@ -13,7 +13,7 @@ require_once( dirname( __FILE__ ) . '/admin.php' );
 if ( !current_user_can('manage_network_themes') )
 	wp_die( __( 'Sorry, you are not allowed to manage network themes.' ) );
 
-$wp_list_table = _get_list_table( 'AppNamespace\Admin\WP_MS_Themes_List_Table' );
+$wp_list_table = _get_list_table( 'AppNamespace\Admin\MS_Themes_List_Table' );
 $pagenum = $wp_list_table->get_pagenum();
 
 $action = $wp_list_table->current_action();

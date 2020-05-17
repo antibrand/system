@@ -1,6 +1,6 @@
 <?php
 /**
- * List Table API: WP_Themes_List_Table class
+ * List Table API: Themes_List_Table class
  *
  * @package App_Package
  * @subpackage Administration
@@ -15,9 +15,9 @@ namespace AppNamespace\Admin;
  * @since 3.1.0
  * @access private
  *
- * @see WP_List_Table
+ * @see List_Table
  */
-class WP_Themes_List_Table extends WP_List_Table {
+class Themes_List_Table extends List_Table {
 
 	protected $search_terms = array();
 	public $features = array();
@@ -27,7 +27,7 @@ class WP_Themes_List_Table extends WP_List_Table {
 	 *
 	 * @since 3.1.0
 	 *
-	 * @see WP_List_Table::__construct() for more information on default arguments.
+	 * @see List_Table::__construct() for more information on default arguments.
 	 *
 	 * @param array $args An associative array of arguments.
 	 */
@@ -66,7 +66,7 @@ class WP_Themes_List_Table extends WP_List_Table {
 		}
 
 		unset( $themes[ get_option( 'stylesheet' ) ] );
-		WP_Theme::sort_by_name( $themes );
+		Theme::sort_by_name( $themes );
 
 		$per_page = 36;
 		$page = $this->get_pagenum();
@@ -244,7 +244,7 @@ class WP_Themes_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * @param WP_Theme $theme
+	 * @param Theme $theme
 	 * @return bool
 	 */
 	public function search_theme( $theme ) {

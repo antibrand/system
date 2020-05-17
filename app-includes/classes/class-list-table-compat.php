@@ -14,7 +14,7 @@ namespace AppNamespace\Admin;
  *
  * @since 3.1.0
  */
-class WP_List_Table_Compat extends WP_List_Table {
+class List_Table_Compat extends List_Table {
 
 	public $_screen;
 	public $_columns;

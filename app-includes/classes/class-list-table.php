@@ -1,6 +1,6 @@
 <?php
 /**
- * Administration API: WP_List_Table class
+ * Administration API: List_Table class
  *
  * @package App_Package
  * @subpackage List_Table
@@ -15,7 +15,7 @@ namespace AppNamespace\Admin;
  * @since 3.1.0
  * @access private
  */
-class WP_List_Table {
+class List_Table {
 
 	/**
 	 * The current list of items.
@@ -235,18 +235,18 @@ class WP_List_Table {
 	 * @abstract
 	 */
 	public function ajax_user_can() {
-		die( 'function WP_List_Table::ajax_user_can() must be over-ridden in a sub-class.' );
+		die( 'function List_Table::ajax_user_can() must be over-ridden in a sub-class.' );
 	}
 
 	/**
 	 * Prepares the list of items for displaying.
-	 * @uses WP_List_Table::set_pagination_args()
+	 * @uses List_Table::set_pagination_args()
 	 *
 	 * @since 3.1.0
 	 * @abstract
 	 */
 	public function prepare_items() {
-		die( 'function WP_List_Table::prepare_items() must be over-ridden in a sub-class.' );
+		die( 'function List_Table::prepare_items() must be over-ridden in a sub-class.' );
 	}
 
 	/**
@@ -584,7 +584,7 @@ class WP_List_Table {
 	 *
 	 * @since 3.1.0
 	 * @global wpdb      $wpdb
-	 * @global WP_Locale $wp_locale
+	 * @global Locale $wp_locale
 	 *
 	 * @param string $post_type
 	 */
@@ -918,7 +918,7 @@ class WP_List_Table {
 	 * @return array
 	 */
 	public function get_columns() {
-		die( 'function WP_List_Table::get_columns() must be over-ridden in a sub-class.' );
+		die( 'function List_Table::get_columns() must be over-ridden in a sub-class.' );
 	}
 
 	/**
@@ -967,7 +967,7 @@ class WP_List_Table {
 	}
 
 	/**
-	 * Public wrapper for WP_List_Table::get_default_primary_column_name().
+	 * Public wrapper for List_Table::get_default_primary_column_name().
 	 *
 	 * @since 4.4.0
 	 *
@@ -991,7 +991,7 @@ class WP_List_Table {
 		// If the primary column doesn't exist fall back to the
 		// first non-checkbox column.
 		if ( ! isset( $columns[ $default ] ) ) {
-			$default = WP_List_Table::get_default_primary_column_name();
+			$default = List_Table::get_default_primary_column_name();
 		}
 
 		/**
@@ -1194,7 +1194,7 @@ class WP_List_Table {
 	}
 
 	/**
-	 * Get a list of CSS classes for the WP_List_Table table tag.
+	 * Get a list of CSS classes for the List_Table table tag.
 	 *
 	 * @since 3.1.0
 	 *

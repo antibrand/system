@@ -1,6 +1,6 @@
 <?php
 /**
- * List Table API: WP_Comments_List_Table class
+ * List Table API: Comments_List_Table class
  *
  * @package App_Package
  * @subpackage Administration
@@ -15,9 +15,9 @@ namespace AppNamespace\Admin;
  * @since 3.1.0
  * @access private
  *
- * @see WP_List_Table
+ * @see List_Table
  */
-class WP_Comments_List_Table extends WP_List_Table {
+class Comments_List_Table extends List_Table {
 
 	public $checkbox = true;
 
@@ -32,7 +32,7 @@ class WP_Comments_List_Table extends WP_List_Table {
 	 *
 	 * @since 3.1.0
 	 *
-	 * @see WP_List_Table::__construct() for more information on default arguments.
+	 * @see List_Table::__construct() for more information on default arguments.
 	 *
 	 * @global int $post_id
 	 *
@@ -478,10 +478,10 @@ class WP_Comments_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * @global WP_Post    $post
-	 * @global WP_Comment $comment
+	 * @global Post    $post
+	 * @global Comment $comment
 	 *
-	 * @param WP_Comment $item
+	 * @param Comment $item
 	 */
 	public function single_row( $item ) {
 		global $post, $comment;
@@ -513,7 +513,7 @@ class WP_Comments_List_Table extends WP_List_Table {
  	 *
  	 * @global string $comment_status Status for the current listed comments.
  	 *
- 	 * @param WP_Comment $comment     The comment object.
+ 	 * @param Comment $comment     The comment object.
  	 * @param string     $column_name Current column name.
  	 * @param string     $primary     Primary column name.
  	 * @return string|void Comment row actions output.
@@ -624,7 +624,7 @@ class WP_Comments_List_Table extends WP_List_Table {
 
 	/**
 	 *
-	 * @param WP_Comment $comment The comment object.
+	 * @param Comment $comment The comment object.
 	 */
 	public function column_cb( $comment ) {
 		if ( $this->user_can ) { ?>
@@ -635,7 +635,7 @@ class WP_Comments_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * @param WP_Comment $comment The comment object.
+	 * @param Comment $comment The comment object.
 	 */
 	public function column_comment( $comment ) {
 		echo '<div class="comment-author">';
@@ -675,7 +675,7 @@ class WP_Comments_List_Table extends WP_List_Table {
 	 *
 	 * @global string $comment_status
 	 *
-	 * @param WP_Comment $comment The comment object.
+	 * @param Comment $comment The comment object.
 	 */
 	public function column_author( $comment ) {
 		global $comment_status;
@@ -715,7 +715,7 @@ class WP_Comments_List_Table extends WP_List_Table {
 
 	/**
 	 *
-	 * @param WP_Comment $comment The comment object.
+	 * @param Comment $comment The comment object.
 	 */
 	public function column_date( $comment ) {
 		/* translators: 1: comment date, 2: comment time */
@@ -740,7 +740,7 @@ class WP_Comments_List_Table extends WP_List_Table {
 
 	/**
 	 *
-	 * @param WP_Comment $comment The comment object.
+	 * @param Comment $comment The comment object.
 	 */
 	public function column_response( $comment ) {
 		$post = get_post();
@@ -778,7 +778,7 @@ class WP_Comments_List_Table extends WP_List_Table {
 
 	/**
 	 *
-	 * @param WP_Comment $comment     The comment object.
+	 * @param Comment $comment     The comment object.
 	 * @param string     $column_name The custom column's name.
 	 */
 	public function column_default( $comment, $column_name ) {

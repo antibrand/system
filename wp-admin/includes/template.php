@@ -2071,7 +2071,7 @@ function _wp_admin_html_begin() {
  * @return WP_Screen Screen object.
  */
 function convert_to_screen( $hook_name ) {
-	if ( ! class_exists( 'AppNamespace\Admin\WP_Screen' ) ) {
+	if ( ! class_exists( 'AppNamespace\Admin\Screen' ) ) {
 		_doing_it_wrong(
 			'convert_to_screen(), add_meta_box()',
 			sprintf(
@@ -2086,7 +2086,7 @@ function convert_to_screen( $hook_name ) {
 		return (object) array( 'id' => '_invalid', 'base' => '_are_belong_to_us' );
 	}
 
-	return AppNamespace\Admin\WP_Screen::get( $hook_name );
+	return AppNamespace\Admin\Screen::get( $hook_name );
 }
 
 /**

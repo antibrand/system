@@ -1,6 +1,6 @@
 <?php
 /**
- * List Table API: WP_Plugins_List_Table class
+ * List Table API: Plugins_List_Table class
  *
  * @package App_Package
  * @subpackage Administration
@@ -15,16 +15,16 @@ namespace AppNamespace\Admin;
  * @since 3.1.0
  * @access private
  *
- * @see WP_List_Table
+ * @see List_Table
  */
-class WP_Plugins_List_Table extends WP_List_Table {
+class Plugins_List_Table extends List_Table {
 
 	/**
 	 * Constructor.
 	 *
 	 * @since 3.1.0
 	 *
-	 * @see WP_List_Table::__construct() for more information on default arguments.
+	 * @see List_Table::__construct() for more information on default arguments.
 	 *
 	 * @global string $status
 	 * @global int    $page
@@ -506,7 +506,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		} elseif ( 'top' === $which && 'dropins' === $status ) {
 			/* translators: %s: wp-content directory name */
 			echo '<p>' . sprintf( __( 'Drop-ins are advanced plugins in the %s directory that replace core functionality when present.' ),
-				'<code>' . str_replace( ABSPATH, '', WP_CONTENT_DIR ) . '</code>'
+				'<code>' . str_replace( ABSPATH, '', CONTENT_DIR ) . '</code>'
 			) . '</p>';
 		}
 		echo '</div>';

@@ -1,6 +1,6 @@
 <?php
 /**
- * List Table API: WP_Users_List_Table class
+ * List Table API: Users_List_Table class
  *
  * @package App_Package
  * @subpackage Administration
@@ -15,9 +15,9 @@ namespace AppNamespace\Admin;
  * @since 3.1.0
  * @access private
  *
- * @see WP_List_Table
+ * @see List_Table
  */
-class WP_Users_List_Table extends WP_List_Table {
+class Users_List_Table extends List_Table {
 
 	/**
 	 * Site ID to generate the Users list table for.
@@ -40,7 +40,7 @@ class WP_Users_List_Table extends WP_List_Table {
 	 *
 	 * @since 3.1.0
 	 *
-	 * @see WP_List_Table::__construct() for more information on default arguments.
+	 * @see List_Table::__construct() for more information on default arguments.
 	 *
 	 * @param array $args An associative array of arguments.
 	 */
@@ -439,7 +439,7 @@ class WP_Users_List_Table extends WP_List_Table {
 			 * @param array   $actions     An array of action links to be displayed.
 			 *                             Default 'Edit', 'Delete' for single site, and
 			 *                             'Edit', 'Remove' for Multisite.
-			 * @param WP_User $user_object WP_User object for the currently-listed user.
+			 * @param User $user_object User object for the currently-listed user.
 			 */
 			$actions = apply_filters( 'user_row_actions', $actions, $user_object );
 
@@ -554,7 +554,7 @@ class WP_Users_List_Table extends WP_List_Table {
 	 *
 	 * @since 4.4.0
 	 *
-	 * @param WP_User $user_object The WP_User object.
+	 * @param User $user_object The User object.
 	 * @return array An array of user roles.
 	 */
 	protected function get_role_list( $user_object ) {
@@ -578,7 +578,7 @@ class WP_Users_List_Table extends WP_List_Table {
 		 * @since 4.4.0
 		 *
 		 * @param array   $role_list   An array of user roles.
-		 * @param WP_User $user_object A WP_User object.
+		 * @param User $user_object A User object.
 		 */
 		return apply_filters( 'get_role_list', $role_list, $user_object );
 	}

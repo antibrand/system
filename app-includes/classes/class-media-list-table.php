@@ -1,6 +1,6 @@
 <?php
 /**
- * List Table API: WP_Media_List_Table class
+ * List Table API: Media_List_Table class
  *
  * @package App_Package
  * @subpackage Administration
@@ -15,9 +15,9 @@ namespace AppNamespace\Admin;
  * @since 3.1.0
  * @access private
  *
- * @see WP_List_Table
+ * @see List_Table
  */
-class WP_Media_List_Table extends WP_List_Table {
+class Media_List_Table extends List_Table {
 	/**
 	 * Holds the number of pending comments for each post.
 	 *
@@ -35,7 +35,7 @@ class WP_Media_List_Table extends WP_List_Table {
 	 *
 	 * @since 3.1.0
 	 *
-	 * @see WP_List_Table::__construct() for more information on default arguments.
+	 * @see List_Table::__construct() for more information on default arguments.
 	 *
 	 * @param array $args An associative array of arguments.
 	 */
@@ -63,7 +63,7 @@ class WP_Media_List_Table extends WP_List_Table {
 
 	/**
 	 *
-	 * @global WP_Query $wp_query
+	 * @global Query $wp_query
 	 * @global array    $post_mime_types
 	 * @global array    $avail_post_mime_types
 	 * @global string   $mode
@@ -362,7 +362,7 @@ class WP_Media_List_Table extends WP_List_Table {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param WP_Post $post The current WP_Post object.
+	 * @param Post $post The current Post object.
 	 */
 	public function column_cb( $post ) {
 		if ( current_user_can( 'edit_post', $post->ID ) ) { ?>
@@ -378,7 +378,7 @@ class WP_Media_List_Table extends WP_List_Table {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param WP_Post $post The current WP_Post object.
+	 * @param Post $post The current Post object.
 	 */
 	public function column_title( $post ) {
 		list( $mime ) = explode( '/', $post->post_mime_type );
@@ -424,7 +424,7 @@ class WP_Media_List_Table extends WP_List_Table {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param WP_Post $post The current WP_Post object.
+	 * @param Post $post The current Post object.
 	 */
 	public function column_author( $post ) {
 		printf( '<a href="%s">%s</a>',
@@ -438,7 +438,7 @@ class WP_Media_List_Table extends WP_List_Table {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param WP_Post $post The current WP_Post object.
+	 * @param Post $post The current Post object.
 	 */
 	public function column_desc( $post ) {
 		echo has_excerpt() ? $post->post_excerpt : '';
@@ -449,7 +449,7 @@ class WP_Media_List_Table extends WP_List_Table {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param WP_Post $post The current WP_Post object.
+	 * @param Post $post The current Post object.
 	 */
 	public function column_date( $post ) {
 		if ( '0000-00-00 00:00:00' === $post->post_date ) {
@@ -476,7 +476,7 @@ class WP_Media_List_Table extends WP_List_Table {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param WP_Post $post The current WP_Post object.
+	 * @param Post $post The current Post object.
 	 */
 	public function column_parent( $post ) {
 		$user_can_edit = current_user_can( 'edit_post', $post->ID );
@@ -536,7 +536,7 @@ class WP_Media_List_Table extends WP_List_Table {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param WP_Post $post The current WP_Post object.
+	 * @param Post $post The current Post object.
 	 */
 	public function column_comments( $post ) {
 		echo '<div class="post-com-count-wrapper">';
@@ -557,7 +557,7 @@ class WP_Media_List_Table extends WP_List_Table {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param WP_Post $post        The current WP_Post object.
+	 * @param Post $post        The current Post object.
 	 * @param string  $column_name Current column name.
 	 */
 	public function column_default( $post, $column_name ) {
@@ -609,7 +609,7 @@ class WP_Media_List_Table extends WP_List_Table {
 
 	/**
 	 *
-	 * @global WP_Post $post
+	 * @global Post $post
 	 */
 	public function display_rows() {
 		global $post, $wp_query;
@@ -649,7 +649,7 @@ class WP_Media_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * @param WP_Post $post
+	 * @param Post $post
 	 * @param string  $att_title
 	 *
 	 * @return array
@@ -764,7 +764,7 @@ class WP_Media_List_Table extends WP_List_Table {
 		 *
 		 * @param array   $actions  An array of action links for each attachment.
 		 *                          Default 'Edit', 'Delete Permanently', 'View'.
-		 * @param WP_Post $post     WP_Post object for the current attachment.
+		 * @param Post $post     Post object for the current attachment.
 		 * @param bool    $detached Whether the list table contains media not attached
 		 *                          to any posts. Default true.
 		 */

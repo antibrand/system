@@ -989,7 +989,7 @@ function add_contextual_help( $screen, $help ) {
 	if ( is_string( $screen ) )
 		$screen = convert_to_screen( $screen );
 
-	AppNamespace\Admin\WP_Screen::add_old_compat_help( $screen, $help );
+	AppNamespace\Admin\Screen::add_old_compat_help( $screen, $help );
 }
 
 /**

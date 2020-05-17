@@ -1,6 +1,6 @@
 <?php
 /**
- * List Table API: WP_MS_Sites_List_Table class
+ * List Table API: MS_Sites_List_Table class
  *
  * @package App_Package
  * @subpackage Administration
@@ -15,9 +15,9 @@ namespace AppNamespace\Admin;
  * @since 3.1.0
  * @access private
  *
- * @see WP_List_Table
+ * @see List_Table
  */
-class WP_MS_Sites_List_Table extends WP_List_Table {
+class MS_Sites_List_Table extends List_Table {
 
 	/**
 	 * Site status list.
@@ -32,7 +32,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	 *
 	 * @since 3.1.0
 	 *
-	 * @see WP_List_Table::__construct() for more information on default arguments.
+	 * @see List_Table::__construct() for more information on default arguments.
 	 *
 	 * @param array $args An associative array of arguments.
 	 */

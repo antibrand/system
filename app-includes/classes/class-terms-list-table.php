@@ -1,6 +1,6 @@
 <?php
 /**
- * List Table API: WP_Terms_List_Table class
+ * List Table API: Terms_List_Table class
  *
  * @package App_Package
  * @subpackage Administration
@@ -15,9 +15,9 @@ namespace AppNamespace\Admin;
  * @since 3.1.0
  * @access private
  *
- * @see WP_List_Table
+ * @see List_Table
  */
-class WP_Terms_List_Table extends WP_List_Table {
+class Terms_List_Table extends List_Table {
 
 	public $callback_args;
 
@@ -28,7 +28,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	 *
 	 * @since 3.1.0
 	 *
-	 * @see WP_List_Table::__construct() for more information on default arguments.
+	 * @see List_Table::__construct() for more information on default arguments.
 	 *
 	 * @global string $post_type
 	 * @global string $taxonomy
@@ -314,7 +314,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 
 	/**
 	 * @global string $taxonomy
-	 * @param WP_Term $tag Term object.
+	 * @param Term $tag Term object.
 	 * @param int $level
 	 */
 	public function single_row( $tag, $level = 0 ) {
@@ -329,7 +329,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * @param WP_Term $tag Term object.
+	 * @param Term $tag Term object.
 	 * @return string
 	 */
 	public function column_cb( $tag ) {
@@ -342,7 +342,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * @param WP_Term $tag Term object.
+	 * @param Term $tag Term object.
 	 * @return string
 	 */
 	public function column_name( $tag ) {
@@ -358,10 +358,10 @@ class WP_Terms_List_Table extends WP_List_Table {
 		 *
 		 * @since 2.5.0
 		 *
-		 * @see WP_Terms_List_Table::column_name()
+		 * @see Terms_List_Table::column_name()
 		 *
 		 * @param string $pad_tag_name The term name, padded if not top-level.
-		 * @param WP_Term $tag         Term object.
+		 * @param Term $tag         Term object.
 		 */
 		$name = apply_filters( 'term_name', $pad . ' ' . $tag->name, $tag );
 
@@ -409,7 +409,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param WP_Term $tag         Tag being acted upon.
+	 * @param Term $tag         Tag being acted upon.
 	 * @param string  $column_name Current column name.
 	 * @param string  $primary     Primary column name.
 	 * @return string Row actions output for terms.
@@ -472,7 +472,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 		 *
 		 * @param array  $actions An array of action links to be displayed. Default
 		 *                        'Edit', 'Quick Edit', 'Delete', and 'View'.
-		 * @param WP_Term $tag    Term object.
+		 * @param Term $tag    Term object.
 		 */
 		$actions = apply_filters( 'tag_row_actions', $actions, $tag );
 
@@ -485,7 +485,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 		 *
 		 * @param array  $actions An array of action links to be displayed. Default
 		 *                        'Edit', 'Quick Edit', 'Delete', and 'View'.
-		 * @param WP_Term $tag    Term object.
+		 * @param Term $tag    Term object.
 		 */
 		$actions = apply_filters( "{$taxonomy}_row_actions", $actions, $tag );
 
@@ -493,7 +493,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * @param WP_Term $tag Term object.
+	 * @param Term $tag Term object.
 	 * @return string
 	 */
 	public function column_description( $tag ) {
@@ -505,7 +505,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * @param WP_Term $tag Term object.
+	 * @param Term $tag Term object.
 	 * @return string
 	 */
 	public function column_slug( $tag ) {
@@ -514,7 +514,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * @param WP_Term $tag Term object.
+	 * @param Term $tag Term object.
 	 * @return string
 	 */
 	public function column_posts( $tag ) {
@@ -542,7 +542,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * @param WP_Term $tag Term object.
+	 * @param Term $tag Term object.
 	 * @return string
 	 */
 	public function column_links( $tag ) {
@@ -552,7 +552,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * @param WP_Term $tag Term object.
+	 * @param Term $tag Term object.
 	 * @param string $column_name
 	 * @return string
 	 */

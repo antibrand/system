@@ -1,6 +1,6 @@
 <?php
 /**
- * Screen API: WP_Screen class
+ * Screen API: Screen class
  *
  * @package App_Package
  * @subpackage Administration
@@ -14,7 +14,7 @@ namespace AppNamespace\Admin;
  *
  * @since WP 3.3.0
  */
-final class WP_Screen {
+final class Screen {
 	/**
 	 * Any action associated with the screen. 'add' for *-add.php and *-new.php screens. Empty otherwise.
 	 *
@@ -197,13 +197,13 @@ final class WP_Screen {
 	 * @since WP 3.3.0
 	 * @static
 	 * @global string $hook_suffix
-	 * @param string|WP_Screen $hook_name Optional. The hook name (also known as the hook suffix) used to determine the screen.
+	 * @param string|Screen $hook_name Optional. The hook name (also known as the hook suffix) used to determine the screen.
 	 * 	                                  Defaults to the current $hook_suffix global.
-	 * @return WP_Screen Screen object.
+	 * @return Screen Screen object.
 	 */
 	public static function get( $hook_name = '' ) {
 
-		if ( $hook_name instanceof WP_Screen ) {
+		if ( $hook_name instanceof Screen ) {
 			return $hook_name;
 		}
 
@@ -270,9 +270,9 @@ final class WP_Screen {
 
 		} else {
 
-			if ( defined( 'WP_NETWORK_ADMIN' ) && WP_NETWORK_ADMIN ) {
+			if ( defined( 'NETWORK_ADMIN' ) && NETWORK_ADMIN ) {
 				$in_admin = 'network';
-			} elseif ( defined( 'WP_USER_ADMIN' ) && WP_USER_ADMIN ) {
+			} elseif ( defined( 'USER_ADMIN' ) && USER_ADMIN ) {
 				$in_admin = 'user';
 			} else {
 				$in_admin = 'site';
@@ -403,7 +403,7 @@ final class WP_Screen {
 
 		} else {
 
-			$screen     = new WP_Screen();
+			$screen     = new Screen();
 			$screen->id = $id;
 		}
 
@@ -425,7 +425,7 @@ final class WP_Screen {
 	 *
 	 * @see set_current_screen()
 	 * @since WP 3.3.0
-	 * @global WP_Screen $current_screen
+	 * @global Screen $current_screen
 	 * @global string    $taxnow
 	 * @global string    $typenow
 	 */
@@ -441,7 +441,7 @@ final class WP_Screen {
 		 * Fires after the current screen has been set.
 		 *
 		 * @since WP 3.0.0
-		 * @param WP_Screen $current_screen Current WP_Screen object.
+		 * @param Screen $current_screen Current Screen object.
 		 */
 		do_action( 'current_screen', $current_screen );
 	}
@@ -474,7 +474,7 @@ final class WP_Screen {
 	 *
 	 * @since WP 3.3.0
 	 * @static
-	 * @param WP_Screen $screen A screen object.
+	 * @param Screen $screen A screen object.
 	 * @param string $help Help text.
 	 */
 	public static function add_old_compat_help( $screen, $help ) {
@@ -1083,7 +1083,7 @@ final class WP_Screen {
 		 * @since WP 2.8.0
 		 * @param array     $empty_columns Empty array.
 		 * @param string    $screen_id     Screen ID.
-		 * @param WP_Screen $this          Current WP_Screen instance.
+		 * @param Screen $this          Current Screen instance.
 		 */
 		$columns = apply_filters( 'screen_layout_columns', [], $this->id, $this );
 
@@ -1182,7 +1182,7 @@ final class WP_Screen {
 		 *
 		 * @since WP 3.0.0
 		 * @param string    $screen_settings Screen settings.
-		 * @param WP_Screen $this            WP_Screen object.
+		 * @param Screen $this            Screen object.
 		 */
 		$this->screen_settings = apply_filters( 'screen_settings', $this->screen_settings, $this );
 
@@ -1196,7 +1196,7 @@ final class WP_Screen {
 		 * @since WP 3.2.0
 		 * @param bool      $show_screen Whether to show Screen Options tab.
 		 *                               Default true.
-		 * @param WP_Screen $this        Current WP_Screen instance.
+		 * @param Screen $this        Current Screen instance.
 		 */
 		$this->show_screen_options = apply_filters( 'screen_options_show_screen', $show_screen, $this );
 
@@ -1249,7 +1249,7 @@ final class WP_Screen {
 		 * @since WP 4.4.0
 		 * @param bool      $show_button Whether to show Screen Options submit button.
 		 *                               Default false.
-		 * @param WP_Screen $this        Current WP_Screen instance.
+		 * @param Screen $this        Current Screen instance.
 		 */
 		$show_button = apply_filters( 'screen_options_show_submit', false, $this );
 

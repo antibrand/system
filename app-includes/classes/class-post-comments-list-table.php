@@ -1,6 +1,6 @@
 <?php
 /**
- * List Table API: WP_Post_Comments_List_Table class
+ * List Table API: Post_Comments_List_Table class
  *
  * @package App_Package
  * @subpackage Administration
@@ -15,9 +15,9 @@ namespace AppNamespace\Admin;
  * @since 3.1.0
  * @access private
  *
- * @see WP_Comments_List_Table
+ * @see Comments_List_Table
  */
-class WP_Post_Comments_List_Table extends WP_Comments_List_Table {
+class Post_Comments_List_Table extends Comments_List_Table {
 
 	/**
 	 *

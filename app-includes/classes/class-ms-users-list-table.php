@@ -1,6 +1,6 @@
 <?php
 /**
- * List Table API: WP_MS_Users_List_Table class
+ * List Table API: MS_Users_List_Table class
  *
  * @package App_Package
  * @subpackage Administration
@@ -15,9 +15,9 @@ namespace AppNamespace\Admin;
  * @since 3.1.0
  * @access private
  *
- * @see WP_List_Table
+ * @see List_Table
  */
-class WP_MS_Users_List_Table extends WP_List_Table {
+class MS_Users_List_Table extends List_Table {
 	/**
 	 *
 	 * @return bool
@@ -202,7 +202,7 @@ class WP_MS_Users_List_Table extends WP_List_Table {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param WP_User $user The current WP_User object.
+	 * @param User $user The current User object.
 	 */
 	public function column_cb( $user ) {
 		if ( is_super_admin( $user->ID ) ) {
@@ -219,7 +219,7 @@ class WP_MS_Users_List_Table extends WP_List_Table {
 	 *
 	 * @since 4.4.0
 	 *
-	 * @param WP_User $user The current WP_User object.
+	 * @param User $user The current User object.
 	 */
 	public function column_id( $user ) {
 		echo $user->ID;
@@ -230,7 +230,7 @@ class WP_MS_Users_List_Table extends WP_List_Table {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param WP_User $user The current WP_User object.
+	 * @param User $user The current User object.
 	 */
 	public function column_username( $user ) {
 		$super_admins = get_super_admins();
@@ -252,7 +252,7 @@ class WP_MS_Users_List_Table extends WP_List_Table {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param WP_User $user The current WP_User object.
+	 * @param User $user The current User object.
 	 */
 	public function column_name( $user ) {
 		if ( $user->first_name && $user->last_name ) {
@@ -271,7 +271,7 @@ class WP_MS_Users_List_Table extends WP_List_Table {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param WP_User $user The current WP_User object.
+	 * @param User $user The current User object.
 	 */
 	public function column_email( $user ) {
 		echo "<a href='" . esc_url( "mailto:$user->user_email" ) . "'>$user->user_email</a>";
@@ -284,7 +284,7 @@ class WP_MS_Users_List_Table extends WP_List_Table {
 	 *
 	 * @global string $mode List table view mode.
 	 *
-	 * @param WP_User $user The current WP_User object.
+	 * @param User $user The current User object.
 	 */
 	public function column_registered( $user ) {
 		global $mode;
@@ -299,7 +299,7 @@ class WP_MS_Users_List_Table extends WP_List_Table {
 	/**
 	 * @since 4.3.0
 	 *
-	 * @param WP_User $user
+	 * @param User $user
 	 * @param string  $classes
 	 * @param string  $data
 	 * @param string  $primary
@@ -316,7 +316,7 @@ class WP_MS_Users_List_Table extends WP_List_Table {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param WP_User $user The current WP_User object.
+	 * @param User $user The current User object.
 	 */
 	public function column_blogs( $user ) {
 		$blogs = get_blogs_of_user( $user->ID, true );
@@ -380,7 +380,7 @@ class WP_MS_Users_List_Table extends WP_List_Table {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param WP_User $user       The current WP_User object.
+	 * @param User $user       The current User object.
 	 * @param string $column_name The current column name.
 	 */
 	public function column_default( $user, $column_name ) {
@@ -451,7 +451,7 @@ class WP_MS_Users_List_Table extends WP_List_Table {
 		 *
 		 * @param array   $actions An array of action links to be displayed.
 		 *                         Default 'Edit', 'Delete'.
-		 * @param WP_User $user    WP_User object.
+		 * @param User $user    User object.
 		 */
 		$actions = apply_filters( 'ms_user_row_actions', $actions, $user );
 		return $this->row_actions( $actions );

@@ -37,7 +37,7 @@ class WP_Customize_Nav_Menus_Panel extends WP_Customize_Panel {
 		add_filter( 'manage_nav-menus_columns', 'wp_nav_menu_manage_columns' );
 
 		// Display screen options.
-		$screen = AppNamespace\Admin\WP_Screen::get( 'nav-menus.php' );
+		$screen = AppNamespace\Admin\Screen::get( 'nav-menus.php' );
 		$screen->render_screen_options( array( 'wrap' => false ) );
 	}
 

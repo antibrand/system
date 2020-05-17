@@ -1,6 +1,6 @@
 <?php
 /**
- * Administration API: WP_Site_Icon class
+ * Administration API: Site_Icon class
  *
  * @package App_Package
  * @subpackage Administration
@@ -14,7 +14,7 @@ namespace AppNamespace\Includes;
  *
  * @since WP 4.3.0
  */
-class WP_Site_Icon {
+class Site_Icon {
 
 	/**
 	 * The minimum size of the site icon.

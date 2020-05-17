@@ -129,7 +129,7 @@ if ( 'grid' === $mode ) {
 	exit;
 }
 
-$wp_list_table = _get_list_table( 'AppNamespace\Admin\WP_Media_List_Table' );
+$wp_list_table = _get_list_table( 'AppNamespace\Admin\Media_List_Table' );
 $pagenum       = $wp_list_table->get_pagenum();
 
 // Handle bulk actions.

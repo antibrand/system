@@ -1344,7 +1344,7 @@ function wp_ajax_add_user( $action ) {
 	}
 	$user_object = get_userdata( $user_id );
 
-	$wp_list_table = _get_list_table( 'AppNamespace\Admin\WP_Users_List_Table' );
+	$wp_list_table = _get_list_table( 'AppNamespace\Admin\Users_List_Table' );
 
 	$role = current( $user_object->roles );
 
@@ -3880,7 +3880,7 @@ function wp_ajax_search_plugins() {
 	}
 
 	/** @var WP_Plugins_List_Table $wp_list_table */
-	$wp_list_table = _get_list_table( 'AppNamespace\Admin\WP_Plugins_List_Table', [
+	$wp_list_table = _get_list_table( 'AppNamespace\Admin\Plugins_List_Table', [
 		'screen' => get_current_screen(),
 	] );
 

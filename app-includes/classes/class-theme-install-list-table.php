@@ -1,6 +1,6 @@
 <?php
 /**
- * List Table API: WP_Theme_Install_List_Table class
+ * List Table API: Theme_Install_List_Table class
  *
  * @package App_Package
  * @subpackage Administration
@@ -15,9 +15,9 @@ namespace AppNamespace\Admin;
  * @since 3.1.0
  * @access private
  *
- * @see WP_Themes_List_Table
+ * @see Themes_List_Table
  */
-class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
+class Theme_Install_List_Table extends Themes_List_Table {
 
 	public $features = array();
 
@@ -297,7 +297,7 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 		 *
 		 * @param array    $actions An array of theme action hyperlinks. Defaults are
 		 *                          links to Install Now, Preview, and Details.
-		 * @param WP_Theme $theme   Theme object.
+		 * @param Theme $theme   Theme object.
 		 */
 		$actions = apply_filters( 'theme_install_actions', $actions, $theme );
 

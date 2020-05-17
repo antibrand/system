@@ -1,6 +1,6 @@
 <?php
 /**
- * List Table API: WP_MS_Themes_List_Table class
+ * List Table API: MS_Themes_List_Table class
  *
  * @package App_Package
  * @subpackage Administration
@@ -15,9 +15,9 @@ namespace AppNamespace\Admin;
  * @since 3.1.0
  * @access private
  *
- * @see WP_List_Table
+ * @see List_Table
  */
-class WP_MS_Themes_List_Table extends WP_List_Table {
+class MS_Themes_List_Table extends List_Table {
 
 	public $site_id;
 	public $is_site_themes;
@@ -29,7 +29,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	 *
 	 * @since 3.1.0
 	 *
-	 * @see WP_List_Table::__construct() for more information on default arguments.
+	 * @see List_Table::__construct() for more information on default arguments.
 	 *
 	 * @global string $status
 	 * @global int    $page
@@ -92,12 +92,12 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 
 		$themes = array(
 			/**
-			 * Filters the full array of WP_Theme objects to list in the Multisite
+			 * Filters the full array of Theme objects to list in the Multisite
 			 * themes list table.
 			 *
 			 * @since 3.1.0
 			 *
-			 * @param array $all An array of WP_Theme objects to display in the list table.
+			 * @param array $all An array of Theme objects to display in the list table.
 			 */
 			'all' => apply_filters( 'all_themes', wp_get_themes() ),
 			'search' => array(),
@@ -145,7 +145,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 			$status = 'all';
 
 		$this->items = $themes[ $status ];
-		WP_Theme::sort_by_name( $this->items );
+		Theme::sort_by_name( $this->items );
 
 		$this->has_items = ! empty( $themes['all'] );
 		$total_this_page = $totals[ $status ];
@@ -181,7 +181,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 
 	/**
 	 * @staticvar string $term
-	 * @param WP_Theme $theme
+	 * @param Theme $theme
 	 * @return bool
 	 */
 	public function _search_callback( $theme ) {
@@ -353,7 +353,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param WP_Theme $theme The current WP_Theme object.
+	 * @param Theme $theme The current Theme object.
 	 */
 	public function column_cb( $theme ) {
 		$checkbox_id = 'checkbox_' . md5( $theme->get('Name') );
@@ -372,7 +372,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	 * @global int    $page
 	 * @global string $s
 	 *
-	 * @param WP_Theme $theme The current WP_Theme object.
+	 * @param Theme $theme The current Theme object.
 	 */
 	public function column_name( $theme ) {
 		global $status, $page, $s;
@@ -480,7 +480,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 		 * @since 2.8.0
 		 *
 		 * @param array    $actions An array of action links.
-		 * @param WP_Theme $theme   The current WP_Theme object.
+		 * @param Theme $theme   The current Theme object.
 		 * @param string   $context Status of the theme, one of 'all', 'enabled', or 'disabled'.
 		 */
 		$actions = apply_filters( 'theme_action_links', array_filter( $actions ), $theme, $context );
@@ -496,7 +496,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 		 * @since 3.1.0
 		 *
 		 * @param array    $actions An array of action links.
-		 * @param WP_Theme $theme   The current WP_Theme object.
+		 * @param Theme $theme   The current Theme object.
 		 * @param string   $context Status of the theme, one of 'all', 'enabled', or 'disabled'.
 		 */
 		$actions = apply_filters( "theme_action_links_{$stylesheet}", $actions, $theme, $context );
@@ -512,7 +512,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	 * @global string $status
 	 * @global array  $totals
 	 *
-	 * @param WP_Theme $theme The current WP_Theme object.
+	 * @param Theme $theme The current Theme object.
 	 */
 	public function column_description( $theme ) {
 		global $status, $totals;
@@ -562,7 +562,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 		 *                             including the version, author, and
 		 *                             theme URI.
 		 * @param string   $stylesheet Directory name of the theme.
-		 * @param WP_Theme $theme      WP_Theme object.
+		 * @param Theme $theme      Theme object.
 		 * @param string   $status     Status of the theme.
 		 */
 		$theme_meta = apply_filters( 'theme_row_meta', $theme_meta, $stylesheet, $theme, $status );
@@ -576,7 +576,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param WP_Theme $theme       The current WP_Theme object.
+	 * @param Theme $theme       The current Theme object.
 	 * @param string   $column_name The current column name.
 	 */
 	public function column_default( $theme, $column_name ) {
@@ -589,7 +589,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 		 *
 		 * @param string   $column_name Name of the column.
 		 * @param string   $stylesheet  Directory name of the theme.
-		 * @param WP_Theme $theme       Current WP_Theme object.
+		 * @param Theme $theme       Current Theme object.
 		 */
 		do_action( 'manage_themes_custom_column', $column_name, $stylesheet, $theme );
 	}
@@ -599,7 +599,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param WP_Theme $item The current WP_Theme object.
+	 * @param Theme $item The current Theme object.
 	 */
 	public function single_row_columns( $item ) {
 		list( $columns, $hidden, $sortable, $primary ) = $this->get_column_info();
@@ -669,7 +669,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	 * @global string $status
 	 * @global array  $totals
 	 *
-	 * @param WP_Theme $theme
+	 * @param Theme $theme
 	 */
 	public function single_row( $theme ) {
 		global $status, $totals;
@@ -705,7 +705,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 		 * @since 3.1.0
 		 *
 		 * @param string   $stylesheet Directory name of the theme.
-		 * @param WP_Theme $theme      Current WP_Theme object.
+		 * @param Theme $theme      Current Theme object.
 		 * @param string   $status     Status of the theme.
 		 */
 		do_action( 'after_theme_row', $stylesheet, $theme, $status );
@@ -720,7 +720,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 		 * @since 3.5.0
 		 *
 		 * @param string   $stylesheet Directory name of the theme.
-		 * @param WP_Theme $theme      Current WP_Theme object.
+		 * @param Theme $theme      Current Theme object.
 		 * @param string   $status     Status of the theme.
 		 */
 		do_action( "after_theme_row_{$stylesheet}", $stylesheet, $theme, $status );

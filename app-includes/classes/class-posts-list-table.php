@@ -1,6 +1,6 @@
 <?php
 /**
- * List Table API: WP_Posts_List_Table class
+ * List Table API: Posts_List_Table class
  *
  * @package App_Package
  * @subpackage Administration
@@ -15,9 +15,9 @@ namespace AppNamespace\Admin;
  * @since 3.1.0
  * @access private
  *
- * @see WP_List_Table
+ * @see List_Table
  */
-class WP_Posts_List_Table extends WP_List_Table {
+class Posts_List_Table extends List_Table {
 
 	/**
 	 * Whether the items should be displayed hierarchically or linearly.
@@ -66,9 +66,9 @@ class WP_Posts_List_Table extends WP_List_Table {
 	 *
 	 * @since 3.1.0
 	 *
-	 * @see WP_List_Table::__construct() for more information on default arguments.
+	 * @see List_Table::__construct() for more information on default arguments.
 	 *
-	 * @global WP_Post_Type $post_type_object
+	 * @global Post_Type $post_type_object
 	 * @global wpdb         $wpdb
 	 *
 	 * @param array $args An associative array of arguments.
@@ -127,7 +127,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	/**
 	 *
 	 * @global array    $avail_post_stati
-	 * @global WP_Query $wp_query
+	 * @global Query $wp_query
 	 * @global int      $per_page
 	 * @global string   $mode
 	 */
@@ -474,8 +474,8 @@ class WP_Posts_List_Table extends WP_List_Table {
 			 *
 			 * @param string $post_type The post type slug.
 			 * @param string $which     The location of the extra table nav markup:
-			 *                          'top' or 'bottom' for WP_Posts_List_Table,
-			 *                          'bar' for WP_Media_List_Table.
+			 *                          'top' or 'bottom' for Posts_List_Table,
+			 *                          'bar' for Media_List_Table.
 			 */
 			do_action( 'restrict_manage_posts', $this->screen->post_type, $which );
 
@@ -624,7 +624,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * @global WP_Query $wp_query
+	 * @global Query $wp_query
 	 * @global int $per_page
 	 * @param array $posts
 	 * @param int $level
@@ -663,7 +663,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 
 	/**
 	 * @global wpdb    $wpdb
-	 * @global WP_Post $post
+	 * @global Post $post
 	 * @param array $pages
 	 * @param int $pagenum
 	 * @param int $per_page
@@ -825,7 +825,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param WP_Post $post The current WP_Post object.
+	 * @param Post $post The current Post object.
 	 */
 	public function column_cb( $post ) {
 		if ( current_user_can( 'edit_post', $post->ID ) ): ?>
@@ -849,7 +849,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	/**
 	 * @since 4.3.0
 	 *
-	 * @param WP_Post $post
+	 * @param Post $post
 	 * @param string  $classes
 	 * @param string  $data
 	 * @param string  $primary
@@ -868,7 +868,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	 *
 	 * @global string $mode List table view mode.
 	 *
-	 * @param WP_Post $post The current WP_Post object.
+	 * @param Post $post The current Post object.
 	 */
 	public function column_title( $post ) {
 		global $mode;
@@ -968,7 +968,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	 *
 	 * @global string $mode List table view mode.
 	 *
-	 * @param WP_Post $post The current WP_Post object.
+	 * @param Post $post The current Post object.
 	 */
 	public function column_date( $post ) {
 		global $mode;
@@ -1008,7 +1008,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 		 * @since 4.8.0
 		 *
 		 * @param string  $status      The status text.
-		 * @param WP_Post $post        Post object.
+		 * @param Post $post        Post object.
 		 * @param string  $column_name The column name.
 		 * @param string  $mode        The list display mode ('excerpt' or 'list').
 		 */
@@ -1029,7 +1029,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 			 * @since 2.5.1
 			 *
 			 * @param string  $t_time      The published time.
-			 * @param WP_Post $post        Post object.
+			 * @param Post $post        Post object.
 			 * @param string  $column_name The column name.
 			 * @param string  $mode        The list display mode ('excerpt' or 'list').
 			 */
@@ -1046,7 +1046,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param WP_Post $post The current WP_Post object.
+	 * @param Post $post The current Post object.
 	 */
 	public function column_comments( $post ) {
 		?>
@@ -1065,7 +1065,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param WP_Post $post The current WP_Post object.
+	 * @param Post $post The current Post object.
 	 */
 	public function column_author( $post ) {
 		$args = array(
@@ -1080,7 +1080,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param WP_Post $post        The current WP_Post object.
+	 * @param Post $post        The current Post object.
 	 * @param string  $column_name The current column name.
 	 */
 	public function column_default( $post, $column_name ) {
@@ -1165,9 +1165,9 @@ class WP_Posts_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * @global WP_Post $post
+	 * @global Post $post
 	 *
-	 * @param int|WP_Post $post
+	 * @param int|Post $post
 	 * @param int         $level
 	 */
 	public function single_row( $post, $level = 0 ) {
@@ -1311,7 +1311,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 			 * @param array $actions An array of row action links. Defaults are
 			 *                         'Edit', 'Quick Edit', 'Restore', 'Trash',
 			 *                         'Delete Permanently', 'Preview', and 'View'.
-			 * @param WP_Post $post The post object.
+			 * @param Post $post The post object.
 			 */
 			$actions = apply_filters( 'page_row_actions', $actions, $post );
 		} else {
@@ -1326,7 +1326,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 			 * @param array $actions An array of row action links. Defaults are
 			 *                         'Edit', 'Quick Edit', 'Restore', 'Trash',
 			 *                         'Delete Permanently', 'Preview', and 'View'.
-			 * @param WP_Post $post The post object.
+			 * @param Post $post The post object.
 			 */
 			$actions = apply_filters( 'post_row_actions', $actions, $post );
 		}
@@ -1710,7 +1710,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 				 * @since 2.7.0
 				 *
 				 * @param string  $column_name Name of the column to edit.
-				 * @param WP_Post $post_type   The post type slug.
+				 * @param Post $post_type   The post type slug.
 				 */
 				do_action( 'bulk_edit_custom_box', $column_name, $screen->post_type );
 			} else {
