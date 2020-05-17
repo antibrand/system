@@ -1188,9 +1188,6 @@ function _wp_privacy_requests_screen_options() {
 }
 
 // TODO: move the following classes in new files.
-if ( ! class_exists( 'WP_List_Table' ) ) {
-	require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
-}
 
 /**
  * WP_Privacy_Requests_Table class.

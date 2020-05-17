@@ -12,7 +12,8 @@
  *
  * @since 3.1.0
  */
-class _WP_List_Table_Compat extends WP_List_Table {
+class WP_List_Table_Compat extends WP_List_Table {
+
 	public $_screen;
 	public $_columns;
 
