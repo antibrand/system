@@ -6,6 +6,7 @@
  * @subpackage Administration
  */
 
+// App namespace.
 namespace AppNamespace;
 
 /*
@@ -15,6 +16,8 @@ namespace AppNamespace;
  * the value is the path to the corresponding file.
  */
 const MAP = [
+
+	// Classes used in the back end only.
 	'AppNamespace\Admin\Dashboard'           => __DIR__ . '/classes/class-dashboard.php',
 	'AppNamespace\Admin\Screen'              => __DIR__ . '/classes/class-screen.php',
 	'AppNamespace\Admin\List_Table'          => __DIR__ . '/classes/class-list-table.php',
@@ -25,9 +28,12 @@ const MAP = [
 	'AppNamespace\Admin\Comments_List_Table' => __DIR__ . '/classes/class-comments-list-table.php',
 	'AppNamespace\Admin\Users_List_Table'    => __DIR__ . '/classes/class-users-list-table.php',
 	'AppNamespace\Admin\Plugins_List_Table'  => __DIR__ . '/classes/class-plugins-list-table.php',
+
+	// Classes used on the back end and front end.
 	'AppNamespace\Includes\Site_Icon'        => __DIR__ . '/classes/class-site-icon.php',
 ];
 
+// Run the autoloader.
 spl_autoload_register(
 	function ( string $classname ) {
 		if ( isset( MAP[ $classname ] ) ) {
