@@ -21,27 +21,31 @@
  */
 function _get_list_table( $class, $args = array() ) {
 	$core_classes = array(
+
 		//Site Admin
-		'WP_Posts_List_Table' => 'posts',
-		'WP_Media_List_Table' => 'media',
-		'WP_Terms_List_Table' => 'terms',
-		'WP_Users_List_Table' => 'users',
-		'WP_Comments_List_Table' => 'comments',
-		'WP_Post_Comments_List_Table' => array( 'comments', 'post-comments' ),
-		'WP_Links_List_Table' => 'links',
-		'WP_Plugin_Install_List_Table' => 'plugin-install',
-		'WP_Themes_List_Table' => 'themes',
-		'WP_Theme_Install_List_Table' => array( 'themes', 'theme-install' ),
-		'WP_Plugins_List_Table' => 'plugins',
+		'AppNamespace\Admin\WP_Posts_List_Table' => 'posts',
+		'AppNamespace\Admin\WP_Media_List_Table' => 'media',
+		'AppNamespace\Admin\WP_Terms_List_Table' => 'terms',
+		'AppNamespace\Admin\WP_Users_List_Table' => 'users',
+		'AppNamespace\Admin\WP_Comments_List_Table' => 'comments',
+		'AppNamespace\Admin\WP_Post_Comments_List_Table' => [ 'comments', 'post-comments' ],
+		'AppNamespace\Admin\WP_Links_List_Table' => 'links',
+		// 'AppNamespace\Admin\WP_Plugin_Install_List_Table' => 'plugin-install',
+		'AppNamespace\Admin\WP_Themes_List_Table' => 'themes',
+		// 'AppNamespace\Admin\WP_Theme_Install_List_Table' => [ 'themes', 'theme-install' ],
+		'AppNamespace\Admin\WP_Plugins_List_Table' => 'plugins',
+
 		// Network Admin
-		'WP_MS_Sites_List_Table' => 'ms-sites',
-		'WP_MS_Users_List_Table' => 'ms-users',
-		'WP_MS_Themes_List_Table' => 'ms-themes',
+		'AppNamespace\Admin\WP_MS_Sites_List_Table' => 'ms-sites',
+		'AppNamespace\Admin\WP_MS_Users_List_Table' => 'ms-users',
+		'AppNamespace\Admin\WP_MS_Themes_List_Table' => 'ms-themes',
 	);
 
 	if ( isset( $core_classes[ $class ] ) ) {
-		foreach ( (array) $core_classes[ $class ] as $required )
-			require_once( ABSPATH . 'wp-admin/includes/class-wp-' . $required . '-list-table.php' );
+
+		foreach ( (array) $core_classes[ $class ] as $required ) {
+			require_once( ABSPATH . 'app-includes/classes/class-wp-' . $required . '-list-table.php' );
+		}
 
 		if ( isset( $args['screen'] ) )
 			$args['screen'] = convert_to_screen( $args['screen'] );
@@ -66,7 +70,7 @@ function _get_list_table( $class, $args = array() ) {
  * @see get_column_headers(), print_column_headers(), get_hidden_columns()
  */
 function register_column_headers( $screen, $columns ) {
-	new WP_List_Table_Compat( $screen, $columns );
+	new AppNamespace\Admin\WP_List_Table_Compat( $screen, $columns );
 }
 
 /**
@@ -78,7 +82,7 @@ function register_column_headers( $screen, $columns ) {
  */
 function print_column_headers( $screen, $with_id = true ) {
 
-	$wp_list_table = new WP_List_Table_Compat( $screen );
+	$wp_list_table = new AppNamespace\Admin\WP_List_Table_Compat( $screen );
 
 	$wp_list_table->print_column_headers( $with_id );
 }

@@ -16,13 +16,19 @@ namespace AppNamespace;
  * the value is the path to the relevant file.
  */
 const MAP = [
-	'AppNamespace\Admin\Dashboard'       => __DIR__ . '/classes/class-dashboard.php',
-	'AppNamespace\Admin\WP_Screen'       => __DIR__ . '/classes/class-wp-screen.php',
-	'AppNamespace\Includes\WP_Site_Icon' => __DIR__ . '/classes/class-wp-site-icon.php',
+	'AppNamespace\Admin\Dashboard'              => __DIR__ . '/classes/class-dashboard.php',
+	'AppNamespace\Admin\WP_Screen'              => __DIR__ . '/classes/class-wp-screen.php',
+	'AppNamespace\Admin\WP_List_Table'          => __DIR__ . '/classes/class-wp-list-table.php',
+	'AppNamespace\Admin\WP_List_Table_Compat'   => __DIR__ . '/classes/class-wp-list-table-compat.php',
+	'AppNamespace\Admin\WP_Posts_List_Table'    => __DIR__ . '/classes/class-wp-posts-list-table.php',
+	'AppNamespace\Admin\WP_Terms_List_Table'    => __DIR__ . '/classes/class-wp-terms-list-table.php',
+	'AppNamespace\Admin\WP_Media_List_Table'    => __DIR__ . '/classes/class-wp-media-list-table.php',
+	'AppNamespace\Admin\WP_Comments_List_Table' => __DIR__ . '/classes/class-wp-comments-list-table.php',
+	'AppNamespace\Admin\WP_Users_List_Table'    => __DIR__ . '/classes/class-wp-users-list-table.php',
+	'AppNamespace\Admin\WP_Plugins_List_Table'  => __DIR__ . '/classes/class-wp-plugins-list-table.php',
 
-	// Admin directory.
-	'WP_List_Table'        => ABSPATH . 'wp-admin/includes/class-wp-list-table.php',
-	'WP_List_Table_Compat' => ABSPATH . 'wp-admin/includes/class-wp-list-table-compat.php'
+
+	'AppNamespace\Includes\WP_Site_Icon' => __DIR__ . '/classes/class-wp-site-icon.php',
 ];
 
 spl_autoload_register(

@@ -1194,7 +1194,7 @@ function _wp_privacy_requests_screen_options() {
  *
  * @since WP 4.9.6
  */
-abstract class WP_Privacy_Requests_Table extends WP_List_Table {
+abstract class WP_Privacy_Requests_Table extends AppNamespace\Admin\WP_List_Table {
 
 	/**
 	 * Action name for the requests this table will work with. Classes

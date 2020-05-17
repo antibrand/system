@@ -7,6 +7,8 @@
  * @since 4.7.0
  */
 
+namespace AppNamespace\Admin;
+
 /**
  * Helper class to be used only by back compat functions
  *

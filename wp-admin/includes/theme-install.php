@@ -163,7 +163,7 @@ function display_theme( $theme ) {
 	_deprecated_function( __FUNCTION__, '3.4.0' );
 	global $wp_list_table;
 	if ( ! isset( $wp_list_table ) ) {
-		$wp_list_table = _get_list_table('WP_Theme_Install_List_Table');
+		$wp_list_table = _get_list_table( 'AppNamespace\Admin\WP_Theme_Install_List_Table' );
 	}
 	$wp_list_table->prepare_items();
 	$wp_list_table->single_row( $theme );
@@ -180,7 +180,7 @@ function display_themes() {
 	global $wp_list_table;
 
 	if ( ! isset( $wp_list_table ) ) {
-		$wp_list_table = _get_list_table('WP_Theme_Install_List_Table');
+		$wp_list_table = _get_list_table( 'AppNamespace\Admin\WP_Theme_Install_List_Table' );
 	}
 	$wp_list_table->prepare_items();
 	$wp_list_table->display();
@@ -204,7 +204,7 @@ function install_theme_information() {
 
 	iframe_header( __('Theme Installation') );
 	if ( ! isset( $wp_list_table ) ) {
-		$wp_list_table = _get_list_table('WP_Theme_Install_List_Table');
+		$wp_list_table = _get_list_table( 'AppNamespace\Admin\WP_Theme_Install_List_Table' );
 	}
 	$wp_list_table->theme_installer_single( $theme );
 	iframe_footer();

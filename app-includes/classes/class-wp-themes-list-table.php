@@ -7,6 +7,8 @@
  * @since 3.1.0
  */
 
+namespace AppNamespace\Admin;
+
 /**
  * Core class used to implement displaying installed themes in a list table.
  *

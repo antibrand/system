@@ -7,6 +7,8 @@
  * @since 3.1.0
  */
 
+namespace AppNamespace\Admin;
+
 /**
  * Base class for displaying a list of items in an ajaxified HTML table.
  *

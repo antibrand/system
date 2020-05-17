@@ -7,6 +7,8 @@
  * @since 4.4.0
  */
 
+namespace AppNamespace\Admin;
+
 /**
  * Core class used to implement displaying post comments in a list table.
  *

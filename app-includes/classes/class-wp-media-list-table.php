@@ -7,6 +7,8 @@
  * @since 3.1.0
  */
 
+namespace AppNamespace\Admin;
+
 /**
  * Core class used to implement displaying media items in a list table.
  *

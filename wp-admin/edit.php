@@ -44,7 +44,7 @@ if ( ! current_user_can( $post_type_object->cap->edit_posts ) ) {
 	);
 }
 
-$wp_list_table = _get_list_table( 'WP_Posts_List_Table' );
+$wp_list_table = _get_list_table( 'AppNamespace\Admin\WP_Posts_List_Table' );
 $pagenum       = $wp_list_table->get_pagenum();
 
 // Back-compat for viewing comments of an entry

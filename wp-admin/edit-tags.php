@@ -38,7 +38,7 @@ if ( ! current_user_can( $tax->cap->manage_terms ) ) {
  */
 global $post_type;
 
-$wp_list_table = _get_list_table( 'WP_Terms_List_Table' );
+$wp_list_table = _get_list_table( 'AppNamespace\Admin\WP_Terms_List_Table' );
 $pagenum       = $wp_list_table->get_pagenum();
 
 $title = $tax->labels->name;

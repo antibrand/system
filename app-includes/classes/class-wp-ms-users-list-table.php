@@ -7,6 +7,8 @@
  * @since 3.1.0
  */
 
+namespace AppNamespace\Admin;
+
 /**
  * Core class used to implement displaying users in a list table for the network admin.
  *

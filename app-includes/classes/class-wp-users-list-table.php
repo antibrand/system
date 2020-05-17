@@ -7,6 +7,8 @@
  * @since 3.1.0
  */
 
+namespace AppNamespace\Admin;
+
 /**
  * Core class used to implement displaying users in a list table.
  *
@@ -130,7 +132,7 @@ class WP_Users_List_Table extends WP_List_Table {
 		$args = apply_filters( 'users_list_table_query_args', $args );
 
 		// Query the user IDs for this page
-		$wp_user_search = new WP_User_Query( $args );
+		$wp_user_search = new \WP_User_Query( $args );
 
 		$this->items = $wp_user_search->get_results();
 
@@ -376,7 +378,7 @@ class WP_Users_List_Table extends WP_List_Table {
 	 * @return string Output for a single row.
 	 */
 	public function single_row( $user_object, $style = '', $role = '', $numposts = 0 ) {
-		if ( ! ( $user_object instanceof WP_User ) ) {
+		if ( ! ( $user_object instanceof \WP_User ) ) {
 			$user_object = get_userdata( (int) $user_object );
 		}
 		$user_object->filter = 'display';
