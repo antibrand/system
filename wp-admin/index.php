@@ -60,64 +60,62 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 
 		<h1><?php echo esc_html( $title ); ?></h1>
 
+		
+
 	<?php
-	// Add the top panel content if the hook is in use.
-	if ( has_action( 'dashboard_top_panel' ) ) :
 
-		// Get the user preference.
-		$option  = get_user_meta( get_current_user_id(), 'show_top_panel', true );
+		// Tabbed content.
+		echo get_current_screen()->render_content_tabs();
 
-		// Top panel base class.
-		$classes = 'top-panel';
 
-		/**
-		 * Hidden class
-		 *
-		 * Add `.hidden` class if the user wants to hide the top panel.
-		 * 0 = hide, 1 = toggled to show or single site creator, 2 = multisite site owner.
-		 */
-		$hide = '0' === $option || ( '2' === $option && wp_get_current_user()->user_email != get_option( 'admin_email' ) );
+		if ( has_action( 'dashboard_add_content' ) || has_action( 'welcome_panel' ) ) :
 
-		if ( $hide ) {
-			$classes .= ' hidden';
-		} ?>
+			// Get the user preference.
+			$option  = get_user_meta( get_current_user_id(), 'show_top_panel', true );
 
-		<div id="top-panel" class="<?php echo esc_attr( $classes ); ?>">
-
-			<?php
-
-			// User display preference nonce for the top panel.
-			wp_nonce_field( 'top-panel-nonce', 'toppanelnonce', false );
+			// Top panel base class.
+			$classes = 'dashboard-add-content';
 
 			/**
-			 * Add content to the top panel
+			 * Hidden class
 			 *
-			 * @since 1.0.0
+			 * Add `.hidden` class if the user wants to hide the top panel.
+			 * 0 = hide, 1 = toggled to show or single site creator, 2 = multisite site owner.
 			 */
-			do_action( 'dashboard_top_panel' );
+			$hide = '0' === $option || ( '2' === $option && wp_get_current_user()->user_email != get_option( 'admin_email' ) );
+
+			if ( $hide ) {
+				$classes .= ' hidden';
+			}
 
 			?>
-		</div>
+			<div id="top-panel" class="<?php echo esc_attr( $classes ); ?>">
+				<?php
+
+				// User display preference nonce for the top panel.
+				wp_nonce_field( 'top-panel-nonce', 'toppanelnonce', false );
+				/**
+				 * Additional dashboard content
+				 *
+				 * Plugins & themes may use this to add content below
+				 * the included top panel.
+				 *
+				 * @since 1.0.0
+				 */
+				// do_action( 'dashboard_add_content' );
+
+				/**
+				 * Deprecated hook
+				 *
+				 * @since      WP 3.5.0
+				 * @deprecated 1.0.0 Not used by this website management system.
+				 */
+				do_action( 'welcome_panel' );
+				?>
+			</div>
+		<?php endif; ?>
 	</div><!-- .wrap -->
-	<?php endif;
-
-	/**
-	 * Additional dashboard content
-	 *
-	 * Plugins & themes may use this to add content below
-	 * the included top panel.
-	 *
-	 * @since 1.0.0
-	 */
-	do_action( 'dashboard_add_content' );
-
-	/**
-	 * Deprecated hook
-	 *
-	 * @since      WP 3.5.0
-	 * @deprecated 1.0.0 Not used by this website management system.
-	 */
-	do_action( 'welcome_panel' );
+<?php
 
 // Get the page footer template.
 require( ABSPATH . 'wp-admin/admin-footer.php' );

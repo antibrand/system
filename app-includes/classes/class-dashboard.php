@@ -50,8 +50,10 @@ class Dashboard {
 	 */
 	public function __construct() {
 
-		// Add the top panel content.
+		// Add content to the tabbed section of the dashboard page.
 		add_action( 'dashboard_top_panel', [ $this, 'tabs' ] );
+
+		add_action( 'dashboard_add_content', [ $this, 'panel_content' ] );
 
 		// Add dashboard quota to the activity box.
 		add_action( 'activity_box_end', [ $this, 'dashboard_quota' ] );
@@ -77,37 +79,41 @@ class Dashboard {
 
 		// Developer.
 		if ( current_user_can( 'develop' ) ) {
-			$panel = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-developer.php' );
+			$intro = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-developer.php' );
 
 		// Network administrator.
 		} elseif ( current_user_can( 'manage_network' ) ) {
-			$panel = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-network.php' );
+			$intro = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-network.php' );
 
 		// Administrator.
 		} elseif ( current_user_can( 'manage_options' ) ) {
-			$panel = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-administrator.php' );
+			$intro = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-administrator.php' );
 
 		// Editor.
 		} elseif ( current_user_can( 'edit_others_posts' ) ) {
-			$panel = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-editor.php' );
+			$intro = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-editor.php' );
 
 		// Author.
 		} elseif ( current_user_can( 'publish_posts' ) ) {
-			$panel = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-author.php' );
+			$intro = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-author.php' );
 
 		// Contributor.
 		} elseif ( current_user_can( 'edit_posts' ) ) {
-			$panel = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-contributor.php' );
+			$intro = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-contributor.php' );
 
 		// Subscriber.
 		} elseif ( current_user_can( 'read' ) ) {
-			$panel = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-subscriber.php' );
+			$intro = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-subscriber.php' );
 
 		} else {
-			$panel = '';
+			$intro = '';
 		}
 
-		return apply_filters( 'app_get_panel_content', $panel );
+		$tabs = [
+			$intro
+		];
+
+		return apply_filters( 'get_tab_content_dashboard', $tabs );
 	}
 
 	/**
@@ -126,51 +132,52 @@ class Dashboard {
 			return;
 		}
 
-		$title = sprintf(
-			'<h2>%1s</h2>',
-			__( 'One' )
-		);
-
 		$screen->add_content_tab( [
-			'id'       => 'one',
-			'class'    => 'dashboard-tab',
-			'tab'      => __( 'One' ),
-			'icon'     => 'dashicons dashicons-palmtree',
-			'title'    => $title,
-			'content'  => 'One content.',
-			'callback' => null
+			'id'         => 'one',
+			'capability' => 'manage_options',
+			'tab'        => __( 'One' ),
+			'icon'       => '',
+			'heading'    => __( 'One' ),
+			'content'    => '',
+			'callback'   => null
 		] );
 
-		$title = sprintf(
-			'<h2>%1s</h2>',
-			__( 'Two' )
-		);
-
 		$screen->add_content_tab( [
-			'id'      => 'two',
-			'class'   => 'dashboard-tab',
-			'tab'     => __( 'Two' ),
-			'icon'    => 'dashicons dashicons-album',
-			'title'   => $title,
-			'content' => 'Two content.',
-			'callback' => null
+			'id'         => 'two',
+			'capability' => 'read',
+			'tab'        => __( 'Two' ),
+			'icon'       => '',
+			'heading'    => __( 'Two' ),
+			'content'    => '<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at ex id augue dictum molestie. Sed vestibulum orci felis, vel fermentum urna viverra vitae. Curabitur sed posuere orci, eget tincidunt sapien. Fusce varius, tortor at fermentum ultricies, felis eros tristique nunc, ut cursus eros elit at dui. Aenean vestibulum pulvinar orci imperdiet malesuada. Aliquam erat volutpat. Aliquam nisl nisi, egestas sit amet imperdiet non, hendrerit a ante. Maecenas nec fringilla leo, accumsan lobortis ex.
+			</p>
+			<p>
+			Proin sed tincidunt dui. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin pulvinar quam vel luctus venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean luctus sem sed sem bibendum, id efficitur erat ultrices. Nulla aliquet tristique diam, eget euismod leo pulvinar et. Mauris varius sapien nec mauris mollis, sed ullamcorper mauris lacinia. Aliquam erat volutpat.
+			</p>',
+			'callback'   => null
 		] );
 
-		$title = sprintf(
-			'<h2>%1s</h2>',
-			__( 'Three' )
-		);
-
 		$screen->add_content_tab( [
-			'id'      => 'three',
-			'class'   => 'dashboard-tab',
-			'tab'     => __( 'Three' ),
-			'icon'    => 'dashicons dashicons-carrot',
-			'title'   => $title,
-			'content' => 'Three content.',
-			'callback' => null
+			'id'         => 'three',
+			'capability' => 'read',
+			'tab'        => __( 'Three' ),
+			'icon'       => '',
+			'heading'    => __( 'Three' ),
+			'content'    => '<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at ex id augue dictum molestie. Sed vestibulum orci felis, vel fermentum urna viverra vitae. Curabitur sed posuere orci, eget tincidunt sapien. Fusce varius, tortor at fermentum ultricies, felis eros tristique nunc, ut cursus eros elit at dui. Aenean vestibulum pulvinar orci imperdiet malesuada. Aliquam erat volutpat. Aliquam nisl nisi, egestas sit amet imperdiet non, hendrerit a ante. Maecenas nec fringilla leo, accumsan lobortis ex.
+			</p>',
+			'callback'   => null
 		] );
 
+		$screen->add_content_tab( [
+			'id'         => 'draftposts',
+			'capability' => 'edit_posts',
+			'tab'        => __( 'Drafts' ),
+			'icon'       => '',
+			'heading'    => __( 'Draft Posts' ),
+			'content'    => '',
+			'callback'   => [ $this, 'dashboard_draft_posts' ]
+		] );
 	}
 
 	/**
@@ -799,7 +806,7 @@ class Dashboard {
 	 * @param  string $error_msg Optional. Error message. Default false.
 	 * @return mixed Returns the markup of the draft posts form.
 	 */
-	public function dashboard_draft_posts( $error_msg = false ) {
+	public function dashboard_draft_posts( $error_msg = null ) {
 
 		// Access global variables.
 		global $post_ID;
@@ -807,6 +814,8 @@ class Dashboard {
 		if ( ! current_user_can( 'edit_posts' ) ) {
 			return;
 		}
+
+		$error_msg = '';
 
 		/**
 		 * Check if a new auto-draft (= no new post_ID) is needed or
@@ -849,9 +858,9 @@ class Dashboard {
 
 		$post_ID = (int) $post->ID;
 	?>
-		<div class="top-panel-column-container hide-if-no-js">
+		<div class="app-tab-content-inner hide-if-no-js">
 
-			<div class="top-panel-column app-tab-column__quick-draft">
+			<section class="app-tab-content-section app-tab-content__quick-draft">
 
 				<h3><?php _e( 'Quick Draft' ); ?></h3>
 
@@ -891,16 +900,16 @@ class Dashboard {
 
 				</form>
 
-			</div>
+			</section>
 
-			<div id="dashboard-recent-drafts" class="top-panel-column app-tab-column__recent-drafts">
+			<section id="dashboard-recent-drafts" class="app-tab-content-section app-tab-content__recent-drafts">
 
 				<h3><?php _e( 'Recent Drafts' ); ?></h3>
 
 				<p class="description"><?php _e( 'The following posts have not been published.' ); ?></p>
 
 				<?php $this->dashboard_recent_drafts(); ?>
-			</div>
+			</section>
 		</div>
 		<?php
 	}
