@@ -941,7 +941,7 @@ p.search-box {
 .tablenav .search-plugins input[name="s"],
 .tagsdiv .newtag {
   float: right;
-  margin: 0 0 0 0.5em;
+  margin: 0 0 5px 5px;
 }
 
 .js.plugins-php .search-box .wp-filter-search {
@@ -2118,7 +2118,6 @@ table.form-table td .updated p {
   display: block;
   padding: 0.75em 1em;
   background-color: #ffffff;
-  border-radius: 5px 5px 0px 0px;
   font-weight: bold;
   line-height: 1;
   text-decoration: none;
@@ -2144,7 +2143,11 @@ table.form-table td .updated p {
   display: none;
   position: relative;
   overflow: hidden;
-  padding: 2em 1em 1em;
+  padding: 2rem 1em;
+}
+
+.app-tabs .app-tab-content > h2 {
+  margin-top: 0;
 }
 
 .app-tabs .app-tab-content .app-tab-columns {
@@ -2462,8 +2465,8 @@ code {
 .list-table-views li,
 .subsubsub li {
   display: inline-block;
-  margin: 0;
-  margin-left: 0.03em;
+  margin: 5px 0 0;
+  margin-left: 5px;
   padding: 0;
   white-space: nowrap;
 }

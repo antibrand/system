@@ -230,6 +230,35 @@
 
 }
 
+#tab-panel-draftposts {
+
+	.app-tab-content-inner {
+		display: flex;
+		position: relative;
+
+		@media screen and (max-width: 782px) {
+			flex-direction: column;
+		}
+	}
+
+	.app-tab-content-section {
+		min-width: 160px;
+		max-width: 480px;
+
+		@media screen and (max-width: 782px) {
+			max-width: 100%;
+		}
+
+		&:first-of-type {
+			min-width: 320px;
+		}
+
+		&:not( :last-of-type ) {
+			margin-right: 2rem;
+		}
+	}
+}
+
 .top-panel-column p.hide-if-no-customize {
 	margin-top: 10px;
 }
