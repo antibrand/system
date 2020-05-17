@@ -39,7 +39,7 @@ if ( is_home() && ! is_front_page() ) {
  * @since 1.0.0
  */
 if ( function_exists( 'before_html' ) ) {
-	before_hetml();
+	before_html();
 } else {
 	do_action( 'before_html' );
 }
