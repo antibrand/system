@@ -16,7 +16,13 @@ namespace AppNamespace;
  * the value is the path to the relevant file.
  */
 const MAP = [
-	'AppNamespace\Admin\Dashboard' => __DIR__ . '/classes/class-dashboard.php',
+	'AppNamespace\Admin\Dashboard'       => __DIR__ . '/classes/class-dashboard.php',
+	'AppNamespace\Admin\WP_Screen'       => __DIR__ . '/classes/class-wp-screen.php',
+	'AppNamespace\Includes\WP_Site_Icon' => __DIR__ . '/classes/class-wp-site-icon.php',
+
+	// Admin directory.
+	'WP_List_Table'        => ABSPATH . 'wp-admin/includes/class-wp-list-table.php',
+	'WP_List_Table_Compat' => ABSPATH . 'wp-admin/includes/class-wp-list-table-compat.php'
 ];
 
 spl_autoload_register(

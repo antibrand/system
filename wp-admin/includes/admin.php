@@ -4,10 +4,11 @@
  *
  * @package App_Package
  * @subpackage Administration
- * @since 2.3.0
+ * @since WP 2.3.0
  */
 
-if ( ! defined('WP_ADMIN' ) ) {
+if ( ! defined( 'WP_ADMIN' ) ) {
+
 	/*
 	 * This file is being included from a file other than wp-admin/admin.php, so
 	 * some setup was skipped. Make sure the admin message catalog is loaded since
@@ -50,7 +51,6 @@ require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 require_once( ABSPATH . 'wp-admin/includes/post.php' );
 
 // Administration Screen API.
-require_once( ABSPATH . 'wp-admin/includes/class-wp-screen.php' );
 require_once( ABSPATH . 'wp-admin/includes/screen.php' );
 
 // Taxonomy Administration API.
@@ -59,9 +59,7 @@ require_once( ABSPATH . 'wp-admin/includes/taxonomy.php' );
 // Template Administration API.
 require_once( ABSPATH . 'wp-admin/includes/template.php' );
 
-// List Table Administration API and base class.
-require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
-require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table-compat.php' );
+// List Table Administration API.
 require_once( ABSPATH . 'wp-admin/includes/list-table.php' );
 
 // Theme Administration API.
@@ -69,9 +67,6 @@ require_once( ABSPATH . 'wp-admin/includes/theme.php' );
 
 // User Administration API.
 require_once( ABSPATH . 'wp-admin/includes/user.php' );
-
-// Site Icon API.
-require_once( ABSPATH . 'wp-admin/includes/class-wp-site-icon.php' );
 
 // Update Administration API.
 require_once( ABSPATH . 'wp-admin/includes/update.php' );

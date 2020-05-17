@@ -402,36 +402,42 @@ class WP_List_Table {
 				esc_url( admin_url( $post_new_file ) ),
 				esc_html( $post_type_object->labels->add_new )
 			);
+
 		} elseif ( 'edit-page' == $this->screen->id && current_user_can( 'publish_posts' ) ) {
 			$add_new = sprintf(
 				'<li class="list-table-add-new"><a href="%1s" class="button">%2s</a></li>',
 				esc_url( admin_url( $post_new_file ) ),
 				esc_html( $post_type_object->labels->add_new )
 			);
+
 		} elseif ( 'users' == $this->screen->id && current_user_can( 'create_users' ) ) {
 			$add_new = sprintf(
 				'<li class="list-table-add-new"><a href="%1s" class="button">%2s</a></li>',
 				esc_url( admin_url( 'user-new.php' ) ),
 				esc_html_x( 'Add New', 'user' )
 			);
+
 		} elseif ( 'users-network' == $this->screen->id && is_multisite() && current_user_can( 'promote_users' ) ) {
 			$add_new = sprintf(
 				'<li class="list-table-add-new"><a href="%1s" class="button">%2s</a></li>',
 				esc_url( admin_url( 'user-new.php' ) ),
 				esc_html_x( 'Add Existing', 'user' )
 			);
+
 		} elseif ( 'plugins' == $this->screen->id && current_user_can( 'upload_plugins' ) ) {
 			$add_new = sprintf(
 				'<li class="list-table-add-new"><button id="upload-plugin-toggle" href="%1s" class="upload-view-toggle button">%2s</button></li>',
 				esc_url( admin_url( $post_new_file ) ),
 				esc_html( 'Upload Plugin' )
 			);
+
 		} elseif ( $post_type_object && current_user_can( $post_type_object->cap->create_posts ) ) {
 			$add_new = sprintf(
 				'<li class="list-table-add-new"><a href="%1s" class="button">%2s</a></li>',
 				esc_url( admin_url( $post_new_file ) ),
 				esc_html( $post_type_object->labels->add_new )
 			);
+
 		} else {
 			$add_new = null;
 		}
@@ -446,7 +452,6 @@ class WP_List_Table {
 		 * to the ID of the current screen, usually a string.
 		 *
 		 * @since WP 3.5.0
-		 *
 		 * @param string[] $views An array of available list table views.
 		 */
 		$views = apply_filters( "views_{$this->screen->id}", $views );
@@ -457,14 +462,14 @@ class WP_List_Table {
 
 		$this->screen->render_screen_reader_content( 'heading_views' );
 
-		echo "<ul class='list-table-views'>\n";
+		echo '<ul class="list-table-views">';
 
 		echo $add_new;
 
 		foreach ( $views as $class => $view ) {
-			$views[ $class ] = "\t<li class='$class'>$view";
+			$views[ $class ] = "<li class='$class'>$view";
 		}
-		echo implode( "</li>\n", $views ) . "</li>\n";
+		echo implode( '</li>', $views ) . '</li>';
 		echo '</ul>';
 	}
 
@@ -473,7 +478,6 @@ class WP_List_Table {
 	 * of bulk actions available on this table.
 	 *
 	 * @since 3.1.0
-	 *
 	 * @return array
 	 */
 	protected function get_bulk_actions() {
@@ -484,7 +488,6 @@ class WP_List_Table {
 	 * Display the bulk actions dropdown.
 	 *
 	 * @since 3.1.0
-	 *
 	 * @param string $which The location of the bulk actions: 'top' or 'bottom'.
 	 *                      This is designated as optional for backward compatibility.
 	 */
@@ -500,7 +503,6 @@ class WP_List_Table {
 			 * This filter can currently only be used to remove bulk actions.
 			 *
 			 * @since 3.5.0
-			 *
 			 * @param array $actions An array of the available bulk actions.
 			 */
 			$this->_actions = apply_filters( "bulk_actions-{$this->screen->id}", $this->_actions );
@@ -532,7 +534,6 @@ class WP_List_Table {
 	 * Get the current action selected from the bulk actions dropdown.
 	 *
 	 * @since 3.1.0
-	 *
 	 * @return string|false The action name or False if no action was selected
 	 */
 	public function current_action() {
@@ -552,7 +553,6 @@ class WP_List_Table {
 	 * Generate row actions div
 	 *
 	 * @since 3.1.0
-	 *
 	 * @param array $actions The list of actions
 	 * @param bool $always_visible Whether the actions should be always visible
 	 * @return string
@@ -581,7 +581,6 @@ class WP_List_Table {
 	 * Display a monthly dropdown for filtering items
 	 *
 	 * @since 3.1.0
-	 *
 	 * @global wpdb      $wpdb
 	 * @global WP_Locale $wp_locale
 	 *
@@ -594,7 +593,6 @@ class WP_List_Table {
 		 * Filters whether to remove the 'Months' drop-down from the post list table.
 		 *
 		 * @since 4.2.0
-		 *
 		 * @param bool   $disable   Whether to disable the drop-down. Default false.
 		 * @param string $post_type The post type.
 		 */
@@ -621,7 +619,6 @@ class WP_List_Table {
 		 * Filters the 'Months' drop-down results.
 		 *
 		 * @since 3.7.0
-		 *
 		 * @param object $months    The months drop-down query results.
 		 * @param string $post_type The post type.
 		 */
@@ -661,7 +658,6 @@ class WP_List_Table {
 	 * Display a view switcher
 	 *
 	 * @since 3.1.0
-	 *
 	 * @param string $current_mode
 	 */
 	protected function view_switcher( $current_mode ) {

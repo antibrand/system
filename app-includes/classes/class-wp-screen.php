@@ -7,6 +7,8 @@
  * @since WP 4.4.0
  */
 
+namespace AppNamespace\Admin;
+
 /**
  * Core class used to implement an admin screen API.
  *
@@ -621,25 +623,30 @@ final class WP_Screen {
 	 * @param array $args {
 	 *     Array of arguments used to display the content tab.
 	 *
-	 *     @type string $tab      Label for the tab. Default null.
-	 *     @type string $title    Title for the tab content. Default null.
-	 *     @type string $id       Tab ID. Must be HTML-safe. Default null.
+	 *     @type string $id Tab ID. Must be HTML-safe. Default null.
+	 *     @type string $tab Label for the tab. Default null.
+	 *     @type string $heading Heading for the tab content. Default null.
+	 *     @type string $heading_before Opening HTML tag for the heading. Default <h2>.
+	 *     @type string $heading_after Closing HTML tag for the heading. Default </h2>.
 	 *     @type string $content  Optional. Tab content in plain text or HTML. Default null.
 	 *     @type string $callback Optional. A callback to generate the tab content. Default null.
-	 *     @type int    $priority Optional. The priority of the tab, used for ordering. Default 10.
+	 *     @type int $priority Optional. The priority of the tab, used for ordering. Default 10.
 	 * }
 	 */
 	public function add_content_tab( $args ) {
 
 		$defaults = [
-			'tab'      => null,
-			'title'    => null,
-			'id'       => null,
-			'class'    => null,
-			'icon'     => null,
-			'content'  => null,
-			'callback' => null,
-			'priority' => 10,
+			'id'             => null,
+			'capability'     => 'read',
+			'tab'            => null,
+			'heading'        => null,
+			'heading_before' => '<h2>',
+			'heading_after'  => '</h2>',
+			'class'          => 'app-tab',
+			'icon'           => null,
+			'content'        => null,
+			'callback'       => null,
+			'priority'       => 10,
 		];
 
 		$args       = wp_parse_args( $args, $defaults );
@@ -683,17 +690,16 @@ final class WP_Screen {
 
 		?>
 		<div class="<?php echo $wrap_class; ?>" <?php echo $tabbed; ?> >
+
 			<?php if ( count( $tabs ) > 1 ) : ?>
+
 			<ul class="app-tabs-list hide-if-no-js">
-				<?php
-				foreach ( $tabs as $tab ) :
+			<?php
+			foreach ( $tabs as $tab ) :
+
+				if ( current_user_can( $tab['capability'] ) ) :
 
 					$panel_id  = "tab-panel-{$tab['id']}";
-					$tab_class = 'app-tab';
-
-					if ( ! empty( $tab['class'] ) ) {
-						$tab_class .= ' ' . $tab['class'];
-					}
 
 					if ( ! empty( $tab['icon'] ) ) {
 						$icon = sprintf(
@@ -704,33 +710,49 @@ final class WP_Screen {
 						$icon = null;
 					}
 					?>
-						<li class="<?php echo $tab_class; ?>">
+						<li class="<?php echo $tab['class'] ?>">
 							<a href="<?php echo esc_url( "#$panel_id" ); ?>" aria-controls="<?php echo esc_attr( $panel_id ); ?>">
 								<?php echo $icon . $tab['tab']; ?>
 							</a>
 					<?php
-				endforeach;
-				?>
+				endif;
+			endforeach;
+			?>
+
 			</ul>
+
 			<?php endif; ?>
 
 			<?php
 			foreach ( $this->get_content_tabs() as $tab ) :
-				$panel_id = "tab-panel-{$tab['id']}";
-			?>
-			<div id="<?php echo esc_attr( $panel_id ); ?>" class="<?php echo $panel_class; ?>">
-				<?php echo $tab['title']; ?>
-				<?php
-				// Print tab content.
-				echo $tab['content'];
 
-				// If it exists, fire tab callback.
-				if ( ! empty( $tab['callback'] ) ) {
-					call_user_func_array( $tab['callback'], [ $this, $tab ] );
-				}
+				if ( current_user_can( $tab['capability'] ) ) :
+
+					$panel_id = "tab-panel-{$tab['id']}";
+
+					if ( ! empty( $tab['heading'] ) ) {
+						$heading_before = $tab['heading_before'];
+						$heading_after  = $tab['heading_after'];
+					} else {
+						$heading_before = '<h2>';
+						$heading_after  = '</h2>';
+					}
 				?>
-			</div>
-			<?php endforeach; ?>
+				<div id="<?php echo esc_attr( $panel_id ); ?>" class="<?php echo $panel_class; ?>">
+					<?php echo $tab['heading_before'] . $tab['heading'] . $tab['heading_after']; ?>
+					<?php
+					// Print tab content.
+					echo $tab['content'];
+
+					// If it exists, fire tab callback.
+					if ( ! empty( $tab['callback'] ) ) {
+						call_user_func_array( $tab['callback'], [ $this, $tab ] );
+					}
+					?>
+				</div>
+				<?php
+				endif;
+			endforeach; ?>
 		</div>
 		<?php
 
@@ -830,11 +852,12 @@ final class WP_Screen {
 	public function add_help_tab( $args ) {
 
 		$defaults = [
-			'title'    => null,
-			'id'       => null,
-			'content'  => null,
-			'callback' => null,
-			'priority' => 10,
+			'id'         => null,
+			'capability' => 'read',
+			'title'      => null,
+			'content'    => null,
+			'callback'   => null,
+			'priority'   => 10,
 		];
 
 		$args       = wp_parse_args( $args, $defaults );

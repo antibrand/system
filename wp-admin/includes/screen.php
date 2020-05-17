@@ -229,5 +229,5 @@ function get_current_screen() {
  *	                       or an existing screen object.
  */
 function set_current_screen( $hook_name = '' ) {
-	WP_Screen::get( $hook_name )->set_current_screen();
+	AppNamespace\Admin\WP_Screen::get( $hook_name )->set_current_screen();
 }
