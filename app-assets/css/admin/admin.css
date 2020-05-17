@@ -2459,22 +2459,11 @@ code {
   white-space: nowrap;
 }
 
-.list-table-views li.list-table-add-new,
-.subsubsub li.list-table-add-new {
-  font-weight: 600;
-}
-
 .list-table-views li.list-table-add-new:after,
 .subsubsub li.list-table-add-new:after {
   display: inline-block;
   margin-left: 0.35em;
   font-weight: normal;
-}
-
-.list-table-views li.list-table-add-new button,
-.subsubsub li.list-table-add-new button {
-  border: none;
-  color: #004499;
 }
 
 .list-table-views a,
@@ -2498,13 +2487,14 @@ code {
   transition: all .1s linear;
 }
 
-.list-table-views a.hover, .list-table-views a:hover, .list-table-views a.focus, .list-table-views a:focus, .list-table-views a.active, .list-table-views a:active,
+.list-table-views a.hover, .list-table-views a:hover, .list-table-views a.focus, .list-table-views a:focus, .list-table-views a.active, .list-table-views a:active, .list-table-views a.current,
 .subsubsub a.hover,
 .subsubsub a:hover,
 .subsubsub a.focus,
 .subsubsub a:focus,
 .subsubsub a.active,
-.subsubsub a:active {
+.subsubsub a:active,
+.subsubsub a.current {
   background: #ffee00;
   color: #222222;
   color-adjust: exact !important;

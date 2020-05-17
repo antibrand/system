@@ -264,18 +264,12 @@ code {
 		white-space: nowrap;
 
 		&.list-table-add-new {
-			font-weight: 600;
 
 			&:after {
 				// content: '|';
 				display: inline-block;
 				margin-left: 0.35em;
 				font-weight: normal;
-			}
-
-			button {
-				border: none;
-				color: $link_color;
 			}
 		}
 	}
@@ -303,7 +297,8 @@ code {
 		&.focus,
 		&:focus,
 		&.active,
-		&:active {
+		&:active,
+		&.current {
 			background: $button_action_background_color;
 			color: $button_action_text_color;
 			color-adjust: exact !important;
