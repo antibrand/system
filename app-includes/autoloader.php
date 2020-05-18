@@ -31,7 +31,7 @@ const MAP = [
 
 	// Classes used on the back end and front end.
 	'AppNamespace\Includes\Site_Icon' => __DIR__ . '/classes/class-site-icon.php',
-	// 'AppNamespace\Includes\Error'     => __DIR__ . '/classes/class-error.php',
+	'AppNamespace\Includes\Error_Messages'     => __DIR__ . '/classes/class-error-messages.php',
 ];
 
 // Run the autoloader.

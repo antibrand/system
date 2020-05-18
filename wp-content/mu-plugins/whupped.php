@@ -37,5 +37,5 @@ class_alias( Admin\Comments_List_Table :: class, \WP_Comments_List_Table :: clas
 class_alias( Admin\Users_List_Table    :: class, \WP_Users_List_Table    :: class );
 class_alias( Admin\Plugins_List_Table  :: class, \WP_Plugins_List_Table  :: class );
 
-class_alias( Includes\Error     :: class, \WP_Error           :: class );
-class_alias( Includes\Site_Icon :: class, \WP_Site_Icon           :: class );
+// class_alias( Includes\Error_Messages   :: class, \WP_Error           :: class );
+class_alias( Includes\Site_Icon        :: class, \WP_Site_Icon           :: class );
