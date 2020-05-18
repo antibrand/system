@@ -74,7 +74,7 @@ switch( $action ) {
 		$error_msg = false;
 
 		// For output of the quickdraft dashboard widget.
-		$dashboard = new \AppNamespace\Admin\Dashboard();
+		$dashboard = new \AppNamespace\Backend\Dashboard();
 
 		if ( ! wp_verify_nonce( $nonce, 'add-post' ) ) {
 			$error_msg = __( 'Unable to submit this form, please refresh and try again.' );

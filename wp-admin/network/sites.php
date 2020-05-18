@@ -13,7 +13,7 @@ require_once( dirname( __FILE__ ) . '/admin.php' );
 if ( ! current_user_can( 'manage_sites' ) )
 	wp_die( __( 'Sorry, you are not allowed to access this page.' ), 403 );
 
-$wp_list_table = _get_list_table( 'AppNamespace\Admin\MS_Sites_List_Table' );
+$wp_list_table = _get_list_table( 'AppNamespace\Backend\MS_Sites_List_Table' );
 $pagenum = $wp_list_table->get_pagenum();
 
 $title = __( 'Sites' );

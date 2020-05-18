@@ -18,7 +18,7 @@ if ( ! current_user_can( 'list_users' ) ) {
 	);
 }
 
-$wp_list_table = _get_list_table( 'AppNamespace\Admin\Users_List_Table' );
+$wp_list_table = _get_list_table( 'AppNamespace\Backend\Users_List_Table' );
 $pagenum       = $wp_list_table->get_pagenum();
 $title         = __( 'User Accounts' );
 $parent_file   = 'users.php';

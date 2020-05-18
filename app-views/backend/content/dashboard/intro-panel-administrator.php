@@ -6,7 +6,7 @@
  * @subpackage Administration
  */
 
-use \AppNamespace\Admin\Dashboard as Dashboard;
+use \AppNamespace\Backend\Dashboard as Dashboard;
 
 // App version.
 $version = get_bloginfo( 'version' );

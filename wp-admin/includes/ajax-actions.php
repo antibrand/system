@@ -1058,7 +1058,7 @@ function wp_ajax_replyto_comment( $action ) {
 
 	if ( isset( $_REQUEST['mode'] ) && 'dashboard' == $_REQUEST['mode'] ) {
 
-		$dashboard = new \AppNamespace\Admin\Dashboard();
+		$dashboard = new \AppNamespace\Backend\Dashboard();
 
 		$dashboard->dashboard_recent_comments_row( $comment );
 
@@ -1344,7 +1344,7 @@ function wp_ajax_add_user( $action ) {
 	}
 	$user_object = get_userdata( $user_id );
 
-	$wp_list_table = _get_list_table( 'AppNamespace\Admin\Users_List_Table' );
+	$wp_list_table = _get_list_table( 'AppNamespace\Backend\Users_List_Table' );
 
 	$role = current( $user_object->roles );
 
@@ -3880,7 +3880,7 @@ function wp_ajax_search_plugins() {
 	}
 
 	/** @var WP_Plugins_List_Table $wp_list_table */
-	$wp_list_table = _get_list_table( 'AppNamespace\Admin\Plugins_List_Table', [
+	$wp_list_table = _get_list_table( 'AppNamespace\Backend\Plugins_List_Table', [
 		'screen' => get_current_screen(),
 	] );
 

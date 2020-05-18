@@ -18,16 +18,16 @@ namespace AppNamespace;
 const MAP = [
 
 	// Classes used in the back end only.
-	'AppNamespace\Admin\Dashboard'           => __DIR__ . '/classes/backend/class-dashboard.php',
-	'AppNamespace\Admin\Screen'              => __DIR__ . '/classes/backend/class-screen.php',
-	'AppNamespace\Admin\List_Table'          => __DIR__ . '/classes/backend/class-list-table.php',
-	'AppNamespace\Admin\List_Table_Compat'   => __DIR__ . '/classes/backend/class-list-table-compat.php',
-	'AppNamespace\Admin\Posts_List_Table'    => __DIR__ . '/classes/backend/class-posts-list-table.php',
-	'AppNamespace\Admin\Terms_List_Table'    => __DIR__ . '/classes/backend/class-terms-list-table.php',
-	'AppNamespace\Admin\Media_List_Table'    => __DIR__ . '/classes/backend/class-media-list-table.php',
-	'AppNamespace\Admin\Comments_List_Table' => __DIR__ . '/classes/backend/class-comments-list-table.php',
-	'AppNamespace\Admin\Users_List_Table'    => __DIR__ . '/classes/backend/class-users-list-table.php',
-	'AppNamespace\Admin\Plugins_List_Table'  => __DIR__ . '/classes/backend/class-plugins-list-table.php',
+	'AppNamespace\Backend\Dashboard'           => __DIR__ . '/classes/backend/class-dashboard.php',
+	'AppNamespace\Backend\Screen'              => __DIR__ . '/classes/backend/class-screen.php',
+	'AppNamespace\Backend\List_Table'          => __DIR__ . '/classes/backend/class-list-table.php',
+	'AppNamespace\Backend\List_Table_Compat'   => __DIR__ . '/classes/backend/class-list-table-compat.php',
+	'AppNamespace\Backend\Posts_List_Table'    => __DIR__ . '/classes/backend/class-posts-list-table.php',
+	'AppNamespace\Backend\Terms_List_Table'    => __DIR__ . '/classes/backend/class-terms-list-table.php',
+	'AppNamespace\Backend\Media_List_Table'    => __DIR__ . '/classes/backend/class-media-list-table.php',
+	'AppNamespace\Backend\Comments_List_Table' => __DIR__ . '/classes/backend/class-comments-list-table.php',
+	'AppNamespace\Backend\Users_List_Table'    => __DIR__ . '/classes/backend/class-users-list-table.php',
+	'AppNamespace\Backend\Plugins_List_Table'  => __DIR__ . '/classes/backend/class-plugins-list-table.php',
 
 	// Classes used on the back end and front end.
 	'AppNamespace\Includes\Site_Icon'      => __DIR__ . '/classes/includes/class-site-icon.php',

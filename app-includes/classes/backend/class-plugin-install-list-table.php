@@ -7,7 +7,7 @@
  * @since WP 3.1.0
  */
 
-namespace AppNamespace\Admin;
+namespace AppNamespace\Backend;
 
 /**
  * Core class used to implement displaying plugins to install in a list table.

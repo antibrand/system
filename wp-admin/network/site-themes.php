@@ -22,7 +22,7 @@ get_current_screen()->set_screen_reader_content( array(
 	'heading_list'       => __( 'Site themes list' ),
 ) );
 
-$wp_list_table = _get_list_table( 'AppNamespace\Admin\MS_Themes_List_Table' );
+$wp_list_table = _get_list_table( 'AppNamespace\Backend\MS_Themes_List_Table' );
 
 $action = $wp_list_table->current_action();
 

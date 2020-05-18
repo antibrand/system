@@ -6,7 +6,7 @@
  * @subpackage Administration
  */
 
-namespace AppNamespace\Admin;
+namespace AppNamespace\Backend;
 
 class Dashboard {
 

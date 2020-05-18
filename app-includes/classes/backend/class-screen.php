@@ -7,7 +7,7 @@
  * @since WP 4.4.0
  */
 
-namespace AppNamespace\Admin;
+namespace AppNamespace\Backend;
 
 /**
  * Core class used to implement an admin screen API.

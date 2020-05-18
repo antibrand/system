@@ -17,7 +17,7 @@ if ( ! current_user_can( 'edit_posts' ) ) {
 	);
 }
 
-$wp_list_table = _get_list_table( 'AppNamespace\Admin\Comments_List_Table' );
+$wp_list_table = _get_list_table( 'AppNamespace\Backend\Comments_List_Table' );
 $pagenum       = $wp_list_table->get_pagenum();
 
 $doaction = $wp_list_table->current_action();

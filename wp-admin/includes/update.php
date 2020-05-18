@@ -347,7 +347,7 @@ function wp_plugin_update_row( $file, $plugin_data ) {
 	$details_url   = self_admin_url( 'plugin-install.php?tab=plugin-information&plugin=' . $response->slug . '&section=changelog&TB_iframe=true&width=600&height=800' );
 
 	/** @var WP_Plugins_List_Table $wp_list_table */
-	$wp_list_table = _get_list_table( 'AppNamespace\Admin\Plugins_List_Table' );
+	$wp_list_table = _get_list_table( 'AppNamespace\Backend\Plugins_List_Table' );
 
 	if ( is_network_admin() || ! is_multisite() ) {
 		if ( is_network_admin() ) {
@@ -498,7 +498,7 @@ function wp_theme_update_row( $theme_key, $theme ) {
 	), $current->response[ $theme_key ]['url'] );
 
 	/** @var WP_MS_Themes_List_Table $wp_list_table */
-	$wp_list_table = _get_list_table( 'AppNamespace\Admin\MS_Themes_List_Table' );
+	$wp_list_table = _get_list_table( 'AppNamespace\Backend\MS_Themes_List_Table' );
 
 	$active = $theme->is_allowed( 'network' ) ? ' active' : '';
 

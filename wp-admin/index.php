@@ -10,7 +10,7 @@
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 // Instance of the dashboard class.
-\AppNamespace\Admin\Dashboard :: instance();
+\AppNamespace\Backend\Dashboard :: instance();
 
 // Script for AJAX, drag & drop, show/hide.
 wp_enqueue_script( 'dashboard' );

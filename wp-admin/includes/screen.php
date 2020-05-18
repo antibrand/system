@@ -229,5 +229,5 @@ function get_current_screen() {
  *	                       or an existing screen object.
  */
 function set_current_screen( $hook_name = '' ) {
-	AppNamespace\Admin\Screen::get( $hook_name )->set_current_screen();
+	AppNamespace\Backend\Screen::get( $hook_name )->set_current_screen();
 }
