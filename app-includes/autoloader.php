@@ -6,7 +6,6 @@
  * @subpackage Administration
  */
 
-// App namespace.
 namespace AppNamespace;
 
 /*
