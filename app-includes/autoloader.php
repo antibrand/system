@@ -30,7 +30,8 @@ const MAP = [
 	'AppNamespace\Admin\Plugins_List_Table'  => __DIR__ . '/classes/class-plugins-list-table.php',
 
 	// Classes used on the back end and front end.
-	'AppNamespace\Includes\Site_Icon'        => __DIR__ . '/classes/class-site-icon.php',
+	'AppNamespace\Includes\Site_Icon' => __DIR__ . '/classes/class-site-icon.php',
+	// 'AppNamespace\Includes\Error'     => __DIR__ . '/classes/class-error.php',
 ];
 
 // Run the autoloader.
