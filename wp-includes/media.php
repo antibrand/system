@@ -7,6 +7,17 @@
  */
 
 /**
+ * Alias namespaces
+ *
+ * Make sure the namespaces here are the same base as that
+ * used in your copy of this website management system.
+ *
+ * @since 1.0.0
+ */
+use \AppNamespace\Admin    as Admin;
+use \AppNamespace\Includes as Includes;
+
+/**
  * Retrieve additional image sizes.
  *
  * @since 4.7.0
@@ -2893,7 +2904,7 @@ function wp_max_upload_size() {
  * @param string $path Path to the file to load.
  * @param array  $args Optional. Additional arguments for retrieving the image editor.
  *                     Default empty array.
- * @return WP_Image_Editor|WP_Error The WP_Image_Editor object if successful, an WP_Error
+ * @return WP_Image_Editor|Error_Messages The WP_Image_Editor object if successful, an Error_Messages
  *                                  object otherwise.
  */
 function wp_get_image_editor( $path, $args = array() ) {
@@ -2920,7 +2931,7 @@ function wp_get_image_editor( $path, $args = array() ) {
 		return $editor;
 	}
 
-	return new WP_Error( 'image_no_editor', __('No editor could be selected.') );
+	return new Includes\Error_Messages( 'image_no_editor', __('No editor could be selected.') );
 }
 
 /**

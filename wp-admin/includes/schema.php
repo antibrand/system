@@ -9,6 +9,17 @@
  */
 
 /**
+ * Alias namespaces
+ *
+ * Make sure the namespaces here are the same base as that
+ * used in your copy of this website management system.
+ *
+ * @since 1.0.0
+ */
+use \AppNamespace\Admin    as Admin;
+use \AppNamespace\Includes as Includes;
+
+/**
  * Declare these as global in case schema.php is included from a function.
  *
  * @global wpdb   $wpdb
@@ -868,13 +879,13 @@ endif;
  * @param string $path              Optional. The path to append to the network's domain name. Default '/'.
  * @param bool   $subdomain_install Optional. Whether the network is a subdomain installation or a subdirectory installation.
  *                                  Default false, meaning the network is a subdirectory installation.
- * @return bool|WP_Error True on success, or WP_Error on warning (with the installation otherwise successful,
+ * @return bool|Error_Messages True on success, or Error_Messages on warning (with the installation otherwise successful,
  *                       so the error code must be checked) or failure.
  */
 function populate_network( $network_id = 1, $domain = '', $email = '', $site_name = '', $path = '/', $subdomain_install = false ) {
 	global $wpdb, $current_site, $wp_db_version, $wp_rewrite;
 
-	$errors = new WP_Error();
+	$errors = new Includes\Error_Messages();
 	if ( '' == $domain )
 		$errors->add( 'empty_domain', __( 'You must provide a domain name.' ) );
 	if ( '' == $site_name )
@@ -1087,7 +1098,7 @@ We hope you enjoy your new site. Thanks!
 
 			$msg .= '<p>' . __( 'You can still use your site but any subdomain you create may not be accessible. If you know your DNS is correct, ignore this message.' ) . '</p>';
 
-			return new WP_Error( 'no_wildcard_dns', $msg );
+			return new Includes\Error_Messages( 'no_wildcard_dns', $msg );
 		}
 	}
 
