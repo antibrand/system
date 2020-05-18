@@ -44,7 +44,7 @@ function _get_list_table( $class, $args = array() ) {
 	if ( isset( $core_classes[ $class ] ) ) {
 
 		foreach ( (array) $core_classes[ $class ] as $required ) {
-			require_once( ABSPATH . 'app-includes/classes/class-' . $required . '-list-table.php' );
+			require_once( ABSPATH . 'app-includes/classes/backend/class-' . $required . '-list-table.php' );
 		}
 
 		if ( isset( $args['screen'] ) )
