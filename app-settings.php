@@ -12,6 +12,9 @@
 define( 'APPINC', 'app-includes' );
 define( 'WPINC', 'wp-includes' );
 
+// Cless autoloader.
+require( ABSPATH . APPINC . '/autoloader.php' );
+
 // Include files required for initialization.
 require( ABSPATH . WPINC . '/load.php' );
 require( ABSPATH . WPINC . '/default-constants.php' );
@@ -141,9 +144,6 @@ require_once( ABSPATH . WPINC . '/class-wp-locale-switcher.php' );
 
 // Run the installer if the application is not installed.
 wp_not_installed();
-
-// Cless autoloader.
-require( ABSPATH . APPINC . '/autoloader.php' );
 
 // Load most of the application.
 require( ABSPATH . WPINC . '/class-wp-walker.php' );
