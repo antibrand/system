@@ -18,20 +18,20 @@ namespace AppNamespace;
 const MAP = [
 
 	// Classes used in the back end only.
-	'AppNamespace\Admin\Dashboard'           => __DIR__ . '/classes/class-dashboard.php',
-	'AppNamespace\Admin\Screen'              => __DIR__ . '/classes/class-screen.php',
-	'AppNamespace\Admin\List_Table'          => __DIR__ . '/classes/class-list-table.php',
-	'AppNamespace\Admin\List_Table_Compat'   => __DIR__ . '/classes/class-list-table-compat.php',
-	'AppNamespace\Admin\Posts_List_Table'    => __DIR__ . '/classes/class-posts-list-table.php',
-	'AppNamespace\Admin\Terms_List_Table'    => __DIR__ . '/classes/class-terms-list-table.php',
-	'AppNamespace\Admin\Media_List_Table'    => __DIR__ . '/classes/class-media-list-table.php',
-	'AppNamespace\Admin\Comments_List_Table' => __DIR__ . '/classes/class-comments-list-table.php',
-	'AppNamespace\Admin\Users_List_Table'    => __DIR__ . '/classes/class-users-list-table.php',
-	'AppNamespace\Admin\Plugins_List_Table'  => __DIR__ . '/classes/class-plugins-list-table.php',
+	'AppNamespace\Admin\Dashboard'           => __DIR__ . '/classes/backend/class-dashboard.php',
+	'AppNamespace\Admin\Screen'              => __DIR__ . '/classes/backend/class-screen.php',
+	'AppNamespace\Admin\List_Table'          => __DIR__ . '/classes/backend/class-list-table.php',
+	'AppNamespace\Admin\List_Table_Compat'   => __DIR__ . '/classes/backend/class-list-table-compat.php',
+	'AppNamespace\Admin\Posts_List_Table'    => __DIR__ . '/classes/backend/class-posts-list-table.php',
+	'AppNamespace\Admin\Terms_List_Table'    => __DIR__ . '/classes/backend/class-terms-list-table.php',
+	'AppNamespace\Admin\Media_List_Table'    => __DIR__ . '/classes/backend/class-media-list-table.php',
+	'AppNamespace\Admin\Comments_List_Table' => __DIR__ . '/classes/backend/class-comments-list-table.php',
+	'AppNamespace\Admin\Users_List_Table'    => __DIR__ . '/classes/backend/class-users-list-table.php',
+	'AppNamespace\Admin\Plugins_List_Table'  => __DIR__ . '/classes/backend/class-plugins-list-table.php',
 
 	// Classes used on the back end and front end.
-	'AppNamespace\Includes\Site_Icon'      => __DIR__ . '/classes/class-site-icon.php',
-	'AppNamespace\Includes\Error_Messages' => __DIR__ . '/classes/class-error-messages.php',
+	'AppNamespace\Includes\Site_Icon'      => __DIR__ . '/classes/includes/class-site-icon.php',
+	'AppNamespace\Includes\Error_Messages' => __DIR__ . '/classes/includes/class-error-messages.php',
 ];
 
 // Run the autoloader.
