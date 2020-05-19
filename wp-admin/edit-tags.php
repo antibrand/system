@@ -332,7 +332,11 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 // Also used by the Edit Tag  form.
 require_once( ABSPATH . 'wp-admin/includes/edit-tag-messages.php' );
 
-$class = ( isset( $_REQUEST['error'] ) ) ? 'error' : 'updated';
+if ( isset( $_REQUEST['error'] ) ) {
+	$class = 'error';
+} else {
+	$class = 'updated';
+}
 
 if ( is_plugin_active( 'wpcat2tag-importer/wpcat2tag-importer.php' ) ) {
 	$import_link = admin_url( 'admin.php?import=wpcat2tag' );
@@ -361,8 +365,8 @@ if ( is_plugin_active( 'wpcat2tag-importer/wpcat2tag-importer.php' ) ) {
 
 		<form class="search-form wp-clearfix" method="get">
 
-			<input type="hidden" name="taxonomy" value="<?php echo esc_attr($taxonomy); ?>" />
-			<input type="hidden" name="post_type" value="<?php echo esc_attr($post_type); ?>" />
+			<input type="hidden" name="taxonomy" value="<?php echo esc_attr( $taxonomy ); ?>" />
+			<input type="hidden" name="post_type" value="<?php echo esc_attr( $post_type ); ?>" />
 
 			<?php $wp_list_table->search_box( $tax->labels->search_items, 'tag' ); ?>
 
@@ -372,7 +376,7 @@ if ( is_plugin_active( 'wpcat2tag-importer/wpcat2tag-importer.php' ) ) {
 			<div id="taxonomy-form">
 				<div class="col-wrap">
 					<?php
-					if ( current_user_can($tax->cap->edit_terms) ) {
+					if ( current_user_can( $tax->cap->edit_terms ) ) {
 
 						if ( 'category' == $taxonomy ) {
 
@@ -426,7 +430,7 @@ if ( is_plugin_active( 'wpcat2tag-importer/wpcat2tag-importer.php' ) ) {
 
 						<h2><?php echo $tax->labels->add_new_item; ?></h2>
 
-						<form id="addtag" method="post" action="edit-tags.php" class="validate"<?php
+						<form id="addtag" method="post" action="edit-tags.php" class="list-table-form validate"<?php
 						/**
 						 * Fires inside the Add Tag form tag.
 						 *
@@ -437,9 +441,9 @@ if ( is_plugin_active( 'wpcat2tag-importer/wpcat2tag-importer.php' ) ) {
 						do_action( "{$taxonomy}_term_new_form_tag" );
 						?>>
 							<input type="hidden" name="action" value="add-tag" />
-							<input type="hidden" name="screen" value="<?php echo esc_attr($current_screen->id); ?>" />
-							<input type="hidden" name="taxonomy" value="<?php echo esc_attr($taxonomy); ?>" />
-							<input type="hidden" name="post_type" value="<?php echo esc_attr($post_type); ?>" />
+							<input type="hidden" name="screen" value="<?php echo esc_attr( $current_screen->id ); ?>" />
+							<input type="hidden" name="taxonomy" value="<?php echo esc_attr( $taxonomy ); ?>" />
+							<input type="hidden" name="post_type" value="<?php echo esc_attr( $post_type ); ?>" />
 
 							<?php wp_nonce_field( 'add-tag', '_wpnonce_add-tag' ); ?>
 

@@ -527,7 +527,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
 		</div>
 
-		<form id="posts-filter" method="get">
+		<form id="posts-filter" class="list-table-form" method="get">
 
 			<input type="hidden" name="post_status" class="post_status_page" value="<?php echo ! empty( $_REQUEST['post_status'] ) ? esc_attr( $_REQUEST['post_status'] ) : 'all'; ?>" />
 			<input type="hidden" name="post_type" class="post_type_page" value="<?php echo $post_type; ?>" />

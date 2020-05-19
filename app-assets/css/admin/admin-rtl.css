@@ -489,6 +489,10 @@ body.mobile.modal-open .admin-page-wrap {
   line-height: 1.2;
 }
 
+.list-table-form {
+  overflow: hidden;
+}
+
 /**
  * Administration form styles
  */

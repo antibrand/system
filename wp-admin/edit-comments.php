@@ -425,22 +425,22 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
 		</div>
 
-		<form id="comments-form" method="get">
+		<form id="comments-form" class="list-table-form" method="get">
 
-		<?php if ( $post_id ) : ?>
-		<input type="hidden" name="p" value="<?php echo esc_attr( intval( $post_id ) ); ?>" />
-		<?php endif; ?>
-		<input type="hidden" name="comment_status" value="<?php echo esc_attr( $comment_status ); ?>" />
-		<input type="hidden" name="pagegen_timestamp" value="<?php echo esc_attr( current_time( 'mysql', 1 ) ); ?>" />
-		<input type="hidden" name="_total" value="<?php echo esc_attr( $wp_list_table->get_pagination_arg( 'total_items' ) ); ?>" />
-		<input type="hidden" name="_per_page" value="<?php echo esc_attr( $wp_list_table->get_pagination_arg( 'per_page' ) ); ?>" />
-		<input type="hidden" name="_page" value="<?php echo esc_attr( $wp_list_table->get_pagination_arg( 'page' ) ); ?>" />
+			<?php if ( $post_id ) : ?>
+			<input type="hidden" name="p" value="<?php echo esc_attr( intval( $post_id ) ); ?>" />
+			<?php endif; ?>
+			<input type="hidden" name="comment_status" value="<?php echo esc_attr( $comment_status ); ?>" />
+			<input type="hidden" name="pagegen_timestamp" value="<?php echo esc_attr( current_time( 'mysql', 1 ) ); ?>" />
+			<input type="hidden" name="_total" value="<?php echo esc_attr( $wp_list_table->get_pagination_arg( 'total_items' ) ); ?>" />
+			<input type="hidden" name="_per_page" value="<?php echo esc_attr( $wp_list_table->get_pagination_arg( 'per_page' ) ); ?>" />
+			<input type="hidden" name="_page" value="<?php echo esc_attr( $wp_list_table->get_pagination_arg( 'page' ) ); ?>" />
 
-		<?php if ( isset($_REQUEST['paged']) ) { ?>
-			<input type="hidden" name="paged" value="<?php echo esc_attr( absint( $_REQUEST['paged'] ) ); ?>" />
-		<?php } ?>
+			<?php if ( isset( $_REQUEST['paged'] ) ) { ?>
+				<input type="hidden" name="paged" value="<?php echo esc_attr( absint( $_REQUEST['paged'] ) ); ?>" />
+			<?php } ?>
 
-		<?php $wp_list_table->display(); ?>
+			<?php $wp_list_table->display(); ?>
 		</form>
 	</div><!-- .wrap -->
 

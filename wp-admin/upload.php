@@ -393,7 +393,7 @@ if ( !empty($message) ) { ?>
 <div id="message" class="updated notice is-dismissible"><p><?php echo $message; ?></p></div>
 <?php } ?>
 
-<form id="posts-filter" method="get">
+<form id="posts-filter" class="list-table-form" method="get">
 
 <?php $wp_list_table->views(); ?>
 

@@ -723,7 +723,7 @@ if ( ! empty( $invalid ) ) {
 
 		</div>
 
-		<form method="post" id="bulk-action-form">
+		<form id="bulk-action-form" class="list-table-form" method="post">
 
 			<input type="hidden" name="plugin_status" value="<?php echo esc_attr( $status ) ?>" />
 			<input type="hidden" name="paged" value="<?php echo esc_attr( $page ) ?>" />

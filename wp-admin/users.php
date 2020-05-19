@@ -474,7 +474,7 @@ case 'remove':
 	include( ABSPATH . 'wp-admin/admin-header.php' );
 
 ?>
-	<form method="post" name="updateusers" id="updateusers">
+	<form id="updateusers" class="list-table-form" method="post" name="updateusers">
 
 		<?php wp_nonce_field( 'remove-users' ) ?>
 		<?php echo $referer; ?>
