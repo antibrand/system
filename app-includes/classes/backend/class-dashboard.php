@@ -133,7 +133,7 @@ class Dashboard {
 		}
 
 		$screen->add_content_tab( [
-			'id'         => 'one',
+			'id'         => 'overview',
 			'capability' => 'manage_options',
 			'tab'        => __( 'Overview' ),
 			'icon'       => '',
@@ -143,7 +143,7 @@ class Dashboard {
 		] );
 
 		$screen->add_content_tab( [
-			'id'         => 'three',
+			'id'         => 'widgets',
 			'capability' => 'read',
 			'tab'        => __( 'Widgets' ),
 			'icon'       => '',
