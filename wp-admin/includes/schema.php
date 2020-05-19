@@ -16,7 +16,7 @@
  *
  * @since 1.0.0
  */
-use \AppNamespace\Backend    as Admin;
+use \AppNamespace\Backend  as Backend;
 use \AppNamespace\Includes as Includes;
 
 /**
