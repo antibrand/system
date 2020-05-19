@@ -33,7 +33,15 @@ const MAP = [
 	'AppNamespace\Includes\Error_Messages' => __DIR__ . '/classes/includes/class-error-messages.php',
 ];
 
-// Run the autoloader.
+/**
+ * Register classes to be loaded
+ *
+ * @link https://www.php.net/manual/en/function.spl-autoload-register.php
+ *
+ * @since  1.0.0
+ * @access public
+ * @return void
+ */
 spl_autoload_register(
 	function ( string $classname ) {
 		if ( isset( MAP[ $classname ] ) ) {

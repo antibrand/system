@@ -12,7 +12,13 @@
 define( 'APPINC', 'app-includes' );
 define( 'WPINC', 'wp-includes' );
 
-// Cless autoloader.
+/**
+ * Class autoloader
+ *
+ * @link https://www.php.net/manual/en/language.oop5.autoload.php
+ *
+ * @since 1.0.0
+ */
 require( ABSPATH . APPINC . '/autoloader.php' );
 
 // Include files required for initialization.
