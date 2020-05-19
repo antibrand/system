@@ -2,11 +2,11 @@
 
 A generic website management system inspired by WordPress. The system is compatible with plugins and themes that do not require WordPress version 5.0 or greater.
 
-NOTE: most web products are a work in progress but this website management system is undergoing big changes in the original WordPress code. Feel free to install locally but this is not ready for live sites.
-
 ![Version 1.0.0](https://img.shields.io/badge/Version-1.0.0-ffd000.svg?style=flat-square)
 ![WordPress compatible](https://img.shields.io/badge/WordPress-compatible-0073aa.svg?style=flat-square)
 ![PHP tested on version 7.3](https://img.shields.io/badge/PHP-Tested%207.3-8892bf.svg?style=flat-square)
+
+NOTE: most web products are a work in progress but this website management system is undergoing big changes in the original WordPress code. Feel free to install locally but this is not ready for live sites. You may need to install the "must use" plugin that creates aliases for renamed classes: [https://github.com/antibrand/alias](https://github.com/antibrand/alias)
 
 ![cover image](https://raw.githubusercontent.com/antibrand/system/master/cover.jpg)
 
