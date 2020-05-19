@@ -8,13 +8,15 @@
 
 namespace AppNamespace;
 
-/*
+/**
  * A map of classes to files to load
  *
  * The index is the class name, including namespace,
  * the value is the path to the corresponding file.
+ *
+ * @since 1.0.0
  */
-const MAP = [
+const APP_CLASSES = [
 
 	// Classes used on the back end and/or front end.
 	'AppNamespace\Includes\Walker'          => __DIR__ . '/classes/includes/class-walker.php',
@@ -47,8 +49,8 @@ const MAP = [
  */
 spl_autoload_register(
 	function ( string $classname ) {
-		if ( isset( MAP[ $classname ] ) ) {
-			require MAP[ $classname ];
+		if ( isset( APP_CLASSES[ $classname ] ) ) {
+			require APP_CLASSES[ $classname ];
 		}
 	}
 );
