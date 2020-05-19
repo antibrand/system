@@ -13,7 +13,7 @@
  * @since 3.0.0
  * @uses Walker_Nav_Menu
  */
-class Walker_Nav_Menu_Checklist extends Walker_Nav_Menu {
+class Walker_Nav_Menu_Checklist extends AppNamespace\Includes\Walker_Nav_Menu {
 	/**
 	 *
 	 * @param array $fields

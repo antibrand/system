@@ -7,6 +7,8 @@
  * @since 4.6.0
  */
 
+namespace AppNamespace\Includes;
+
 /**
  * Core class used to implement an HTML list of nav menu items.
  *
@@ -14,7 +16,7 @@
  *
  * @see Walker
  */
-class Walker_Nav_Menu extends AppNamespace\Includes\Walker {
+class Walker_Nav_Menu extends Walker {
 	/**
 	 * What the class handles.
 	 *

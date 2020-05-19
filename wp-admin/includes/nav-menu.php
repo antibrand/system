@@ -7,9 +7,6 @@
  * @since 3.0.0
  */
 
-/** Walker_Nav_Menu_Edit class */
-require_once( ABSPATH . 'wp-admin/includes/class-walker-nav-menu-edit.php' );
-
 /** Walker_Nav_Menu_Checklist class */
 require_once( ABSPATH . 'wp-admin/includes/class-walker-nav-menu-checklist.php' );
 
@@ -928,7 +925,7 @@ function wp_get_nav_menu_to_edit( $menu_id = 0 ) {
 		 * @param string $class   The walker class to use. Default 'Walker_Nav_Menu_Edit'.
 		 * @param int    $menu_id ID of the menu being rendered.
 		 */
-		$walker_class_name = apply_filters( 'wp_edit_nav_menu_walker', 'Walker_Nav_Menu_Edit', $menu_id );
+		$walker_class_name = apply_filters( 'wp_edit_nav_menu_walker', 'AppNamespace\Backend\Walker_Nav_Menu_Edit', $menu_id );
 
 		if ( class_exists( $walker_class_name ) ) {
 			$walker = new $walker_class_name;

@@ -7,6 +7,17 @@
  * @since 2.1.0
  */
 
+/**
+ * Alias namespaces
+ *
+ * Make sure the namespaces here are the same base as that
+ * used in your copy of this website management system.
+ *
+ * @since 1.0.0
+ */
+use \AppNamespace\Backend  as Backend;
+use \AppNamespace\Includes as Includes;
+
 //
 // No-privilege Ajax handlers.
 //
@@ -1209,7 +1220,7 @@ function wp_ajax_add_menu_item() {
 	}
 
 	/** This filter is documented in wp-admin/includes/nav-menu.php */
-	$walker_class_name = apply_filters( 'wp_edit_nav_menu_walker', 'Walker_Nav_Menu_Edit', $_POST['menu'] );
+	$walker_class_name = apply_filters( 'wp_edit_nav_menu_walker', 'Backend\Walker_Nav_Menu_Edit', $_POST['menu'] );
 
 	if ( ! class_exists( $walker_class_name ) )
 		wp_die( 0 );
