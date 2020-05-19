@@ -52,3 +52,16 @@ spl_autoload_register(
 		}
 	}
 );
+
+/**
+ * Alias namespaced classes
+ *
+ * Make plugins and themes that call classes which were previously
+ * not namespaced aware of the new locations.
+ *
+ * @since  1.0.0
+ *
+ * @link https://www.php.net/manual/en/function.class-alias.php
+ */
+\class_alias( Includes\Walker :: class, \Walker :: class );
+\class_alias( Backend\Walker_Nav_Menu_Edit :: class, \Walker_Nav_Menu_Edit :: class );
