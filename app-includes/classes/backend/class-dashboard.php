@@ -135,37 +135,20 @@ class Dashboard {
 		$screen->add_content_tab( [
 			'id'         => 'one',
 			'capability' => 'manage_options',
-			'tab'        => __( 'One' ),
+			'tab'        => __( 'Overview' ),
 			'icon'       => '',
-			'heading'    => __( 'One' ),
+			'heading'    => __( 'Site Overview' ),
 			'content'    => '',
-			'callback'   => null
-		] );
-
-		$screen->add_content_tab( [
-			'id'         => 'two',
-			'capability' => 'read',
-			'tab'        => __( 'Two' ),
-			'icon'       => '',
-			'heading'    => __( 'Two' ),
-			'content'    => '<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at ex id augue dictum molestie. Sed vestibulum orci felis, vel fermentum urna viverra vitae. Curabitur sed posuere orci, eget tincidunt sapien. Fusce varius, tortor at fermentum ultricies, felis eros tristique nunc, ut cursus eros elit at dui. Aenean vestibulum pulvinar orci imperdiet malesuada. Aliquam erat volutpat. Aliquam nisl nisi, egestas sit amet imperdiet non, hendrerit a ante. Maecenas nec fringilla leo, accumsan lobortis ex.
-			</p>
-			<p>
-			Proin sed tincidunt dui. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin pulvinar quam vel luctus venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean luctus sem sed sem bibendum, id efficitur erat ultrices. Nulla aliquet tristique diam, eget euismod leo pulvinar et. Mauris varius sapien nec mauris mollis, sed ullamcorper mauris lacinia. Aliquam erat volutpat.
-			</p>',
 			'callback'   => null
 		] );
 
 		$screen->add_content_tab( [
 			'id'         => 'three',
 			'capability' => 'read',
-			'tab'        => __( 'Three' ),
+			'tab'        => __( 'Widgets' ),
 			'icon'       => '',
-			'heading'    => __( 'Three' ),
-			'content'    => '<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at ex id augue dictum molestie. Sed vestibulum orci felis, vel fermentum urna viverra vitae. Curabitur sed posuere orci, eget tincidunt sapien. Fusce varius, tortor at fermentum ultricies, felis eros tristique nunc, ut cursus eros elit at dui. Aenean vestibulum pulvinar orci imperdiet malesuada. Aliquam erat volutpat. Aliquam nisl nisi, egestas sit amet imperdiet non, hendrerit a ante. Maecenas nec fringilla leo, accumsan lobortis ex.
-			</p>',
+			'heading'    => __( 'Dashboard Widgets' ),
+			'content'    => '',
 			'callback'   => null
 		] );
 
