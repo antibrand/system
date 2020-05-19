@@ -152,7 +152,7 @@ require_once( ABSPATH . WPINC . '/class-wp-locale-switcher.php' );
 wp_not_installed();
 
 // Load most of the application.
-require( ABSPATH . WPINC . '/class-wp-walker.php' );
+// require( ABSPATH . WPINC . '/class-wp-walker.php' );
 require( ABSPATH . WPINC . '/class-wp-ajax-response.php' );
 require( ABSPATH . WPINC . '/formatting.php' );
 require( ABSPATH . WPINC . '/capabilities.php' );

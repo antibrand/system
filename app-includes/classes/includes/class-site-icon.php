@@ -1,9 +1,9 @@
 <?php
 /**
- * Administration API: Site_Icon class
+ * Site_Icon class
  *
  * @package App_Package
- * @subpackage Administration
+ * @subpackage Includes
  * @since WP 4.3.0
  */
 

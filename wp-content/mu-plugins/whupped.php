@@ -37,5 +37,6 @@ return;
 \class_alias( Backend\Users_List_Table    :: class, \WP_Users_List_Table    :: class );
 \class_alias( Backend\Plugins_List_Table  :: class, \WP_Plugins_List_Table  :: class );
 
-\class_alias( Includes\Site_Icon        :: class, \WP_Site_Icon           :: class );
+\class_alias( Includes\Walker    :: class, \WP_Walker    :: class );
+\class_alias( Includes\Site_Icon :: class, \WP_Site_Icon :: class );
 // \class_alias( Includes\Error_Messages   :: class, \WP_Error           :: class );

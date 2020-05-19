@@ -14,7 +14,7 @@
  *
  * @see Walker
  */
-class Walker_Page extends Walker {
+class Walker_Page extends AppNamespace\Includes\Walker {
 
 	/**
 	 * What the class handles.

@@ -5,6 +5,7 @@
  * Contains the Error_Messages class and the is_wp_error() function.
  *
  * @package App_Package
+ * @subpackage Includes
  */
 
 namespace AppNamespace\Includes;

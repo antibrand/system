@@ -14,7 +14,7 @@
  *
  * @see Walker
  */
-class Walker_Nav_Menu extends Walker {
+class Walker_Nav_Menu extends AppNamespace\Includes\Walker {
 	/**
 	 * What the class handles.
 	 *

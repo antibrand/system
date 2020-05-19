@@ -14,7 +14,7 @@
  *
  * @see Walker
  */
-class Walker_Comment extends Walker {
+class Walker_Comment extends AppNamespace\Includes\Walker {
 
 	/**
 	 * What the class handles.

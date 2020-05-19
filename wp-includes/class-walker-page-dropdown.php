@@ -14,7 +14,7 @@
  *
  * @see Walker
  */
-class Walker_PageDropdown extends Walker {
+class Walker_PageDropdown extends AppNamespace\Includes\Walker {
 
 	/**
 	 * What the class handles.

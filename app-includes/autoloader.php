@@ -29,6 +29,7 @@ const MAP = [
 	'AppNamespace\Backend\Plugins_List_Table'  => __DIR__ . '/classes/backend/class-plugins-list-table.php',
 
 	// Classes used on the back end and front end.
+	'AppNamespace\Includes\Walker'         => __DIR__ . '/classes/includes/class-walker.php',
 	'AppNamespace\Includes\Site_Icon'      => __DIR__ . '/classes/includes/class-site-icon.php',
 	'AppNamespace\Includes\Error_Messages' => __DIR__ . '/classes/includes/class-error-messages.php',
 ];
