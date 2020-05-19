@@ -36,6 +36,8 @@
 			top: 1px;
 			margin: 0 0.15em;
 			border: solid 1px $form_border_color;
+			font-size: $px15;
+			font-weight: 700;
 
 			a {
 				display: block;
@@ -45,14 +47,10 @@
 				text-decoration: none;
 				color: $medium_gray;
 
-				@supports( font-variation-settings: normal ) {
-					font-weight: 500;
-				}
-
 				&:hover,
 				&:focus,
 				&:active {
-					color: $text_color;
+					color: $black;
 				}
 			}
 
@@ -62,13 +60,8 @@
 				border-bottom-color: $white;
 
 				a {
-					font-weight: bold;
-					color: $text_color;
+					color: $black;
 					cursor: default;
-
-					@supports( font-variation-settings: normal ) {
-						font-weight: 700;
-					}
 				}
 			}
 		}

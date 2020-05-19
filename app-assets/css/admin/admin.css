@@ -2101,6 +2101,8 @@ table.form-table td .updated p {
   top: 1px;
   margin: 0 0.15em;
   border: solid 1px #888888;
+  font-size: 0.9375rem;
+  font-weight: 700;
 }
 
 .app-tabs .app-tabs-list .app-tab a {
@@ -2112,14 +2114,8 @@ table.form-table td .updated p {
   color: #555555;
 }
 
-@supports (font-variation-settings: normal) {
-  .app-tabs .app-tabs-list .app-tab a {
-    font-weight: 500;
-  }
-}
-
 .app-tabs .app-tabs-list .app-tab a:hover, .app-tabs .app-tabs-list .app-tab a:focus, .app-tabs .app-tabs-list .app-tab a:active {
-  color: #222222;
+  color: #000000;
 }
 
 .app-tabs .app-tabs-list .app-tab.active {
@@ -2127,15 +2123,8 @@ table.form-table td .updated p {
 }
 
 .app-tabs .app-tabs-list .app-tab.active a {
-  font-weight: bold;
-  color: #222222;
+  color: #000000;
   cursor: default;
-}
-
-@supports (font-variation-settings: normal) {
-  .app-tabs .app-tabs-list .app-tab.active a {
-    font-weight: 700;
-  }
 }
 
 .app-tabs .app-tab-content {
