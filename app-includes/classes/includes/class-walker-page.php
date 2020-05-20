@@ -31,37 +31,42 @@ class Walker_Page extends Walker {
 	/**
 	 * What the class handles.
 	 *
-	 * @since WP 2.1.0
-	 * @var string
-	 *
 	 * @see Walker::$tree_type
+	 *
+	 * @since  WP 2.1.0
+	 * @var    string
+	 * @access public
 	 */
 	public $tree_type = 'page';
 
 	/**
 	 * Database fields to use.
 	 *
-	 * @since WP 2.1.0
-	 * @var array
-	 *
 	 * @see Walker::$db_fields
+	 *
+	 * @since  WP 2.1.0
+	 * @var    array
+	 * @access public
+	 *
 	 * @todo Decouple this.
 	 */
-	public $db_fields = array( 'parent' => 'post_parent', 'id' => 'ID' );
+	public $db_fields = [ 'parent' => 'post_parent', 'id' => 'ID' ];
 
 	/**
 	 * Outputs the beginning of the current level in the tree before elements are output.
 	 *
-	 * @since WP 2.1.0
-	 *
 	 * @see Walker::start_lvl()
 	 *
-	 * @param string $output Used to append additional content (passed by reference).
-	 * @param int    $depth  Optional. Depth of page. Used for padding. Default 0.
-	 * @param array  $args   Optional. Arguments for outputting the next level.
+	 * @since  WP 2.1.0
+	 * @access public
+	 * @param  string $output Used to append additional content (passed by reference).
+	 * @param  int    $depth  Optional. Depth of page. Used for padding. Default 0.
+	 * @param  array  $args   Optional. Arguments for outputting the next level.
 	 *                       Default empty array.
+	 * @return void
 	 */
-	public function start_lvl( &$output, $depth = 0, $args = array() ) {
+	public function start_lvl( &$output, $depth = 0, $args = [] ) {
+
 		if ( isset( $args['item_spacing'] ) && 'preserve' === $args['item_spacing'] ) {
 			$t = "\t";
 			$n = "\n";
@@ -69,23 +74,25 @@ class Walker_Page extends Walker {
 			$t = '';
 			$n = '';
 		}
-		$indent = str_repeat( $t, $depth );
+		$indent  = str_repeat( $t, $depth );
 		$output .= "{$n}{$indent}<ul class='children'>{$n}";
 	}
 
 	/**
 	 * Outputs the end of the current level in the tree after elements are output.
 	 *
-	 * @since WP 2.1.0
-	 *
 	 * @see Walker::end_lvl()
 	 *
-	 * @param string $output Used to append additional content (passed by reference).
-	 * @param int    $depth  Optional. Depth of page. Used for padding. Default 0.
-	 * @param array  $args   Optional. Arguments for outputting the end of the current level.
+	 * @since  WP 2.1.0
+	 * @access public
+	 * @param  string $output Used to append additional content (passed by reference).
+	 * @param  int    $depth  Optional. Depth of page. Used for padding. Default 0.
+	 * @param  array  $args   Optional. Arguments for outputting the end of the current level.
 	 *                       Default empty array.
+	 * @return void
 	 */
-	public function end_lvl( &$output, $depth = 0, $args = array() ) {
+	public function end_lvl( &$output, $depth = 0, $args = [] ) {
+
 		if ( isset( $args['item_spacing'] ) && 'preserve' === $args['item_spacing'] ) {
 			$t = "\t";
 			$n = "\n";
@@ -93,7 +100,7 @@ class Walker_Page extends Walker {
 			$t = '';
 			$n = '';
 		}
-		$indent = str_repeat( $t, $depth );
+		$indent  = str_repeat( $t, $depth );
 		$output .= "{$indent}</ul>{$n}";
 	}
 
@@ -101,15 +108,18 @@ class Walker_Page extends Walker {
 	 * Outputs the beginning of the current element in the tree.
 	 *
 	 * @see Walker::start_el()
-	 * @since WP 2.1.0
 	 *
-	 * @param string  $output       Used to append additional content. Passed by reference.
-	 * @param WP_Post $page         Page data object.
-	 * @param int     $depth        Optional. Depth of page. Used for padding. Default 0.
-	 * @param array   $args         Optional. Array of arguments. Default empty array.
-	 * @param int     $current_page Optional. Page ID. Default 0.
+	 * @since  WP 2.1.0
+	 * @access public
+	 * @param  string  $output       Used to append additional content. Passed by reference.
+	 * @param  WP_Post $page         Page data object.
+	 * @param  int     $depth        Optional. Depth of page. Used for padding. Default 0.
+	 * @param  array   $args         Optional. Array of arguments. Default empty array.
+	 * @param  int     $current_page Optional. Page ID. Default 0.
+	 * @return void
 	 */
-	public function start_el( &$output, $page, $depth = 0, $args = array(), $current_page = 0 ) {
+	public function start_el( &$output, $page, $depth = 0, $args = [], $current_page = 0 ) {
+
 		if ( isset( $args['item_spacing'] ) && 'preserve' === $args['item_spacing'] ) {
 			$t = "\t";
 			$n = "\n";
@@ -123,22 +133,26 @@ class Walker_Page extends Walker {
 			$indent = '';
 		}
 
-		$css_class = array( 'page_item', 'page-item-' . $page->ID );
+		$css_class = [ 'page_item', 'page-item-' . $page->ID ];
 
 		if ( isset( $args['pages_with_children'][ $page->ID ] ) ) {
 			$css_class[] = 'page_item_has_children';
 		}
 
 		if ( ! empty( $current_page ) ) {
+
 			$_current_page = get_post( $current_page );
+
 			if ( $_current_page && in_array( $page->ID, $_current_page->ancestors ) ) {
 				$css_class[] = 'current_page_ancestor';
 			}
+
 			if ( $page->ID == $current_page ) {
 				$css_class[] = 'current_page_item';
 			} elseif ( $_current_page && $page->ID == $_current_page->post_parent ) {
 				$css_class[] = 'current_page_parent';
 			}
+
 		} elseif ( $page->ID == get_option('page_for_posts') ) {
 			$css_class[] = 'current_page_parent';
 		}
@@ -146,10 +160,9 @@ class Walker_Page extends Walker {
 		/**
 		 * Filters the list of CSS classes to include with each page item in the list.
 		 *
-		 * @since WP 2.8.0
-		 *
 		 * @see wp_list_pages()
 		 *
+		 * @since WP 2.8.0
 		 * @param array   $css_class    An array of CSS classes to be applied
 		 *                              to each list item.
 		 * @param WP_Post $page         Page data object.
@@ -185,12 +198,13 @@ class Walker_Page extends Walker {
 		 * @param array   $args         An array of arguments.
 		 * @param int     $current_page ID of the current page.
 		 */
-		$atts = apply_filters( 'page_menu_link_attributes', $atts, $page, $depth, $args, $current_page );
-
+		$atts       = apply_filters( 'page_menu_link_attributes', $atts, $page, $depth, $args, $current_page );
 		$attributes = '';
+
 		foreach ( $atts as $attr => $value ) {
+
 			if ( ! empty( $value ) ) {
-				$value = esc_attr( $value );
+				$value       = esc_attr( $value );
 				$attributes .= ' ' . $attr . '="' . $value . '"';
 			}
 		}
@@ -200,12 +214,13 @@ class Walker_Page extends Walker {
 			$css_classes,
 			$attributes,
 			$args['link_before'],
-			/** This filter is documented in wp-includes/post-template.php */
+			// This filter is documented in wp-includes/post-template.php.
 			apply_filters( 'the_title', $page->post_title, $page->ID ),
 			$args['link_after']
 		);
 
 		if ( ! empty( $args['show_date'] ) ) {
+
 			if ( 'modified' == $args['show_date'] ) {
 				$time = $page->post_modified;
 			} else {
@@ -213,23 +228,25 @@ class Walker_Page extends Walker {
 			}
 
 			$date_format = empty( $args['date_format'] ) ? '' : $args['date_format'];
-			$output .= " " . mysql2date( $date_format, $time );
+			$output     .= " " . mysql2date( $date_format, $time );
 		}
 	}
 
 	/**
-	 * Outputs the end of the current element in the tree.
-	 *
-	 * @since WP 2.1.0
+	 * Outputs the end of the current element in the tree
 	 *
 	 * @see Walker::end_el()
 	 *
-	 * @param string  $output Used to append additional content. Passed by reference.
-	 * @param WP_Post $page   Page data object. Not used.
-	 * @param int     $depth  Optional. Depth of page. Default 0 (unused).
-	 * @param array   $args   Optional. Array of arguments. Default empty array.
+	 * @since  WP 2.1.0
+	 * @access public
+	 * @param  string  $output Used to append additional content. Passed by reference.
+	 * @param  WP_Post $page   Page data object. Not used.
+	 * @param  int     $depth  Optional. Depth of page. Default 0 (unused).
+	 * @param  array   $args   Optional. Array of arguments. Default empty array.
+	 * @return void
 	 */
-	public function end_el( &$output, $page, $depth = 0, $args = array() ) {
+	public function end_el( &$output, $page, $depth = 0, $args = [] ) {
+
 		if ( isset( $args['item_spacing'] ) && 'preserve' === $args['item_spacing'] ) {
 			$t = "\t";
 			$n = "\n";
@@ -239,5 +256,4 @@ class Walker_Page extends Walker {
 		}
 		$output .= "</li>{$n}";
 	}
-
 }

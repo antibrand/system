@@ -61,6 +61,7 @@ class Walker_Nav_Menu extends Walker {
 	 * @param  string   $output Used to append additional content (passed by reference).
 	 * @param  int      $depth  Depth of menu item. Used for padding.
 	 * @param  stdClass $args   An object of wp_nav_menu() arguments.
+	 * @return void
 	 */
 	public function start_lvl( &$output, $depth = 0, $args = [] ) {
 
@@ -100,6 +101,7 @@ class Walker_Nav_Menu extends Walker {
 	 * @param  string   $output Used to append additional content (passed by reference).
 	 * @param  int      $depth  Depth of menu item. Used for padding.
 	 * @param  stdClass $args   An object of wp_nav_menu() arguments.
+	 * @return void
 	 */
 	public function end_lvl( &$output, $depth = 0, $args = [] ) {
 
@@ -128,6 +130,7 @@ class Walker_Nav_Menu extends Walker {
 	 * @param  int  $depth Depth of menu item. Used for padding.
 	 * @param  stdClass $args An object of wp_nav_menu() arguments.
 	 * @param  int $id Current item ID.
+	 * @return void
 	 */
 	public function start_el( &$output, $item, $depth = 0, $args = [], $id = 0 ) {
 
@@ -256,12 +259,13 @@ class Walker_Nav_Menu extends Walker {
 	 *
 	 * @see Walker::end_el()
 	 *
-	 * @since WP 3.0.0
+	 * @since  WP 3.0.0
 	 * @access public
-	 * @param string   $output Used to append additional content (passed by reference).
-	 * @param WP_Post  $item   Page data object. Not used.
-	 * @param int      $depth  Depth of page. Not Used.
-	 * @param stdClass $args   An object of wp_nav_menu() arguments.
+	 * @param  string   $output Used to append additional content (passed by reference).
+	 * @param  WP_Post  $item   Page data object. Not used.
+	 * @param  int      $depth  Depth of page. Not Used.
+	 * @param  stdClass $args   An object of wp_nav_menu() arguments.
+	 * @return void
 	 */
 	public function end_el( &$output, $item, $depth = 0, $args = [] ) {
 

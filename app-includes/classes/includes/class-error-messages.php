@@ -24,16 +24,18 @@ class Error_Messages {
 	/**
 	 * Stores the list of errors.
 	 *
-	 * @since WP 2.1.0
-	 * @var  array
+	 * @since  WP 2.1.0
+	 * @var    array
+	 * @access public
 	 */
 	public $errors = [];
 
 	/**
 	 * Stores the list of data for error codes.
 	 *
-	 * @since WP 2.1.0
-	 * @var  array
+	 * @since  WP 2.1.0
+	 * @var    array
+	 * @access public
 	 */
 	public $error_data = [];
 
@@ -49,6 +51,7 @@ class Error_Messages {
 	 * message, multiple codes can be added using the `add()` method.
 	 *
 	 * @since  WP 2.1.0
+	 * @access public
 	 * @param  string|int $code Error code
 	 * @param  string $message Error message
 	 * @param  mixed $data Optional. Error data.
@@ -71,6 +74,7 @@ class Error_Messages {
 	 * Retrieve all error codes.
 	 *
 	 * @since  WP 2.1.0
+	 * @access public
 	 * @return array List of error codes, if available.
 	 */
 	public function get_error_codes() {
@@ -86,6 +90,7 @@ class Error_Messages {
 	 * Retrieve first error code available.
 	 *
 	 * @since  WP 2.1.0
+	 * @access public
 	 * @return string|int Empty string, if no error codes.
 	 */
 	public function get_error_code() {
@@ -103,6 +108,7 @@ class Error_Messages {
 	 * Retrieve all error messages or error messages matching code.
 	 *
 	 * @since  WP 2.1.0
+	 * @access public
 	 * @param  string|int $code Optional. Retrieve messages matching code, if exists.
 	 * @return array Error strings on success, or empty array on failure (if using code parameter).
 	 */
@@ -134,6 +140,7 @@ class Error_Messages {
 	 * given then the first code available will be used.
 	 *
 	 * @since  WP 2.1.0
+	 * @access public
 	 * @param  string|int $code Optional. Error code to retrieve message.
 	 * @return string
 	 */
@@ -156,6 +163,7 @@ class Error_Messages {
 	 * Retrieve error data for error code.
 	 *
 	 * @since  WP 2.1.0
+	 * @access public
 	 * @param  string|int $code Optional. Error code.
 	 * @return mixed Error data, if it exists.
 	 */
@@ -174,6 +182,7 @@ class Error_Messages {
 	 * Add an error or append additional message to an existing error.
 	 *
 	 * @since  WP 2.1.0
+	 * @access public
 	 * @param  string|int $code Error code.
 	 * @param  string $message Error message.
 	 * @param  mixed $data Optional. Error data.
@@ -194,6 +203,7 @@ class Error_Messages {
 	 * The error code can only contain one error data.
 	 *
 	 * @since  WP 2.1.0
+	 * @access public
 	 * @param  mixed $data Error data.
 	 * @param  string|int $code Error code.
 	 * @return string
@@ -213,8 +223,9 @@ class Error_Messages {
 	 * This function removes all error messages associated with the specified
 	 * error code, along with any error data for that code.
 	 *
-	 * @since WP 4.1.0
-	 * @param string|int $code Error code.
+	 * @since  WP 4.1.0
+	 * @access public
+	 * @param  string|int $code Error code.
 	 */
 	public function remove( $code ) {
 

@@ -4,41 +4,42 @@
  *
  * @package App_Package
  * @subpackage Administration
- * @since 3.1.0
+ * @since WP 3.1.0
  */
 
 namespace AppNamespace\Backend;
 
 /**
- * Core class used to implement displaying comments in a list table.
- *
- * @since 3.1.0
- * @access private
- *
+ * Core class used to implement displaying comments in a list table
+ * 
  * @see List_Table
+ *
+ * @since WP 3.1.0
+ * @access private
  */
 class Comments_List_Table extends List_Table {
 
 	public $checkbox = true;
 
-	public $pending_count = array();
+	public $pending_count = [];
 
 	public $extra_items;
 
 	private $user_can;
 
 	/**
-	 * Constructor.
-	 *
-	 * @since 3.1.0
-	 *
+	 * Constructor
+	 * 
 	 * @see List_Table::__construct() for more information on default arguments.
 	 *
+	 * @since  WP 3.1.0
+	 * @access public
 	 * @global int $post_id
-	 *
-	 * @param array $args An associative array of arguments.
+	 * @param  array $args An associative array of arguments.
+	 * @return self
 	 */
-	public function __construct( $args = array() ) {
+	public function __construct( $args = [] ) {
+
 		global $post_id;
 
 		$post_id = isset( $_REQUEST['p'] ) ? absint( $_REQUEST['p'] ) : 0;
@@ -57,7 +58,8 @@ class Comments_List_Table extends List_Table {
 
 	public function floated_admin_avatar( $name, $comment_ID ) {
 		$comment = get_comment( $comment_ID );
-		$avatar = get_avatar( $comment, 32, 'mystery' );
+		$avatar  = get_avatar( $comment, 32, 'mystery' );
+
 		return "$avatar $name";
 	}
 
@@ -169,7 +171,7 @@ class Comments_List_Table extends List_Table {
 		/**
 		 * Filters the number of comments listed per page in the comments list table.
 		 *
-		 * @since 2.6.0
+		 * @since WP 2.6.0
 		 *
 		 * @param int    $comments_per_page The number of comments to list per page.
 		 * @param string $comment_status    The comment status name. Default 'All'.
@@ -276,7 +278,7 @@ class Comments_List_Table extends List_Table {
 		/**
 		 * Filters the comment status links.
 		 *
-		 * @since 2.5.0
+		 * @since WP 2.5.0
 		 *
 		 * @param array $status_links An array of fully-formed status links. Default 'All'.
 		 *                            Accepts 'All', 'Pending', 'Approved', 'Spam', and 'Trash'.
@@ -341,7 +343,7 @@ class Comments_List_Table extends List_Table {
 				/**
 				 * Filters the comment types dropdown menu.
 				 *
-				 * @since 2.7.0
+				 * @since WP 2.7.0
 				 *
 				 * @param array $comment_types An array of comment types. Accepts 'Comments'.
 				 */
@@ -355,7 +357,7 @@ class Comments_List_Table extends List_Table {
 			/**
 			 * Fires just before the Filter submit button for comment types.
 			 *
-			 * @since 3.5.0
+			 * @since WP 3.5.0
 			 */
 			do_action( 'restrict_manage_comments' );
 			submit_button( __( 'Filter' ), '', 'filter_action', false, array( 'id' => 'post-query-submit' ) );
@@ -369,7 +371,7 @@ class Comments_List_Table extends List_Table {
 		/**
 		 * Fires after the Filter submit button for comment types.
 		 *
-		 * @since 2.5.0
+		 * @since WP 2.5.0
 		 *
 		 * @param string $comment_status The comment status name. Default 'All'.
 		 */
@@ -429,7 +431,7 @@ class Comments_List_Table extends List_Table {
 	/**
 	 * Get the name of the default primary column.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @return string Name of the default primary column, in this case, 'comment'.
 	 */
@@ -509,7 +511,7 @@ class Comments_List_Table extends List_Table {
  	/**
  	 * Generate and display row actions links.
  	 *
- 	 * @since 4.3.0
+ 	 * @since WP 4.3.0
  	 *
  	 * @global string $comment_status Status for the current listed comments.
  	 *
@@ -785,7 +787,7 @@ class Comments_List_Table extends List_Table {
 		/**
 		 * Fires when the default column output is displayed for a single row.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param string $column_name         The custom column's name.
 		 * @param int    $comment->comment_ID The custom column's unique ID number.

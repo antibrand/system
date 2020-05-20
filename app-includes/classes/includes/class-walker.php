@@ -20,24 +20,27 @@ class Walker {
 	/**
 	 * What the class handles.
 	 *
-	 * @since WP 2.1.0
-	 * @var   string
+	 * @since  WP 2.1.0
+	 * @var    string
+	 * @access public
 	 */
 	public $tree_type;
 
 	/**
 	 * DB fields to use.
 	 *
-	 * @since WP 2.1.0
-	 * @var   array
+	 * @since  WP 2.1.0
+	 * @var    array
+	 * @access public
 	 */
 	public $db_fields;
 
 	/**
 	 * Max number of pages walked by the paged walker
 	 *
-	 * @since WP 2.7.0
-	 * @var   int
+	 * @since  WP 2.7.0
+	 * @var    int
+	 * @access public
 	 */
 	public $max_pages = 1;
 
@@ -46,8 +49,9 @@ class Walker {
 	 *
 	 * To be used in start_el().
 	 *
-	 * @since WP 4.0.0
-	 * @var   bool
+	 * @since  WP 4.0.0
+	 * @var    bool
+	 * @access public
 	 */
 	public $has_children;
 
@@ -57,11 +61,13 @@ class Walker {
 	 * The $args parameter holds additional values that may be used with the child
 	 * class methods. This method is called at the start of the output list.
 	 *
-	 * @since WP 2.1.0
+	 * @since  WP 2.1.0
+	 * @access public
 	 * @abstract
-	 * @param string $output Used to append additional content (passed by reference).
-	 * @param int    $depth  Depth of the item.
-	 * @param array  $args   An array of additional arguments.
+	 * @param  string $output Used to append additional content (passed by reference).
+	 * @param  int    $depth  Depth of the item.
+	 * @param  array  $args   An array of additional arguments.
+	 * @return void
 	 */
 	public function start_lvl( &$output, $depth = 0, $args = [] ) {}
 
@@ -71,11 +77,13 @@ class Walker {
 	 * The $args parameter holds additional values that may be used with the child
 	 * class methods. This method finishes the list at the end of output of the elements.
 	 *
-	 * @since WP 2.1.0
+	 * @since  WP 2.1.0
+	 * @access public
 	 * @abstract
-	 * @param string $output Used to append additional content (passed by reference).
-	 * @param int    $depth  Depth of the item.
-	 * @param array  $args   An array of additional arguments.
+	 * @param  string $output Used to append additional content (passed by reference).
+	 * @param  int    $depth  Depth of the item.
+	 * @param  array  $args   An array of additional arguments.
+	 * @return void
 	 */
 	public function end_lvl( &$output, $depth = 0, $args = [] ) {}
 
@@ -85,14 +93,15 @@ class Walker {
 	 * The $args parameter holds additional values that may be used with the child
 	 * class methods. Includes the element output also.
 	 *
-	 * @since WP 2.1.0
+	 * @since  WP 2.1.0
+	 * @access public
 	 * @abstract
-	 *
-	 * @param string $output            Used to append additional content (passed by reference).
-	 * @param object $object            The data object.
-	 * @param int    $depth             Depth of the item.
-	 * @param array  $args              An array of additional arguments.
-	 * @param int    $current_object_id ID of the current item.
+	 * @param  string $output            Used to append additional content (passed by reference).
+	 * @param  object $object            The data object.
+	 * @param  int $depth             Depth of the item.
+	 * @param  array $args              An array of additional arguments.
+	 * @param  int $current_object_id ID of the current item.
+	 * @return void
 	 */
 	public function start_el( &$output, $object, $depth = 0, $args = [], $current_object_id = 0 ) {}
 
@@ -101,13 +110,14 @@ class Walker {
 	 *
 	 * The $args parameter holds additional values that may be used with the child class methods.
 	 *
-	 * @since WP 2.1.0
+	 * @since  WP 2.1.0
+	 * @access public
 	 * @abstract
-	 *
-	 * @param string $output Used to append additional content (passed by reference).
-	 * @param object $object The data object.
-	 * @param int    $depth  Depth of the item.
-	 * @param array  $args   An array of additional arguments.
+	 * @param  string $output Used to append additional content (passed by reference).
+	 * @param  object $object The data object.
+	 * @param  int $depth  Depth of the item.
+	 * @param  array $args   An array of additional arguments.
+	 * @return void
 	 */
 	public function end_el( &$output, $object, $depth = 0, $args = [] ) {}
 
@@ -121,13 +131,15 @@ class Walker {
 	 *
 	 * This method should not be called directly, use the walk() method instead.
 	 *
-	 * @since WP 2.5.0
-	 * @param object $element           Data object.
-	 * @param array  $children_elements List of elements to continue traversing (passed by reference).
-	 * @param int    $max_depth         Max depth to traverse.
-	 * @param int    $depth             Depth of current element.
-	 * @param array  $args              An array of arguments.
-	 * @param string $output            Used to append additional content (passed by reference).
+	 * @since  WP 2.5.0
+	 * @access public
+	 * @param  object $element           Data object.
+	 * @param  array $children_elements List of elements to continue traversing (passed by reference).
+	 * @param  int max_depth         Max depth to traverse.
+	 * @param  int $depth             Depth of current element.
+	 * @param  array $args              An array of arguments.
+	 * @param  string $output            Used to append additional content (passed by reference).
+	 * @return void
 	 */
 	public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
 
@@ -191,8 +203,9 @@ class Walker {
 	 * $max_depth > 0 specifies the number of display levels.
 	 *
 	 * @since  WP 2.1.0
+	 * @access public
 	 * @param  array $elements  An array of elements.
-	 * @param  int   $max_depth The maximum hierarchical depth.
+	 * @param  int $max_depth The maximum hierarchical depth.
 	 * @return string The hierarchical item output.
 	 */
 	public function walk( $elements, $max_depth ) {
@@ -292,11 +305,12 @@ class Walker {
 	 * $max_depth = 0 means display all levels.
 	 * $max_depth > 0 specifies the number of display levels.
 	 *
- 	 * @since  WP 2.7.0
+	 * @since  WP 2.7.0
+	 * @access public
 	 * @param  array $elements
-	 * @param  int   $max_depth The maximum hierarchical depth.
-	 * @param  int   $page_num The specific page number, beginning with 1.
-	 * @param  int   $per_page
+	 * @param  int $max_depth The maximum hierarchical depth.
+	 * @param  int $page_num The specific page number, beginning with 1.
+	 * @param  int $per_page
 	 * @return string XHTML of the specified page of elements
 	 */
 	public function paged_walk( $elements, $max_depth, $page_num, $per_page ) {
@@ -449,8 +463,9 @@ class Walker {
 	/**
 	 * Calculates the total number of root elements.
 	 *
-	 * @since WP 2.7.0
-	 * @param array $elements Elements to list.
+	 * @since  WP 2.7.0
+	 * @access public
+	 * @param  array $elements Elements to list.
 	 * @return int Number of root elements.
 	 */
 	public function get_number_of_root_elements( $elements ) {
@@ -471,9 +486,10 @@ class Walker {
 	/**
 	 * Unset all the children for a given top level element.
 	 *
-	 * @since WP 2.7.0
-	 * @param object $e
-	 * @param array $children_elements
+	 * @since  WP 2.7.0
+	 * @access public
+	 * @param  object $e
+	 * @param  array $children_elements
 	 */
 	public function unset_children( $e, &$children_elements ) {
 
