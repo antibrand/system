@@ -66,7 +66,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 		<h1><?php echo esc_html( $title ); ?></h1>
 
 		<form action="options.php" method="post">
-		
+
 			<?php settings_fields( 'media' ); ?>
 
 			<h2 class="title"><?php _e( 'Image sizes' ) ?></h2>
@@ -142,7 +142,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 			 * @global array $wp_settings
 			 */
 			if ( isset( $GLOBALS['wp_settings']['media']['embeds'] ) ) :
-			
+
 			?>
 			<h2 class="title"><?php _e( 'Embeds' ) ?></h2>
 
@@ -152,7 +152,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 			<?php endif; ?>
 
 			<?php if ( ! is_multisite() ) :
-			
+
 			?>
 			<h2 class="title"><?php _e( 'Uploading Files' ); ?></h2>
 
@@ -201,6 +201,30 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 				<?php do_settings_fields( 'media', 'uploads' ); ?>
 
 			</table>
+
+			<?php if ( current_user_can( 'manage_options' ) ) : ?>
+
+			<h2 class="title"><?php _e( 'Deleting Files' ); ?></h2>
+
+			<table class="form-table">
+
+				<tr>
+					<td colspan="2" class="td-full">
+
+						<label for="media_allow_trash">
+						<input name="media_allow_trash" type="checkbox" id="media_allow_trash" value="1"<?php checked( '1', get_option( 'media_allow_trash' ) ); ?> />
+
+						<?php _e( 'Allow trash for media library items' ); ?>
+
+						</label>
+					</td>
+				</tr>
+
+				<?php do_settings_fields( 'media', 'delete' ); ?>
+
+			</table>
+			<?php endif; ?>
+
 		<?php endif; ?>
 
 		<?php do_settings_sections( 'media' ); ?>

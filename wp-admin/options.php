@@ -127,6 +127,7 @@ $whitelist_options = array(
 		'image_default_size',
 		'image_default_align',
 		'image_default_link_type',
+		'media_allow_trash'
 	),
 	'reading' => array(
 		'posts_per_page',

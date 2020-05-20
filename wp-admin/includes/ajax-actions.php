@@ -2424,7 +2424,7 @@ function wp_ajax_query_attachments() {
 
 	$query = array_intersect_key( $query, array_flip( $keys ) );
 	$query['post_type'] = 'attachment';
-	if ( MEDIA_TRASH
+	if ( MEDIA_TRASH || 1 == get_option( 'media_allow_trash' )
 		&& ! empty( $_REQUEST['query']['post_status'] )
 		&& 'trash' === $_REQUEST['query']['post_status'] ) {
 		$query['post_status'] = 'trash';
@@ -2494,7 +2494,7 @@ function wp_ajax_save_attachment() {
 	if ( isset( $changes['description'] ) )
 		$post['post_content'] = $changes['description'];
 
-	if ( MEDIA_TRASH && isset( $changes['status'] ) )
+	if ( ( MEDIA_TRASH || 1 == get_option( 'media_allow_trash' ) ) && isset( $changes['status'] ) )
 		$post['post_status'] = $changes['status'];
 
 	if ( isset( $changes['alt'] ) ) {
@@ -2524,7 +2524,7 @@ function wp_ajax_save_attachment() {
 		}
 	}
 
-	if ( MEDIA_TRASH && isset( $changes['status'] ) && 'trash' === $changes['status'] ) {
+	if ( ( MEDIA_TRASH || 1 == get_option( 'media_allow_trash' ) ) && isset( $changes['status'] ) && 'trash' === $changes['status'] ) {
 		wp_delete_post( $id );
 	} else {
 		wp_update_post( $post );

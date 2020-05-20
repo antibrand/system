@@ -130,7 +130,7 @@ class Media_List_Table extends List_Table {
 			_x( 'Mine', 'media items' )
 		);
 
-		if ( $this->is_trash || ( defined( 'MEDIA_TRASH') && MEDIA_TRASH ) ) {
+		if ( $this->is_trash || ( defined( 'MEDIA_TRASH') && MEDIA_TRASH ) || 1 == get_option( 'media_allow_trash' ) ) {
 			$type_links['trash'] = sprintf(
 				'<option value="trash"%s>%s</option>',
 				selected( 'trash' === $filter, true, false ),
@@ -147,7 +147,7 @@ class Media_List_Table extends List_Table {
 	 */
 	protected function get_bulk_actions() {
 		$actions = array();
-		if ( MEDIA_TRASH ) {
+		if ( MEDIA_TRASH || 1 == get_option( 'media_allow_trash' ) ) {
 			if ( $this->is_trash ) {
 				$actions['untrash'] = __( 'Restore' );
 				$actions['delete'] = __( 'Delete Permanently' );
@@ -668,7 +668,7 @@ class Media_List_Table extends List_Table {
 				);
 			}
 			if ( current_user_can( 'delete_post', $post->ID ) ) {
-				if ( EMPTY_TRASH_DAYS && MEDIA_TRASH ) {
+				if ( EMPTY_TRASH_DAYS && ( MEDIA_TRASH || 1 == get_option( 'media_allow_trash' ) ) ) {
 					$actions['trash'] = sprintf(
 						'<a href="%s" class="submitdelete aria-button-if-js" aria-label="%s">%s</a>',
 						wp_nonce_url( "post.php?action=trash&amp;post=$post->ID", 'trash-post_' . $post->ID ),
@@ -677,7 +677,7 @@ class Media_List_Table extends List_Table {
 						_x( 'Trash', 'verb' )
 					);
 				} else {
-					$delete_ays = ! MEDIA_TRASH ? " onclick='return showNotice.warn();'" : '';
+					$delete_ays = ( ! MEDIA_TRASH || 0 == get_option( 'media_allow_trash' ) ) ? " onclick='return showNotice.warn();'" : '';
 					$actions['delete'] = sprintf(
 						'<a href="%s" class="submitdelete aria-button-if-js"%s aria-label="%s">%s</a>',
 						wp_nonce_url( "post.php?action=delete&amp;post=$post->ID", 'delete-post_' . $post->ID ),
@@ -725,7 +725,7 @@ class Media_List_Table extends List_Table {
 						esc_attr( sprintf( __( 'Restore &#8220;%s&#8221; from the Trash' ), $att_title ) ),
 						__( 'Restore' )
 					);
-				} elseif ( EMPTY_TRASH_DAYS && MEDIA_TRASH ) {
+				} elseif ( EMPTY_TRASH_DAYS && ( MEDIA_TRASH || 1 == get_option( 'media_allow_trash' ) ) ) {
 					$actions['trash'] = sprintf(
 						'<a href="%s" class="submitdelete aria-button-if-js" aria-label="%s">%s</a>',
 						wp_nonce_url( "post.php?action=trash&amp;post=$post->ID", 'trash-post_' . $post->ID ),
@@ -734,7 +734,7 @@ class Media_List_Table extends List_Table {
 						_x( 'Trash', 'verb' )
 					);
 				}
-				if ( $this->is_trash || ! EMPTY_TRASH_DAYS || ! MEDIA_TRASH ) {
+				if ( $this->is_trash || ! EMPTY_TRASH_DAYS || ! MEDIA_TRASH || 0 == get_option( 'media_allow_trash' ) ) {
 					$delete_ays = ( !$this->is_trash && !MEDIA_TRASH ) ? " onclick='return showNotice.warn();'" : '';
 					$actions['delete'] = sprintf(
 						'<a href="%s" class="submitdelete aria-button-if-js"%s aria-label="%s">%s</a>',

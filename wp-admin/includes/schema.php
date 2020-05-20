@@ -517,11 +517,14 @@ function populate_options() {
 	'medium_large_size_w' => 768,
 	'medium_large_size_h' => 0,
 
-		// 4.9.6
-		'wp_page_for_privacy_policy'      => 0,
+	// 4.9.6
+	'wp_page_for_privacy_policy'      => 0,
 
-		// 4.9.8
-		'show_comments_cookies_opt_in'    => 0,
+	// 4.9.8
+	'show_comments_cookies_opt_in'    => 0,
+
+	// This 1.0.0
+	'media_allow_trash' => 1,
 	);
 
 	// 3.3
