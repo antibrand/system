@@ -218,12 +218,12 @@ final class Functions {
 		// Thumbnail size.
 		update_option( 'thumbnail_size_w', 160 );
 		update_option( 'thumbnail_size_h', 160 );
-		update_option( 'thumbnail_crop', 1 );
+		// update_option( 'thumbnail_crop', 1 );
 
 		// Medium size.
 		update_option( 'medium_size_w', 320 );
 		update_option( 'medium_size_h', 240 );
-		update_option( 'medium_crop', 1 );
+		// update_option( 'medium_crop', 1 );
 
 		// Medium-large size.
 		update_option( 'medium_large_size_w', 480 );
@@ -232,7 +232,7 @@ final class Functions {
 		// Large size.
 		update_option( 'large_size_w', 640 );
 		update_option( 'large_size_h', 480 );
-		update_option( 'large_crop', 1 );
+		// update_option( 'large_crop', 1 );
 
 		// Set the post thumbnail size, 16:9 HD Video.
 		set_post_thumbnail_size( 1280, 720, [ 'center', 'center' ] );

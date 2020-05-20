@@ -567,7 +567,7 @@ class wp_xmlrpc_server extends IXR_Server {
 				'option'        => 'thumbnail_size_h'
 			),
 			'thumbnail_crop'    => array(
-				'desc'          => __( 'Crop thumbnail to exact dimensions' ),
+				'desc'          => __( 'Crop to exact dimensions' ),
 				'readonly'      => false,
 				'option'        => 'thumbnail_crop'
 			),
@@ -580,6 +580,11 @@ class wp_xmlrpc_server extends IXR_Server {
 				'desc'          => __( 'Medium size image height' ),
 				'readonly'      => false,
 				'option'        => 'medium_size_h'
+			),
+			'medium_crop'    => array(
+				'desc'          => __( 'Crop to exact dimensions' ),
+				'readonly'      => false,
+				'option'        => 'medium_crop'
 			),
 			'medium_large_size_w'   => array(
 				'desc'          => __( 'Medium-Large size image width' ),
@@ -600,6 +605,11 @@ class wp_xmlrpc_server extends IXR_Server {
 				'desc'          => __( 'Large size image height' ),
 				'readonly'      => false,
 				'option'        => 'large_size_h'
+			),
+			'large_crop'    => array(
+				'desc'          => __( 'Crop to exact dimensions' ),
+				'readonly'      => false,
+				'option'        => 'large_crop'
 			),
 			'default_comment_status' => array(
 				'desc'          => __( 'Allow people to post comments on new articles' ),

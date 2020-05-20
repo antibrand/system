@@ -120,6 +120,8 @@ $whitelist_options = array(
 		'thumbnail_size_w',
 		'thumbnail_size_h',
 		'thumbnail_crop',
+		'medium_crop',
+		'large_crop',
 		'medium_size_w',
 		'medium_size_h',
 		'large_size_w',

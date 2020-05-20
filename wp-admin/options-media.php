@@ -71,7 +71,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 
 			<h2 class="title"><?php _e( 'Image sizes' ) ?></h2>
 
-			<p><?php _e( 'The sizes listed below determine the maximum dimensions in pixels to use when adding an image to the Media Library.' ); ?></p>
+			<p><?php _e( 'The sizes listed below determine the maximum dimensions in pixels to use when adding an image to the Media Library. The active theme may override the size settings as require for its layout.' ); ?></p>
 
 			<table class="form-table">
 				<tr>
@@ -92,7 +92,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 
 						<input name="thumbnail_crop" type="checkbox" id="thumbnail_crop" value="1" <?php checked( '1', get_option( 'thumbnail_crop' ) ); ?>/>
 
-						<label for="thumbnail_crop"><?php _e( 'Crop thumbnail to exact dimensions (normally thumbnails are proportional)' ); ?></label>
+						<label for="thumbnail_crop"><?php _e( 'Crop to exact dimensions' ); ?></label>
 					</td>
 				</tr>
 
@@ -101,17 +101,21 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 
 					<td>
 						<fieldset>
-						<legend class="screen-reader-text"><span><?php _e( 'Medium size' ); ?></span></legend>
+							<legend class="screen-reader-text"><span><?php _e( 'Medium size' ); ?></span></legend>
 
-						<label for="medium_size_w"><?php _e( 'Max Width' ); ?></label>
-						<input name="medium_size_w" type="number" step="1" min="0" id="medium_size_w" value="<?php form_option( 'medium_size_w' ); ?>" class="small-text" />
+							<label for="medium_size_w"><?php _e( 'Max Width' ); ?></label>
+							<input name="medium_size_w" type="number" step="1" min="0" id="medium_size_w" value="<?php form_option( 'medium_size_w' ); ?>" class="small-text" />
 
-						<br />
+							<br />
 
-						<label for="medium_size_h"><?php _e( 'Max Height' ); ?></label>
-						<input name="medium_size_h" type="number" step="1" min="0" id="medium_size_h" value="<?php form_option( 'medium_size_h' ); ?>" class="small-text" />
+							<label for="medium_size_h"><?php _e( 'Max Height' ); ?></label>
+							<input name="medium_size_h" type="number" step="1" min="0" id="medium_size_h" value="<?php form_option( 'medium_size_h' ); ?>" class="small-text" />
 
 						</fieldset>
+
+						<input name="medium_crop" type="checkbox" id="medium_crop" value="1" <?php checked( '1', get_option( 'medium_crop' ) ); ?>/>
+
+						<label for="medium_crop"><?php _e( 'Crop to exact dimensions' ); ?></label>
 					</td>
 				</tr>
 
@@ -120,16 +124,21 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 
 					<td>
 						<fieldset>
-						<legend class="screen-reader-text"><span><?php _e( 'Large size' ); ?></span></legend>
+							<legend class="screen-reader-text"><span><?php _e( 'Large size' ); ?></span></legend>
 
-						<label for="large_size_w"><?php _e( 'Max Width' ); ?></label>
-						<input name="large_size_w" type="number" step="1" min="0" id="large_size_w" value="<?php form_option( 'large_size_w' ); ?>" class="small-text" />
+							<label for="large_size_w"><?php _e( 'Max Width' ); ?></label>
+							<input name="large_size_w" type="number" step="1" min="0" id="large_size_w" value="<?php form_option( 'large_size_w' ); ?>" class="small-text" />
 
-						<br />
+							<br />
 
-						<label for="large_size_h"><?php _e( 'Max Height' ); ?></label>
-						<input name="large_size_h" type="number" step="1" min="0" id="large_size_h" value="<?php form_option( 'large_size_h' ); ?>" class="small-text" />
+							<label for="large_size_h"><?php _e( 'Max Height' ); ?></label>
+							<input name="large_size_h" type="number" step="1" min="0" id="large_size_h" value="<?php form_option( 'large_size_h' ); ?>" class="small-text" />
+
 						</fieldset>
+
+						<input name="large_crop" type="checkbox" id="large_crop" value="1" <?php checked( '1', get_option( 'large_crop' ) ); ?>/>
+
+						<label for="large_crop"><?php _e( 'Crop to exact dimensions' ); ?></label>
 					</td>
 				</tr>
 

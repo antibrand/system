@@ -475,6 +475,7 @@ function populate_options() {
 	'thumbnail_crop' => 1,
 	'medium_size_w' => 300,
 	'medium_size_h' => 300,
+	'medium_crop' => 0,
 
 	// 2.6
 	'avatar_default' => 'mystery',
@@ -482,6 +483,8 @@ function populate_options() {
 	// 2.7
 	'large_size_w' => 1024,
 	'large_size_h' => 1024,
+	'large_crop' => 0,
+
 	'image_default_link_type' => 'none',
 	'image_default_size' => '',
 	'image_default_align' => '',
