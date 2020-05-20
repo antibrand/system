@@ -630,14 +630,14 @@ if ( is_plugin_active( 'wpcat2tag-importer/wpcat2tag-importer.php' ) ) {
 				</p>
 
 				<?php if ( current_user_can( 'import' ) ) : ?>
-				<p><?php printf( __( 'Categories can be selectively converted to tags using the <a href="%s">category to tag converter</a>.' ), esc_url( $import_link ) ) ?></p>
+				<p><?php // printf( __( 'Categories can be selectively converted to tags using the <a href="%s">category to tag converter</a>.' ), esc_url( $import_link ) ) ?></p>
 
 				<?php endif; ?>
 			</div>
 
 			<?php elseif ( 'post_tag' == $taxonomy && current_user_can( 'import' ) ) : ?>
 			<div class="form-wrap edit-term-notes">
-				<p><?php printf( __( 'Tags can be selectively converted to categories using the <a href="%s">tag to category converter</a>.' ), esc_url( $import_link ) ) ;?></p>
+				<p><?php // printf( __( 'Tags can be selectively converted to categories using the <a href="%s">tag to category converter</a>.' ), esc_url( $import_link ) ) ;?></p>
 			</div>
 			<?php endif;
 
