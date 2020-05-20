@@ -17,7 +17,6 @@ namespace AppNamespace\Backend;
  *
  * @since 1.0.0
  */
-use \AppNamespace\Backend  as Backend;
 use \AppNamespace\Includes as Includes;
 
 /**
@@ -95,7 +94,7 @@ class Walker_Nav_Menu_Edit extends Includes\Walker_Nav_Menu {
 			if ( is_wp_error( $original_title ) ) {
 				$original_title = false;
 			}
-				
+
 		} elseif ( 'post_type' == $item->type ) {
 
 			$original_object = get_post( $item->object_id );

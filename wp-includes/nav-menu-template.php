@@ -7,6 +7,9 @@
  * @since 3.0.0
  */
 
+/** Walker_Nav_Menu class */
+// require_once ABSPATH . WPINC . '/class-walker-nav-menu.php';
+
 /**
  * Displays a navigation menu.
  *
@@ -522,7 +525,7 @@ function _wp_menu_item_classes_by_context( &$menu_items ) {
  * @return string The HTML list content for the menu items.
  */
 function walk_nav_menu_tree( $items, $depth, $r ) {
-	$walker = ( empty($r->walker) ) ? new \AppNamespace\Includes\Walker_Nav_Menu : $r->walker;
+	$walker = ( empty($r->walker) ) ? new Walker_Nav_Menu : $r->walker;
 	$args = array( $items, $depth, $r );
 
 	return call_user_func_array( array( $walker, 'walk' ), $args );

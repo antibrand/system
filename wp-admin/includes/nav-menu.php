@@ -4,37 +4,56 @@
  *
  * @package App_Package
  * @subpackage Nav_Menus
- * @since 3.0.0
+ * @since WP 3.0.0
  */
 
+/**
+ * Alias namespaces
+ *
+ * Make sure the namespaces here are the same base as that
+ * used in your copy of this website management system.
+ *
+ * @since 1.0.0
+ */
+use \AppNamespace\Backend  as Backend;
+use \AppNamespace\Includes as Includes;
+
 /** Walker_Nav_Menu_Checklist class */
-require_once( ABSPATH . 'wp-admin/includes/class-walker-nav-menu-checklist.php' );
+// require_once( ABSPATH . 'wp-admin/includes/class-walker-nav-menu-checklist.php' );
 
 /**
  * Prints the appropriate response to a menu quick search.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @param array $request The unsanitized request values.
  */
 function _wp_ajax_menu_quick_search( $request = array() ) {
-	$args = array();
-	$type = isset( $request['type'] ) ? $request['type'] : '';
-	$object_type = isset( $request['object_type'] ) ? $request['object_type'] : '';
-	$query = isset( $request['q'] ) ? $request['q'] : '';
+
+	$args            = [];
+	$type            = isset( $request['type'] ) ? $request['type'] : '';
+	$object_type     = isset( $request['object_type'] ) ? $request['object_type'] : '';
+	$query           = isset( $request['q'] ) ? $request['q'] : '';
 	$response_format = isset( $request['response-format'] ) && in_array( $request['response-format'], array( 'json', 'markup' ) ) ? $request['response-format'] : 'json';
 
 	if ( 'markup' == $response_format ) {
-		$args['walker'] = new Walker_Nav_Menu_Checklist;
+		$args['walker'] = new Backend\Walker_Nav_Menu_Checklist;
 	}
 
 	if ( 'get-post-item' == $type ) {
+
 		if ( post_type_exists( $object_type ) ) {
+
 			if ( isset( $request['ID'] ) ) {
+
 				$object_id = (int) $request['ID'];
+
 				if ( 'markup' == $response_format ) {
+
 					echo walk_nav_menu_tree( array_map('wp_setup_nav_menu_item', array( get_post( $object_id ) ) ), 0, (object) $args );
+
 				} elseif ( 'json' == $response_format ) {
+
 					echo wp_json_encode(
 						array(
 							'ID' => $object_id,
@@ -45,13 +64,21 @@ function _wp_ajax_menu_quick_search( $request = array() ) {
 					echo "\n";
 				}
 			}
+
 		} elseif ( taxonomy_exists( $object_type ) ) {
+
 			if ( isset( $request['ID'] ) ) {
+
 				$object_id = (int) $request['ID'];
+
 				if ( 'markup' == $response_format ) {
+
 					echo walk_nav_menu_tree( array_map('wp_setup_nav_menu_item', array( get_term( $object_id, $object_type ) ) ), 0, (object) $args );
+
 				} elseif ( 'json' == $response_format ) {
+
 					$post_obj = get_term( $object_id, $object_type );
+
 					echo wp_json_encode(
 						array(
 							'ID' => $object_id,
@@ -66,9 +93,12 @@ function _wp_ajax_menu_quick_search( $request = array() ) {
 		}
 
 	} elseif ( preg_match('/quick-search-(posttype|taxonomy)-([a-zA-Z_-]*\b)/', $type, $matches) ) {
+
 		if ( 'posttype' == $matches[1] && get_post_type_object( $matches[2] ) ) {
+
 			$post_type_obj = _wp_nav_menu_meta_box_object( get_post_type_object( $matches[2] ) );
-			$args = array_merge(
+
+			$args  = array_merge(
 				$args,
 				array(
 					'no_found_rows'          => true,
@@ -79,19 +109,28 @@ function _wp_ajax_menu_quick_search( $request = array() ) {
 					's'                      => $query,
 				)
 			);
+
 			if ( isset( $post_type_obj->_default_query ) ) {
 				$args = array_merge( $args, (array) $post_type_obj->_default_query );
 			}
+
 			$search_results_query = new WP_Query( $args );
+
 			if ( ! $search_results_query->have_posts() ) {
 				return;
 			}
+
 			while ( $search_results_query->have_posts() ) {
+
 				$post = $search_results_query->next_post();
+
 				if ( 'markup' == $response_format ) {
+
 					$var_by_ref = $post->ID;
 					echo walk_nav_menu_tree( array_map('wp_setup_nav_menu_item', array( get_post( $var_by_ref ) ) ), 0, (object) $args );
+
 				} elseif ( 'json' == $response_format ) {
+
 					echo wp_json_encode(
 						array(
 							'ID' => $post->ID,
@@ -100,18 +139,26 @@ function _wp_ajax_menu_quick_search( $request = array() ) {
 						)
 					);
 					echo "\n";
+
 				}
 			}
+
 		} elseif ( 'taxonomy' == $matches[1] ) {
+
 			$terms = get_terms( $matches[2], array(
 				'name__like' => $query,
 				'number' => 10,
 			));
-			if ( empty( $terms ) || is_wp_error( $terms ) )
+
+			if ( empty( $terms ) || is_wp_error( $terms ) ) {
 				return;
+			}
+
 			foreach ( (array) $terms as $term ) {
+
 				if ( 'markup' == $response_format ) {
 					echo walk_nav_menu_tree( array_map('wp_setup_nav_menu_item', array( $term ) ), 0, (object) $args );
+
 				} elseif ( 'json' == $response_format ) {
 					echo wp_json_encode(
 						array(
@@ -120,6 +167,7 @@ function _wp_ajax_menu_quick_search( $request = array() ) {
 							'post_type' => $matches[2],
 						)
 					);
+
 					echo "\n";
 				}
 			}
@@ -130,10 +178,11 @@ function _wp_ajax_menu_quick_search( $request = array() ) {
 /**
  * Register nav menu meta boxes and advanced menu items.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  **/
 function wp_nav_menu_setup() {
-	// Register meta boxes
+
+	// Register meta boxes.
 	wp_nav_menu_post_type_meta_boxes();
 	add_meta_box( 'add-custom-links', __( 'Custom Links' ), 'wp_nav_menu_item_link_meta_box', 'nav-menus', 'side', 'default' );
 	wp_nav_menu_taxonomy_meta_boxes();
@@ -143,6 +192,7 @@ function wp_nav_menu_setup() {
 
 	// If first time editing, disable advanced items by default.
 	if ( false === get_user_option( 'managenav-menuscolumnshidden' ) ) {
+
 		$user = wp_get_current_user();
 		update_user_option($user->ID, 'managenav-menuscolumnshidden',
 			array( 0 => 'link-target', 1 => 'css-classes', 2 => 'xfn', 3 => 'description', 4 => 'title-attribute', ),
@@ -153,11 +203,12 @@ function wp_nav_menu_setup() {
 /**
  * Limit the amount of meta boxes to pages, posts, links, and categories for first time users.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global array $wp_meta_boxes
  **/
 function wp_initial_nav_menu_meta_boxes() {
+
 	global $wp_meta_boxes;
 
 	if ( get_user_option( 'metaboxhidden_nav-menus' ) !== false || ! is_array($wp_meta_boxes) )
@@ -185,7 +236,7 @@ function wp_initial_nav_menu_meta_boxes() {
 /**
  * Creates meta boxes for any post type menu item..
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  */
 function wp_nav_menu_post_type_meta_boxes() {
 	$post_types = get_post_types( array( 'show_in_nav_menus' => true ), 'object' );
@@ -201,7 +252,7 @@ function wp_nav_menu_post_type_meta_boxes() {
 		 * If a falsey value is returned instead of an object, the menu items
 		 * meta box for the current meta box object will not be added.
 		 *
-		 * @since 3.0.0
+		 * @since WP 3.0.0
 		 *
 		 * @param object $meta_box_object The current object to add a menu items
 		 *                                meta box for.
@@ -219,7 +270,7 @@ function wp_nav_menu_post_type_meta_boxes() {
 /**
  * Creates meta boxes for any taxonomy menu item.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  */
 function wp_nav_menu_taxonomy_meta_boxes() {
 	$taxonomies = get_taxonomies( array( 'show_in_nav_menus' => true ), 'object' );
@@ -240,7 +291,7 @@ function wp_nav_menu_taxonomy_meta_boxes() {
 /**
  * Check whether to disable the Menu Locations meta box submit button
  *
- * @since 3.6.0
+ * @since WP 3.6.0
  *
  * @global bool $one_theme_location_no_menus to determine if no menus exist
  *
@@ -259,7 +310,7 @@ function wp_nav_menu_disabled_check( $nav_menu_selected_id ) {
 /**
  * Displays a meta box for the custom links menu item.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global int        $_nav_menu_placeholder
  * @global int|string $nav_menu_selected_id
@@ -296,7 +347,7 @@ function wp_nav_menu_item_link_meta_box() {
 /**
  * Displays a meta box for a post type menu item.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global int        $_nav_menu_placeholder
  * @global int|string $nav_menu_selected_id
@@ -367,7 +418,7 @@ function wp_nav_menu_item_post_type_meta_box( $object, $box ) {
 		$db_fields = array( 'parent' => 'post_parent', 'id' => 'ID' );
 	}
 
-	$walker = new Walker_Nav_Menu_Checklist( $db_fields );
+	$walker = new Backend\Walker_Nav_Menu_Checklist( $db_fields );
 
 	$current_tab = 'most-recent';
 	if ( isset( $_REQUEST[$post_type_name . '-tab'] ) && in_array( $_REQUEST[$post_type_name . '-tab'], array('all', 'search') ) ) {
@@ -422,8 +473,8 @@ function wp_nav_menu_item_post_type_meta_box( $object, $box ) {
 				 *
 				 * The dynamic portion of the hook name, `$post_type_name`, refers to the post type name.
 				 *
-				 * @since 4.3.0
-				 * @since 4.9.0 Added the `$recent_args` parameter.
+				 * @since WP 4.3.0
+				 * @since WP 4.9.0 Added the `$recent_args` parameter.
 				 *
 				 * @param array $most_recent An array of post objects being listed.
 				 * @param array $args        An array of WP_Query arguments for the meta box.
@@ -533,8 +584,8 @@ function wp_nav_menu_item_post_type_meta_box( $object, $box ) {
 				 * The dynamic portion of the hook name, `$post_type_name`, refers
 				 * to the slug of the current post type.
 				 *
-				 * @since 3.2.0
-				 * @since 4.6.0 Converted the `$post_type` parameter to accept a WP_Post_Type object.
+				 * @since WP 3.2.0
+				 * @since WP 4.6.0 Converted the `$post_type` parameter to accept a WP_Post_Type object.
 				 *
 				 * @see WP_Query::query()
 				 *
@@ -587,7 +638,7 @@ function wp_nav_menu_item_post_type_meta_box( $object, $box ) {
 /**
  * Displays a meta box for a taxonomy menu item.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global int|string $nav_menu_selected_id
  *
@@ -655,7 +706,7 @@ function wp_nav_menu_item_taxonomy_meta_box( $object, $box ) {
 		$db_fields = array( 'parent' => 'parent', 'id' => 'term_id' );
 	}
 
-	$walker = new Walker_Nav_Menu_Checklist( $db_fields );
+	$walker = new Backend\Walker_Nav_Menu_Checklist( $db_fields );
 
 	$current_tab = 'most-used';
 	if ( isset( $_REQUEST[$taxonomy_name . '-tab'] ) && in_array( $_REQUEST[$taxonomy_name . '-tab'], array('all', 'most-used', 'search') ) ) {
@@ -787,7 +838,7 @@ function wp_nav_menu_item_taxonomy_meta_box( $object, $box ) {
 /**
  * Save posted nav menu item data.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @param int $menu_id The menu ID for which to save this item. $menu_id of 0 makes a draft, orphaned menu item.
  * @param array $menu_data The unsanitized posted menu item data.
@@ -855,7 +906,7 @@ function wp_save_nav_menu_items( $menu_id = 0, $menu_data = array() ) {
 /**
  * Adds custom arguments to some of the meta box object types.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @access private
  *
@@ -898,7 +949,7 @@ function _wp_nav_menu_meta_box_object( $object = null ) {
 /**
  * Returns the menu formatted to edit.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @param int $menu_id Optional. The ID of the menu to format. Default 0.
  * @return string|WP_Error $output The menu formatted to edit or error object on failure.
@@ -920,7 +971,7 @@ function wp_get_nav_menu_to_edit( $menu_id = 0 ) {
 		/**
 		 * Filters the Walker class used when adding nav menu items.
 		 *
-		 * @since 3.0.0
+		 * @since WP 3.0.0
 		 *
 		 * @param string $class   The walker class to use. Default 'Walker_Nav_Menu_Edit'.
 		 * @param int    $menu_id ID of the menu being rendered.
@@ -967,7 +1018,7 @@ function wp_get_nav_menu_to_edit( $menu_id = 0 ) {
 /**
  * Returns the columns for the nav menus page.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @return array Columns.
  */
@@ -987,7 +1038,7 @@ function wp_nav_menu_manage_columns() {
  * Deletes orphaned draft menu items
  *
  * @access private
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global wpdb $wpdb DSatabase abstraction object.
  */
@@ -1005,7 +1056,7 @@ function _wp_delete_orphaned_draft_menu_items() {
 /**
  * Saves nav menu items
  *
- * @since 3.6.0
+ * @since WP 3.6.0
  *
  * @param int|string $nav_menu_selected_id (id, slug, or name ) of the currently-selected menu
  * @param string $nav_menu_selected_title Title of the currently-selected menu
@@ -1095,7 +1146,7 @@ function wp_nav_menu_update_menu_items ( $nav_menu_selected_id, $nav_menu_select
  * it into `$_POST` to avoid PHP `max_input_vars` limitations. See #14134.
  *
  * @ignore
- * @since 4.5.3
+ * @since WP 4.5.3
  * @access private
  */
 function _wp_expand_nav_menu_post_data() {

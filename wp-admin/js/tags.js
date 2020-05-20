@@ -87,7 +87,7 @@ jQuery(document).ready(function($) {
 	});
 
 	/**
-	 * @summary Adds an event handler tot he form submit on the term overview page.
+	 * @summary Adds an event handler to the form submit on the term overview page.
 	 *
 	 * Cancels default event handling and event bubbling.
 	 *

@@ -7,13 +7,25 @@
  * @since 4.4.0
  */
 
+namespace AppNamespace\Backend;
+
+/**
+ * Alias namespaces
+ *
+ * Make sure the namespaces here are the same base as that
+ * used in your copy of this website management system.
+ *
+ * @since 1.0.0
+ */
+use \AppNamespace\Includes as Includes;
+
 /**
  * Create HTML list of nav menu input items.
  *
  * @since 3.0.0
  * @uses Walker_Nav_Menu
  */
-class Walker_Nav_Menu_Checklist extends AppNamespace\Includes\Walker_Nav_Menu {
+class Walker_Nav_Menu_Checklist extends Includes\Walker_Nav_Menu {
 	/**
 	 *
 	 * @param array $fields

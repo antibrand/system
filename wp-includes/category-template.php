@@ -8,6 +8,17 @@
  */
 
 /**
+ * Alias namespaces
+ *
+ * Make sure the namespaces here are the same base as that
+ * used in your copy of this website management system.
+ *
+ * @since 1.0.0
+ */
+use \AppNamespace\Backend  as Backend;
+use \AppNamespace\Includes as Includes;
+
+/**
  * Retrieve category link URL.
  *
  * @since 1.0.0
@@ -1024,8 +1035,8 @@ function _wp_object_count_sort_cb( $a, $b ) {
 function walk_category_tree() {
 	$args = func_get_args();
 	// the user's options are the third parameter
-	if ( empty( $args[2]['walker'] ) || ! ( $args[2]['walker'] instanceof Walker ) ) {
-		$walker = new Walker_Category;
+	if ( empty( $args[2]['walker'] ) || ! ( $args[2]['walker'] instanceof Includes\Walker ) ) {
+		$walker = new Includes\Walker_Category;
 	} else {
 		$walker = $args[2]['walker'];
 	}
@@ -1035,16 +1046,16 @@ function walk_category_tree() {
 /**
  * Retrieve HTML dropdown (select) content for category list.
  *
- * @uses Walker_CategoryDropdown to create HTML dropdown content.
+ * @uses Walker_Category_Dropdown to create HTML dropdown content.
  * @since 2.1.0
- * @see Walker_CategoryDropdown::walk() for parameters and return description.
+ * @see Walker_Category_Dropdown::walk() for parameters and return description.
  * @return string
  */
 function walk_category_dropdown_tree() {
 	$args = func_get_args();
 	// the user's options are the third parameter
-	if ( empty( $args[2]['walker'] ) || ! ( $args[2]['walker'] instanceof Walker ) ) {
-		$walker = new Walker_CategoryDropdown;
+	if ( empty( $args[2]['walker'] ) || ! ( $args[2]['walker'] instanceof Includes\Walker ) ) {
+		$walker = new Includes\Walker_Category_Dropdown;
 	} else {
 		$walker = $args[2]['walker'];
 	}

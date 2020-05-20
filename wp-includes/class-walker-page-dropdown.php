@@ -8,13 +8,24 @@
  */
 
 /**
+ * Alias namespaces
+ *
+ * Make sure the namespaces here are the same base as that
+ * used in your copy of this website management system.
+ *
+ * @since 1.0.0
+ */
+use \AppNamespace\Backend  as Backend;
+use \AppNamespace\Includes as Includes;
+
+/**
  * Core class used to create an HTML drop-down list of pages.
  *
  * @since 2.1.0
  *
  * @see Walker
  */
-class Walker_PageDropdown extends AppNamespace\Includes\Walker {
+class Walker_PageDropdown extends Includes\Walker {
 
 	/**
 	 * What the class handles.

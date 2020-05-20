@@ -8,8 +8,16 @@
  * @subpackage Administration
  */
 
-/** Walker_Category_Checklist class */
-require_once( ABSPATH . 'wp-admin/includes/class-walker-category-checklist.php' );
+/**
+ * Alias namespaces
+ *
+ * Make sure the namespaces here are the same base as that
+ * used in your copy of this website management system.
+ *
+ * @since 1.0.0
+ */
+use \AppNamespace\Backend  as Backend;
+use \AppNamespace\Includes as Includes;
 
 /** WP_Internal_Pointers class */
 require_once( ABSPATH . 'wp-admin/includes/class-wp-internal-pointers.php' );
@@ -99,8 +107,8 @@ function wp_terms_checklist( $post_id = 0, $args = array() ) {
 
 	$r = wp_parse_args( $params, $defaults );
 
-	if ( empty( $r['walker'] ) || ! ( $r['walker'] instanceof Walker ) ) {
-		$walker = new Walker_Category_Checklist;
+	if ( empty( $r['walker'] ) || ! ( $r['walker'] instanceof Includes\Walker ) ) {
+		$walker = new Backend\Walker_Category_Checklist;
 	} else {
 		$walker = $r['walker'];
 	}

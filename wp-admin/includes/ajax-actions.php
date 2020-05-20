@@ -858,7 +858,7 @@ function wp_ajax_add_tag() {
 		$x->send();
 	}
 
-	$wp_list_table = _get_list_table( 'WP_Terms_List_Table', array( 'screen' => $_POST['screen'] ) );
+	$wp_list_table = _get_list_table( 'AppNamespace\Backend\Terms_List_Table', array( 'screen' => $_POST['screen'] ) );
 
 	$level = 0;
 	if ( is_taxonomy_hierarchical($taxonomy) ) {
@@ -1220,7 +1220,7 @@ function wp_ajax_add_menu_item() {
 	}
 
 	/** This filter is documented in wp-admin/includes/nav-menu.php */
-	$walker_class_name = apply_filters( 'wp_edit_nav_menu_walker', 'Backend\Walker_Nav_Menu_Edit', $_POST['menu'] );
+	$walker_class_name = apply_filters( 'wp_edit_nav_menu_walker', 'AppNamespace\Backend\Walker_Nav_Menu_Edit', $_POST['menu'] );
 
 	if ( ! class_exists( $walker_class_name ) )
 		wp_die( 0 );
@@ -1746,7 +1746,7 @@ function wp_ajax_inline_save_tax() {
 		wp_die( -1 );
 	}
 
-	$wp_list_table = _get_list_table( 'WP_Terms_List_Table', array( 'screen' => 'edit-' . $taxonomy ) );
+	$wp_list_table = _get_list_table( 'AppNamespace\Backend\Terms_List_Table', array( 'screen' => 'edit-' . $taxonomy ) );
 
 	$tag = get_term( $id, $taxonomy );
 	$_POST['description'] = $tag->description;

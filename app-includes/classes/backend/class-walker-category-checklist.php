@@ -7,6 +7,18 @@
  * @since 4.4.0
  */
 
+namespace AppNamespace\Backend;
+
+/**
+ * Alias namespaces
+ *
+ * Make sure the namespaces here are the same base as that
+ * used in your copy of this website management system.
+ *
+ * @since 1.0.0
+ */
+use \AppNamespace\Includes as Includes;
+
 /**
  * Core walker class to output an unordered list of category checkbox input elements.
  *
@@ -16,7 +28,7 @@
  * @see wp_category_checklist()
  * @see wp_terms_checklist()
  */
-class Walker_Category_Checklist extends AppNamespace\Includes\Walker {
+class Walker_Category_Checklist extends Includes\Walker {
 	public $tree_type = 'category';
 	public $db_fields = array ('parent' => 'parent', 'id' => 'term_id'); //TODO: decouple this
 

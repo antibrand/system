@@ -41,9 +41,9 @@ class Terms_List_Table extends List_Table {
 		global $post_type, $taxonomy, $action, $tax;
 
 		parent::__construct( array(
-			'plural' => 'tags',
+			'plural'   => 'tags',
 			'singular' => 'tag',
-			'screen' => isset( $args['screen'] ) ? $args['screen'] : null,
+			'screen'   => isset( $args['screen'] ) ? $args['screen'] : null,
 		) );
 
 		$action    = $this->screen->action;

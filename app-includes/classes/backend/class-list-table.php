@@ -1216,7 +1216,7 @@ class List_Table {
 			wp_nonce_field( 'bulk-' . $this->_args['plural'] );
 		}
 		?>
-	<div class="tablenav <?php echo esc_attr( $which ); ?> <?php echo $this->_args['plural']; ?>">
+	<div class="tablenav <?php echo esc_attr( $which ); ?> <?php echo $this->_args['plural'] . '-nav'; ?>">
 
 		<?php if ( $this->has_items() ): ?>
 		<div class="alignleft actions bulkactions">

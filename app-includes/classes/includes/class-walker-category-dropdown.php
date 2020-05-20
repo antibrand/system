@@ -1,11 +1,23 @@
 <?php
 /**
- * Taxonomy API: Walker_CategoryDropdown class
+ * Taxonomy API: Walker_Category_Dropdown class
  *
  * @package App_Package
  * @subpackage Template
  * @since 4.4.0
  */
+
+namespace AppNamespace\Includes;
+
+/**
+ * Alias namespaces
+ *
+ * Make sure the namespaces here are the same base as that
+ * used in your copy of this website management system.
+ *
+ * @since 1.0.0
+ */
+use \AppNamespace\Backend as Backend;
 
 /**
  * Core class used to create an HTML dropdown list of Categories.
@@ -14,7 +26,7 @@
  *
  * @see Walker
  */
-class Walker_CategoryDropdown extends AppNamespace\Includes\Walker {
+class Walker_Category_Dropdown extends Walker {
 
 	/**
 	 * What the class handles.

@@ -21,6 +21,9 @@ const APP_CLASSES = [
 	// Classes used on the back end and/or front end.
 	'AppNamespace\Includes\Walker'          => __DIR__ . '/classes/includes/class-walker.php',
 	'AppNamespace\Includes\Walker_Nav_Menu' => __DIR__ . '/classes/includes/class-walker-nav-menu.php',
+	'AppNamespace\Includes\Walker_Page'     => __DIR__ . '/classes/includes/class-walker-page.php',
+	'AppNamespace\Includes\Walker_Category'     => __DIR__ . '/classes/includes/class-walker-category.php',
+	'AppNamespace\Includes\Walker_Category_Dropdown'     => __DIR__ . '/classes/includes/class-walker-category-dropdown.php',
 	'AppNamespace\Includes\Site_Icon'       => __DIR__ . '/classes/includes/class-site-icon.php',
 	'AppNamespace\Includes\Error_Messages'  => __DIR__ . '/classes/includes/class-error-messages.php',
 
@@ -36,6 +39,7 @@ const APP_CLASSES = [
 	'AppNamespace\Backend\Users_List_Table'     => __DIR__ . '/classes/backend/class-users-list-table.php',
 	'AppNamespace\Backend\Plugins_List_Table'   => __DIR__ . '/classes/backend/class-plugins-list-table.php',
 	'AppNamespace\Backend\Walker_Nav_Menu_Edit' => __DIR__ . '/classes/backend/class-walker-nav-menu-edit.php',
+	'AppNamespace\Backend\Walker_Nav_Menu_Checklist' => __DIR__ . '/classes/backend/class-walker-nav-menu-checklist.php',
 ];
 
 /**
@@ -66,4 +70,9 @@ spl_autoload_register(
  * @link https://www.php.net/manual/en/function.class-alias.php
  */
 \class_alias( Includes\Walker :: class, \Walker :: class );
+\class_alias( Includes\Walker_Nav_Menu :: class, \Walker_Nav_Menu :: class );
+\class_alias( Includes\Walker_Page :: class, \Walker_Page :: class );
+\class_alias( Includes\Walker_Category :: class, \Walker_Category :: class );
+\class_alias( Includes\Walker_Category_Dropdown :: class, \Walker_CategoryDropdown :: class );
 \class_alias( Backend\Walker_Nav_Menu_Edit :: class, \Walker_Nav_Menu_Edit :: class );
+\class_alias( Backend\Walker_Nav_Menu_Checklist :: class, \Walker_Nav_Menu_Checklist :: class );
