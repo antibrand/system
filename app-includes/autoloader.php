@@ -39,6 +39,7 @@ const APP_CLASSES = [
 	'AppNamespace\Backend\Users_List_Table'     => __DIR__ . '/classes/backend/class-users-list-table.php',
 	'AppNamespace\Backend\Plugins_List_Table'   => __DIR__ . '/classes/backend/class-plugins-list-table.php',
 	'AppNamespace\Backend\Walker_Nav_Menu_Edit' => __DIR__ . '/classes/backend/class-walker-nav-menu-edit.php',
+	'AppNamespace\Backend\Walker_Category_Checklist' => __DIR__ . '/classes/backend/class-walker-category-checklist.php',
 	'AppNamespace\Backend\Walker_Nav_Menu_Checklist' => __DIR__ . '/classes/backend/class-walker-nav-menu-checklist.php',
 ];
 
