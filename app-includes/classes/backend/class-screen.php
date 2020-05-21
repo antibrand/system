@@ -678,14 +678,14 @@ final class Screen {
 
 		if ( is_array( $tabs ) && count( $tabs ) > 1 ) {
 
-			$tabbed       = ' data-tabbed="tabbed"';
-			$wrap_class   = 'registered-content-wrap app-tabs';
-			$panel_class  = 'registered-content app-tab-content';
+			$tabbed         = ' data-tabbed="tabbed"';
+			$wrap_class     = 'registered-content-wrap app-tabs';
+			$content_class  = 'registered-content app-tab-content';
 
 		} else {
-			$tabbed       = '';
-			$wrap_class   = 'registered-content-wrap';
-			$panel_class  = 'registered-content';
+			$tabbed         = '';
+			$wrap_class     = 'registered-content-wrap';
+			$content_class  = 'registered-content';
 		}
 
 		?>
@@ -699,7 +699,7 @@ final class Screen {
 
 				if ( current_user_can( $tab['capability'] ) ) :
 
-					$panel_id  = "tab-panel-{$tab['id']}";
+					$content_id  = "tab-content-{$tab['id']}";
 
 					if ( ! empty( $tab['icon'] ) ) {
 						$icon = sprintf(
@@ -711,7 +711,7 @@ final class Screen {
 					}
 					?>
 						<li class="<?php echo $tab['class'] ?>">
-							<a href="<?php echo esc_url( "#$panel_id" ); ?>" aria-controls="<?php echo esc_attr( $panel_id ); ?>">
+							<a href="<?php echo esc_url( "#$content_id" ); ?>" aria-controls="<?php echo esc_attr( $content_id ); ?>">
 								<?php echo $icon . $tab['tab']; ?>
 							</a>
 					<?php
@@ -728,7 +728,7 @@ final class Screen {
 
 				if ( current_user_can( $tab['capability'] ) ) :
 
-					$panel_id = "tab-panel-{$tab['id']}";
+					$content_id = "tab-content-{$tab['id']}";
 
 					if ( ! empty( $tab['heading'] ) ) {
 						$heading_before = $tab['heading_before'];
@@ -738,7 +738,7 @@ final class Screen {
 						$heading_after  = '</h2>';
 					}
 				?>
-				<div id="<?php echo esc_attr( $panel_id ); ?>" class="<?php echo $panel_class; ?>">
+				<div id="<?php echo esc_attr( $content_id ); ?>" class="<?php echo $content_class; ?>">
 					<?php echo $tab['heading_before'] . $tab['heading'] . $tab['heading_after']; ?>
 					<?php
 					// Print tab content.
