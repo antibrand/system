@@ -955,7 +955,7 @@ function wp_ajax_get_comments( $action ) {
 		wp_die( -1 );
 	}
 
-	$wp_list_table = _get_list_table( 'WP_Post_Comments_List_Table', array( 'screen' => 'edit-comments' ) );
+	$wp_list_table = _get_list_table( 'AppNamespace\Backend\Post_Comments_List_Table', array( 'screen' => 'edit-comments' ) );
 
 	if ( ! current_user_can( 'edit_post', $post_id ) ) {
 		wp_die( -1 );
@@ -1069,16 +1069,16 @@ function wp_ajax_replyto_comment( $action ) {
 
 	if ( isset( $_REQUEST['mode'] ) && 'dashboard' == $_REQUEST['mode'] ) {
 
-		$dashboard = new \AppNamespace\Backend\Dashboard();
+		$dashboard = new AppNamespace\Backend\Dashboard();
 
 		$dashboard->dashboard_recent_comments_row( $comment );
 
 	} else {
 
 		if ( isset( $_REQUEST['mode'] ) && 'single' == $_REQUEST['mode'] ) {
-			$wp_list_table = _get_list_table('WP_Post_Comments_List_Table', array( 'screen' => 'edit-comments' ) );
+			$wp_list_table = _get_list_table('AppNamespace\Backend\Post_Comments_List_Table', array( 'screen' => 'edit-comments' ) );
 		} else {
-			$wp_list_table = _get_list_table('WP_Comments_List_Table', array( 'screen' => 'edit-comments' ) );
+			$wp_list_table = _get_list_table('AppNamespace\Backend\Comments_List_Table', array( 'screen' => 'edit-comments' ) );
 		}
 		$wp_list_table->single_row( $comment );
 	}
@@ -1135,7 +1135,7 @@ function wp_ajax_edit_comment() {
 
 	$position = ( isset($_POST['position']) && (int) $_POST['position']) ? (int) $_POST['position'] : '-1';
 	$checkbox = ( isset($_POST['checkbox']) && true == $_POST['checkbox'] ) ? 1 : 0;
-	$wp_list_table = _get_list_table( $checkbox ? 'WP_Comments_List_Table' : 'WP_Post_Comments_List_Table', array( 'screen' => 'edit-comments' ) );
+	$wp_list_table = _get_list_table( $checkbox ? 'AppNamespace\Backend\Comments_List_Table' : 'AppNamespace\Backend\Post_Comments_List_Table', array( 'screen' => 'edit-comments' ) );
 
 	$comment = get_comment( $comment_id );
 	if ( empty( $comment->comment_ID ) )
@@ -1704,7 +1704,7 @@ function wp_ajax_inline_save() {
 	// Update the post.
 	edit_post();
 
-	$wp_list_table = _get_list_table( 'WP_Posts_List_Table', array( 'screen' => $_POST['screen'] ) );
+	$wp_list_table = _get_list_table( '\AppNamespace\Backend\Posts_List_Table', array( 'screen' => $_POST['screen'] ) );
 
 	$mode = $_POST['post_view'] === 'excerpt' ? 'excerpt' : 'list';
 
@@ -3427,7 +3427,7 @@ function wp_ajax_install_theme() {
 	}
 
 	/*
-	 * See WP_Theme_Install_List_Table::_get_theme_status() if we wanted to check
+	 * See Theme_Install_List_Table::_get_theme_status() if we wanted to check
 	 * on post-installation status.
 	 */
 	wp_send_json_success( $status );
@@ -3890,8 +3890,8 @@ function wp_ajax_search_plugins() {
 		set_current_screen( $pagenow );
 	}
 
-	/** @var WP_Plugins_List_Table $wp_list_table */
-	$wp_list_table = _get_list_table( 'AppNamespace\Backend\Plugins_List_Table', [
+	/** @var Plugins_List_Table $wp_list_table */
+	$wp_list_table = _get_list_table( '\AppNamespace\Backend\Plugins_List_Table', [
 		'screen' => get_current_screen(),
 	] );
 
@@ -3933,8 +3933,8 @@ function wp_ajax_search_install_plugins() {
 		set_current_screen( $pagenow );
 	}
 
-	/** @var WP_Plugin_Install_List_Table $wp_list_table */
-	$wp_list_table = _get_list_table( 'WP_Plugin_Install_List_Table', array(
+	/** @var Plugin_Install_List_Table $wp_list_table */
+	$wp_list_table = _get_list_table( '\AppNamespace\Backend\Plugin_Install_List_Table', array(
 		'screen' => get_current_screen(),
 	) );
 

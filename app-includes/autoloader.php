@@ -36,6 +36,7 @@ const APP_CLASSES = [
 	'AppNamespace\Backend\Terms_List_Table'     => __DIR__ . '/classes/backend/class-terms-list-table.php',
 	'AppNamespace\Backend\Media_List_Table'     => __DIR__ . '/classes/backend/class-media-list-table.php',
 	'AppNamespace\Backend\Comments_List_Table'  => __DIR__ . '/classes/backend/class-comments-list-table.php',
+	'AppNamespace\Backend\Post_Comments_List_Table'  => __DIR__ . '/classes/backend/class-post-comments-list-table.php',
 	'AppNamespace\Backend\Users_List_Table'     => __DIR__ . '/classes/backend/class-users-list-table.php',
 	'AppNamespace\Backend\Plugins_List_Table'   => __DIR__ . '/classes/backend/class-plugins-list-table.php',
 	'AppNamespace\Backend\Walker_Nav_Menu_Edit' => __DIR__ . '/classes/backend/class-walker-nav-menu-edit.php',

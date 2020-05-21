@@ -1358,7 +1358,7 @@ class Dashboard {
 
 			if ( current_user_can( 'edit_posts' ) ) {
 				echo '<h3 class="screen-reader-text">' . __( 'View more comments' ) . '</h3>';
-				_get_list_table( 'WP_Comments_List_Table' )->views();
+				_get_list_table( 'AppNamepace\Backend\Comments_List_Table' )->views();
 			}
 
 			wp_comment_reply( -1, false, 'dashboard', false );

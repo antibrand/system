@@ -362,7 +362,7 @@ function get_inline_data($post) {
  *
  * @since 2.7.0
  *
- * @global WP_List_Table $wp_list_table
+ * @global List_Table $wp_list_table
  *
  * @param int    $position
  * @param bool   $checkbox
@@ -370,6 +370,7 @@ function get_inline_data($post) {
  * @param bool   $table_row
  */
 function wp_comment_reply( $position = 1, $checkbox = false, $mode = 'single', $table_row = true ) {
+
 	global $wp_list_table;
 	/**
 	 * Filters the in-line comment reply-to form output in the Comments
@@ -388,23 +389,25 @@ function wp_comment_reply( $position = 1, $checkbox = false, $mode = 'single', $
 	 */
 	$content = apply_filters( 'wp_comment_reply', '', array( 'position' => $position, 'checkbox' => $checkbox, 'mode' => $mode ) );
 
-	if ( ! empty($content) ) {
+	if ( ! empty( $content ) ) {
 		echo $content;
 		return;
 	}
 
 	if ( ! $wp_list_table ) {
 		if ( $mode == 'single' ) {
-			$wp_list_table = _get_list_table('WP_Post_Comments_List_Table');
+			$wp_list_table = _get_list_table( 'AppNamepace\Backend\Post_Comments_List_Table' );
 		} else {
-			$wp_list_table = _get_list_table('WP_Comments_List_Table');
+			$wp_list_table = _get_list_table( 'AppNamepace\Backend\Comments_List_Table' );
 		}
+	} else {
+		$wp_list_table = _get_list_table( 'AppNamepace\Backend\Post_Comments_List_Table' );
 	}
 
 ?>
 <form method="get">
 <?php if ( $table_row ) : ?>
-<table style="display:none;"><tbody id="com-reply"><tr id="replyrow" class="inline-edit-row" style="display:none;"><td colspan="<?php echo $wp_list_table->get_column_count(); ?>" class="colspanchange">
+<table style="display:none;"><tbody id="com-reply"><tr id="replyrow" class="inline-edit-row" style="display:none;"><td colspan="<?php //echo $wp_list_table->get_column_count(); ?>" class="colspanchange">
 <?php else : ?>
 <div id="com-reply" style="display:none;"><div id="replyrow" style="display:none;">
 <?php endif; ?>
@@ -912,9 +915,9 @@ function wp_import_upload_form( $action ) {
  * @param string                 $title         Title of the meta box.
  * @param callable               $callback      Function that fills the box with the desired content.
  *                                              The function should echo its output.
- * @param string|array|WP_Screen $screen        Optional. The screen or screens on which to show the box
+ * @param string|array|Screen $screen        Optional. The screen or screens on which to show the box
  *                                              (such as a post type, 'link', or 'comment'). Accepts a single
- *                                              screen ID, WP_Screen object, or array of screen IDs. Default
+ *                                              screen ID, Screen object, or array of screen IDs. Default
  *                                              is the current screen.  If you have used add_menu_page() or
  *                                              add_submenu_page() to create a new screen (and hence screen_id),
  *                                              make sure your menu slug conforms to the limits of sanitize_key()
@@ -1014,7 +1017,7 @@ function add_meta_box( $id, $title, $callback, $screen = null, $context = 'advan
  *
  * @staticvar bool $already_sorted
  *
- * @param string|WP_Screen $screen  Screen identifier. If you have used add_menu_page() or
+ * @param string|Screen $screen  Screen identifier. If you have used add_menu_page() or
  *                                  add_submenu_page() to create a new screen (and hence screen_id)
  *                                  make sure your menu slug conforms to the limits of sanitize_key()
  *                                  otherwise the 'screen' menu may not correctly render on your page.
@@ -1100,9 +1103,9 @@ function do_meta_boxes( $screen, $context, $object ) {
  * @global array $wp_meta_boxes
  *
  * @param string                 $id      Meta box ID (used in the 'id' attribute for the meta box).
- * @param string|array|WP_Screen $screen  The screen or screens on which the meta box is shown (such as a
+ * @param string|array|Screen $screen  The screen or screens on which the meta box is shown (such as a
  *                                        post type, 'link', or 'comment'). Accepts a single screen ID,
- *                                        WP_Screen object, or array of screen IDs.
+ *                                        Screen object, or array of screen IDs.
  * @param string                 $context The context within the screen where the box is set to display.
  *                                        Contexts vary from screen to screen. Post edit screen contexts
  *                                        include 'normal', 'side', and 'advanced'. Comments screen contexts
@@ -2076,7 +2079,7 @@ function _wp_admin_html_begin() {
  * @since 3.0.0
  *
  * @param string $hook_name The hook name (also known as the hook suffix) used to determine the screen.
- * @return WP_Screen Screen object.
+ * @return Screen Screen object.
  */
 function convert_to_screen( $hook_name ) {
 	if ( ! class_exists( 'AppNamespace\Backend\Screen' ) ) {

@@ -1,6 +1,21 @@
 <?php
+/**
+ * Post related Meta Boxes
+ * 
+ * @package App_Package
+ * @subpackage Administration
+ */
 
-// -- Post related Meta Boxes
+/**
+ * Alias namespaces
+ *
+ * Make sure the namespaces here are the same base as that
+ * used in your copy of this website management system.
+ *
+ * @since 1.0.0
+ */
+use \AppNamespace\Backend  as Backend;
+use \AppNamespace\Includes as Includes;
 
 /**
  * Displays post submit form fields.
@@ -703,19 +718,17 @@ function post_comment_meta_box_thead($result) {
  * @param object $post
  */
 function post_comment_meta_box( $post ) {
+
 	wp_nonce_field( 'get-comments', 'add_comment_nonce', false );
 	?>
 	<p class="hide-if-no-js" id="add-new-comment"><a class="button" href="#commentstatusdiv" onclick="window.commentReply && commentReply.addcomment(<?php echo $post->ID; ?>);return false;"><?php _e('Add comment'); ?></a></p>
 	<?php
 
 	$total = get_comments( array( 'post_id' => $post->ID, 'number' => 1, 'count' => true ) );
-	$wp_list_table = _get_list_table('WP_Post_Comments_List_Table');
+	$wp_list_table = _get_list_table( 'AppNamespace\Backend\Post_Comments_List_Table' );
 	$wp_list_table->display( true );
 
-	if ( 1 > $total ) {
-		echo '<p id="no-comments">' . __('No comments yet.') . '</p>';
-	} else {
-		$hidden = get_hidden_meta_boxes( get_current_screen() );
+	$hidden = get_hidden_meta_boxes( get_current_screen() );
 		if ( ! in_array('commentsdiv', $hidden) ) {
 			?>
 			<script type="text/javascript">jQuery(document).ready(function(){commentsBox.get(<?php echo $total; ?>, 10);});</script>
@@ -725,7 +738,6 @@ function post_comment_meta_box( $post ) {
 		?>
 		<p class="hide-if-no-js" id="show-comments"><a href="#commentstatusdiv" onclick="commentsBox.load(<?php echo $total; ?>);return false;"><?php _e('Show comments'); ?></a> <span class="spinner"></span></p>
 		<?php
-	}
 
 	wp_comment_trashnotice();
 }
