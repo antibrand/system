@@ -400,14 +400,20 @@ function wp_comment_reply( $position = 1, $checkbox = false, $mode = 'single', $
 		} else {
 			$wp_list_table = _get_list_table( 'AppNamepace\Backend\Comments_List_Table' );
 		}
+
+		// $get_column_count = $wp_list_table->get_column_count();
+		$get_column_count = '99';
 	} else {
-		$wp_list_table = _get_list_table( 'AppNamepace\Backend\Post_Comments_List_Table' );
+		$get_column_count = '99';
 	}
 
 ?>
 <form method="get">
 <?php if ( $table_row ) : ?>
-<table style="display:none;"><tbody id="com-reply"><tr id="replyrow" class="inline-edit-row" style="display:none;"><td colspan="<?php //echo $wp_list_table->get_column_count(); ?>" class="colspanchange">
+<table style="display:none;">
+	<tbody id="com-reply">
+		<tr id="replyrow" class="inline-edit-row" style="display:none;">
+			<td colspan="<?php echo $get_column_count; ?>" class="colspanchange">
 <?php else : ?>
 <div id="com-reply" style="display:none;"><div id="replyrow" style="display:none;">
 <?php endif; ?>

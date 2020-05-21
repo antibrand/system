@@ -728,7 +728,10 @@ function post_comment_meta_box( $post ) {
 	$wp_list_table = _get_list_table( 'AppNamespace\Backend\Post_Comments_List_Table' );
 	$wp_list_table->display( true );
 
-	$hidden = get_hidden_meta_boxes( get_current_screen() );
+	if ( 1 > $total ) {
+		echo '<p id="no-comments">' . __('No comments yet.') . '</p>';
+	} else {
+		$hidden = get_hidden_meta_boxes( get_current_screen() );
 		if ( ! in_array('commentsdiv', $hidden) ) {
 			?>
 			<script type="text/javascript">jQuery(document).ready(function(){commentsBox.get(<?php echo $total; ?>, 10);});</script>
@@ -738,6 +741,7 @@ function post_comment_meta_box( $post ) {
 		?>
 		<p class="hide-if-no-js" id="show-comments"><a href="#commentstatusdiv" onclick="commentsBox.load(<?php echo $total; ?>);return false;"><?php _e('Show comments'); ?></a> <span class="spinner"></span></p>
 		<?php
+	}
 
 	wp_comment_trashnotice();
 }
