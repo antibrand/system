@@ -1,4 +1,49 @@
 /**
+ * Dashboard tabs
+ */
+.tab-section-wrap-dashboard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.tab-section-wrap-dashboard .tab-section-dashboard {
+  max-width: 33.33325%;
+  max-width: calc( 100% / 3);
+}
+
+.tab-section-wrap-dashboard .tab-section-dashboard:not(:last-of-type) {
+  margin-right: 2rem;
+}
+
+.tab-user-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.tab-user-wrap figure {
+  min-width: 80px;
+  margin-right: 1em;
+}
+
+.tab-user-wrap figure a,
+.tab-user-wrap figure img {
+  display: block;
+}
+
+.tab-user-wrap > div h3 {
+  margin-top: 0;
+}
+
+.dashboard-panel-call-to-action a + a {
+  display: table;
+  margin-top: 0.5em;
+}
+
+/**
  * Dashboard widgets
  */
 #dashboard-widgets-wrap {

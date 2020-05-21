@@ -75,6 +75,18 @@
 
 		& > h2 {
 			margin-top: 0;
+
+			& + div,
+			& + section {
+				margin-top: 2rem;
+			}
+		}
+
+		.tab-section {
+
+			& > h3 {
+				margin-top: 0;
+			}
 		}
 
 		.app-tab-columns {

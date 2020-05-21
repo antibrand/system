@@ -304,22 +304,33 @@ b, strong, optgroup {
   font-size: 1rem;
 }
 
+.button.button-hightlight, .button.button-hero,
+.button-primary.button-hightlight,
+.button-primary.button-hero,
+.button-secondary.button-hightlight,
+.button-secondary.button-hero {
+  background-color: #ffee00;
+}
+
+.button.button-hightlight:hover, .button.button-hightlight:focus, .button.button-hero:hover, .button.button-hero:focus,
+.button-primary.button-hightlight:hover,
+.button-primary.button-hightlight:focus,
+.button-primary.button-hero:hover,
+.button-primary.button-hero:focus,
+.button-secondary.button-hightlight:hover,
+.button-secondary.button-hightlight:focus,
+.button-secondary.button-hero:hover,
+.button-secondary.button-hero:focus {
+  background-color: #ffee00;
+}
+
 .button.button-hero,
 .button-primary.button-hero,
 .button-secondary.button-hero {
   height: auto;
   padding: 1em 2em;
-  background-color: #ffee00;
   font-size: 1.0625rem;
   line-height: 1.4;
-}
-
-.button.button-hero:hover, .button.button-hero:focus,
-.button-primary.button-hero:hover,
-.button-primary.button-hero:focus,
-.button-secondary.button-hero:hover,
-.button-secondary.button-hero:focus {
-  background-color: #ffee00;
 }
 
 .button:active, .button:focus,

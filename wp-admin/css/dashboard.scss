@@ -2,6 +2,51 @@
 @import '../../app-assets/css/includes/modules/_colors';
 
 /**
+ * Dashboard tabs
+ */
+.tab-section-wrap-dashboard {
+	display: flex;
+	flex-wrap: wrap;
+
+	.tab-section-dashboard {
+		max-width: 33.33325%;
+		max-width: calc( 100% / 3 );
+
+		&:not( :last-of-type ) {
+			margin-right: 2rem;
+		}
+	}
+}
+
+.tab-user-wrap {
+	display: flex;
+
+	figure {
+		min-width: 80px;
+		margin-right: 1em;
+
+		a,
+		img {
+			display: block;
+		}
+	}
+
+	& > div {
+		h3 {
+			margin-top: 0;
+		}
+	}
+}
+
+.dashboard-panel-call-to-action {
+	a + a {
+		// Force line break without <br> element.
+		display: table;
+		margin-top: 0.5em;
+	}
+}
+
+/**
  * Dashboard widgets
  */
 #dashboard-widgets-wrap {
