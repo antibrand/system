@@ -623,19 +623,40 @@ function post_categories_meta_box( $post, $box ) {
 }
 
 /**
+ * Display post description form fields
+ *
+ * @since 1.0.0
+ * @param object $post
+ * @return string Returns the markup of the description form.
+ */
+function post_description_meta_box( $post ) {
+
+?>
+	<label class="screen-reader-text" for="description"><?php _e( 'Description - NOT READY FOR USE!' ); ?></label><textarea rows="1" cols="40" name="description" id="description"><?php echo $post->post_description; // textarea_escaped ?></textarea>
+	<p><?php
+		printf(
+			/* translators: %s: Codex URL */
+			__( 'The description can be used in meta tags and may be used in themes.' )
+		);
+	?></p>
+	<?php
+}
+
+/**
  * Display post excerpt form fields.
  *
- * @since 2.6.0
- *
+ * @since WP 2.6.0
  * @param object $post
+ * @return string Returns the markup of the excerpt form.
  */
-function post_excerpt_meta_box($post) {
+function post_excerpt_meta_box( $post ) {
+
 ?>
-<label class="screen-reader-text" for="excerpt"><?php _e('Excerpt') ?></label><textarea rows="1" cols="40" name="excerpt" id="excerpt"><?php echo $post->post_excerpt; // textarea_escaped ?></textarea>
+<label class="screen-reader-text" for="excerpt"><?php _e( 'Excerpt' ); ?></label><textarea rows="1" cols="40" name="excerpt" id="excerpt"><?php echo $post->post_excerpt; // textarea_escaped ?></textarea>
 <p><?php
 	printf(
 		/* translators: %s: Codex URL */
-		__( 'Excerpts are optional hand-crafted summaries of your content that can be used in your theme.' )
+		__( 'Excerpts are optional summaries of the content that may be used in themes.' )
 	);
 ?></p>
 <?php
