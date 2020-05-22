@@ -248,6 +248,18 @@ input {
 		}
 	}
 
+	&.button-hightlight,
+	&.button-hero {
+		background-color: $app_highlight_color;
+
+		&:hover,
+		&:focus {
+			background-color: $link_color;
+			border-color: $link_color;
+			color: $white;
+		}
+	}
+
 	&.hover,
 	&:hover,
 	&.focus,

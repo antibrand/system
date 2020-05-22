@@ -97,6 +97,16 @@
 	outline: none;
 }
 
+::-moz-selection {
+	background-color: $app_highlight_color;
+	color: $black;
+}
+
+::selection {
+	background-color: $app_highlight_color;
+	color: $black;
+}
+
 /* @todo: Take a second look. Large chunks of shared color, from the colors.css merge */
 .widget-top,
 .menu-item-handle,
@@ -138,7 +148,8 @@ td {
  */
 a {
 	color: $link_color;
-	color-adjust: exact !important;
+	-webkit-print-color-adjust: exact !important;
+	        color-adjust: exact !important;
 
 	&:hover,
 	&:focus {
@@ -283,10 +294,8 @@ code {
 }
 
 .list-table-top {
-	display: -webkit-box;
 	display: flex;
-	-webkit-box-pack: justify;
-	        justify-content: space-between;
+	justify-content: space-between;
 	margin-top: 2em;
 
 	.search-box {
@@ -755,10 +764,8 @@ th.action-links {
 
 /* Filter bar */
 .wp-filter {
-	display: -webkit-box;
 	display: flex;
-	-webkit-box-align: center;
-	        align-items: center;
+	align-items: center;
 	position: relative;
 	box-sizing: border-box;
 	margin: 2em 0 1em;
@@ -766,12 +773,9 @@ th.action-links {
 	font-size: 0.8125rem;
 
 	.filter-items {
-		-webkit-box-flex: 2;
-		        flex-grow: 2;
-		display: -webkit-box;
+		flex-grow: 2;
 		display: flex;
-		-webkit-box-align: center;
-		        align-items: center;
+		align-items: center;
 
 		select {
 			margin-right: 0.3em;
@@ -902,7 +906,6 @@ th.action-links {
 .wp-filter .button.drawer-toggle:active {
 	background: transparent;
 	box-shadow: none;
-	-webkit-transform: none;
 	transform: none;
 }
 
@@ -1356,12 +1359,9 @@ form.upgrade .hint {
 }
 
 .button.updated-message {
-	-webkit-transition-property: border, background, color;
 	transition-property: border, background, color;
-	-webkit-transition-duration: .05s;
-	        transition-duration: .05s;
-	-webkit-transition-timing-function: ease-in-out;
-	        transition-timing-function: ease-in-out;
+	transition-duration: .05s;
+	transition-timing-function: ease-in-out;
 }
 
 @media aural {
@@ -1449,7 +1449,6 @@ form.upgrade .hint {
 
 #screen-meta-links .show-settings:active {
 	box-shadow: none;
-	-webkit-transform: none;
 	transform: none;
 }
 
@@ -2161,7 +2160,6 @@ div.star-holder .star-rating {
 	font-weight: 400;
 	font-style: normal;
 	vertical-align: top;
-	-webkit-transition: color .1s ease-in 0;
 	transition: color .1s ease-in 0;
 	text-align: center;
 	color: $app_yellow;
@@ -2176,7 +2174,6 @@ div.star-holder .star-rating {
 }
 
 .rtl .star-rating .star-half {
-	-webkit-transform: rotateY(180deg);
 	transform: rotateY(180deg);
 }
 
@@ -2286,7 +2283,6 @@ div.action-links {
 	line-height: 18px;
 	font-size: 14px;
 	text-decoration: none;
-	-webkit-transition: none;
 	transition: none;
 }
 
@@ -2626,7 +2622,6 @@ div.action-links {
 	margin: -10px 0 0 -10px;
 	background: #fcfcfc url(../images/spinner.gif) no-repeat center;
 	background-size: 20px 20px;
-	-webkit-transform: translateZ(0);
 	transform: translateZ(0);
 }
 

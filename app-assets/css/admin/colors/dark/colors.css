@@ -166,6 +166,28 @@ input:disabled, input.disabled {
   color: #bfbfbf;
 }
 
+.button.button-hightlight, .button.button-hero,
+.button-primary.button-hightlight,
+.button-primary.button-hero,
+.button-secondary.button-hightlight,
+.button-secondary.button-hero {
+  background-color: #ffee00;
+}
+
+.button.button-hightlight:hover, .button.button-hightlight:focus, .button.button-hero:hover, .button.button-hero:focus,
+.button-primary.button-hightlight:hover,
+.button-primary.button-hightlight:focus,
+.button-primary.button-hero:hover,
+.button-primary.button-hero:focus,
+.button-secondary.button-hightlight:hover,
+.button-secondary.button-hightlight:focus,
+.button-secondary.button-hero:hover,
+.button-secondary.button-hero:focus {
+  background-color: #3ad4fb;
+  border-color: #3ad4fb;
+  color: #ffffff;
+}
+
 .button.hover, .button:hover, .button.focus, .button:focus, .button.active, .button:active, .button.current,
 .button-primary.hover,
 .button-primary:hover,

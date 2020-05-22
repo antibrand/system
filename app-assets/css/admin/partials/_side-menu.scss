@@ -176,7 +176,8 @@
 	li.menu-top > a:focus,
 	.wp-submenu a:hover,
 	.wp-submenu a:focus {
-		background: $dark_gray;
+		background: $app_primary_color;
+		color: $text_color;
 	}
 
 	li.menu-top {

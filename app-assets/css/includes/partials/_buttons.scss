@@ -57,11 +57,13 @@
 
 	&.button-hightlight,
 	&.button-hero {
-		background-color: $button_action_background_color;
+		background-color: $app_highlight_color;
 
 		&:hover,
 		&:focus {
-			background-color: $button_action_background_color;
+			background-color: $app_secondary_color;
+			border-color: $app_secondary_color;
+			color: $white;
 		}
 	}
 

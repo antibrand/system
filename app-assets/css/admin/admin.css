@@ -1977,7 +1977,9 @@ table.form-table td .updated p {
 .button-secondary.button-hightlight:focus,
 .button-secondary.button-hero:hover,
 .button-secondary.button-hero:focus {
-  background-color: #ffee00;
+  background-color: #222222;
+  border-color: #222222;
+  color: #ffffff;
 }
 
 .button.button-hero,
@@ -2321,6 +2323,16 @@ table.form-table td .updated p {
   outline: none;
 }
 
+::-moz-selection {
+  background-color: #ffee00;
+  color: #000000;
+}
+
+::selection {
+  background-color: #ffee00;
+  color: #000000;
+}
+
 /* @todo: Take a second look. Large chunks of shared color, from the colors.css merge */
 .widget-top,
 .menu-item-handle,
@@ -2362,6 +2374,7 @@ td {
  */
 a {
   color: #004499;
+  -webkit-print-color-adjust: exact !important;
   color-adjust: exact !important;
 }
 
@@ -2509,8 +2522,8 @@ code {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin-top: 2em;
 }
 
@@ -3002,8 +3015,8 @@ th.action-links {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-      align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: relative;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -3014,14 +3027,14 @@ th.action-links {
 
 .wp-filter .filter-items {
   -webkit-box-flex: 2;
-  -ms-flex-positive: 2;
-      flex-grow: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-      align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .wp-filter .filter-items select {
@@ -3156,7 +3169,7 @@ th.action-links {
   -webkit-box-shadow: none;
           box-shadow: none;
   -webkit-transform: none;
-  transform: none;
+          transform: none;
 }
 
 .wp-filter .drawer-toggle.current:before {
@@ -3622,9 +3635,9 @@ form.upgrade .hint {
   -webkit-transition-property: border, background, color;
   transition-property: border, background, color;
   -webkit-transition-duration: .05s;
-  transition-duration: .05s;
+          transition-duration: .05s;
   -webkit-transition-timing-function: ease-in-out;
-  transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
 }
 
 @media aural {
@@ -3715,7 +3728,7 @@ form.upgrade .hint {
   -webkit-box-shadow: none;
           box-shadow: none;
   -webkit-transform: none;
-  transform: none;
+          transform: none;
 }
 
 #screen-meta-links .show-settings:after {
@@ -4450,7 +4463,7 @@ div.star-holder .star-rating {
 
 .rtl .star-rating .star-half {
   -webkit-transform: rotateY(180deg);
-  transform: rotateY(180deg);
+          transform: rotateY(180deg);
 }
 
 .star-rating .star-empty:before {
@@ -4910,7 +4923,7 @@ div.action-links {
   background: #fcfcfc url(../images/spinner.gif) no-repeat center;
   background-size: 20px 20px;
   -webkit-transform: translateZ(0);
-  transform: translateZ(0);
+          transform: translateZ(0);
 }
 
 @media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
@@ -6027,7 +6040,8 @@ img {
 #adminmenu li.menu-top > a:focus,
 #adminmenu .wp-submenu a:hover,
 #adminmenu .wp-submenu a:focus {
-  background: #333333;
+  background: #ffee00;
+  color: #222222;
 }
 
 #adminmenu li.menu-top {

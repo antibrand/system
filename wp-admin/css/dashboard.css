@@ -5,13 +5,10 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 
 .tab-section-wrap-dashboard .tab-section-dashboard {
-  max-width: 33.33325%;
-  max-width: calc( 100% / 3);
+  max-width: 768px;
 }
 
 .tab-section-wrap-dashboard .tab-section-dashboard:not(:last-of-type) {

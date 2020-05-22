@@ -321,7 +321,9 @@ b, strong, optgroup {
 .button-secondary.button-hightlight:focus,
 .button-secondary.button-hero:hover,
 .button-secondary.button-hero:focus {
-  background-color: #ffee00;
+  background-color: #222222;
+  border-color: #222222;
+  color: #ffffff;
 }
 
 .button.button-hero,
