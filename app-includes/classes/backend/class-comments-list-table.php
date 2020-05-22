@@ -198,12 +198,13 @@ class Comments_List_Table extends List_Table {
 	 * @global string $comment_type
 	 */
 	protected function get_views() {
+
 		global $post_id, $comment_status, $comment_type;
 
 		$status_links = array();
 		$num_comments = ( $post_id ) ? wp_count_comments( $post_id ) : wp_count_comments();
 
-		$stati = array(
+		$statuses = array(
 			/* translators: %s: all comments count */
 			'all' => _nx_noop(
 				'All <span class="count">(%s)</span>',
@@ -240,37 +241,49 @@ class Comments_List_Table extends List_Table {
 			)
 		);
 
-		if ( !EMPTY_TRASH_DAYS )
-			unset($stati['trash']);
+		if ( ! EMPTY_TRASH_DAYS ) {
+			unset( $statuses['trash'] );
+		}
 
 		$link = admin_url( 'edit-comments.php' );
-		if ( !empty($comment_type) && 'all' != $comment_type )
-			$link = add_query_arg( 'comment_type', $comment_type, $link );
 
-		foreach ( $stati as $status => $label ) {
-			$current_link_attributes = '';
+		if ( ! empty( $comment_type ) && 'all' != $comment_type ) {
+			$link = add_query_arg( 'comment_type', $comment_type, $link );
+		}
+
+		foreach ( $statuses as $status => $label ) {
+
+			$class        = 'button';
+			$current_aria = '';
 
 			if ( $status === $comment_status ) {
-				$current_link_attributes = ' class="current" aria-current="page"';
+				$class       .= ' current';
+				$current_aria = ' aria-current="page"';
 			}
 
-			if ( !isset( $num_comments->$status ) )
+			if ( !isset( $num_comments->$status ) ) {
 				$num_comments->$status = 10;
+			}
+
 			$link = add_query_arg( 'comment_status', $status, $link );
-			if ( $post_id )
+
+			if ( $post_id ) {
 				$link = add_query_arg( 'p', absint( $post_id ), $link );
-			/*
-			// I toyed with this, but decided against it. Leaving it in here in case anyone thinks it is a good idea. ~ Mark
-			if ( !empty( $_REQUEST['s'] ) )
-				$link = add_query_arg( 's', esc_attr( wp_unslash( $_REQUEST['s'] ) ), $link );
-			*/
-			$status_links[ $status ] = "<a href='$link'$current_link_attributes>" . sprintf(
-				translate_nooped_plural( $label, $num_comments->$status ),
-				sprintf( '<span class="%s-count">%s</span>',
-					( 'moderated' === $status ) ? 'pending' : $status,
-					number_format_i18n( $num_comments->$status )
+			}
+
+			$status_links[$status] = sprintf(
+				'<a href="%1s" class="%2s"%3s>%4s</a>',
+				$link,
+				$class,
+				$current_aria,
+				sprintf(
+					translate_nooped_plural( $label, $num_comments->$status ),
+					sprintf( '<span class="%s-count">%s</span>',
+						( 'moderated' === $status ) ? 'pending' : $status,
+						number_format_i18n( $num_comments->$status )
+					)
 				)
-			) . '</a>';
+			);
 		}
 
 		/**

@@ -29,10 +29,10 @@ if ( ! $user_id && IS_PROFILE_PAGE ) {
 wp_enqueue_script('user-profile');
 
 if ( IS_PROFILE_PAGE ) {
-	$title = __( 'Profile' );
+	$title = __( 'Your Account' );
 } else {
 	// Translators: %s: user's display name.
-	$title = __( 'Edit User: %s' );
+	$title = __( 'Edit Account: %s' );
 }
 
 if ( current_user_can( 'edit_users' ) && ! IS_PROFILE_PAGE ) {

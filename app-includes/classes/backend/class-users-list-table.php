@@ -165,56 +165,76 @@ class Users_List_Table extends List_Table {
 	 * @return array An array of HTML links, one for each view.
 	 */
 	protected function get_views() {
+
 		global $role;
 
 		$wp_roles = wp_roles();
 
 		if ( $this->is_site_users ) {
+
 			$url = 'site-users.php?id=' . $this->site_id;
 			switch_to_blog( $this->site_id );
+
 			$users_of_blog = count_users( 'time', $this->site_id );
 			restore_current_blog();
+
 		} else {
-			$url = 'users.php';
+			$url           = 'users.php';
 			$users_of_blog = count_users();
 		}
 
 		$total_users = $users_of_blog['total_users'];
 		$avail_roles =& $users_of_blog['avail_roles'];
-		unset($users_of_blog);
 
-		$current_link_attributes = empty( $role ) ? ' class="current" aria-current="page"' : '';
+		unset( $users_of_blog );
 
-		$role_links = array();
-		$role_links['all'] = "<a href='$url'$current_link_attributes>" . sprintf( _nx( 'All <span class="count">(%s)</span>', 'All <span class="count">(%s)</span>', $total_users, 'users' ), number_format_i18n( $total_users ) ) . '</a>';
+		$class        = 'button';
+		$current_aria = '';
+
+		if ( empty( $role ) ) {
+			$class       .= ' current';
+			$current_aria = ' aria-current="page"';
+		}
+
+		$role_links        = [];
+		$role_links['all'] = "<a class='$class' href='$url'$current_aria>" . sprintf( _nx( 'All <span class="count">(%s)</span>', 'All <span class="count">(%s)</span>', $total_users, 'users' ), number_format_i18n( $total_users ) ) . '</a>';
+
 		foreach ( $wp_roles->get_names() as $this_role => $name ) {
-			if ( !isset($avail_roles[$this_role]) )
-				continue;
 
-			$current_link_attributes = '';
+			if ( ! isset( $avail_roles[$this_role] ) ) {
+				continue;
+			}
+
+			$class        = 'button';
+			$current_aria = '';
 
 			if ( $this_role === $role ) {
-				$current_link_attributes = ' class="current" aria-current="page"';
+				$class       .= ' current';
+				$current_aria = ' aria-current="page"';
 			}
 
 			$name = translate_user_role( $name );
-			/* translators: User role name with count */
-			$name = sprintf( __('%1$s <span class="count">(%2$s)</span>'), $name, number_format_i18n( $avail_roles[$this_role] ) );
-			$role_links[$this_role] = "<a href='" . esc_url( add_query_arg( 'role', $this_role, $url ) ) . "'$current_link_attributes>$name</a>";
+
+			// Translators: User role name with count.
+			$name = sprintf( __( '%1$s <span class="count">(%2$s)</span>' ), $name, number_format_i18n( $avail_roles[$this_role] ) );
+			$role_links[$this_role] = "<a class='$class' href='" . esc_url( add_query_arg( 'role', $this_role, $url ) ) . "'$current_aria>$name</a>";
 		}
 
 		if ( ! empty( $avail_roles['none' ] ) ) {
 
-			$current_link_attributes = '';
+			$class        = 'button';
+			$current_aria = '';
 
 			if ( 'none' === $role ) {
-				$current_link_attributes = ' class="current" aria-current="page"';
+				$class       .= ' current';
+				$current_aria = ' class="current" aria-current="page"';
 			}
 
 			$name = __( 'No role' );
-			/* translators: User role name with count */
-			$name = sprintf( __('%1$s <span class="count">(%2$s)</span>'), $name, number_format_i18n( $avail_roles['none' ] ) );
-			$role_links['none'] = "<a href='" . esc_url( add_query_arg( 'role', 'none', $url ) ) . "'$current_link_attributes>$name</a>";
+
+			// Translators: User role name with count.
+			$name = sprintf( __( '%1$s <span class="count">(%2$s)</span>' ), $name, number_format_i18n( $avail_roles['none' ] ) );
+			$role_links['none'] = "<a class='$class' href='" . esc_url( add_query_arg( 'role', 'none', $url ) ) . "'$current_aria>$name</a>";
 
 		}
 

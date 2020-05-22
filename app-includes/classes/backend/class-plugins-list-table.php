@@ -434,11 +434,21 @@ class Plugins_List_Table extends List_Table {
 			}
 
 			if ( 'search' !== $type ) {
-				$status_links[$type] = sprintf( "<a href='%s'%s>%s</a>",
-					add_query_arg('plugin_status', $type, 'plugins.php'),
-					( $type === $status ) ? ' class="current" aria-current="page"' : '',
+
+				$class        = 'button';
+				$current_aria = '';
+
+				if ( $type === $status ) {
+					$class       .= ' current';
+					$current_aria = ' aria-current="page"';
+				}
+
+				$status_links[$type] = sprintf( '<a href="%1s" class="%2s"%3s>%4s</a>',
+					add_query_arg( 'plugin_status', $type, 'plugins.php' ),
+					$class,
+					$current_aria,
 					sprintf( $text, number_format_i18n( $count ) )
-					);
+				);
 			}
 		}
 

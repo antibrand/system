@@ -17,7 +17,7 @@ $box_background_color: lighten( $color: $app_secondary_color, $amount: 2.5% );
 $box_border_color: lighten( $color: $app_secondary_color, $amount: 12% );
 $box_text_color: inherit !default;
 $link_color: $app_tertiary_color;
-$link_action_color: lighten( $link_color, 22% );
+$link_action_color: $text_color;
 
 $notify_color: $app_orange;
 $error_color: $app_red;
@@ -253,7 +253,8 @@ input {
 	&.focus,
 	&:focus,
 	&.active,
-	&:active {
+	&:active,
+	&.current {
 		background: $button_action_background_color;
 		color: $button_action_text_color;
 

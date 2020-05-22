@@ -299,6 +299,7 @@ get_current_screen()->set_screen_reader_content( [
 ] );
 
 require_once( ABSPATH . 'wp-admin/admin-header.php' );
+
 ?>
 
 	<div class="wrap">
@@ -313,9 +314,16 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 				)
 			);
 		} else {
-			_e( 'Comments' );
+			_e( 'Discussion' );
 		}
 		?></h1>
+
+		<?php if ( ! $post_id ) {
+			echo sprintf(
+				'<p class="description">%1s</p>',
+				__( 'Manage comments on content that allows discussion.' )
+			);
+		} ?>
 
 		<?php
 		if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {

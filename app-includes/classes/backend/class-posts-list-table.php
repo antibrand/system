@@ -233,23 +233,29 @@ class Posts_List_Table extends List_Table {
 	protected function get_edit_link( $args, $label, $class = '' ) {
 		$url = add_query_arg( $args, 'edit.php' );
 
-		$class_html = $aria_current = '';
+		$class_html = $current_aria = '';
 		if ( ! empty( $class ) ) {
-			 $class_html = sprintf(
-				' class="%s"',
+			$class_html = sprintf(
+				' class="button %s"',
 				esc_attr( $class )
 			);
 
 			if ( 'current' === $class ) {
-				$aria_current = ' aria-current="page"';
+				$current_aria = ' aria-current="page"';
 			}
+		} else {
+			$class = 'button';
+			$class_html = sprintf(
+				' class="button"',
+				esc_attr( $class )
+			);
 		}
 
 		return sprintf(
 			'<a href="%s"%s%s>%s</a>',
 			esc_url( $url ),
 			$class_html,
-			$aria_current,
+			$current_aria,
 			$label
 		);
 	}

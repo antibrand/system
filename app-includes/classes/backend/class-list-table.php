@@ -676,7 +676,7 @@ class List_Table {
 				}
 
 				printf(
-					"<a href='%1s' class='%2s tooltip' id='view-switch-$mode' title='%3s'><span class='screen-reader-text'>%4s</span></a>\n",
+					"<a href='%1s' class='%2s' id='view-switch-$mode' title='%3s'><span class='screen-reader-text'>%4s</span></a>\n",
 					esc_url( add_query_arg( 'mode', $mode ) ),
 					implode( ' ', $classes ),
 					$title,

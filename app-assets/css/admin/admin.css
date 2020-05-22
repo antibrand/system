@@ -489,7 +489,10 @@ body.mobile.modal-open .admin-page-wrap {
   line-height: 1.2;
 }
 
-.list-table-form {
+.list-table-form,
+#addtag,
+#posts-filter,
+#your-profile {
   overflow: hidden;
 }
 
@@ -2000,19 +2003,21 @@ table.form-table td .updated p {
   display: none;
 }
 
-.button.hover, .button:hover, .button.focus, .button:focus, .button.active, .button:active,
+.button.hover, .button:hover, .button.focus, .button:focus, .button.active, .button:active, .button.current,
 .button-primary.hover,
 .button-primary:hover,
 .button-primary.focus,
 .button-primary:focus,
 .button-primary.active,
 .button-primary:active,
+.button-primary.current,
 .button-secondary.hover,
 .button-secondary:hover,
 .button-secondary.focus,
 .button-secondary:focus,
 .button-secondary.active,
-.button-secondary:active {
+.button-secondary:active,
+.button-secondary.current {
   background: #ffee00;
   color: #222222;
   color-adjust: exact !important;
@@ -2490,50 +2495,6 @@ code {
   display: inline-block;
   margin-left: 0.35em;
   font-weight: normal;
-}
-
-.list-table-views a,
-.subsubsub a {
-  display: inline-block;
-  vertical-align: baseline;
-  margin: 0;
-  padding: 0.75rem 1rem;
-  background: #ffffff;
-  border: solid 1px #888888;
-  font-size: 0.875rem;
-  font-weight: bold;
-  font-weight: 700;
-  line-height: 1;
-  text-decoration: none;
-  color: #222222;
-  white-space: nowrap;
-  cursor: pointer;
-  -webkit-appearance: none;
-  -webkit-transition: all .1s linear;
-  transition: all .1s linear;
-}
-
-.list-table-views a.hover, .list-table-views a:hover, .list-table-views a.focus, .list-table-views a:focus, .list-table-views a.active, .list-table-views a:active, .list-table-views a.current,
-.subsubsub a.hover,
-.subsubsub a:hover,
-.subsubsub a.focus,
-.subsubsub a:focus,
-.subsubsub a.active,
-.subsubsub a:active,
-.subsubsub a.current {
-  background: #ffee00;
-  color: #222222;
-  color-adjust: exact !important;
-}
-
-.list-table-views a[disabled], .list-table-views a:disabled, .list-table-views a.disabled, .list-table-views a.button-disabled,
-.subsubsub a[disabled],
-.subsubsub a:disabled,
-.subsubsub a.disabled,
-.subsubsub a.button-disabled {
-  color: #888888;
-  background: #cccccc;
-  cursor: default;
 }
 
 .list-table-views a .count,

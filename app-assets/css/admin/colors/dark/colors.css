@@ -11,7 +11,7 @@ a {
 }
 
 a:hover, a:focus {
-  color: #a8ecfd;
+  color: #ffffff;
 }
 
 .postbox {
@@ -98,7 +98,7 @@ input[type="url"]:focus,
 input[type="week"]:focus,
 select:focus,
 textarea:focus {
-  border-color: #a8ecfd;
+  border-color: #ffffff;
 }
 
 input[type="radio"]:checked + label:before {
@@ -106,11 +106,11 @@ input[type="radio"]:checked + label:before {
 }
 
 input[type="radio"]:checked:before {
-  background-color: #a8ecfd;
+  background-color: #ffffff;
 }
 
 input[type="checkbox"]:checked:before {
-  color: #a8ecfd;
+  color: #ffffff;
 }
 
 input:disabled, input.disabled {
@@ -166,19 +166,21 @@ input:disabled, input.disabled {
   color: #bfbfbf;
 }
 
-.button.hover, .button:hover, .button.focus, .button:focus, .button.active, .button:active,
+.button.hover, .button:hover, .button.focus, .button:focus, .button.active, .button:active, .button.current,
 .button-primary.hover,
 .button-primary:hover,
 .button-primary.focus,
 .button-primary:focus,
 .button-primary.active,
 .button-primary:active,
+.button-primary.current,
 .button-secondary.hover,
 .button-secondary:hover,
 .button-secondary.focus,
 .button-secondary:focus,
 .button-secondary.active,
-.button-secondary:active {
+.button-secondary:active,
+.button-secondary.current {
   background: #ffee00;
   color: #222222;
 }
@@ -207,7 +209,11 @@ input:disabled, input.disabled {
 .button:active #post-body #visibility:before,
 .button:active .curtime #timestamp:before,
 .button:active #post-body .misc-pub-revisions:before,
-.button:active span.wp-media-buttons-icon:before,
+.button:active span.wp-media-buttons-icon:before, .button.current #post-body .misc-pub-post-status:before,
+.button.current #post-body #visibility:before,
+.button.current .curtime #timestamp:before,
+.button.current #post-body .misc-pub-revisions:before,
+.button.current span.wp-media-buttons-icon:before,
 .button-primary.hover #post-body .misc-pub-post-status:before,
 .button-primary.hover #post-body #visibility:before,
 .button-primary.hover .curtime #timestamp:before,
@@ -238,6 +244,11 @@ input:disabled, input.disabled {
 .button-primary:active .curtime #timestamp:before,
 .button-primary:active #post-body .misc-pub-revisions:before,
 .button-primary:active span.wp-media-buttons-icon:before,
+.button-primary.current #post-body .misc-pub-post-status:before,
+.button-primary.current #post-body #visibility:before,
+.button-primary.current .curtime #timestamp:before,
+.button-primary.current #post-body .misc-pub-revisions:before,
+.button-primary.current span.wp-media-buttons-icon:before,
 .button-secondary.hover #post-body .misc-pub-post-status:before,
 .button-secondary.hover #post-body #visibility:before,
 .button-secondary.hover .curtime #timestamp:before,
@@ -267,7 +278,12 @@ input:disabled, input.disabled {
 .button-secondary:active #post-body #visibility:before,
 .button-secondary:active .curtime #timestamp:before,
 .button-secondary:active #post-body .misc-pub-revisions:before,
-.button-secondary:active span.wp-media-buttons-icon:before {
+.button-secondary:active span.wp-media-buttons-icon:before,
+.button-secondary.current #post-body .misc-pub-post-status:before,
+.button-secondary.current #post-body #visibility:before,
+.button-secondary.current .curtime #timestamp:before,
+.button-secondary.current #post-body .misc-pub-revisions:before,
+.button-secondary.current span.wp-media-buttons-icon:before {
   color: #222222;
 }
 
@@ -289,7 +305,7 @@ input:disabled, input.disabled {
 }
 
 .button-link:hover, .button-link:focus, .button-link:active {
-  color: #a8ecfd;
+  color: #ffffff;
 }
 
 /**
@@ -330,7 +346,7 @@ input:disabled, input.disabled {
  * TinyMCE sking colors.
  */
 #titlediv #title:hover, #titlediv #title:focus {
-  border-color: #a8ecfd;
+  border-color: #ffffff;
 }
 
 .wp-editor-container,
@@ -402,14 +418,14 @@ div.mce-statusbar,
 .mce-toolbar .mce-btn-group .mce-btn:focus,
 .qt-dfw:hover, .qt-dfw:focus {
   background-color: #2f2f2f !important;
-  border-color: #a8ecfd !important;
+  border-color: #ffffff !important;
 }
 
 .mce-toolbar .mce-btn-group .mce-btn.mce-active,
 .mce-toolbar .mce-btn-group .mce-btn:active,
 .qt-dfw.active {
   background-color: #2f2f2f !important;
-  border-color: #a8ecfd !important;
+  border-color: #ffffff !important;
 }
 
 .submitbox .submitdelete {

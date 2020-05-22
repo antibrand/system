@@ -86,7 +86,8 @@
 	&.focus,
 	&:focus,
 	&.active,
-	&:active {
+	&:active,
+	&.current {
 		background: $button_action_background_color;
 		color: $button_action_text_color;
 		color-adjust: exact !important;
