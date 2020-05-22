@@ -447,8 +447,8 @@ b, strong, optgroup {
 .button-secondary:disabled,
 .button-secondary.disabled,
 .button-secondary.button-disabled {
+  background: #eeeeee;
   color: #888888;
-  background: #cccccc;
   cursor: default;
 }
 

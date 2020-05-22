@@ -99,8 +99,8 @@
 	&:disabled,
 	&.disabled,
 	&.button-disabled {
-		color: $light_gray;
-		background: $pale_gray;
+		background: $button_disabled_background_color;
+		color: $button_disabled_text_color;
 		cursor: default;
 	}
 }

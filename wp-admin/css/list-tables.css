@@ -595,14 +595,15 @@ th.asc a:focus span.sorting-indicator {
 /* Bulk Actions */
 .tablenav-pages a,
 .tablenav-pages-navspan {
-  font-weight: 600;
-  padding: 0 2px;
+  font-weight: 700;
+  padding: 0.35em 0.5em;
 }
 
 .tablenav-pages .current-page {
-  margin: 0 2px 0 0;
-  padding-bottom: 5px;
-  font-size: 13px;
+  height: auto;
+  vertical-align: bottom;
+  padding: 0.35em 0.5em;
+  line-height: 1;
   text-align: center;
 }
 
@@ -640,7 +641,6 @@ th.asc a:focus span.sorting-indicator {
 .tablenav .tablenav-pages {
   float: right;
   cursor: default;
-  font-size: 0.875rem;
   font-weight: bold;
   line-height: 1.5;
 }
@@ -653,42 +653,30 @@ th.asc a:focus span.sorting-indicator {
 .tablenav .tablenav-pages a,
 .tablenav-pages span.current {
   text-decoration: none;
-  padding: 3px 6px;
 }
 
 .tablenav .tablenav-pages a,
 .tablenav-pages-navspan {
   display: inline-block;
-  min-width: 17px;
-  border: 1px solid #ccc;
-  /* same color as buttons border */
-  padding: 3px 5px 7px;
-  background: #e5e5e5;
-  font-size: 16px;
+  background: #ffffff;
+  border: 1px solid #888888;
+  color: #222222;
   line-height: 1;
   font-weight: 400;
   text-align: center;
 }
 
 .tablenav-pages-navspan {
-  height: 16px;
-  border-color: #ddd;
-  /* same as disabled buttons */
-  background: #f7f7f7;
-  /* same as disabled buttons */
-  color: #a0a5aa;
-  /* same as disabled buttons */
+  background: #eeeeee;
+  border-color: #cccccc;
+  color: #888888;
 }
 
 .tablenav .tablenav-pages a:hover,
 .tablenav .tablenav-pages a:focus {
-  border-color: #5b9dd9;
-  color: #fff;
-  background: #00a0d2;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  outline: none;
-  /* IE8 */
+  background: #ffee00;
+  border-color: #888888;
+  color: #222222;
 }
 
 .tablenav .displaying-num {

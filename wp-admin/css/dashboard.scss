@@ -4,11 +4,11 @@
 /**
  * Dashboard tabs
  */
-.tab-section-wrap-dashboard {
+.tab-section-wrap__dashboard {
 	display: flex;
 
 	.tab-section-dashboard {
-		max-width: 768px;
+		max-width: 640px;
 
 		&:not( :last-of-type ) {
 			margin-right: 2rem;

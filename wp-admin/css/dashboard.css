@@ -1,17 +1,17 @@
 /**
  * Dashboard tabs
  */
-.tab-section-wrap-dashboard {
+.tab-section-wrap__dashboard {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.tab-section-wrap-dashboard .tab-section-dashboard {
-  max-width: 768px;
+.tab-section-wrap__dashboard .tab-section-dashboard {
+  max-width: 640px;
 }
 
-.tab-section-wrap-dashboard .tab-section-dashboard:not(:last-of-type) {
+.tab-section-wrap__dashboard .tab-section-dashboard:not(:last-of-type) {
   margin-right: 2rem;
 }
 

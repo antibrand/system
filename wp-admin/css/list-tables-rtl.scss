@@ -591,14 +591,15 @@ th.asc a:focus span.sorting-indicator {
 /* Bulk Actions */
 .tablenav-pages a,
 .tablenav-pages-navspan {
-	font-weight: 600;
-	padding: 0 2px;
+	font-weight: 700;
+	padding: 0.35em 0.5em;
 }
 
 .tablenav-pages .current-page {
-	margin: 0 0 0 2px;
-	padding-bottom: 5px;
-	font-size: 13px;
+	height: auto;
+	vertical-align: bottom;
+	padding: 0.35em 0.5em;
+	line-height: 1;
 	text-align: center;
 }
 
@@ -636,7 +637,6 @@ th.asc a:focus span.sorting-indicator {
 .tablenav .tablenav-pages {
 	float: left;
 	cursor: default;
-	font-size: 0.875rem;
 	font-weight: bold;
 	line-height: 1.5;
 }
@@ -649,36 +649,32 @@ th.asc a:focus span.sorting-indicator {
 .tablenav .tablenav-pages a,
 .tablenav-pages span.current  {
 	text-decoration: none;
-	padding: 3px 6px;
 }
 
 .tablenav .tablenav-pages a,
 .tablenav-pages-navspan {
 	display: inline-block;
-	min-width: 17px;
-	border: 1px solid #ccc; /* same color as buttons border */
-	padding: 3px 5px 7px;
-	background: #e5e5e5;
-	font-size: 16px;
+	background: $button_background_color;
+	border: 1px solid $button_border_color;
+	color: $button_text_color;
 	line-height: 1;
 	font-weight: 400;
 	text-align: center;
 }
 
 .tablenav-pages-navspan {
-	height: 16px;
-	border-color: #ddd; /* same as disabled buttons */
-	background: #f7f7f7; /* same as disabled buttons */
-	color: #a0a5aa; /* same as disabled buttons */
+
+	// Below same as disabled buttons.
+	background: $button_disabled_background_color;
+	border-color: $button_disabled_border_color;
+	color: $button_disabled_text_color;
 }
 
 .tablenav .tablenav-pages a:hover,
 .tablenav .tablenav-pages a:focus {
-	border-color: #5b9dd9;
-	color: #fff;
-	background: #00a0d2;
-	box-shadow: none;
-	outline: none; /* IE8 */
+	background: $button_action_background_color;
+	border-color: $button_action_border_color;
+	color: $button_action_text_color;
 }
 
 .tablenav .displaying-num {

@@ -2046,8 +2046,8 @@ table.form-table td .updated p {
 .button-secondary:disabled,
 .button-secondary.disabled,
 .button-secondary.button-disabled {
+  background: #eeeeee;
   color: #888888;
-  background: #cccccc;
   cursor: default;
 }
 

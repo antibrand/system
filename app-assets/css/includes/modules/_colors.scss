@@ -62,6 +62,9 @@ $button_text_color: $text_color !default;
 $button_action_background_color: $app_highlight_color !default;
 $button_action_border_color: $button_border_color !default;
 $button_action_text_color: $text_color !default;
+$button_disabled_background_color: $off_white !default;
+$button_disabled_border_color: $pale_gray !default;
+$button_disabled_text_color: $light_gray !default;
 
 // Admin menu & admin-bar color variables.
 $menu_base_color: $app_secondary_color !default;
