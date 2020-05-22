@@ -1704,7 +1704,7 @@ function wp_ajax_inline_save() {
 	// Update the post.
 	edit_post();
 
-	$wp_list_table = _get_list_table( '\AppNamespace\Backend\Posts_List_Table', array( 'screen' => $_POST['screen'] ) );
+	$wp_list_table = _get_list_table( 'AppNamespace\Backend\Posts_List_Table', array( 'screen' => $_POST['screen'] ) );
 
 	$mode = $_POST['post_view'] === 'excerpt' ? 'excerpt' : 'list';
 
@@ -3891,7 +3891,7 @@ function wp_ajax_search_plugins() {
 	}
 
 	/** @var Plugins_List_Table $wp_list_table */
-	$wp_list_table = _get_list_table( '\AppNamespace\Backend\Plugins_List_Table', [
+	$wp_list_table = _get_list_table( 'AppNamespace\Backend\Plugins_List_Table', [
 		'screen' => get_current_screen(),
 	] );
 
@@ -3934,7 +3934,7 @@ function wp_ajax_search_install_plugins() {
 	}
 
 	/** @var Plugin_Install_List_Table $wp_list_table */
-	$wp_list_table = _get_list_table( '\AppNamespace\Backend\Plugin_Install_List_Table', array(
+	$wp_list_table = _get_list_table( 'AppNamespace\Backend\Plugin_Install_List_Table', array(
 		'screen' => get_current_screen(),
 	) );
 
