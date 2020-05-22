@@ -20,8 +20,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 
 	<h1>
 	<?php echo sprintf(
-		'%1s %2s %3s',
-		__( 'About ' ),
+		'%1s %2s',
 		APP_NAME,
 		$version
 	); ?>

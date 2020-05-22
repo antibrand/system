@@ -8,10 +8,25 @@
 	display: flex;
 
 	.tab-section-dashboard {
+		min-width: 240px;
 		max-width: 640px;
 
 		&:not( :last-of-type ) {
 			margin-right: 2rem;
+		}
+
+		& > div {
+			margin-top: 2rem;
+		}
+	}
+
+	.tab-section__dashboard-content,
+	.tab-section__dashboard-accounts {
+
+		ul {
+			li:not( :first-of-type ) {
+				margin-top: 0.5em;
+			}
 		}
 	}
 }

@@ -8,11 +8,21 @@
 }
 
 .tab-section-wrap__dashboard .tab-section-dashboard {
+  min-width: 240px;
   max-width: 640px;
 }
 
 .tab-section-wrap__dashboard .tab-section-dashboard:not(:last-of-type) {
   margin-right: 2rem;
+}
+
+.tab-section-wrap__dashboard .tab-section-dashboard > div {
+  margin-top: 2rem;
+}
+
+.tab-section-wrap__dashboard .tab-section__dashboard-content ul li:not(:first-of-type),
+.tab-section-wrap__dashboard .tab-section__dashboard-accounts ul li:not(:first-of-type) {
+  margin-top: 0.5em;
 }
 
 .tab-user-wrap {

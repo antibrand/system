@@ -51,9 +51,7 @@ class Dashboard {
 	public function __construct() {
 
 		// Add content to the tabbed section of the dashboard page.
-		add_action( 'dashboard_top_panel', [ $this, 'tabs' ] );
-
-		add_action( 'dashboard_add_content', [ $this, 'panel_content' ] );
+		// add_action( 'dashboard_top_panel', [ $this, 'tabs' ] );
 
 		// Add dashboard quota to the activity box.
 		add_action( 'activity_box_end', [ $this, 'dashboard_quota' ] );
@@ -66,12 +64,12 @@ class Dashboard {
 	 *
 	 * Content varies by user role and can be superceded by themes & plugins.
 	 *
-	 * @since WP 3.3.0 WordPress released the "Welcome" panel.
-	 * @since 1.0.0 Completely reworked for this management system.
+	 * @since  WP 3.3.0 WordPress released the "Welcome" panel.
+	 * @since  1.0.0 Completely reworked for this management system.
 	 * @access public
 	 * @return void
 	 */
-	public function panel_content() {
+	public function dashboard_tabs( $args = [] ) {
 
 		/**
 		 * Get intro panel content by user role.
@@ -79,41 +77,38 @@ class Dashboard {
 
 		// Developer.
 		if ( current_user_can( 'develop' ) ) {
-			$intro = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-developer.php' );
+			$tabs['intro'] = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-developer.php' );
 
 		// Network administrator.
 		} elseif ( current_user_can( 'manage_network' ) ) {
-			$intro = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-network.php' );
+			$tabs['intro'] = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-network.php' );
 
 		// Administrator.
 		} elseif ( current_user_can( 'manage_options' ) ) {
-			$intro = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-administrator.php' );
+			$tabs['intro'] = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-administrator.php' );
 
 		// Editor.
 		} elseif ( current_user_can( 'edit_others_posts' ) ) {
-			$intro = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-editor.php' );
+			$tabs['intro'] = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-editor.php' );
 
 		// Author.
 		} elseif ( current_user_can( 'publish_posts' ) ) {
-			$intro = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-author.php' );
+			$tabs['intro'] = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-author.php' );
 
 		// Contributor.
 		} elseif ( current_user_can( 'edit_posts' ) ) {
-			$intro = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-contributor.php' );
+			$tabs['intro'] = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-contributor.php' );
 
 		// Subscriber.
 		} elseif ( current_user_can( 'read' ) ) {
-			$intro = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-subscriber.php' );
+			$tabs['intro'] = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-subscriber.php' );
 
+		// Fallback.
 		} else {
-			$intro = '';
+			$tabs['intro'] = '';
 		}
 
-		$tabs = [
-			$intro
-		];
-
-		return apply_filters( 'get_tab_content_dashboard', $tabs );
+		return apply_filters( 'dashboard_tabs', $tabs );
 	}
 
 	/**
@@ -121,7 +116,7 @@ class Dashboard {
 	 *
 	 * Add content to the tabbed section of the dashboard page.
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 * @access public
 	 * @return mixed Returns the markup of the tabbed content.
 	 */
@@ -132,28 +127,45 @@ class Dashboard {
 			return;
 		}
 
+		$start_heading = apply_filters( 'tabs_dashboard_start_heading', sprintf(
+			'%1s %2s %3s',
+			__( 'Your' ),
+			get_bloginfo( 'name' ),
+			__( 'Dashboard' )
+		) );
+
 		$screen->add_content_tab( [
-			'id'         => 'overview',
+			'id'         => 'dashboard-start',
+			'capability' => 'read',
+			'tab'        => __( 'Start' ),
+			'icon'       => '',
+			'heading'    => $start_heading,
+			'content'    => '',
+			'callback'   => [ $this, 'start_tab' ]
+		] );
+
+		$screen->add_content_tab( [
+			'id'         => 'dashboard-overview',
 			'capability' => 'manage_options',
 			'tab'        => __( 'Overview' ),
 			'icon'       => '',
 			'heading'    => __( 'Site Overview' ),
 			'content'    => '',
-			'callback'   => null
+			'callback'   => [ $this, 'site_overview_tab' ]
 		] );
 
 		$screen->add_content_tab( [
-			'id'         => 'widgets',
+			'id'         => 'dashboard-widgets',
 			'capability' => 'read',
 			'tab'        => __( 'Widgets' ),
 			'icon'       => '',
 			'heading'    => __( 'Dashboard Widgets' ),
 			'content'    => '',
-			'callback'   => null
+			'callback'   =>  [ $this, 'dashboard' ]
 		] );
 
 		$screen->add_content_tab( [
-			'id'         => 'draftposts',
+			'id'         => 'dashboard-draftposts',
 			'capability' => 'edit_posts',
 			'tab'        => __( 'Drafts' ),
 			'icon'       => '',
@@ -161,6 +173,76 @@ class Dashboard {
 			'content'    => '',
 			'callback'   => [ $this, 'dashboard_draft_posts' ]
 		] );
+	}
+
+	/**
+	 * Start tab
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @return mixed Returns the markup of the start tab.
+	 */
+	public function start_tab() {
+
+		// Get the current user data for the greeting.
+		$current_user = wp_get_current_user();
+		$user_id      = get_current_user_id();
+		$user_name    = $current_user->display_name;
+
+		$user_greeting = sprintf(
+			'%1s %2s',
+			esc_html__( 'Hello,' ),
+			$user_name
+		);
+
+	?>
+	<div class="tab-section-wrap tab-section-wrap__dashboard">
+
+		<section class="tab-section tab-section-dashboard tab-section__user-intro">
+
+			<div class="tab-user-wrap">
+
+				<figure>
+					<a href="<?php echo esc_url( admin_url( 'profile.php' ) ); ?>">
+						<img class="avatar" src="<?php echo esc_url( get_avatar_url( $user_id ) ); ?>" alt="<?php echo $user_name; ?>" width="80" height="80" />
+					</a>
+					<figcaption class="screen-reader-text"><?php echo $user_name; ?></figcaption>
+				</figure>
+
+				<div>
+					<?php echo sprintf(
+						'<h3>%1s</h3>',
+						$user_greeting
+					); ?>
+					<p><?php _e( 'This site may display your profile details in posts that you author, depending on the theme and plugins used. You can edit your details, set your images, and change your color schemes.' ); ?></p>
+
+					<p class="dashboard-panel-call-to-action">
+						<a class="button button-primary button-hightlight" href="<?php echo esc_url( admin_url( 'profile.php' ) ); ?>"><?php _e( 'Manage Your Account' ); ?></a>
+
+						<?php if ( current_user_can( 'list_users' ) ) : ?>
+						<a href="<?php echo esc_url( admin_url( 'users.php' ) ); ?>"><?php _e( 'View all accounts' ); ?></a>
+						<?php endif; ?>
+					</p>
+				</div>
+
+			</div>
+
+		</section>
+
+		<section class="tab-section tab-section-dashboard tab-section__system-info">
+
+			<h3><?php _e( 'Website Management' ); ?></h3>
+
+			<p><?php _e( 'The content of this website, including blog & news posts, informational pages, media presentations, user discussions, and more, is made easy by the website management system.' ); ?></p>
+
+			<p class="dashboard-panel-call-to-action">
+				<a class="button button-primary button-hightlight" href="<?php echo esc_url( admin_url( 'about.php' ) ); ?>"><?php _e( 'Learn More' ); ?></a>
+			</p>
+
+		</section>
+	</div>
+	<?php
+
 	}
 
 	/**
@@ -452,112 +534,118 @@ class Dashboard {
 	public function site_overview_tab() {
 
 	?>
-		<div class="top-panel-column-container">
+		<div class="tab-section-wrap tab-section-wrap__dashboard">
 
-			<div class="top-panel-column">
+			<section class="tab-section tab-section-dashboard tab-section__system-overview">
 
 				<?php
 
 				// Include the system overview.
 				$this->system_overview();
 				?>
-			</div>
+			</section>
 
-			<div class="top-panel-column">
+			<section class="tab-section tab-section-dashboard tab-section__dashboard-content">
 
 				<h3><?php _e( 'Content' ); ?></h3>
 
-				<ul>
-					<?php
-					// Posts and pages.
-					foreach ( [ 'post', 'page' ] as $post_type ) {
+				<div>
+					<ul>
+						<?php
+						// Posts and pages.
+						foreach ( [ 'post', 'page' ] as $post_type ) {
 
-						$num_posts = wp_count_posts( $post_type );
+							$num_posts = wp_count_posts( $post_type );
 
-						if ( $num_posts && $num_posts->publish ) {
+							if ( $num_posts && $num_posts->publish ) {
 
-							if ( 'post' == $post_type ) {
-								$text = _n( '%s Post', '%s Posts', $num_posts->publish );
-							} else {
-								$text = _n( '%s Page', '%s Pages', $num_posts->publish );
+								if ( 'post' == $post_type ) {
+									$text = _n( '%s Post', '%s Posts', $num_posts->publish );
+								} else {
+									$text = _n( '%s Page', '%s Pages', $num_posts->publish );
+								}
+
+								$text = sprintf( $text, number_format_i18n( $num_posts->publish ) );
+								$post_type_object = get_post_type_object( $post_type );
+
+								if ( $post_type_object && current_user_can( $post_type_object->cap->edit_posts ) ) {
+									printf( '<li class="%1$s-count"><a href="edit.php?post_type=%1$s">%2$s</a></li>', $post_type, $text );
+								} else {
+									printf( '<li class="%1$s-count"><span>%2$s</span></li>', $post_type, $text );
+								}
+
 							}
-
-							$text = sprintf( $text, number_format_i18n( $num_posts->publish ) );
-							$post_type_object = get_post_type_object( $post_type );
-
-							if ( $post_type_object && current_user_can( $post_type_object->cap->edit_posts ) ) {
-								printf( '<li class="%1$s-count"><a href="edit.php?post_type=%1$s">%2$s</a></li>', $post_type, $text );
-							} else {
-								printf( '<li class="%1$s-count"><span>%2$s</span></li>', $post_type, $text );
-							}
-
 						}
-					}
-					// Comments.
-					$num_comm = wp_count_comments();
+						// Comments.
+						$num_comm = wp_count_comments();
 
-					if ( $num_comm && ( $num_comm->approved || $num_comm->moderated ) ) {
+						if ( $num_comm && ( $num_comm->approved || $num_comm->moderated ) ) {
 
-						$text = sprintf( _n( '%s Comment', '%s Comments', $num_comm->approved ), number_format_i18n( $num_comm->approved ) );
+							$text = sprintf( _n( '%s Comment', '%s Comments', $num_comm->approved ), number_format_i18n( $num_comm->approved ) );
+
+							?>
+							<li class="comment-count"><a href="edit-comments.php"><?php echo $text; ?></a></li>
+							<?php
+
+							$moderated_comments_count_i18n = number_format_i18n( $num_comm->moderated );
+
+							// Translators: %s: number of comments in moderation.
+							$text = sprintf( _nx( '%s in moderation', '%s in moderation', $num_comm->moderated, 'comments' ), $moderated_comments_count_i18n );
+
+							// Translators: %s: number of comments in moderation.
+							$aria_label = sprintf( _nx( '%s comment in moderation', '%s comments in moderation', $num_comm->moderated, 'comments' ), $moderated_comments_count_i18n );
+
+							?>
+							<li class="comment-mod-count<?php if ( ! $num_comm->moderated ) { echo ' hidden'; } ?>">
+								<a href="edit-comments.php?comment_status=moderated" aria-label="<?php esc_attr_e( $aria_label ); ?>"><?php echo $text; ?></a>
+							</li>
+							<?php
+						}
+
+						/**
+						 * Filters the array of extra elements to list in the 'Site Overview'
+						 * dashboard widget.
+						 *
+						 * Prior to 3.8.0, the widget was named 'Right Now'. Each element
+						 * is wrapped in list-item tags on output.
+						 *
+						 * @since WP 3.8.0
+						 * @param array $items Array of extra 'Site Overview' widget items.
+						 */
+						$elements = apply_filters( 'dashboard_glance_items', [] );
+
+						if ( $elements ) {
+							echo '<li>' . implode( "</li>\n<li>", $elements ) . "</li>\n";
+						}
 
 						?>
-						<li class="comment-count"><a href="edit-comments.php"><?php echo $text; ?></a></li>
-						<?php
+					</ul>
+				</div>
+			</section>
 
-						$moderated_comments_count_i18n = number_format_i18n( $num_comm->moderated );
-
-						// Translators: %s: number of comments in moderation.
-						$text = sprintf( _nx( '%s in moderation', '%s in moderation', $num_comm->moderated, 'comments' ), $moderated_comments_count_i18n );
-
-						// Translators: %s: number of comments in moderation.
-						$aria_label = sprintf( _nx( '%s comment in moderation', '%s comments in moderation', $num_comm->moderated, 'comments' ), $moderated_comments_count_i18n );
-
-						?>
-						<li class="comment-mod-count<?php if ( ! $num_comm->moderated ) { echo ' hidden'; } ?>">
-							<a href="edit-comments.php?comment_status=moderated" aria-label="<?php esc_attr_e( $aria_label ); ?>"><?php echo $text; ?></a>
-						</li>
-						<?php
-					}
-
-					/**
-					 * Filters the array of extra elements to list in the 'Site Overview'
-					 * dashboard widget.
-					 *
-					 * Prior to 3.8.0, the widget was named 'Right Now'. Each element
-					 * is wrapped in list-item tags on output.
-					 *
-					 * @since WP 3.8.0
-					 * @param array $items Array of extra 'Site Overview' widget items.
-					 */
-					$elements = apply_filters( 'dashboard_glance_items', [] );
-
-					if ( $elements ) {
-						echo '<li>' . implode( "</li>\n<li>", $elements ) . "</li>\n";
-					}
-
-					?>
-				</ul>
-			</div>
-
-			<div class="top-panel-column">
+			<?php if ( ! current_user_can( 'list_users' ) ) : ?>
+			<section class="tab-section tab-section-dashboard tab-section__dashboard-accounts">
 
 				<h3><?php _e( 'Accounts' ); ?></h3>
 
-				<ul>
-				<?php
-				$result = count_users();
+				<div>
+					<ul>
+					<?php
+					$result = count_users();
 
-				foreach( $result['avail_roles'] as $role => $count ) {
+					foreach( $result['avail_roles'] as $role => $count ) {
 
-					if ( 'none' != $role ) {
-						echo '<li><a href="' . esc_url( admin_url( 'users.php?role=' . $role ) ) . '">' . $count . ' ' . _n( ucwords( $role ), ucwords( $role ) . 's', $count ) . '</a></li>';
+						if ( 'none' != $role ) {
+							echo '<li><a href="' . esc_url( admin_url( 'users.php?role=' . $role ) ) . '">' . $count . ' ' . _n( ucwords( $role ), ucwords( $role ) . 's', $count ) . '</a></li>';
+						}
+
 					}
-
-				}
-				?>
-				</ul>
-			</div>
-		</div>
+					?>
+					</ul>
+				</div>
+			</section>
+			<?php endif; ?>
+		</div><!-- .tab-section-wrap -->
 		<?php
 		/*
 			* activity_box_end has a core action, but only prints content when multisite.
@@ -666,17 +754,21 @@ class Dashboard {
 			 * @since WP 3.0.0
 			 * @param string $content Default text.
 			 */
-			$link_text    = apply_filters( 'privacy_on_link_text' , __( 'Search Engines Discouraged' ) );
-			$title_attr = '' === $title ? '' : " title='$title'";
+			$link_text = apply_filters( 'engines_discouraged_link_text' , __( 'Search Engines Discouraged' ) );
+			if ( '' === $title ) {
+				$title_attr = '';
+			} else {
+				$title_attr = sprintf(
+					' title="%1s"',
+					$title
+				);
+			}
 
-			$content .= "<p class='dashboard-overview-item'><a href='options-reading.php'$title_attr>$link_text</a></p>";
+			// Search engines message/link.
+			if ( current_user_can( 'manage_options' ) ) {
+				$content .= "<p class='dashboard-overview-item'><a href='options-reading.php'$title_attr>$link_text</a></p>";
+			}
 		}
-
-		$content .= sprintf(
-			'<p class="dashboard-panel-call-to-action"><a class="button button-primary button-hero" href="%1s">%2s</a></p>',
-			esc_url( admin_url( 'about.php' ) ),
-			__( 'More Information' )
-		);
 
 		$content .= '</div></div>';
 
@@ -841,9 +933,9 @@ class Dashboard {
 
 		$post_ID = (int) $post->ID;
 	?>
-		<div class="app-tab-content-inner hide-if-no-js">
+		<div class="tab-section-wrap tab-section-wrap__dashboard hide-if-no-js">
 
-			<section class="app-tab-content-section app-tab-content__quick-draft">
+			<section class="tab-section tab-section-dashboard tab-section__quick-draft">
 
 				<h3><?php _e( 'Quick Draft' ); ?></h3>
 
@@ -885,7 +977,7 @@ class Dashboard {
 
 			</section>
 
-			<section id="dashboard-recent-drafts" class="app-tab-content-section app-tab-content__recent-drafts">
+			<section id="dashboard-recent-drafts" class="tab-section tab-section-dashboard tab-section__recent-drafts">
 
 				<h3><?php _e( 'Recent Drafts' ); ?></h3>
 

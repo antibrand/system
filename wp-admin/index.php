@@ -60,13 +60,16 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 
 		<h1><?php echo esc_html( $title ); ?></h1>
 
-		
+		<div id="dashboard-tabs">
+			<?php
+
+			// Tabbed content.
+			echo get_current_screen()->render_content_tabs();
+
+			?>
+		</div>
 
 	<?php
-
-		// Tabbed content.
-		echo get_current_screen()->render_content_tabs();
-
 
 		if ( has_action( 'dashboard_add_content' ) || has_action( 'welcome_panel' ) ) :
 
