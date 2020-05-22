@@ -963,8 +963,9 @@ function wp_default_styles( &$styles ) {
 	$styles->add( 'profile',     "/wp-admin/css/profile$suffix.css" );
 	$styles->add( 'site-icon',   "/wp-admin/css/site-icon$suffix.css" );
 	$styles->add( 'code-editor', "/wp-admin/css/code-editor$suffix.css", [ 'wp-codemirror' ] );
+	$styles->add( 'acf',         "/wp-admin/css/acf$suffix.css", [ 'acf-global' ] );
 
-	$styles->add( 'wp-admin', false, [ 'dashicons', 'admin', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'nav-menus', 'widgets', 'profile', 'site-icon' ] );
+	$styles->add( 'wp-admin', false, [ 'dashicons', 'admin', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'nav-menus', 'widgets', 'profile', 'site-icon', 'acf' ] );
 
 	$styles->add( 'login',               "/wp-admin/css/login$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'install',             "/wp-admin/css/install$suffix.css" );
@@ -997,7 +998,7 @@ function wp_default_styles( &$styles ) {
 
 		// Admin stylesheets.
 		'admin', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'nav-menus',
-		'widgets', 'profile', 'site-icon', 'install', 'customize-controls', 'customize-widgets', 'customize-nav-menus', 'customize-preview',
+		'widgets', 'profile', 'site-icon', 'acf', 'install', 'customize-controls', 'customize-widgets', 'customize-nav-menus', 'customize-preview',
 		'login',
 
 		// Includes stylesheets.

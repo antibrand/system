@@ -3691,7 +3691,8 @@ form.upgrade .hint {
 /* screen options and help tabs revert */
 #screen-meta {
   display: none;
-  margin: 0 20px -1px 0px;
+  margin: 0;
+  margin-top: -1px;
   position: relative;
   border: 1px solid #cccccc;
   border-top: none;
