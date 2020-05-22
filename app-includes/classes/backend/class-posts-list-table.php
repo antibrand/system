@@ -221,20 +221,24 @@ class Posts_List_Table extends List_Table {
 	}
 
 	/**
+	 * Get edit links
+	 *
 	 * Helper to create links to edit.php with params.
 	 *
-	 * @since 4.4.0
-	 *
-	 * @param array  $args  URL parameters for the link.
-	 * @param string $label Link text.
-	 * @param string $class Optional. Class attribute. Default empty string.
+	 * @since  WP 4.4.0
+	 * @param  array  $args  URL parameters for the link.
+	 * @param  string $label Link text.
+	 * @param  string $class Optional. Class attribute. Default empty string.
 	 * @return string The formatted link string.
 	 */
 	protected function get_edit_link( $args, $label, $class = '' ) {
+
 		$url = add_query_arg( $args, 'edit.php' );
 
 		$class_html = $current_aria = '';
+
 		if ( ! empty( $class ) ) {
+
 			$class_html = sprintf(
 				' class="button %s"',
 				esc_attr( $class )
@@ -243,10 +247,58 @@ class Posts_List_Table extends List_Table {
 			if ( 'current' === $class ) {
 				$current_aria = ' aria-current="page"';
 			}
+
 		} else {
-			$class = 'button';
+
+			$class      = 'button';
 			$class_html = sprintf(
-				' class="button"',
+				' class="%1s"',
+				esc_attr( $class )
+			);
+		}
+
+		return sprintf(
+			'<a href="%s"%s%s>%s</a>',
+			esc_url( $url ),
+			$class_html,
+			$current_aria,
+			$label
+		);
+	}
+
+	/**
+	 * Get table edit links
+	 *
+	 * Helper to create links to edit.php with params inside list tables.
+	 *
+	 * @since  1.0.0
+	 * @param  array $args  URL parameters for the link.
+	 * @param  string $label Link text.
+	 * @param  string $class Optional. Class attribute. Default empty string.
+	 * @return string The formatted link string.
+	 */
+	protected function get_table_edit_link( $args, $label, $class = '' ) {
+
+		$url = add_query_arg( $args, 'edit.php' );
+
+		$class_html = $current_aria = '';
+
+		if ( ! empty( $class ) ) {
+
+			$class_html = sprintf(
+				' class="%s"',
+				esc_attr( $class )
+			);
+
+			if ( 'current' === $class ) {
+				$current_aria = ' aria-current="page"';
+			}
+
+		} else {
+
+			$class      = '';
+			$class_html = sprintf(
+				' class="%1s"',
 				esc_attr( $class )
 			);
 		}
@@ -1078,7 +1130,7 @@ class Posts_List_Table extends List_Table {
 			'post_type' => $post->post_type,
 			'author' => get_the_author_meta( 'ID' )
 		);
-		echo $this->get_edit_link( $args, get_the_author() );
+		echo $this->get_table_edit_link( $args, get_the_author() );
 	}
 
 	/**
@@ -1117,7 +1169,7 @@ class Posts_List_Table extends List_Table {
 					}
 
 					$label = esc_html( sanitize_term_field( 'name', $t->name, $t->term_id, $taxonomy, 'display' ) );
-					$out[] = $this->get_edit_link( $posts_in_term_qv, $label );
+					$out[] = $this->get_table_edit_link( $posts_in_term_qv, $label );
 				}
 				/* translators: used between list items, there is a space after the comma */
 				echo join( __( ', ' ), $out );
