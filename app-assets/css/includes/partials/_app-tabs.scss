@@ -79,13 +79,17 @@
 			& + div,
 			& + section {
 				margin-top: 2rem;
+
+				& > h3 {
+					margin-top: 0;
+				}
 			}
 		}
 
 		.tab-section {
 
-			& > h3 {
-				margin-top: 0;
+			& > div {
+				padding-top: 1rem;
 			}
 		}
 
