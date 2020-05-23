@@ -251,6 +251,8 @@ input {
 	&.button-hightlight,
 	&.button-hero {
 		background-color: $app_highlight_color;
+		border-color: $app_highlight_color;
+		color: $app_secondary_color;
 
 		&:hover,
 		&:focus {
@@ -314,6 +316,34 @@ input {
 
 #screen-meta-links .show-settings {
 	border-color: $box_border_color;
+}
+
+/**
+ * Tabbed content
+ */
+.app-tabs {
+	.app-tabs-list {
+		.app-tab {
+			a {
+				background-color: $form_background_color;
+				color: darken( $text_color, 30% );
+
+				&:hover,
+				&:focus {
+					color: $text_color;
+				}
+			}
+
+			&.active {
+				border-bottom-color: $body_background;
+
+				a {
+					background-color: $body_background;
+					color: $text_color;
+				}
+			}
+		}
+	}
 }
 
 /**

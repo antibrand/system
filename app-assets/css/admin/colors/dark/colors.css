@@ -172,6 +172,8 @@ input:disabled, input.disabled {
 .button-secondary.button-hightlight,
 .button-secondary.button-hero {
   background-color: #ffee00;
+  border-color: #ffee00;
+  color: #222222;
 }
 
 .button.button-hightlight:hover, .button.button-hightlight:focus, .button.button-hero:hover, .button.button-hero:focus,
@@ -343,6 +345,27 @@ input:disabled, input.disabled {
 
 #screen-meta-links .show-settings {
   border-color: #414141;
+}
+
+/**
+ * Tabbed content
+ */
+.app-tabs .app-tabs-list .app-tab a {
+  background-color: #2f2f2f;
+  color: #b3b3b3;
+}
+
+.app-tabs .app-tabs-list .app-tab a:hover, .app-tabs .app-tabs-list .app-tab a:focus {
+  color: #ffffff;
+}
+
+.app-tabs .app-tabs-list .app-tab.active {
+  border-bottom-color: #222;
+}
+
+.app-tabs .app-tabs-list .app-tab.active a {
+  background-color: #222;
+  color: #ffffff;
 }
 
 /**
