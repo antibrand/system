@@ -1,0 +1,38 @@
+@import '../../includes/modules/_typography';
+@import '../../includes/modules/_colors';
+
+/**
+ * Advanced Custom Fields
+ *
+ * Overrides the plugin styles which are intended to jive with
+ * brand-name management systems.
+ */
+.acf-admin-navigation {
+	padding: 1em 2rem;
+	background-color: $body_background !important;
+
+	h2,
+	.acf-tab {
+		padding: 0 !important;
+		font-size: $px14 !important;
+		line-height: 1 !important;
+	}
+
+	h2 {
+		margin-right: 1rem !important;
+		i {
+			display: none;
+		}
+	}
+
+	.acf-tab {
+		margin: 0 0.5em !important;
+		color: $link_color !important;
+
+		&.is-active {
+			padding: 0 !important;
+			border: none !important;
+			font-weight: 700;
+		}
+	}
+}

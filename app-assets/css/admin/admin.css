@@ -3665,7 +3665,7 @@ form.upgrade .hint {
 #screen-options-wrap,
 #contextual-help-wrap {
   margin: 0;
-  padding: 8px 20px 12px;
+  padding: 1rem 2rem;
   position: relative;
 }
 
@@ -6678,6 +6678,43 @@ li#wp-admin-bar-menu-toggle {
   .auto-fold #adminmenu {
     top: 46px;
   }
+}
+
+/**
+ * Advanced Custom Fields
+ *
+ * Overrides the plugin styles which are intended to jive with
+ * brand-name management systems.
+ */
+.acf-admin-navigation {
+  padding: 1em 2rem;
+  background-color: #ffffff !important;
+}
+
+.acf-admin-navigation h2,
+.acf-admin-navigation .acf-tab {
+  padding: 0 !important;
+  font-size: 0.875rem !important;
+  line-height: 1 !important;
+}
+
+.acf-admin-navigation h2 {
+  margin-right: 1rem !important;
+}
+
+.acf-admin-navigation h2 i {
+  display: none;
+}
+
+.acf-admin-navigation .acf-tab {
+  margin: 0 0.5em !important;
+  color: #004499 !important;
+}
+
+.acf-admin-navigation .acf-tab.is-active {
+  padding: 0 !important;
+  border: none !important;
+  font-weight: 700;
 }
 
 /**
