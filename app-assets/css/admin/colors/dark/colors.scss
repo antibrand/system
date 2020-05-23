@@ -604,3 +604,86 @@ fieldset {
 .color-palette li {
 	border: solid 1px $form_border_color;
 }
+
+///
+/// Deprecated styles
+///
+/// The following style rules are not in use by
+/// this website management system but may be
+/// referenced by plugins and themes.
+///
+/// These styles may have been modified since being
+/// deprecated to be consistent with styles in use,
+/// and may not be what plugin & theme authors were
+/// expecting the styles were applied.
+
+
+/// Page title actions
+///
+/// This is typically used for an "Add New" button
+/// following a page title on list view screens.
+///
+/// Styles applied here are the same or similar to
+/// global button styles.
+.page-title-action {
+	background: $button_background_color;
+	border-color: $button_border_color;
+	color: $text_color;
+
+	&.hover,
+	&:hover,
+	&.focus,
+	&:focus,
+	&.active,
+	&:active,
+	&.current {
+		background: $button_action_background_color;
+		color: $button_action_text_color;
+	}
+
+	&[disabled],
+	&:disabled,
+	&.disabled,
+	&.button-disabled {
+		background: $button_disabled_background_color;
+		color: $button_disabled_text_color;
+	}
+}
+
+/// List table views
+///
+/// This is typically used for links to switch between
+/// post type statuses on list view screens.
+///
+/// Styles applied here are the same or similar to
+/// global button styles.
+.list-table-views {
+	li {
+		a {
+			&:not( .button ) {
+				background: $button_background_color;
+				border-color: $button_border_color;
+				color: $text_color;
+
+				&.hover,
+				&:hover,
+				&.focus,
+				&:focus,
+				&.active,
+				&:active,
+				&.current {
+					background: $button_action_background_color;
+					color: $button_action_text_color;
+				}
+
+				&[disabled],
+				&:disabled,
+				&.disabled,
+				&.button-disabled {
+					background: $button_disabled_background_color;
+					color: $button_disabled_text_color;
+				}
+			}
+		}
+	}
+}

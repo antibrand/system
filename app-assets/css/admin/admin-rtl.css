@@ -2173,8 +2173,13 @@ table.form-table td .updated p {
   margin-top: 2rem;
 }
 
-.app-tabs .app-tab-content .tab-section > h3 {
+.app-tabs .app-tab-content > h2 + div > h3,
+.app-tabs .app-tab-content > h2 + section > h3 {
   margin-top: 0;
+}
+
+.app-tabs .app-tab-content .tab-section > div {
+  padding-top: 1rem;
 }
 
 .app-tabs .app-tab-content .app-tab-columns {
@@ -2827,8 +2832,6 @@ img.emoji {
   outline: 0;
 }
 
-.top-panel .top-panel-close:hover:before,
-.top-panel .top-panel-close:focus:before,
 .tagchecklist .ntdelbutton:hover .remove-tag-icon:before,
 .tagchecklist .ntdelbutton:focus .remove-tag-icon:before,
 #bulk-titles div a:hover:before,
@@ -6742,6 +6745,82 @@ li#wp-admin-bar-menu-toggle {
 .acf-admin-navigation .acf-tab.is-active:hover, .acf-admin-navigation .acf-tab.is-active:focus {
   cursor: default;
   color: #004499 !important;
+}
+
+.page-title-action {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  background: #ffffff;
+  border: solid 1px #888888;
+  font-size: 0.875rem;
+  font-weight: bold;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  color: #222222;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+}
+
+.page-title-action.hover, .page-title-action:hover, .page-title-action.focus, .page-title-action:focus, .page-title-action.active, .page-title-action:active, .page-title-action.current {
+  background: #ffee00;
+  color: #222222;
+  color-adjust: exact !important;
+}
+
+.page-title-action[disabled], .page-title-action:disabled, .page-title-action.disabled, .page-title-action.button-disabled {
+  background: #eeeeee;
+  color: #888888;
+  cursor: default;
+}
+
+.list-table-views {
+  margin-top: 2rem;
+}
+
+.list-table-views li {
+  margin: 0;
+}
+
+.list-table-views li:not(:last-of-type) {
+  margin-left: 0.25em;
+}
+
+.list-table-views li a:not(.button) {
+  display: inline-block;
+  vertical-align: baseline;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  background: #ffffff;
+  border: solid 1px #888888;
+  font-size: 0.875rem;
+  font-weight: bold;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  color: #222222;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+}
+
+.list-table-views li a:not(.button).hover, .list-table-views li a:not(.button):hover, .list-table-views li a:not(.button).focus, .list-table-views li a:not(.button):focus, .list-table-views li a:not(.button).active, .list-table-views li a:not(.button):active, .list-table-views li a:not(.button).current {
+  background: #ffee00;
+  color: #222222;
+  color-adjust: exact !important;
+}
+
+.list-table-views li a:not(.button)[disabled], .list-table-views li a:not(.button):disabled, .list-table-views li a:not(.button).disabled, .list-table-views li a:not(.button).button-disabled {
+  background: #eeeeee;
+  color: #888888;
+  cursor: default;
 }
 
 /**

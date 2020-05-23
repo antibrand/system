@@ -618,3 +618,35 @@ fieldset.scheme-list {
 .color-palette li {
   border: solid 1px #626262;
 }
+
+.page-title-action {
+  background: #2f2f2f;
+  border-color: #626262;
+  color: #ffffff;
+}
+
+.page-title-action.hover, .page-title-action:hover, .page-title-action.focus, .page-title-action:focus, .page-title-action.active, .page-title-action:active, .page-title-action.current {
+  background: #ffee00;
+  color: #222222;
+}
+
+.page-title-action[disabled], .page-title-action:disabled, .page-title-action.disabled, .page-title-action.button-disabled {
+  background: #eeeeee;
+  color: #888888;
+}
+
+.list-table-views li a:not(.button) {
+  background: #2f2f2f;
+  border-color: #626262;
+  color: #ffffff;
+}
+
+.list-table-views li a:not(.button).hover, .list-table-views li a:not(.button):hover, .list-table-views li a:not(.button).focus, .list-table-views li a:not(.button):focus, .list-table-views li a:not(.button).active, .list-table-views li a:not(.button):active, .list-table-views li a:not(.button).current {
+  background: #ffee00;
+  color: #222222;
+}
+
+.list-table-views li a:not(.button)[disabled], .list-table-views li a:not(.button):disabled, .list-table-views li a:not(.button).disabled, .list-table-views li a:not(.button).button-disabled {
+  background: #eeeeee;
+  color: #888888;
+}
