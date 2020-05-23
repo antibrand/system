@@ -29,10 +29,21 @@
 		margin: 0 0.5em !important;
 		color: $link_color !important;
 
+		&:hover,
+		&:focus {
+			color: $link_action_color !important;
+		}
+
 		&.is-active {
 			padding: 0 !important;
 			border: none !important;
 			font-weight: 700;
+
+			&:hover,
+			&:focus {
+				cursor: default;
+				color: $link_color !important;
+			}
 		}
 	}
 }

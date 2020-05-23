@@ -6711,10 +6711,19 @@ li#wp-admin-bar-menu-toggle {
   color: #004499 !important;
 }
 
+.acf-admin-navigation .acf-tab:hover, .acf-admin-navigation .acf-tab:focus {
+  color: #005fd6 !important;
+}
+
 .acf-admin-navigation .acf-tab.is-active {
   padding: 0 !important;
   border: none !important;
   font-weight: 700;
+}
+
+.acf-admin-navigation .acf-tab.is-active:hover, .acf-admin-navigation .acf-tab.is-active:focus {
+  cursor: default;
+  color: #004499 !important;
 }
 
 /**
