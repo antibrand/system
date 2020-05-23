@@ -18,7 +18,10 @@
 			the_title( '<h2 class="entry-title">', '</h2>' );
 		} else {
 			the_title( '<h1 class="entry-title">', '</h1>' );
-		} ?>
+		}
+
+		the_subtitle( '<p class="entry-subtitle">', '</p>' );
+		?>
 	</header>
 
 	<?php AB_Theme\Tags\post_thumbnail(); ?>
