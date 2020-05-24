@@ -200,7 +200,7 @@ class Dashboard {
 
 		<section class="tab-section tab-section-dashboard tab-section__user-intro">
 
-			<div class="tab-icon-content tab-icon-content-dashboard tab-icon-content__system-overview">
+			<div class="tab-user-wrap">
 
 				<figure>
 					<a href="<?php echo esc_url( admin_url( 'profile.php' ) ); ?>">
@@ -231,16 +231,13 @@ class Dashboard {
 
 		<section class="tab-section tab-section-dashboard tab-section__system-info">
 
-			<div>
+			<h3><?php _e( 'Website Management' ); ?></h3>
 
-				<h3><?php _e( 'Website Management' ); ?></h3>
+			<p><?php _e( 'The content of this website, including blog & news posts, informational pages, media presentations, user discussions, and more, is made easy by the website management system.' ); ?></p>
 
-				<p><?php _e( 'The content of this website, including blog & news posts, informational pages, media presentations, user discussions, and more, is made easy by the website management system.' ); ?></p>
-
-				<p class="dashboard-panel-call-to-action">
-					<a class="button button-primary button-hightlight" href="<?php echo esc_url( admin_url( 'about.php' ) ); ?>"><?php _e( 'Learn More' ); ?></a>
-				</p>
-			</div>
+			<p class="dashboard-panel-call-to-action">
+				<a class="button button-primary button-hightlight" href="<?php echo esc_url( admin_url( 'about.php' ) ); ?>"><?php _e( 'Learn More' ); ?></a>
+			</p>
 
 		</section>
 	</div>
@@ -706,10 +703,10 @@ class Dashboard {
 
 		$content .= sprintf(
 			'
-			<div class="tab-icon-content tab-icon-content-dashboard tab-icon-content__system-overview">
+			<div class="dashboard-panel-section-intro dashboard-panel-system">
 				<figure>
 					<a href="%1s">
-						<img class="avatar" src="%2s" alt="%3s" width="80" height="80" />
+						<img class="avatar" src="%2s" alt="%3s" width="64" height="64" />
 					</a>
 					<figcaption class="screen-reader-text">%4s</figcaption>
 				</figure>
@@ -773,7 +770,7 @@ class Dashboard {
 			}
 		}
 
-		$content .= '</div></div><!-- .tab-icon-content -->';
+		$content .= '</div></div>';
 
 		/**
 		 * Filters the text displayed in the 'Site Overview' dashboard widget.

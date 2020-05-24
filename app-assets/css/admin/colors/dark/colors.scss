@@ -1,5 +1,5 @@
 /**
- * Default dark color scheme
+ * Sefault dark color scheme
  */
 
 // Import general app variables.
@@ -89,7 +89,7 @@ $editor_button_action_background_color: $app_highlight_color;
 $editor_button_action_border_color: $button_border_color;
 $editor_button_action_text_color: $button_text_color;
 
-body.admin-color-dark {
+body {
 	background: $body_background;
 	color: $text_color;
 }
@@ -106,7 +106,6 @@ body.admin-color-dark {
 .postbox {
 	background-color: $box_background_color;
 	border-color: $box_border_color;
-	color: $text_color;
 
 	.hndle {
 		border-color: $box_border_color;
@@ -383,14 +382,12 @@ input {
 div.mce-toolbar-grp,
 #post-status-info,
 div.mce-statusbar,
-.quicktags-toolbar,
-.wp-editor-expand div.mce-toolbar-grp {
+.quicktags-toolbar {
 	background-color: $box_background_color !important;
 	border-color: $form_border_color !important;
 }
 
 .wp-editor-expand #wp-content-editor-tools {
-	background-color: $body_background;
 	border-color: $form_border_color !important;
 }
 
@@ -473,12 +470,6 @@ div.mce-statusbar,
 	border-color: $box_border_color;
 }
 
-.media-upload-form .media-item,
-.media-upload-form .media-item .error {
-	-webkit-box-shadow: 0 1px 0 $box_border_color;
-	box-shadow: 0 1px 0 $box_border_color;
-}
-
 .app-core-ui .attachment
 .media-frame-toolbar .media-toolbar,
 .media-sidebar,
@@ -553,32 +544,6 @@ ul.add-menu-item-tabs li.tabs,
 #post-body ul.category-tabs li.tabs a,
 #post-body ul.add-menu-item-tabs li.tabs a {
 	color: $text_color;
-}
-
-.media-menu > a {
-	color: $link_color;
-
-	&:hover,
-	&:focus {
-		color: $link_action_color;
-	}
-}
-
-.media-frame a:hover,
-.media-frame a:active,
-.media-router .active,
-.media-router .active:hover {
-	color: $text_color;
-}
-
-.media-frame-toolbar .media-toolbar {
-	background-color: $form_background_color;
-	border-color: $box_border_color;
-}
-
-.app-core-ui .attachment:hover,
-.app-core-ui .attachment.details {
-	border-color: $app_highlight_color;
 }
 
 /**

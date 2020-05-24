@@ -118,11 +118,12 @@
 	margin-bottom: 1px;
 	position: relative;
 	width: 100%;
+	background: #fff;
 }
 
 .media-upload-form .media-item,
 .media-upload-form .media-item .error {
-	box-shadow: 0 1px 0 $box_border_color;
+	box-shadow: 0 1px 0 #ddd;
 }
 
 #media-items:empty {
@@ -332,11 +333,14 @@
 
 #find-posts-close:hover,
 #find-posts-close:focus {
-	color: $link_action_color;
+	color: #00a0d2;
 }
 
 #find-posts-close:focus {
 	outline: none;
+	box-shadow:
+		0 0 0 1px #5b9dd9,
+		0 0 2px 1px rgba(30, 140, 190, .8);
 }
 
 #find-posts-close:before {
@@ -514,6 +518,7 @@ border color while dragging a file over the uploader drop area */
 	content: "\f153";
 	display: block;
 	font: normal 16px/1 dashicons;
+	color: #72777c;
 }
 
 .upload-php .mode-grid .media-sidebar .media-uploader-status .upload-dismiss-errors:focus:before,
@@ -534,7 +539,7 @@ border color while dragging a file over the uploader drop area */
 	bottom: auto;
 	padding-top: 0;
 	margin-top: 20px;
-	border: 4px dashed $box_border_color;
+	border: 4px dashed #b4b9be;
 }
 
 .media-frame.mode-select .attachments-browser.fixed .attachments {
@@ -546,7 +551,22 @@ border color while dragging a file over the uploader drop area */
 .media-frame.mode-grid .attachment:focus,
 .media-frame.mode-grid .selected.attachment:focus,
 .media-frame.mode-grid .attachment.details:focus {
+	box-shadow:
+		inset 0 0 2px 3px #f1f1f1,
+		inset 0 0 0 7px #5b9dd9;
 	outline: none;
+}
+
+.media-frame.mode-grid .selected.attachment {
+	box-shadow:
+		inset 0 0 0 5px #f1f1f1,
+		inset 0 0 0 7px $pale_gray;
+}
+
+.media-frame.mode-grid .attachment.details {
+	box-shadow:
+		inset 0 0 0 3px #f1f1f1,
+		inset 0 0 0 7px #1e8cbe;
 }
 
 .media-frame.mode-grid.mode-select .attachment .thumbnail {
@@ -1072,7 +1092,7 @@ border color while dragging a file over the uploader drop area */
 	margin: -1px -1px 0 0;
 	padding: 0;
 	background: transparent;
-	color: $link_color;
+	color: #0074a2;
 	font-size: 20px;
 	line-height: 1;
 	cursor: pointer;
@@ -1081,9 +1101,10 @@ border color while dragging a file over the uploader drop area */
 }
 
 .image-editor .imgedit-settings .imgedit-help-toggle:focus {
-	color: $link_action_color;
-	border-color: $form_action_border_color;
+	color: #0074a2;
+	border-color: #5b9dd9;
 	outline: none;
+	box-shadow: 0 0 3px rgba( 0, 115, 170, .8 );
 }
 
 .form-table td.imgedit-response {

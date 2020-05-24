@@ -16,13 +16,33 @@
   margin-right: 2rem;
 }
 
-.tab-section-wrap__dashboard .tab-section-dashboard + div {
+.tab-section-wrap__dashboard .tab-section-dashboard > div {
   margin-top: 2rem;
 }
 
-.tab-section-wrap__dashboard .tab-section__dashboard-content ul li:not(:last-of-type),
-.tab-section-wrap__dashboard .tab-section__dashboard-accounts ul li:not(:last-of-type) {
-  margin-top: 0.35em;
+.tab-section-wrap__dashboard .tab-section__dashboard-content ul li:not(:first-of-type),
+.tab-section-wrap__dashboard .tab-section__dashboard-accounts ul li:not(:first-of-type) {
+  margin-top: 0.5em;
+}
+
+.tab-user-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.tab-user-wrap figure {
+  min-width: 80px;
+  margin-right: 1em;
+}
+
+.tab-user-wrap figure a,
+.tab-user-wrap figure img {
+  display: block;
+}
+
+.tab-user-wrap > div h3 {
+  margin-top: 0;
 }
 
 .dashboard-panel-call-to-action a + a {
@@ -166,6 +186,126 @@
   max-width: 100%;
 }
 
+/* Top Panel */
+.top-panel {
+  position: relative;
+  min-height: 60px;
+  overflow: auto;
+  margin: 1em 0;
+  font-size: 0.875rem;
+  line-height: 1.325;
+}
+
+.top-panel h2 {
+  margin: 0;
+  font-size: 21px;
+  line-height: 1.2;
+}
+
+.top-panel h3 {
+  margin: 1.33em 0 0;
+}
+
+.top-panel h3 ~ div {
+  margin-top: 1em;
+}
+
+.top-panel li {
+  font-size: 14px;
+}
+
+.top-panel a {
+  text-decoration: none;
+}
+
+.top-panel .welcome-description,
+.top-panel .intro-description,
+.top-panel .intro-description {
+  font-size: 16px;
+  margin: 0;
+}
+
+.top-panel .top-panel-close {
+  position: absolute;
+  z-index: 10;
+  top: 0.5em;
+  right: 0.5em;
+  padding: 1em;
+  font-size: 13px;
+  line-height: 1.23076923;
+  /* Chrome rounding, needs to be 16px equivalent */
+  text-decoration: none;
+}
+
+.top-panel .top-panel-close:before {
+  content: "\f153";
+  display: inline-block;
+  margin-right: 0.3em;
+  vertical-align: middle;
+  background: none;
+  color: #888888;
+  font-family: dashicons;
+  font-size: 1.2em;
+  speak: none;
+  speak: never;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
+}
+
+.app-core-ui .top-panel .button.button-hero {
+  margin: 15px 13px 3px 0;
+  padding: 12px 36px;
+  height: auto;
+  font-size: 1.0625rem;
+  line-height: 1.4285714;
+  white-space: normal;
+}
+
+.top-panel-content,
+.top-panel-content {
+  max-width: 1500px;
+}
+
+.top-panel .top-panel-column-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.top-panel .top-panel-column-container .top-panel-column {
+  min-width: 160px;
+  max-width: 480px;
+}
+
+@media screen and (max-width: 782px) {
+  .top-panel .top-panel-column-container .top-panel-column {
+    max-width: 100%;
+  }
+}
+
+.top-panel .top-panel-column-container .top-panel-column:first-of-type {
+  min-width: 320px;
+}
+
+.top-panel .top-panel-column-container .top-panel-column:not(:last-of-type) {
+  margin-right: 2rem;
+}
+
+@media screen and (max-width: 782px) {
+  .top-panel .top-panel-column-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .top-panel .top-panel-column-container .top-panel-column {
+    min-width: 100%;
+  }
+}
+
 #tab-panel-draftposts .app-tab-content-inner {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -201,6 +341,32 @@
   margin-right: 2rem;
 }
 
+.top-panel-column p.hide-if-no-customize {
+  margin-top: 10px;
+}
+
+.top-panel .top-panel-column ul {
+  margin: 1em 1em 1em 0;
+  padding: 0;
+  list-style: none;
+}
+
+.top-panel .top-panel-column li {
+  padding: 0.25em 0;
+  font-weight: bold;
+  font-weight: 600;
+}
+
+@supports (font-variation-settings: normal) {
+  .top-panel .top-panel-column li {
+    font-weight: 525;
+  }
+}
+
+.top-panel .welcome-icon {
+  background: transparent !important;
+}
+
 .app-tabs .app-tab-content header {
   margin-bottom: 1em;
   padding-bottom: 1em;
@@ -209,10 +375,14 @@
 
 .app-tabs .app-tab-content .dashboard-overview-item {
   margin: 0;
-  margin-top: 0.35em;
+  padding: 0.25em 0;
 }
 
-.tab-icon-content {
+.app-tabs .app-tab-content .dashboard-overview-item:first-of-type {
+  margin-top: 1em;
+}
+
+.dashboard-panel-section-intro {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -220,33 +390,29 @@
 }
 
 @media screen and (max-width: 799px) {
-  .tab-icon-content {
+  .dashboard-panel-section-intro {
     display: block;
   }
 }
 
-.tab-icon-content figure {
-  min-width: 80px;
-  margin-right: 1em;
+.dashboard-panel-section-intro h4 {
+  margin: 0;
+  font-size: 1.25em;
+}
+
+.dashboard-panel-section-intro figure {
+  min-width: 64px;
+  margin: 0 1em 0 0;
 }
 
 @media screen and (max-width: 799px) {
-  .tab-icon-content figure {
+  .dashboard-panel-section-intro figure {
     float: left;
   }
 }
 
-.tab-icon-content figure a,
-.tab-icon-content figure img {
-  display: block;
-}
-
-.tab-icon-content > div h3 {
-  margin-top: 0;
-}
-
-.tab-icon-content h4 {
-  font-size: 1.25em;
+.dashboard-panel-section-intro div {
+  margin-bottom: 2rem;
 }
 
 /* Welcome Panel and Right Now common Icons style */
@@ -906,6 +1072,22 @@ a.rsswidget {
 
 /* =Media Queries
 -------------------------------------------------------------- */
+@media screen and (max-width: 870px) {
+  .top-panel .top-panel-column,
+  .top-panel .top-panel-column:first-child {
+    display: block;
+    float: none;
+    width: 100%;
+  }
+  .top-panel .top-panel-column li {
+    display: inline-block;
+    margin-right: 13px;
+  }
+  .top-panel .top-panel-column ul {
+    margin: 0.4em 0 0;
+  }
+}
+
 @media screen and (max-width: 782px) {
   #dashboard_recent_comments #the-comment-list .comment-item .avatar {
     height: 30px;
@@ -939,6 +1121,26 @@ a.rsswidget {
 }
 
 /* Smartphone */
+@media screen and (max-width: 600px) {
+  /* Keep the close icon from overlapping the Welcome text. */
+  .top-panel .top-panel-close {
+    overflow: hidden;
+    text-indent: 40px;
+    white-space: nowrap;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    top: 5px;
+    right: 5px;
+  }
+  /* Make the close icon larger for tappability. */
+  .top-panel .top-panel-close:before {
+    font-size: 20px;
+    top: 5px;
+    left: -35px;
+  }
+}
+
 @media screen and (min-width: 355px) {
   .community-events .event-info {
     display: table-row;

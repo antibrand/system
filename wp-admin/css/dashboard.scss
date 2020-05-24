@@ -15,7 +15,7 @@
 			margin-right: 2rem;
 		}
 
-		& + div {
+		& > div {
 			margin-top: 2rem;
 		}
 	}
@@ -24,9 +24,29 @@
 	.tab-section__dashboard-accounts {
 
 		ul {
-			li:not( :last-of-type ) {
-				margin-top: 0.35em;
+			li:not( :first-of-type ) {
+				margin-top: 0.5em;
 			}
+		}
+	}
+}
+
+.tab-user-wrap {
+	display: flex;
+
+	figure {
+		min-width: 80px;
+		margin-right: 1em;
+
+		a,
+		img {
+			display: block;
+		}
+	}
+
+	& > div {
+		h3 {
+			margin-top: 0;
 		}
 	}
 }
@@ -157,6 +177,117 @@
 	max-width: 100%;
 }
 
+/* Top Panel */
+.top-panel {
+	position: relative;
+	min-height: 60px;
+	overflow: auto;
+	margin: 1em 0;
+	font-size: $px14;
+	line-height: 1.325;
+}
+
+.top-panel h2 {
+	margin: 0;
+	font-size: 21px;
+	line-height: 1.2;
+}
+
+.top-panel h3 {
+	margin: 1.33em 0 0;
+
+	& ~ div {
+		margin-top: 1em;
+	}
+}
+
+.top-panel li {
+	font-size: 14px;
+}
+
+.top-panel a {
+	text-decoration: none;
+}
+
+.top-panel .welcome-description,
+.top-panel .intro-description,
+.top-panel .intro-description {
+	font-size: 16px;
+	margin: 0;
+}
+
+.top-panel .top-panel-close {
+	position: absolute;
+	z-index: 10;
+	top: 0.5em;
+	right: 0.5em;
+	padding: 1em;
+	font-size: 13px;
+	line-height: 1.23076923; /* Chrome rounding, needs to be 16px equivalent */
+	text-decoration: none;
+}
+
+.top-panel .top-panel-close:before {
+	content: "\f153";
+	display: inline-block;
+	margin-right: 0.3em;
+	vertical-align: middle;
+	background: none;
+	color: $light_gray;
+	font-family: dashicons;
+	font-size: 1.2em;
+	speak: none;
+	speak: never;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transition: all .1s ease-in-out;
+}
+
+.app-core-ui .top-panel .button.button-hero {
+	margin: 15px 13px 3px 0;
+	padding: 12px 36px;
+	height: auto;
+	font-size: 1.0625rem;
+	line-height: 1.4285714;
+	white-space: normal;
+}
+
+.top-panel-content,
+.top-panel-content {
+	max-width: 1500px;
+}
+
+.top-panel .top-panel-column-container {
+	display: flex;
+	position: relative;
+
+	.top-panel-column {
+		min-width: 160px;
+		max-width: 480px;
+
+		@media screen and (max-width: 782px) {
+			max-width: 100%;
+		}
+
+		&:first-of-type {
+			min-width: 320px;
+		}
+
+		&:not( :last-of-type ) {
+			margin-right: 2rem;
+		}
+	}
+
+	@media screen and (max-width: 782px) {
+		flex-direction: column;
+
+		.top-panel-column {
+			min-width: 100%;
+		}
+	}
+
+}
+
 #tab-panel-draftposts {
 
 	.app-tab-content-inner {
@@ -186,6 +317,30 @@
 	}
 }
 
+.top-panel-column p.hide-if-no-customize {
+	margin-top: 10px;
+}
+
+.top-panel .top-panel-column ul {
+	margin: 1em 1em 1em 0;
+	padding: 0;
+	list-style: none;
+}
+
+.top-panel .top-panel-column li {
+	padding: 0.25em 0;
+	font-weight: bold;
+	font-weight: 600;
+
+	@supports( font-variation-settings: normal ) {
+		font-weight: 525;
+	}
+}
+
+.top-panel .welcome-icon {
+	background: transparent !important;
+}
+
 .app-tabs {
 
 	.app-tab-content {
@@ -198,12 +353,16 @@
 
 		.dashboard-overview-item {
 			margin: 0;
-			margin-top: 0.35em;
+			padding: 0.25em 0;
+
+			&:first-of-type {
+				margin-top: 1em;
+			}
 		}
 	}
 }
 
-.tab-icon-content {
+.dashboard-panel-section-intro {
 	display: flex;
 	padding-right: 2rem;
 
@@ -211,28 +370,22 @@
 		display: block;
 	}
 
+	h4 {
+		margin: 0;
+		font-size: 1.25em;
+	}
+
 	figure {
-		min-width: 80px;
-		margin-right: 1em;
+		min-width: 64px;
+		margin: 0 1em 0 0;
 
 		@media screen and ( max-width: 799px ) {
 			float: left;
 		}
-
-		a,
-		img {
-			display: block;
-		}
 	}
 
-	& > div {
-		h3 {
-			margin-top: 0;
-		}
-	}
-
-	h4 {
-		font-size: 1.25em;
+	div {
+		margin-bottom: 2rem;
 	}
 }
 
@@ -899,6 +1052,24 @@ a.rsswidget {
 /* =Media Queries
 -------------------------------------------------------------- */
 
+@media screen and (max-width: 870px) {
+	.top-panel .top-panel-column,
+	.top-panel .top-panel-column:first-child {
+		display: block;
+		float: none;
+		width: 100%;
+	}
+
+	.top-panel .top-panel-column li {
+		display: inline-block;
+		margin-right: 13px;
+	}
+
+	.top-panel .top-panel-column ul {
+		margin: 0.4em 0 0;
+	}
+}
+
 @media screen and ( max-width: 782px ) {
 	#dashboard_recent_comments #the-comment-list .comment-item .avatar {
 		height: 30px;
@@ -937,7 +1108,27 @@ a.rsswidget {
 }
 
 /* Smartphone */
-@media screen and (max-width: 600px) {}
+@media screen and (max-width: 600px) {
+
+	/* Keep the close icon from overlapping the Welcome text. */
+	.top-panel .top-panel-close {
+		overflow: hidden;
+		text-indent: 40px;
+		white-space: nowrap;
+		width: 20px;
+		height: 20px;
+		padding: 5px;
+		top: 5px;
+		right: 5px;
+	}
+
+	/* Make the close icon larger for tappability. */
+	.top-panel .top-panel-close:before {
+		font-size: 20px;
+		top: 5px;
+		left: -35px;
+	}
+}
 
 @media screen and (min-width: 355px) {
 

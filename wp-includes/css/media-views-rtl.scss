@@ -1,5 +1,8 @@
-@import '../../app-assets/css/includes/modules/_typography';
 @import '../../app-assets/css/includes/modules/_colors';
+
+.media-modal * {
+	box-sizing: content-box;
+}
 
 .media-modal input,
 .media-modal select,
@@ -23,12 +26,51 @@
 	padding: 6px 8px;
 }
 
+.media-frame a {
+	color: $link_color;
+}
+
+.media-frame a:hover,
+.media-frame a:active {
+	color: #00a0d2;
+}
+
 .media-frame a:focus {
+	box-shadow:
+		0 0 0 1px #5b9dd9,
+		0 0 2px 1px rgba(30, 140, 190, .8);
 	outline: none;
+	color: #124964;
+}
+
+.media-frame a.button {
+	color: #32373c;
+}
+
+.media-frame a.button:hover {
+	color: #23282d;
+}
+
+.media-frame a.button-primary,
+.media-frame a.button-primary:hover {
+	color: #fff;
 }
 
 .media-frame input[type="search"] {
 	-webkit-appearance: textfield;
+}
+
+.media-frame ::-webkit-input-placeholder {
+	color: #72777c;
+}
+
+.media-frame ::-moz-placeholder {
+	color: #72777c;
+	opacity: 1;
+}
+
+.media-frame :-ms-input-placeholder {
+	color: #72777c;
 }
 
 .media-frame .hidden {
@@ -161,17 +203,14 @@
 	left: 0;
 	z-index: 100;
 	overflow: hidden;
-	padding: 1em;
-	background-color: $form_background_color;
 }
 
 .media-frame-toolbar .media-toolbar {
 	top: initial;
-	bottom: -5em;
+	bottom: -45px;
 	height: auto;
 	overflow: initial;
-	padding: 1em;
-	background-color: $form_background_color;
+	padding: 0 1em;
 	border-top: 1px solid $box_border_color;
 }
 
@@ -187,13 +226,22 @@
 }
 
 .media-toolbar-secondary {
-	float: right;
+	flex-grow: 2;
+	display: flex;
+	align-items: center;
 }
 
 .media-toolbar-primary > .media-button,
 .media-toolbar-primary > .media-button-group {
 	margin-right: 10px;
 	float: right;
+	margin-top: 15px;
+}
+
+.media-toolbar-secondary > .media-button,
+.media-toolbar-secondary > .media-button-group {
+	margin-left: 10px;
+	margin-top: 15px;
 }
 
 /**
@@ -203,11 +251,11 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	bottom: 2rem;
-	width: 300px;
-	padding: 0 1em;
+	bottom: 0;
+	width: 267px;
+	padding: 0 16px 24px;
 	z-index: 75;
-	background-color: $form_background_color;
+	background: #f3f3f3;
 	border-right: 1px solid $box_border_color;
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
@@ -425,9 +473,10 @@
 	bottom: 0;
 	margin: 0;
 	padding: 10px 0;
+	background: #f3f3f3;
 	border-left-width: 1px;
 	border-left-style: solid;
-	border-left-color: $box_border_color;
+	border-left-color: #ccc;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -443,11 +492,11 @@
 	font-size: 14px;
 	color: $link_color;
 	text-decoration: none;
+}
 
-	&:hover,
-	&:focus {
-		color: $link_action_color;
-	}
+.media-menu > a:hover {
+	color: $link_color;
+	background: rgba( 0, 0, 0, 0.04 );
 }
 
 .media-menu > a:active {
@@ -456,6 +505,7 @@
 
 .media-menu .active,
 .media-menu .active:hover {
+	color: #23282d;
 	font-weight: 600;
 }
 
@@ -471,7 +521,7 @@
  */
 .media-router {
 	position: relative;
-	padding: 0 1em;
+	padding: 0 6px;
 	margin: 0;
 	clear: both;
 	-webkit-user-select: none;
@@ -487,52 +537,33 @@
 .media-router > a {
 	position: relative;
 	float: right;
-	display: inline-block;
-	vertical-align: baseline;
+	padding: 8px 10px 9px;
 	margin: 0;
-	margin-left: 0.25em;
-	padding: 0.75rem 1rem;
-	background: $button_background_color;
-	border: solid 1px $button_border_color;
-	font-size: $px14;
-	font-weight: bold;
-	font-weight: 700;
-	line-height: 1;
+	height: 18px;
+	line-height: 18px;
+	font-size: 14px;
 	text-decoration: none;
-	color: $button_text_color;
-	white-space: nowrap;
-	cursor: pointer;
-	-webkit-appearance: none;
-	transition: all .1s linear;
+}
 
-	&.hover,
-	&:hover,
-	&.focus,
-	&:focus,
-	&.active,
-	&:active,
-	&.current {
-		background: $button_action_background_color;
-		color: $button_action_text_color;
-		color-adjust: exact !important;
-	}
-
-	&[disabled],
-	&:disabled,
-	&.disabled,
-	&.button-disabled {
-		background: $button_disabled_background_color;
-		color: $button_disabled_text_color;
-		cursor: default;
-	}
+.media-router > a:last-child {
+	border-left: 0;
 }
 
 .media-router > a:active {
 	outline: none;
 }
 
-.media-router .active {
-	font-weight: 700;
+.media-router .active,
+.media-router .active:hover {
+	color: #32373c;
+}
+
+.media-router .active,
+.media-router > a.active:last-child {
+	margin: -1px -1px 0;
+	background: #fff;
+	border: 1px solid $box_border_color;
+	border-bottom: none;
 }
 
 .media-router .active:after {
@@ -574,12 +605,13 @@
 	top: 50px;
 	right: 200px;
 	left: 0;
+	height: 36px;
 	z-index: 200;
 }
 
 .media-frame-content {
 	position: absolute;
-	top: 100px;
+	top: 84px;
 	right: 200px;
 	left: 0;
 	bottom: 61px;
@@ -695,6 +727,13 @@
 /**
  * Search
  */
+.media-frame .search {
+	margin-top: 11px;
+	padding: 4px;
+	font-size: 13px;
+	-webkit-appearance: none;
+}
+
 .media-toolbar-primary .search {
 	max-width: 100%;
 }
@@ -703,10 +742,10 @@
  * Attachments
  */
 .app-core-ui .attachments {
-	list-style: none;
 	display: grid;
 	grid-gap: 0.5em;
-	grid-template-columns: repeat(auto-fill, minmax(160px, 1fr) );
+	grid-template-columns: repeat(auto-fill, minmax(120px, 160px) );
+	grid-auto-flow: column;
 	margin: 0;
 	-webkit-overflow-scrolling: touch;
 }
@@ -714,12 +753,15 @@
 /**
  * Attachment
  */
- .app-core-ui .attachment {
+.app-core-ui .attachment {
 	position: relative;
 	width: 100%;
+	max-width: 160px;
+	float: right;
 	margin: 0;
 	border: solid 1px $form_border_color;
 	cursor: pointer;
+	list-style: none;
 	text-align: center;
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -738,11 +780,15 @@
 }
 
 .app-core-ui .selected.attachment {
-	border-color: $form_action_border_color;
+	box-shadow:
+		inset 0 0 0 5px #fff,
+		inset 0 0 0 7px #ccc;
 }
 
 .app-core-ui .attachment.details {
-	border-color: $form_action_border_color;
+	box-shadow:
+		inset 0 0 0 3px #fff,
+		inset 0 0 0 7px $link_color;
 }
 
 .app-core-ui .attachment-preview {
@@ -765,9 +811,9 @@
 	overflow: hidden;
 	position: absolute;
 	top: 0;
-	right: 0;
-	bottom: 0;
 	left: 0;
+	bottom: 0;
+	right: 0;
 	opacity: 1;
 	transition: opacity .1s;
 }
@@ -780,12 +826,40 @@
 	max-height: 100%;
 }
 
+.app-core-ui .attachment .thumbnail:after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	overflow: hidden;
+}
+
+.app-core-ui .attachment .thumbnail img {
+	top: 0;
+	right: 0;
+}
+
 .app-core-ui .attachment .thumbnail .centered {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	position: absolute;
+	top: 0;
+	right: 0;
 	width: 100%;
 	height: 100%;
+	-webkit-transform: translate( -50%, 50% ); /* Fails with spaces?? Weird! */
+	transform: translate( -50%, 50% );
+}
+
+.app-core-ui .attachment .thumbnail .centered img {
+	-webkit-transform: translate( 50%, -50% );
+	transform: translate( 50%, -50% );
+}
+
+.app-core-ui .attachments-browser .attachment .thumbnail .centered img.icon {
+	-webkit-transform: translate( 50%, -70% );
+	transform: translate( 50%, -70% );
 }
 
 .app-core-ui .attachment .filename {
@@ -807,7 +881,7 @@
 }
 
 .app-core-ui .attachment .thumbnail img {
-	display: block;
+	position: absolute;
 }
 
 .app-core-ui .attachment-close {
@@ -835,13 +909,15 @@
 	height: 24px;
 	width: 24px;
 	padding: 0;
-	border: solid 1px $form_border_color;
+	border: 0;
 	position: absolute;
 	z-index: 10;
 	top: 0;
 	left: 0;
 	outline: none;
+	background: #eee;
 	cursor: pointer;
+	box-shadow: 0 0 0 1px #fff, 0 0 0 2px rgba( 0, 0, 0, 0.15 );
 }
 
 .app-core-ui .attachment .check .media-modal-icon {
@@ -863,18 +939,21 @@
 .app-core-ui .attachment.details .check,
 .app-core-ui .attachment.selected .check:focus,
 .app-core-ui .media-frame.mode-grid .attachment.selected .check {
-	background-color: $app_highlight_color;
+	background-color: $link_color;
+	box-shadow:
+		0 0 0 1px #fff,
+		0 0 0 2px $link_color;
 }
 
 .app-core-ui .attachment.details .check .media-modal-icon,
 .app-core-ui .media-frame.mode-grid .attachment.selected .check .media-modal-icon {
-	background-position: -1px 0;
+	background-position: -21px 0;
 }
 
 .app-core-ui .attachment.details .check:hover .media-modal-icon,
 .app-core-ui .attachment.selected .check:focus .media-modal-icon,
 .app-core-ui .media-frame.mode-grid .attachment.selected .check:hover .media-modal-icon {
-	background-position: -40px 0;
+	background-position: -60px 0;
 }
 
 .app-core-ui .media-frame .attachment .describe {
@@ -899,7 +978,6 @@
 
 .attachments-browser .media-toolbar {
 	left: 300px;
-	padding: 0.5em 1em;
 }
 
 .attachments-browser.hide-sidebar .media-toolbar {
@@ -920,7 +998,7 @@
 .attachments-browser .attachments,
 .attachments-browser .uploader-inline {
 	position: absolute;
-	top: 4rem;
+	top: 50px;
 	right: 0;
 	left: 300px;
 	bottom: 0;
@@ -1073,6 +1151,7 @@
 	content: "\f153";
 	display: block;
 	font: normal 16px/1 dashicons;
+	color: #72777c;
 }
 
 .media-sidebar .media-uploader-status .upload-dismiss-errors:hover:before,
@@ -1336,6 +1415,23 @@
 	box-shadow: none;
 }
 
+.app-core-ui .media-selection .attachment.details {
+	box-shadow:
+		0 0 0 1px #fff,
+		0 0 0 3px $link_color;
+}
+
+.media-selection:after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 25px;
+	background-image: linear-gradient(to right, rgba( 255, 255, 255, 1 ), rgba( 255, 255, 255, 0 ));
+}
+
 .media-selection .attachment .filename {
 	display: none;
 }
@@ -1534,6 +1630,7 @@
 }
 
 .media-modal .imgedit-wrap .imgedit-settings {
+	background: #f3f3f3;
 	border-right: 1px solid $box_border_color;
 	padding: 20px 16px 16px;
 	position: absolute;
@@ -2020,7 +2117,7 @@
 		left: auto;
 		bottom: auto;
 		padding: 5px 0;
-		border: 1px solid $box_border_color;
+		border: 1px solid #ccc;
 	}
 
 	.media-frame:not(.hide-menu) .media-menu.visible {

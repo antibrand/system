@@ -1460,23 +1460,6 @@ function wp_ajax_update_top_panel_tab() {
 }
 
 /**
- * Ajax handler for updating whether to display the top panel.
- *
- * @since 3.1.0
- */
-function wp_ajax_update_acf_toolbar() {
-
-	check_ajax_referer( 'acf-toolbar-nonce', 'acftoolbarnonce' );
-
-	if ( ! current_user_can( 'edit_theme_options' ) )
-		wp_die( -1 );
-
-	update_user_meta( get_current_user_id(), 'show_acf_toolbar', empty( $_POST['visible'] ) ? 0 : 1 );
-
-	wp_die( 1 );
-}
-
-/**
  * Ajax handler for retrieving menu meta boxes.
  *
  * @since 3.1.0

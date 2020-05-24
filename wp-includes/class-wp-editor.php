@@ -626,7 +626,7 @@ final class _WP_Editors {
 			$body_class = $editor_id;
 
 			if ( $post = get_post() ) {
-				$body_class .= ' post-type-' . sanitize_html_class( $post->post_type ) . ' post-status-' . sanitize_html_class( $post->post_status ) . ' admin-color-' . sanitize_html_class( get_user_option( 'admin_color' ), 'default' );
+				$body_class .= ' post-type-' . sanitize_html_class( $post->post_type ) . ' post-status-' . sanitize_html_class( $post->post_status );
 
 				if ( post_type_supports( $post->post_type, 'post-formats' ) ) {
 					$post_format = get_post_format( $post );
@@ -987,13 +987,8 @@ final class _WP_Editors {
 		$version = 'ver=' . get_bloginfo( 'version' );
 
 		// Default stylesheets
-		$admin_color = sanitize_html_class( get_user_option( 'admin_color' ), 'default' );
-		$settings['content_css'] =
-			includes_url( "css/dashicons$suffix.css?$version" )
-			. ','
-			. includes_url( "js/tinymce/skins/app-editor/app-editor-content.min.css?$version" )
-			. ','
-			. app_assets_url( "css/admin/colors/$admin_color/editor-style.min.css?$version" );
+		$settings['content_css'] = includes_url( "css/dashicons$suffix.css?$version" ) . ',' .
+			includes_url( "js/tinymce/skins/wordpress/wp-content.css?$version" );
 
 		return $settings;
 	}

@@ -1491,45 +1491,6 @@ final class Screen {
 				<input type="hidden" name="wp_screen_options[option]" value="<?php echo esc_attr( $option ); ?>" />
 		</fieldset>
 		<?php
-
-		/**
-		 * Toolbar for Advanced Custom Fields
-		 *
-		 * @since 1.0.0
-		 * @since ACF 5.9.0
-		 */
-		if ( class_exists( 'acf' ) && 'acf-field-group' == get_post_type( get_the_ID() ) ) {
-
-		?>
-		<fieldset class="metabox-prefs">
-
-			<legend><?php _e( 'ACF Toolbar' ); ?></legend>
-
-			<p class="description"><?php _e( 'User toolbar for the Advanced Custom Fields PRO plugin.' ); ?></p>
-			<?php
-			if ( isset( $_GET['acf-admin-navigation'] ) ) {
-
-				$acf_toolbar_checked = empty( $_GET['acf-admin-navigation'] ) ? 0 : 1;
-				update_user_meta( get_current_user_id(), 'show_acf_toolbar', $acf_toolbar_checked );
-
-			} else {
-
-				$acf_toolbar_checked = get_user_meta( get_current_user_id(), 'show_acf_toolbar', true );
-
-				if ( '' === $acf_toolbar_checked ) {
-					$acf_toolbar_checked = '1';
-				}
-
-				if ( '2' === $acf_toolbar_checked && wp_get_current_user()->user_email != get_option( 'admin_email' ) ) {
-					$acf_toolbar_checked = false;
-				}
-			}
-			echo '<label for="acf_toolbar-hide">';
-			echo '<input type="checkbox" id="acf_toolbar-hide"' . checked( (bool) $acf_toolbar_checked, true, false ) . ' />';
-			echo _x( 'Display toolbar', 'ACF Toolbar' ) . "</label>\n";
-			?>
-		</fieldset>
-		<?php }
 	}
 
 	/**

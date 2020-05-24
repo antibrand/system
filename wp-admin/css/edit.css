@@ -355,7 +355,6 @@ form#tags-filter {
 
 #post-status-info {
   width: 100%;
-  background-color: #ffffff;
   border-spacing: 0;
   border: 1px solid #cccccc;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
@@ -407,7 +406,6 @@ form#tags-filter {
 
 .wp-editor-expand #wp-content-editor-tools {
   z-index: 1000;
-  background-color: #ffffff;
   border-bottom: 1px solid #cccccc;
 }
 
@@ -427,7 +425,6 @@ form#tags-filter {
 
 .wp-editor-expand div.mce-toolbar-grp {
   z-index: 999;
-  background-color: #ffffff;
 }
 
 /* TinyMCE native fullscreen mode override */
