@@ -78,6 +78,7 @@ $core_actions_post = [
 	'hidden-columns',
 	'update-top-panel',
 	'update-top-panel-tab',
+	'update-acf-toolbar',
 	'menu-get-metabox',
 	'wp-link-ajax',
 	'menu-locations-save',

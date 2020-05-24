@@ -247,6 +247,7 @@ div.mce-tab {
 
 /* TinyMCE toolbars */
 div.mce-toolbar-grp {
+	background-color: $body_background;
 	border-bottom: 1px solid $box_border_color;
 	background: inherit;
 	padding: 0;
@@ -254,7 +255,7 @@ div.mce-toolbar-grp {
 }
 
 div.mce-inline-toolbar-grp {
-	background-color: $white;
+	background-color: $body_background;
 	border: 1px solid $form_border_color;
 	border-radius: 2px;
 	box-shadow: 0 1px 3px rgba( 0, 0, 0, 0.15 );
@@ -371,7 +372,8 @@ div.mce-toolbar-grp > div {
 }
 
 div.mce-statusbar {
-	border-top: 1px solid #e5e5e5;
+	background-color: $body_background;
+	border-top: 1px solid $box_border_color;
 }
 
 div.mce-path {
