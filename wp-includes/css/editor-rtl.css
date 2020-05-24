@@ -252,6 +252,7 @@ div.mce-tab {
 
 /* TinyMCE toolbars */
 div.mce-toolbar-grp {
+  background-color: #ffffff;
   border-bottom: 1px solid #cccccc;
   background: inherit;
   padding: 0;
@@ -380,7 +381,8 @@ div.mce-toolbar-grp > div {
 }
 
 div.mce-statusbar {
-  border-top: 1px solid #e5e5e5;
+  background-color: #ffffff;
+  border-top: 1px solid #cccccc;
 }
 
 div.mce-path {

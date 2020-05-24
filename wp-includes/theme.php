@@ -1817,7 +1817,7 @@ function wp_update_custom_css_post( $css, $args = array() ) {
  * the theme root. It also accepts an array of stylesheets.
  * It is optional and defaults to 'editor-style.css'.
  *
- * This function automatically adds another stylesheet with -rtl prefix, e.g. editor-style-rtl.css.
+ * This function automatically adds another stylesheet with -rtl suffix, e.g. editor-style-rtl.css.
  * If that file doesn't exist, it is removed before adding the stylesheet(s) to TinyMCE.
  * If an array of stylesheets is passed to add_editor_style(),
  * RTL is only added for the first stylesheet.

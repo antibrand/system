@@ -1,7 +1,7 @@
 /**
  * Default dark color scheme
  */
-body.admin-color-dark {
+body {
   background: #222;
   color: #ffffff;
 }
@@ -17,7 +17,6 @@ a:hover, a:focus {
 .postbox {
   background-color: #282828;
   border-color: #414141;
-  color: #ffffff;
 }
 
 .postbox .hndle {
@@ -494,12 +493,6 @@ div.mce-statusbar,
   border-color: #414141;
 }
 
-.media-upload-form .media-item,
-.media-upload-form .media-item .error {
-  -webkit-box-shadow: 0 1px 0 #414141;
-  box-shadow: 0 1px 0 #414141;
-}
-
 .app-core-ui .attachment
 .media-frame-toolbar .media-toolbar,
 .media-sidebar,
@@ -574,31 +567,6 @@ ul.add-menu-item-tabs li.tabs,
 #post-body ul.category-tabs li.tabs a,
 #post-body ul.add-menu-item-tabs li.tabs a {
   color: #ffffff;
-}
-
-.media-menu > a {
-  color: #3ad4fb;
-}
-
-.media-menu > a:hover, .media-menu > a:focus {
-  color: #ffffff;
-}
-
-.media-frame a:hover,
-.media-frame a:active,
-.media-router .active,
-.media-router .active:hover {
-  color: #ffffff;
-}
-
-.media-frame-toolbar .media-toolbar {
-  background-color: #2f2f2f;
-  border-color: #414141;
-}
-
-.app-core-ui .attachment:hover,
-.app-core-ui .attachment.details {
-  border-color: #ffee00;
 }
 
 /**
@@ -683,4 +651,8 @@ fieldset.scheme-list {
 .list-table-views li a:not(.button)[disabled], .list-table-views li a:not(.button):disabled, .list-table-views li a:not(.button).disabled, .list-table-views li a:not(.button).button-disabled {
   background: #eeeeee;
   color: #888888;
+}
+
+body {
+  color: #ffffff;
 }

@@ -200,7 +200,7 @@ class Dashboard {
 
 		<section class="tab-section tab-section-dashboard tab-section__user-intro">
 
-			<div class="tab-user-wrap">
+			<div class="tab-icon-content tab-icon-content-dashboard tab-icon-content__system-overview">
 
 				<figure>
 					<a href="<?php echo esc_url( admin_url( 'profile.php' ) ); ?>">
@@ -231,13 +231,16 @@ class Dashboard {
 
 		<section class="tab-section tab-section-dashboard tab-section__system-info">
 
-			<h3><?php _e( 'Website Management' ); ?></h3>
+			<div>
 
-			<p><?php _e( 'The content of this website, including blog & news posts, informational pages, media presentations, user discussions, and more, is made easy by the website management system.' ); ?></p>
+				<h3><?php _e( 'Website Management' ); ?></h3>
 
-			<p class="dashboard-panel-call-to-action">
-				<a class="button button-primary button-hightlight" href="<?php echo esc_url( admin_url( 'about.php' ) ); ?>"><?php _e( 'Learn More' ); ?></a>
-			</p>
+				<p><?php _e( 'The content of this website, including blog & news posts, informational pages, media presentations, user discussions, and more, is made easy by the website management system.' ); ?></p>
+
+				<p class="dashboard-panel-call-to-action">
+					<a class="button button-primary button-hightlight" href="<?php echo esc_url( admin_url( 'about.php' ) ); ?>"><?php _e( 'Learn More' ); ?></a>
+				</p>
+			</div>
 
 		</section>
 	</div>
@@ -703,10 +706,10 @@ class Dashboard {
 
 		$content .= sprintf(
 			'
-			<div class="dashboard-panel-section-intro dashboard-panel-system">
+			<div class="tab-icon-content tab-icon-content-dashboard tab-icon-content__system-overview">
 				<figure>
 					<a href="%1s">
-						<img class="avatar" src="%2s" alt="%3s" width="64" height="64" />
+						<img class="avatar" src="%2s" alt="%3s" width="80" height="80" />
 					</a>
 					<figcaption class="screen-reader-text">%4s</figcaption>
 				</figure>
@@ -770,7 +773,7 @@ class Dashboard {
 			}
 		}
 
-		$content .= '</div></div>';
+		$content .= '</div></div><!-- .tab-icon-content -->';
 
 		/**
 		 * Filters the text displayed in the 'Site Overview' dashboard widget.

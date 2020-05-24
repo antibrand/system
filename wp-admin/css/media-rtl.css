@@ -115,13 +115,12 @@
   margin-bottom: 1px;
   position: relative;
   width: 100%;
-  background: #fff;
 }
 
 .media-upload-form .media-item,
 .media-upload-form .media-item .error {
-  -webkit-box-shadow: 0 1px 0 #ddd;
-          box-shadow: 0 1px 0 #ddd;
+  -webkit-box-shadow: 0 1px 0 #cccccc;
+          box-shadow: 0 1px 0 #cccccc;
 }
 
 #media-items:empty {
@@ -342,13 +341,11 @@
 
 #find-posts-close:hover,
 #find-posts-close:focus {
-  color: #00a0d2;
+  color: #005fd6;
 }
 
 #find-posts-close:focus {
   outline: none;
-  -webkit-box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
-          box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
 }
 
 #find-posts-close:before {
@@ -525,7 +522,6 @@ border color while dragging a file over the uploader drop area */
   content: "\f153";
   display: block;
   font: normal 16px/1 dashicons;
-  color: #72777c;
 }
 
 .upload-php .mode-grid .media-sidebar .media-uploader-status .upload-dismiss-errors:focus:before,
@@ -546,7 +542,7 @@ border color while dragging a file over the uploader drop area */
   bottom: auto;
   padding-top: 0;
   margin-top: 20px;
-  border: 4px dashed #b4b9be;
+  border: 4px dashed #cccccc;
 }
 
 .media-frame.mode-select .attachments-browser.fixed .attachments {
@@ -560,19 +556,7 @@ border color while dragging a file over the uploader drop area */
 .media-frame.mode-grid .attachment:focus,
 .media-frame.mode-grid .selected.attachment:focus,
 .media-frame.mode-grid .attachment.details:focus {
-  -webkit-box-shadow: inset 0 0 2px 3px #f1f1f1, inset 0 0 0 7px #5b9dd9;
-          box-shadow: inset 0 0 2px 3px #f1f1f1, inset 0 0 0 7px #5b9dd9;
   outline: none;
-}
-
-.media-frame.mode-grid .selected.attachment {
-  -webkit-box-shadow: inset 0 0 0 5px #f1f1f1, inset 0 0 0 7px #cccccc;
-          box-shadow: inset 0 0 0 5px #f1f1f1, inset 0 0 0 7px #cccccc;
-}
-
-.media-frame.mode-grid .attachment.details {
-  -webkit-box-shadow: inset 0 0 0 3px #f1f1f1, inset 0 0 0 7px #1e8cbe;
-          box-shadow: inset 0 0 0 3px #f1f1f1, inset 0 0 0 7px #1e8cbe;
 }
 
 .media-frame.mode-grid.mode-select .attachment .thumbnail {
@@ -1105,7 +1089,7 @@ border color while dragging a file over the uploader drop area */
   margin: -1px -1px 0 0;
   padding: 0;
   background: transparent;
-  color: #0074a2;
+  color: #004499;
   font-size: 20px;
   line-height: 1;
   cursor: pointer;
@@ -1116,11 +1100,9 @@ border color while dragging a file over the uploader drop area */
 }
 
 .image-editor .imgedit-settings .imgedit-help-toggle:focus {
-  color: #0074a2;
-  border-color: #5b9dd9;
+  color: #005fd6;
+  border-color: #005fd6;
   outline: none;
-  -webkit-box-shadow: 0 0 3px rgba(0, 115, 170, 0.8);
-          box-shadow: 0 0 3px rgba(0, 115, 170, 0.8);
 }
 
 .form-table td.imgedit-response {
