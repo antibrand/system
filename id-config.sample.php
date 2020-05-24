@@ -46,7 +46,7 @@
  */
 
 // Define a name of the website management system.
-define( 'APP_NAME', 'generic' );
+define( 'APP_NAME', 'system' );
 
 // Define a tagline of the website management system.
 define( 'APP_TAGLINE', 'generic, white-label website management' );
