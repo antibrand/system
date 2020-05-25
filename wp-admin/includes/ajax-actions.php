@@ -3223,7 +3223,7 @@ function wp_ajax_crop_image() {
 	switch ( $context ) {
 		case 'site-icon':
 
-			$wp_site_icon = new AppNamespace\Includes\WP_Site_Icon();
+			$wp_site_icon = new Includes\Site_Icon();
 
 			// Skip creating a new attachment if the attachment is a Site Icon.
 			if ( get_post_meta( $attachment_id, '_wp_attachment_context', true ) == $context ) {
