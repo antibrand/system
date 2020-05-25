@@ -210,6 +210,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: 3em 0;
 }
 
@@ -579,7 +582,6 @@ border color while dragging a file over the uploader drop area */
 
 .media-frame.mode-grid.mode-edit .media-toolbar-secondary > .select-mode-toggle-button {
   margin: 0 0 0 0.5em;
-  vertical-align: middle;
 }
 
 .media-frame.mode-grid .attachments-browser .bulk-select {

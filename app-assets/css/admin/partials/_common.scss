@@ -764,6 +764,7 @@ th.action-links {
 .wp-filter {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	position: relative;
 	box-sizing: border-box;
 	margin: 2em 0 1em;
@@ -782,12 +783,16 @@ th.action-links {
 
 	a {
 		text-decoration: none;
-
-		&.upload-new-media-link {
-			display: block;
-			margin-right: 1em;
-		}
 	}
+}
+
+.media-grid-add-new {
+	display: inline-block;
+}
+
+.upload-new-media-link {
+	display: block;
+	margin-right: 1em;
 }
 
 .filter-count {
