@@ -33,7 +33,7 @@ body {
   width: auto;
   padding: 25px 109px 25px 25px;
   position: relative;
-  background: #fff;
+  background: #ffffff;
   -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
           box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
   line-height: 1.5;
@@ -105,11 +105,11 @@ body:not(.ready) #customize-save-button-wrapper .save {
   width: 100%;
   margin: 0;
   z-index: -1;
-  background: #eee;
+  background: #ffffff;
   -webkit-transition: right .18s;
   transition: right .18s;
-  border-left: 1px solid #ddd;
-  border-right: 1px solid #ddd;
+  border-left: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
   height: 100%;
 }
 
@@ -190,7 +190,7 @@ body.trashing #publish-settings {
 }
 
 #customize-header-actions {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #cccccc;
 }
 
 #customize-controls .wp-full-overlay-sidebar-content {
@@ -199,19 +199,19 @@ body.trashing #publish-settings {
 }
 
 .outer-section-open #customize-controls .wp-full-overlay-sidebar-content {
-  background: #eee;
+  background: #ffffff;
 }
 
 #customize-controls .customize-info {
   border: none;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #cccccc;
   margin-bottom: 15px;
 }
 
 #customize-control-changeset_status .customize-inside-control-row,
 #customize-control-changeset_preview_link input {
   background-color: #ffffff;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #cccccc;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
   width: 100%;
@@ -240,7 +240,7 @@ body.trashing #publish-settings {
 }
 
 #customize-controls .date-input:invalid {
-  border-color: #dc3232;
+  border-color: #dd0000;
 }
 
 #customize-control-changeset_status .customize-inside-control-row {
@@ -250,7 +250,7 @@ body.trashing #publish-settings {
 }
 
 #customize-control-changeset_status .customize-inside-control-row:first-of-type {
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #cccccc;
 }
 
 #customize-control-changeset_status .customize-control-title {
@@ -300,11 +300,11 @@ body.trashing #publish-settings {
 
 #customize-control-changeset_preview_link input {
   line-height: 2.5;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #cccccc;
   border-right: none;
   border-left: none;
   text-indent: -999px;
-  color: #fff;
+  color: #ffffff;
 }
 
 #customize-control-changeset_preview_link label {
@@ -396,7 +396,7 @@ body.trashing #publish-settings {
   margin-right: -12px;
   padding: 12px;
   background: #ffffff;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #cccccc;
   margin-bottom: 0;
 }
 
@@ -428,7 +428,7 @@ body.trashing #publish-settings {
 }
 
 #customize-controls .customize-info .accordion-section-title {
-  background: #fff;
+  background: #ffffff;
   color: #555d66;
   border-right: none;
   border-left: none;
@@ -505,9 +505,9 @@ body.trashing #publish-settings {
 #customize-controls .no-widget-areas-rendered-notice {
   color: #555d66;
   display: none;
-  background: #fff;
+  background: #ffffff;
   padding: 12px 15px;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #cccccc;
 }
 
 #customize-controls .customize-info .customize-panel-description.open + .no-widget-areas-rendered-notice {
@@ -552,17 +552,17 @@ body.trashing #publish-settings {
 #customize-theme-controls .accordion-section-title,
 #customize-outer-theme-controls .accordion-section-title {
   color: #555d66;
-  background-color: #fff;
-  border-bottom: 1px solid #ddd;
-  border-right: 4px solid #fff;
+  background-color: #ffffff;
+  border-bottom: 1px solid #cccccc;
+  border-right: 4px solid #ffffff;
   -webkit-transition: .15s color ease-in-out, .15s background-color ease-in-out, .15s border-color ease-in-out;
   transition: .15s color ease-in-out, .15s background-color ease-in-out, .15s border-color ease-in-out;
 }
 
 #customize-controls #customize-theme-controls .customize-themes-panel .accordion-section-title {
   color: #555;
-  background-color: #fff;
-  border-right: 4px solid #fff;
+  background-color: #ffffff;
+  border-right: 4px solid #ffffff;
 }
 
 #customize-theme-controls .accordion-section-title:after,
@@ -587,7 +587,7 @@ body.trashing #publish-settings {
 }
 
 #accordion-section-themes + .control-section {
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #cccccc;
 }
 
 .js .control-section:hover .accordion-section-title,
@@ -619,13 +619,13 @@ body.trashing #publish-settings {
 
 #customize-theme-controls .control-section:last-of-type.open,
 #customize-theme-controls .control-section:last-of-type > .accordion-section-title {
-  border-bottom-color: #ddd;
+  border-bottom-color: #cccccc;
 }
 
 #customize-theme-controls .control-panel-content:not(.control-panel-nav_menus) .control-section:nth-child(2),
 #customize-theme-controls .control-panel-nav_menus .control-section-nav_menu,
 #customize-theme-controls .control-section-nav_menu_locations .accordion-section-title {
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #cccccc;
 }
 
 #customize-theme-controls .control-panel-nav_menus .control-section-nav_menu + .control-section-nav_menu {
@@ -750,8 +750,8 @@ body.trashing #publish-settings {
 
 .customize-section-title {
   margin: -12px -12px 0 -12px;
-  border-bottom: 1px solid #ddd;
-  background: #fff;
+  border-bottom: 1px solid #cccccc;
+  background: #ffffff;
 }
 
 div.customize-section-description {
@@ -771,7 +771,7 @@ div.customize-section-description p:last-child {
 }
 
 #customize-theme-controls .customize-themes-panel h3.customize-section-title:first-child {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #cccccc;
   padding: 12px 12px 12px 12px;
 }
 
@@ -813,7 +813,7 @@ h3.customize-section-title {
   background: #eee;
   border: none;
   border-top: 4px solid #eee;
-  border-left: 1px solid #ddd;
+  border-left: 1px solid #cccccc;
   color: #444;
   text-align: right;
   cursor: pointer;
@@ -831,10 +831,10 @@ h3.customize-section-title {
   height: 71px;
   padding: 0 0 0 24px;
   margin: 0;
-  background: #fff;
+  background: #ffffff;
   border: none;
-  border-left: 1px solid #ddd;
-  border-right: 4px solid #fff;
+  border-left: 1px solid #cccccc;
+  border-right: 4px solid #ffffff;
   -webkit-box-shadow: none;
           box-shadow: none;
   cursor: pointer;
@@ -861,16 +861,16 @@ h3.customize-section-title {
 
 #customize-controls .panel-meta.customize-info .accordion-section-title:hover,
 #customize-controls .cannot-expand:hover .accordion-section-title {
-  background: #fff;
+  background: #ffffff;
   color: #555d66;
-  border-right-color: #fff;
+  border-right-color: #ffffff;
 }
 
 .customize-controls-close:focus,
 .customize-controls-close:hover,
 .customize-controls-preview-toggle:focus,
 .customize-controls-preview-toggle:hover {
-  background: #fff;
+  background: #ffffff;
   color: #0073aa;
   border-top-color: #0073aa;
   outline: none;
@@ -907,7 +907,7 @@ h3.customize-section-title {
 }
 
 .wp-full-overlay-sidebar .wp-full-overlay-header {
-  background-color: #eee;
+  background-color: #ffffff;
   -webkit-transition: padding ease-in-out .18s;
   transition: padding ease-in-out .18s;
 }
@@ -1149,8 +1149,8 @@ p.customize-section-description {
 }
 
 .wp-full-overlay-sidebar {
-  background: #eee;
-  border-left: 1px solid #ddd;
+  background: #ffffff;
+  border-left: 1px solid #cccccc;
 }
 
 /**
@@ -1202,7 +1202,7 @@ p.customize-section-description {
   position: absolute;
   top: 46px;
   width: 100%;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #cccccc;
   display: block;
   padding: 0;
   margin: 0;
@@ -1231,7 +1231,7 @@ p.customize-section-description {
 
 #customize-controls .panel-meta > .customize-control-notifications-container,
 #customize-controls .customize-section-title > .customize-control-notifications-container {
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #cccccc;
 }
 
 #customize-controls #customize-notifications-area .notice,
@@ -1505,7 +1505,7 @@ p.customize-section-description {
 /* Header control: overlay "close" button */
 .customize-control-header .uploaded .header-view .close {
   font-size: 20px;
-  color: #fff;
+  color: #ffffff;
   background: #555d66;
   background: rgba(0, 0, 0, 0.5);
   position: absolute;
@@ -1725,10 +1725,10 @@ p.customize-section-description {
 #customize-theme-controls .control-panel-themes > .accordion-section-title:hover,
 #customize-theme-controls .control-panel-themes > .accordion-section-title {
   cursor: default;
-  background: #fff;
+  background: #ffffff;
   color: #555d66;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
   border-right: none;
   border-left: none;
   margin: 0 0 15px 0;
@@ -1891,7 +1891,7 @@ p.customize-section-description {
   border-top: 0;
   margin: 0;
   background: #eee;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #cccccc;
 }
 
 .filter-drawer .filter-group {
@@ -1970,19 +1970,19 @@ p.customize-section-description {
   padding: 0 15px 8px 0;
   margin: 15px 0 0 0;
   line-height: 16px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #cccccc;
   color: #555d66;
 }
 
 .control-panel-themes .customize-themes-section-title {
   width: 100%;
-  background: #fff;
+  background: #ffffff;
   -webkit-box-shadow: none;
           box-shadow: none;
   outline: none;
   border-top: none;
-  border-bottom: 1px solid #ddd;
-  border-right: 4px solid #fff;
+  border-bottom: 1px solid #cccccc;
+  border-right: 4px solid #ffffff;
   border-left: none;
   cursor: pointer;
   padding: 10px 15px;
@@ -1995,7 +1995,7 @@ p.customize-section-description {
 }
 
 .control-panel-themes #accordion-section-installed_themes {
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #cccccc;
 }
 
 .control-panel-themes .theme-section {
@@ -2020,7 +2020,7 @@ p.customize-section-description {
   height: 18px;
   border-radius: 100%;
   border: 1px solid #ccc;
-  background: #fff;
+  background: #ffffff;
 }
 
 .control-panel-themes .theme-section .customize-themes-section-title.selected:after {
@@ -2037,7 +2037,7 @@ p.customize-section-description {
   top: 9px;
   left: 15px;
   background: #0073aa;
-  color: #fff;
+  color: #ffffff;
 }
 
 .control-panel-themes .customize-themes-section-title.selected {
@@ -2076,12 +2076,12 @@ p.customize-section-description {
 .customize-control-theme .theme {
   width: 100%;
   margin: 0;
-  border: 1px solid #ddd;
-  background: #fff;
+  border: 1px solid #cccccc;
+  background: #ffffff;
 }
 
 .customize-control-theme .theme .theme-name, .customize-control-theme .theme .theme-actions {
-  background: #fff;
+  background: #ffffff;
   border: none;
 }
 
@@ -2162,7 +2162,7 @@ p.customize-section-description {
   padding: 6px 25px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #cccccc;
 }
 
 @media screen and (min-width: 1670px) {
@@ -2285,7 +2285,7 @@ p.customize-section-description {
     z-index: 10;
     text-align: right;
     text-shadow: none;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #cccccc;
     border-right: 4px solid transparent;
     margin: 0;
     padding: 0;
@@ -2300,7 +2300,7 @@ p.customize-section-description {
     display: block;
     line-height: 46px;
     padding: 0 8px 0 8px;
-    border-left: 1px solid #ddd;
+    border-left: 1px solid #cccccc;
   }
   .wp-customizer .showing-themes .control-panel-themes .customize-themes-mobile-back:hover,
   .wp-customizer .showing-themes .control-panel-themes .customize-themes-mobile-back:focus {
@@ -2407,7 +2407,7 @@ p.customize-section-description {
 .wp-customizer .theme-overlay .theme-header .right:hover,
 .wp-customizer .theme-overlay .theme-header .left:focus,
 .wp-customizer .theme-overlay .theme-header .left:hover {
-  background: #fff;
+  background: #ffffff;
   border-bottom: 4px solid #0073aa;
   color: #0073aa;
 }
@@ -2442,7 +2442,7 @@ p.customize-section-description {
 body.cheatin {
   font-size: medium;
   height: auto;
-  background: #fff;
+  background: #ffffff;
   margin: 50px auto 2em;
   padding: 1em 2em;
   max-width: 700px;
@@ -2452,7 +2452,7 @@ body.cheatin {
 }
 
 body.cheatin h1 {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #cccccc;
   clear: both;
   color: #555d66;
   font-size: 24px;
@@ -2594,7 +2594,7 @@ body.cheatin p {
 .move-right-disabled .menus-move-right,
 .move-left-disabled .menus-move-left {
   color: #d5d5d5;
-  background-color: #fff;
+  background-color: #ffffff;
   cursor: default;
   pointer-events: none;
 }
@@ -2643,7 +2643,7 @@ body.adding-widget .add-new-widget:before,
   background: #eee;
   -webkit-transition: right .18s;
   transition: right .18s;
-  border-left: 1px solid #ddd;
+  border-left: 1px solid #cccccc;
 }
 
 #available-widgets .customize-section-title,
@@ -2657,7 +2657,7 @@ body.adding-widget .add-new-widget:before,
   overflow: auto;
   bottom: 0;
   width: 100%;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #cccccc;
 }
 
 .no-widgets-found #available-widgets-list {
@@ -2805,9 +2805,9 @@ body.adding-widget .add-new-widget:before,
 #available-menu-items .item-tpl {
   position: relative;
   padding: 15px 60px 15px 15px;
-  background: #fff;
-  border-bottom: 1px solid #ddd;
-  border-right: 4px solid #fff;
+  background: #ffffff;
+  border-bottom: 1px solid #cccccc;
+  border-right: 4px solid #ffffff;
   -webkit-transition: .15s color ease-in-out, .15s background-color ease-in-out, .15s border-color ease-in-out;
   transition: .15s color ease-in-out, .15s background-color ease-in-out, .15s border-color ease-in-out;
   cursor: pointer;
@@ -2912,7 +2912,7 @@ body.adding-widget .add-new-widget:before,
     height: 45px;
     background: #eee;
     border: 0;
-    border-left: 1px solid #ddd;
+    border-left: 1px solid #cccccc;
     color: #555d66;
     cursor: pointer;
     -webkit-transition: color .1s ease-in-out, background .1s ease-in-out;

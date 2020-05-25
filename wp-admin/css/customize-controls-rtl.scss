@@ -1,3 +1,4 @@
+@import '../../app-assets/css/includes/modules/_typography';
 @import '../../app-assets/css/includes/modules/_colors';
 
 body {
@@ -35,7 +36,7 @@ body {
 	width: auto;
 	padding: 25px 109px 25px 25px;
 	position: relative;
-	background: #fff;
+	background: $white;
 	box-shadow: 0 3px 6px rgba( 0, 0, 0, 0.3 );
 	line-height: 1.5;
 	overflow-y: auto;
@@ -100,10 +101,10 @@ body:not(.ready) #customize-save-button-wrapper .save {
 	width: 100%;
 	margin: 0;
 	z-index: -1;
-	background: #eee;
+	background: $body_background;
 	transition: right .18s;
-	border-left: 1px solid #ddd;
-	border-right: 1px solid #ddd;
+	border-left: 1px solid $box_border_color;
+	border-right: 1px solid $box_border_color;
 	height: 100%;
 }
 
@@ -181,7 +182,7 @@ body.trashing #publish-settings {
 }
 
 #customize-header-actions {
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid $box_border_color;
 }
 
 #customize-controls .wp-full-overlay-sidebar-content {
@@ -190,19 +191,19 @@ body.trashing #publish-settings {
 }
 
 .outer-section-open #customize-controls .wp-full-overlay-sidebar-content {
-	background: #eee;
+	background: $body_background;
 }
 
 #customize-controls .customize-info {
 	border: none;
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid $box_border_color;
 	margin-bottom: 15px;
 }
 
 #customize-control-changeset_status .customize-inside-control-row,
 #customize-control-changeset_preview_link input {
-	background-color: #ffffff;
-	border-bottom: 1px solid #ddd;
+	background-color: $body_background;
+	border-bottom: 1px solid $box_border_color;
 	box-sizing: content-box;
 	width: 100%;
 	margin-right: -12px;
@@ -228,7 +229,7 @@ body.trashing #publish-settings {
 }
 
 #customize-controls .date-input:invalid {
-	border-color: #dc3232;
+	border-color: $error_color;
 }
 
 #customize-control-changeset_status .customize-inside-control-row {
@@ -238,7 +239,7 @@ body.trashing #publish-settings {
 }
 
 #customize-control-changeset_status .customize-inside-control-row:first-of-type {
-	border-top: 1px solid #ddd;
+	border-top: 1px solid $box_border_color;
 }
 
 #customize-control-changeset_status .customize-control-title {
@@ -270,7 +271,7 @@ body.trashing #publish-settings {
 	content: "";
 	height: 28px;
 	position: absolute;
-	background: #ffffff;
+	background: $white;
 	top: -1px;
 }
 
@@ -288,11 +289,11 @@ body.trashing #publish-settings {
 
 #customize-control-changeset_preview_link input {
 	line-height: 2.5;
-	border-top: 1px solid #ddd;
+	border-top: 1px solid $box_border_color;
 	border-right: none;
 	border-left: none;
 	text-indent: -999px;
-	color: #fff;
+	color: $white;
 }
 
 #customize-control-changeset_preview_link label {
@@ -381,8 +382,8 @@ body.trashing #publish-settings {
 	width: 100%;
 	margin-right: -12px;
 	padding: 12px;
-	background: #ffffff;
-	border-bottom: 1px solid #ddd;
+	background: $white;
+	border-bottom: 1px solid $box_border_color;
 	margin-bottom: 0;
 }
 
@@ -413,7 +414,7 @@ body.trashing #publish-settings {
 }
 
 #customize-controls .customize-info .accordion-section-title {
-	background: #fff;
+	background: $white;
 	color: #555d66;
 	border-right: none;
 	border-left: none;
@@ -489,9 +490,9 @@ body.trashing #publish-settings {
 #customize-controls .no-widget-areas-rendered-notice {
 	color: #555d66;
 	display: none;
-	background: #fff;
+	background: $white;
 	padding: 12px 15px;
-	border-top: 1px solid #ddd;
+	border-top: 1px solid $box_border_color;
 }
 
 #customize-controls .customize-info .customize-panel-description.open + .no-widget-areas-rendered-notice {
@@ -533,9 +534,9 @@ body.trashing #publish-settings {
 #customize-theme-controls .accordion-section-title,
 #customize-outer-theme-controls .accordion-section-title {
 	color: #555d66;
-	background-color: #fff;
-	border-bottom: 1px solid #ddd;
-	border-right: 4px solid #fff;
+	background-color: $white;
+	border-bottom: 1px solid $box_border_color;
+	border-right: 4px solid $white;
 	transition: .15s color ease-in-out,
 	            .15s background-color ease-in-out,
 	            .15s border-color ease-in-out;
@@ -543,8 +544,8 @@ body.trashing #publish-settings {
 
 #customize-controls #customize-theme-controls .customize-themes-panel .accordion-section-title {
 	color: #555;
-	background-color: #fff;
-	border-right: 4px solid #fff;
+	background-color: $white;
+	border-right: 4px solid $white;
 }
 
 #customize-theme-controls .accordion-section-title:after,
@@ -569,7 +570,7 @@ body.trashing #publish-settings {
 }
 
 #accordion-section-themes + .control-section {
-	border-top: 1px solid #ddd;
+	border-top: 1px solid $box_border_color;
 }
 
 .js .control-section:hover .accordion-section-title,
@@ -601,13 +602,13 @@ body.trashing #publish-settings {
 
 #customize-theme-controls .control-section:last-of-type.open,
 #customize-theme-controls .control-section:last-of-type > .accordion-section-title {
-	border-bottom-color: #ddd;
+	border-bottom-color: $box_border_color;
 }
 
 #customize-theme-controls .control-panel-content:not(.control-panel-nav_menus) .control-section:nth-child(2),
 #customize-theme-controls .control-panel-nav_menus .control-section-nav_menu,
 #customize-theme-controls .control-section-nav_menu_locations .accordion-section-title {
-	border-top: 1px solid #ddd;
+	border-top: 1px solid $box_border_color;
 }
 
 #customize-theme-controls .control-panel-nav_menus .control-section-nav_menu + .control-section-nav_menu {
@@ -727,8 +728,8 @@ body.trashing #publish-settings {
 
 .customize-section-title {
 	margin: -12px -12px 0 -12px;
-	border-bottom: 1px solid #ddd;
-	background: #fff;
+	border-bottom: 1px solid $box_border_color;
+	background: $white;
 }
 
 div.customize-section-description {
@@ -748,7 +749,7 @@ div.customize-section-description p:last-child {
 }
 
 #customize-theme-controls .customize-themes-panel h3.customize-section-title:first-child {
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid $box_border_color;
 	padding: 12px 12px 12px 12px;
 }
 
@@ -790,7 +791,7 @@ h3.customize-section-title {
 	background: #eee;
 	border: none;
 	border-top: 4px solid #eee;
-	border-left: 1px solid #ddd;
+	border-left: 1px solid $box_border_color;
 	color: #444;
 	text-align: right;
 	cursor: pointer;
@@ -808,10 +809,10 @@ h3.customize-section-title {
 	height: 71px;
 	padding: 0 0 0 24px;
 	margin: 0;
-	background: #fff;
+	background: $white;
 	border: none;
-	border-left: 1px solid #ddd;
-	border-right: 4px solid #fff;
+	border-left: 1px solid $box_border_color;
+	border-right: 4px solid $white;
 	box-shadow: none;
 	cursor: pointer;
 	transition: color .15s ease-in-out,
@@ -838,16 +839,16 @@ h3.customize-section-title {
 
 #customize-controls .panel-meta.customize-info .accordion-section-title:hover,
 #customize-controls .cannot-expand:hover .accordion-section-title {
-	background: #fff;
+	background: $white;
 	color: #555d66;
-	border-right-color: #fff;
+	border-right-color: $white;
 }
 
 .customize-controls-close:focus,
 .customize-controls-close:hover,
 .customize-controls-preview-toggle:focus,
 .customize-controls-preview-toggle:hover {
-	background: #fff;
+	background: $white;
 	color: #0073aa;
 	border-top-color: #0073aa;
 	outline: none;
@@ -883,7 +884,7 @@ h3.customize-section-title {
 }
 
 .wp-full-overlay-sidebar .wp-full-overlay-header {
-	background-color: #eee;
+	background-color: $body_background;
 	transition: padding ease-in-out .18s;
 }
 
@@ -1120,8 +1121,8 @@ p.customize-section-description {
 }
 
 .wp-full-overlay-sidebar {
-	background: #eee;
-	border-left: 1px solid #ddd;
+	background: $body_background;
+	border-left: 1px solid $box_border_color;
 }
 
 
@@ -1171,7 +1172,7 @@ p.customize-section-description {
 	position: absolute;
 	top: 46px;
 	width: 100%;
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid $box_border_color;
 	display: block;
 	padding: 0;
 	margin: 0;
@@ -1199,7 +1200,7 @@ p.customize-section-description {
 }
 #customize-controls .panel-meta > .customize-control-notifications-container,
 #customize-controls .customize-section-title > .customize-control-notifications-container {
-	border-top: 1px solid #ddd;
+	border-top: 1px solid $box_border_color;
 }
 #customize-controls #customize-notifications-area .notice,
 #customize-controls .panel-meta > .customize-control-notifications-container .notice,
@@ -1465,7 +1466,7 @@ p.customize-section-description {
 
 .customize-control-header .uploaded .header-view .close {
 	font-size: 20px;
-	color: #fff;
+	color: $white;
 	background: #555d66;
 	background: rgba(0, 0, 0, 0.5);
 	position: absolute;
@@ -1694,10 +1695,10 @@ p.customize-section-description {
 #customize-theme-controls .control-panel-themes > .accordion-section-title:hover, /* Not a focusable element. */
 #customize-theme-controls .control-panel-themes > .accordion-section-title {
 	cursor: default;
-	background: #fff;
+	background: $white;
 	color: #555d66;
-	border-top: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
+	border-top: 1px solid $box_border_color;
+	border-bottom: 1px solid $box_border_color;
 	border-right: none;
 	border-left: none;
 	margin: 0 0 15px 0;
@@ -1851,7 +1852,7 @@ p.customize-section-description {
 	border-top: 0;
 	margin: 0;
 	background: #eee;
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid $box_border_color;
 }
 
 .filter-drawer .filter-group {
@@ -1927,18 +1928,18 @@ p.customize-section-description {
 	padding: 0 15px 8px 0;
 	margin: 15px 0 0 0;
 	line-height: 16px;
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid $box_border_color;
 	color: #555d66;
 }
 
 .control-panel-themes .customize-themes-section-title {
 	width: 100%;
-	background: #fff;
+	background: $white;
 	box-shadow: none;
 	outline: none;
 	border-top: none;
-	border-bottom: 1px solid #ddd;
-	border-right: 4px solid #fff;
+	border-bottom: 1px solid $box_border_color;
+	border-right: 4px solid $white;
 	border-left: none;
 	cursor: pointer;
 	padding: 10px 15px;
@@ -1951,7 +1952,7 @@ p.customize-section-description {
 }
 
 .control-panel-themes #accordion-section-installed_themes {
-	border-top: 1px solid #ddd;
+	border-top: 1px solid $box_border_color;
 }
 
 .control-panel-themes .theme-section {
@@ -1976,7 +1977,7 @@ p.customize-section-description {
 	height: 18px;
 	border-radius: 100%;
 	border: 1px solid #ccc;
-	background: #fff;
+	background: $white;
 }
 
 .control-panel-themes .theme-section .customize-themes-section-title.selected:after {
@@ -1991,7 +1992,7 @@ p.customize-section-description {
 	top: 9px;
 	left: 15px;
 	background: #0073aa;
-	color: #fff;
+	color: $white;
 }
 
 .control-panel-themes .customize-themes-section-title.selected {
@@ -2029,12 +2030,12 @@ p.customize-section-description {
 .customize-control-theme .theme {
 	width: 100%;
 	margin: 0;
-	border: 1px solid #ddd;
-	background: #fff;
+	border: 1px solid $box_border_color;
+	background: $white;
 }
 
 .customize-control-theme .theme .theme-name, .customize-control-theme .theme .theme-actions {
-	background: #fff;
+	background: $white;
 	border: none;
 }
 
@@ -2110,7 +2111,7 @@ p.customize-section-description {
 	z-index: 10;
 	padding: 6px 25px;
 	box-sizing: border-box;
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid $box_border_color;
 }
 
 @media screen and (min-width: 1670px) {
@@ -2241,7 +2242,7 @@ p.customize-section-description {
 		z-index: 10;
 		text-align: right;
 		text-shadow: none;
-		border-bottom: 1px solid #ddd;
+		border-bottom: 1px solid $box_border_color;
 		border-right: 4px solid transparent;
 		margin: 0;
 		padding: 0;
@@ -2257,7 +2258,7 @@ p.customize-section-description {
 		display: block;
 		line-height: 46px;
 		padding: 0 8px 0 8px;
-		border-left: 1px solid #ddd;
+		border-left: 1px solid $box_border_color;
 	}
 
 	.wp-customizer .showing-themes .control-panel-themes .customize-themes-mobile-back:hover,
@@ -2363,7 +2364,7 @@ p.customize-section-description {
 .wp-customizer .theme-overlay .theme-header .right:hover,
 .wp-customizer .theme-overlay .theme-header .left:focus,
 .wp-customizer .theme-overlay .theme-header .left:hover {
-	background: #fff;
+	background: $white;
 	border-bottom: 4px solid #0073aa;
 	color: #0073aa;
 }
@@ -2399,7 +2400,7 @@ p.customize-section-description {
 body.cheatin {
 	font-size: medium;
 	height: auto;
-	background: #fff;
+	background: $white;
 	margin: 50px auto 2em;
 	padding: 1em 2em;
 	max-width: 700px;
@@ -2408,7 +2409,7 @@ body.cheatin {
 }
 
 body.cheatin h1 {
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid $box_border_color;
 	clear: both;
 	color: #555d66;
 	font-size: 24px;
@@ -2546,7 +2547,7 @@ body.cheatin p {
 .move-right-disabled .menus-move-right,
 .move-left-disabled .menus-move-left {
 	color: #d5d5d5;
-	background-color: #fff;
+	background-color: $white;
 	cursor: default;
 	pointer-events: none;
 }
@@ -2593,7 +2594,7 @@ body.adding-widget .add-new-widget:before,
 	z-index: 4;
 	background: #eee;
 	transition: right .18s;
-	border-left: 1px solid #ddd;
+	border-left: 1px solid $box_border_color;
 }
 
 #available-widgets .customize-section-title,
@@ -2607,7 +2608,7 @@ body.adding-widget .add-new-widget:before,
 	overflow: auto;
 	bottom: 0;
 	width: 100%;
-	border-top: 1px solid #ddd;
+	border-top: 1px solid $box_border_color;
 }
 
 .no-widgets-found #available-widgets-list {
@@ -2751,9 +2752,9 @@ body.adding-widget .add-new-widget:before,
 #available-menu-items .item-tpl {
 	position: relative;
 	padding: 15px 60px 15px 15px;
-	background: #fff;
-	border-bottom: 1px solid #ddd;
-	border-right: 4px solid #fff;
+	background: $white;
+	border-bottom: 1px solid $box_border_color;
+	border-right: 4px solid $white;
 	transition: .15s color ease-in-out,
 	            .15s background-color ease-in-out,
 	            .15s border-color ease-in-out;
@@ -2876,7 +2877,7 @@ body.adding-widget .add-new-widget:before,
 		height: 45px;
 		background: #eee;
 		border: 0;
-		border-left: 1px solid #ddd;
+		border-left: 1px solid $box_border_color;
 		color: #555d66;
 		cursor: pointer;
 		transition: color .1s ease-in-out, background .1s ease-in-out;
