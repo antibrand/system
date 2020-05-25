@@ -940,7 +940,7 @@ function wp_default_styles( &$styles ) {
 	$styles->default_dirs    = [ '/wp-admin/', '/wp-includes/css/' ];
 
 	// Register a stylesheet for the selected admin color scheme.
-	$styles->add( 'colors', true, [ 'wp-admin' ] );
+	$styles->add( 'colors', true, [ 'app-admin' ] );
 
 	// Load minified stylesheets unless SCRIPT_DEBUG is true.
 	if ( SCRIPT_DEBUG ) {
@@ -963,15 +963,14 @@ function wp_default_styles( &$styles ) {
 	$styles->add( 'profile',     "/wp-admin/css/profile$suffix.css" );
 	$styles->add( 'site-icon',   "/wp-admin/css/site-icon$suffix.css" );
 	$styles->add( 'code-editor', "/wp-admin/css/code-editor$suffix.css", [ 'wp-codemirror' ] );
-	$styles->add( 'acf',         "/wp-admin/css/acf$suffix.css", [ 'acf-global' ] );
 
-	$styles->add( 'wp-admin', false, [ 'dashicons', 'admin', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'nav-menus', 'widgets', 'profile', 'site-icon', 'acf' ] );
+	$styles->add( 'app-admin', false, [ 'dashicons', 'admin', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'nav-menus', 'widgets', 'profile', 'site-icon' ] );
 
 	$styles->add( 'login',               "/wp-admin/css/login$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'install',             "/wp-admin/css/install$suffix.css" );
-	$styles->add( 'customize-controls',  "/wp-admin/css/customize-controls$suffix.css", [ 'wp-admin', 'colors', 'imgareaselect' ] );
-	$styles->add( 'customize-widgets',   "/wp-admin/css/customize-widgets$suffix.css", [ 'wp-admin', 'colors' ] );
-	$styles->add( 'customize-nav-menus', "/wp-admin/css/customize-nav-menus$suffix.css", [ 'wp-admin', 'colors' ] );
+	$styles->add( 'customize-controls',  "/wp-admin/css/customize-controls$suffix.css", [ 'app-admin', 'colors', 'imgareaselect' ] );
+	$styles->add( 'customize-widgets',   "/wp-admin/css/customize-widgets$suffix.css", [ 'app-admin', 'colors' ] );
+	$styles->add( 'customize-nav-menus', "/wp-admin/css/customize-nav-menus$suffix.css", [ 'app-admin', 'colors' ] );
 
 	// Common stylesheets.
 	$styles->add( 'dashicons', "/wp-includes/css/dashicons$suffix.css" );
@@ -998,13 +997,14 @@ function wp_default_styles( &$styles ) {
 
 		// Admin stylesheets.
 		'admin', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'nav-menus',
-		'widgets', 'profile', 'site-icon', 'acf', 'install', 'customize-controls', 'customize-widgets', 'customize-nav-menus', 'customize-preview',
+		'widgets', 'profile', 'site-icon', 'install', 'customize-controls', 'customize-widgets', 'customize-nav-menus', 'customize-preview',
 		'login',
 
 		// Includes stylesheets.
 		'user-toolbar', 'wp-auth-check', 'editor-buttons', 'media-views', 'wp-pointer',
 		'wp-jquery-ui-dialog'
 	];
+
 
 	foreach ( $rtl_styles as $rtl_style ) {
 
