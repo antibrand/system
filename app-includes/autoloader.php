@@ -22,8 +22,8 @@ const APP_CLASSES = [
 	'AppNamespace\Includes\Walker'          => __DIR__ . '/classes/includes/class-walker.php',
 	'AppNamespace\Includes\Walker_Nav_Menu' => __DIR__ . '/classes/includes/class-walker-nav-menu.php',
 	'AppNamespace\Includes\Walker_Page'     => __DIR__ . '/classes/includes/class-walker-page.php',
-	'AppNamespace\Includes\Walker_Category'     => __DIR__ . '/classes/includes/class-walker-category.php',
-	'AppNamespace\Includes\Walker_Category_Dropdown'     => __DIR__ . '/classes/includes/class-walker-category-dropdown.php',
+	'AppNamespace\Includes\Walker_Category' => __DIR__ . '/classes/includes/class-walker-category.php',
+	'AppNamespace\Includes\Walker_Category_Dropdown' => __DIR__ . '/classes/includes/class-walker-category-dropdown.php',
 	'AppNamespace\Includes\Site_Icon'       => __DIR__ . '/classes/includes/class-site-icon.php',
 	'AppNamespace\Includes\Error_Messages'  => __DIR__ . '/classes/includes/class-error-messages.php',
 
