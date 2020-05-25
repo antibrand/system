@@ -393,6 +393,15 @@ div.mce-statusbar,
 	border-color: $form_border_color !important;
 }
 
+.mce-menu .mce-menu-item:hover,
+.mce-menu .mce-menu-item.mce-selected,
+.mce-menu .mce-menu-item:focus,
+.mce-menu .mce-menu-item-normal.mce-active,
+.mce-menu .mce-menu-item-preview.mce-active {
+	background: $button_action_background_color;
+	color: $button_text_color;
+}
+
 .wp-editor-expand #wp-content-editor-tools {
 	background-color: $body_background;
 	border-color: $form_border_color !important;

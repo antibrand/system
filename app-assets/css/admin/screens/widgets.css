@@ -544,8 +544,8 @@ div#widgets-right .closed .widgets-sortables {
   padding: 0 15px;
 }
 
-.editwidget .widget-control-actions {
-  margin-top: 20px;
+.widget-control-actions {
+  margin-top: 1em;
 }
 
 .js .widgets-holder-wrap.closed .widget,

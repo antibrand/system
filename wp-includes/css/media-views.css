@@ -822,6 +822,12 @@
 
 .app-core-ui .attachment .thumbnail img {
   display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
 }
 
 .app-core-ui .attachment-close {

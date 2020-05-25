@@ -484,7 +484,7 @@ div.mce-path {
 	background: #0085ba;
 	border-color: $link_color #006799 #006799;
 	box-shadow: 0 1px 0 #006799;
-	color: #fff;
+	color: $white;
 	text-decoration: none;
 	text-shadow: none;
 }
@@ -495,14 +495,14 @@ div.mce-path {
 }
 
 .mce-toolbar .mce-btn-group .mce-btn.mce-primary .mce-ico {
-	color: #fff;
+	color: $white;
 }
 
 .mce-toolbar .mce-btn-group .mce-btn.mce-primary:hover,
 .mce-toolbar .mce-btn-group .mce-btn.mce-primary:focus {
 	background: #008ec2;
 	border-color: #006799;
-	color: #fff;
+	color: $white;
 }
 
 .mce-toolbar .mce-btn-group .mce-btn.mce-primary:focus {
@@ -519,7 +519,7 @@ div.mce-path {
 .mce-toolbar .mce-btn-group .mce-btn.mce-listbox {
     border-radius: 0;
     direction: rtl;
-    background: #fff;
+    background: $white;
     border: 1px solid #ddd;
     box-shadow: inset 0 1px 1px -1px rgba(0, 0, 0, .2);
 }
@@ -568,8 +568,8 @@ div.mce-path {
 .mce-menu .mce-menu-item:focus,
 .mce-menu .mce-menu-item-normal.mce-active,
 .mce-menu .mce-menu-item-preview.mce-active {
-	background: $link_color; /* See color scheme. */
-	color: #fff;
+	background: $button_action_background_color;
+	color: $button_text_color;
 }
 
 .mce-menu-item:hover .mce-text,
@@ -595,7 +595,7 @@ div.mce-path {
 /* Menubar */
 div.mce-menubar {
 	border-color: #e5e5e5;
-	background: #fff;
+	background: $white;
 	border-width: 0px 0px 1px;
 }
 
@@ -604,13 +604,6 @@ div.mce-menubar {
 .mce-menubar .mce-menubtn:focus {
 	border-color: transparent;
 	background: transparent;
-}
-
-.mce-menubar .mce-menubtn:focus {
-	color: #124964;
-	box-shadow:
-		0 0 0 1px #5b9dd9,
-		0 0 2px 1px rgba(30, 140, 190, .8);
 }
 
 div.mce-menu .mce-menu-item-sep,
@@ -643,7 +636,7 @@ div.mce-menu .mce-menu-item-sep,
 .mce-primary button,
 .mce-primary button i {
 	text-align: center;
-	color: #fff;
+	color: $white;
 	text-shadow: none;
 	padding: 0;
 	line-height: 26px;
@@ -659,11 +652,10 @@ div.mce-menu .mce-menu-item-sep,
 	margin: 0;
 	padding: 0;
 	cursor: pointer;
-	border: 1px solid #cccccc;
+	border: 1px solid $form_border_color;
 	-webkit-appearance: none;
 	border-radius: 3px;
 	white-space: nowrap;
-	box-shadow: 0 1px 0 #cccccc;
 }
 
 /* Remove the dotted border on :focus and the extra padding in Firefox */
@@ -698,7 +690,7 @@ div.mce-menu .mce-menu-item-sep,
 	border-color: #ddd !important;
 	background: #f7f7f7 !important;
 	box-shadow: none !important;
-	text-shadow: 0 1px 0 #fff !important;
+	text-shadow: 0 1px 0 $white !important;
 	cursor: default;
 	-webkit-transform: none !important;
 	transform: none !important;
@@ -708,7 +700,7 @@ div.mce-menu .mce-menu-item-sep,
 	background: #0085ba;
 	border-color: $link_color #006799 #006799;
 	box-shadow: 0 1px 0 #006799;
-	color: #fff;
+	color: $white;
 	text-decoration: none;
 	text-shadow: 0 -1px 1px #006799,
 		-1px 0 1px #006799,
@@ -720,7 +712,7 @@ div.mce-menu .mce-menu-item-sep,
 .mce-window .mce-btn.mce-primary:focus {
 	background: #008ec2;
 	border-color: #006799;
-	color: #fff;
+	color: $white;
 }
 
 .mce-window .mce-btn.mce-primary:focus {
@@ -785,7 +777,7 @@ div.mce-menu .mce-menu-item-sep,
 .mce-tooltip-inner {
 	border-radius: 3px;
 	box-shadow: 0 3px 5px rgba( 0, 0, 0, 0.2 );
-	color: #fff;
+	color: $white;
 	font-size: 12px;
 }
 
@@ -1320,7 +1312,7 @@ i.mce-i-wp_code:before {
 
 #wp-link-wrap {
 	display: none;
-	background-color: #fff;
+	background-color: $white;
 	box-shadow: 0 3px 6px rgba( 0, 0, 0, 0.3 );
 	width: 500px;
 	overflow: hidden;
@@ -1498,7 +1490,7 @@ i.mce-i-wp_code:before {
 #wp-link .query-results {
 	border: 1px #dfdfdf solid;
 	margin: 0 0 12px;
-	background: #fff;
+	background: $white;
 	overflow: auto;
 	position: absolute;
 	right: 16px;
@@ -1567,7 +1559,7 @@ i.mce-i-wp_code:before {
 }
 
 #wp-link li.unselectable:hover {
-	background: #fff;
+	background: $white;
 	cursor: auto;
 	color: #32373c;
 }
@@ -1763,7 +1755,7 @@ div.wp-link-input input {
 	position: absolute;
 	border: 1px solid #5b9dd9;
 	box-shadow: 0 1px 2px rgba( 30, 140, 190, 0.8 );
-	background-color: #fff;
+	background-color: $white;
 }
 
 .ui-autocomplete.wplink-autocomplete li {

@@ -151,19 +151,16 @@ body:not(.ready) #customize-save-button-wrapper .save {
 }
 
 #publish-settings {
-  text-indent: 0;
-  border-radius: 0 3px 3px 0;
+  float: left;
+  width: 30px;
+  height: 2.5rem;
+  margin-top: 0;
   padding-left: 0;
   padding-right: 0;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  /* @todo Adjust box shadow based on the disable states of paired button. */
-  font-size: 14px;
-  width: 30px;
-  float: left;
+  border-left: none;
   -webkit-transform: none;
   transform: none;
-  margin-top: 0;
+  text-indent: 0;
 }
 
 body:not(.ready) #publish-settings,
@@ -447,11 +444,10 @@ body.trashing #publish-settings {
 #customize-outer-theme-controls .customize-pane-child .customize-section-title h3,
 #customize-outer-theme-controls .customize-pane-child h3.customize-section-title,
 #customize-controls .customize-info .panel-title {
-  font-size: 20px;
-  font-weight: 200;
-  line-height: 26px;
   display: block;
   overflow: hidden;
+  font-size: 1.3125rem;
+  font-weight: 700;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
@@ -474,7 +470,6 @@ body.trashing #publish-settings {
           box-shadow: none;
   -webkit-appearance: none;
   background: transparent;
-  color: #555d66;
   border: none;
 }
 
@@ -484,17 +479,10 @@ body.trashing #publish-settings {
   left: 6px;
 }
 
-#customize-controls .customize-info.open .customize-help-toggle,
-#customize-controls .customize-info .customize-help-toggle:focus,
-#customize-controls .customize-info .customize-help-toggle:hover {
-  color: #0073aa;
-}
-
 #customize-controls .customize-info .customize-panel-description,
 #customize-controls .customize-info .customize-section-description,
 #customize-outer-theme-controls .customize-info .customize-section-description,
 #customize-controls .no-widget-areas-rendered-notice {
-  color: #555d66;
   display: none;
   background: #ffffff;
   padding: 12px 15px;
@@ -542,61 +530,25 @@ body.trashing #publish-settings {
 
 #customize-theme-controls .accordion-section-title,
 #customize-outer-theme-controls .accordion-section-title {
-  color: #555d66;
-  background-color: #ffffff;
   border-bottom: 1px solid #cccccc;
-  border-left: 4px solid #ffffff;
-  -webkit-transition: .15s color ease-in-out, .15s background-color ease-in-out, .15s border-color ease-in-out;
-  transition: .15s color ease-in-out, .15s background-color ease-in-out, .15s border-color ease-in-out;
-}
-
-#customize-controls #customize-theme-controls .customize-themes-panel .accordion-section-title {
-  color: #555;
-  background-color: #ffffff;
-  border-left: 4px solid #ffffff;
 }
 
 #customize-theme-controls .accordion-section-title:after,
 #customize-outer-theme-controls .accordion-section-title:after {
   content: "\f345";
-  color: #a0a5aa;
 }
 
 #customize-theme-controls .accordion-section-content,
 #customize-outer-theme-controls .accordion-section-content {
-  color: #555d66;
   background: transparent;
 }
 
-#customize-controls .control-section:hover > .accordion-section-title,
-#customize-controls .control-section .accordion-section-title:hover,
-#customize-controls .control-section.open .accordion-section-title,
-#customize-controls .control-section .accordion-section-title:focus {
-  color: #0073aa;
-  background: #f3f3f5;
-  border-left-color: #0073aa;
+#accordion-section-themes h3 {
+  font-size: 1.0625rem;
 }
 
 #accordion-section-themes + .control-section {
   border-top: 1px solid #cccccc;
-}
-
-.js .control-section:hover .accordion-section-title,
-.js .control-section .accordion-section-title:hover,
-.js .control-section.open .accordion-section-title,
-.js .control-section .accordion-section-title:focus {
-  background: #f3f3f5;
-}
-
-#customize-theme-controls .control-section:hover > .accordion-section-title:after,
-#customize-theme-controls .control-section .accordion-section-title:hover:after,
-#customize-theme-controls .control-section.open .accordion-section-title:after,
-#customize-theme-controls .control-section .accordion-section-title:focus:after,
-#customize-outer-theme-controls .control-section:hover > .accordion-section-title:after,
-#customize-outer-theme-controls .control-section .accordion-section-title:hover:after,
-#customize-outer-theme-controls .control-section.open .accordion-section-title:after,
-#customize-outer-theme-controls .control-section .accordion-section-title:focus:after {
-  color: #0073aa;
 }
 
 #customize-theme-controls .control-section.open {
@@ -1980,8 +1932,8 @@ p.customize-section-description {
   padding: 10px 15px;
   position: relative;
   text-align: left;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 0.875rem;
+  font-weight: 700;
   text-shadow: none;
 }
 
@@ -2942,9 +2894,6 @@ body.adding-widget .add-new-widget:before,
     font-size: 14px;
     vertical-align: middle;
     height: auto;
-  }
-  #publish-settings {
-    height: 31px;
   }
   #customize-control-changeset_status .customize-inside-control-row {
     padding-top: 15px;

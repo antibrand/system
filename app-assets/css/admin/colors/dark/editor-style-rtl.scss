@@ -1,0 +1,10 @@
+///
+/// Editor styles for dark color scheme
+
+// Import general app variables.
+@import '../../../includes/modules/_typography';
+@import 'colors';
+
+body {
+	color: $text_color;
+}
