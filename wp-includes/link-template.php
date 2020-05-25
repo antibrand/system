@@ -3959,7 +3959,7 @@ function get_avatar_data( $id_or_email, $args = null ) {
 	);
 
 	if ( ( 'mm' ) == $args['default'] ) {
-		$url = app_assets_url( 'images/mystery-generic.png' );
+		$url = app_assets_url( 'images/mystery.png' );
 	} else {
 		$url = app_assets_url( 'images/no-avatar.png' );
 	}
