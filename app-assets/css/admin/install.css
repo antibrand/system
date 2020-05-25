@@ -578,6 +578,27 @@ h3 {
 }
 
 /**
+ * Content lists
+ *
+ * The are lists that are used to present text
+ * rather that for navigation and inline elements.
+ */
+ul.content-list,
+ol.content-list {
+  margin-top: 1em;
+}
+
+ul.content-list li,
+ol.content-list li {
+  display: block;
+  margin-top: 0.35em;
+}
+
+ul.content-list {
+  list-style: none;
+}
+
+/**
  * Administration form styles
  */
 /**

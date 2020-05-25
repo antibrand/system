@@ -1,9 +1,8 @@
-// @import '../../app-assets/css/includes/partials/_reset';
-// @import '../../app-assets/css/includes/modules/_colors';
-// @import '../../app-assets/css/includes/modules/_typography';
-// @import '../../app-assets/css/includes/partials/_buttons';
-// @import '../../app-assets/css/admin/partials/_forms';
-// @import '../../app-assets/css/admin/partials/_typography';
+@import '../../includes/partials/_reset';
+@import '../../includes/modules/_typography';
+@import '../../includes/modules/_colors';
+@import '../../includes/partials/_buttons';
+@import '../../admin/partials/_forms';
 
 body {
 	font-family: $sans;

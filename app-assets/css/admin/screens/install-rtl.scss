@@ -1,11 +1,8 @@
-// @import '../../app-assets/css/includes/partials/_reset';
-// @import '../../app-assets/css/includes/modules/_colors';
-// @import '../../app-assets/css/includes/modules/_typography';
-// @import '../../app-assets/css/includes/modules/_colors';
-// @import '../../app-assets/css/admin/partials/_typography';
-
-@import url(forms.min.css);
-@import url(l10n.min.css);
+@import '../../includes/partials/_reset';
+@import '../../includes/modules/_typography';
+@import '../../includes/modules/_colors';
+@import '../../includes/partials/_buttons';
+@import '../../admin/partials/_forms';
 
 html,
 body {
