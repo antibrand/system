@@ -6707,44 +6707,103 @@ li#wp-admin-bar-menu-toggle {
  * Overrides the plugin styles which are intended to jive with
  * brand-name management systems.
  */
-.acf-admin-navigation {
+.app-admin .acf-admin-navigation {
   padding: 1em 2rem;
   background-color: #ffffff !important;
+  border-color: #cccccc !important;
 }
 
-.acf-admin-navigation h2,
-.acf-admin-navigation .acf-tab {
+.app-admin .acf-admin-navigation h2,
+.app-admin .acf-admin-navigation .acf-tab {
   padding: 0 !important;
   font-size: 0.875rem !important;
   line-height: 1 !important;
 }
 
-.acf-admin-navigation h2 {
+.app-admin .acf-admin-navigation h2 {
   margin-left: 1rem !important;
 }
 
-.acf-admin-navigation h2 i {
+.app-admin .acf-admin-navigation h2 i {
   display: none;
 }
 
-.acf-admin-navigation .acf-tab {
+.app-admin .acf-admin-navigation .acf-tab {
   margin: 0 0.5em !important;
   color: #004499 !important;
 }
 
-.acf-admin-navigation .acf-tab:hover, .acf-admin-navigation .acf-tab:focus {
+.app-admin .acf-admin-navigation .acf-tab:hover, .app-admin .acf-admin-navigation .acf-tab:focus {
   color: #005fd6 !important;
 }
 
-.acf-admin-navigation .acf-tab.is-active {
+.app-admin .acf-admin-navigation .acf-tab.is-active {
   padding: 0 !important;
   border: none !important;
   font-weight: 700;
 }
 
-.acf-admin-navigation .acf-tab.is-active:hover, .acf-admin-navigation .acf-tab.is-active:focus {
+.app-admin .acf-admin-navigation .acf-tab.is-active:hover, .app-admin .acf-admin-navigation .acf-tab.is-active:focus {
   cursor: default;
   color: #004499 !important;
+}
+
+.app-admin .acf-field-object,
+.app-admin .acf-field-object.open > .handle {
+  background-color: inherit !important;
+  border-color: #cccccc !important;
+  color: inherit !important;
+}
+
+.app-admin .acf-field-object.open > .handle {
+  text-shadow: none !important;
+}
+
+.app-admin .acf-field-object.open > .handle a {
+  color: #004499 !important;
+}
+
+.app-admin .acf-field-object.open > .handle a:hover, .app-admin .acf-field-object.open > .handle a:focus {
+  color: #005fd6 !important;
+  text-decoration: none !important;
+}
+
+.app-admin .acf-field-object.open > .handle a.button {
+  color: #222222 !important;
+}
+
+.app-admin .acf-field-object.open > .handle a.button:hover, .app-admin .acf-field-object.open > .handle a.button:focus {
+  color: #222222 !important;
+  text-decoration: none !important;
+}
+
+.app-admin .acf-field-object.open > .handle a.delete-field {
+  color: #dd0000 !important;
+}
+
+.app-admin .acf-thead {
+  color: inherit !important;
+}
+
+.app-admin .acf-input-prepend,
+.app-admin .acf-input-append {
+  height: 2.5rem !important;
+  padding: 0 1rem !important;
+  background: none !important;
+  border-radius: 0px !important;
+  font-size: 0.875rem !important;
+  line-height: 2.5rem !important;
+}
+
+.app-admin .acf-box,
+.app-admin .acf-meta-box-wrap .acf-fields {
+  background-color: inherit !important;
+  border-color: #cccccc !important;
+}
+
+.app-admin .acf-box .title,
+.app-admin .acf-box .footer {
+  border-color: #cccccc !important;
 }
 
 .page-title-action {

@@ -771,6 +771,17 @@ fieldset.scheme-list {
   color: #dd0000 !important;
 }
 
+.app-admin .acf-box,
+.app-admin .acf-meta-box-wrap .acf-fields {
+  background-color: #282828 !important;
+  border-color: #414141 !important;
+}
+
+.app-admin .acf-box .title,
+.app-admin .acf-box .footer {
+  border-color: #414141 !important;
+}
+
 .page-title-action {
   background: #2f2f2f;
   border-color: #626262;

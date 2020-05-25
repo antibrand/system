@@ -6777,6 +6777,17 @@ li#wp-admin-bar-menu-toggle {
   line-height: 2.5rem !important;
 }
 
+.app-admin .acf-box,
+.app-admin .acf-meta-box-wrap .acf-fields {
+  background-color: inherit !important;
+  border-color: #cccccc !important;
+}
+
+.app-admin .acf-box .title,
+.app-admin .acf-box .footer {
+  border-color: #cccccc !important;
+}
+
 .page-title-action {
   display: inline-block;
   vertical-align: middle;

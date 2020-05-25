@@ -777,6 +777,17 @@ fieldset {
 			}
 		}
 	}
+
+	.acf-box,
+	.acf-meta-box-wrap .acf-fields {
+		background-color: $box_background_color !important;
+		border-color: $box_border_color !important;
+	}
+
+	.acf-box .title,
+	.acf-box .footer {
+		border-color: $box_border_color !important;
+	}
 }
 
 ///
