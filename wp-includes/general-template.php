@@ -3975,7 +3975,7 @@ function register_admin_color_schemes() {
 
 	wp_admin_css_color( 'fresh', _x( 'Fresh (Classic)', 'admin color scheme' ),
 		app_assets_url( "css/admin/colors/fresh/colors$suffix.css" ),
-		[ '#222222', '#333333', '#0073aa', '#00a0d2' ],
+		[ '#222222', '#444444', '#0073aa', '#00a0d2' ],
 		[ 'base' => '#82878c', 'focus' => '#00a0d2', 'current' => '#ffffff' ]
 	);
 
