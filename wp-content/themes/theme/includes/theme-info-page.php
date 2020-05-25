@@ -96,7 +96,7 @@ if ( $get_theme_tags ) {
 
 		<img class="avatar alignright" src="<?php echo esc_url( $get_theme_icon ); ?>" alt="<?php echo $theme_name; ?>" width="80" height="80" />
 
-		<ul>
+		<ul class="content-list">
 			<li><strong><?php esc_html_e( 'Theme Name: ', 'antibrand' ); ?></strong><?php echo $get_theme_name; ?></li>
 			<?php if ( $get_template ) : ?>
 				<li><strong><?php _e( 'Template: ', 'antibrand' ); ?></strong><?php echo $parent_name; ?></li>
