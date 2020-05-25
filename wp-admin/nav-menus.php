@@ -715,28 +715,37 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
 	<hr class="wp-header-end">
 
-	<h2 class="nav-tab-wrapper wp-clearfix">
-		<a href="<?php echo admin_url( 'nav-menus.php' ); ?>" class="nav-tab<?php if ( ! isset( $_GET['action'] ) || isset( $_GET['action'] ) && 'locations' != $_GET['action'] ) echo ' nav-tab-active'; ?>"><?php esc_html_e( 'Edit Menus' ); ?></a>
-		<?php if ( $num_locations && $menu_count ) : ?>
-			<a href="<?php echo esc_url( add_query_arg( array( 'action' => 'locations' ), admin_url( 'nav-menus.php' ) ) ); ?>" class="nav-tab<?php if ( $locations_screen ) echo ' nav-tab-active'; ?>"><?php esc_html_e( 'Manage Locations' ); ?></a>
-		<?php
-			endif;
-		?>
-	</h2>
+	<div class="app-tabs">
+
+		<ul class="app-tabs-list">
+			<li class="app-tab<?php if ( ! isset( $_GET['action'] ) || isset( $_GET['action'] ) && 'locations' != $_GET['action'] ) echo ' active'; ?>">
+				<a href="<?php echo admin_url( 'nav-menus.php' ); ?>"><?php esc_html_e( 'Edit Menus' ); ?></a>
+
+			<?php if ( $num_locations && $menu_count ) : ?>
+			<li class="app-tab<?php if ( $locations_screen ) echo ' active'; ?>">
+				<a href="<?php echo esc_url( add_query_arg( array( 'action' => 'locations' ), admin_url( 'nav-menus.php' ) ) ); ?>"><?php esc_html_e( 'Manage Locations' ); ?></a>
+			<?php endif; ?>
+		</ul>
+	</div>
+
+	<?php if ( $locations_screen ) : ?>
+
+	<h2><?php _e( 'Manage Locations' ); ?></h2>
+
 	<?php
-	foreach ( $messages as $message ) :
+	foreach ( $messages as $message ) {
 		echo $message . "\n";
-	endforeach;
+	}
+
+	if ( 1 == $num_locations ) {
+		echo '<p>' . __( 'The active theme supports one menu. Select which menu you would like to use.' ) . '</p>';
+	} else {
+		echo '<p>' .  sprintf( _n( 'The active theme supports %s menu. Select which menu appears in each location.', 'The active theme supports %s menus. Select which menu appears in each location.', $num_locations ), number_format_i18n( $num_locations ) ) . '</p>';
+	}
 	?>
-	<?php
-	if ( $locations_screen ) :
-		if ( 1 == $num_locations ) {
-			echo '<p>' . __( 'The active theme supports one menu. Select which menu you would like to use.' ) . '</p>';
-		} else {
-			echo '<p>' .  sprintf( _n( 'The active theme supports %s menu. Select which menu appears in each location.', 'The active theme supports %s menus. Select which menu appears in each location.', $num_locations ), number_format_i18n( $num_locations ) ) . '</p>';
-		}
-	?>
+
 	<div id="menu-locations-wrap">
+
 		<form method="post" action="<?php echo esc_url( add_query_arg( array( 'action' => 'locations' ), admin_url( 'nav-menus.php' ) ) ); ?>">
 			<table class="widefat fixed" id="menu-locations-table">
 				<thead>
@@ -791,7 +800,11 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 	 */
 	do_action( 'after_menu_locations_table' ); ?>
 	<?php else : ?>
+
+	<h2><?php _e( 'Edit Menus' ); ?></h2>
+
 	<div class="manage-menus">
+
  		<?php if ( $menu_count < 2 ) : ?>
 		<span class="add-edit-menu-action">
 			<?php printf( __( 'Edit a menu below, or <a href="%s">create a new menu</a>.' ), esc_url( add_query_arg( array( 'action' => 'edit', 'menu' => 0 ), admin_url( 'nav-menus.php' ) ) ) ); ?>

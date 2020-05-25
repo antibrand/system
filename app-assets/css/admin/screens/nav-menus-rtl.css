@@ -29,6 +29,10 @@ ul.add-menu-item-tabs li {
   display: none;
 }
 
+#menu-locations-wrap {
+  margin-top: 2rem;
+}
+
 #nav-menus-frame {
   margin-right: 300px;
   margin-top: 23px;
