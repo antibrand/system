@@ -5160,7 +5160,7 @@ function wp_auth_check_load() {
 	 * @param WP_Screen $screen The current screen object.
 	 */
 	if ( apply_filters( 'wp_auth_check_load', $show, $screen ) ) {
-		wp_enqueue_style( 'wp-auth-check' );
+		wp_enqueue_style( 'app-auth-check' );
 		wp_enqueue_script( 'wp-auth-check' );
 
 		add_action( 'admin_print_footer_scripts', 'wp_auth_check_html', 5 );

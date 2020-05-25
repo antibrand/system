@@ -127,7 +127,7 @@ class WP_Widget_Media_Audio extends WP_Widget_Media {
 	public function enqueue_preview_scripts() {
 		/** This filter is documented in wp-includes/media.php */
 		if ( 'mediaelement' === apply_filters( 'wp_audio_shortcode_library', 'mediaelement' ) ) {
-			wp_enqueue_style( 'wp-mediaelement' );
+			wp_enqueue_style( 'app-mediaelement' );
 			wp_enqueue_script( 'wp-mediaelement' );
 		}
 	}
@@ -140,7 +140,7 @@ class WP_Widget_Media_Audio extends WP_Widget_Media {
 	public function enqueue_admin_scripts() {
 		parent::enqueue_admin_scripts();
 
-		wp_enqueue_style( 'wp-mediaelement' );
+		wp_enqueue_style( 'app-mediaelement' );
 		wp_enqueue_script( 'wp-mediaelement' );
 
 		$handle = 'media-audio-widget';

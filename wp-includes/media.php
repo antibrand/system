@@ -1877,7 +1877,7 @@ function wp_underscore_playlist_templates() {
  * @param string $type Type of playlist. Accepts 'audio' or 'video'.
  */
 function wp_playlist_scripts( $type ) {
-	wp_enqueue_style( 'wp-mediaelement' );
+	wp_enqueue_style( 'app-mediaelement' );
 	wp_enqueue_script( 'wp-playlist' );
 ?>
 <!--[if lt IE 9]><script>document.createElement('<?php echo esc_js( $type ) ?>');</script><![endif]-->
@@ -2313,7 +2313,7 @@ function wp_audio_shortcode( $attr, $content = '' ) {
 	 */
 	$library = apply_filters( 'wp_audio_shortcode_library', 'mediaelement' );
 	if ( 'mediaelement' === $library && did_action( 'init' ) ) {
-		wp_enqueue_style( 'wp-mediaelement' );
+		wp_enqueue_style( 'app-mediaelement' );
 		wp_enqueue_script( 'wp-mediaelement' );
 	}
 
@@ -2552,7 +2552,7 @@ function wp_video_shortcode( $attr, $content = '' ) {
 	 */
 	$library = apply_filters( 'wp_video_shortcode_library', 'mediaelement' );
 	if ( 'mediaelement' === $library && did_action( 'init' ) ) {
-		wp_enqueue_style( 'wp-mediaelement' );
+		wp_enqueue_style( 'app-mediaelement' );
 		wp_enqueue_script( 'wp-mediaelement' );
 		wp_enqueue_script( 'mediaelement-vimeo' );
 	}

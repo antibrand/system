@@ -503,7 +503,7 @@ $_old_files = array(
 'wp-includes/js/jcrop/jquery.Jcrop.js',
 'wp-includes/js/jcrop/jquery.Jcrop.css',
 'wp-includes/js/imgareaselect/jquery.imgareaselect.dev.js',
-'wp-includes/css/wp-pointer.dev.css',
+'wp-includes/css/app-pointer.dev.css',
 'wp-includes/css/editor.dev.css',
 'wp-includes/css/jquery-ui-dialog.dev.css',
 'wp-includes/css/admin-bar-rtl.dev.css',

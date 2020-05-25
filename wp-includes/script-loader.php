@@ -959,10 +959,10 @@ function wp_default_styles( &$styles ) {
 	$styles->add( 'themes',      "/app-assets/css/admin/screens/themes$suffix.css" );
 	$styles->add( 'plugins',     "/app-assets/css/admin/screens/plugins$suffix.css" );
 	$styles->add( 'nav-menus',   "/app-assets/css/admin/screens/nav-menus$suffix.css" );
-	$styles->add( 'widgets',     "/app-assets/css/admin/screens/widgets$suffix.css", [ 'wp-pointer' ] );
+	$styles->add( 'widgets',     "/app-assets/css/admin/screens/widgets$suffix.css", [ 'app-pointer' ] );
 	$styles->add( 'profile',     "/app-assets/css/admin/screens/profile$suffix.css" );
 	$styles->add( 'site-icon',   "/app-assets/css/admin/screens/site-icon$suffix.css" );
-	$styles->add( 'code-editor', "/app-assets/css/admin/screens/code-editor$suffix.css", [ 'wp-codemirror' ] );
+	$styles->add( 'code-editor', "/app-assets/css/admin/screens/code-editor$suffix.css", [ 'app-codemirror' ] );
 
 	$styles->add( 'app-admin', false, [ 'dashicons', 'admin', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'nav-menus', 'widgets', 'profile', 'site-icon' ] );
 
@@ -973,24 +973,24 @@ function wp_default_styles( &$styles ) {
 	$styles->add( 'customize-nav-menus', "/app-assets/css/admin/screens/customize-nav-menus$suffix.css", [ 'app-admin', 'colors' ] );
 
 	// Common stylesheets.
-	$styles->add( 'dashicons', "/wp-includes/css/dashicons$suffix.css" );
+	$styles->add( 'dashicons', "/app-assets/css/includes/dashicons$suffix.css" );
 
 	// Includes stylesheets.
-	$styles->add( 'user-toolbar',         "/app-assets/css/includes/user-toolbar$suffix.css", [ 'dashicons' ] );
-	$styles->add( 'wp-auth-check',        "/wp-includes/css/wp-auth-check$suffix.css", [ 'dashicons' ] );
-	$styles->add( 'editor-buttons',       "/wp-includes/css/editor$suffix.css", [ 'dashicons' ] );
-	$styles->add( 'media-views',          "/wp-includes/css/media-views$suffix.css", [ 'dashicons', 'wp-mediaelement' ] );
-	$styles->add( 'wp-pointer',           "/wp-includes/css/wp-pointer$suffix.css", [ 'dashicons' ] );
-	$styles->add( 'customize-preview',    "/wp-includes/css/customize-preview$suffix.css", [ 'dashicons' ] );
-	$styles->add( 'wp-embed-template-ie', "/wp-includes/css/wp-embed-template-ie$suffix.css" );
+	$styles->add( 'user-toolbar',          "/app-assets/css/includes/user-toolbar$suffix.css", [ 'dashicons' ] );
+	$styles->add( 'app-auth-check',         "/app-assets/css/includes/app-auth-check$suffix.css", [ 'dashicons' ] );
+	$styles->add( 'editor-buttons',        "/app-assets/css/includes/editor$suffix.css", [ 'dashicons' ] );
+	$styles->add( 'media-views',           "/app-assets/css/includes/media-views$suffix.css", [ 'dashicons', 'app-mediaelement' ] );
+	$styles->add( 'app-pointer',            "/app-assets/css/includes/app-pointer$suffix.css", [ 'dashicons' ] );
+	$styles->add( 'customize-preview',     "/app-assets/css/includes/customize-preview$suffix.css", [ 'dashicons' ] );
+	$styles->add( 'app-embed-template-ie', "/app-assets/css/includes/app-embed-template-ie$suffix.css" );
 
 	// External library stylesheets.
-	$styles->add( 'imgareaselect',       '/wp-includes/js/imgareaselect/imgareaselect.css', [], '0.9.8' );
-	$styles->add( 'wp-jquery-ui-dialog', "/wp-includes/css/jquery-ui-dialog$suffix.css", [ 'dashicons' ] );
-	$styles->add( 'mediaelement',        "/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css", [], '4.2.6-78496d1' );
-	$styles->add( 'wp-mediaelement',     "/wp-includes/js/mediaelement/wp-mediaelement$suffix.css", [ 'mediaelement' ] );
-	$styles->add( 'thickbox',            '/wp-includes/js/thickbox/thickbox.css', [ 'dashicons' ] );
-	$styles->add( 'wp-codemirror',       '/wp-includes/js/codemirror/codemirror.min.css', [], '5.29.1-alpha-ee20357' );
+	$styles->add( 'imgareaselect',        '/wp-includes/js/imgareaselect/imgareaselect.css', [], '0.9.8' );
+	$styles->add( 'app-jquery-ui-dialog', "/app-assets/css/includes/jquery-ui-dialog$suffix.css", [ 'dashicons' ] );
+	$styles->add( 'mediaelement',         "/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css", [], '4.2.6-78496d1' );
+	$styles->add( 'app-mediaelement',      "/wp-includes/js/mediaelement/wp-mediaelement$suffix.css", [ 'mediaelement' ] );
+	$styles->add( 'thickbox',             '/wp-includes/js/thickbox/thickbox.css', [ 'dashicons' ] );
+	$styles->add( 'app-codemirror',        '/wp-includes/js/codemirror/codemirror.min.css', [], '5.29.1-alpha-ee20357' );
 
 	// RTL stylesheets.
 	$rtl_styles = [
@@ -1001,8 +1001,8 @@ function wp_default_styles( &$styles ) {
 		'login',
 
 		// Includes stylesheets.
-		'user-toolbar', 'wp-auth-check', 'editor-buttons', 'media-views', 'wp-pointer',
-		'wp-jquery-ui-dialog'
+		'user-toolbar', 'app-auth-check', 'editor-buttons', 'media-views', 'app-pointer',
+		'app-jquery-ui-dialog'
 	];
 
 
