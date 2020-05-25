@@ -350,6 +350,7 @@ optgroup {
 
 #screen-meta-links .show-settings {
   border-color: #414141;
+  border-top-color: #282828;
 }
 
 /**
@@ -677,6 +678,7 @@ fieldset.scheme-list {
  */
 .app-admin .acf-admin-navigation {
   background-color: #282828 !important;
+  border-color: #414141 !important;
 }
 
 .app-admin .acf-admin-navigation .acf-tab {

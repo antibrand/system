@@ -234,6 +234,11 @@ p.popular-tags,
   border-color: #1c1c1c;
 }
 
+#screen-options-link-wrap,
+#contextual-help-link-wrap {
+  border-top-color: #252525;
+}
+
 .wp-editor-container,
 div.mce-panel,
 div.mce-toolbar-grp,

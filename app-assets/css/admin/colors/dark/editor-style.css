@@ -119,6 +119,10 @@ input:disabled, input.disabled {
   color: #666666;
 }
 
+optgroup {
+  background-color: #222;
+}
+
 ::-webkit-input-placeholder {
   color: #959595 !important;
 }
@@ -346,6 +350,7 @@ input:disabled, input.disabled {
 
 #screen-meta-links .show-settings {
   border-color: #414141;
+  border-top-color: #282828;
 }
 
 /**
@@ -673,6 +678,7 @@ fieldset.scheme-list {
  */
 .app-admin .acf-admin-navigation {
   background-color: #282828 !important;
+  border-color: #414141 !important;
 }
 
 .app-admin .acf-admin-navigation .acf-tab {
@@ -759,6 +765,10 @@ fieldset.scheme-list {
 .app-admin .acf-field-object.open > .handle a.button:hover, .app-admin .acf-field-object.open > .handle a.button:focus {
   color: #222222 !important;
   text-decoration: none !important;
+}
+
+.app-admin .acf-field-object.open > .handle a.delete-field {
+  color: #dd0000 !important;
 }
 
 .page-title-action {

@@ -6692,6 +6692,7 @@ li#wp-admin-bar-menu-toggle {
 .app-admin .acf-admin-navigation {
   padding: 1em 2rem;
   background-color: #ffffff !important;
+  border-color: #cccccc !important;
 }
 
 .app-admin .acf-admin-navigation h2,
@@ -6760,6 +6761,10 @@ li#wp-admin-bar-menu-toggle {
 
 .app-admin .acf-field-object.open > .handle a.delete-field {
   color: #dd0000 !important;
+}
+
+.app-admin .acf-thead {
+  color: inherit !important;
 }
 
 .app-admin .acf-input-prepend,

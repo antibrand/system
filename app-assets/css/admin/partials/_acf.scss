@@ -12,6 +12,7 @@
 	.acf-admin-navigation {
 		padding: 1em 2rem;
 		background-color: $body_background !important;
+		border-color: $box_border_color !important;
 
 		h2,
 		.acf-tab {
@@ -88,6 +89,10 @@
 				}
 			}
 		}
+	}
+
+	.acf-thead {
+		color: inherit !important;
 	}
 
 	.acf-input-prepend,

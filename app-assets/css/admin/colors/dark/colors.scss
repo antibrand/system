@@ -321,6 +321,7 @@ optgroup {
 
 #screen-meta-links .show-settings {
 	border-color: $box_border_color;
+	border-top-color: $box_background_color;
 }
 
 /**
@@ -666,6 +667,7 @@ fieldset {
 
 	.acf-admin-navigation {
 		background-color: $box_background_color !important;
+		border-color: $box_border_color !important;
 
 		.acf-tab {
 			color: $link_color !important;
