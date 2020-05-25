@@ -3958,8 +3958,8 @@ function register_admin_color_schemes() {
 
 	wp_admin_css_color( 'default', _x( 'Default', 'admin color scheme' ),
 		false,
-		[ '#e3e3e3', '#cccccc', '#888888', '#222222' ],
-		[ 'base' => '#888888', 'focus' => '#cccccc', 'current' => '#cccccc' ]
+		[ '#222222', '#363636', '#ffee00', '#004499' ],
+		[ 'base' => '#888888', 'focus' => '#005fd6', 'current' => '#ffffff' ]
 	);
 
 	// Other color schemes are not available when running out of src
@@ -3969,14 +3969,14 @@ function register_admin_color_schemes() {
 
 	wp_admin_css_color( 'dark', _x( 'Dark', 'admin color scheme' ),
 		app_assets_url( "css/admin/colors/dark/colors$suffix.css" ),
-		[ '#1e1e1e', '#333333', '#ffee00', '#3ad4fb' ],
-		[ 'base' => '#999999', 'focus' => '#cccccc', 'current' => '#cccccc' ]
+		[ '#1e1e1e', '#222222', '#ffee00', '#3ad4fb' ],
+		[ 'base' => '#888888', 'focus' => '#3ad4fb', 'current' => '#ffffff' ]
 	);
 
 	wp_admin_css_color( 'fresh', _x( 'Fresh (Classic)', 'admin color scheme' ),
 		app_assets_url( "css/admin/colors/fresh/colors$suffix.css" ),
-		[ '#222222', '#444444', '#0073aa', '#00a0d2' ],
-		[ 'base' => '#82878c', 'focus' => '#00a0d2', 'current' => '#ffffff' ]
+		[ '#23282d', '#444444', '#0073aa', '#00a0d2' ],
+		[ 'base' => '#a0a5aa', 'focus' => '#00a0d2', 'current' => '#ffffff' ]
 	);
 
 }
