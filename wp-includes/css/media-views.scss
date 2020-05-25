@@ -161,6 +161,8 @@
 	right: 0;
 	z-index: 100;
 	overflow: hidden;
+	display: flex;
+	justify-content: space-between;
 	padding: 1em;
 	background-color: $form_background_color;
 }
@@ -513,7 +515,8 @@
 	&.current {
 		background: $button_action_background_color;
 		color: $button_action_text_color;
-		color-adjust: exact !important;
+		-webkit-print-color-adjust: exact !important;
+		        color-adjust: exact !important;
 	}
 
 	&[disabled],
@@ -922,7 +925,6 @@
 	top: 4rem;
 	left: 0;
 	right: 300px;
-	bottom: 0;
 	overflow: auto;
 	outline: none;
 }
@@ -1132,7 +1134,6 @@
 	top: 50%;
 	left: 0;
 	right: 0;
-	-webkit-transform: translateY( -50% );
 	transform: translateY( -50% );
 	font-size: 40px;
 	color: #fff;
@@ -1940,7 +1941,6 @@
 	top: 50%;
 	left: 0;
 	right: 0;
-	-webkit-transform: translateY( -50% );
 	transform: translateY( -50% );
 	font-size: 3em;
 	line-height: 1.3;

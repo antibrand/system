@@ -68,7 +68,7 @@ body {
 
 #customize-save-button-wrapper {
   float: left;
-  margin-top: 9px;
+  margin-top: 2px;
 }
 
 body:not(.ready) #customize-save-button-wrapper .save {
@@ -77,17 +77,10 @@ body:not(.ready) #customize-save-button-wrapper .save {
 
 #customize-save-button-wrapper .save {
   float: right;
-  border-radius: 3px;
   -webkit-box-shadow: none;
           box-shadow: none;
   /* @todo Adjust box shadow based on the disable states of paired button. */
   margin-top: 0;
-}
-
-#customize-save-button-wrapper .save:focus, #publish-settings:focus {
-  -webkit-box-shadow: 0 1px 0 #0073aa, 0 0 2px 1px #33b3db;
-          box-shadow: 0 1px 0 #0073aa, 0 0 2px 1px #33b3db;
-  /* This is default box shadow for focus */
 }
 
 #customize-save-button-wrapper .save.has-next-sibling {
@@ -204,8 +197,6 @@ body.trashing #publish-settings {
 
 #customize-controls .customize-info {
   border: none;
-  border-bottom: 1px solid #cccccc;
-  margin-bottom: 15px;
 }
 
 #customize-control-changeset_status .customize-inside-control-row,
@@ -808,13 +799,20 @@ h3.customize-section-title {
   top: 0;
   right: 0;
   width: 45px;
-  height: 41px;
+  height: 45px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 0 0 0 2px;
-  background: #eee;
   border: none;
-  border-top: 4px solid #eee;
   border-left: 1px solid #cccccc;
-  color: #444;
+  color: #222222;
   text-align: right;
   cursor: pointer;
   -webkit-transition: color .15s ease-in-out, border-color .15s ease-in-out, background .15s ease-in-out;
@@ -893,9 +891,6 @@ h3.customize-section-title {
 .customize-controls-close:before {
   font: normal 22px/45px dashicons;
   content: "\f335";
-  position: relative;
-  top: -3px;
-  right: 13px;
 }
 
 .customize-panel-back:before,
@@ -1725,13 +1720,11 @@ p.customize-section-description {
 #customize-theme-controls .control-panel-themes > .accordion-section-title:hover,
 #customize-theme-controls .control-panel-themes > .accordion-section-title {
   cursor: default;
-  background: #ffffff;
-  color: #555d66;
   border-top: 1px solid #cccccc;
   border-bottom: 1px solid #cccccc;
   border-right: none;
   border-left: none;
-  margin: 0 0 15px 0;
+  margin: 0;
   padding-left: 100px;
   /* Space for the button */
 }
@@ -1971,7 +1964,6 @@ p.customize-section-description {
   margin: 15px 0 0 0;
   line-height: 16px;
   border-bottom: 1px solid #cccccc;
-  color: #555d66;
 }
 
 .control-panel-themes .customize-themes-section-title {
@@ -1990,7 +1982,6 @@ p.customize-section-description {
   text-align: right;
   font-size: 14px;
   font-weight: 600;
-  color: #555d66;
   text-shadow: none;
 }
 

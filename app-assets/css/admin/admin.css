@@ -6816,6 +6816,16 @@ li#wp-admin-bar-menu-toggle {
   border-color: #cccccc !important;
 }
 
+.media-modal .acf-expand-details {
+  float: right !important;
+  padding: 0.5em 1em !important;
+  margin-right: 0.25em !important;
+  height: unset !important;
+  line-height: unset !important;
+  color: unset !important;
+  font-size: unset !important;
+}
+
 .page-title-action {
   display: inline-block;
   vertical-align: middle;

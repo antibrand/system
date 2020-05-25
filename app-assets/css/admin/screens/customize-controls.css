@@ -33,7 +33,7 @@ body {
   width: auto;
   padding: 25px 25px 25px 109px;
   position: relative;
-  background: #fff;
+  background: #ffffff;
   -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
           box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
   line-height: 1.5;
@@ -68,7 +68,7 @@ body {
 
 #customize-save-button-wrapper {
   float: right;
-  margin-top: 9px;
+  margin-top: 2px;
 }
 
 body:not(.ready) #customize-save-button-wrapper .save {
@@ -77,17 +77,10 @@ body:not(.ready) #customize-save-button-wrapper .save {
 
 #customize-save-button-wrapper .save {
   float: left;
-  border-radius: 3px;
   -webkit-box-shadow: none;
           box-shadow: none;
   /* @todo Adjust box shadow based on the disable states of paired button. */
   margin-top: 0;
-}
-
-#customize-save-button-wrapper .save:focus, #publish-settings:focus {
-  -webkit-box-shadow: 0 1px 0 #0073aa, 0 0 2px 1px #33b3db;
-          box-shadow: 0 1px 0 #0073aa, 0 0 2px 1px #33b3db;
-  /* This is default box shadow for focus */
 }
 
 #customize-save-button-wrapper .save.has-next-sibling {
@@ -204,8 +197,6 @@ body.trashing #publish-settings {
 
 #customize-controls .customize-info {
   border: none;
-  border-bottom: 1px solid #cccccc;
-  margin-bottom: 15px;
 }
 
 #customize-control-changeset_status .customize-inside-control-row,
@@ -304,7 +295,7 @@ body.trashing #publish-settings {
   border-left: none;
   border-right: none;
   text-indent: -999px;
-  color: #fff;
+  color: #ffffff;
 }
 
 #customize-control-changeset_preview_link label {
@@ -428,7 +419,7 @@ body.trashing #publish-settings {
 }
 
 #customize-controls .customize-info .accordion-section-title {
-  background: #fff;
+  background: #ffffff;
   color: #555d66;
   border-left: none;
   border-right: none;
@@ -505,7 +496,7 @@ body.trashing #publish-settings {
 #customize-controls .no-widget-areas-rendered-notice {
   color: #555d66;
   display: none;
-  background: #fff;
+  background: #ffffff;
   padding: 12px 15px;
   border-top: 1px solid #cccccc;
 }
@@ -552,17 +543,17 @@ body.trashing #publish-settings {
 #customize-theme-controls .accordion-section-title,
 #customize-outer-theme-controls .accordion-section-title {
   color: #555d66;
-  background-color: #fff;
+  background-color: #ffffff;
   border-bottom: 1px solid #cccccc;
-  border-left: 4px solid #fff;
+  border-left: 4px solid #ffffff;
   -webkit-transition: .15s color ease-in-out, .15s background-color ease-in-out, .15s border-color ease-in-out;
   transition: .15s color ease-in-out, .15s background-color ease-in-out, .15s border-color ease-in-out;
 }
 
 #customize-controls #customize-theme-controls .customize-themes-panel .accordion-section-title {
   color: #555;
-  background-color: #fff;
-  border-left: 4px solid #fff;
+  background-color: #ffffff;
+  border-left: 4px solid #ffffff;
 }
 
 #customize-theme-controls .accordion-section-title:after,
@@ -751,7 +742,7 @@ body.trashing #publish-settings {
 .customize-section-title {
   margin: -12px -12px 0 -12px;
   border-bottom: 1px solid #cccccc;
-  background: #fff;
+  background: #ffffff;
 }
 
 div.customize-section-description {
@@ -808,13 +799,20 @@ h3.customize-section-title {
   top: 0;
   left: 0;
   width: 45px;
-  height: 41px;
+  height: 45px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 0 2px 0 0;
-  background: #eee;
   border: none;
-  border-top: 4px solid #eee;
   border-right: 1px solid #cccccc;
-  color: #444;
+  color: #222222;
   text-align: left;
   cursor: pointer;
   -webkit-transition: color .15s ease-in-out, border-color .15s ease-in-out, background .15s ease-in-out;
@@ -831,10 +829,10 @@ h3.customize-section-title {
   height: 71px;
   padding: 0 24px 0 0;
   margin: 0;
-  background: #fff;
+  background: #ffffff;
   border: none;
   border-right: 1px solid #cccccc;
-  border-left: 4px solid #fff;
+  border-left: 4px solid #ffffff;
   -webkit-box-shadow: none;
           box-shadow: none;
   cursor: pointer;
@@ -861,16 +859,16 @@ h3.customize-section-title {
 
 #customize-controls .panel-meta.customize-info .accordion-section-title:hover,
 #customize-controls .cannot-expand:hover .accordion-section-title {
-  background: #fff;
+  background: #ffffff;
   color: #555d66;
-  border-left-color: #fff;
+  border-left-color: #ffffff;
 }
 
 .customize-controls-close:focus,
 .customize-controls-close:hover,
 .customize-controls-preview-toggle:focus,
 .customize-controls-preview-toggle:hover {
-  background: #fff;
+  background: #ffffff;
   color: #0073aa;
   border-top-color: #0073aa;
   outline: none;
@@ -893,9 +891,6 @@ h3.customize-section-title {
 .customize-controls-close:before {
   font: normal 22px/45px dashicons;
   content: "\f335";
-  position: relative;
-  top: -3px;
-  left: 13px;
 }
 
 .customize-panel-back:before,
@@ -1505,7 +1500,7 @@ p.customize-section-description {
 /* Header control: overlay "close" button */
 .customize-control-header .uploaded .header-view .close {
   font-size: 20px;
-  color: #fff;
+  color: #ffffff;
   background: #555d66;
   background: rgba(0, 0, 0, 0.5);
   position: absolute;
@@ -1725,13 +1720,11 @@ p.customize-section-description {
 #customize-theme-controls .control-panel-themes > .accordion-section-title:hover,
 #customize-theme-controls .control-panel-themes > .accordion-section-title {
   cursor: default;
-  background: #fff;
-  color: #555d66;
   border-top: 1px solid #cccccc;
   border-bottom: 1px solid #cccccc;
   border-left: none;
   border-right: none;
-  margin: 0 0 15px 0;
+  margin: 0;
   padding-right: 100px;
   /* Space for the button */
 }
@@ -1971,18 +1964,17 @@ p.customize-section-description {
   margin: 15px 0 0 0;
   line-height: 16px;
   border-bottom: 1px solid #cccccc;
-  color: #555d66;
 }
 
 .control-panel-themes .customize-themes-section-title {
   width: 100%;
-  background: #fff;
+  background: #ffffff;
   -webkit-box-shadow: none;
           box-shadow: none;
   outline: none;
   border-top: none;
   border-bottom: 1px solid #cccccc;
-  border-left: 4px solid #fff;
+  border-left: 4px solid #ffffff;
   border-right: none;
   cursor: pointer;
   padding: 10px 15px;
@@ -1990,7 +1982,6 @@ p.customize-section-description {
   text-align: left;
   font-size: 14px;
   font-weight: 600;
-  color: #555d66;
   text-shadow: none;
 }
 
@@ -2020,7 +2011,7 @@ p.customize-section-description {
   height: 18px;
   border-radius: 100%;
   border: 1px solid #ccc;
-  background: #fff;
+  background: #ffffff;
 }
 
 .control-panel-themes .theme-section .customize-themes-section-title.selected:after {
@@ -2037,7 +2028,7 @@ p.customize-section-description {
   top: 9px;
   right: 15px;
   background: #0073aa;
-  color: #fff;
+  color: #ffffff;
 }
 
 .control-panel-themes .customize-themes-section-title.selected {
@@ -2077,11 +2068,11 @@ p.customize-section-description {
   width: 100%;
   margin: 0;
   border: 1px solid #cccccc;
-  background: #fff;
+  background: #ffffff;
 }
 
 .customize-control-theme .theme .theme-name, .customize-control-theme .theme .theme-actions {
-  background: #fff;
+  background: #ffffff;
   border: none;
 }
 
@@ -2407,7 +2398,7 @@ p.customize-section-description {
 .wp-customizer .theme-overlay .theme-header .right:hover,
 .wp-customizer .theme-overlay .theme-header .left:focus,
 .wp-customizer .theme-overlay .theme-header .left:hover {
-  background: #fff;
+  background: #ffffff;
   border-bottom: 4px solid #0073aa;
   color: #0073aa;
 }
@@ -2442,7 +2433,7 @@ p.customize-section-description {
 body.cheatin {
   font-size: medium;
   height: auto;
-  background: #fff;
+  background: #ffffff;
   margin: 50px auto 2em;
   padding: 1em 2em;
   max-width: 700px;
@@ -2594,7 +2585,7 @@ body.cheatin p {
 .move-right-disabled .menus-move-right,
 .move-left-disabled .menus-move-left {
   color: #d5d5d5;
-  background-color: #fff;
+  background-color: #ffffff;
   cursor: default;
   pointer-events: none;
 }
@@ -2805,9 +2796,9 @@ body.adding-widget .add-new-widget:before,
 #available-menu-items .item-tpl {
   position: relative;
   padding: 15px 15px 15px 60px;
-  background: #fff;
+  background: #ffffff;
   border-bottom: 1px solid #cccccc;
-  border-left: 4px solid #fff;
+  border-left: 4px solid #ffffff;
   -webkit-transition: .15s color ease-in-out, .15s background-color ease-in-out, .15s border-color ease-in-out;
   transition: .15s color ease-in-out, .15s background-color ease-in-out, .15s border-color ease-in-out;
   cursor: pointer;

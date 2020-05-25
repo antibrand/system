@@ -116,3 +116,13 @@
 		border-color: $box_border_color !important;
 	}
 }
+
+.media-modal .acf-expand-details {
+	float: left !important;
+	padding: 0.5em 1em !important;
+	margin-left: 0.25em !important;
+	height: unset !important;
+	line-height: unset !important;
+	color: unset !important;
+	font-size: unset !important;
+}
