@@ -983,17 +983,28 @@ final class _WP_Editors {
 			'wp_shortcut_labels' => wp_json_encode( $shortcut_labels ),
 		);
 
-		$suffix = SCRIPT_DEBUG ? '' : '.min';
 		$version = 'ver=' . get_bloginfo( 'version' );
+
+		if ( SCRIPT_DEBUG ) {
+			$suffix = '';
+		} else {
+			$suffix = '.min';
+		}
+
+		if ( is_rtl() ) {
+			$direction = '-rtl';
+		} else {
+			$direction = '';
+		}
 
 		// Default stylesheets
 		$admin_color = sanitize_html_class( get_user_option( 'admin_color' ), 'default' );
 		$settings['content_css'] =
 			includes_url( "css/dashicons$suffix.css?$version" )
 			. ','
-			. includes_url( "js/tinymce/skins/app-editor/app-editor-content.min.css?$version" )
+			. includes_url( "js/tinymce/skins/app-editor/app-editor-content$suffix.css?$version" )
 			. ','
-			. app_assets_url( "css/admin/colors/$admin_color/editor-style.min.css?$version" );
+			. app_assets_url( "css/admin/colors/$admin_color/editor-style$direction$suffix.css?$version" );
 
 		return $settings;
 	}
