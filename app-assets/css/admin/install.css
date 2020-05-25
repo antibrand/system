@@ -1263,6 +1263,7 @@ table.form-table td .updated p {
 
 .color-palette li {
   margin: 0;
+  border: solid 1px #888888;
 }
 
 /*------------------------------------------------------------------------------

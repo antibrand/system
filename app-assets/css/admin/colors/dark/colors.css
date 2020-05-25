@@ -1,8 +1,8 @@
 /**
  * Default dark color scheme
  */
-body.admin-color-dark {
-  background: #222;
+body {
+  background-color: #222;
   color: #ffffff;
 }
 

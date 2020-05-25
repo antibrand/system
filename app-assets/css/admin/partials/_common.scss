@@ -6,6 +6,10 @@
 @import '../../includes/modules/_typography';
 @import '../../includes/modules/_colors';
 
+body {
+	background-color: $body_background;
+}
+
 /* 2 columns main area */
 #taxonomy-form {
 	float: left;

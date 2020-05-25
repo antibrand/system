@@ -88,8 +88,8 @@ $editor_button_action_background_color: $app_highlight_color;
 $editor_button_action_border_color: $button_border_color;
 $editor_button_action_text_color: $button_text_color;
 
-body.admin-color-dark {
-	background: $body_background;
+body {
+	background-color: $body_background;
 	color: $text_color;
 }
 

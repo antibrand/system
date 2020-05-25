@@ -1182,6 +1182,7 @@ table.form-table td .updated p {
 
 .color-palette li {
   margin: 0;
+  border: solid 1px #888888;
 }
 
 /*------------------------------------------------------------------------------
@@ -2256,6 +2257,10 @@ table.form-table td .updated p {
 /**
  * Styles common to all administration screens
  */
+body {
+  background-color: #ffffff;
+}
+
 /* 2 columns main area */
 #taxonomy-form {
   float: left;
