@@ -2,8 +2,9 @@
  * Plugins
  */
 
- @import '../../app-assets/css/includes/modules/_colors';
- @import '../../app-assets/css/includes/modules/_typography';
+// Import general app variables from app-assets/includes.
+@import '../../includes/modules/_typography';
+@import '../../includes/modules/_colors';
 
 .upload-plugin-wrap {
 
@@ -23,7 +24,7 @@
 			-ms-flex-align: center;
 				align-items: center;
 		margin: 0;
-		padding: 3em 0;
+		padding: 50px 0;
 		width: 100%;
 		overflow: hidden;
 		position: relative;

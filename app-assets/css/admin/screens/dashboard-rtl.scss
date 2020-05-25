@@ -1,144 +1,70 @@
-@import '../../app-assets/css/includes/modules/_typography';
-@import '../../app-assets/css/includes/modules/_colors';
+// Import general app variables from app-assets/includes.
+@import '../../includes/modules/_typography';
+@import '../../includes/modules/_colors';
 
-/**
- * Dashboard tabs
- */
-.tab-section-wrap__dashboard {
-	display: flex;
-
-	.tab-section-dashboard {
-		min-width: 240px;
-		max-width: 640px;
-
-		&:not( :last-of-type ) {
-			margin-right: 2rem;
-		}
-
-		& + div {
-			margin-top: 2rem;
-		}
-	}
-
-	.tab-section__dashboard-content,
-	.tab-section__dashboard-accounts {
-
-		ul {
-			li:not( :last-of-type ) {
-				margin-top: 0.35em;
-			}
-		}
-	}
+.app-content #dashboard-widgets.columns-1 .postbox-container {
+	width: 100%;
 }
 
-.dashboard-panel-call-to-action {
-	a + a {
-		// Force line break without <br> element.
-		display: table;
-		margin-top: 0.5em;
-	}
+.app-content #dashboard-widgets.columns-2 .postbox-container {
+	width: 49.5%;
 }
 
-/**
- * Dashboard widgets
- */
+.app-content #dashboard-widgets.columns-2 #postbox-container-2,
+.app-content #dashboard-widgets.columns-2 #postbox-container-3,
+.app-content #dashboard-widgets.columns-2 #postbox-container-4 {
+	float: left;
+	width: 50.5%;
+}
+
+.app-content #dashboard-widgets.columns-3 .postbox-container {
+	width: 33.5%;
+}
+
+.app-content #dashboard-widgets.columns-3 #postbox-container-1 {
+	width: 33%;
+}
+
+.app-content #dashboard-widgets.columns-3 #postbox-container-3,
+.app-content #dashboard-widgets.columns-3 #postbox-container-4 {
+	float: left;
+}
+
+.app-content #dashboard-widgets.columns-4 .postbox-container {
+	width: 25%;
+}
+
+#dashboard-widgets .postbox-container {
+	width: 25%;
+}
+
+#dashboard-widgets-wrap .columns-3 #postbox-container-4 .empty-container {
+	border: none !important;
+}
+
 #dashboard-widgets-wrap {
 	overflow: hidden;
-	margin-top: 2rem;
-
-	.columns-3 #postbox-container-4 .empty-container {
-		border: none !important;
-	}
+	margin: 0 -8px;
 }
 
-#dashboard-widgets {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	grid-gap: 0.35em 0.35em;
-	width: 100%;
-	height: 100%;
+#dashboard-widgets .postbox .inside {
+	margin-bottom: 0;
+}
 
-	@media screen and ( max-width: 1280px ) {
-		grid-template-columns: repeat( 3, 1fr );
-	}
-
-	@media screen and ( max-width: 960px ) {
-		grid-template-columns: repeat( 2, 1fr );
-	}
-
-	@media screen and ( max-width: 640px ) {
-		grid-template-columns: repeat( 1, 1fr );
-	}
-
-	&.columns-3 {
-		grid-template-columns: repeat( 3, 1fr );
-
-		@media screen and ( max-width: 960px ) {
-			grid-template-columns: repeat( 2, 1fr );
-		}
-
-		@media screen and ( max-width: 640px ) {
-			grid-template-columns: repeat( 1, 1fr );
-		}
-	}
-
-	&.columns-2 {
-		grid-template-columns: repeat( 2, 1fr );
-
-		@media screen and ( max-width: 640px ) {
-			grid-template-columns: repeat( 1, 1fr );
-		}
-	}
-
-	&.columns-1 {
-		grid-template-columns: repeat( 1, 1fr );
-	}
-
-	.postbox-container {
-
-		.postbox {
-			position: relative;
-			padding-bottom: 1em;
-			border: solid 1px $box_border_color;
-
-			&.closed {
-				padding-bottom: 0;
-				border-bottom: 0;
-			}
-
-			.inside {
-				margin-bottom: 0;
-
-				ul {
-					margin-top: 1em;
-				}
-			}
-
-			form {
-				.submit {
-					float: none;
-					margin: .5em 0 0;
-					padding: 0;
-					border: none;
-				}
-			}
-		}
-	}
-
-	.meta-box-sortables {
-		min-height: 100px;
-	}
+#dashboard-widgets .meta-box-sortables {
+	margin: 0 8px;
+	min-height: 100px;
 }
 
 /* @todo: this was originally in this section, but likely belongs elsewhere */
 #the-comment-list td.comment p.comment-author {
 	margin-top: 0;
-	margin-left: 0;
+	margin-right: 0;
 }
 
 #the-comment-list p.comment-author img {
-	float: left;
-	margin-right: 8px;
+	float: right;
+	margin-left: 8px;
 }
 
 #the-comment-list p.comment-author strong a {
@@ -157,82 +83,30 @@
 	max-width: 100%;
 }
 
-#tab-panel-draftposts {
-
-	.app-tab-content-inner {
-		display: flex;
-		position: relative;
-
-		@media screen and (max-width: 782px) {
-			flex-direction: column;
-		}
-	}
-
-	.app-tab-content-section {
-		min-width: 160px;
-		max-width: 480px;
-
-		@media screen and (max-width: 782px) {
-			max-width: 100%;
-		}
-
-		&:first-of-type {
-			min-width: 320px;
-		}
-
-		&:not( :last-of-type ) {
-			margin-right: 2rem;
-		}
-	}
-}
-
-.app-tabs {
-
-	.app-tab-content {
-
-		header {
-			margin-bottom: 1em;
-			padding-bottom: 1em;
-			border-bottom: solid 1px $box_border_color;
-		}
-
-		.dashboard-overview-item {
-			margin: 0;
-			margin-top: 0.35em;
-		}
-	}
-}
-
-.tab-icon-content {
+.dashboard-panel-section-intro {
 	display: flex;
-	padding-right: 2rem;
+	padding: 1rem 0 0 2rem;
 
 	@media screen and ( max-width: 799px ) {
 		display: block;
 	}
 
+	h4 {
+		margin: 0;
+		font-size: 1.25em;
+	}
+
 	figure {
-		min-width: 80px;
-		margin-right: 1em;
+		min-width: 64px;
+		margin: 0 1em 0 0;
 
 		@media screen and ( max-width: 799px ) {
 			float: left;
 		}
-
-		a,
-		img {
-			display: block;
-		}
 	}
 
-	& > div {
-		h3 {
-			margin-top: 0;
-		}
-	}
-
-	h4 {
-		font-size: 1.25em;
+	div {
+		margin-bottom: 2rem;
 	}
 }
 
@@ -244,7 +118,7 @@
 	font: normal 20px/1 dashicons;
 	speak: none;
 	display: inline-block;
-	padding: 0 10px 0 0;
+	padding: 0 0 0 10px;
 	position: relative;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -257,7 +131,7 @@
 #dashboard_right_now li a:before,
 #dashboard_right_now li > span:before { /* get only the first level span to exclude screen-reader-text in mu-storage */
 	content: "\f159"; /* generic icon for items added by CPTs ? */
-	padding: 0 5px 0 0;
+	padding: 0 0 0 5px;
 }
 
 #dashboard_right_now .page-count a:before,
@@ -297,7 +171,7 @@
 
 #dashboard_right_now li {
 	width: 50%;
-	float: left;
+	float: right;
 	margin-bottom: 10px;
 }
 
@@ -327,14 +201,20 @@
 }
 
 #dashboard_right_now #wp-version-message .button {
-	float: right;
+	float: left;
 	position: relative;
 	top: -5px;
-	margin-left: 5px;
+	margin-right: 5px;
 }
 
 .mu-storage {
 	overflow: hidden;
+}
+
+#dashboard-widgets h3.mu-storage {
+	margin: 0 0 10px;
+	padding: 0;
+	font-size: $px14;
 }
 
 /* Dashboard right now - Colors */
@@ -369,7 +249,7 @@
 #dashboard_quick_press div.updated {
 	margin-bottom: 10px;
 	border: 1px solid #eee;
-	border-width: 1px 1px 1px 0;
+	border-width: 1px 0 1px 1px;
 }
 
 #dashboard_quick_press form {
@@ -388,21 +268,8 @@
 
 /* Dashboard Quick Draft - Form styling */
 
-#quick-press {
-
-	input[type="text"],
-	textarea {
-		width: 100%;
-		max-width: 640px;
-	}
-
-	.dashboard-quick-draft-error {
-		margin: 1em 0;
-	}
-}
-
 input#save-post {
-	float: left;
+	float: right;
 }
 
 form.initial-form.quickpress-open label.prompt {
@@ -423,13 +290,18 @@ form.initial-form.quickpress-open input#title {
 	resize: vertical;
 }
 
+#dashboard-widgets .postbox form .submit {
+	margin: -39px 0;
+	float: left;
+}
+
 #description-wrap {
 	margin-top: 12px;
 }
 
 #title-wrap #title-prompt-text,
 .textarea-wrap #content-prompt-text {
-	color: $light_gray;
+	color: #72777c;
 }
 
 #title-wrap #title-prompt-text {
@@ -450,6 +322,11 @@ form.initial-form.quickpress-open input#title {
 .textarea-wrap #content-prompt-text {
 	font-size: 1.1em;
 	padding: 7px 8px;
+}
+
+.textarea-wrap textarea#content {
+	margin: 0 0 8px;
+	padding: 6px 7px;
 }
 
 #quick-press textarea#content {
@@ -474,8 +351,8 @@ form.initial-form.quickpress-open input#title {
 }
 
 #dashboard_quick_press .drafts .view-all {
-	float: right;
-	margin: 0 12px 0 0;
+	float: left;
+	margin: 0 0 0 12px;
 }
 
 #dashboard_primary a.rsswidget {
@@ -486,11 +363,11 @@ form.initial-form.quickpress-open input#title {
 	margin: 1em 0 0;
 }
 
-.app-tab-column__recent-drafts .drafts li {
+#dashboard_quick_press .drafts li {
 	margin-bottom: 1em;
 }
 
-.app-tab-column__recent-drafts .drafts p {
+#dashboard_quick_press .drafts p {
 	margin: 0;
 	word-wrap: break-word;
 }
@@ -509,11 +386,31 @@ form.initial-form.quickpress-open input#title {
 
 #dashboard_quick_press .draft-title a,
 #dashboard_quick_press .draft-title time {
-	margin: 0 5px 0 0;
+	margin: 0 0 0 5px;
+}
+
+/* Dashboard common styles */
+
+#dashboard-widgets h4, /* Back-compat for pre-4.4 */
+#dashboard-widgets h3,
+#dashboard_quick_press .drafts h2 {
+	margin: 0.75em 0 0;
+	padding: 0;
+	font-size: $px14;
 }
 
 #dashboard_quick_press .drafts h2 {
 	line-height: inherit;
+}
+
+#dashboard-widgets .inside ul {
+	margin-top: 1em;
+}
+
+#dashboard-widgets .inside h4, /* Back-compat for pre-4.4 */
+#dashboard-widgets .inside h3 {
+	margin-right: 0;
+	margin-left: 0;
 }
 
 /* Dashboard activity widget */
@@ -521,11 +418,11 @@ form.initial-form.quickpress-open input#title {
 #dashboard_activity .comment-meta span.approve:before {
 	content: "\f227";
 	font: 20px/.5 dashicons;
-	margin-left: 5px;
+	margin-right: 5px;
 	vertical-align: middle;
 	position: relative;
 	top: -1px;
-	margin-right: 2px;
+	margin-left: 2px;
 }
 
 #dashboard_activity .inside {
@@ -553,7 +450,7 @@ form.initial-form.quickpress-open input#title {
 	font: normal 120px/1 dashicons;
 	speak: none;
 	display: block;
-	margin: 0 5px 0 0;
+	margin: 0 0 0 5px;
 	padding: 0;
 	text-indent: 0;
 	text-align: center;
@@ -581,7 +478,8 @@ form.initial-form.quickpress-open input#title {
 
 	span {
 		display: inline-block;
-		margin-right: 5px;
+		margin-left: 5px;
+		min-width: 150px;
 	}
 }
 
@@ -596,6 +494,8 @@ form.initial-form.quickpress-open input#title {
 
 .activity-block {
 	border-bottom: 1px solid $box_border_color;
+	margin: 0 -12px;
+	padding: 8px 12px 4px;
 }
 
 .activity-block:last-child {
@@ -603,7 +503,7 @@ form.initial-form.quickpress-open input#title {
 }
 
 .activity-block .subsubsub li {
-	color: $light_gray;
+	color: #ddd;
 }
 
 /* Dashboard activity widget - Comments */
@@ -613,7 +513,7 @@ form.initial-form.quickpress-open input#title {
 #activity-widget #the-comment-list div.undo {
 	background: none;
 	padding: 6px 0;
-	margin-left: 12px;
+	margin-right: 12px;
 }
 
 #activity-widget #the-comment-list .comment-item {
@@ -627,7 +527,7 @@ form.initial-form.quickpress-open input#title {
 }
 
 #activity-widget #the-comment-list .dashboard-comment-wrap {
-	padding-left: 63px;
+	padding-right: 63px;
 }
 
 #activity-widget #the-comment-list .dashboard-comment-wrap blockquote {
@@ -650,7 +550,7 @@ form.initial-form.quickpress-open input#title {
 	content: "";
 	display: block;
 	position: absolute;
-	left: 0;
+	right: 0;
 	top: 0;
 	bottom: 0;
 	background: #d54e21;
@@ -690,6 +590,13 @@ form.initial-form.quickpress-open input#title {
 	width: 100%;
 }
 
+#dashboard-widgets .postbox form .submit {
+	float: none;
+	margin: .5em 0 0;
+	padding: 0;
+	border: none;
+}
+
 #dashboard-widgets-wrap #dashboard-widgets .postbox form .submit #publish {
 	min-width: 0;
 }
@@ -704,7 +611,7 @@ form.initial-form.quickpress-open input#title {
 }
 
 #dashboard-widgets .hndle .postbox-title-action {
-	float: right;
+	float: left;
 	line-height: 1.2;
 }
 
@@ -744,7 +651,7 @@ form.initial-form.quickpress-open input#title {
 }
 
 #latest-comments #the-comment-list .pingback {
-	padding-left: 12px !important;
+	padding-right: 12px !important;
 }
 
 #latest-comments #the-comment-list .comment-item:first-child {
@@ -814,12 +721,12 @@ a.rsswidget {
 .rss-widget span.rss-date {
 	color: #72777c;
 	font-size: 13px;
-	margin-left: 3px;
+	margin-right: 3px;
 }
 
 .rss-widget cite {
 	display: block;
-	text-align: right;
+	text-align: left;
 	margin: 0 0 1em;
 	padding: 0;
 }
@@ -843,7 +750,7 @@ a.rsswidget {
 }
 
 #dashboard_browser_nag p.browser-update-nag.has-browser-icon {
-	padding-right: 125px;
+	padding-left: 125px;
 }
 
 #dashboard_browser_nag .browser-icon {
@@ -903,7 +810,7 @@ a.rsswidget {
 	#dashboard_recent_comments #the-comment-list .comment-item .avatar {
 		height: 30px;
 		width: 30px;
-		margin: 4px 10px 5px 0;
+		margin: 4px 0 5px 10px;
 	}
 
 	.community-events-toggle-location {
@@ -943,7 +850,7 @@ a.rsswidget {
 
 	.community-events .event-info {
 		display: table-row;
-		float: left;
+		float: right;
 		max-width: 59%;
 	}
 
@@ -957,12 +864,12 @@ a.rsswidget {
 	}
 
 	.community-events .event-date-time {
-		float: right;
+		float: left;
 		max-width: 39%;
 	}
 
 	.community-events .event-date,
 	.community-events .event-time {
-		text-align: right;
+		text-align: left;
 	}
 }

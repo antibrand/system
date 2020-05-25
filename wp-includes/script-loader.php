@@ -951,26 +951,26 @@ function wp_default_styles( &$styles ) {
 
 	// Admin stylesheets.
 	$styles->add( 'admin',       "/app-assets/css/admin/admin$suffix.css" );
-	$styles->add( 'dashboard',   "/wp-admin/css/dashboard$suffix.css" );
-	$styles->add( 'list-tables', "/wp-admin/css/list-tables$suffix.css" );
-	$styles->add( 'edit',        "/wp-admin/css/edit$suffix.css" );
-	$styles->add( 'revisions',   "/wp-admin/css/revisions$suffix.css" );
-	$styles->add( 'media',       "/wp-admin/css/media$suffix.css" );
-	$styles->add( 'themes',      "/wp-admin/css/themes$suffix.css" );
-	$styles->add( 'plugins',     "/wp-admin/css/plugins$suffix.css" );
-	$styles->add( 'nav-menus',   "/wp-admin/css/nav-menus$suffix.css" );
-	$styles->add( 'widgets',     "/wp-admin/css/widgets$suffix.css", [ 'wp-pointer' ] );
-	$styles->add( 'profile',     "/wp-admin/css/profile$suffix.css" );
-	$styles->add( 'site-icon',   "/wp-admin/css/site-icon$suffix.css" );
-	$styles->add( 'code-editor', "/wp-admin/css/code-editor$suffix.css", [ 'wp-codemirror' ] );
+	$styles->add( 'dashboard',   "/app-assets/css/admin/screens/dashboard$suffix.css" );
+	$styles->add( 'list-tables', "/app-assets/css/admin/screens/list-tables$suffix.css" );
+	$styles->add( 'edit',        "/app-assets/css/admin/screens/edit$suffix.css" );
+	$styles->add( 'revisions',   "/app-assets/css/admin/screens/revisions$suffix.css" );
+	$styles->add( 'media',       "/app-assets/css/admin/screens/media$suffix.css" );
+	$styles->add( 'themes',      "/app-assets/css/admin/screens/themes$suffix.css" );
+	$styles->add( 'plugins',     "/app-assets/css/admin/screens/plugins$suffix.css" );
+	$styles->add( 'nav-menus',   "/app-assets/css/admin/screens/nav-menus$suffix.css" );
+	$styles->add( 'widgets',     "/app-assets/css/admin/screens/widgets$suffix.css", [ 'wp-pointer' ] );
+	$styles->add( 'profile',     "/app-assets/css/admin/screens/profile$suffix.css" );
+	$styles->add( 'site-icon',   "/app-assets/css/admin/screens/site-icon$suffix.css" );
+	$styles->add( 'code-editor', "/app-assets/css/admin/screens/code-editor$suffix.css", [ 'wp-codemirror' ] );
 
 	$styles->add( 'app-admin', false, [ 'dashicons', 'admin', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'nav-menus', 'widgets', 'profile', 'site-icon' ] );
 
-	$styles->add( 'login',               "/wp-admin/css/login$suffix.css", [ 'dashicons' ] );
-	$styles->add( 'install',             "/wp-admin/css/install$suffix.css" );
-	$styles->add( 'customize-controls',  "/wp-admin/css/customize-controls$suffix.css", [ 'app-admin', 'colors', 'imgareaselect' ] );
-	$styles->add( 'customize-widgets',   "/wp-admin/css/customize-widgets$suffix.css", [ 'app-admin', 'colors' ] );
-	$styles->add( 'customize-nav-menus', "/wp-admin/css/customize-nav-menus$suffix.css", [ 'app-admin', 'colors' ] );
+	$styles->add( 'login',               "/app-assets/css/admin/screens/login$suffix.css", [ 'dashicons' ] );
+	$styles->add( 'install',             "/app-assets/css/admin/screens/install$suffix.css" );
+	$styles->add( 'customize-controls',  "/app-assets/css/admin/screens/customize-controls$suffix.css", [ 'app-admin', 'colors', 'imgareaselect' ] );
+	$styles->add( 'customize-widgets',   "/app-assets/css/admin/screens/customize-widgets$suffix.css", [ 'app-admin', 'colors' ] );
+	$styles->add( 'customize-nav-menus', "/app-assets/css/admin/screens/customize-nav-menus$suffix.css", [ 'app-admin', 'colors' ] );
 
 	// Common stylesheets.
 	$styles->add( 'dashicons', "/wp-includes/css/dashicons$suffix.css" );

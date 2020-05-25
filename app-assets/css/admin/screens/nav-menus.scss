@@ -1,4 +1,6 @@
-@import '../../app-assets/css/includes/modules/_colors';
+// Import general app variables from app-assets/includes.
+@import '../../includes/modules/_typography';
+@import '../../includes/modules/_colors';
 
 /* @todo: determine if this is truly for nav menus only */
 .no-js #message {

@@ -1,5 +1,6 @@
-@import '../../app-assets/css/includes/modules/_typography';
-@import '../../app-assets/css/includes/modules/_colors';
+// Import general app variables from app-assets/includes.
+@import '../../includes/modules/_typography';
+@import '../../includes/modules/_colors';
 
 #customize-theme-controls #accordion-section-menu_locations {
 	position: relative;
@@ -38,7 +39,7 @@
 /* The `edit-menu` and `create-menu` buttons also use the `button-link` class. */
 .customize-control-nav_menu_location .edit-menu,
 .customize-control-nav_menu_location .create-menu {
-	margin-left: 6px;
+	margin-right: 6px;
 	vertical-align: middle;
 	line-height: 28px;
 }
@@ -52,7 +53,7 @@
 }
 
 #customize-new-menu-submit {
-	float: right;
+	float: left;
 	min-width: 85px;
 }
 
@@ -72,13 +73,13 @@
 }
 
 .wp-customizer .menu-item-handle .item-title {
-	margin-right: 0;
+	margin-left: 0;
 }
 
 .wp-customizer .menu-item-handle .item-type {
-	padding: 1px 21px 0 5px;
-	float: right;
-	text-align: right;
+	padding: 1px 5px 0 21px;
+	float: left;
+	text-align: left;
 }
 
 .wp-customizer .menu-item-handle:hover {
@@ -86,7 +87,7 @@
 }
 
 .customize-control-nav_menu_item.has-notifications .menu-item-handle {
-	border-left: 4px solid #00a0d2;
+	border-right: 4px solid #00a0d2;
 }
 
 .wp-customizer .menu-item-settings {
@@ -123,7 +124,7 @@
 }
 
 .wp-customizer .menu-item .submitbox .submitdelete {
-	float: left;
+	float: right;
 	margin: 6px 0 0;
 	padding: 0;
 	cursor: pointer;
@@ -139,15 +140,15 @@
 	background-color: #fff;
 	position: absolute;
 	top: 0;
-	right: 0;
+	left: 0;
 }
 
 .menus-move-left:before {
-	content: "\f341";
+	content: "\f345";
 }
 
 .menus-move-right:before {
-	content: "\f345";
+	content: "\f341";
 }
 
 .reordering .menu-item .item-controls,
@@ -165,12 +166,12 @@
 
 .wp-customizer .menu-item .item-edit {
 	position: absolute;
-	right: -19px;
+	left: -19px;
 	top: 2px;
 	display: block;
 	width: 30px;
 	height: 38px;
-	margin-right: 0 !important;
+	margin-left: 0 !important;
 	box-shadow: none;
 	outline: none;
 	overflow: hidden;
@@ -248,7 +249,7 @@
 	margin: 0;
 	padding: 20px;
 	position: absolute;
-	right: 0;
+	left: 0;
 	top: 30px;
 }
 
@@ -285,7 +286,7 @@
 	text-align: center;
 	text-decoration: none !important;
 	text-indent: 0;
-	left: 6px;
+	right: 6px;
 	position: absolute;
 	top: 6px;
 }
@@ -304,7 +305,7 @@
 
 .wp-customizer .metabox-prefs label {
 	display: block;
-	padding-right: 0;
+	padding-left: 0;
 	line-height: 30px;
 }
 
@@ -323,7 +324,7 @@
 #available-menu-items .accordion-section-title .toggle-indicator:before {
 	content: "\f140";
 	display: block;
-	padding: 1px 2px 1px 0px;
+	padding: 1px 0px 1px 2px;
 	speak: none;
 	border-radius: 50%;
 	color: #72777c;
@@ -350,87 +351,87 @@
 }
 
 /* WARNING: The 20px factor is hard-coded in JS. */
-.menu-item-depth-0  { margin-left: 0;     }
-.menu-item-depth-1  { margin-left: 20px;  }
-.menu-item-depth-2  { margin-left: 40px;  }
-.menu-item-depth-3  { margin-left: 60px;  }
-.menu-item-depth-4  { margin-left: 80px;  }
-.menu-item-depth-5  { margin-left: 100px; }
-.menu-item-depth-6  { margin-left: 120px; }
-.menu-item-depth-7  { margin-left: 140px; }
-.menu-item-depth-8  { margin-left: 160px; } /* Not likely to be used or useful beyond this depth */
-.menu-item-depth-9  { margin-left: 180px; }
-.menu-item-depth-10 { margin-left: 200px; }
-.menu-item-depth-11 { margin-left: 220px; }
+.menu-item-depth-0  { margin-right: 0;     }
+.menu-item-depth-1  { margin-right: 20px;  }
+.menu-item-depth-2  { margin-right: 40px;  }
+.menu-item-depth-3  { margin-right: 60px;  }
+.menu-item-depth-4  { margin-right: 80px;  }
+.menu-item-depth-5  { margin-right: 100px; }
+.menu-item-depth-6  { margin-right: 120px; }
+.menu-item-depth-7  { margin-right: 140px; }
+.menu-item-depth-8  { margin-right: 160px; } /* Not likely to be used or useful beyond this depth */
+.menu-item-depth-9  { margin-right: 180px; }
+.menu-item-depth-10 { margin-right: 200px; }
+.menu-item-depth-11 { margin-right: 220px; }
 
 /* @todo handle .menu-item-settings width */
-.menu-item-depth-0  > .menu-item-bar { margin-right: 0;     }
-.menu-item-depth-1  > .menu-item-bar { margin-right: 20px;  }
-.menu-item-depth-2  > .menu-item-bar { margin-right: 40px;  }
-.menu-item-depth-3  > .menu-item-bar { margin-right: 60px;  }
-.menu-item-depth-4  > .menu-item-bar { margin-right: 80px;  }
-.menu-item-depth-5  > .menu-item-bar { margin-right: 100px; }
-.menu-item-depth-6  > .menu-item-bar { margin-right: 120px; }
-.menu-item-depth-7  > .menu-item-bar { margin-right: 140px; }
-.menu-item-depth-8  > .menu-item-bar { margin-right: 160px; }
-.menu-item-depth-9  > .menu-item-bar { margin-right: 180px; }
-.menu-item-depth-10 > .menu-item-bar { margin-right: 200px; }
-.menu-item-depth-11 > .menu-item-bar { margin-right: 220px; }
+.menu-item-depth-0  > .menu-item-bar { margin-left: 0;     }
+.menu-item-depth-1  > .menu-item-bar { margin-left: 20px;  }
+.menu-item-depth-2  > .menu-item-bar { margin-left: 40px;  }
+.menu-item-depth-3  > .menu-item-bar { margin-left: 60px;  }
+.menu-item-depth-4  > .menu-item-bar { margin-left: 80px;  }
+.menu-item-depth-5  > .menu-item-bar { margin-left: 100px; }
+.menu-item-depth-6  > .menu-item-bar { margin-left: 120px; }
+.menu-item-depth-7  > .menu-item-bar { margin-left: 140px; }
+.menu-item-depth-8  > .menu-item-bar { margin-left: 160px; }
+.menu-item-depth-9  > .menu-item-bar { margin-left: 180px; }
+.menu-item-depth-10 > .menu-item-bar { margin-left: 200px; }
+.menu-item-depth-11 > .menu-item-bar { margin-left: 220px; }
 
 /* Submenu left margin. */
-.menu-item-depth-0  .menu-item-transport { margin-left: 0;      }
-.menu-item-depth-1  .menu-item-transport { margin-left: -20px;  }
-.menu-item-depth-3  .menu-item-transport { margin-left: -60px;  }
-.menu-item-depth-4  .menu-item-transport { margin-left: -80px;  }
-.menu-item-depth-2  .menu-item-transport { margin-left: -40px;  }
-.menu-item-depth-5  .menu-item-transport { margin-left: -100px; }
-.menu-item-depth-6  .menu-item-transport { margin-left: -120px; }
-.menu-item-depth-7  .menu-item-transport { margin-left: -140px; }
-.menu-item-depth-8  .menu-item-transport { margin-left: -160px; }
-.menu-item-depth-9  .menu-item-transport { margin-left: -180px; }
-.menu-item-depth-10 .menu-item-transport { margin-left: -200px; }
-.menu-item-depth-11 .menu-item-transport { margin-left: -220px; }
+.menu-item-depth-0  .menu-item-transport { margin-right: 0;      }
+.menu-item-depth-1  .menu-item-transport { margin-right: -20px;  }
+.menu-item-depth-3  .menu-item-transport { margin-right: -60px;  }
+.menu-item-depth-4  .menu-item-transport { margin-right: -80px;  }
+.menu-item-depth-2  .menu-item-transport { margin-right: -40px;  }
+.menu-item-depth-5  .menu-item-transport { margin-right: -100px; }
+.menu-item-depth-6  .menu-item-transport { margin-right: -120px; }
+.menu-item-depth-7  .menu-item-transport { margin-right: -140px; }
+.menu-item-depth-8  .menu-item-transport { margin-right: -160px; }
+.menu-item-depth-9  .menu-item-transport { margin-right: -180px; }
+.menu-item-depth-10 .menu-item-transport { margin-right: -200px; }
+.menu-item-depth-11 .menu-item-transport { margin-right: -220px; }
 
 /* WARNING: The 20px factor is hard-coded in JS. */
-.reordering .menu-item-depth-0  { margin-left: 0;     }
-.reordering .menu-item-depth-1  { margin-left: 15px;  }
-.reordering .menu-item-depth-2  { margin-left: 30px;  }
-.reordering .menu-item-depth-3  { margin-left: 45px;  }
-.reordering .menu-item-depth-4  { margin-left: 60px;  }
-.reordering .menu-item-depth-5  { margin-left: 75px;  }
-.reordering .menu-item-depth-6  { margin-left: 90px;  }
-.reordering .menu-item-depth-7  { margin-left: 105px; }
-.reordering .menu-item-depth-8  { margin-left: 120px; } /* Not likely to be used or useful beyond this depth */
-.reordering .menu-item-depth-9  { margin-left: 135px; }
-.reordering .menu-item-depth-10 { margin-left: 150px; }
-.reordering .menu-item-depth-11 { margin-left: 165px; }
+.reordering .menu-item-depth-0  { margin-right: 0;     }
+.reordering .menu-item-depth-1  { margin-right: 15px;  }
+.reordering .menu-item-depth-2  { margin-right: 30px;  }
+.reordering .menu-item-depth-3  { margin-right: 45px;  }
+.reordering .menu-item-depth-4  { margin-right: 60px;  }
+.reordering .menu-item-depth-5  { margin-right: 75px;  }
+.reordering .menu-item-depth-6  { margin-right: 90px;  }
+.reordering .menu-item-depth-7  { margin-right: 105px; }
+.reordering .menu-item-depth-8  { margin-right: 120px; } /* Not likely to be used or useful beyond this depth */
+.reordering .menu-item-depth-9  { margin-right: 135px; }
+.reordering .menu-item-depth-10 { margin-right: 150px; }
+.reordering .menu-item-depth-11 { margin-right: 165px; }
 
-.reordering .menu-item-depth-0  > .menu-item-bar { margin-right: 0;     }
-.reordering .menu-item-depth-1  > .menu-item-bar { margin-right: 15px;  }
-.reordering .menu-item-depth-2  > .menu-item-bar { margin-right: 30px;  }
-.reordering .menu-item-depth-3  > .menu-item-bar { margin-right: 45px;  }
-.reordering .menu-item-depth-4  > .menu-item-bar { margin-right: 60px;  }
-.reordering .menu-item-depth-5  > .menu-item-bar { margin-right: 75px;  }
-.reordering .menu-item-depth-6  > .menu-item-bar { margin-right: 90px;  }
-.reordering .menu-item-depth-7  > .menu-item-bar { margin-right: 105px; }
-.reordering .menu-item-depth-8  > .menu-item-bar { margin-right: 120px; }
-.reordering .menu-item-depth-9  > .menu-item-bar { margin-right: 135px; }
-.reordering .menu-item-depth-10 > .menu-item-bar { margin-right: 150px; }
-.reordering .menu-item-depth-11 > .menu-item-bar { margin-right: 165px; }
+.reordering .menu-item-depth-0  > .menu-item-bar { margin-left: 0;     }
+.reordering .menu-item-depth-1  > .menu-item-bar { margin-left: 15px;  }
+.reordering .menu-item-depth-2  > .menu-item-bar { margin-left: 30px;  }
+.reordering .menu-item-depth-3  > .menu-item-bar { margin-left: 45px;  }
+.reordering .menu-item-depth-4  > .menu-item-bar { margin-left: 60px;  }
+.reordering .menu-item-depth-5  > .menu-item-bar { margin-left: 75px;  }
+.reordering .menu-item-depth-6  > .menu-item-bar { margin-left: 90px;  }
+.reordering .menu-item-depth-7  > .menu-item-bar { margin-left: 105px; }
+.reordering .menu-item-depth-8  > .menu-item-bar { margin-left: 120px; }
+.reordering .menu-item-depth-9  > .menu-item-bar { margin-left: 135px; }
+.reordering .menu-item-depth-10 > .menu-item-bar { margin-left: 150px; }
+.reordering .menu-item-depth-11 > .menu-item-bar { margin-left: 165px; }
 
 .control-section-nav_menu.menu .menu-item-edit-active {
-	margin-left: 0;
+	margin-right: 0;
 }
 
 .control-section-nav_menu.menu .menu-item-edit-active .menu-item-bar {
-	margin-right: 0;
+	margin-left: 0;
 }
 
 .control-section-nav_menu.menu .sortable-placeholder {
 	margin-top: 0;
 	margin-bottom: 1px;
 	max-width: calc(100% - 2px);
-	float: left;
+	float: right;
 	display: list-item;
 	border-color: #a0a5aa;
 }
@@ -460,7 +461,7 @@
 	color: #a00;
 	position: absolute;
 	top: 2px;
-	right: -19px;
+	left: -19px;
 	width: 30px;
 	height: 38px;
 	cursor: pointer;
@@ -471,7 +472,7 @@
 	content: "\f335";
 	position: absolute;
 	top: 9px;
-	left: 5px;
+	right: 5px;
 	border-radius: 50%;
 	font: normal 20px/1 dashicons;
 	-webkit-font-smoothing: antialiased;
@@ -511,8 +512,8 @@
 }
 
 #available-menu-items .accordion-section-title {
-	border-left: none;
 	border-right: none;
+	border-left: none;
 	background: #fff;
 	transition: background-color 0.15s;
 	/* Reset the value inherited from the base .accordion-section-title style. Ticket #37589. */
@@ -555,7 +556,7 @@
 	height: 35px;
 	position: absolute;
 	top: 5px;
-	right: 5px;
+	left: 5px;
 	box-shadow: none;
 	outline: none;
 	cursor: pointer;
@@ -573,10 +574,10 @@
 }
 
 #available-menu-items .cannot-expand .accordion-section-title .no-items {
-	float: right;
+	float: left;
 	color: #555d66;
 	font-weight: 400;
-	margin-left: 5px;
+	margin-right: 5px;
 }
 
 #available-menu-items .accordion-section-content {
@@ -615,11 +616,11 @@
 }
 
 #available-menu-items .menu-item-handle .item-type {
-	padding-right: 0;
+	padding-left: 0;
 }
 
 #available-menu-items .menu-item-handle .item-title {
-	padding-left: 20px;
+	padding-right: 20px;
 }
 
 #available-menu-items .menu-item-handle {
@@ -643,7 +644,7 @@
 #available-menu-items .item-add {
 	position: absolute;
 	top: 1px;
-	left: 1px;
+	right: 1px;
 	color: #82878c;
 	width: 30px;
 	height: 38px;
@@ -660,7 +661,7 @@
 #available-menu-items .item-add:before {
 	content: "\f543";
 	position: relative;
-	left: 2px;
+	right: 2px;
 	top: 3px;
 	display: inline-block;
 	height: 20px;
@@ -688,14 +689,14 @@
 #available-menu-items-search .spinner {
 	position: absolute;
 	top: 20px; /* 13 container padding +1 input margin +6 ( ( 32 input height - 20 spinner height ) / 2 ) */
-	right: 21px;
+	left: 21px;
 	margin: 0 !important;
 }
 
 /* search results list */
 #available-menu-items #available-menu-items-search .accordion-section-content {
 	position: absolute;
-	left: 0;
+	right: 0;
 	top: 60px; /* below title div / search input */
 	bottom: 0px; /* 100% height that still triggers lazy load */
 	max-height: none;
@@ -731,12 +732,12 @@
 }
 
 body.adding-menu-items #available-menu-items {
-	left: 0;
+	right: 0;
 	visibility: visible;
 }
 
 body.adding-menu-items .wp-full-overlay-main {
-	left: 300px;
+	right: 300px;
 }
 
 body.adding-menu-items #customize-preview {
@@ -749,8 +750,8 @@ body.adding-menu-items #customize-preview iframe {
 
 .menu-item-handle .spinner {
 	display: none;
-	float: left;
-	margin: 0 8px 0 0;
+	float: right;
+	margin: 0 0 0 8px;
 }
 
 .nav-menu-inserted-item-loading .spinner {
@@ -758,12 +759,12 @@ body.adding-menu-items #customize-preview iframe {
 }
 
 .nav-menu-inserted-item-loading .menu-item-handle .item-type {
-	padding: 0 0 0 8px;
+	padding: 0 8px 0 0;
 }
 
 .nav-menu-inserted-item-loading .menu-item-handle,
 .added-menu-item .menu-item-handle.loading {
-	padding: 10px 15px 10px 8px;
+	padding: 10px 8px 10px 15px;
 	cursor: default;
 	opacity: .5;
 	background: #fff;
@@ -788,7 +789,7 @@ body.adding-menu-items #customize-preview iframe {
 }
 
 #accordion-section-add_menu h3 {
-	text-align: right;
+	text-align: left;
 }
 
 #accordion-section-add_menu h3,
@@ -801,12 +802,12 @@ body.adding-menu-items #customize-preview iframe {
 }
 
 #create-new-menu-submit {
-	float: right;
+	float: left;
 	margin: 0 0 12px 0;
 }
 
 .menu-delete-item {
-	float: left;
+	float: right;
 	padding: 1em 0;
 	width: 100%;
 }

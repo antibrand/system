@@ -2,8 +2,9 @@
  * Install themes
  */
 
-@import '../../app-assets/css/includes/modules/_colors';
-@import '../../app-assets/css/includes/modules/_typography';
+// Import general app variables from app-assets/includes.
+@import '../../includes/modules/_typography';
+@import '../../includes/modules/_colors';
 
 .theme-install.updated-message:before {
 	content: '';
