@@ -1174,16 +1174,6 @@ ul.cat-checklist {
   padding-right: 6px;
 }
 
-.plugins,
-.plugins th,
-.plugins td {
-  color: #000;
-}
-
-.plugins tr {
-  background: #fff;
-}
-
 .plugins p {
   margin: 0 4px;
   padding: 0;
@@ -1218,34 +1208,16 @@ ul.cat-checklist {
   padding: 10px 9px;
 }
 
-.plugins .active td,
-.plugins .active th {
-  background-color: #f7fcfe;
-}
-
 .plugins .update th,
 .plugins .update td {
   border-bottom: 0;
-}
-
-.plugins .inactive td,
-.plugins .inactive th,
-.plugins .active td,
-.plugins .active th,
-.plugin-install #the-list td,
-.upgrade .plugins td,
-.upgrade .plugins th {
-  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .plugins tr.active.plugin-update-tr + tr.inactive th,
 .plugins tr.active.plugin-update-tr + tr.inactive td,
 .plugins tr.active + tr.inactive th,
 .plugins tr.active + tr.inactive td {
-  border-top: 1px solid rgba(0, 0, 0, 0.03);
-  -webkit-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.02), inset 0 -1px 0 #e1e1e1;
-          box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.02), inset 0 -1px 0 #e1e1e1;
+  border-top: 1px solid #cccccc;
 }
 
 .plugins .update td,
@@ -1264,7 +1236,7 @@ ul.cat-checklist {
 
 .plugins .active th.check-column,
 .plugin-update-tr.active td {
-  border-right: 4px solid #00a0d2;
+  border-right: 5px solid #44aa11;
 }
 
 .wp-list-table.plugins .plugin-title,
@@ -1283,11 +1255,7 @@ ul.cat-checklist {
 
 .plugins .plugin-title .dashicons:before {
   padding: 2px;
-  background-color: #eee;
-  -webkit-box-shadow: inset 0 0 10px rgba(160, 165, 170, 0.15);
-          box-shadow: inset 0 0 10px rgba(160, 165, 170, 0.15);
   font-size: 60px;
-  color: #B4B9BE;
 }
 
 #update-themes-table .plugin-title img,

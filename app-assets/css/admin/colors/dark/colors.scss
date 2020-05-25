@@ -205,6 +205,10 @@ input {
 	}
 }
 
+optgroup {
+	background-color: $body_background;
+}
+
 ::-webkit-input-placeholder {
 	color: $form_placeholder_color !important;
 }
@@ -624,6 +628,21 @@ ul.add-menu-item-tabs li.tabs,
 }
 
 /**
+ * Plugins
+ */
+.upload-plugin-wrap .upload-plugin .wp-upload-form {
+	border-color: $form_border_color;
+}
+
+#pluginzip,
+.plugins tr.active.plugin-update-tr + tr.inactive th,
+.plugins tr.active.plugin-update-tr + tr.inactive td,
+.plugins tr.active + tr.inactive th,
+.plugins tr.active + tr.inactive td {
+	border-color: $box_border_color;
+}
+
+/**
  * Unique styles
  *
  * The styles are unique to the color scheme and do not
@@ -638,6 +657,124 @@ fieldset {
 
 .color-palette li {
 	border: solid 1px $form_border_color;
+}
+
+/**
+ * Third-party styles
+ */
+.app-admin {
+
+	.acf-admin-navigation {
+		background-color: $box_background_color !important;
+
+		.acf-tab {
+			color: $link_color !important;
+
+			&:hover,
+			&:focus {
+				color: $link_action_color !important;
+			}
+
+			&.is-active {
+				&:hover,
+				&:focus {
+					color: $link_color !important;
+				}
+			}
+		}
+	}
+
+	.acf-field-list-wrap *,
+	#acf-field-group-fields .acf-field-list-wrap,
+	.acf-fields > .acf-field {
+		border-color: $box_border_color !important;
+	}
+
+	#acf-field-group-fields .acf-field-list,
+	#acf-field-group-fields .acf-field-list .no-fields-message,
+	.acf-table > tbody > tr > th,
+	.acf-table > tbody > tr > td,
+	.acf-table > thead > tr > th,
+	.acf-table > thead > tr > td {
+		background-color: $body_background !important;
+	}
+
+	.acf-tfoot,
+	.acf-fields.-left > .acf-field:before {
+		background-color: $box_background_color !important;
+		border-color: $box_border_color !important;
+	}
+
+	.acf-switch {
+		background-color: $form_background_color !important;
+		border-color: $form_border_color !important;
+		color: $text_color !important;
+
+		&:hover,
+		&:focus,
+		.-focus {
+
+			.acf-switch-slider {
+				border-color: $form_border_color !important;
+			}
+		}
+
+		.acf-switch-slider {
+			background-color: $app_red !important;
+			border-color: $app_red !important;
+		}
+
+		&.-on {
+			background-color: $app_green !important;
+			border-color: $app_green !important;
+
+			.acf-switch-slider {
+				background-color: $text_color !important;
+				border-color: $app_green !important;
+			}
+		}
+
+		.acf-switch-on {
+			text-shadow: none !important;
+		}
+	}
+
+	.acf-field-object,
+	.acf-field-object.open > .handle {
+		border-color: $box_border_color !important;
+	}
+
+	.acf-field-object.open > .handle {
+
+		a {
+			color: $link_color !important;
+
+			&:hover,
+			&:focus {
+				color: $link_action_color !important;
+				text-decoration: none !important;
+			}
+
+			&.button {
+				color: $button_text_color !important;
+
+				&:hover,
+				&:focus {
+					color: $button_action_text_color !important;
+					text-decoration: none !important;
+				}
+			}
+
+			&.delete-field {
+				color: $app_red !important;
+
+				&:hover,
+				&:focus {
+					$app_red: !important;
+				}
+			}
+		}
+	}
 }
 
 ///

@@ -7,43 +7,96 @@
  * Overrides the plugin styles which are intended to jive with
  * brand-name management systems.
  */
-.acf-admin-navigation {
-	padding: 1em 2rem;
-	background-color: $body_background !important;
+.app-admin {
 
-	h2,
-	.acf-tab {
-		padding: 0 !important;
-		font-size: $px14 !important;
-		line-height: 1 !important;
-	}
+	.acf-admin-navigation {
+		padding: 1em 2rem;
+		background-color: $body_background !important;
 
-	h2 {
-		margin-right: 1rem !important;
-		i {
-			display: none;
-		}
-	}
-
-	.acf-tab {
-		margin: 0 0.5em !important;
-		color: $link_color !important;
-
-		&:hover,
-		&:focus {
-			color: $link_action_color !important;
-		}
-
-		&.is-active {
+		h2,
+		.acf-tab {
 			padding: 0 !important;
-			border: none !important;
-			font-weight: 700;
+			font-size: $px14 !important;
+			line-height: 1 !important;
+		}
+
+		h2 {
+			margin-right: 1rem !important;
+			i {
+				display: none;
+			}
+		}
+
+		.acf-tab {
+			margin: 0 0.5em !important;
+			color: $link_color !important;
 
 			&:hover,
 			&:focus {
-				cursor: default;
-				color: $link_color !important;
+				color: $link_action_color !important;
+			}
+
+			&.is-active {
+				padding: 0 !important;
+				border: none !important;
+				font-weight: 700;
+
+				&:hover,
+				&:focus {
+					cursor: default;
+					color: $link_color !important;
+				}
 			}
 		}
+	}
+
+	.acf-field-object,
+	.acf-field-object.open > .handle {
+		background-color: inherit !important;
+		border-color: $box_border_color !important;
+		color: inherit !important;
+	}
+
+	.acf-field-object.open > .handle {
+		text-shadow: none !important;
+
+		a {
+			color: $link_color !important;
+
+			&:hover,
+			&:focus {
+				color: $link_action_color !important;
+				text-decoration: none !important;
+			}
+
+			&.button {
+				color: $button_text_color !important;
+
+				&:hover,
+				&:focus {
+					color: $button_action_text_color !important;
+					text-decoration: none !important;
+				}
+			}
+
+			&.delete-field {
+				color: $app_red !important;
+
+				&:hover,
+				&:focus {
+					$app_red: !important;
+				}
+			}
+		}
+	}
+
+	.acf-input-prepend,
+	.acf-input-append {
+		height: 2.5rem !important;
+		padding: 0 1rem !important;
+		background: none !important;
+		border-radius: 0px !important;
+		font-size: $px14 !important;
+		line-height: 2.5rem !important;
 	}
 }

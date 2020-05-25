@@ -119,6 +119,10 @@ input:disabled, input.disabled {
   color: #666666;
 }
 
+optgroup {
+  background-color: #222;
+}
+
 ::-webkit-input-placeholder {
   color: #959595 !important;
 }
@@ -640,6 +644,21 @@ ul.add-menu-item-tabs li.tabs,
 }
 
 /**
+ * Plugins
+ */
+.upload-plugin-wrap .upload-plugin .wp-upload-form {
+  border-color: #626262;
+}
+
+#pluginzip,
+.plugins tr.active.plugin-update-tr + tr.inactive th,
+.plugins tr.active.plugin-update-tr + tr.inactive td,
+.plugins tr.active + tr.inactive th,
+.plugins tr.active + tr.inactive td {
+  border-color: #414141;
+}
+
+/**
  * Unique styles
  *
  * The styles are unique to the color scheme and do not
@@ -651,6 +670,103 @@ fieldset.scheme-list {
 
 .color-palette li {
   border: solid 1px #626262;
+}
+
+/**
+ * Third-party styles
+ */
+.app-admin .acf-admin-navigation {
+  background-color: #282828 !important;
+}
+
+.app-admin .acf-admin-navigation .acf-tab {
+  color: #3ad4fb !important;
+}
+
+.app-admin .acf-admin-navigation .acf-tab:hover, .app-admin .acf-admin-navigation .acf-tab:focus {
+  color: #ffffff !important;
+}
+
+.app-admin .acf-admin-navigation .acf-tab.is-active:hover, .app-admin .acf-admin-navigation .acf-tab.is-active:focus {
+  color: #3ad4fb !important;
+}
+
+.app-admin .acf-field-list-wrap *,
+.app-admin #acf-field-group-fields .acf-field-list-wrap,
+.app-admin .acf-fields > .acf-field {
+  border-color: #414141 !important;
+}
+
+.app-admin #acf-field-group-fields .acf-field-list,
+.app-admin #acf-field-group-fields .acf-field-list .no-fields-message,
+.app-admin .acf-table > tbody > tr > th,
+.app-admin .acf-table > tbody > tr > td,
+.app-admin .acf-table > thead > tr > th,
+.app-admin .acf-table > thead > tr > td {
+  background-color: #222 !important;
+}
+
+.app-admin .acf-tfoot,
+.app-admin .acf-fields.-left > .acf-field:before {
+  background-color: #282828 !important;
+  border-color: #414141 !important;
+}
+
+.app-admin .acf-switch {
+  background-color: #2f2f2f !important;
+  border-color: #626262 !important;
+  color: #ffffff !important;
+}
+
+.app-admin .acf-switch:hover .acf-switch-slider, .app-admin .acf-switch:focus .acf-switch-slider,
+.app-admin .acf-switch .-focus .acf-switch-slider {
+  border-color: #626262 !important;
+}
+
+.app-admin .acf-switch .acf-switch-slider {
+  background-color: #dd0000 !important;
+  border-color: #dd0000 !important;
+}
+
+.app-admin .acf-switch.-on {
+  background-color: #44aa11 !important;
+  border-color: #44aa11 !important;
+}
+
+.app-admin .acf-switch.-on .acf-switch-slider {
+  background-color: #ffffff !important;
+  border-color: #44aa11 !important;
+}
+
+.app-admin .acf-switch .acf-switch-on {
+  text-shadow: none !important;
+}
+
+.app-admin .acf-field-object,
+.app-admin .acf-field-object.open > .handle {
+  border-color: #414141 !important;
+}
+
+.app-admin .acf-field-object.open > .handle a {
+  color: #3ad4fb !important;
+}
+
+.app-admin .acf-field-object.open > .handle a:hover, .app-admin .acf-field-object.open > .handle a:focus {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+.app-admin .acf-field-object.open > .handle a.button {
+  color: #ffffff !important;
+}
+
+.app-admin .acf-field-object.open > .handle a.button:hover, .app-admin .acf-field-object.open > .handle a.button:focus {
+  color: #222222 !important;
+  text-decoration: none !important;
+}
+
+.app-admin .acf-field-object.open > .handle a.delete-field {
+  color: #dd0000 !important;
 }
 
 .page-title-action {
