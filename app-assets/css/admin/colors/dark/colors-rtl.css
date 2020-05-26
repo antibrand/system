@@ -14,6 +14,10 @@ a:hover, a:focus {
   color: #ffffff;
 }
 
+h1 ~ p.description {
+  border-color: #414141;
+}
+
 .postbox {
   background-color: #282828;
   border-color: #414141;

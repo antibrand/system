@@ -312,7 +312,9 @@ p.description,
 }
 
 h1 ~ p.description {
-	margin: 0.5em 0 0;
+	margin: 0.5em 0 1em;
+	padding-bottom: 1em;
+	border-bottom: solid 1px $box_border_color;
 	font-size: 1rem;
 }
 
