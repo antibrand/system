@@ -122,6 +122,7 @@ class Dashboard {
 	 */
 	public function tabs() {
 
+		// Stop if not on the relevant screen.
 		$screen = get_current_screen();
 		if ( 'dashboard' != $screen->id ) {
 			return;
@@ -180,7 +181,7 @@ class Dashboard {
 	 *
 	 * @since 1.0.0
 	 * @access public
-	 * @return mixed Returns the markup of the start tab.
+	 * @return mixed Returns the markup of the tab content.
 	 */
 	public function start_tab() {
 
@@ -532,7 +533,7 @@ class Dashboard {
 	 *
 	 * @since 1.0.0
 	 * @access public
-	 * @return mixed Returns the markup of the Site Overview content.
+	 * @return mixed Returns the markup of the tab content.
 	 */
 	public function site_overview_tab() {
 
@@ -998,7 +999,7 @@ class Dashboard {
 	 * @since  WP 2.7.0
 	 * @access public
 	 * @param  array $drafts Array of posts.
-	 * @return mixed Returns the markup of the recent draft posts by current user.
+	 * @return mixed Returns the markup of the tab content.
 	 */
 	public function dashboard_recent_drafts( $drafts = false ) {
 
