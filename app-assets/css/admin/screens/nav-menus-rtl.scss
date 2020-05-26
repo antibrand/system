@@ -7,18 +7,37 @@
 	display: block;
 }
 
-ul.add-menu-item-tabs li {
-	padding: 3px 8px 4px 5px;
+.nav-tab-link,
+.list-controls .select-all,
+.menu-delete {
+	font-size: $px14;
+	font-weight: 700;
+
+	@supports( font-variation-settings: normal ) {
+		font-weight: 550;
+	}
 }
 
-.accordion-section ul.category-tabs,
-.accordion-section ul.add-menu-item-tabs,
-.accordion-section ul.wp-tab-bar {
+.categorychecklist li {
+	margin-top: 0.4em;
+	line-height: 1.2;
+	font-size: $px14;
+
+	label {
+		display: block;
+		padding-left: 2em;
+		text-indent: -2em;
+	}
+}
+
+.accordion-section .category-tabs,
+.accordion-section .add-menu-item-tabs,
+.accordion-section .wp-tab-bar {
 	margin: 0;
 }
 
 .accordion-section .categorychecklist {
-	margin: 13px 0;
+	margin: 1em 0;
 }
 
 #nav-menu-meta .accordion-section-content {
