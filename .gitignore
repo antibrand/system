@@ -10,6 +10,7 @@ wp-content/upgrade/
 wp-content/uploads/
 wp-content/mu-plugins/
 wp-content/plugins/
+wp-content/themes/
 
 /.htaccess
 /sitemap.xml
