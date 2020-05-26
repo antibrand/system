@@ -68,8 +68,9 @@ class WP_Widget_Meta extends WP_Widget {
 			 * @param string $title_text Default title text for the link.
 			 * @param array  $instance   Array of settings for the current widget.
 			 */
-			echo apply_filters( 'widget_meta_poweredby', sprintf( '<li>>%s</li>',
-				APP_NAME
+			echo apply_filters( 'widget_meta_poweredby', sprintf( '<li>%1s %2s</li>',
+				APP_NAME,
+				get_bloginfo( 'version' )
 			), $instance );
 
 			wp_meta();
