@@ -643,6 +643,12 @@ $submenu['options-general.php'][40] = [
 	'options-permalink.php'
 ];
 
+$submenu['options-general.php'][60] = [
+	__( 'Database & System' ),
+	'manage_options',
+	'manage-data.php'
+];
+
 if ( is_multisite() && ! is_main_site() ) {
 	$submenu['options-general.php'][75] = [
 		__( 'Delete Site' ),
