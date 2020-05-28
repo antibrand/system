@@ -322,6 +322,10 @@ textarea {
 	}
 }
 
+p.submit {
+	margin-top: 2rem;
+}
+
 /*------------------------------------------------------------------------------
   2.0 - Forms
 ------------------------------------------------------------------------------*/
@@ -1027,11 +1031,11 @@ table.form-table td .updated p {
 }
 
 .export-filters {
-	display: table-caption;
+	display: flex;
+	margin-left: 1.5em;
 
 	li {
-		display: table-cell;
-		height: 4rem;
+		display: inline-flex;
 		margin: 0;
 		padding-right: 1em;
 

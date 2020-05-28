@@ -813,6 +813,10 @@ textarea:disabled, textarea.disabled {
   vertical-align: middle;
 }
 
+p.submit {
+  margin-top: 2rem;
+}
+
 /*------------------------------------------------------------------------------
   2.0 - Forms
 ------------------------------------------------------------------------------*/
@@ -1525,12 +1529,16 @@ table.form-table td .updated p {
 }
 
 .export-filters {
-  display: table-caption;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 1.5em;
 }
 
 .export-filters li {
-  display: table-cell;
-  height: 4rem;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   margin: 0;
   padding-right: 1em;
 }
