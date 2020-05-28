@@ -197,6 +197,7 @@ require( ABSPATH . WPINC . '/bookmark.php' );
 require( ABSPATH . WPINC . '/bookmark-template.php' );
 require( ABSPATH . WPINC . '/kses.php' );
 require( ABSPATH . WPINC . '/cron.php' );
+require( ABSPATH . WPINC . '/aliased-functions.php' );
 require( ABSPATH . WPINC . '/deprecated-wp-versions.php' );
 require( ABSPATH . WPINC . '/deprecated-wp-branded.php' );
 require( ABSPATH . WPINC . '/script-loader.php' );
