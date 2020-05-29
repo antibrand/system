@@ -124,6 +124,14 @@ final class Screen {
 	private $content_tabs = [];
 
 	/**
+	 * Add tab data attributes to tabbed contents associated with screen, if any.
+	 *
+	 * @since 1.0.0
+	 * @var string
+	 */
+	private $content_tab_attributes = [];
+
+	/**
 	 * The help tab data associated with the screen, if any.
 	 *
 	 * @since WP 3.3.0
@@ -151,7 +159,6 @@ final class Screen {
 	 * Stores old string-based help.
 	 *
 	 * @static
-	 *
 	 * @var array
 	 */
 	private static $old_compat_help = [];
@@ -168,9 +175,7 @@ final class Screen {
 	 * The screen object registry.
 	 *
 	 * @since WP 3.3.0
-	 *
 	 * @static
-	 *
 	 * @var array
 	 */
 	private static $registry = [];
@@ -283,6 +288,10 @@ final class Screen {
 			$id = 'dashboard';
 		} elseif ( 'front' == $id ) {
 			$in_admin = false;
+		}
+
+		if ( 'manage-data' === $id ) {
+			$id = 'data';
 		}
 
 		$base = $id;
@@ -688,8 +697,10 @@ final class Screen {
 			$content_class  = 'registered-content';
 		}
 
+		$hashtags = apply_filters( 'app_tabs_hashtags', false );
+
 		?>
-		<div class="<?php echo $wrap_class; ?>" <?php echo $tabbed; ?> >
+		<div class="<?php echo $wrap_class; ?>" <?php echo $tabbed; ?> data-tabdeeplinking="<?php echo $hashtags; ?>" >
 
 			<?php if ( count( $tabs ) > 1 ) : ?>
 
@@ -779,6 +790,27 @@ final class Screen {
 	 */
 	public function remove_content_tabs() {
 		$this->content_tabs = [];
+	}
+
+	/**
+	 * Gets the content tab attributes.
+	 *
+	 * @since  1.0.0
+	 * @return array
+	 */
+	public function get_content_tab_attributes() {
+		return $this->content_tab_attributes;
+	}
+
+	/**
+	 * Add a sidebar to the contextual help for the screen.
+	 * Call this in template files after admin.php is loaded and before admin-header.php is loaded to add a sidebar to the contextual help.
+	 *
+	 * @since 1.0.0
+	 * @param array
+	 */
+	public function set_content_tab_attributes( $args = [] ) {
+		$this->content_tab_attributes = $args;
 	}
 
 	/**
