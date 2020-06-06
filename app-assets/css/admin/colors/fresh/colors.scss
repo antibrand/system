@@ -323,6 +323,16 @@ optgroup {
 	border-top-color: $box_background_color;
 }
 
+::-moz-selection {
+	background-color: $app_highlight_color;
+	color: $white;
+}
+
+::selection {
+	background-color: $app_highlight_color;
+	color: $white;
+}
+
 /* Admin Menu */
 
 #adminmenuback,

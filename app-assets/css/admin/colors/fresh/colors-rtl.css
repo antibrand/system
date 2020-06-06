@@ -353,6 +353,16 @@ optgroup {
   border-top-color: white;
 }
 
+::-moz-selection {
+  background-color: #0073aa;
+  color: #ffffff;
+}
+
+::selection {
+  background-color: #0073aa;
+  color: #ffffff;
+}
+
 /* Admin Menu */
 #adminmenuback,
 #adminmenuwrap,
