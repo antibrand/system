@@ -646,6 +646,7 @@ final class Screen {
 
 		$defaults = [
 			'id'             => null,
+			'url'            => null,
 			'capability'     => 'read',
 			'tab'            => null,
 			'heading'        => null,
@@ -711,6 +712,13 @@ final class Screen {
 				if ( current_user_can( $tab['capability'] ) ) :
 
 					$content_id  = "tab-content-{$tab['id']}";
+					$content_url = $tab['url'];
+
+					if ( ! empty( $tab['url'] ) ) {
+						$href = $tab['url'];
+					} else {
+						$href = "#$content_id";
+					}
 
 					if ( ! empty( $tab['icon'] ) ) {
 						$icon = sprintf(
@@ -722,7 +730,7 @@ final class Screen {
 					}
 					?>
 						<li class="<?php echo $tab['class'] ?>">
-							<a href="<?php echo esc_url( "#$content_id" ); ?>" aria-controls="<?php echo esc_attr( $content_id ); ?>">
+							<a href="<?php echo esc_url( $href ); ?>" aria-controls="<?php echo esc_attr( $content_id ); ?>">
 								<?php echo $icon . $tab['tab']; ?>
 							</a>
 					<?php
