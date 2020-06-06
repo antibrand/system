@@ -2208,8 +2208,7 @@ table.form-table td .updated p {
   margin-top: 2rem;
 }
 
-.app-tabs .app-tab-content > h2 + div > h3,
-.app-tabs .app-tab-content > h2 + section > h3 {
+.app-tabs .app-tab-content section h3:first-of-type {
   margin-top: 0;
 }
 

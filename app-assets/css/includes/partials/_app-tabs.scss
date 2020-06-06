@@ -79,8 +79,13 @@
 			& + div,
 			& + section {
 				margin-top: 2rem;
+			}
+		}
 
-				& > h3 {
+		section {
+
+			h3 {
+				&:first-of-type {
 					margin-top: 0;
 				}
 			}
