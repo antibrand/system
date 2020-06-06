@@ -60,7 +60,7 @@ $menu_current_icon: $menu_highlight_icon;
 $menu_current_background: $menu_highlight_background;
 
 $menu_submenu_text: mix( $menu_base_color, $menu_text_color, 10% );
-$menu_submenu_background: darken( $menu_base_color, 7% );
+$menu_submenu_background: #32373c;
 $menu_submenu_background_alt: desaturate( lighten( $menu_background, 7% ), 7% );
 
 $menu_submenu_focus_text: $menu_text_color;

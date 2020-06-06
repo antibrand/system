@@ -19,11 +19,6 @@ $box_text_color: inherit !default;
 $link_color: $app_tertiary_color;
 $link_action_color: $text_color;
 
-$notify_color: $app_orange;
-$error_color: $app_red;
-$warning_color: $app_yellow;
-$success_color: $app_green;
-
 // Form color variables.
 $form_background_color: lighten( $color: $app_secondary_color, $amount: 5% );
 $form_border_color: lighten( $color: $app_secondary_color, $amount: 25% );
@@ -397,6 +392,15 @@ div.mce-statusbar,
 	border-color: $form_border_color !important;
 }
 
+.mce-menu .mce-menu-item:hover,
+.mce-menu .mce-menu-item.mce-selected,
+.mce-menu .mce-menu-item:focus,
+.mce-menu .mce-menu-item-normal.mce-active,
+.mce-menu .mce-menu-item-preview.mce-active {
+	background: $button_action_background_color;
+	color: $button_text_color;
+}
+
 .wp-editor-expand #wp-content-editor-tools {
 	background-color: $body_background;
 	border-color: $form_border_color !important;
@@ -705,7 +709,7 @@ fieldset {
 	}
 
 	.acf-tfoot,
-	.acf-fields.-left > .acf-field:before {
+	.acf-fields.-right > .acf-field:before {
 		background-color: $box_background_color !important;
 		border-color: $box_border_color !important;
 	}

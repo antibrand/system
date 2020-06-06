@@ -395,11 +395,11 @@ optgroup {
 #adminmenu .wp-has-current-submenu.opensub .wp-submenu,
 .folded #adminmenu .wp-has-current-submenu .wp-submenu,
 #adminmenu a.wp-has-current-submenu:focus + .wp-submenu {
-  background: #131619;
+  background: #32373c;
 }
 
 #adminmenu li.wp-has-submenu.wp-not-current-submenu.opensub:hover:after {
-  border-right-color: #131619;
+  border-right-color: #32373c;
 }
 
 #adminmenu .wp-submenu .wp-submenu-head {
@@ -476,7 +476,7 @@ ul#adminmenu > li.current > a.current:after {
 #adminmenu li:hover a .awaiting-mod,
 #adminmenu li.menu-top:hover > a .update-plugins {
   color: #eeeeee;
-  background: #131619;
+  background: #32373c;
 }
 
 /* Admin Menu: collapse button */
@@ -515,7 +515,7 @@ ul#adminmenu > li.current > a.current:after {
 #wpadminbar.nojs .ab-top-menu > li.menupop:hover > .ab-item,
 #wpadminbar .ab-top-menu > li.menupop.hover > .ab-item {
   color: #eeeeee;
-  background: #131619;
+  background: #32373c;
 }
 
 #wpadminbar:not(.mobile) > #wp-toolbar li:hover span.ab-label,
@@ -533,7 +533,7 @@ ul#adminmenu > li.current > a.current:after {
 
 /* Admin Bar: submenu */
 #wpadminbar .menupop .ab-sub-wrapper {
-  background: #131619;
+  background: #32373c;
 }
 
 #wpadminbar .quicklinks .menupop ul.ab-sub-secondary,

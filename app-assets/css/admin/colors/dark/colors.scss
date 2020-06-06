@@ -19,11 +19,6 @@ $box_text_color: inherit !default;
 $link_color: $app_tertiary_color;
 $link_action_color: $text_color;
 
-$notify_color: $app_orange;
-$error_color: $app_red;
-$warning_color: $app_yellow;
-$success_color: $app_green;
-
 // Form color variables.
 $form_background_color: lighten( $color: $app_secondary_color, $amount: 5% );
 $form_border_color: lighten( $color: $app_secondary_color, $amount: 25% );
