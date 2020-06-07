@@ -25,6 +25,9 @@ const APP_CLASSES = [
 	'AppNamespace\Includes\Walker_Category' => __DIR__ . '/classes/includes/class-walker-category.php',
 	'AppNamespace\Includes\Walker_Category_Dropdown' => __DIR__ . '/classes/includes/class-walker-category-dropdown.php',
 	'AppNamespace\Includes\Site_Icon'       => __DIR__ . '/classes/includes/class-site-icon.php',
+	'AppNamespace\Includes\Import_Data'     => __DIR__ . '/classes/includes/class-import-data.php',
+	'AppNamespace\Includes\Export_Data'     => __DIR__ . '/classes/includes/class-export-data.php',
+	'AppNamespace\Includes\Import_Data_Content' => __DIR__ . '/classes/includes/class-import-data-content.php',
 	'AppNamespace\Includes\Error_Messages'  => __DIR__ . '/classes/includes/class-error-messages.php',
 
 	// Classes used in the back end only.

@@ -1,30 +1,121 @@
 <?php
 /**
- * Export Administration API
+ * Export data class
  *
  * @package App_Package
- * @subpackage Administration
+ * @subpackage Includes
+ * @since 1.0.0
  */
+
+namespace AppNamespace\Includes;
+
+use \WP_Locale;
 
 /**
  * Version number for the export format.
  *
  * Bump this when something changes that might affect compatibility.
  *
- * @since WP 2.5.0
+ * @since 2.5.0
  */
 define( 'EXPORT_VERSION', '1.2' );
 
 /**
+ * Export data class
+ *
+ * @since  1.0.0
+ * @access public
+ */
+class Export_Data {
+
+	/**
+	 * Instance of the class
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return object Returns the instance.
+	 */
+	public static function instance() {
+
+		// Varialbe for the instance to be used outside the class.
+		static $instance = null;
+
+		if ( is_null( $instance ) ) {
+
+			// Set variable for new instance.
+			$instance = new self;
+		}
+
+		// Return the instance.
+		return $instance;
+	}
+
+	/**
+	 * Constructor method
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return self
+	 */
+	public function __construct() {}
+
+	/**
+	 * Create the date options fields for exporting a given post type.
+	 *
+	 * @since  1.0.0
+	 * @since  WP 3.1.0
+	 * @global wpdb $wpdb Database abstraction object.
+	 * @global WP_Locale $wp_locale Date and time locale object.
+	 * @param  string $post_type The post type. Default 'post'.
+	 * @return mixed Returns the markup of the export options fields.
+	 */
+	public static function export_date_options( $post_type = 'post' ) {
+
+		global $wpdb, $wp_locale;
+
+		$months = $wpdb->get_results( $wpdb->prepare( "
+			SELECT DISTINCT YEAR( post_date ) AS year, MONTH( post_date ) AS month
+			FROM $wpdb->posts
+			WHERE post_type = %s AND post_status != 'auto-draft'
+			ORDER BY post_date DESC
+		", $post_type ) );
+
+		$month_count = count( $months );
+
+		if ( ! $month_count || ( 1 == $month_count && 0 == $months[0]->month ) ) {
+			return;
+		}
+
+		foreach ( $months as $date ) {
+
+			if ( 0 == $date->year ) {
+				continue;
+			}
+
+			$month = zeroise( $date->month, 2 );
+
+			echo sprintf(
+				'<option value="%1s-%2s">%3s %4s</option>',
+				$date->year,
+				$month,
+				$wp_locale->get_month( $month ),
+				$date->year
+			);
+		}
+	}
+
+	/**
  * Generates the export file for download.
  *
  * Default behavior is to export all content, however, note that post content will only
  * be exported for post types with the `can_export` argument enabled. Any posts with the
  * 'auto-draft' status will be skipped.
  *
- * @since  WP 2.1.0
+ * @since 2.1.0
+ *
  * @global wpdb    $wpdb Database abstraction object.
  * @global WP_Post $post Global `$post`.
+ *
  * @param array $args {
  *     Optional. Arguments for generating the export file for download. Default empty array.
  *
@@ -51,49 +142,34 @@ define( 'EXPORT_VERSION', '1.2' );
  *                                  'trash'. Default false (all statuses except 'auto-draft').
  * }
  */
-function export_wp( $args = [] ) {
-
+public static function export_wp( $args = array() ) {
 	global $wpdb, $post;
 
-	$defaults = [
-		'content'    => 'all',
-		'author'     => false,
-		'category'   => false,
-		'start_date' => false,
-		'end_date'   => false,
-		'status'     => false,
-	];
-
+	$defaults = array( 'content' => 'all', 'author' => false, 'category' => false,
+		'start_date' => false, 'end_date' => false, 'status' => false,
+	);
 	$args = wp_parse_args( $args, $defaults );
 
 	/**
 	 * Fires at the beginning of an export, before any headers are sent.
 	 *
-	 * @since WP 2.3.0
+	 * @since 2.3.0
+	 *
 	 * @param array $args An array of export arguments.
 	 */
 	do_action( 'export_wp', $args );
 
 	$sitename = sanitize_key( get_bloginfo( 'name' ) );
-
 	if ( ! empty( $sitename ) ) {
 		$sitename .= '.';
 	}
-
-	/**
-	 * Date & time
-	 *
-	 * @link https://www.php.net/manual/en/function.date.php
-	 */
-	$date_time = current_time( 'Y-m-d-H-i', false );
-
-	// Name of exported file.
-	$wp_filename = $sitename . 'export.' . $date_time . '.xml';
-
+	$date = date( 'Y-m-d' );
+	$wp_filename = $sitename . 'wordpress.' . $date . '.xml';
 	/**
 	 * Filters the export filename.
 	 *
-	 * @since WP 4.4.0
+	 * @since 4.4.0
+	 *
 	 * @param string $wp_filename The name of the file for download.
 	 * @param string $sitename    The site name.
 	 * @param string $date        Today's date, formatted.
@@ -105,52 +181,39 @@ function export_wp( $args = [] ) {
 	header( 'Content-Type: text/xml; charset=' . get_option( 'blog_charset' ), true );
 
 	if ( 'all' != $args['content'] && post_type_exists( $args['content'] ) ) {
-
 		$ptype = get_post_type_object( $args['content'] );
-
-		if ( ! $ptype->can_export ) {
+		if ( ! $ptype->can_export )
 			$args['content'] = 'post';
-		}
 
 		$where = $wpdb->prepare( "{$wpdb->posts}.post_type = %s", $args['content'] );
-
 	} else {
-
-		$post_types = get_post_types( [ 'can_export' => true ] );
-		$esses      = array_fill( 0, count($post_types), '%s' );
-		$where      = $wpdb->prepare( "{$wpdb->posts}.post_type IN (" . implode( ',', $esses ) . ')', $post_types );
+		$post_types = get_post_types( array( 'can_export' => true ) );
+		$esses = array_fill( 0, count($post_types), '%s' );
+		$where = $wpdb->prepare( "{$wpdb->posts}.post_type IN (" . implode( ',', $esses ) . ')', $post_types );
 	}
 
-	if ( $args['status'] && ( 'post' == $args['content'] || 'page' == $args['content'] ) ) {
+	if ( $args['status'] && ( 'post' == $args['content'] || 'page' == $args['content'] ) )
 		$where .= $wpdb->prepare( " AND {$wpdb->posts}.post_status = %s", $args['status'] );
-	} else {
+	else
 		$where .= " AND {$wpdb->posts}.post_status != 'auto-draft'";
-	}
 
 	$join = '';
-
 	if ( $args['category'] && 'post' == $args['content'] ) {
-
 		if ( $term = term_exists( $args['category'], 'category' ) ) {
-
-			$join   = "INNER JOIN {$wpdb->term_relationships} ON ({$wpdb->posts}.ID = {$wpdb->term_relationships}.object_id)";
+			$join = "INNER JOIN {$wpdb->term_relationships} ON ({$wpdb->posts}.ID = {$wpdb->term_relationships}.object_id)";
 			$where .= $wpdb->prepare( " AND {$wpdb->term_relationships}.term_taxonomy_id = %d", $term['term_taxonomy_id'] );
 		}
 	}
 
 	if ( 'post' == $args['content'] || 'page' == $args['content'] || 'attachment' == $args['content'] ) {
-
-		if ( $args['author'] ) {
+		if ( $args['author'] )
 			$where .= $wpdb->prepare( " AND {$wpdb->posts}.post_author = %d", $args['author'] );
-		}
 
-		if ( $args['start_date'] ) {
+		if ( $args['start_date'] )
 			$where .= $wpdb->prepare( " AND {$wpdb->posts}.post_date >= %s", date( 'Y-m-d', strtotime($args['start_date']) ) );
-		}
 
-		if ( $args['end_date'] ) {
+		if ( $args['end_date'] )
 			$where .= $wpdb->prepare( " AND {$wpdb->posts}.post_date < %s", date( 'Y-m-d', strtotime('+1 month', strtotime($args['end_date'])) ) );
-		}
 	}
 
 	// Grab a snapshot of post IDs, just in case it changes during the export.
@@ -160,41 +223,32 @@ function export_wp( $args = [] ) {
 	 * Get the requested terms ready, empty unless posts filtered by category
 	 * or all content.
 	 */
-	$cats = $tags = $terms = [];
-
+	$cats = $tags = $terms = array();
 	if ( isset( $term ) && $term ) {
-
-		$cat  = get_term( $term['term_id'], 'category' );
-		$cats = [ $cat->term_id => $cat ];
-
+		$cat = get_term( $term['term_id'], 'category' );
+		$cats = array( $cat->term_id => $cat );
 		unset( $term, $cat );
-
 	} elseif ( 'all' == $args['content'] ) {
+		$categories = (array) get_categories( array( 'get' => 'all' ) );
+		$tags = (array) get_tags( array( 'get' => 'all' ) );
 
-		$categories = (array) get_categories( [ 'get' => 'all' ] );
-		$tags       = (array) get_tags( [ 'get' => 'all' ] );
-
-		$custom_taxonomies = get_taxonomies( [ '_builtin' => false ] );
-		$custom_terms      = (array) get_terms( $custom_taxonomies, [ 'get' => 'all' ] );
+		$custom_taxonomies = get_taxonomies( array( '_builtin' => false ) );
+		$custom_terms = (array) get_terms( $custom_taxonomies, array( 'get' => 'all' ) );
 
 		// Put categories in order with no child going before its parent.
 		while ( $cat = array_shift( $categories ) ) {
-
-			if ( $cat->parent == 0 || isset( $cats[$cat->parent] ) ) {
+			if ( $cat->parent == 0 || isset( $cats[$cat->parent] ) )
 				$cats[$cat->term_id] = $cat;
-			} else {
+			else
 				$categories[] = $cat;
-			}
 		}
 
 		// Put terms in order with no child going before its parent.
 		while ( $t = array_shift( $custom_terms ) ) {
-
-			if ( $t->parent == 0 || isset( $terms[$t->parent] ) ) {
+			if ( $t->parent == 0 || isset( $terms[$t->parent] ) )
 				$terms[$t->term_id] = $t;
-			} else {
+			else
 				$custom_terms[] = $t;
-			}
 		}
 
 		unset( $categories, $custom_taxonomies, $custom_terms );
@@ -203,16 +257,15 @@ function export_wp( $args = [] ) {
 	/**
 	 * Wrap given string in XML CDATA tag.
 	 *
-	 * @since  WP 2.1.0
-	 * @param  string $str String to wrap in XML CDATA tag.
+	 * @since 2.1.0
+	 *
+	 * @param string $str String to wrap in XML CDATA tag.
 	 * @return string
 	 */
 	function wxr_cdata( $str ) {
-
 		if ( ! seems_utf8( $str ) ) {
 			$str = utf8_encode( $str );
 		}
-
 		// $str = ent2ncr(esc_html($str));
 		$str = '<![CDATA[' . str_replace( ']]>', ']]]]><![CDATA[>', $str ) . ']]>';
 
@@ -222,32 +275,29 @@ function export_wp( $args = [] ) {
 	/**
 	 * Return the URL of the site
 	 *
-	 * @since  WP 2.5.0
+	 * @since 2.5.0
+	 *
 	 * @return string Site URL.
 	 */
 	function wxr_site_url() {
-
 		// Multisite: the base URL.
-		if ( is_multisite() ) {
+		if ( is_multisite() )
 			return network_home_url();
-
 		// Single site: the site URL.
-		} else {
+		else
 			return get_bloginfo_rss( 'url' );
-		}
 	}
 
 	/**
 	 * Output a cat_name XML tag from a given category object
 	 *
-	 * @since WP 2.1.0
+	 * @since 2.1.0
+	 *
 	 * @param object $category Category Object
 	 */
 	function wxr_cat_name( $category ) {
-
-		if ( empty( $category->name ) ) {
+		if ( empty( $category->name ) )
 			return;
-		}
 
 		echo '<wp:cat_name>' . wxr_cdata( $category->name ) . "</wp:cat_name>\n";
 	}
@@ -255,14 +305,13 @@ function export_wp( $args = [] ) {
 	/**
 	 * Output a category_description XML tag from a given category object
 	 *
-	 * @since WP 2.1.0
+	 * @since 2.1.0
+	 *
 	 * @param object $category Category Object
 	 */
 	function wxr_category_description( $category ) {
-
-		if ( empty( $category->description ) ) {
+		if ( empty( $category->description ) )
 			return;
-		}
 
 		echo '<wp:category_description>' . wxr_cdata( $category->description ) . "</wp:category_description>\n";
 	}
@@ -270,14 +319,13 @@ function export_wp( $args = [] ) {
 	/**
 	 * Output a tag_name XML tag from a given tag object
 	 *
-	 * @since WP 2.3.0
+	 * @since 2.3.0
+	 *
 	 * @param object $tag Tag Object
 	 */
 	function wxr_tag_name( $tag ) {
-
-		if ( empty( $tag->name ) ) {
+		if ( empty( $tag->name ) )
 			return;
-		}
 
 		echo '<wp:tag_name>' . wxr_cdata( $tag->name ) . "</wp:tag_name>\n";
 	}
@@ -285,14 +333,13 @@ function export_wp( $args = [] ) {
 	/**
 	 * Output a tag_description XML tag from a given tag object
 	 *
-	 * @since WP 2.3.0
+	 * @since 2.3.0
+	 *
 	 * @param object $tag Tag Object
 	 */
 	function wxr_tag_description( $tag ) {
-
-		if ( empty( $tag->description ) ) {
+		if ( empty( $tag->description ) )
 			return;
-		}
 
 		echo '<wp:tag_description>' . wxr_cdata( $tag->description ) . "</wp:tag_description>\n";
 	}
@@ -300,14 +347,13 @@ function export_wp( $args = [] ) {
 	/**
 	 * Output a term_name XML tag from a given term object
 	 *
-	 * @since WP 2.9.0
+	 * @since 2.9.0
+	 *
 	 * @param object $term Term Object
 	 */
 	function wxr_term_name( $term ) {
-
-		if ( empty( $term->name ) ) {
+		if ( empty( $term->name ) )
 			return;
-		}
 
 		echo '<wp:term_name>' . wxr_cdata( $term->name ) . "</wp:term_name>\n";
 	}
@@ -315,14 +361,13 @@ function export_wp( $args = [] ) {
 	/**
 	 * Output a term_description XML tag from a given term object
 	 *
-	 * @since WP 2.9.0
+	 * @since 2.9.0
+	 *
 	 * @param object $term Term Object
 	 */
 	function wxr_term_description( $term ) {
-
-		if ( empty( $term->description ) ) {
+		if ( empty( $term->description ) )
 			return;
-		}
 
 		echo "\t\t<wp:term_description>" . wxr_cdata( $term->description ) . "</wp:term_description>\n";
 	}
@@ -330,11 +375,11 @@ function export_wp( $args = [] ) {
 	/**
 	 * Output term meta XML tags for a given term object.
 	 *
-	 * @since WP 4.6.0
+	 * @since 4.6.0
+	 *
 	 * @param WP_Term $term Term object.
 	 */
 	function wxr_term_meta( $term ) {
-
 		global $wpdb;
 
 		$termmeta = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->termmeta WHERE term_id = %d", $term->term_id ) );
@@ -346,18 +391,14 @@ function export_wp( $args = [] ) {
 			 * Returning a truthy value to the filter will skip the current meta
 			 * object from being exported.
 			 *
-			 * @since WP 4.6.0
+			 * @since 4.6.0
+			 *
 			 * @param bool   $skip     Whether to skip the current piece of term meta. Default false.
 			 * @param string $meta_key Current meta key.
 			 * @param object $meta     Current meta object.
 			 */
 			if ( ! apply_filters( 'wxr_export_skip_termmeta', false, $meta->meta_key, $meta ) ) {
-
-				printf(
-					"\t\t<wp:termmeta>\n\t\t\t<wp:meta_key>%s</wp:meta_key>\n\t\t\t<wp:meta_value>%s</wp:meta_value>\n\t\t</wp:termmeta>\n",
-					wxr_cdata( $meta->meta_key ),
-					wxr_cdata( $meta->meta_value )
-				);
+				printf( "\t\t<wp:termmeta>\n\t\t\t<wp:meta_key>%s</wp:meta_key>\n\t\t\t<wp:meta_value>%s</wp:meta_value>\n\t\t</wp:termmeta>\n", wxr_cdata( $meta->meta_key ), wxr_cdata( $meta->meta_value ) );
 			}
 		}
 	}
@@ -365,34 +406,30 @@ function export_wp( $args = [] ) {
 	/**
 	 * Output list of authors with posts
 	 *
-	 * @since WP 3.1.0
+	 * @since 3.1.0
+	 *
 	 * @global wpdb $wpdb Database abstraction object.
+	 *
 	 * @param array $post_ids Array of post IDs to filter the query by. Optional.
 	 */
 	function wxr_authors_list( array $post_ids = null ) {
-
 		global $wpdb;
 
-		if ( ! empty( $post_ids ) ) {
-
+		if ( !empty( $post_ids ) ) {
 			$post_ids = array_map( 'absint', $post_ids );
-			$and      = 'AND ID IN ( ' . implode( ', ', $post_ids ) . ')';
-
+			$and = 'AND ID IN ( ' . implode( ', ', $post_ids ) . ')';
 		} else {
 			$and = '';
 		}
 
-		$authors = [];
+		$authors = array();
 		$results = $wpdb->get_results( "SELECT DISTINCT post_author FROM $wpdb->posts WHERE post_status != 'auto-draft' $and" );
-
-		foreach ( (array) $results as $result ) {
+		foreach ( (array) $results as $result )
 			$authors[] = get_userdata( $result->post_author );
-		}
 
 		$authors = array_filter( $authors );
 
 		foreach ( $authors as $author ) {
-
 			echo "\t<wp:author>";
 			echo '<wp:author_id>' . intval( $author->ID ) . '</wp:author_id>';
 			echo '<wp:author_login>' . wxr_cdata( $author->user_login ) . '</wp:author_login>';
@@ -407,18 +444,14 @@ function export_wp( $args = [] ) {
 	/**
 	 * Output all navigation menu terms
 	 *
-	 * @since WP 3.1.0
+	 * @since 3.1.0
 	 */
 	function wxr_nav_menu_terms() {
-
 		$nav_menus = wp_get_nav_menus();
-
-		if ( empty( $nav_menus ) || ! is_array( $nav_menus ) ) {
+		if ( empty( $nav_menus ) || ! is_array( $nav_menus ) )
 			return;
-		}
 
 		foreach ( $nav_menus as $menu ) {
-
 			echo "\t<wp:term>";
 			echo '<wp:term_id>' . intval( $menu->term_id ) . '</wp:term_id>';
 			echo '<wp:term_taxonomy>nav_menu</wp:term_taxonomy>';
@@ -431,17 +464,14 @@ function export_wp( $args = [] ) {
 	/**
 	 * Output list of taxonomy terms, in XML tag format, associated with a post
 	 *
-	 * @since WP 2.3.0
+	 * @since 2.3.0
 	 */
 	function wxr_post_taxonomy() {
+		$post = get_post();
 
-		$post       = get_post();
 		$taxonomies = get_object_taxonomies( $post->post_type );
-
-		if ( empty( $taxonomies ) ) {
+		if ( empty( $taxonomies ) )
 			return;
-		}
-
 		$terms = wp_get_object_terms( $post->ID, $taxonomies );
 
 		foreach ( (array) $terms as $term ) {
@@ -456,16 +486,13 @@ function export_wp( $args = [] ) {
 	 * @return bool
 	 */
 	function wxr_filter_postmeta( $return_me, $meta_key ) {
-
-		if ( '_edit_lock' == $meta_key ) {
+		if ( '_edit_lock' == $meta_key )
 			$return_me = true;
-		}
-
 		return $return_me;
 	}
 	add_filter( 'wxr_export_skip_postmeta', 'wxr_filter_postmeta', 10, 2 );
 
-	echo '<?xml version="1.0" encoding="' . get_bloginfo( 'charset' ) . "\" ?>\n";
+	echo '<?xml version="1.0" encoding="' . get_bloginfo('charset') . "\" ?>\n";
 
 	?>
 <!-- This is an eXtended RSS file generated as an export of your site. -->
@@ -544,7 +571,6 @@ function export_wp( $args = [] ) {
 	?>
 
 <?php if ( $post_ids ) {
-
 	/**
 	 * @global WP_Query $wp_query
 	 */
@@ -555,13 +581,11 @@ function export_wp( $args = [] ) {
 
 	// Fetch 20 posts at a time rather than loading the entire table into memory.
 	while ( $next_posts = array_splice( $post_ids, 0, 20 ) ) {
-		
 	$where = 'WHERE ID IN (' . join( ',', $next_posts ) . ')';
 	$posts = $wpdb->get_results( "SELECT * FROM {$wpdb->posts} $where" );
 
 	// Begin Loop.
 	foreach ( $posts as $post ) {
-
 		setup_postdata( $post );
 		$is_sticky = is_sticky( $post->ID ) ? 1 : 0;
 ?>
@@ -579,7 +603,8 @@ function export_wp( $args = [] ) {
 			/**
 			 * Filters the post content used for exports.
 			 *
-			 * @since WP 2.5.0
+			 * @since 2.5.0
+			 *
 			 * @param string $post_content Content of the current post.
 			 */
 			echo wxr_cdata( apply_filters( 'the_content_export', $post->post_content ) );
@@ -588,7 +613,8 @@ function export_wp( $args = [] ) {
 			/**
 			 * Filters the post excerpt used for exports.
 			 *
-			 * @since WP 2.6.0
+			 * @since 2.6.0
+			 *
 			 * @param string $post_excerpt Excerpt for the current post.
 			 */
 			echo wxr_cdata( apply_filters( 'the_excerpt_export', $post->post_excerpt ) );
@@ -616,7 +642,8 @@ function export_wp( $args = [] ) {
 			 * Returning a truthy value to the filter will skip the current meta
 			 * object from being exported.
 			 *
-			 * @since WP 3.3.0
+			 * @since 3.3.0
+			 *
 			 * @param bool   $skip     Whether to skip the current post meta. Default false.
 			 * @param string $meta_key Current meta key.
 			 * @param object $meta     Current meta object.
@@ -654,7 +681,8 @@ function export_wp( $args = [] ) {
 				 * Returning a truthy value to the filter will skip the current meta
 				 * object from being exported.
 				 *
-				 * @since WP 4.0.0
+				 * @since 4.0.0
+				 *
 				 * @param bool   $skip     Whether to skip the current comment meta. Default false.
 				 * @param string $meta_key Current meta key.
 				 * @param object $meta     Current meta object.
@@ -678,4 +706,6 @@ function export_wp( $args = [] ) {
 </channel>
 </rss>
 <?php
+}
+
 }
