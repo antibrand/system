@@ -633,6 +633,7 @@ final class Screen {
 	 *     Array of arguments used to display the content tab.
 	 *
 	 *     @type string $id Tab ID. Must be HTML-safe. Default null.
+	 *     @type string $url Tab URL. Link to use instead of tabbed content ID. Default null.
 	 *     @type string $tab Label for the tab. Default null.
 	 *     @type string $heading Heading for the tab content. Default null.
 	 *     @type string $heading_before Opening HTML tag for the heading. Default <h2>.
