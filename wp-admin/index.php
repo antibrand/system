@@ -41,14 +41,34 @@ if ( current_user_can( 'install_plugins' ) ) {
 	// wp_enqueue_script( 'updates' );
 }
 
-$title       = __( 'Dashboard' );
+// Parent file for indication in the menu.
 $parent_file = 'index.php';
+
+// Page heading.
+$title = apply_filters( 'admin_page_heading_dashboard', __( 'Dashboard' ) );
+
+// Page subheading.
+$subtitle = apply_filters( 'admin_page_subheading_dashboard', '' );
 
 // User option for layout in the widgets tab.
 if ( is_user_admin() ) {
-	add_screen_option( 'layout_columns', [ 'max' => 4, 'default' => 3 ] );
+
+	add_screen_option(
+		'layout_columns',
+		[
+			'max'     => 4,
+			'default' => 3
+		]
+	);
+
 } else {
-	add_screen_option( 'layout_columns', [ 'max' => 4, 'default' => 2 ] );
+	add_screen_option(
+		'layout_columns',
+		[
+			'max'     => 4,
+			'default' => 2
+		]
+	);
 }
 
 // Get the page header template.
@@ -59,6 +79,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 	<div class="wrap">
 
 		<h1><?php echo esc_html( $title ); ?></h1>
+		<?php echo $subtitle; ?>
 
 		<div id="dashboard-tabs">
 			<?php
