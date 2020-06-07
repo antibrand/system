@@ -197,10 +197,17 @@
 #adminmenu .wp-submenu,
 .folded #adminmenu a.wp-has-current-submenu:focus + .wp-submenu,
 .folded #adminmenu .wp-has-current-submenu .wp-submenu {
-	padding: 7px 0 8px;
 	z-index: 9999;
 	background-color: #333;
-	box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+}
+
+#adminmenu .wp-submenu {
+	padding: 7px 0 8px;
+}
+
+.folded #adminmenu a.wp-has-current-submenu:focus + .wp-submenu,
+.folded #adminmenu .wp-has-current-submenu .wp-submenu {
+	padding: 0 0 0.5em;
 }
 
 .js #adminmenu .sub-open,
@@ -232,6 +239,12 @@
 	position: relative;
 	background-color: #191e23;
 	color: #00b9eb;
+}
+
+.folded {
+	#adminmenu .wp-submenu {
+		right: 36px;
+	}
 }
 
 .folded #adminmenu li.menu-top:hover,
@@ -434,11 +447,8 @@ ul#adminmenu a.wp-has-current-submenu {
 }
 
 #adminmenu .wp-submenu .wp-submenu-head {
-	color: $text_color;
-	font-weight: 400;
-	font-size: 14px;
-	padding: 8px 11px 8px 4px;
-	margin: -7px 0px 4px;
+	color: $menu_text_color;
+	padding: 0.5em 0.75em;
 }
 
 #adminmenu li.current,
