@@ -6056,7 +6056,6 @@ img {
 
 #adminmenu {
   clear: left;
-  margin: 12px 0;
   padding: 0;
   list-style: none;
   /* ensure that wp-submenu's box shadow doesn't appear
