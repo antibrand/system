@@ -58,7 +58,6 @@ textarea {
 	border-radius: 0; /* Reset mobile webkit's default element styling */
 	outline: none;
 	font-size: 1rem;
-	-webkit-transition: 0.05s border-color ease-in-out;
 	transition: 0.05s border-color ease-in-out;
 
 	&:focus {
@@ -98,12 +97,9 @@ input {
 
 	&[type="checkbox"],
 	&[type="radio"] {
-		display: -webkit-inline-box;
 		display: inline-flex;
-		-webkit-box-align: center;
-		        align-items: center;
-		-webkit-box-pack: center;
-		        justify-content: center;
+		align-items: center;
+		justify-content: center;
 		clear: none;
 		width: 1em;
 		height: 1em;
@@ -115,7 +111,6 @@ input {
 		text-align: center;
 		cursor: pointer;
 		-webkit-appearance: none;
-		-webkit-transition: .05s border-color ease-in-out;
 		transition: .05s border-color ease-in-out;
 
 		&:before,
@@ -234,17 +229,72 @@ input {
 	}
 }
 
-/**
- * Select field styles
- *
- * Make sure dimensional changes match various
- * text and submit type inputs.
- */
- select {
+::-webkit-input-placeholder {
+	color: $form_placeholder_color;
+}
+
+::-moz-placeholder {
+	color: $form_placeholder_color;
+}
+
+:-ms-input-placeholder {
+	color: $form_placeholder_color;
+}
+
+::-ms-input-placeholder {
+	color: $form_placeholder_color;
+}
+
+::placeholder {
+	color: $form_placeholder_color;
+}
+
+/// Select form fields
+///
+/// Make sure dimensional changes match various
+/// text and submit type inputs.
+///
+/// @function select-bg-color Function to encode the hashtag in the
+/// 	variable for arrow background image color in the SVG fill attributes.
+///
+/// @function select-action-bg-color Function to encode the hashtag in the
+///		variable for arrow background image focus color in the SVG fill attributes.
+///
+/// Background size affects the size of the arrow down image.
+/// Right padding is the same as the width of the background
+/// size of the right-positioned background image.
+
+// Arrow color.
+@function select-bg-color() {
+	@return '%23' + str-slice( '#{$form_text_color}', 2, -1 );
+}
+
+// Arrow focus color.
+@function select-action-bg-color() {
+	@return '%23' + str-slice( '#{$form_focus}', 2, -1 );
+}
+
+// Select element.
+select {
 	height: 2.5rem;
-	padding: 0 1rem 0 0.5rem;
+	padding: 0 1.5em 0 0.5em;
 	font-size: $px14;
-	line-height: 1rem;
+	line-height: 1em;
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+	        appearance: none;
+	background-repeat: no-repeat;
+	background-position: right center;
+	background-size: 1.5em;
+	border-radius: 0;
+
+	&:not([multiple]):not([size]) {
+		background-image: url( "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{ select-bg-color() }' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E" );
+
+		&:focus {
+			background-image: url( "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{ select-action-bg-color() }' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E" );
+		}
+	}
 
 	option {
 		line-height: 1em;
@@ -1311,22 +1361,18 @@ table.form-table td .updated p {
 
 @-webkit-keyframes rotation {
 	0% {
-		-webkit-transform: rotate(0deg);
 		transform: rotate(0deg);
 	}
 	100% {
-		-webkit-transform: rotate(359deg);
 		transform: rotate(359deg);
 	}
 }
 
 @keyframes rotation {
 	0% {
-		-webkit-transform: rotate(0deg);
 		transform: rotate(0deg);
 	}
 	100% {
-		-webkit-transform: rotate(359deg);
 		transform: rotate(359deg);
 	}
 }

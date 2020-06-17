@@ -203,6 +203,42 @@ input {
 	}
 }
 
+/// Select form fields
+///
+/// @function select-bg-color Function to encode the hashtag in the
+/// 	variable for arrow background image color in the SVG fill attributes.
+///
+/// @function select-action-bg-color Function to encode the hashtag in the
+///		variable for arrow background image focus color in the SVG fill attributes.
+
+// Arrow color.
+@function select-bg-color() {
+	@return '%23' + str-slice( '#{$form_text_color}', 2, -1 );
+}
+
+// Arrow focus color.
+@function select-action-bg-color() {
+	@return '%23' + str-slice( '#{$link_color}', 2, -1 );
+}
+
+// Select element.
+select {
+
+	&:not([multiple]):not([size]) {
+		background-image: url( "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{ select-bg-color() }' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E" );
+
+		&:focus {
+			background-image: url( "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{ select-action-bg-color() }' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E" );
+		}
+	}
+
+	&:disabled,
+	&.disabled {
+		background: darken( $color: $form_background_color, $amount: 3.5% );
+		color: darken( $color: $form_text_color, $amount: 60% );
+	}
+}
+
 optgroup {
 	background-color: $body_background;
 }

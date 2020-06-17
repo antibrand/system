@@ -50,6 +50,10 @@ h3 {
 	font-size: 1.3em;
 }
 
+em {
+	font-style: italic;
+}
+
 /**
  * Main content area of the admin
  */
@@ -86,4 +90,20 @@ ul {
 	&.content-list {
 		list-style: none;
 	}
+}
+
+q,
+cite {
+	font-style: italic;
+}
+
+// De-italicize address.
+address {
+	font-style: normal;
+}
+
+abbr[title],
+abbr[data-original-title],
+dfn[title] {
+	border-bottom: 1px dotted;
 }

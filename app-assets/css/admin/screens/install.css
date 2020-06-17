@@ -1,100 +1,154 @@
 /**
- * Browser reset
+ * Browser reset and starter styles
  */
-html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, button, input, select, textarea, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+@-ms-viewport {
+  width: device-width;
+}
+
+html {
+  height: 100%;
+  -ms-overflow-style: scrollbar;
+  font-size: 100%;
+  cursor: default;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  word-break: break-word;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+}
+
+*,
+::before,
+::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+::before,
+::after {
+  font-size: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+}
+
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, button, input, select, option, textarea, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
-  vertical-align: baseline;
   background: transparent;
-}
-
-article, aside, details, div, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-  display: block;
-  background-color: inherit;
-}
-
-audio, canvas, progress, video {
-  display: inline-block;
   vertical-align: baseline;
-}
-
-html {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  height: 100%;
-  font-size: 100%;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
 
 body {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
   font-size: inherit;
   line-height: 1;
 }
 
-*, *:before, *:after {
-  -webkit-box-sizing: inherit;
-  box-sizing: inherit;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+article,
+aside,
+details,
+div,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+blockquote,
+summary {
+  display: block;
 }
 
-*:before, *:after {
-  font-size: inherit;
+[hidden],
+template {
+  display: none;
 }
 
-img, object, embed, video {
+img,
+svg,
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+}
+
+img,
+svg,
+audio,
+canvas,
+progress,
+iframe,
+video {
+  vertical-align: middle;
+}
+
+img,
+svg,
+object,
+embed,
+video {
   max-width: 100%;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
 }
 
 img {
   height: auto;
-  -ms-interpolation-mode: bicubic;
   border: 0;
 }
 
 hr {
   display: block;
   -webkit-box-sizing: content-box;
-  box-sizing: content-box;
+          box-sizing: content-box;
+  overflow: visible;
   height: 0;
-  border: 0;
-  border-top: 1px solid #cccccc;
   margin: 1em 0;
   padding: 0;
+  border: 0;
+  border-top: 1px solid #cccccc;
 }
 
-a, a:hover, a:active, a:focus {
-  outline: none;
-  background-color: transparent;
-}
-
-small {
-  font-size: 85%;
-}
-
-ol {
-  list-style-type: decimal;
-}
-
-ol ol {
-  list-style-type: lower-alpha;
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  font: inherit;
+  color: inherit;
 }
 
 input {
   line-height: normal;
 }
 
-input, textarea, select, button {
-  border: solid 1px #cccccc;
+input::-webkit-inner-spin-button {
+  opacity: 1;
+}
+
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  vertical-align: baseline;
 }
 
 input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
@@ -109,65 +163,51 @@ input[type="search"] {
 
 input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
 }
 
-input[type="radio"], input[type="checkbox"] {
-  vertical-align: baseline;
+input[type="button"], input[type="reset"], input[type="submit"], input[type="image"] {
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
-input::-webkit-inner-spin-button {
-  opacity: 1;
+input[disabled] {
+  cursor: default;
 }
 
-*::-webkit-input-placeholder {
-  color: #888888;
-  opacity: 1;
-}
-
-*:-ms-input-placeholder {
-  color: #888888;
-  opacity: 1;
-}
-
-*::-ms-input-placeholder {
-  color: #888888;
-  opacity: 1;
-}
-
-*::placeholder {
-  color: #888888;
-  opacity: 1;
+input,
+textarea,
+select,
+button {
+  border: solid 1px #cccccc;
 }
 
 textarea {
   overflow: auto;
 }
 
-button, input, optgroup, select, textarea {
-  color: inherit;
-  font: inherit;
-  margin: 0;
-}
-
 button {
   overflow: visible;
-}
-
-button, html input[type="button"], input[type="reset"], input[type="submit"], input[type="image"] {
+  cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  cursor: pointer;
 }
 
-button[disabled], html input[disabled] {
+button[disabled] {
   cursor: default;
 }
 
-button::-moz-focus-inner, input::-moz-focus-inner {
+button::-moz-focus-inner {
   border: 0;
   padding: 0;
+}
+
+optgroup {
+  font-weight: bold;
 }
 
 table {
@@ -176,22 +216,85 @@ table {
   border-spacing: 0;
 }
 
-td, th {
-  padding: 0;
-}
-
-th {
+table th {
   font-weight: bold;
   vertical-align: middle;
 }
 
-td, td img {
+table td {
   font-weight: normal;
   vertical-align: top;
 }
 
-abbr[title], dfn[title] {
-  border-bottom: 1px dotted;
+table td img {
+  font-weight: normal;
+  vertical-align: top;
+}
+
+a {
+  outline: none;
+  background-color: transparent;
+}
+
+a:hover, a:focus, a:active {
+  outline: none;
+  background-color: transparent;
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: normal;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+ol ol {
+  list-style-type: lower-alpha;
+}
+
+small {
+  font-size: 85%;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote :before,
+blockquote :after,
+q :before,
+q :after {
+  content: '';
+  content: none;
+}
+
+q,
+cite {
+  font-style: normal;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+svg:where(:not([fill])) {
+  fill: currentColor;
+}
+
+abbr[title],
+abbr[data-original-title],
+dfn[title] {
   cursor: help;
 }
 
@@ -199,35 +302,11 @@ dfn {
   font-style: italic;
 }
 
-del {
-  text-decoration: line-through;
-}
-
-blockquote {
-  quotes: none;
-}
-
-q, cite {
-  font-style: italic;
-}
-
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-
-svg:not(:root) {
-  overflow: hidden;
-}
-
-[hidden], template {
-  display: none;
-}
-
-sub, sup {
+sub,
+sup {
+  position: relative;
   font-size: 75%;
   line-height: 0;
-  position: relative;
   vertical-align: baseline;
 }
 
@@ -239,28 +318,69 @@ sub {
   bottom: -0.25em;
 }
 
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  font-family: SFMono-Regular, "Menlo", "Consolas", "Roboto Mono", "Ubuntu Monospace", "Noto Mono", "Oxygen Mono", "Liberation Mono", "Courier New", Courier, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1em;
+}
+
 pre {
   overflow: auto;
+  -ms-overflow-style: scrollbar;
   white-space: pre;
   white-space: pre-wrap;
   white-space: pre-line;
   word-wrap: break-word;
 }
 
-pre, code, kbd, samp {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", Courier, monospace;
+a,
+area,
+button,
+[role="button"],
+input:not([type="range"]),
+label,
+select,
+summary,
+textarea {
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
 }
 
-b, strong, optgroup {
-  font-weight: bold;
+:dir(ltr) td:not([align]),
+:dir(ltr) th:not([align]),
+*[dir=ltr] td:not([align]),
+*[dir=ltr] th:not([align]) {
+  text-align: left;
 }
 
-.clearfix {
-  clear: both;
-  display: block;
-  height: 0;
-  overflow: hidden;
-  zoom: 1;
+:dir(rtl) td:not([align]),
+:dir(rtl) th:not([align]),
+*[dir=rtl] td:not([align]),
+*[dir=rtl] th:not([align]) {
+  text-align: right;
+}
+
+::-webkit-input-placeholder {
+  color: #888888;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: #888888;
+  opacity: 1;
+}
+
+::-ms-input-placeholder {
+  color: #888888;
+  opacity: 1;
+}
+
+::placeholder {
+  color: #888888;
+  opacity: 1;
 }
 
 /**
@@ -555,11 +675,11 @@ input[type="checkbox"], input[type="radio"] {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-      align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-      justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   clear: none;
   width: 1em;
   height: 1em;
@@ -669,17 +789,42 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-/**
- * Select field styles
- *
- * Make sure dimensional changes match various
- * text and submit type inputs.
- */
+::-webkit-input-placeholder {
+  color: #888888;
+}
+
+:-ms-input-placeholder {
+  color: #888888;
+}
+
+::-ms-input-placeholder {
+  color: #888888;
+}
+
+::placeholder {
+  color: #888888;
+}
+
 select {
   height: 2.5rem;
-  padding: 0 1rem 0 0.5rem;
+  padding: 0 1.5em 0 0.5em;
   font-size: 0.875rem;
-  line-height: 1rem;
+  line-height: 1em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 1.5em;
+  border-radius: 0;
+}
+
+select:not([multiple]):not([size]) {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23222222' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E");
+}
+
+select:not([multiple]):not([size]):focus {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23005fd6' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E");
 }
 
 select option {
@@ -1706,22 +1851,22 @@ table.form-table td .updated p {
 @-webkit-keyframes rotation {
   0% {
     -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(359deg);
-    transform: rotate(359deg);
+            transform: rotate(359deg);
   }
 }
 
 @keyframes rotation {
   0% {
     -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(359deg);
-    transform: rotate(359deg);
+            transform: rotate(359deg);
   }
 }
 
@@ -1883,7 +2028,7 @@ table.form-table td .updated p {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
   line-height: 1.4em;
   color: #222222;
@@ -1891,7 +2036,7 @@ body {
 
 @supports (font-variation-settings: normal) {
   body {
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, sans-serif;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 }
 

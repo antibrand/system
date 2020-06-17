@@ -206,10 +206,6 @@ body.interim-login {
   margin: 0;
 }
 
-@-ms-viewport {
-  width: device-width;
-}
-
 @media screen and (min-width: 37.5em) {
   #login {
     margin-right: 25vw;

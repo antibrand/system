@@ -64,6 +64,7 @@
 /// stacks are used in @supports( font-variation-settings ) queries.
 ///
 $sans :
+	system-ui,
 	-apple-system,
 	BlinkMacSystemFont,
 	'Segoe UI',
@@ -73,10 +74,15 @@ $sans :
 	Cantarell,
 	'Helvetica Neue',
 	Helvetica,
-	sans-serif;
+	sans-serif,
+	'Apple Color Emoji',
+	'Segoe UI Emoji',
+	'Segoe UI Symbol',
+	'Noto Color Emoji';
 
 $inter :
 	'Inter',
+	system-ui,
 	-apple-system,
 	BlinkMacSystemFont,
 	'Segoe UI',
@@ -86,7 +92,11 @@ $inter :
 	Cantarell,
 	'Helvetica Neue',
 	Helvetica,
-	sans-serif;
+	sans-serif,
+	'Apple Color Emoji',
+	'Segoe UI Emoji',
+	'Segoe UI Symbol',
+	'Noto Color Emoji';
 
 $serif :
 	NonBreakingSpaceOverride,
@@ -101,7 +111,11 @@ $serif :
 	Constantia,
 	Times,
 	Georgia,
-	serif;
+	serif,
+	'Apple Color Emoji',
+	'Segoe UI Emoji',
+	'Segoe UI Symbol',
+	'Noto Color Emoji';
 
 $crimson :
 	'Crimson Pro',
@@ -117,4 +131,25 @@ $crimson :
 	Constantia,
 	Times,
 	Georgia,
-	serif;
+	serif,
+	'Apple Color Emoji',
+	'Segoe UI Emoji',
+	'Segoe UI Symbol',
+	'Noto Color Emoji';
+
+$monospace :
+	SFMono-Regular,
+	'Menlo',
+	'Consolas',
+	'Roboto Mono',
+	'Ubuntu Monospace',
+	'Noto Mono',
+	'Oxygen Mono',
+	'Liberation Mono',
+	'Courier New',
+	Courier,
+	monospace,
+	'Apple Color Emoji',
+	'Segoe UI Emoji',
+	'Segoe UI Symbol',
+	'Noto Color Emoji';

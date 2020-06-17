@@ -250,14 +250,6 @@ code {
 	unicode-bidi: embed;
 }
 
-kbd,
-code {
-	padding: 3px 5px 2px 5px;
-	margin: 0 1px;
-	background: #eaeaea;
-	background: rgba(0,0,0,0.07);
-}
-
 .list-table-views,
 .subsubsub {
 	list-style: none;
@@ -3338,10 +3330,6 @@ img {
 		background: none !important;
 	}
 
-}
-
-@-ms-viewport {
-	width: device-width;
 }
 
 @media screen and ( max-width: 782px ) {

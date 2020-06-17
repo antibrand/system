@@ -123,6 +123,19 @@ input:disabled, input.disabled {
   color: #666666;
 }
 
+select:not([multiple]):not([size]) {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E");
+}
+
+select:not([multiple]):not([size]):focus {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%233ad4fb' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E");
+}
+
+select:disabled, select.disabled {
+  background: #262626;
+  color: #666666;
+}
+
 optgroup {
   background-color: #222;
 }
