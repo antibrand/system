@@ -189,7 +189,6 @@ hr {
 /// These styles may be overridden in form-specific
 /// stylesheets and color scheme stylesheets.
 ///
-
 button,
 input,
 optgroup,
@@ -304,7 +303,6 @@ optgroup {
 
 /// Table elements
 ///
-
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -328,7 +326,6 @@ table {
 
 /// Links
 ///
-
 a {
 	outline: none;
 	background-color: transparent;
@@ -343,7 +340,6 @@ a {
 
 /// Content elements
 ///
-
 b,
 strong {
 	font-weight: bold;
@@ -391,7 +387,6 @@ cite {
 
 /// SVG, scalable vector graphics
 ///
-
 svg {
 
 	// Hide the overflow in IE.
@@ -408,7 +403,6 @@ svg {
 
 /// Informational elements
 ///
-
 abbr[title],
 abbr[data-original-title],
 dfn[title] {
@@ -437,7 +431,6 @@ sub {
 
 /// Code elements
 ///
-
 pre,
 code,
 kbd,
