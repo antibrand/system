@@ -13,15 +13,32 @@
  * @since 3.1.0
  */
 class WP_Admin_Bar {
-	private $nodes = array();
+
+	private $nodes = [];
+
 	private $bound = false;
+
 	public $user;
+
+	/**
+	 * Constructor method
+	 *
+	 * @since  1.0.0
+	 * @access private
+	 * @return self
+	 */
+	public function __construct() {
+
+		// Development mode flag.
+		add_action( 'user_toolbar_flags', [ $this, 'render_dev_mode_flag' ] );
+	}
 
 	/**
 	 * @param string $name
 	 * @return string|array|void
 	 */
 	public function __get( $name ) {
+
 		switch ( $name ) {
 			case 'proto' :
 				return is_ssl() ? 'https://' : 'http://';
@@ -411,11 +428,53 @@ class WP_Admin_Bar {
 				} ?>
 			</div>
 			<?php if ( is_user_logged_in() ) : ?>
+			<div id="toolbar-flags">
+				<?php
+				// Add indicators to the toolbar.
+				do_action( 'user_toolbar_flags' );
+				?>
+			</div>
 			<a class="screen-reader-shortcut" href="<?php echo esc_url( wp_logout_url() ); ?>"><?php _e('Log Out'); ?></a>
 			<?php endif; ?>
 		</div>
 
 		<?php
+	}
+
+	/**
+	 * Render development mode flag
+	 *
+	 * When APP_DEBUG_MODE is set to true an indicator will be
+	 * displayed in the user toolbar.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the markup of the development mode flag.
+	 */
+	public function render_dev_mode_flag() {
+
+		/**
+		 * Development mode
+		 *
+		 * This is defined in the system configuration file as APP_DEBUG_MODE.
+		 */
+		if ( defined( 'APP_DEBUG_MODE' ) && APP_DEBUG_MODE ) {
+
+			$html = sprintf(
+				'<span id="dev-mode-flag" class="toolbar-flag dev-mode-flag">%1s</span>',
+				esc_html__( 'Dev Mode' )
+			);
+
+		// Return nothing if APP_DEBUG_MODE is false.
+		} else {
+			$html = '';
+		}
+
+		// Apply a filter for customization.
+		$html = apply_filters( 'render_dev_mode_flag', $html );
+
+		// Return the markup of the flag indicator.
+		echo $html;
 	}
 
 	/**

@@ -93,15 +93,22 @@ define( 'wp_auto_update_core', false );
 /**
  * Site development
  *
- * It is strongly recommended that plugin and theme developers use WP_DEBUG
- * in their development environments.
+ * It is strongly recommended that plugin and theme developers use
+ * WP_DEBUG in their development environments.
  */
-// define( 'WP_DEBUG', true );
-// define( 'WP_DEBUG_LOG', true );
-// define( 'WP_DEBUG_DISPLAY', true );
+define( 'APP_DEBUG_MODE', false );
+define( 'WP_DEBUG', false );
+define( 'WP_DEBUG_LOG', false );
+define( 'WP_DEBUG_DISPLAY', false );
 
 // Switch for local dev
-// define( 'WP_LOCAL_DEV', true );
+define( 'WP_LOCAL_DEV', false );
+
+// Use local URL if WP_LOCAL_DEV is true.
+if ( defined( 'WP_LOCAL_DEV' ) && WP_LOCAL_DEV ) {
+	// update_option( 'siteurl', 'https://local.example.dev' );
+	// update_option( 'home', 'https://local.example.dev' );
+}
 
 // Set false to load scripts & styles separately.
 // define( 'CONCATENATE_SCRIPTS', true );

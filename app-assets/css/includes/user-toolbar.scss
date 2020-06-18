@@ -6,13 +6,7 @@
 @import 'modules/_colors';
 @import 'modules/_typography';
 
-#wpadminbar * {
-	box-sizing: content-box;
-	width: auto;
-	height: auto;
-	margin: 0;
-	padding: 0;
-	position: static;
+#wpadminbar {
 	font-family: $sans;
 	font-size: $px13;
 	line-height: 32px;
@@ -21,6 +15,13 @@
 		font-family: $inter;
 		font-weight: 550;
 	}
+}
+
+#wpadminbar * {
+	width: auto;
+	height: auto;
+	margin: 0;
+	position: static;
 }
 
 #wpadminbar .ab-empty-item {
@@ -727,6 +728,23 @@
 	color: $white;
 }
 /* End no @font-face */
+
+/// Indicator flags
+///
+#toolbar-flags {
+	float: right;
+}
+
+.toolbar-flag {
+	display: inline-block;
+	padding: 0 1em;
+	font-weight: 700;
+	color: $white;
+}
+
+#dev-mode-flag {
+	background-color: $notify_color;
+}
 
 @media screen and ( max-width: 782px ) {
 	/* Toolbar Touchification*/
