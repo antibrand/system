@@ -744,12 +744,19 @@
 .toolbar-flag {
   display: inline-block;
   padding: 0 1em;
-  font-weight: 700;
+  font-weight: 900;
+  font-weight: bolder;
   color: #ffffff;
 }
 
+@supports (font-variation-settings: normal) {
+  .toolbar-flag {
+    font-weight: 850;
+  }
+}
+
 #dev-mode-flag {
-  background-color: #ee6600;
+  background-color: #dd0000;
 }
 
 @media screen and (max-width: 782px) {

@@ -738,12 +738,17 @@
 .toolbar-flag {
 	display: inline-block;
 	padding: 0 1em;
-	font-weight: 700;
+	font-weight: 900;
+	font-weight: bolder;
 	color: $white;
+
+	@supports ( font-variation-settings: normal ) {
+		font-weight: 850;
+	}
 }
 
 #dev-mode-flag {
-	background-color: $notify_color;
+	background-color: $app_red;
 }
 
 @media screen and ( max-width: 782px ) {
