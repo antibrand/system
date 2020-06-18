@@ -96,7 +96,7 @@ define( 'wp_auto_update_core', false );
  * It is strongly recommended that plugin and theme developers use
  * WP_DEBUG in their development environments.
  */
-define( 'APP_DEBUG_MODE', false );
+define( 'APP_DEV_MODE', false );
 define( 'WP_DEBUG', false );
 define( 'WP_DEBUG_LOG', false );
 define( 'WP_DEBUG_DISPLAY', false );

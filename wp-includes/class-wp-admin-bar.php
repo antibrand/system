@@ -444,7 +444,7 @@ class WP_Admin_Bar {
 	/**
 	 * Render development mode flag
 	 *
-	 * When APP_DEBUG_MODE is set to true an indicator will be
+	 * When APP_DEV_MODE is set to true an indicator will be
 	 * displayed in the user toolbar.
 	 *
 	 * @since  1.0.0
@@ -456,16 +456,16 @@ class WP_Admin_Bar {
 		/**
 		 * Development mode
 		 *
-		 * This is defined in the system configuration file as APP_DEBUG_MODE.
+		 * This is defined in the system configuration file as APP_DEV_MODE.
 		 */
-		if ( defined( 'APP_DEBUG_MODE' ) && APP_DEBUG_MODE ) {
+		if ( defined( 'APP_DEV_MODE' ) && APP_DEV_MODE ) {
 
 			$html = sprintf(
 				'<span id="dev-mode-flag" class="toolbar-flag dev-mode-flag">%1s</span>',
 				esc_html__( 'Dev Mode' )
 			);
 
-		// Return nothing if APP_DEBUG_MODE is false.
+		// Return nothing if APP_DEV_MODE is false.
 		} else {
 			$html = '';
 		}
