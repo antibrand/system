@@ -200,7 +200,7 @@ textarea {
 	color: inherit;
 }
 
-// Input types.
+// Input field types.
 input {
 	line-height: normal;
 
@@ -261,8 +261,23 @@ button {
 	border: solid 1px $pale_gray;
 }
 
+// Textarea field.
 textarea {
 	overflow: auto;
+}
+
+// Select field.
+select {
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+	        appearance: none;
+}
+
+/// Hide select field menu control
+///
+/// Non-standard and may not work for every user.
+::-ms-expand {
+	display: none;
 }
 
 // Remove browser button styles.
@@ -291,9 +306,9 @@ optgroup {
 ///
 
 table {
-	font-size: inherit;
 	border-collapse: collapse;
 	border-spacing: 0;
+	font-size: inherit;
 
 	th {
 		font-weight: bold;

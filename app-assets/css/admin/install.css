@@ -192,6 +192,16 @@ textarea {
   overflow: auto;
 }
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+::-ms-expand {
+  display: none;
+}
+
 button {
   overflow: visible;
   cursor: pointer;
@@ -214,9 +224,9 @@ optgroup {
 }
 
 table {
-  font-size: inherit;
   border-collapse: collapse;
   border-spacing: 0;
+  font-size: inherit;
 }
 
 table th {
@@ -982,11 +992,8 @@ select {
   padding: 0 1.5em 0 0.5em;
   font-size: 0.875rem;
   line-height: 1em;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
   background-repeat: no-repeat;
-  background-position: right center;
+  background-position: right calc(50% + 2px);
   background-size: 1.5em;
   border-radius: 0;
 }

@@ -279,17 +279,16 @@ textarea {
 	@return '%23' + str-slice( '#{$form_focus}', 2, -1 );
 }
 
-// Select element.
+// Select field.
 select {
 	height: 2.5rem;
 	padding: 0 0.5em 0 1.5rem;
 	font-size: $px14;
 	line-height: 1em;
-	-webkit-appearance: none;
-	   -moz-appearance: none;
-	        appearance: none;
 	background-repeat: no-repeat;
-	background-position: left center;
+
+	// Position 50% from top plus 50% of svg background height attribute.
+	background-position: left calc(50% + 2px);
 	background-size: 1.5em;
 	border-radius: 0;
 
