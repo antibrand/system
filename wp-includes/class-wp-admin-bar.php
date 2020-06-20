@@ -453,10 +453,15 @@ class WP_Admin_Bar {
 	 */
 	public function render_dev_mode_flag() {
 
+		// Stop here if user is not a developer or administrator.
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
 		/**
 		 * Development mode
 		 *
-		 * This is defined in the system configuration file as APP_DEV_MODE.
+		 * This is defined in the system configuration file as `APP_DEV_MODE`.
 		 */
 		if ( defined( 'APP_DEV_MODE' ) && APP_DEV_MODE ) {
 
@@ -465,7 +470,19 @@ class WP_Admin_Bar {
 				esc_html__( 'Dev Mode' )
 			);
 
-		// Return nothing if APP_DEV_MODE is false.
+		/**
+		 * Debug mode
+		 *
+		 * This is defined in the system configuration file as `APP_DEBUG`.
+		 */
+		} elseif ( defined( 'APP_DEBUG' ) && APP_DEBUG ) {
+
+			$html = sprintf(
+				'<span id="dev-mode-flag" class="toolbar-flag dev-mode-flag">%1s</span>',
+				esc_html__( 'Debug Mode' )
+			);
+
+		// Return nothing if both `APP_DEV_MODE` and 'APP_DBUG` are false.
 		} else {
 			$html = '';
 		}

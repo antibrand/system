@@ -97,7 +97,7 @@ define( 'wp_auto_update_core', false );
  * WP_DEBUG in their development environments.
  */
 define( 'APP_DEV_MODE', false );
-define( 'WP_DEBUG', false );
+define( 'APP_DEBUG', false );
 define( 'WP_DEBUG_LOG', false );
 define( 'WP_DEBUG_DISPLAY', false );
 

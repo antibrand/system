@@ -467,7 +467,7 @@ function themes_api( $action, $args = array() ) {
 				 * trigger_error(
 				 * 	// Translators: %s: support forums URL.
 				 * 	__( 'An unexpected error occurred. Something may be wrong with wordpress.org or this server&#8217;s configuration.' ),
-				 * 	headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
+				 * 	headers_sent() || APP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 				 * );
 				 */
 			}

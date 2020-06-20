@@ -158,7 +158,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 		 * trigger_error(
 		 * 	// Translators: %s: support forums URL.
 		 * 	__( 'An unexpected error occurred. Please contact your server administrator.' ),
-		 * 	headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
+		 * 	headers_sent() || APP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 		 * );
 		 * $response = wp_remote_post( $http_url, $options );
 		 */
@@ -360,7 +360,7 @@ function wp_update_plugins( $extra_stats = array() ) {
 		 *
 		 * trigger_error(
 		 * 	__( 'An unexpected error occurred. Something may be wrong with wordpress.org or this server&#8217;s configuration.' ),
-		 * 	headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
+		 * 	headers_sent() || APP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 		 * );
 		 * $raw_response = wp_remote_post( $http_url, $options );
 		 */
@@ -552,7 +552,7 @@ function wp_update_themes( $extra_stats = array() ) {
 		 *
 		 * trigger_error(
 		 * 	__( 'An unexpected error occurred. Something may be wrong with wordpress.org or this server&#8217;s configuration.' ),
-		 * 	headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
+		 * 	headers_sent() || APP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 		 * );
 		 * $raw_response = wp_remote_post( $http_url, $options );
 		 */

@@ -272,19 +272,19 @@ function timer_stop( $display = 0, $precision = 3 ) {
 /**
  * Set PHP error reporting based on debug settings.
  *
- * Uses three constants: `WP_DEBUG`, `WP_DEBUG_DISPLAY`, and `WP_DEBUG_LOG`.
+ * Uses three constants: `APP_DEBUG`, `WP_DEBUG_DISPLAY`, and `WP_DEBUG_LOG`.
  * All three can be defined in app-config.php. By default, `WP_DEBUG` and
  * `WP_DEBUG_LOG` are set to false, and `WP_DEBUG_DISPLAY` is set to true.
  *
- * When `WP_DEBUG` is true, all PHP notices are reported. The application will also
+ * When `APP_DEBUG` is true, all PHP notices are reported. The application will also
  * display internal notices: when a deprecated function, function
  * argument, or file is used. Deprecated code may be removed from a later
  * version.
  *
- * It is strongly recommended that plugin and theme developers use `WP_DEBUG`
+ * It is strongly recommended that plugin and theme developers use `APP_DEBUG`
  * in their development environments.
  *
- * `WP_DEBUG_DISPLAY` and `WP_DEBUG_LOG` perform no function unless `WP_DEBUG`
+ * `WP_DEBUG_DISPLAY` and `WP_DEBUG_LOG` perform no function unless `APP_DEBUG`
  * is true.
  *
  * When `WP_DEBUG_DISPLAY` is true, the application will force errors to be displayed.
@@ -300,12 +300,12 @@ function timer_stop( $display = 0, $precision = 3 ) {
  * @since 3.0.0
  * @access private
  */
-function wp_debug_mode() {
+function app_debug_mode() {
 	/**
 	 * Filters whether to allow the debug mode check to occur.
 	 *
 	 * This filter runs before it can be used by plugins. It is designed for
-	 * non-web run-times. Returning false causes the `WP_DEBUG` and related
+	 * non-web run-times. Returning false causes the `APP_DEBUG` and related
 	 * constants to not be checked and the default php values for errors
 	 * will be used unless you take care to update them yourself.
 	 *
@@ -313,11 +313,11 @@ function wp_debug_mode() {
 	 *
 	 * @param bool $enable_debug_mode Whether to enable debug mode checks to occur. Default true.
 	 */
-	if ( ! apply_filters( 'enable_wp_debug_mode_checks', true ) ){
+	if ( ! apply_filters( 'enable_app_debug_mode_checks', true ) ){
 		return;
 	}
 
-	if ( WP_DEBUG ) {
+	if ( APP_DEV_MODE || APP_DEBUG ) {
 		error_reporting( E_ALL );
 
 		if ( WP_DEBUG_DISPLAY )

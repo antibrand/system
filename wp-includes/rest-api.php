@@ -487,7 +487,7 @@ function rest_ensure_response( $response ) {
  * @param string $version     Version.
  */
 function rest_handle_deprecated_function( $function, $replacement, $version ) {
-	if ( ! WP_DEBUG || headers_sent() ) {
+	if ( ! APP_DEV_MODE || ! APP_DEBUG || headers_sent() ) {
 		return;
 	}
 	if ( ! empty( $replacement ) ) {
@@ -511,7 +511,7 @@ function rest_handle_deprecated_function( $function, $replacement, $version ) {
  * @param string $version     Version.
  */
 function rest_handle_deprecated_argument( $function, $message, $version ) {
-	if ( ! WP_DEBUG || headers_sent() ) {
+	if ( ! APP_DEV_MODE || ! APP_DEBUG || headers_sent() ) {
 		return;
 	}
 	if ( ! empty( $message ) ) {

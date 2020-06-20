@@ -3688,7 +3688,7 @@ function absint( $maybeint ) {
  * to get the backtrace up to what file and function called the deprecated
  * function.
  *
- * The current behavior is to trigger a user error if `WP_DEBUG` is true.
+ * The current behavior is to trigger a user error if `APP_DEV_MODE` or `APP_DEBUG` is true.
  *
  * This function is to be used in every function that is deprecated.
  *
@@ -3719,7 +3719,7 @@ function _deprecated_function( $function, $version, $replacement = null ) {
 	 *
 	 * @param bool $trigger Whether to trigger the error for deprecated functions. Default true.
 	 */
-	if ( WP_DEBUG && apply_filters( 'deprecated_function_trigger_error', true ) ) {
+	if ( ( APP_DEV_MODE || APP_DEBUG ) && apply_filters( 'deprecated_function_trigger_error', true ) ) {
 		if ( function_exists( '__' ) ) {
 			if ( ! is_null( $replacement ) ) {
 				/* translators: 1: PHP function name, 2: version number, 3: alternative function name */
@@ -3744,7 +3744,7 @@ function _deprecated_function( $function, $version, $replacement = null ) {
  * Similar to _deprecated_function(), but with different strings. Used to
  * remove PHP4 style constructors.
  *
- * The current behavior is to trigger a user error if `WP_DEBUG` is true.
+ * The current behavior is to trigger a user error if `APP_DEV_MODE` or `APP_DEBUG` is true.
  *
  * This function is to be used in every PHP4 style constructor method that is deprecated.
  *
@@ -3775,13 +3775,13 @@ function _deprecated_constructor( $class, $version, $parent_class = '' ) {
 	/**
 	 * Filters whether to trigger an error for deprecated functions.
 	 *
-	 * `WP_DEBUG` must be true in addition to the filter evaluating to true.
+	 * `APP_DEV_MODE` or `APP_DEBUG` must be true in addition to the filter evaluating to true.
 	 *
 	 * @since 4.3.0
 	 *
 	 * @param bool $trigger Whether to trigger the error for deprecated functions. Default true.
 	 */
-	if ( WP_DEBUG && apply_filters( 'deprecated_constructor_trigger_error', true ) ) {
+	if ( ( APP_DEV_MODE || APP_DEBUG ) && apply_filters( 'deprecated_constructor_trigger_error', true ) ) {
 		if ( function_exists( '__' ) ) {
 			if ( ! empty( $parent_class ) ) {
 				/* translators: 1: PHP class name, 2: PHP parent class name, 3: version number, 4: __construct() method */
@@ -3812,7 +3812,7 @@ function _deprecated_constructor( $class, $version, $parent_class = '' ) {
  * to get the backtrace up to what file and function included the deprecated
  * file.
  *
- * The current behavior is to trigger a user error if `WP_DEBUG` is true.
+ * The current behavior is to trigger a user error if `APP_DEV_MODE` or `APP_DEBUG` is true.
  *
  * This function is to be used in every file that is deprecated.
  *
@@ -3846,7 +3846,7 @@ function _deprecated_file( $file, $version, $replacement = null, $message = '' )
 	 *
 	 * @param bool $trigger Whether to trigger the error for deprecated files. Default true.
 	 */
-	if ( WP_DEBUG && apply_filters( 'deprecated_file_trigger_error', true ) ) {
+	if ( ( APP_DEV_MODE || APP_DEBUG ) && apply_filters( 'deprecated_file_trigger_error', true ) ) {
 		$message = empty( $message ) ? '' : ' ' . $message;
 		if ( function_exists( '__' ) ) {
 			if ( ! is_null( $replacement ) ) {
@@ -3882,7 +3882,7 @@ function _deprecated_file( $file, $version, $replacement = null, $message = '' )
  * to get the backtrace up to what file and function used the deprecated
  * argument.
  *
- * The current behavior is to trigger a user error if WP_DEBUG is true.
+ * The current behavior is to trigger a user error if `APP_DEV_MODE` or `APP_DEBUG` is true.
  *
  * @since 3.0.0
  * @access private
@@ -3911,7 +3911,7 @@ function _deprecated_argument( $function, $version, $message = null ) {
 	 *
 	 * @param bool $trigger Whether to trigger the error for deprecated arguments. Default true.
 	 */
-	if ( WP_DEBUG && apply_filters( 'deprecated_argument_trigger_error', true ) ) {
+	if ( ( APP_DEV_MODE || APP_DEBUG ) && apply_filters( 'deprecated_argument_trigger_error', true ) ) {
 		if ( function_exists( '__' ) ) {
 			if ( ! is_null( $message ) ) {
 				/* translators: 1: PHP function name, 2: version number, 3: optional message regarding the change */
@@ -3936,7 +3936,7 @@ function _deprecated_argument( $function, $version, $message = null ) {
  * Use the {@see 'deprecated_hook_run'} action to get the backtrace describing where
  * the deprecated hook was called.
  *
- * Default behavior is to trigger a user error if `WP_DEBUG` is true.
+ * Default behavior is to trigger a user error if `APP_DEV_MODE` or `APP_DEBUG` is true.
  *
  * This function is called by the do_action_deprecated() and apply_filters_deprecated()
  * functions, and so generally does not need to be called directly.
@@ -3968,9 +3968,9 @@ function _deprecated_hook( $hook, $version, $replacement = null, $message = null
 	 * @since 4.6.0
 	 *
 	 * @param bool $trigger Whether to trigger deprecated hook errors. Requires
-	 *                      `WP_DEBUG` to be defined true.
+	 *                      `APP_DEV_MODE` or `APP_DEBUG` to be defined true.
 	 */
-	if ( WP_DEBUG && apply_filters( 'deprecated_hook_trigger_error', true ) ) {
+	if ( ( APP_DEV_MODE || APP_DEBUG ) && apply_filters( 'deprecated_hook_trigger_error', true ) ) {
 		$message = empty( $message ) ? '' : ' ' . $message;
 		if ( ! is_null( $replacement ) ) {
 			/* translators: 1: hook name, 2: version number, 3: alternative hook name */
@@ -3989,7 +3989,7 @@ function _deprecated_hook( $hook, $version, $replacement = null, $message = null
  * to get the backtrace up to what file and function called the deprecated
  * function.
  *
- * The current behavior is to trigger a user error if `WP_DEBUG` is true.
+ * The current behavior is to trigger a user error if `APP_DEV_MODE` or `APP_DEBUG` is true.
  *
  * @since 3.1.0
  * @access private
@@ -4018,7 +4018,7 @@ function _doing_it_wrong( $function, $message, $version ) {
 	 *
 	 * @param bool $trigger Whether to trigger the error for _doing_it_wrong() calls. Default true.
 	 */
-	if ( WP_DEBUG && apply_filters( 'doing_it_wrong_trigger_error', true ) ) {
+	if ( ( APP_DEV_MODE || APP_DEBUG ) && apply_filters( 'doing_it_wrong_trigger_error', true ) ) {
 		if ( function_exists( '__' ) ) {
 			if ( is_null( $version ) ) {
 				$version = '';

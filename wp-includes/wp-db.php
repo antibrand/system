@@ -50,7 +50,7 @@ class wpdb {
 	/**
 	 * Whether to show SQL/DB errors.
 	 *
-	 * Default behavior is to show errors if both WP_DEBUG and WP_DEBUG_DISPLAY
+	 * Default behavior is to show errors if both APP_DEBUG and WP_DEBUG_DISPLAY
 	 * evaluated to true.
 	 *
 	 * @since 0.71
@@ -561,7 +561,7 @@ class wpdb {
 	public function __construct( $dbuser, $dbpassword, $dbname, $dbhost ) {
 		register_shutdown_function( array( $this, '__destruct' ) );
 
-		if ( WP_DEBUG && WP_DEBUG_DISPLAY )
+		if ( ( APP_DEV_MODE || APP_DEBUG ) && WP_DEBUG_DISPLAY )
 			$this->show_errors();
 
 		// Use ext/mysqli if it exists unless WP_USE_EXT_MYSQL is defined as true
@@ -1553,7 +1553,7 @@ class wpdb {
 				$host = "[$host]";
 			}
 
-			if ( WP_DEBUG ) {
+			if ( APP_DEV_MODE || APP_DEBUG ) {
 				mysqli_real_connect( $this->dbh, $host, $this->dbuser, $this->dbpassword, null, $port, $socket, $client_flags );
 			} else {
 				@mysqli_real_connect( $this->dbh, $host, $this->dbuser, $this->dbpassword, null, $port, $socket, $client_flags );
@@ -1584,7 +1584,7 @@ class wpdb {
 				}
 			}
 		} else {
-			if ( WP_DEBUG ) {
+			if ( APP_DEV_MODE || APP_DEBUG ) {
 				$this->dbh = mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags );
 			} else {
 				$this->dbh = @mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags );
@@ -1724,7 +1724,7 @@ class wpdb {
 		$error_reporting = false;
 
 		// Disable warnings, as we don't want to see a multitude of "unable to connect" messages
-		if ( WP_DEBUG ) {
+		if ( APP_DEV_MODE || APP_DEBUG ) {
 			$error_reporting = error_reporting();
 			error_reporting( $error_reporting & ~E_WARNING );
 		}
@@ -1732,7 +1732,7 @@ class wpdb {
 		for ( $tries = 1; $tries <= $this->reconnect_retries; $tries++ ) {
 			// On the last try, re-enable warnings. We want to see a single instance of the
 			// "unable to connect" message on the bail() screen, if it appears.
-			if ( $this->reconnect_retries === $tries && WP_DEBUG ) {
+			if ( $this->reconnect_retries === $tries && ( APP_DEV_MODE || APP_DEBUG ) ) {
 				error_reporting( $error_reporting );
 			}
 

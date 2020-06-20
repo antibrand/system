@@ -8,7 +8,7 @@
 /**
  * Defines initial constants
  *
- * @see wp_debug_mode()
+ * @see app_debug_mode()
  *
  * @since 3.0.0
  *
@@ -114,9 +114,9 @@ function wp_initial_constants() {
 		define( 'WP_CONTENT_DIR', ABSPATH . 'wp-content' );
 	}
 
-	// Add define( 'WP_DEBUG', true ); to app-config.php to enable display of notices during development.
-	if ( ! defined( 'WP_DEBUG' ) ) {
-		define( 'WP_DEBUG', false );
+	// Add define( 'APP_DEBUG', true ); to app-config.php to enable display of notices during development.
+	if ( ! defined( 'APP_DEBUG' ) ) {
+		define( 'APP_DEBUG', false );
 	}
 
 	// Add define( 'WP_DEBUG_DISPLAY', null); to app-config.php use the globally configured setting for

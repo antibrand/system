@@ -175,7 +175,7 @@ class WP_Http_Curl {
 
 		// If streaming to a file open a file handle, and setup our curl streaming handler.
 		if ( $r['stream'] ) {
-			if ( ! WP_DEBUG )
+			if ( ! APP_DEV_MODE || ! APP_DEBUG )
 				$this->stream_handle = @fopen( $r['filename'], 'w+' );
 			else
 				$this->stream_handle = fopen( $r['filename'], 'w+' );

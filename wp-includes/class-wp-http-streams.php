@@ -129,7 +129,7 @@ class WP_Http_Streams {
 		// Store error string.
 		$connection_error_str = null;
 
-		if ( !WP_DEBUG ) {
+		if ( ! APP_DEV_MODE || ! APP_DEBUG ) {
 			// In the event that the SSL connection fails, silence the many PHP Warnings.
 			if ( $secure_transport )
 				$error_reporting = error_reporting(0);
@@ -219,7 +219,7 @@ class WP_Http_Streams {
 
 		// If streaming to a file setup the file handle.
 		if ( $r['stream'] ) {
-			if ( ! WP_DEBUG )
+			if ( ! APP_DEV_MODE || ! APP_DEBUG )
 				$stream_handle = @fopen( $r['filename'], 'w+' );
 			else
 				$stream_handle = fopen( $r['filename'], 'w+' );

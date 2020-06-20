@@ -319,7 +319,7 @@ function spawn_cron( $gmt_time = 0 ) {
 		while ( @ob_end_flush() );
 		flush();
 
-		WP_DEBUG ? include_once( ABSPATH . 'app-cron.php' ) : @include_once( ABSPATH . 'app-cron.php' );
+		( APP_DEV_MODE || APP_DEBUG ) ? include_once( ABSPATH . 'app-cron.php' ) : @include_once( ABSPATH . 'app-cron.php' );
 		return;
 	}
 

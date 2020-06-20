@@ -3390,7 +3390,7 @@ function wp_ajax_install_theme() {
 	$upgrader = new Theme_Upgrader( $skin );
 	$result   = $upgrader->install( $api->download_link );
 
-	if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+	if ( defined( 'APP_DEBUG' ) && APP_DEBUG ) {
 		$status['debug'] = $skin->get_upgrade_messages();
 	}
 
@@ -3499,7 +3499,7 @@ function wp_ajax_update_theme() {
 	$upgrader = new Theme_Upgrader( $skin );
 	$result   = $upgrader->bulk_upgrade( array( $stylesheet ) );
 
-	if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+	if ( defined( 'APP_DEBUG' ) && APP_DEBUG ) {
 		$status['debug'] = $skin->get_upgrade_messages();
 	}
 
@@ -3664,7 +3664,7 @@ function wp_ajax_install_plugin() {
 	$upgrader = new Plugin_Upgrader( $skin );
 	$result   = $upgrader->install( $api->download_link );
 
-	if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+	if ( defined( 'APP_DEBUG' ) && APP_DEBUG ) {
 		$status['debug'] = $skin->get_upgrade_messages();
 	}
 
@@ -3765,7 +3765,7 @@ function wp_ajax_update_plugin() {
 	$upgrader = new Plugin_Upgrader( $skin );
 	$result   = $upgrader->bulk_upgrade( array( $plugin ) );
 
-	if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+	if ( defined( 'APP_DEBUG' ) && APP_DEBUG ) {
 		$status['debug'] = $skin->get_upgrade_messages();
 	}
 

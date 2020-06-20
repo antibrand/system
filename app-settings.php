@@ -43,7 +43,7 @@ require( ABSPATH . WPINC . '/version.php' );
  */
 global $blog_id;
 
-// Set initial default constants including WP_MEMORY_LIMIT, WP_MAX_MEMORY_LIMIT, WP_DEBUG, SCRIPT_DEBUG, WP_CONTENT_DIR and WP_CACHE.
+// Set initial default constants including WP_MEMORY_LIMIT, WP_MAX_MEMORY_LIMIT, APP_DEBUG, SCRIPT_DEBUG, WP_CONTENT_DIR and WP_CACHE.
 wp_initial_constants();
 
 // Check for the required PHP version and for the MySQL extension or a database drop-in.
@@ -71,8 +71,8 @@ wp_maintenance();
 // Start loading timer.
 timer_start();
 
-// Check if we're in WP_DEBUG mode.
-wp_debug_mode();
+// Check if we're in APP_DEBUG mode.
+app_debug_mode();
 
 /**
  * Filters whether to enable loading of the advanced-cache.php drop-in.
@@ -88,7 +88,7 @@ wp_debug_mode();
 if ( WP_CACHE && apply_filters( 'enable_loading_advanced_cache_dropin', true ) ) {
 
 	// For an advanced caching plugin to use. Uses a static drop-in because you would only want one.
-	if ( WP_DEBUG ) {
+	if ( APP_DEV_MODE || APP_DEBUG ) {
 		include( WP_CONTENT_DIR . '/advanced-cache.php' );
 	} else {
 		@include( WP_CONTENT_DIR . '/advanced-cache.php' );
