@@ -94,12 +94,12 @@ define( 'wp_auto_update_core', false );
  * Site development
  *
  * It is strongly recommended that plugin and theme developers use
- * WP_DEBUG in their development environments.
+ * APP_DEBUG in their development environments.
  */
 define( 'APP_DEV_MODE', false );
 define( 'APP_DEBUG', false );
 define( 'WP_DEBUG_LOG', false );
-define( 'WP_DEBUG_DISPLAY', false );
+define( 'WP_DEBUG_DISPLAY', true );
 
 // Switch for local dev
 define( 'WP_LOCAL_DEV', false );

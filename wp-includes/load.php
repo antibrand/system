@@ -273,7 +273,7 @@ function timer_stop( $display = 0, $precision = 3 ) {
  * Set PHP error reporting based on debug settings.
  *
  * Uses three constants: `APP_DEBUG`, `WP_DEBUG_DISPLAY`, and `WP_DEBUG_LOG`.
- * All three can be defined in app-config.php. By default, `WP_DEBUG` and
+ * All three can be defined in app-config.php. By default, `APP_DEBUG` and
  * `WP_DEBUG_LOG` are set to false, and `WP_DEBUG_DISPLAY` is set to true.
  *
  * When `APP_DEBUG` is true, all PHP notices are reported. The application will also
