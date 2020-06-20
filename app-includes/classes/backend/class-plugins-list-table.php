@@ -423,7 +423,7 @@ class Plugins_List_Table extends List_Table {
 					$text = _n( 'Inactive <span class="count">(%s)</span>', 'Inactive <span class="count">(%s)</span>', $count );
 					break;
 				case 'mustuse':
-					$text = _n( 'Must-Use <span class="count">(%s)</span>', 'Must-Use <span class="count">(%s)</span>', $count );
+					$text = _n( 'Extensions <span class="count">(%s)</span>', 'Extensions <span class="count">(%s)</span>', $count );
 					break;
 				case 'dropins':
 					$text = _n( 'Drop-ins <span class="count">(%s)</span>', 'Drop-ins <span class="count">(%s)</span>', $count );
@@ -461,21 +461,28 @@ class Plugins_List_Table extends List_Table {
 	 * @return array
 	 */
 	protected function get_bulk_actions() {
+
 		global $status;
 
-		$actions = array();
+		$actions = [];
 
-		if ( 'active' != $status )
+		if ( 'active' != $status ) {
 			$actions['activate-selected'] = $this->screen->in_admin( 'network' ) ? __( 'Network Activate' ) : __( 'Activate' );
+		}
 
-		if ( 'inactive' != $status && 'recent' != $status )
+		if ( 'inactive' != $status && 'recent' != $status ) {
 			$actions['deactivate-selected'] = $this->screen->in_admin( 'network' ) ? __( 'Network Deactivate' ) : __( 'Deactivate' );
+		}
 
-		if ( !is_multisite() || $this->screen->in_admin( 'network' ) ) {
-			if ( current_user_can( 'update_plugins' ) )
+		if ( ! is_multisite() || $this->screen->in_admin( 'network' ) ) {
+
+			if ( current_user_can( 'update_plugins' ) ) {
 				$actions['update-selected'] = __( 'Update' );
-			if ( current_user_can( 'delete_plugins' ) && ( 'active' != $status ) )
+			}
+
+			if ( current_user_can( 'delete_plugins' ) && ( 'active' != $status ) ) {
 				$actions['delete-selected'] = __( 'Delete' );
+			}
 		}
 
 		return $actions;
@@ -486,10 +493,12 @@ class Plugins_List_Table extends List_Table {
 	 * @param string $which
 	 */
 	public function bulk_actions( $which = '' ) {
+
 		global $status;
 
-		if ( in_array( $status, array( 'mustuse', 'dropins' ) ) )
+		if ( in_array( $status, [ 'mustuse', 'dropins' ] ) ) {
 			return;
+		}
 
 		parent::bulk_actions( $which );
 	}
@@ -499,26 +508,34 @@ class Plugins_List_Table extends List_Table {
 	 * @param string $which
 	 */
 	protected function extra_tablenav( $which ) {
+
 		global $status;
 
-		if ( ! in_array($status, array('recently_activated', 'mustuse', 'dropins') ) )
+		if ( ! in_array( $status, [ 'recently_activated', 'mustuse', 'dropins' ] ) ) {
 			return;
+		}
 
 		echo '<div class="alignleft actions">';
 
 		if ( 'recently_activated' == $status ) {
+
 			submit_button( __( 'Clear List' ), '', 'clear-recent-list', false );
+
 		} elseif ( 'top' === $which && 'mustuse' === $status ) {
-			/* translators: %s: mu-plugins directory name */
-			echo '<p>' . sprintf( __( 'Files in the %s directory are executed automatically.' ),
+
+			// Translators: %s: mu-plugins directory name.
+			echo '<p>' . sprintf( __( 'Files in the %s directory are executed automatically and cannot be disabled.' ),
 				'<code>' . str_replace( ABSPATH, '/', WPMU_PLUGIN_DIR ) . '</code>'
 			) . '</p>';
+
 		} elseif ( 'top' === $which && 'dropins' === $status ) {
-			/* translators: %s: wp-content directory name */
+
+			// Translators: %s: wp-content directory name.
 			echo '<p>' . sprintf( __( 'Drop-ins are advanced plugins in the %s directory that replace core functionality when present.' ),
 				'<code>' . str_replace( ABSPATH, '', CONTENT_DIR ) . '</code>'
 			) . '</p>';
 		}
+
 		echo '</div>';
 	}
 
@@ -526,8 +543,10 @@ class Plugins_List_Table extends List_Table {
 	 * @return string
 	 */
 	public function current_action() {
-		if ( isset($_POST['clear-recent-list']) )
+
+		if ( isset( $_POST['clear-recent-list'] ) ) {
 			return 'clear-recent-list';
+		}
 
 		return parent::current_action();
 	}
@@ -537,13 +556,16 @@ class Plugins_List_Table extends List_Table {
 	 * @global string $status
 	 */
 	public function display_rows() {
+
 		global $status;
 
-		if ( is_multisite() && ! $this->screen->in_admin( 'network' ) && in_array( $status, array( 'mustuse', 'dropins' ) ) )
+		if ( is_multisite() && ! $this->screen->in_admin( 'network' ) && in_array( $status, [ 'mustuse', 'dropins' ] ) ) {
 			return;
+		}
 
-		foreach ( $this->items as $plugin_file => $plugin_data )
+		foreach ( $this->items as $plugin_file => $plugin_data ) {
 			$this->single_row( array( $plugin_file, $plugin_data ) );
+		}
 	}
 
 	/**
@@ -811,7 +833,7 @@ class Plugins_List_Table extends List_Table {
 					 * @param string $plugin_file Path to the plugin file, relative to the plugins directory.
 					 * @param array  $plugin_data An array of plugin data.
 					 * @param string $status      Status of the plugin. Defaults are 'All', 'Active',
-					 *                            'Inactive', 'Recently Activated', 'Upgrade', 'Must-Use',
+					 *                            'Inactive', 'Recently Activated', 'Upgrade', 'Integrated',
 					 *                            'Drop-ins', 'Search'.
 					 */
 					$plugin_meta = apply_filters( 'plugin_row_meta', $plugin_meta, $plugin_file, $plugin_data, $status );
@@ -849,7 +871,7 @@ class Plugins_List_Table extends List_Table {
 		 * @param string $plugin_file Path to the plugin file, relative to the plugins directory.
 		 * @param array  $plugin_data An array of plugin data.
 		 * @param string $status      Status of the plugin. Defaults are 'All', 'Active',
-		 *                            'Inactive', 'Recently Activated', 'Upgrade', 'Must-Use',
+		 *                            'Inactive', 'Recently Activated', 'Upgrade', 'Integrated',
 		 *                            'Drop-ins', 'Search'.
 		 */
 		do_action( 'after_plugin_row', $plugin_file, $plugin_data, $status );
@@ -865,7 +887,7 @@ class Plugins_List_Table extends List_Table {
 		 * @param string $plugin_file Path to the plugin file, relative to the plugins directory.
 		 * @param array  $plugin_data An array of plugin data.
 		 * @param string $status      Status of the plugin. Defaults are 'All', 'Active',
-		 *                            'Inactive', 'Recently Activated', 'Upgrade', 'Must-Use',
+		 *                            'Inactive', 'Recently Activated', 'Upgrade', 'Integrated',
 		 *                            'Drop-ins', 'Search'.
 		 */
 		do_action( "after_plugin_row_{$plugin_file}", $plugin_file, $plugin_data, $status );
