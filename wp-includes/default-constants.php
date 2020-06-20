@@ -230,29 +230,29 @@ function wp_plugin_directory_constants() {
 	}
 
 	/**
-	 * Allows for the mu-plugins directory to be moved from the default location.
+	 * Allows for the app-includes/extend directory to be moved from the default location.
 	 *
 	 * @since 2.8.0
 	 */
 	if ( ! defined( 'WPMU_PLUGIN_DIR' ) ) {
 
 		// full path, no trailing slash
-		define( 'WPMU_PLUGIN_DIR', WP_CONTENT_DIR . '/mu-plugins' );
+		define( 'WPMU_PLUGIN_DIR', ABSPATH . 'app-includes/extend' );
 	}
 
 	/**
-	 * Allows for the mu-plugins directory to be moved from the default location.
+	 * Allows for the app-includes/extend directory to be moved from the default location.
 	 *
 	 * @since 2.8.0
 	 */
 	if ( ! defined( 'WPMU_PLUGIN_URL' ) ) {
 
 		// full url, no trailing slash
-		define( 'WPMU_PLUGIN_URL', WP_CONTENT_URL . '/mu-plugins' );
+		define( 'WPMU_PLUGIN_URL', ABSPATH . 'app-includes/extend' );
 	}
 
 	/**
-	 * Allows for the mu-plugins directory to be moved from the default location.
+	 * Allows for the app-includes/extend directory to be moved from the default location.
 	 *
 	 * @since 2.8.0
 	 * @deprecated
@@ -260,7 +260,7 @@ function wp_plugin_directory_constants() {
 	if ( ! defined( 'MUPLUGINDIR' ) ) {
 
 		// Relative to ABSPATH. For back compat.
-		define( 'MUPLUGINDIR', 'wp-content/mu-plugins' );
+		define( 'MUPLUGINDIR', 'app-includes/extend' );
 	}
 }
 
