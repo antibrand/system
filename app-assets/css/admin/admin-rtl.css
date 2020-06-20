@@ -4283,7 +4283,7 @@ html.wp-toolbar {
 
 .postbox .inside,
 .stuffbox .inside {
-  padding: 0 12px 12px;
+  padding: 0 1.5rem 1.5rem;
   line-height: 1.325em;
   font-size: 0.875rem;
 }
