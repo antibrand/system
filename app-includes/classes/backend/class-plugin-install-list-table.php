@@ -114,7 +114,7 @@ class Plugin_Install_List_Table extends List_Table {
 			$tabs['search'] = __( 'Search Results' );
 		}
 
-		if ( $tab === 'beta' || false !== strpos( get_bloginfo( 'version' ), '-' ) ) {
+		if ( $tab === 'beta' || false !== strpos( get_app_info( 'version' ), '-' ) ) {
 			// $tabs['beta'] = _x( 'Beta Testing', 'Plugin Installer' );
 		}
 

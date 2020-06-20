@@ -10,7 +10,8 @@
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 $title   = __( 'Privacy Notice' );
-$version = get_bloginfo( 'version' );
+$name    = get_app_info( 'name' );
+$version = get_app_info( 'version' );
 
 include( ABSPATH . 'wp-admin/admin-header.php' );
 
@@ -20,7 +21,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 <h1>
 	<?php echo sprintf(
 		'%1s %2s %3s',
-		APP_NAME,
+		$name,
 		$version,
 		__( 'Privacy Notice' )
 	); ?>

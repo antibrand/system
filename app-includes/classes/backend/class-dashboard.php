@@ -701,8 +701,8 @@ class Dashboard {
 
 		$content = sprintf(
 			'<h3>%1s %2s</h3>',
-			APP_NAME,
-			get_bloginfo( 'version' )
+			get_app_info( 'name' ),
+			get_app_info( 'version' )
 		);
 
 		$content .= sprintf(

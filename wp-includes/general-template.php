@@ -655,11 +655,71 @@ function wp_meta() {
 /**
  * Displays information about the current site.
  *
- * @since WP 0.71
+ * @since  1.0.0
+ * @param  string $show Optional. Site information to display. Default app name.
+ * @return string Returns the string of `$show`.
  *
- * @see get_bloginfo() For possible `$show` values
+ * @see `get_app_info()` for possible `$show` values.
+ */
+function app_info( $show = '' ) {
+	echo get_app_info( $show, 'display' );
+}
+
+/**
+ * Get app info
  *
- * @param string $show Optional. Site information to display. Default empty.
+ * Gets details about the website management system.
+ *
+ * Possible values for `$show` include:
+ *
+ * - 'version' - The current version.
+ *
+ * @since  1.0.0
+ * @global string $app_version
+ * @param  string $show Optional. App info to retrieve. Default app name.
+ * @param  string $filter Optional. How to filter what is retrieved. Default 'raw'.
+ * @return string Mostly string values, might be empty.
+ */
+function get_app_info( $show = '', $filter = 'raw' ) {
+
+	switch( $show ) {
+
+		case 'version' :
+
+			global $app_version;
+			$output = $app_version;
+
+			break;
+
+		default :
+			$output = APP_NAME;
+			break;
+	}
+
+	if ( 'display' == $filter ) {
+
+		/**
+		 * Filters the site information returned by get_app_info().
+		 *
+		 * @since 1.0.0
+		 * @param mixed $output The app information.
+		 * @param mixed $show Type of information requested.
+		 */
+		$output = apply_filters( 'app_info', $output, $show );
+	}
+
+	return $output;
+
+}
+
+/**
+ * Displays information about the current site.
+ *
+ * @since  WP 0.71
+ * @param  string $show Optional. Site information to display. Default empty.
+ * @return string Returns the string of `$show`.
+ *
+ * @see `get_bloginfo()` for possible `$show` values.
  */
 function bloginfo( $show = '' ) {
 	echo get_bloginfo( $show, 'display' );
@@ -770,8 +830,8 @@ function get_bloginfo( $show = '', $filter = 'raw' ) {
 			$output = get_option( 'html_type' );
 			break;
 		case 'version':
-			global $app_version;
-			$output = $app_version;
+			global $wp_version;
+			$output = $wp_version;
 			break;
 		case 'language':
 			/* translators: Translate this to the correct language tag for your locale,

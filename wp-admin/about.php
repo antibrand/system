@@ -12,7 +12,8 @@ require_once( dirname( __FILE__ ) . '/admin.php' );
 wp_enqueue_script( 'app-tabs' );
 
 $title   = __( 'About' );
-$version = get_bloginfo( 'version' );
+$name    = get_app_info( 'name' );
+$version = get_app_info( 'version' );
 
 include( ABSPATH . 'wp-admin/admin-header.php' );
 ?>
@@ -21,7 +22,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 	<h1>
 	<?php echo sprintf(
 		'%1s %2s',
-		APP_NAME,
+		$name,
 		$version
 	); ?>
 	</h1>
