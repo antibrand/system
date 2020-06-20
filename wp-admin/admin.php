@@ -257,7 +257,7 @@ if ( isset( $plugin_page ) ) {
 			wp_die( __( 'Invalid plugin page.' ) );
 		}
 
-		if ( ! ( file_exists( WP_PLUGIN_DIR . "/$plugin_page" ) && is_file( WP_PLUGIN_DIR . "/$plugin_page" ) ) && ! ( file_exists( WPMU_PLUGIN_DIR . "/$plugin_page" ) && is_file( WPMU_PLUGIN_DIR . "/$plugin_page" ) ) ) {
+		if ( ! ( file_exists( WP_PLUGIN_DIR . "/$plugin_page" ) && is_file( WP_PLUGIN_DIR . "/$plugin_page" ) ) && ! ( file_exists( APP_EXTEND_DIR . "/$plugin_page" ) && is_file( APP_EXTEND_DIR . "/$plugin_page" ) ) ) {
 			wp_die( sprintf( __( 'Cannot load %s.' ), htmlentities( $plugin_page ) ) );
 		}
 
@@ -279,8 +279,8 @@ if ( isset( $plugin_page ) ) {
 			require_once( ABSPATH . 'wp-admin/admin-header.php' );
 		}
 
-		if ( file_exists( WPMU_PLUGIN_DIR . "/$plugin_page" ) ) {
-			include( WPMU_PLUGIN_DIR . "/$plugin_page" );
+		if ( file_exists( APP_EXTEND_DIR . "/$plugin_page" ) ) {
+			include( APP_EXTEND_DIR . "/$plugin_page" );
 		} else {
 			include( WP_PLUGIN_DIR . "/$plugin_page" );
 		}

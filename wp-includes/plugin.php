@@ -658,7 +658,7 @@ function plugin_basename( $file ) {
 	}
 
 	$plugin_dir = wp_normalize_path( WP_PLUGIN_DIR );
-	$mu_plugin_dir = wp_normalize_path( WPMU_PLUGIN_DIR );
+	$mu_plugin_dir = wp_normalize_path( APP_EXTEND_DIR );
 
 	$file = preg_replace('#^' . preg_quote($plugin_dir, '#') . '/|^' . preg_quote($mu_plugin_dir, '#') . '/#','',$file); // get relative path from plugins dir
 	$file = trim($file, '/');
@@ -689,7 +689,7 @@ function wp_register_plugin_realpath( $file ) {
 	static $wp_plugin_path = null, $wpmu_plugin_path = null;
 	if ( ! isset( $wp_plugin_path ) ) {
 		$wp_plugin_path   = wp_normalize_path( WP_PLUGIN_DIR   );
-		$wpmu_plugin_path = wp_normalize_path( WPMU_PLUGIN_DIR );
+		$wpmu_plugin_path = wp_normalize_path( APP_EXTEND_DIR );
 	}
 
 	$plugin_path = wp_normalize_path( dirname( $file ) );

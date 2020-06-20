@@ -3198,10 +3198,10 @@ function plugins_url( $path = '', $plugin = '' ) {
 
 	$path = wp_normalize_path( $path );
 	$plugin = wp_normalize_path( $plugin );
-	$mu_plugin_dir = wp_normalize_path( WPMU_PLUGIN_DIR );
+	$mu_plugin_dir = wp_normalize_path( APP_EXTEND_DIR );
 
 	if ( !empty($plugin) && 0 === strpos($plugin, $mu_plugin_dir) )
-		$url = WPMU_PLUGIN_URL;
+		$url = APP_EXTEND_URL;
 	else
 		$url = WP_PLUGIN_URL;
 

@@ -234,10 +234,10 @@ function wp_plugin_directory_constants() {
 	 *
 	 * @since 2.8.0
 	 */
-	if ( ! defined( 'WPMU_PLUGIN_DIR' ) ) {
+	if ( ! defined( 'APP_EXTEND_DIR' ) ) {
 
 		// full path, no trailing slash
-		define( 'WPMU_PLUGIN_DIR', ABSPATH . 'app-includes/extend' );
+		define( 'APP_EXTEND_DIR', ABSPATH . 'app-includes/extend' );
 	}
 
 	/**
@@ -245,10 +245,10 @@ function wp_plugin_directory_constants() {
 	 *
 	 * @since 2.8.0
 	 */
-	if ( ! defined( 'WPMU_PLUGIN_URL' ) ) {
+	if ( ! defined( 'APP_EXTEND_URL' ) ) {
 
 		// full url, no trailing slash
-		define( 'WPMU_PLUGIN_URL', ABSPATH . 'app-includes/extend' );
+		define( 'APP_EXTEND_URL', ABSPATH . 'app-includes/extend' );
 	}
 
 	/**

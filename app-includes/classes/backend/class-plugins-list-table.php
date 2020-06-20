@@ -525,7 +525,7 @@ class Plugins_List_Table extends List_Table {
 
 			// Translators: %s: mu-plugins directory name.
 			echo '<p>' . sprintf( __( 'Files in the %s directory are executed automatically and cannot be disabled.' ),
-				'<code>' . str_replace( ABSPATH, '/', WPMU_PLUGIN_DIR ) . '</code>'
+				'<code>' . str_replace( ABSPATH, '/', APP_EXTEND_DIR ) . '</code>'
 			) . '</p>';
 
 		} elseif ( 'top' === $which && 'dropins' === $status ) {
