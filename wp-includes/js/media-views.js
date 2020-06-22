@@ -216,7 +216,6 @@ media.view.SiteIconCropper = __webpack_require__( 97 );
 media.view.SiteIconPreview = __webpack_require__( 98 );
 media.view.EditImage = __webpack_require__( 99 );
 media.view.Spinner = __webpack_require__( 100 );
-media.view.AddNew = __webpack_require__( 101 );
 
 
 /***/ }),
@@ -2793,7 +2792,7 @@ MediaFrame = Frame.extend(/** @lends wp.media.view.MediaFrame.prototype */{
 		});
 
 		// Ensure core UI is enabled.
-		this.$el.addClass('app-core-ui');
+		this.$el.addClass('wp-core-ui');
 
 		// Initialize modal container view.
 		if ( this.options.modal ) {
@@ -4279,7 +4278,7 @@ Modal = wp.media.View.extend(/** @lends wp.media.view.Modal.prototype */{
 		if ( null !== this.clickedOpenerEl ) {
 			this.clickedOpenerEl.focus();
 		} else {
-			$( '#app-content' ).focus();
+			$( '#wpbody-content' ).focus();
 		}
 
 		this.propagate('close');
@@ -7301,7 +7300,7 @@ AttachmentsBrowser = View.extend(/** @lends wp.media.view.AttachmentsBrowser.pro
 	},
 
 	createToolbar: function() {
-		var AddNew, LibraryViewSwitcher, Filters, toolbarOptions;
+		var LibraryViewSwitcher, Filters, toolbarOptions;
 
 		toolbarOptions = {
 			controller: this.controller
@@ -7354,16 +7353,6 @@ AttachmentsBrowser = View.extend(/** @lends wp.media.view.AttachmentsBrowser.pro
 		// browser view. Is this a use case for doAction( 'add:toolbar-items:attachments-browser', this.toolbar );
 		// which the controller can tap into and add this view?
 		if ( this.controller.isModeActive( 'grid' ) ) {
-			AddNew = View.extend({
-				className: 'media-grid-add-new',
-				template: wp.template( 'media-grid-add-new')
-			});
-
-			this.toolbar.set( 'libraryAddNew', new AddNew({
-				controller: this.controller,
-				priority: -90
-			}).render() );
-
 			LibraryViewSwitcher = View.extend({
 				className: 'view-switch media-grid-view-switch',
 				template: wp.template( 'media-library-view-switcher')
