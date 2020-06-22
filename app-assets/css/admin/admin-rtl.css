@@ -852,8 +852,14 @@ input[type="button"], input[type="reset"], input[type="submit"], input[type="ima
 }
 
 input[type="file"] {
+  display: inline-block;
+  height: 2.5rem;
   padding: 0.425em 1em;
   cursor: pointer;
+}
+
+input[type="file"] + input[type="submit"] {
+  vertical-align: bottom;
 }
 
 input[type="file"]:disabled, input[type="file"].disabled {

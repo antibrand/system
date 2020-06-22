@@ -183,8 +183,14 @@ input {
 	}
 
 	&[type="file"] {
+		display: inline-block;
+		height: 2.5rem;
 		padding: 0.425em 1em;
 		cursor: pointer;
+
+		& + input[type="submit"] {
+			vertical-align: bottom;
+		}
 
 		&:disabled,
 		&.disabled {
