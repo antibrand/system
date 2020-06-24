@@ -83,6 +83,13 @@ class WP_Customize_Themes_Section extends WP_Customize_Section {
 					<?php $this->filter_drawer_content_template(); ?>
 					<div class="error unexpected-error" style="display: none; "><p><?php _e( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ); ?></p></div>
 					<ul class="themes">
+						<?php
+						/**
+						 * The themes list is populated by JavaScript.
+						 *
+						 * @see wp-admin/js/theme.js
+						 */
+						?>
 					</ul>
 					<p class="no-themes"><?php _e( 'No themes found. Try a different search.' ); ?></p>
 					<p class="no-themes-local">
