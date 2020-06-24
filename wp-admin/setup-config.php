@@ -247,13 +247,13 @@ switch( $step ) :
 						<tr>
 							<th scope="row"><label for="app_db_prefix"><?php _e( 'Database Prefix' ); ?></label></th>
 							<td>
+								<input name="app_db_prefix" id="app_db_prefix" type="text" value="app_<?php echo esc_attr( md5( time() ) ); ?>_" placeholder="app_" size="25" />
 								<?php echo sprintf(
-									'<p>%1s <code>%2s</code> %3s</p>',
+									'<p class="description">%1s <code>%2s</code> %3s</p>',
 									__( 'The random table prefix does not necessarily make the database more secure but the option is provided for those who wish to use it. You may want to use something simple, such as' ),
 									'app_',
 									__( ', but whatever you choose it is recommended that you end the prefix with an underscore to make the database more legible.' )
 								); ?>
-								<input name="app_db_prefix" id="app_db_prefix" type="text" value="app_<?php echo esc_attr( md5( time() ) ); ?>_" placeholder="app_" size="25" />
 							</td>
 							<td><?php echo sprintf(
 								'%1s <em>app_%2s_</em><br />%3s',
