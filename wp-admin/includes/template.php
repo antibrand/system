@@ -2074,6 +2074,7 @@ function _wp_admin_html_begin() {
 	do_action( 'admin_xml_ns' );
 ?> <?php language_attributes(); ?>>
 <head>
+<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
 <meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php echo get_option( 'blog_charset' ); ?>" />
 <?php
 
