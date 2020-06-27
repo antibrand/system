@@ -35,7 +35,7 @@ class WP_Customize_Control {
 	public $instance_number;
 
 	/**
-	 * Live Manager manager.
+	 * Customizer manager.
 	 *
 	 * @since 3.4.0
 	 * @var WP_Customize_Manager
@@ -78,7 +78,7 @@ class WP_Customize_Control {
 	public $capability;
 
 	/**
-	 * Order priority to load the control in Live Manager.
+	 * Order priority to load the control in Customizer.
 	 *
 	 * @since 3.4.0
 	 * @var int
@@ -173,14 +173,14 @@ class WP_Customize_Control {
 	 *
 	 * @since 3.4.0
 	 *
-	 * @param WP_Customize_Manager $manager Live Manager bootstrap instance.
+	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
 	 * @param string               $id      Control ID.
 	 * @param array                $args    {
 	 *     Optional. Arguments to override class property defaults.
 	 *
 	 *     @type int                  $instance_number Order in which this instance was created in relation
 	 *                                                 to other instances.
-	 *     @type WP_Customize_Manager $manager         Live Manager bootstrap instance.
+	 *     @type WP_Customize_Manager $manager         Customizer bootstrap instance.
 	 *     @type string               $id              Control ID.
 	 *     @type array                $settings        All settings tied to the control. If undefined, `$id` will
 	 *                                                 be used.
@@ -245,7 +245,7 @@ class WP_Customize_Control {
 	public function enqueue() {}
 
 	/**
-	 * Check whether control is active to current Live Manager preview.
+	 * Check whether control is active to current Customizer preview.
 	 *
 	 * @since 4.0.0
 	 *
@@ -260,7 +260,7 @@ class WP_Customize_Control {
 		 *
 		 * @since 4.0.0
 		 *
-		 * @param bool                 $active  Whether the Live Manager control is active.
+		 * @param bool                 $active  Whether the Customizer control is active.
 		 * @param WP_Customize_Control $control WP_Customize_Control instance.
 		 */
 		$active = apply_filters( 'customize_control_active', $active, $control );
@@ -366,7 +366,7 @@ class WP_Customize_Control {
 	}
 
 	/**
-	 * Get the control's content for insertion into the Live Manager pane.
+	 * Get the control's content for insertion into the Customizer pane.
 	 *
 	 * @since 4.1.0
 	 *
@@ -389,7 +389,7 @@ class WP_Customize_Control {
 			return;
 
 		/**
-		 * Fires just before the current Live Manager control is rendered.
+		 * Fires just before the current Customizer control is rendered.
 		 *
 		 * @since 3.4.0
 		 *
@@ -398,7 +398,7 @@ class WP_Customize_Control {
 		do_action( 'customize_render_control', $this );
 
 		/**
-		 * Fires just before a specific Live Manager control is rendered.
+		 * Fires just before a specific Customizer control is rendered.
 		 *
 		 * The dynamic portion of the hook name, `$this->id`, refers to
 		 * the control ID.

@@ -341,10 +341,10 @@
 	});
 
 	/**
-	 * A Live Manager Setting.
+	 * A Customizer Setting.
 	 *
 	 * A setting is data (theme mod, option, menu, etc.) that the user can
-	 * draft changes to in the Live Manager.
+	 * draft changes to in the Customizer.
 	 *
 	 * @see PHP class WP_Customize_Setting.
 	 *
@@ -389,7 +389,7 @@
 			api.Value.prototype.initialize.call( setting, value, params );
 
 			setting.id = id;
-			setting._dirty = params.dirty; // The _dirty property is what the Live Manager reads from.
+			setting._dirty = params.dirty; // The _dirty property is what the Customizer reads from.
 			setting.notifications = new api.Notifications();
 
 			// Whenever the setting's value changes, refresh the preview.
@@ -818,7 +818,7 @@
 				button.addClass( animationClass );
 				button.one( 'animationend', function() {
 					/*
-					 * Remove animation class to avoid situations in Live Manager where
+					 * Remove animation class to avoid situations in Customizer where
 					 * DOM nodes are moved (re-inserted) and the animation repeats.
 					 */
 					button.removeClass( animationClass );
@@ -3452,9 +3452,9 @@
 	});
 
 	/**
-	 * A Live Manager Control.
+	 * A Customizer Control.
 	 *
-	 * A control provides a UI element that allows a user to modify a Live Manager Setting.
+	 * A control provides a UI element that allows a user to modify a Customizer Setting.
 	 *
 	 * @see PHP class WP_Customize_Control.
 	 *
@@ -4344,7 +4344,7 @@
 
 			this.params.attachment = attachment;
 
-			// Set the Live Manager setting; the callback takes care of rendering.
+			// Set the Customizer setting; the callback takes care of rendering.
 			this.setting( attachment.id );
 			node = this.container.find( 'audio, video' ).get(0);
 
@@ -4408,7 +4408,7 @@
 
 			this.params.attachment = attachment;
 
-			// Set the Live Manager setting; the callback takes care of rendering.
+			// Set the Customizer setting; the callback takes care of rendering.
 			this.setting( attachment.url );
 			node = this.container.find( 'audio, video' ).get(0);
 
@@ -4717,7 +4717,7 @@
 		setImageFromAttachment: function( attachment ) {
 			this.params.attachment = attachment;
 
-			// Set the Live Manager setting; the callback takes care of rendering.
+			// Set the Customizer setting; the callback takes care of rendering.
 			this.setting( attachment.id );
 		}
 	});
@@ -4815,7 +4815,7 @@
 
 			this.params.attachment = attachment;
 
-			// Set the Live Manager setting; the callback takes care of rendering.
+			// Set the Customizer setting; the callback takes care of rendering.
 			this.setting( attachment.id );
 
 			if ( ! icon ) {
@@ -4882,7 +4882,7 @@
 				api.HeaderTool.DefaultsList
 			]);
 
-			// Ensure custom-header-crop Ajax requests bootstrap the Live Manager to activate the previewed theme.
+			// Ensure custom-header-crop Ajax requests bootstrap the Customizer to activate the previewed theme.
 			wp.media.controller.Cropper.prototype.defaults.doCropArgs.wp_customize = 'on';
 			wp.media.controller.Cropper.prototype.defaults.doCropArgs.customize_theme = api.settings.theme.stylesheet;
 		},
@@ -6534,7 +6534,7 @@
 			// Limit the URL to internal, front-end links.
 			//
 			// If the front end and the admin are served from the same domain, load the
-			// preview over ssl if the Live Manager is being loaded over ssl. This avoids
+			// preview over ssl if the Customizer is being loaded over ssl. This avoids
 			// insecure content warnings. This is not attempted if the admin and front end
 			// are on different domains to avoid the case where the front end doesn't have
 			// ssl certs.
@@ -7130,7 +7130,7 @@
 		api.settings = window._wpCustomizeSettings;
 		api.l10n = window._wpCustomizeControlsL10n;
 
-		// Check if we can run the Live Manager.
+		// Check if we can run the Customizer.
 		if ( ! api.settings ) {
 			return;
 		}
@@ -7157,7 +7157,7 @@
 			publishSettingsBtn = $( '#publish-settings' ),
 			footerActions = $( '#customize-footer-actions' );
 
-		// Add publish settings section in JS instead of PHP since the Live Manager depends on it to function.
+		// Add publish settings section in JS instead of PHP since the Customizer depends on it to function.
 		api.bind( 'ready', function() {
 			api.section.add( new api.OuterSection( 'publish_settings', {
 				title: api.l10n.publishSettings,
@@ -7722,7 +7722,7 @@
 			/**
 			 * Trash the current changes.
 			 *
-			 * Revert the Live Manager to it's previously-published state.
+			 * Revert the Customizer to it's previously-published state.
 			 *
 			 * @since 4.9.0
 			 *
@@ -7753,7 +7753,7 @@
 					} );
 					api.state( 'saved' ).set( true );
 
-					// Go back to Live Manager without changeset.
+					// Go back to Customizer without changeset.
 					urlParser.href = location.href;
 					queryParams = api.utils.parseQueryString( urlParser.search.substr( 1 ) );
 					delete queryParams.changeset_uuid;
@@ -8283,7 +8283,7 @@
 			/**
 			 * Obtain the URL to restore the autosave.
 			 *
-			 * @returns {string} Live Manager URL.
+			 * @returns {string} Customizer URL.
 			 */
 			function getAutosaveRestorationUrl() {
 				var urlParser, queryParams;
@@ -8771,7 +8771,7 @@
 
 		/*
 		 * Create a postMessage connection with a parent frame,
-		 * in case the Live Manager frame was opened with the Customize loader.
+		 * in case the Customizer frame was opened with the Customize loader.
 		 *
 		 * @see wp.customize.Loader
 		 */
@@ -8780,7 +8780,7 @@
 			channel: 'loader'
 		});
 
-		// Handle exiting of Live Manager.
+		// Handle exiting of Customizer.
 		(function() {
 			var isInsideIframe = false;
 
@@ -8825,7 +8825,7 @@
 				api.state( 'selectedChangesetStatus' ).unbind( startPromptingBeforeUnload );
 				api.state( 'selectedChangesetDate' ).unbind( startPromptingBeforeUnload );
 
-				// Prompt user with AYS dialog if leaving the Live Manager with unsaved changes
+				// Prompt user with AYS dialog if leaving the Customizer with unsaved changes
 				$( window ).on( 'beforeunload.customize-confirm', function() {
 					if ( ! isCleanState() && ! api.state( 'changesetLocked' ).get() ) {
 						setTimeout( function() {
@@ -9288,7 +9288,7 @@
 		}
 		api.bind( 'change', startAutosaving );
 
-		// Make sure TinyMCE dialogs appear above Live Manager UI.
+		// Make sure TinyMCE dialogs appear above Customizer UI.
 		$( document ).one( 'tinymce-editor-setup', function() {
 			if ( window.tinymce.ui.FloatPanel && ( ! window.tinymce.ui.FloatPanel.zIndex || window.tinymce.ui.FloatPanel.zIndex < 500001 ) ) {
 				window.tinymce.ui.FloatPanel.zIndex = 500001;

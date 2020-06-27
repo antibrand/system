@@ -443,7 +443,7 @@
 	window.wp.customHeader = new CustomHeader();
 	document.addEventListener( 'DOMContentLoaded', window.wp.customHeader.initialize.bind( window.wp.customHeader ), false );
 
-	// Selective refresh support in the Live Manager.
+	// Selective refresh support in the Customizer.
 	if ( 'customize' in window.wp ) {
 		window.wp.customize.selectiveRefresh.bind( 'render-partials-response', function( response ) {
 			if ( 'custom_header_settings' in response ) {

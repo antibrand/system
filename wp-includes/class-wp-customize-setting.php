@@ -18,7 +18,7 @@
  */
 class WP_Customize_Setting {
 	/**
-	 * Live Manager bootstrap instance.
+	 * Customizer bootstrap instance.
 	 *
 	 * @since 3.4.0
 	 * @var WP_Customize_Manager
@@ -66,7 +66,7 @@ class WP_Customize_Setting {
 	public $default = '';
 
 	/**
-	 * Options for rendering the live preview of changes in Theme Live Manager.
+	 * Options for rendering the live preview of changes in Theme Customizer.
 	 *
 	 * Set this value to 'postMessage' to enable a custom Javascript handler to render changes to this setting
 	 * as opposed to reloading the whole page.
@@ -104,7 +104,7 @@ class WP_Customize_Setting {
 	 * Whether or not the setting is initially dirty when created.
 	 *
 	 * This is used to ensure that a setting will be sent from the pane to the
-	 * preview when loading the Live Manager. Normally a setting only is synced to
+	 * preview when loading the Customizer. Normally a setting only is synced to
 	 * the preview if it has been changed. This allows the setting to be sent
 	 * from the start.
 	 *

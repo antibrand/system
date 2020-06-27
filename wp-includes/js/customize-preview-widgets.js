@@ -1,7 +1,7 @@
-/* global _wpWidgetLive ManagerPreviewSettings */
+/* global _wpWidgetCustomizerPreviewSettings */
 
 /** @namespace wp.customize.widgetsPreview */
-wp.customize.widgetsPreview = wp.customize.WidgetLive ManagerPreview = (function( $, _, wp, api ) {
+wp.customize.widgetsPreview = wp.customize.WidgetCustomizerPreview = (function( $, _, wp, api ) {
 
 	var self;
 
@@ -45,7 +45,7 @@ wp.customize.widgetsPreview = wp.customize.WidgetLive ManagerPreview = (function
 		 * Gallery widget so that when an attachment's caption is updated in the media modal,
 		 * the widget in the preview will then be refreshed to show the change. Normally doing this
 		 * would not be necessary because all of the state should be contained inside the changeset,
-		 * as everything done in the Live Manager should not make a change to the site unless the
+		 * as everything done in the Customizer should not make a change to the site unless the
 		 * changeset itself is published. Attachments are a current exception to this rule.
 		 * For a proposal to include attachments in the customized state, see #37887.
 		 */
@@ -684,7 +684,7 @@ wp.customize.widgetsPreview = wp.customize.WidgetLive ManagerPreview = (function
 	};
 
 	/**
-	 * Convert a widget ID into a Live Manager setting ID.
+	 * Convert a widget ID into a Customizer setting ID.
 	 *
 	 * @memberOf wp.customize.widgetsPreview
 	 *
@@ -705,7 +705,7 @@ wp.customize.widgetsPreview = wp.customize.WidgetLive ManagerPreview = (function
 	};
 
 	api.bind( 'preview-ready', function() {
-		$.extend( self, _wpWidgetLive ManagerPreviewSettings );
+		$.extend( self, _wpWidgetCustomizerPreviewSettings );
 		self.init();
 	});
 

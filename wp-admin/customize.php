@@ -73,7 +73,7 @@ if ( $wp_customize->changeset_post_id() ) {
 
 		wp_die(
 			'<h1>' . __( 'Your scheduled changes just published' ) . '</h1>' .
-			'<p><a href="' . esc_url( remove_query_arg( 'changeset_uuid' ) ) . '">' . __( 'Manage New Changes' ) . '</a></p>' . $script,
+			'<p><a href="' . esc_url( remove_query_arg( 'changeset_uuid' ) ) . '">' . __( 'Customize New Changes' ) . '</a></p>' . $script,
 			200
 		);
 	}
@@ -82,7 +82,7 @@ if ( $wp_customize->changeset_post_id() ) {
 		wp_die(
 			'<h1>' . __( 'Something went wrong.' ) . '</h1>' .
 			'<p>' . __( 'This changeset cannot be further modified.' ) . '</p>' .
-			'<p><a href="' . esc_url( remove_query_arg( 'changeset_uuid' ) ) . '">' . __( 'Manage New Changes' ) . '</a></p>',
+			'<p><a href="' . esc_url( remove_query_arg( 'changeset_uuid' ) ) . '">' . __( 'Customize New Changes' ) . '</a></p>',
 			403
 		);
 	}
@@ -112,7 +112,7 @@ add_action( 'customize_controls_print_footer_scripts', '_wp_footer_scripts' );
 add_action( 'customize_controls_print_styles', 'print_admin_styles', 20 );
 
 /**
- * Fires when Live Manager controls are initialized, before scripts are enqueued.
+ * Fires when Customizer controls are initialized, before scripts are enqueued.
  *
  * @since WP 3.4.0
  */
@@ -123,7 +123,7 @@ wp_enqueue_script( 'customize-controls' );
 wp_enqueue_style( 'customize-controls' );
 
 /**
- * Enqueue Live Manager control scripts.
+ * Enqueue Customizer control scripts.
  *
  * @since WP 3.4.0
  */
@@ -162,14 +162,14 @@ var ajaxurl = <?php echo wp_json_encode( admin_url( 'admin-ajax.php', 'relative'
 
 <?php
 /**
- * Fires when Live Manager control styles are printed.
+ * Fires when Customizer control styles are printed.
  *
  * @since WP 3.4.0
  */
 do_action( 'customize_controls_print_styles' );
 
 /**
- * Fires when Live Manager control scripts are printed.
+ * Fires when Customizer control scripts are printed.
  *
  * @since WP 3.4.0
  */
@@ -191,11 +191,11 @@ do_action( 'customize_controls_print_scripts' );
 				</div>
 				<span class="spinner"></span>
 				<button type="button" class="customize-controls-preview-toggle">
-					<span class="controls"><?php _e( 'Manage' ); ?></span>
+					<span class="controls"><?php _e( 'Customize' ); ?></span>
 					<span class="preview"><?php _e( 'Preview' ); ?></span>
 				</button>
 				<a class="customize-controls-close" href="<?php echo esc_url( $wp_customize->get_return_url() ); ?>">
-					<span class="screen-reader-text"><?php _e( 'Close the Live Manager and go back to the previous page' ); ?></span>
+					<span class="screen-reader-text"><?php _e( 'Close the Customizer and go back to the previous page' ); ?></span>
 				</a>
 			</div>
 
@@ -205,7 +205,7 @@ do_action( 'customize_controls_print_scripts' );
 				</div>
 			</div>
 
-			<div id="widgets-right" class="wp-clearfix"><!-- For Widget Live Manager, many widgets try to look for instances under div#widgets-right, so we have to add that ID to a container div in the Live Manager for compat -->
+			<div id="widgets-right" class="wp-clearfix"><!-- For Widget Customizer, many widgets try to look for instances under div#widgets-right, so we have to add that ID to a container div in the Customizer for compat -->
 				<div id="customize-notifications-area" class="customize-control-notifications-container">
 					<ul></ul>
 				</div>
@@ -218,7 +218,7 @@ do_action( 'customize_controls_print_scripts' );
 							<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text"><?php _e( 'Help' ); ?></span></button>
 						</div>
 						<div class="customize-panel-description"><?php
-							_e( 'The Live Manager allows you to preview changes to your site before publishing them. You can navigate to different pages on your site within the preview. Edit shortcuts are shown for some editable elements.' );
+							_e( 'The Customizer allows you to preview changes to your site before publishing them. You can navigate to different pages on your site within the preview. Edit shortcuts are shown for some editable elements.' );
 						?></div>
 					</div>
 

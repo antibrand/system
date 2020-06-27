@@ -222,7 +222,7 @@ class Custom_Background {
 	<p>
 		<?php
 		printf(
-			__( 'You can now manage and live-preview Custom Backgrounds in the <a href="%1$s">Live Manager</a>.' ),
+			__( 'You can now manage and live-preview Custom Backgrounds in the <a href="%1$s">Customizer</a>.' ),
 			admin_url( 'customize.php?autofocus[control]=background_image' )
 		);
 		?>

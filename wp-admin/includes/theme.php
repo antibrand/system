@@ -628,7 +628,7 @@ function wp_prepare_themes_for_js( $themes = null ) {
 }
 
 /**
- * Print JS templates for the theme-browsing UI in the Live Manager.
+ * Print JS templates for the theme-browsing UI in the Customizer.
  *
  * @since 4.2.0
  */
@@ -705,7 +705,7 @@ function customize_themes_print_templates() {
 					<h2><?php _e( 'Manage This Theme' ); ?></h2>
 
 					<div class="theme-action-buttons">
-						<p><button type="button" class="button button-primary customize-theme"><?php _e( 'Manage' ); ?></button></p>
+						<p><button type="button" class="button button-primary customize-theme"><?php _e( 'Customize' ); ?></button></p>
 					</div>
 
 				<# } else if ( 'installed' === data.type ) { #>

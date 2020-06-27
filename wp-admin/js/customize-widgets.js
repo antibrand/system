@@ -449,7 +449,7 @@
 	/**
 	 * wp.customize.Widgets.WidgetControl
 	 *
-	 * Live Manager control for widgets.
+	 * Customizer control for widgets.
 	 * Note that 'widget_form' must match the WP_Widget_Form_Customize_Control::$type
 	 *
 	 * @constructor
@@ -855,7 +855,7 @@
 		},
 
 		/**
-		 * Highlight widgets in preview when interacted with in the Live Manager
+		 * Highlight widgets in preview when interacted with in the Customizer
 		 */
 		_setupHighlightEffects: function() {
 			var self = this;
@@ -1571,7 +1571,7 @@
 	/**
 	 * wp.customize.Widgets.WidgetsPanel
 	 *
-	 * Live Manager panel containing the widget area sections.
+	 * Customizer panel containing the widget area sections.
 	 *
 	 * @since 4.4.0
 	 */
@@ -1691,7 +1691,7 @@
 	/**
 	 * wp.customize.Widgets.SidebarSection
 	 *
-	 * Live Manager section representing a widget area widget
+	 * Customizer section representing a widget area widget
 	 *
 	 * @since 4.1.0
 	 */
@@ -1716,7 +1716,7 @@
 	/**
 	 * wp.customize.Widgets.SidebarControl
 	 *
-	 * Live Manager control for widgets.
+	 * Customizer control for widgets.
 	 * Note that 'sidebar_widgets' must match the WP_Widget_Area_Customize_Control::$type
 	 *
 	 * @since 3.9.0
@@ -1877,7 +1877,7 @@
 			} );
 
 			/**
-			 * Expand other Live Manager sidebar section when dragging a control widget over it,
+			 * Expand other Customizer sidebar section when dragging a control widget over it,
 			 * allowing the control to be dropped into another section
 			 */
 			this.$controlSection.find( '.accordion-section-title' ).droppable({
@@ -2167,7 +2167,7 @@
 	});
 
 	/**
-	 * Init Live Manager for widgets.
+	 * Init Customizer for widgets.
 	 */
 	api.bind( 'ready', function() {
 		// Set up the widgets panel

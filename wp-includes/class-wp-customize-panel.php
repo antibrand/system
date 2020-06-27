@@ -103,7 +103,7 @@ class WP_Customize_Panel {
 	public $auto_expand_sole_section = false;
 
 	/**
-	 * Live Manager sections for this panel.
+	 * Customizer sections for this panel.
 	 *
 	 * @since 4.0.0
 	 * @var array
@@ -139,7 +139,7 @@ class WP_Customize_Panel {
 	 *
 	 * @since 4.0.0
 	 *
-	 * @param WP_Customize_Manager $manager Live Manager bootstrap instance.
+	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
 	 * @param string               $id      An specific ID for the panel.
 	 * @param array                $args    Panel arguments.
 	 */
@@ -163,7 +163,7 @@ class WP_Customize_Panel {
 	}
 
 	/**
-	 * Check whether panel is active to current Live Manager preview.
+	 * Check whether panel is active to current Customizer preview.
 	 *
 	 * @since 4.1.0
 	 *
@@ -178,7 +178,7 @@ class WP_Customize_Panel {
 		 *
 		 * @since 4.1.0
 		 *
-		 * @param bool               $active Whether the Live Manager panel is active.
+		 * @param bool               $active Whether the Customizer panel is active.
 		 * @param WP_Customize_Panel $panel  WP_Customize_Panel instance.
 		 */
 		$active = apply_filters( 'customize_panel_active', $active, $panel );
@@ -238,7 +238,7 @@ class WP_Customize_Panel {
 	}
 
 	/**
-	 * Get the panel's content template for insertion into the Live Manager pane.
+	 * Get the panel's content template for insertion into the Customizer pane.
 	 *
 	 * @since 4.1.0
 	 *
@@ -261,7 +261,7 @@ class WP_Customize_Panel {
 		}
 
 		/**
-		 * Fires before rendering a Live Manager panel.
+		 * Fires before rendering a Customizer panel.
 		 *
 		 * @since 4.0.0
 		 *
@@ -270,10 +270,10 @@ class WP_Customize_Panel {
 		do_action( 'customize_render_panel', $this );
 
 		/**
-		 * Fires before rendering a specific Live Manager panel.
+		 * Fires before rendering a specific Customizer panel.
 		 *
 		 * The dynamic portion of the hook name, `$this->id`, refers to
-		 * the ID of the specific Live Manager panel to be rendered.
+		 * the ID of the specific Customizer panel to be rendered.
 		 *
 		 * @since 4.0.0
 		 */
@@ -359,7 +359,7 @@ class WP_Customize_Panel {
 			<button class="customize-panel-back" tabindex="-1"><span class="screen-reader-text"><?php _e( 'Back' ); ?></span></button>
 			<div class="accordion-section-title">
 				<span class="preview-notice"><?php
-					/* translators: %s: the site/panel title in the Live Manager */
+					/* translators: %s: the site/panel title in the Customizer */
 					echo sprintf( __( 'You are managing %s' ), '<strong class="panel-title">{{ data.title }}</strong>' );
 				?></span>
 				<# if ( data.description ) { #>

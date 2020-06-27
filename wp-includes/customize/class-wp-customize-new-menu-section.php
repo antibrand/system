@@ -33,7 +33,7 @@ class WP_Customize_New_Menu_Section extends WP_Customize_Section {
 	 *
 	 * @since 4.9.0
 	 *
-	 * @param WP_Customize_Manager $manager Live Manager bootstrap instance.
+	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
 	 * @param string               $id      An specific ID of the section.
 	 * @param array                $args    Section arguments.
 	 */

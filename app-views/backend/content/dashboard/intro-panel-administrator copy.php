@@ -266,7 +266,7 @@ $user_greeting = sprintf(
 							<?php echo $theme_description; ?>
 							<?php echo $theme_tags; ?>
 
-							<p class="dashboard-panel-call-to-action"><a class="button button-primary button-hero load-customize hide-if-no-customize" href="<?php echo esc_url( wp_customize_url() . '?url=' . site_url() . '&return=' . site_url() ); ?>"><?php _e( 'Launch Live Manager' ); ?></a></p>
+							<p class="dashboard-panel-call-to-action"><a class="button button-primary button-hero load-customize hide-if-no-customize" href="<?php echo esc_url( wp_customize_url() . '?url=' . site_url() . '&return=' . site_url() ); ?>"><?php _e( 'Launch Customizer' ); ?></a></p>
 						</div>
 
 					</div>

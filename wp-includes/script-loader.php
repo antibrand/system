@@ -577,7 +577,7 @@ function wp_default_scripts( &$scripts ) {
 		'trashConfirm'       => __( 'Are you sure you&#8217;d like to discard your unpublished changes?' ),
 		/* translators: %s: Display name of the user who has taken over the changeset in customizer. */
 		'takenOverMessage'   => __( '%s has taken over and is currently customizing.' ),
-		/* translators: %s: URL to the Live Manager to load the autosaved version */
+		/* translators: %s: URL to the Customizer to load the autosaved version */
 		'autosaveNotice'     => __( 'There is a more recent autosave of your changes than the one you are previewing. <a href="%s">Restore the autosave</a>' ),
 		'videoHeaderNotice'  => __( 'This theme doesn&#8217;t support video headers on this page. Navigate to the front page or another page that supports video headers.' ),
 		// Used for overriding the file types allowed in plupload.
