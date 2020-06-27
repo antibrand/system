@@ -1,7 +1,7 @@
-/* global _wpWidgetLive ManagerPreviewSettings */
+/* global _wpWidgetLiveManagerPreviewSettings */
 
 /** @namespace wp.customize.widgetsPreview */
-wp.customize.widgetsPreview = wp.customize.WidgetLive ManagerPreview = (function( $, _, wp, api ) {
+wp.customize.widgetsPreview = wp.customize.WidgetLiveManagerPreview = (function( $, _, wp, api ) {
 
 	var self;
 
@@ -705,7 +705,7 @@ wp.customize.widgetsPreview = wp.customize.WidgetLive ManagerPreview = (function
 	};
 
 	api.bind( 'preview-ready', function() {
-		$.extend( self, _wpWidgetLive ManagerPreviewSettings );
+		$.extend( self, _wpWidgetLiveManagerPreviewSettings );
 		self.init();
 	});
 
