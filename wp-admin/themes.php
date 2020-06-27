@@ -160,12 +160,12 @@ if ( current_user_can( 'install_themes' ) ) {
 	);
 }
 
-// Help tab: Previewing and Customizing.
+// Help tab: Previewing and Managing.
 if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) {
 
 	$help_customize = sprintf(
 		'<h3>%1s</h3>',
-		__( 'Previewing and Customizing' )
+		__( 'Previewing and Managing' )
 	);
 
 	$help_customize .=
@@ -175,7 +175,7 @@ if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' )
 
 	get_current_screen()->add_help_tab( [
 		'id'		=> 'customize-preview-themes',
-		'title'		=> __( 'Previewing and Customizing' ),
+		'title'		=> __( 'Previewing and Managing' ),
 		'content'	=> $help_customize
 	] );
 }

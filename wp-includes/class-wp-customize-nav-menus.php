@@ -443,7 +443,7 @@ final class WP_Customize_Nav_Menus {
 				'movedLeft'              => __( 'Menu item moved out of submenu' ),
 				'movedRight'             => __( 'Menu item is now a sub-item' ),
 				/* translators: &#9656; is the unicode right-pointing triangle, and %s is the section title in the Customizer */
-				'customizingMenus'       => sprintf( __( 'Customizing &#9656; %s' ), esc_html( $this->manager->get_panel( 'nav_menus' )->title ) ),
+				'customizingMenus'       => sprintf( __( '%s' ), esc_html( $this->manager->get_panel( 'nav_menus' )->title ) ),
 				/* translators: %s: title of menu item which is invalid */
 				'invalidTitleTpl'        => __( '%s (Invalid)' ),
 				/* translators: %s: title of menu item in draft status */
@@ -1004,7 +1004,7 @@ final class WP_Customize_Nav_Menus {
 					<span class="customize-action">
 						<?php
 							/* translators: &#9656; is the unicode right-pointing triangle, and %s is the section title in the Customizer */
-							printf( __( 'Customizing &#9656; %s' ), esc_html( $this->manager->get_panel( 'nav_menus' )->title ) );
+							printf( __( '%s' ), esc_html( $this->manager->get_panel( 'nav_menus' )->title ) );
 						?>
 					</span>
 					<?php _e( 'Add Menu Items' ); ?>

@@ -360,7 +360,7 @@ class WP_Customize_Panel {
 			<div class="accordion-section-title">
 				<span class="preview-notice"><?php
 					/* translators: %s: the site/panel title in the Customizer */
-					echo sprintf( __( 'You are customizing %s' ), '<strong class="panel-title">{{ data.title }}</strong>' );
+					echo sprintf( __( 'You are managing %s' ), '<strong class="panel-title">{{ data.title }}</strong>' );
 				?></span>
 				<# if ( data.description ) { #>
 					<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text"><?php _e( 'Help' ); ?></span></button>

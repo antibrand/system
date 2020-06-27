@@ -75,7 +75,7 @@ class WP_Customize_Nav_Menus_Panel extends WP_Customize_Panel {
 				<span class="preview-notice">
 					<?php
 					/* translators: %s: the site/panel title in the Customizer */
-					printf( __( 'You are customizing %s' ), '<strong class="panel-title">{{ data.title }}</strong>' );
+					printf( __( 'You are managing %s' ), '<strong class="panel-title">{{ data.title }}</strong>' );
 					?>
 				</span>
 				<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false">

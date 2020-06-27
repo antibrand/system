@@ -395,7 +395,7 @@ $customize_url = add_query_arg(
 );
 
 $submenu['themes.php'][5] = [
-	__( 'Customize' ),
+	__( 'Live Manager' ),
 	'customize',
 	esc_url( $customize_url ),
 	'',

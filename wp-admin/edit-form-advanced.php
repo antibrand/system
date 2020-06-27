@@ -431,7 +431,7 @@ if ( 'post' == $post_type ) {
 
 	$customize_display = sprintf(
 		'<h3>%1s</h3>',
-		__( 'Customizing This Display' )
+		__( 'Managing This Display' )
 	);
 
 	$customize_display .= sprintf(
@@ -443,7 +443,7 @@ if ( 'post' == $post_type ) {
 
 	get_current_screen()->add_help_tab( [
 		'id'      => 'customize-display',
-		'title'   => __( 'Customizing This Display' ),
+		'title'   => __( 'Managing This Display' ),
 		'content' => $customize_display,
 	] );
 

@@ -784,7 +784,7 @@ final class WP_Customize_Widgets {
 	}
 
 	/**
-	 * Renders the widget form control templates into the DOM.
+	 * Renders the widget form control templates into the DOM.w
 	 *
 	 * @since 3.9.0
 	 */
@@ -799,7 +799,7 @@ final class WP_Customize_Widgets {
 				<h3>
 					<span class="customize-action"><?php
 						/* translators: &#9656; is the unicode right-pointing triangle, and %s is the section title in the Customizer */
-						echo sprintf( __( 'Customizing &#9656; %s' ), esc_html( $this->manager->get_panel( 'widgets' )->title ) );
+						echo sprintf( __( '%s' ), esc_html( $this->manager->get_panel( 'widgets' )->title ) );
 					?></span>
 					<?php _e( 'Add a Widget' ); ?>
 				</h3>
