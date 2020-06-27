@@ -640,20 +640,20 @@ function customize_themes_print_templates() {
 	?>
 	<script type="text/html" id="tmpl-customize-themes-details-view">
 		<div class="theme-backdrop"></div>
-		<div class="theme-wrap wp-clearfix" role="document">
+		<div class="theme-wrap" role="document">
 			<div class="theme-header">
-				<button type="button" class="theme-next theme-prev dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Show previous theme' ); ?></span></button>
-				<button type="button" class="theme-next theme-next dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Show next theme' ); ?></span></button>
-				<button type="button" class="theme-next close dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Close details dialog' ); ?></span></button>
+				<button type="button" class="theme-prev button dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Show previous theme' ); ?></span></button>
+				<button type="button" class="theme-next button dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Show next theme' ); ?></span></button>
+				<button type="button" class="button close dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Close details dialog' ); ?></span></button>
 			</div>
-			<div class="theme-about wp-clearfix">
+			<div class="theme-about">
 				<div class="theme-cover-wrap">
 				<# if ( data.cover && data.cover[0] ) { #>
 					<figure class="theme-cover-image">
 						<img src="{{ data.cover[0] }}" alt="" />
 						<figcaption class="screen-reader-text"><?php _e( 'Theme cover image' ); ?></figcaption>
 					</figure>
-				<# } elseif ( data.screenshot && data.screenshot[0] ) { #>
+				<# } else if ( data.screenshot && data.screenshot[0] ) { #>
 					<figure class="theme-cover-image">
 						<img src="{{ data.screenshot[0] }}" alt="" />
 						<figcaption class="screen-reader-text"><?php _e( 'Theme screenshot' ); ?></figcaption>

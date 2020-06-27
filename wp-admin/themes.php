@@ -615,13 +615,13 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 	</div>
 </script>
 
-<script id="tmpl-theme-single" type="text/template">
+<script type="text/template" id="tmpl-theme-single">
 	<div class="theme-backdrop"></div>
 	<div class="theme-wrap" role="document">
 		<div class="theme-header">
-			<button class="button theme-prev dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Show previous theme' ); ?></span></button>
-			<button class="button theme-next dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Show next theme' ); ?></span></button>
-			<button class="button close dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Close details dialog' ); ?></span></button>
+			<button type="button" class="button theme-prev dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Show previous theme' ); ?></span></button>
+			<button type="button" class="button theme-next dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Show next theme' ); ?></span></button>
+			<button type="button" class="button close dashicons dashicons-no"><span class="screen-reader-text"><?php _e( 'Close details dialog' ); ?></span></button>
 		</div>
 		<div class="theme-about">
 			<div class="theme-cover-wrap">

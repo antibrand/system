@@ -70,12 +70,11 @@ class WP_Customize_Themes_Section extends WP_Customize_Section {
 	 */
 	protected function render_template() {
 		?>
-		<li id="accordion-section-{{ data.id }}" class="theme-section">
+		<li id="accordion-section-{{ data.id }}" class="theme theme-section">
 			<button type="button" class="customize-themes-section-title themes-section-{{ data.id }}">{{ data.title }}</button>
 			<?php if ( current_user_can( 'install_themes' ) || is_multisite() ) : // @todo: upload support ?>
 			<?php endif; ?>
 			<div class="customize-themes-section themes-section-{{ data.id }} control-section-content themes-php">
-				<div class="theme-overlay" tabindex="0" role="dialog" aria-label="<?php esc_attr_e( 'Theme Details' ); ?>"></div>
 				<div class="theme-browser rendered">
 					<div class="customize-preview-header themes-filter-bar">
 						<?php $this->filter_bar_content_template(); ?>
@@ -91,17 +90,19 @@ class WP_Customize_Themes_Section extends WP_Customize_Section {
 						 */
 						?>
 					</ul>
-					<p class="no-themes"><?php _e( 'No themes found. Try a different search.' ); ?></p>
-					<p class="no-themes-local">
-						<?php
-						/* translators: %s: "Search wordpress.org themes" button */
-						printf( __( 'No themes found. Try a different search, or %s.' ),
-							sprintf( '<button type="button" class="button-link search-dotorg-themes">%s</button>', __( 'Search wordpress.org themes' ) )
-						);
-						?>
-					</p>
 					<p class="spinner"></p>
 				</div>
+				<div class="theme-overlay" tabindex="0" role="dialog" aria-label="<?php esc_attr_e( 'Theme Details' ); ?>"></div>
+
+				<p class="no-themes"><?php _e( 'No themes found. Try a different search.' ); ?></p>
+				<p class="no-themes-local">
+					<?php
+					/* translators: %s: "Search wordpress.org themes" button */
+					printf( __( 'No themes found. Try a different search, or %s.' ),
+						sprintf( '<button type="button" class="button-link search-dotorg-themes">%s</button>', __( 'Search wordpress.org themes' ) )
+					);
+					?>
+				</p>
 			</div>
 		</li>
 		<?php

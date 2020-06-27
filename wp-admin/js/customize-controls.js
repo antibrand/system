@@ -1842,11 +1842,11 @@
 			});
 
 			// Theme navigation in details view.
-			section.container.on( 'click', '.left', function() {
+			section.container.on( 'click', '.theme-prev', function() {
 				section.previousTheme();
 			});
 
-			section.container.on( 'click', '.right', function() {
+			section.container.on( 'click', '.theme-next', function() {
 				section.nextTheme();
 			});
 
@@ -3528,9 +3528,14 @@
 			}
 
 			if ( ! control.params.content ) {
+				if ( 'theme' === control.params.type ) {
+					classAttr = 'customize-control theme customize-control-' + control.params.type;
+				} else {
+					classAttr = 'customize-control customize-control-' + control.params.type;
+				}
 				control.params.content = $( '<li></li>', {
 					id: 'customize-control-' + id.replace( /]/g, '' ).replace( /\[/g, '-' ),
-					'class': 'customize-control customize-control-' + control.params.type
+					'class': classAttr
 				} );
 			}
 
