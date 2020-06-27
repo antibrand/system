@@ -22,8 +22,6 @@
  * Get plugins path
  *
  * Used to check for active plugins with the `is_plugin_active` function.
- *
- * @link https://developer.wordpress.org/reference/functions/is_plugin_active/
  */
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 

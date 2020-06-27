@@ -130,8 +130,7 @@ function get_core_checksums( $version, $locale ) {
 		 * trigger_error(
 		 * sprintf(
 		 *	// Translators: %s: support forums URL.
-		 * 	__( 'An unexpected error occurred. Something may be wrong with wordpress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
-		 *		__( 'https://wordpress.org/support/' )
+		 * 	__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' )
 		 *	) . ' ' . __( '(Could not establish a secure connection to wordpress.org. Please contact your server administrator.)' ),
 		 *	headers_sent() || APP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 		 * );

@@ -4191,6 +4191,13 @@ function the_generator( $type ) {
  * @return string|void The HTML content for the generator.
  */
 function get_the_generator( $type = '' ) {
+
+	if ( defined( 'APP_NAME' ) ) {
+		$app_name = APP_NAME;
+	} else {
+		$app_name = '';
+	}
+
 	if ( empty( $type ) ) {
 
 		$current_filter = current_filter();
@@ -4219,19 +4226,19 @@ function get_the_generator( $type = '' ) {
 
 	switch ( $type ) {
 		case 'html':
-			$gen = '<meta name="generator" content="' . esc_attr( get_bloginfo( 'version' ) ) . '">';
+			$gen = '<meta name="generator" content="' . esc_attr( get_bloginfo( 'version' ) ) . '" />';
 			break;
 		case 'xhtml':
 			$gen = '<meta name="generator" content="' . esc_attr( get_bloginfo( 'version' ) ) . '" />';
 			break;
 		case 'atom':
-			$gen = '<generator uri="https://wordpress.org/" version="' . esc_attr( get_bloginfo_rss( 'version' ) ) . '">WordPress</generator>';
+			$gen = '<generator uri="" version="' . esc_attr( get_bloginfo_rss( 'version' ) ) . '">' . $app_name . '</generator>';
 			break;
 		case 'rss2':
-			$gen = '<generator>' . esc_url_raw( 'https://wordpress.org/?v=' . get_bloginfo_rss( 'version' ) ) . '</generator>';
+			$gen = '<generator>' . $app_name . ' ' . get_bloginfo_rss( 'version' ) . '</generator>';
 			break;
 		case 'rdf':
-			$gen = '<admin:generatorAgent rdf:resource="' . esc_url_raw( 'https://wordpress.org/?v=' . get_bloginfo_rss( 'version' ) ) . '" />';
+			$gen = '<admin:generatorAgent rdf:resource="" />';
 			break;
 		case 'comment':
 			$gen = '<!-- generator="' . esc_attr( get_bloginfo( 'version' ) ) . '" -->';

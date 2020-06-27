@@ -160,8 +160,7 @@ class WP_Embed {
 
 		$this->last_attr = $attr;
 
-		// kses converts & into &amp; and we need to undo this
-		// See https://core.trac.wordpress.org/ticket/11311
+		// kses converts & into &amp; and we need to undo this.
 		$url = str_replace( '&amp;', '&', $url );
 
 		// Look for known internal handlers

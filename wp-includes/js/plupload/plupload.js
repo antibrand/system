@@ -22,7 +22,6 @@
 
 /**
  * Modified, Silverlight and Flash runtimes support was removed.
- * See https://core.trac.wordpress.org/ticket/41755.
  */
 
 /*global mOxie:true */

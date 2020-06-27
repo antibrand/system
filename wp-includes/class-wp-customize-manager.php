@@ -675,7 +675,6 @@ final class WP_Customize_Manager {
 			add_filter( 'stylesheet', array( $this, 'get_stylesheet' ) );
 			add_filter( 'pre_option_current_theme', array( $this, 'current_theme' ) );
 
-			// @link: https://core.trac.wordpress.org/ticket/20027
 			add_filter( 'pre_option_stylesheet', array( $this, 'get_stylesheet' ) );
 			add_filter( 'pre_option_template', array( $this, 'get_template' ) );
 
@@ -713,7 +712,6 @@ final class WP_Customize_Manager {
 			remove_filter( 'stylesheet', array( $this, 'get_stylesheet' ) );
 			remove_filter( 'pre_option_current_theme', array( $this, 'current_theme' ) );
 
-			// @link: https://core.trac.wordpress.org/ticket/20027
 			remove_filter( 'pre_option_stylesheet', array( $this, 'get_stylesheet' ) );
 			remove_filter( 'pre_option_template', array( $this, 'get_template' ) );
 
@@ -3053,7 +3051,6 @@ final class WP_Customize_Manager {
 	 * This should be able to be removed once #40922 is addressed in core.
 	 *
 	 * @since 4.9.0
-	 * @link https://core.trac.wordpress.org/ticket/40922
 	 * @see WP_Customize_Manager::save_changeset_post()
 	 * @see _wp_translate_postdata()
 	 *
@@ -3585,7 +3582,6 @@ final class WP_Customize_Manager {
 	 *  @type string       $transport             Options for rendering the live preview of changes in Theme Customizer.
 	 *                                            Using 'refresh' makes the change visible by reloading the whole preview.
 	 *                                            Using 'postMessage' allows a custom JavaScript to handle live changes.
-	 *                                            @link https://developer.wordpress.org/themes/customize-api
 	 *                                            Default is 'refresh'
 	 *  @type callable     $validate_callback     Server-side validation callback for the setting's value.
 	 *  @type callable     $sanitize_callback     Callback to filter a Customize setting value in un-slashed form.
@@ -3756,9 +3752,9 @@ final class WP_Customize_Manager {
 		// Removing core components this way is _doing_it_wrong().
 		if ( in_array( $id, $this->components, true ) ) {
 			/* translators: 1: panel id, 2: link to 'customize_loaded_components' filter reference */
-			$message = sprintf( __( 'Removing %1$s manually will cause PHP warnings. Use the %2$s filter instead.' ),
+			$message = sprintf( __( 'Removing %1$s manually will cause PHP warnings. Use the <code>%2$s</code> filter instead.' ),
 				$id,
-				'<a href="' . esc_url( 'https://developer.wordpress.org/reference/hooks/customize_loaded_components/' ) . '"><code>customize_loaded_components</code></a>'
+				'customize_loaded_components'
 			);
 
 			_doing_it_wrong( __METHOD__, $message, '4.5.0' );
@@ -4823,7 +4819,6 @@ final class WP_Customize_Manager {
 		$this->add_panel( new WP_Customize_Themes_Panel( $this, 'themes', array(
 			'title'       => $this->theme()->display( 'Name' ),
 			'description' => (
-				'<p>' . __( 'Looking for a theme? You can search or browse the wordpress.org theme directory, install and preview themes, then activate them right here.' ) . '</p>' .
 				'<p>' . __( 'While previewing a new theme, you can continue to tailor things like widgets and menus, and explore theme-specific options.' ) . '</p>'
 			),
 			'capability'  => 'switch_themes',
@@ -5213,7 +5208,7 @@ final class WP_Customize_Manager {
 
 		/*
 		 * Static Front Page
-		 * See also https://core.trac.wordpress.org/ticket/19627 which introduces the static-front-page theme_support.
+		 *
 		 * The following replicates behavior from options-reading.php.
 		 */
 
@@ -5267,13 +5262,6 @@ final class WP_Customize_Manager {
 		/* Custom CSS */
 		$section_description = '<p>';
 		$section_description .= __( 'Add your own CSS code here to customize the appearance and layout of your site.' );
-		$section_description .= sprintf(
-			' <a href="%1$s" class="external-link" target="_blank">%2$s<span class="screen-reader-text"> %3$s</span></a>',
-			esc_url( __( 'https://codex.wordpress.org/CSS' ) ),
-			__( 'Learn more about CSS' ),
-			/* translators: accessibility text */
-			__( '(opens in a new window)' )
-		);
 		$section_description .= '</p>';
 
 		$section_description .= '<p id="editor-keyboard-trap-help-1">' . __( 'When using a keyboard to navigate:' ) . '</p>';

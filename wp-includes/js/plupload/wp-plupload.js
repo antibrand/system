@@ -168,8 +168,6 @@ window.wp = window.wp || {};
 				// Using an instant timer prevents the drag-over class from
 				// being quickly removed and re-added when elements inside the
 				// dropzone are repositioned.
-				//
-				// @see https://core.trac.wordpress.org/ticket/21705
 				timer = setTimeout( function() {
 					active = false;
 					dropzone.trigger('dropzone:leave').removeClass('drag-over');

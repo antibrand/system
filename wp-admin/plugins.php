@@ -520,14 +520,6 @@ $help_overview .= sprintf(
 	__( 'The search results will be updated as you type.' )
 );
 
-$help_overview .= sprintf(
-	'<p>%1s <a href="%2s">%3s</a> %4s</p>',
-	__( 'If you would like to see more plugins to choose from, click on the &#8220;Add New&#8221; button and you will be able to browse or search for additional plugins from the' ),
-	esc_url( 'https://wordpress.org/plugins/' ),
-	__( 'WordPress Plugin Directory' ),
-	__( '. Plugins in the WordPress Plugin Directory are designed and developed by third parties.' )
-);
-
 $help_overview = apply_filters( 'help_plugins_overview', $help_overview );
 
 get_current_screen()->add_help_tab( [

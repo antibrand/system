@@ -392,9 +392,7 @@ function get_theme_feature_list( $api = true ) {
  *         @type bool $extended_author    Whether to return nicename or nicename and display name. Default false.
  *     }
  * }
- * @return object|array|WP_Error Response object or array on success, WP_Error on failure. See the
- *         {@link https://developer.wordpress.org/reference/functions/themes_api/ function reference article}
- *         for more information on the make-up of possible return objects depending on the value of `$action`.
+ * @return object|array|WP_Error Response object or array on success, WP_Error on failure.
  */
 function themes_api( $action, $args = array() ) {
 
@@ -466,7 +464,7 @@ function themes_api( $action, $args = array() ) {
 				 *
 				 * trigger_error(
 				 * 	// Translators: %s: support forums URL.
-				 * 	__( 'An unexpected error occurred. Something may be wrong with wordpress.org or this server&#8217;s configuration.' ),
+				 * 	__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ),
 				 * 	headers_sent() || APP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 				 * );
 				 */
@@ -478,8 +476,7 @@ function themes_api( $action, $args = array() ) {
 			$res = new WP_Error( 'themes_api_failed',
 				sprintf(
 					/* translators: %s: support forums URL */
-					__( 'An unexpected error occurred. Something may be wrong with wordpress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
-					__( 'https://wordpress.org/support/' )
+					__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' )
 				),
 				$request->get_error_message()
 			);
@@ -489,8 +486,7 @@ function themes_api( $action, $args = array() ) {
 				$res = new WP_Error( 'themes_api_failed',
 					sprintf(
 						/* translators: %s: support forums URL */
-						__( 'An unexpected error occurred. Something may be wrong with wordpress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
-						__( 'https://wordpress.org/support/' )
+						__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' )
 					),
 					wp_remote_retrieve_body( $request )
 				);

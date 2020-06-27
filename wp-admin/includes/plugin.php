@@ -1886,8 +1886,6 @@ function plugin_sandbox_scrape( $plugin ) {
  * A plugin or theme can use this function multiple times as long as it will help to better present
  * the suggested policy content. For example modular plugins such as WooCommerse or Jetpack
  * can add or remove suggested content depending on the modules/extensions that are enabled.
- * For more information see the Plugin Handbook:
- * https://developer.wordpress.org/plugins/privacy/suggesting-text-for-the-site-privacy-policy/.
  *
  * Intended for use with the `'admin_init'` action.
  *

@@ -2029,8 +2029,7 @@ if ( !function_exists('wp_salt') ) :
  *
  * The secret keys in app-config.php should be updated to strong, random keys to maximize
  * security. Below is an example of how the secret key constants are defined.
- * Do not paste this example directly into app-config.php. Instead, have a
- * {@link https://api.wordpress.org/secret-key/1.1/salt/ secret key created} just
+ * Do not paste this example directly into app-config.php. Instead, have asecret key created just
  * for you.
  *
  *     define('AUTH_KEY',         ' Xakm<o xQy rw4EMsLKM-?!T+,PFF})H4lzcW57AF0U@N@< >M%G4Yt>f`z]MON');
