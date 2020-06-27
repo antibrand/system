@@ -266,6 +266,22 @@
 }
 
 /* Dashboard Quick Draft - Form styling */
+#quick-press input[type="text"],
+#quick-press textarea {
+  width: 100%;
+  max-width: 640px;
+}
+
+#quick-press .dashboard-quick-draft-error {
+  margin: 1em 0;
+}
+
+#quick-press textarea#content {
+  height: 120px;
+  min-height: 120px;
+  max-height: 1300px;
+}
+
 input#save-post {
   float: right;
 }
@@ -326,13 +342,6 @@ form.initial-form.quickpress-open input#title {
 .textarea-wrap textarea#content {
   margin: 0 0 8px;
   padding: 6px 7px;
-}
-
-#quick-press textarea#content {
-  height: 120px;
-  min-height: 120px;
-  max-height: 1300px;
-  resize: none;
 }
 
 .no-js #quick-press textarea#content {

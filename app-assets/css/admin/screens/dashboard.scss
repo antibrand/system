@@ -394,6 +394,12 @@
 	.dashboard-quick-draft-error {
 		margin: 1em 0;
 	}
+
+	textarea#content {
+		height: 120px;
+		min-height: 120px;
+		max-height: 1300px;
+	}
 }
 
 input#save-post {
@@ -445,13 +451,6 @@ form.initial-form.quickpress-open input#title {
 .textarea-wrap #content-prompt-text {
 	font-size: 1.1em;
 	padding: 7px 8px;
-}
-
-#quick-press textarea#content {
-	height: 120px;
-	min-height: 120px;
-	max-height: 1300px;
-	resize: none;
 }
 
 .no-js #quick-press textarea#content {
