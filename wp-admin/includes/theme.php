@@ -705,17 +705,37 @@ function customize_themes_print_templates() {
 
 			<div class="theme-actions">
 				<# if ( data.active ) { #>
-					<button type="button" class="button button-primary customize-theme"><?php _e( 'Customize' ); ?></button>
+
+					<h2><?php _e( 'Manage This Theme' ); ?></h2>
+
+					<div class="theme-action-buttons">
+						<button type="button" class="button button-primary customize-theme"><?php _e( 'Customize' ); ?></button>
+					</div>
+
 				<# } else if ( 'installed' === data.type ) { #>
 					<?php if ( current_user_can( 'delete_themes' ) ) { ?>
 						<# if ( data.actions && data.actions['delete'] ) { #>
-							<a href="{{{ data.actions['delete'] }}}" data-slug="{{ data.id }}" class="button button-secondary delete-theme"><?php _e( 'Delete' ); ?></a>
+							<div class="theme-action-buttons">
+								<a href="{{{ data.actions['delete'] }}}" data-slug="{{ data.id }}" class="button button-secondary delete-theme"><?php _e( 'Delete' ); ?></a>
+							</div>
 						<# } #>
 					<?php } ?>
-					<button type="button" class="button button-primary preview-theme" data-slug="{{ data.id }}"><?php _e( 'Live Preview' ); ?></button>
+
+					<h2><?php _e( 'Preview This Theme' ); ?></h2>
+
+					<div class="theme-action-buttons">
+						<button type="button" class="button button-primary preview-theme" data-slug="{{ data.id }}"><?php _e( 'Live Preview' ); ?></button>
+
+					</div>
 				<# } else { #>
-					<button type="button" class="button theme-install" data-slug="{{ data.id }}"><?php _e( 'Install' ); ?></button>
-					<button type="button" class="button button-primary theme-install preview" data-slug="{{ data.id }}"><?php _e( 'Install &amp; Preview' ); ?></button>
+
+					<h2><?php _e( 'Preview This Theme' ); ?></h2>
+
+					<div class="theme-action-buttons">
+						<button type="button" class="button theme-install" data-slug="{{ data.id }}"><?php _e( 'Install' ); ?></button>
+						<button type="button" class="button button-primary theme-install preview" data-slug="{{ data.id }}"><?php _e( 'Install &amp; Preview' ); ?></button>
+					</div>
+
 				<# } #>
 			</div>
 		</div>

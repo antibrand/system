@@ -100,30 +100,54 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 
 			<# if ( data.theme.active ) { #>
 				<div class="theme-id-container">
+
 					<h3 class="theme-name" id="{{ data.section }}-{{ data.theme.id }}-name">
 						<?php
 						/* translators: %s: theme name */
 						printf( __( '<span>Previewing:</span> %s' ), '{{ data.theme.name }}' );
 						?>
 					</h3>
+
 					<div class="theme-actions">
-						<button type="button" class="button button-primary customize-theme" aria-label="<?php echo esc_attr( $customize_label ); ?>"><?php _e( 'Customize' ); ?></button>
+
+						<h2><?php _e( 'Manage This Theme' ); ?></h2>
+
+						<div class="theme-action-buttons">
+							<button type="button" class="button button-primary customize-theme" aria-label="<?php echo esc_attr( $customize_label ); ?>"><?php _e( 'Customize' ); ?></button>
+						</div>
+
 					</div>
 				</div>
 				<div class="notice notice-success notice-alt"><p><?php _ex( 'Installed', 'theme' ); ?></p></div>
 			<# } else if ( 'installed' === data.theme.type ) { #>
 				<div class="theme-id-container">
+
 					<h3 class="theme-name" id="{{ data.section }}-{{ data.theme.id }}-name">{{ data.theme.name }}</h3>
+
 					<div class="theme-actions">
-						<button type="button" class="button button-primary preview-theme" aria-label="<?php echo esc_attr( $preview_label ); ?>" data-slug="{{ data.theme.id }}"><?php _e( 'Live Preview' ); ?></button>
+
+						<h2><?php _e( 'Preview This Theme' ); ?></h2>
+
+						<div class="theme-action-buttons">
+							<button type="button" class="button button-primary preview-theme" aria-label="<?php echo esc_attr( $preview_label ); ?>" data-slug="{{ data.theme.id }}"><?php _e( 'Live Preview' ); ?></button>
+						</div>
+
 					</div>
 				</div>
 				<div class="notice notice-success notice-alt"><p><?php _ex( 'Installed', 'theme' ); ?></p></div>
 			<# } else { #>
 				<div class="theme-id-container">
+
 					<h3 class="theme-name" id="{{ data.section }}-{{ data.theme.id }}-name">{{ data.theme.name }}</h3>
+
 					<div class="theme-actions">
-						<button type="button" class="button button-primary theme-install preview" aria-label="<?php echo esc_attr( $install_label ); ?>" data-slug="{{ data.theme.id }}" data-name="{{ data.theme.name }}"><?php _e( 'Install &amp; Preview' ); ?></button>
+
+						<h2><?php _e( 'Preview This Theme' ); ?></h2>
+
+						<div class="theme-action-buttons">
+							<button type="button" class="button button-primary theme-install preview" aria-label="<?php echo esc_attr( $install_label ); ?>" data-slug="{{ data.theme.id }}" data-name="{{ data.theme.name }}"><?php _e( 'Install &amp; Preview' ); ?></button>
+						</div>
+
 					</div>
 				</div>
 			<# } #>
