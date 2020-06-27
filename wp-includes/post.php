@@ -156,7 +156,7 @@ function create_initial_post_types() {
 			'singular_name'      => _x( 'Changeset', 'post type singular name' ),
 			'menu_name'          => _x( 'Changesets', 'admin menu' ),
 			'name_admin_bar'     => _x( 'Changeset', 'add new on admin bar' ),
-			'add_new'            => _x( 'Add New', 'Customize Changeset' ),
+			'add_new'            => _x( 'Add New', 'Manage Changeset' ),
 			'add_new_item'       => __( 'Add New Changeset' ),
 			'new_item'           => __( 'New Changeset' ),
 			'edit_item'          => __( 'Edit Changeset' ),

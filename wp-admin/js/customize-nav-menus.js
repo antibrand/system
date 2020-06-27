@@ -750,7 +750,7 @@
 	/**
 	 * wp.customize.Menus.MenusPanel
 	 *
-	 * Customizer panel for menus. This is used only for screen options management.
+	 * Live Manager panel for menus. This is used only for screen options management.
 	 * Note that 'menus' must match the WP_Customize_Menu_Panel::$type.
 	 *
 	 * @constructor
@@ -882,7 +882,7 @@
 	/**
 	 * wp.customize.Menus.MenuSection
 	 *
-	 * Customizer section for menus. This is used only for lazy-loading child controls.
+	 * Live Manager section for menus. This is used only for lazy-loading child controls.
 	 * Note that 'nav_menu' must match the WP_Customize_Menu_Section::$type.
 	 *
 	 * @constructor
@@ -1210,7 +1210,7 @@
 	/**
 	 * wp.customize.Menus.NewMenuSection
 	 *
-	 * Customizer section for new menus.
+	 * Live Manager section for new menus.
 	 *
 	 * @constructor
 	 * @augments wp.customize.Section
@@ -1448,7 +1448,7 @@
 	/**
 	 * wp.customize.Menus.MenuLocationControl
 	 *
-	 * Customizer control for menu locations (rendered as a <select>).
+	 * Live Manager control for menu locations (rendered as a <select>).
 	 * Note that 'nav_menu_location' must match the WP_Customize_Nav_Menu_Location_Control::$type.
 	 *
 	 * @constructor
@@ -1532,7 +1532,7 @@
 	/**
 	 * wp.customize.Menus.MenuItemControl
 	 *
-	 * Customizer control for menu items.
+	 * Live Manager control for menu items.
 	 * Note that 'menu_item' must match the WP_Customize_Menu_Item_Control::$type.
 	 *
 	 * @constructor
@@ -2322,7 +2322,7 @@
 	/**
 	 * wp.customize.Menus.MenuNameControl
 	 *
-	 * Customizer control for a nav menu's name.
+	 * Live Manager control for a nav menu's name.
 	 *
 	 * @constructor
 	 * @augments wp.customize.Control
@@ -2361,7 +2361,7 @@
 	/**
 	 * wp.customize.Menus.MenuLocationsControl
 	 *
-	 * Customizer control for a nav menu's locations.
+	 * Live Manager control for a nav menu's locations.
 	 *
 	 * @since 4.9.0
 	 * @constructor
@@ -2435,7 +2435,7 @@
 	/**
 	 * wp.customize.Menus.MenuAutoAddControl
 	 *
-	 * Customizer control for a nav menu's auto add.
+	 * Live Manager control for a nav menu's auto add.
 	 *
 	 * @constructor
 	 * @augments wp.customize.Control
@@ -2487,7 +2487,7 @@
 	/**
 	 * wp.customize.Menus.MenuControl
 	 *
-	 * Customizer control for menus.
+	 * Live Manager control for menus.
 	 * Note that 'nav_menu' must match the WP_Menu_Customize_Control::$type
 	 *
 	 * @constructor
@@ -3024,7 +3024,7 @@
 	/**
 	 * wp.customize.Menus.NewMenuControl
 	 *
-	 * Customizer control for creating new menus and handling deletion of existing menus.
+	 * Live Manager control for creating new menus and handling deletion of existing menus.
 	 * Note that 'new_menu' must match the WP_Customize_New_Menu_Control::$type.
 	 *
 	 * @constructor
@@ -3132,7 +3132,7 @@
 	});
 
 	/**
-	 * Init Customizer for menus.
+	 * Init Live Manager for menus.
 	 */
 	api.bind( 'ready', function() {
 
@@ -3239,7 +3239,7 @@
 				} );
 
 				// Delete the old placeholder nav_menu.
-				oldSetting.callbacks.disable(); // Prevent setting triggering Customizer dirty state when set.
+				oldSetting.callbacks.disable(); // Prevent setting triggering Live Manager dirty state when set.
 				oldSetting.set( false );
 				oldSetting.preview();
 				newSetting.preview();
@@ -3371,7 +3371,7 @@
 				api.control.add( newControl );
 
 				// Delete the placeholder and preview the new setting.
-				oldSetting.callbacks.disable(); // Prevent setting triggering Customizer dirty state when set.
+				oldSetting.callbacks.disable(); // Prevent setting triggering Live Manager dirty state when set.
 				oldSetting.set( false );
 				oldSetting.preview();
 				newSetting.preview();

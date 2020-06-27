@@ -2300,7 +2300,7 @@ Cropper = wp.media.controller.State.extend(/** @lends wp.media.controller.Croppe
 		router:      false,
 		canSkipCrop: false,
 
-		// Default doCrop Ajax arguments to allow the Customizer (for example) to inject state.
+		// Default doCrop Ajax arguments to allow the Live Manager (for example) to inject state.
 		doCropArgs: {}
 	},
 

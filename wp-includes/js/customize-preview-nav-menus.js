@@ -1,7 +1,7 @@
 /* global _wpCustomizePreviewNavMenusExports */
 
 /** @namespace wp.customize.navMenusPreview */
-wp.customize.navMenusPreview = wp.customize.MenusCustomizerPreview = ( function( $, _, wp, api ) {
+wp.customize.navMenusPreview = wp.customize.MenusLive ManagerPreview = ( function( $, _, wp, api ) {
 	'use strict';
 
 	var self = {

@@ -8,7 +8,7 @@
  */
 
 /**
- * Customizer section representing widget area (sidebar).
+ * Live Manager section representing widget area (sidebar).
  *
  * @since 4.1.0
  *

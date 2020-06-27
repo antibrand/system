@@ -155,7 +155,7 @@ class WP_Customize_Nav_Menu_Item_Setting extends WP_Customize_Setting {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param WP_Customize_Manager $manager Bootstrap Customizer instance.
+	 * @param WP_Customize_Manager $manager Bootstrap Live Manager instance.
 	 * @param string               $id      An specific ID of the setting. Can be a
 	 *                                      theme mod or option name.
 	 * @param array                $args    Optional. Setting arguments.
@@ -765,7 +765,7 @@ class WP_Customize_Nav_Menu_Item_Setting extends WP_Customize_Setting {
 				} else {
 					$this->update_status = 'deleted';
 				}
-				// @todo send back the IDs for all associated nav menu items deleted, so these settings (and controls) can be removed from Customizer?
+				// @todo send back the IDs for all associated nav menu items deleted, so these settings (and controls) can be removed from Live Manager?
 			}
 		} else {
 

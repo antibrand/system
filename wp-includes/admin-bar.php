@@ -319,7 +319,7 @@ function wp_admin_bar_customize_menu( $wp_admin_bar ) {
 
 	$wp_admin_bar->add_menu( array(
 		'id'     => 'customize',
-		'title'  => __( 'Customize' ),
+		'title'  => __( 'Manage' ),
 		'href'   => $customize_url,
 		'meta'   => array(
 			'class' => 'hide-if-no-customize',

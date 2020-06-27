@@ -8,7 +8,7 @@
  */
 
 /**
- * Core Customizer class for implementing selective refresh.
+ * Core Live Manager class for implementing selective refresh.
  *
  * @since 4.5.0
  */
@@ -154,7 +154,7 @@ final class WP_Customize_Selective_Refresh {
 	}
 
 	/**
-	 * Initializes the Customizer preview.
+	 * Initializes the Live Manager preview.
 	 *
 	 * @since 4.5.0
 	 */

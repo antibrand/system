@@ -1,5 +1,5 @@
 /*
- * Script run inside a Customizer preview frame.
+ * Script run inside a Live Manager preview frame.
  */
 (function( exports, $ ){
 	var api = wp.customize,

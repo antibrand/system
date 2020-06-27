@@ -301,9 +301,9 @@ class WP_Widget {
 	}
 
 	/**
-	 * Determines whether the current request is inside the Customizer preview.
+	 * Determines whether the current request is inside the Live Manager preview.
 	 *
-	 * If true -- the current request is inside the Customizer preview, then
+	 * If true -- the current request is inside the Live Manager preview, then
 	 * the object cache gets suspended and widgets should check this to decide
 	 * whether they should store anything persistently to the object cache,
 	 * to transients, or anywhere else.
@@ -312,7 +312,7 @@ class WP_Widget {
 	 *
 	 * @global WP_Customize_Manager $wp_customize
 	 *
-	 * @return bool True if within the Customizer preview, false if not.
+	 * @return bool True if within the Live Manager preview, false if not.
 	 */
 	public function is_preview() {
 		global $wp_customize;

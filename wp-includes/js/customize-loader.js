@@ -17,12 +17,12 @@ window.wp = window.wp || {};
 	});
 
 	/**
-	 * Allows the Customizer to be overlayed on any page.
+	 * Allows the Live Manager to be overlayed on any page.
 	 *
 	 * By default, any element in the body with the load-customize class will open
 	 * an iframe overlay with the URL specified.
 	 *
-	 *     e.g. <a class="load-customize" href="<?php echo wp_customize_url(); ?>">Open Customizer</a>
+	 *     e.g. <a class="load-customize" href="<?php echo wp_customize_url(); ?>">Open Live Manager</a>
 	 *
 	 * @memberOf wp.customize
 	 *
@@ -50,11 +50,11 @@ window.wp = window.wp || {};
 			this.bind( 'close', this.overlay.hide );
 
 			// Any element in the body with the `load-customize` class opens
-			// the Customizer.
+			// the Live Manager.
 			$('#app-body').on( 'click', '.load-customize', function( event ) {
 				event.preventDefault();
 
-				// Store a reference to the link that opened the Customizer.
+				// Store a reference to the link that opened the Live Manager.
 				Loader.link = $(this);
 				// Load the theme.
 				Loader.open( Loader.link.attr('href') );
@@ -99,9 +99,9 @@ window.wp = window.wp || {};
 		},
 
 		/**
-		 * Open the Customizer overlay for a specific URL.
+		 * Open the Live Manager overlay for a specific URL.
 		 *
-		 * @param  string src URL to load in the Customizer.
+		 * @param  string src URL to load in the Live Manager.
 		 */
 		open: function( src ) {
 
@@ -122,7 +122,7 @@ window.wp = window.wp || {};
 
 			/*
 			 * Track the dirtiness state (whether the drafted changes have been published)
-			 * of the Customizer in the iframe. This is used to decide whether to display
+			 * of the Live Manager in the iframe. This is used to decide whether to display
 			 * an AYS alert if the user tries to close the window before saving changes.
 			 */
 			this.saved = new api.Value( true );
@@ -198,14 +198,14 @@ window.wp = window.wp || {};
 		},
 
 		/**
-		 * Callback after the Customizer has been opened.
+		 * Callback after the Live Manager has been opened.
 		 */
 		opened: function() {
 			Loader.body.addClass( 'customize-active full-overlay-active' ).attr( 'aria-busy', 'true' );
 		},
 
 		/**
-		 * Close the Customizer overlay.
+		 * Close the Live Manager overlay.
 		 */
 		close: function() {
 			var self = this, onConfirmClose;
@@ -224,7 +224,7 @@ window.wp = window.wp || {};
 					}
 				} else {
 
-					// Go forward since Customizer is exited by history.back()
+					// Go forward since Live Manager is exited by history.back()
 					history.forward();
 				}
 				self.messenger.unbind( 'confirmed-close', onConfirmClose );
@@ -235,7 +235,7 @@ window.wp = window.wp || {};
 		},
 
 		/**
-		 * Callback after the Customizer has been closed.
+		 * Callback after the Live Manager has been closed.
 		 */
 		closed: function() {
 			Loader.iframe.remove();
@@ -246,7 +246,7 @@ window.wp = window.wp || {};
 			Loader.body.removeClass( 'customize-active full-overlay-active' ).removeClass( 'customize-loading' );
 			$( window ).off( 'beforeunload', Loader.beforeunload );
 			/*
-			 * Return focus to the link that opened the Customizer overlay after
+			 * Return focus to the link that opened the Live Manager overlay after
 			 * the body element visibility is restored.
 			 */
 			if ( Loader.link ) {
@@ -255,7 +255,7 @@ window.wp = window.wp || {};
 		},
 
 		/**
-		 * Callback for the `load` event on the Customizer iframe.
+		 * Callback for the `load` event on the Live Manager iframe.
 		 */
 		loaded: function() {
 			Loader.body.removeClass( 'customize-loading' ).attr( 'aria-busy', 'false' );

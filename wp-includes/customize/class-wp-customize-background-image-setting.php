@@ -8,7 +8,7 @@
  */
 
 /**
- * Customizer Background Image Setting class.
+ * Live Manager Background Image Setting class.
  *
  * @since 3.4.0
  *

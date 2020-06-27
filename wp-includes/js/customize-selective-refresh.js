@@ -21,7 +21,7 @@ wp.customize.selectiveRefresh = ( function( $, api ) {
 	_.extend( self, api.Events );
 
 	/**
-	 * A Customizer Partial.
+	 * A Live Manager Partial.
 	 *
 	 * A partial provides a rendering of one or more settings according to a template.
 	 *
@@ -636,7 +636,7 @@ wp.customize.selectiveRefresh = ( function( $, api ) {
 	self.partial = new api.Values({ defaultConstructor: Partial });
 
 	/**
-	 * Get the POST vars for a Customizer preview request.
+	 * Get the POST vars for a Live Manager preview request.
 	 *
 	 * @since 4.5.0
 	 * @see wp.customize.previewer.query()

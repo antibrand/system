@@ -60,7 +60,7 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 		/* translators: %s: theme name */
 		$details_label = sprintf( __( 'Details for theme: %s' ), '{{ data.theme.name }}' );
 		/* translators: %s: theme name */
-		$customize_label = sprintf( __( 'Customize theme: %s' ), '{{ data.theme.name }}' );
+		$customize_label = sprintf( __( 'Manage theme: %s' ), '{{ data.theme.name }}' );
 		/* translators: %s: theme name */
 		$preview_label = sprintf( __( 'Live preview theme: %s' ), '{{ data.theme.name }}' );
 		/* translators: %s: theme name */
@@ -113,7 +113,7 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 						<h2><?php _e( 'Manage This Theme' ); ?></h2>
 
 						<div class="theme-action-buttons">
-							<p><button type="button" class="button button-primary customize-theme" aria-label="<?php echo esc_attr( $customize_label ); ?>"><?php _e( 'Customize' ); ?></button></p>
+							<p><button type="button" class="button button-primary customize-theme" aria-label="<?php echo esc_attr( $customize_label ); ?>"><?php _e( 'Manage' ); ?></button></p>
 						</div>
 
 					</div>

@@ -296,11 +296,11 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 		// Only if the current user has customize permission.
 		if ( current_user_can( 'customize' ) ) {
 
-			// Customizer link.
+			// Live Manager link.
 			$current_theme_action_links .= sprintf(
 				'<a class="button hide-if-no-customize" href="%1s">%2s</a>',
 				esc_url( admin_url( 'customize.php' ) ),
-				__( 'Customize' )
+				__( 'Manage' )
 			);
 
 			// Logo link.
@@ -421,7 +421,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
 						<div class="theme-action-buttons">
 							<?php if ( $theme['actions']['customize'] && current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) { ?>
-							<p><button type="button" class="button button-primary customize load-customize hide-if-no-customize" href="<?php echo $theme['actions']['customize']; ?>"><?php _e( 'Customize' ); ?></button></p>
+							<p><button type="button" class="button button-primary customize load-customize hide-if-no-customize" href="<?php echo $theme['actions']['customize']; ?>"><?php _e( 'Manage' ); ?></button></p>
 							<?php } ?>
 						</div>
 
@@ -590,7 +590,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 				<# if ( data.actions.customize ) { #>
 					<div class="theme-action-buttons">
 						<p>
-							<a class="button button-primary customize load-customize hide-if-no-customize" href="{{{ data.actions.customize }}}"><?php _e( 'Customize' ); ?></a>
+							<a class="button button-primary customize load-customize hide-if-no-customize" href="{{{ data.actions.customize }}}"><?php _e( 'Manage' ); ?></a>
 						</p>
 					</div>
 				<# } #>
