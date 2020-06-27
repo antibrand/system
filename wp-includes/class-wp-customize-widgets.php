@@ -1157,7 +1157,7 @@ final class WP_Customize_Widgets {
 
 		?>
 		<script type="text/javascript">
-			var _wpWidgetLiveManagerPreviewSettings = <?php echo wp_json_encode( $settings ); ?>;
+			var _wpWidgetLive ManagerPreviewSettings = <?php echo wp_json_encode( $settings ); ?>;
 		</script>
 		<?php
 	}
