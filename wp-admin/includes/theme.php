@@ -709,31 +709,31 @@ function customize_themes_print_templates() {
 					<h2><?php _e( 'Manage This Theme' ); ?></h2>
 
 					<div class="theme-action-buttons">
-						<button type="button" class="button button-primary customize-theme"><?php _e( 'Customize' ); ?></button>
+						<p><button type="button" class="button button-primary customize-theme"><?php _e( 'Customize' ); ?></button></p>
 					</div>
 
 				<# } else if ( 'installed' === data.type ) { #>
-					<?php if ( current_user_can( 'delete_themes' ) ) { ?>
-						<# if ( data.actions && data.actions['delete'] ) { #>
-							<div class="theme-action-buttons">
-								<a href="{{{ data.actions['delete'] }}}" data-slug="{{ data.id }}" class="button button-secondary delete-theme"><?php _e( 'Delete' ); ?></a>
-							</div>
-						<# } #>
-					<?php } ?>
 
-					<h2><?php _e( 'Preview This Theme' ); ?></h2>
+					<h2><?php _e( 'Manage This Theme' ); ?></h2>
 
 					<div class="theme-action-buttons">
-						<button type="button" class="button button-primary preview-theme" data-slug="{{ data.id }}"><?php _e( 'Live Preview' ); ?></button>
+						<p><button type="button" class="button button-primary preview-theme" data-slug="{{ data.id }}"><?php _e( 'Live Preview' ); ?></button></p>
+						<?php if ( current_user_can( 'delete_themes' ) ) { ?>
+							<# if ( data.actions && data.actions['delete'] ) { #>
+								<p><button type="button" href="{{{ data.actions['delete'] }}}" data-slug="{{ data.id }}" class="button button-secondary delete-theme"><?php _e( 'Delete' ); ?></button></p>
+							<# } #>
+						<?php } ?>
 
 					</div>
 				<# } else { #>
 
-					<h2><?php _e( 'Preview This Theme' ); ?></h2>
+					<h2><?php _e( 'Manage This Theme' ); ?></h2>
 
 					<div class="theme-action-buttons">
-						<button type="button" class="button theme-install" data-slug="{{ data.id }}"><?php _e( 'Install' ); ?></button>
-						<button type="button" class="button button-primary theme-install preview" data-slug="{{ data.id }}"><?php _e( 'Install &amp; Preview' ); ?></button>
+						<p>
+							<button type="button" class="button theme-install" data-slug="{{ data.id }}"><?php _e( 'Install' ); ?></button>
+							<button type="button" class="button button-primary theme-install preview" data-slug="{{ data.id }}"><?php _e( 'Install &amp; Preview' ); ?></button>
+						</p>
 					</div>
 
 				<# } #>

@@ -215,12 +215,12 @@ class Themes_List_Table extends List_Table {
 			$activate_link = wp_nonce_url( "themes.php?action=activate&amp;template=" . urlencode( $template ) . "&amp;stylesheet=" . urlencode( $stylesheet ), 'switch-theme_' . $stylesheet );
 
 			$actions = [];
-			$actions['activate'] = '<a href="' . $activate_link . '" class="activatelink" title="'
-				. esc_attr( sprintf( __( 'Activate &#8220;%s&#8221;' ), $title ) ) . '">' . __( 'Activate' ) . '</a>';
+			$actions['activate'] = '<button type="button" href="' . $activate_link . '" class="activatelink" title="'
+				. esc_attr( sprintf( __( 'Activate &#8220;%s&#8221;' ), $title ) ) . '">' . __( 'Activate' ) . '</button>';
 
 			if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) {
-				$actions['preview'] .= '<a href="' . wp_customize_url( $stylesheet ) . '" class="load-customize hide-if-no-customize">'
-					. __( 'Live Preview' ) . '</a>';
+				$actions['preview'] .= '<button type="button" href="' . wp_customize_url( $stylesheet ) . '" class="load-customize hide-if-no-customize">'
+					. __( 'Live Preview' ) . '</button>';
 			}
 
 			if ( ! is_multisite() && current_user_can( 'delete_themes' ) ) {

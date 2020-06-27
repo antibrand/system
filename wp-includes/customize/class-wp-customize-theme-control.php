@@ -113,7 +113,7 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 						<h2><?php _e( 'Manage This Theme' ); ?></h2>
 
 						<div class="theme-action-buttons">
-							<button type="button" class="button button-primary customize-theme" aria-label="<?php echo esc_attr( $customize_label ); ?>"><?php _e( 'Customize' ); ?></button>
+							<p><button type="button" class="button button-primary customize-theme" aria-label="<?php echo esc_attr( $customize_label ); ?>"><?php _e( 'Customize' ); ?></button></p>
 						</div>
 
 					</div>
@@ -126,10 +126,10 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 
 					<div class="theme-actions">
 
-						<h2><?php _e( 'Preview This Theme' ); ?></h2>
+						<h2><?php _e( 'Manage This Theme' ); ?></h2>
 
 						<div class="theme-action-buttons">
-							<button type="button" class="button button-primary preview-theme" aria-label="<?php echo esc_attr( $preview_label ); ?>" data-slug="{{ data.theme.id }}"><?php _e( 'Live Preview' ); ?></button>
+							<p><button type="button" class="button button-primary preview-theme" aria-label="<?php echo esc_attr( $preview_label ); ?>" data-slug="{{ data.theme.id }}"><?php _e( 'Live Preview' ); ?></button></p>
 						</div>
 
 					</div>
@@ -142,10 +142,10 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 
 					<div class="theme-actions">
 
-						<h2><?php _e( 'Preview This Theme' ); ?></h2>
+						<h2><?php _e( 'Manage This Theme' ); ?></h2>
 
 						<div class="theme-action-buttons">
-							<button type="button" class="button button-primary theme-install preview" aria-label="<?php echo esc_attr( $install_label ); ?>" data-slug="{{ data.theme.id }}" data-name="{{ data.theme.name }}"><?php _e( 'Install &amp; Preview' ); ?></button>
+							<p><button type="button" class="button button-primary theme-install preview" aria-label="<?php echo esc_attr( $install_label ); ?>" data-slug="{{ data.theme.id }}" data-name="{{ data.theme.name }}"><?php _e( 'Install &amp; Preview' ); ?></button></p>
 						</div>
 
 					</div>

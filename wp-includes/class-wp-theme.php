@@ -724,7 +724,7 @@ final class WP_Theme implements ArrayAccess {
 				break;
 			case 'Author' :
 				if ( $this->get('AuthorURI') ) {
-					$value = sprintf( '<a href="%1$s">%2$s</a>', $this->display( 'AuthorURI', true, $translate ), $value );
+					$value = sprintf( '<a href="%1$s" target="_blank" rel="noindex, nofollow">%2$s</a>', $this->display( 'AuthorURI', true, $translate ), $value );
 				} elseif ( ! $value ) {
 					$value = __( '' );
 				}

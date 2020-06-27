@@ -252,9 +252,9 @@ class Theme_Install_List_Table extends Themes_List_Table {
 			return;
 
 		$name   = wp_kses( $theme->name,   $themes_allowedtags );
-		$author = wp_kses( $theme->author, $themes_allowedtags );
+		$author = $theme->author;
 
-		$preview_title = sprintf( __('Preview &#8220;%s&#8221;'), $name );
+		$preview_title = sprintf( __( 'Preview &#8220;%s&#8221;' ), $name );
 		$preview_url   = add_query_arg( array(
 			'tab'   => 'theme-information',
 			'theme' => $theme->slug,

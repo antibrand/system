@@ -1450,28 +1450,10 @@ p.customize-section-description {
 }
 
 /* Header control: overlay "close" button */
-.customize-control-header .uploaded .header-view .close {
-  font-size: 20px;
-  color: #ffffff;
-  background: #555d66;
-  background: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  top: 10px;
-  left: -999px;
-  z-index: 1;
-  width: 26px;
-  height: 26px;
-  cursor: pointer;
-}
-
 .customize-control-header .header-view:hover .close,
 .customize-control-header .header-view .close:focus {
   left: auto;
   right: 10px;
-}
-
-.customize-control-header .header-view .close:focus {
-  outline: 1px solid #5b9dd9;
 }
 
 /* Header control: randomiz(s)er */
@@ -1644,13 +1626,6 @@ p.customize-section-description {
 .customize-section-description-container + #customize-control-custom_css:last-child .customize-control-notifications-container {
   margin-left: 12px;
   margin-right: 12px;
-}
-
-.theme-browser .theme.active .theme-actions,
-.wp-customizer .theme-browser .theme .theme-actions {
-  padding: 10px 15px;
-  -webkit-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1);
 }
 
 @media screen and (max-width: 640px) {
@@ -2023,11 +1998,6 @@ p.customize-section-description {
   background: #ffffff;
 }
 
-.customize-control-theme .theme .theme-name, .customize-control-theme .theme .theme-actions {
-  background: #ffffff;
-  border: none;
-}
-
 .customize-control.customize-control-theme {
   /* override most properties on .customize-control */
   float: none !important;
@@ -2043,10 +2013,6 @@ p.customize-section-description {
   padding: 0 2rem;
   -webkit-transition: .18s margin-top linear;
   transition: .18s margin-top linear;
-}
-
-.wp-customizer .theme-browser .theme .theme-actions {
-  opacity: 1;
 }
 
 #customize-controls h3.theme-name {
@@ -2274,61 +2240,9 @@ p.customize-section-description {
   z-index: 120;
 }
 
-.wp-customizer .theme-overlay .theme-actions {
-  text-align: right;
-  /* Because there're only one or two actions, match the UI pattern of media modals and right-align the action. */
-  padding: 10px 25px;
-  border-top: 1px solid #888888;
-}
-
-.wp-customizer .theme-overlay .theme-actions .theme-install.preview {
-  margin-left: 8px;
-}
-
-.control-panel-themes .theme-actions .delete-theme {
-  left: 15px;
-  /* these override themes.css on mobile */
-  right: auto;
-  bottom: auto;
-  position: absolute;
-}
-
 .modal-open .in-themes-panel #customize-controls .wp-full-overlay-sidebar-content {
   overflow: visible;
   /* Prevent the top-level Customizer controls from becoming visible when elements on the right of the details modal are focused. */
-}
-
-.wp-customizer .theme-header {
-  background: #eee;
-}
-
-.wp-customizer .theme-overlay .theme-header button,
-.wp-customizer .theme-overlay .theme-header .close:before {
-  color: #444;
-}
-
-.wp-customizer .theme-overlay .theme-header .close:focus,
-.wp-customizer .theme-overlay .theme-header .close:hover,
-.wp-customizer .theme-overlay .theme-header .right:focus,
-.wp-customizer .theme-overlay .theme-header .right:hover,
-.wp-customizer .theme-overlay .theme-header .left:focus,
-.wp-customizer .theme-overlay .theme-header .left:hover {
-  background: #ffffff;
-  border-bottom: 4px solid #0073aa;
-  color: #0073aa;
-}
-
-.wp-customizer .theme-overlay .theme-header .close:focus:before,
-.wp-customizer .theme-overlay .theme-header .close:hover:before {
-  color: #0073aa;
-}
-
-.wp-customizer .theme-overlay .theme-header button.disabled,
-.wp-customizer .theme-overlay .theme-header button.disabled:hover,
-.wp-customizer .theme-overlay .theme-header button.disabled:focus {
-  border-bottom: none;
-  background: transparent;
-  color: #ccc;
 }
 
 /* Small Screens */
@@ -2731,10 +2645,6 @@ body.adding-widget .add-new-widget:before,
 }
 
 @media only screen and (max-width: 782px) {
-  .wp-customizer .theme:not(.active):hover .theme-actions,
-  .wp-customizer .theme:not(.active):focus .theme-actions {
-    display: block;
-  }
   .wp-customizer .theme-browser .theme.active .theme-name span {
     display: inline;
   }
@@ -2917,21 +2827,9 @@ body.adding-widget .add-new-widget:before,
   .app-core-ui .themes-filter-bar .feature-filter-toggle {
     margin: 0;
   }
-  .theme-browser .theme.active .theme-actions,
-  .wp-customizer .theme-browser .theme .theme-actions {
-    padding: 9px 15px;
-    -webkit-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1);
-            box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1);
-  }
 }
 
 @media screen and (max-width: 600px) {
-  .theme-browser .theme.active .theme-actions,
-  .wp-customizer .theme-browser .theme .theme-actions {
-    padding: 8px 15px;
-    -webkit-box-shadow: none;
-            box-shadow: none;
-  }
   .wp-full-overlay.expanded {
     margin-left: 0;
   }

@@ -420,28 +420,26 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 						<h2><?php _e( 'Manage This Theme' ); ?></h2>
 
 						<div class="theme-action-buttons">
-							<p>
-								<?php if ( $theme['actions']['customize'] && current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) { ?>
-								<a class="button button-primary customize load-customize hide-if-no-customize" href="<?php echo $theme['actions']['customize']; ?>"><?php _e( 'Customize' ); ?></a>
-								<?php } ?>
-							</p>
+							<?php if ( $theme['actions']['customize'] && current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) { ?>
+							<p><button type="button" class="button button-primary customize load-customize hide-if-no-customize" href="<?php echo $theme['actions']['customize']; ?>"><?php _e( 'Customize' ); ?></button></p>
+							<?php } ?>
 						</div>
 
 					<?php } else { ?>
 
-						<h2><?php _e( 'Use This Theme' ); ?></h2>
+						<h2><?php _e( 'Manage This Theme' ); ?></h2>
 
 						<div class="theme-action-buttons">
-							<p>
 								<?php
 								// Translators: %s: Theme name.
 								$aria_label = sprintf( _x( 'Activate %s', 'theme' ), '{{ data.name }}' );
 								?>
-								<a class="button activate" href="<?php echo $theme['actions']['activate']; ?>" aria-label="<?php echo esc_attr( $aria_label ); ?>"><?php _e( 'Activate' ); ?></a>
+								<p>
+									<button type="button" class="button activate" href="<?php echo $theme['actions']['activate']; ?>" aria-label="<?php echo esc_attr( $aria_label ); ?>"><?php _e( 'Activate' ); ?></button>
 								<?php if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) { ?>
-								<a class="button button-primary load-customize hide-if-no-customize" href="<?php echo $theme['actions']['customize']; ?>"><?php _e( 'Live Preview' ); ?></a>
+									<button type="button" class="button button-primary load-customize hide-if-no-customize" href="<?php echo $theme['actions']['customize']; ?>"><?php _e( 'Live Preview' ); ?></button>
+								</p>
 								<?php } ?>
-							</p>
 						</div>
 					<?php } ?>
 
@@ -598,7 +596,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 				<# } #>
 			<# } else { #>
 
-				<h2><?php _e( 'Use This Theme' ); ?></h2>
+				<h2><?php _e( 'Manage This Theme' ); ?></h2>
 
 				<div class="theme-action-buttons">
 					<p>
@@ -695,7 +693,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 			</div>
 			<div class="inactive-theme">
 
-				<h2><?php _e( 'Use This Theme' ); ?></h2>
+				<h2><?php _e( 'Manage This Theme' ); ?></h2>
 
 				<div class="theme-action-buttons">
 					<p>

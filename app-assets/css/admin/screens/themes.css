@@ -703,11 +703,11 @@ body.js .theme-browser.search-loading {
   display: block;
 }
 
-.themes-php.modal-open .theme-actions h2 {
+.modal-open .theme-actions h2 {
   display: block;
 }
 
-.themes-php.modal-open .theme-actions p {
+.modal-open .theme-actions p {
   margin-top: 0.5em;
 }
 
