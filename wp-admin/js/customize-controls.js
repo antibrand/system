@@ -2447,7 +2447,7 @@
 			var section = this;
 			if ( section.getNextTheme() ) {
 				section.showDetails( section.getNextTheme(), function() {
-					section.overlay.find( '.right' ).focus();
+					section.overlay.find( '.theme-next' ).focus();
 				} );
 			}
 		},
@@ -2485,7 +2485,7 @@
 			var section = this;
 			if ( section.getPreviousTheme() ) {
 				section.showDetails( section.getPreviousTheme(), function() {
-					section.overlay.find( '.left' ).focus();
+					section.overlay.find( '.theme-prev' ).focus();
 				} );
 			}
 		},
@@ -2521,10 +2521,10 @@
 		 */
 		updateLimits: function () {
 			if ( ! this.getNextTheme() ) {
-				this.overlay.find( '.right' ).addClass( 'disabled' );
+				this.overlay.find( '.theme-next' ).addClass( 'disabled' );
 			}
 			if ( ! this.getPreviousTheme() ) {
-				this.overlay.find( '.left' ).addClass( 'disabled' );
+				this.overlay.find( '.theme-prev' ).addClass( 'disabled' );
 			}
 		},
 
