@@ -225,6 +225,7 @@ textarea {
 	&.disabled {
 		background: rgba($color: $pale_gray, $alpha: 0.325);
 		color: rgba($color: $light_gray, $alpha: 0.85);
+		cursor: not-allowed;
 	}
 
 	// Hide arrows in Webkit number input.
@@ -314,6 +315,11 @@ select {
 	&.disabled {
 		background: rgba($color: $pale_gray, $alpha: 0.325);
 		color: rgba($color: $light_gray, $alpha: 0.85);
+		cursor: not-allowed;
+
+		&:not([multiple]):not([size]) {
+			background-image: none;
+		}
 	}
 }
 
