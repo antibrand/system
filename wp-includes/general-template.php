@@ -4226,10 +4226,10 @@ function get_the_generator( $type = '' ) {
 
 	switch ( $type ) {
 		case 'html':
-			$gen = '<meta name="generator" content="' . esc_attr( get_bloginfo( 'version' ) ) . '" />';
+			$gen = '<meta name="generator" content="' . esc_attr( $app_name . ' ' . get_bloginfo( 'version' ) ) . '" />';
 			break;
 		case 'xhtml':
-			$gen = '<meta name="generator" content="' . esc_attr( get_bloginfo( 'version' ) ) . '" />';
+			$gen = '<meta name="generator" content="' . esc_attr( $app_name . ' ' . get_bloginfo( 'version' ) ) . '" />';
 			break;
 		case 'atom':
 			$gen = '<generator uri="" version="' . esc_attr( get_bloginfo_rss( 'version' ) ) . '">' . $app_name . '</generator>';
