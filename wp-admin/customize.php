@@ -151,6 +151,8 @@ if ( is_rtl() ) {
 }
 $body_class .= ' locale-' . sanitize_html_class( strtolower( str_replace( '_', '-', get_user_locale() ) ) );
 
+$body_class .= ' admin-color-' . sanitize_html_class( get_user_option( 'admin_color' ), 'default' );
+
 $admin_title = sprintf( $wp_customize->get_document_title_template(), __( 'Loading&hellip;' ) );
 
 ?><title><?php echo $admin_title; ?></title>
