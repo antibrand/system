@@ -33,7 +33,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 		<ul class='app-tabs-list app-tabs-horizontal hide-if-no-js'>
 			<li class="app-tab active"><a href="#intro"><?php _e( 'Introduction' ); ?></a>
 			<li class="app-tab"><a href="#features"><?php _e( 'Features' ); ?></a>
-			<li class="app-tab"><a href="#customize"><?php _e( 'Customize' ); ?></a>
+			<li class="app-tab"><a href="#customize"><?php _e( 'Manage' ); ?></a>
 			<li class="app-tab"><a href="#extend"><?php _e( 'Extend' ); ?></a>
 			<li class="app-tab"><a href="#privacy"><?php _e( 'Privacy' ); ?></a>
 		</ul>
@@ -63,7 +63,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 		<div id='customize' class="app-tab-content about-page-tab-content">
 
 			<header>
-				<h2><?php _e( 'Customize' ); ?></h2>
+				<h2><?php _e( 'Manage' ); ?></h2>
 				<p class="description"><?php _e( 'Put section description here.' ); ?></p>
 			</header>
 

@@ -1,14 +1,14 @@
 <?php
 /**
- * Customize API: WP_Customize_Sidebar_Section class
+ * Live manager API: WP_Customize_Sidebar_Section class
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 4.4.0
  */
 
 /**
- * Customizer section representing widget area (sidebar).
+ * Live manager section representing widget area (sidebar)
  *
  * @since 4.1.0
  *

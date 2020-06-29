@@ -323,7 +323,7 @@ function wp_ajax_dashboard_widgets() {
 }
 
 /**
- * Ajax handler for Customizer preview logged-in status.
+ * Ajax handler for live manager preview logged-in status.
  *
  * @since 3.4.0
  */
@@ -3259,7 +3259,7 @@ function wp_ajax_crop_image() {
 			 *
 			 * @since 4.3.0
 			 *
-			 * @param string $context       The Customizer control requesting the cropped image.
+			 * @param string $context       The live manager control requesting the cropped image.
 			 * @param int    $attachment_id The attachment ID of the original image.
 			 * @param string $cropped       Path to the cropped image file.
 			 */
@@ -3303,7 +3303,7 @@ function wp_ajax_crop_image() {
 			 * @since 4.3.0
 			 *
 			 * @param int    $attachment_id The attachment ID of the cropped image.
-			 * @param string $context       The Customizer control requesting the cropped image.
+			 * @param string $context       The live manager control requesting the cropped image.
 			 */
 			$attachment_id = apply_filters( 'wp_ajax_cropped_attachment_id', $attachment_id, $context );
 	}

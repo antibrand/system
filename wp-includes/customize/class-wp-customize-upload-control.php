@@ -1,14 +1,14 @@
 <?php
 /**
- * Customize API: WP_Customize_Upload_Control class
+ * Live manager API: WP_Customize_Upload_Control class
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 4.4.0
  */
 
 /**
- * Customize Upload Control Class.
+ * Live manager upload control class
  *
  * @since 3.4.0
  *

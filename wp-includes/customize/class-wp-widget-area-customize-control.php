@@ -1,14 +1,14 @@
 <?php
 /**
- * Customize API: WP_Widget_Area_Customize_Control class
+ * Live manager API: WP_Widget_Area_Customize_Control class
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 3.4.0
  */
 
 /**
- * Widget Area Customize Control class.
+ * Live manager widget area control class
  *
  * @since 3.9.0
  *

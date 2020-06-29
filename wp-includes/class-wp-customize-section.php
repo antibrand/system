@@ -1,14 +1,14 @@
 <?php
 /**
- * Customize Section classes
+ * Live manager section classes
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 3.4.0
  */
 
 /**
- * Customize Section class.
+ * Live manager section class
  *
  * A UI container for controls, managed by the WP_Customize_Manager class.
  *
@@ -103,7 +103,7 @@ class WP_Customize_Section {
 	public $description = '';
 
 	/**
-	 * Customizer controls for this section.
+	 * Live manager controls for this section.
 	 *
 	 * @since 3.4.0
 	 * @var array
@@ -150,7 +150,7 @@ class WP_Customize_Section {
 	 *
 	 * @since 3.4.0
 	 *
-	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
+	 * @param WP_Customize_Manager $manager Live manager bootstrap instance.
 	 * @param string               $id      An specific ID of the section.
 	 * @param array                $args    Section arguments.
 	 */
@@ -174,7 +174,7 @@ class WP_Customize_Section {
 	}
 
 	/**
-	 * Check whether section is active to current Customizer preview.
+	 * Check whether section is active to current live manager preview.
 	 *
 	 * @since 4.1.0
 	 *
@@ -189,7 +189,7 @@ class WP_Customize_Section {
 		 *
 		 * @since 4.1.0
 		 *
-		 * @param bool                 $active  Whether the Customizer section is active.
+		 * @param bool                 $active  Whether the live manager section is active.
 		 * @param WP_Customize_Section $section WP_Customize_Section instance.
 		 */
 		$active = apply_filters( 'customize_section_active', $active, $section );
@@ -226,7 +226,7 @@ class WP_Customize_Section {
 		$array['instanceNumber'] = $this->instance_number;
 
 		if ( $this->panel ) {
-			/* translators: &#9656; is the unicode right-pointing triangle, and %s is the section title in the Customizer */
+			/* translators: &#9656; is the unicode right-pointing triangle, and %s is the section title in the live manager */
 			$array['customizeAction'] = sprintf( __( '%s' ), esc_html( $this->manager->get_panel( $this->panel )->title ) );
 		} else {
 			$array['customizeAction'] = __( 'Managing' );
@@ -256,7 +256,7 @@ class WP_Customize_Section {
 	}
 
 	/**
-	 * Get the section's content for insertion into the Customizer pane.
+	 * Get the section's content for insertion into the live manager pane.
 	 *
 	 * @since 4.1.0
 	 *
@@ -279,7 +279,7 @@ class WP_Customize_Section {
 		}
 
 		/**
-		 * Fires before rendering a Customizer section.
+		 * Fires before rendering a live manager section.
 		 *
 		 * @since 3.4.0
 		 *
@@ -287,10 +287,10 @@ class WP_Customize_Section {
 		 */
 		do_action( 'customize_render_section', $this );
 		/**
-		 * Fires before rendering a specific Customizer section.
+		 * Fires before rendering a specific live manager section.
 		 *
 		 * The dynamic portion of the hook name, `$this->id`, refers to the ID
-		 * of the specific Customizer section to be rendered.
+		 * of the specific live manager section to be rendered.
 		 *
 		 * @since 3.4.0
 		 */

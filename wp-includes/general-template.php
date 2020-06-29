@@ -1037,7 +1037,7 @@ function get_custom_logo( $blog_id = 0 ) {
 		);
 	}
 
-	// If no logo is set but we're in the Customizer, leave a placeholder (needed for the live preview).
+	// If no logo is set but we're in the live manager, leave a placeholder (needed for the live preview).
 	elseif ( is_customize_preview() ) {
 		$html = sprintf( '<a href="%1$s" class="custom-logo-link" style="display:none;"><img class="custom-logo"/></a>',
 			esc_url( home_url( '/' ) )

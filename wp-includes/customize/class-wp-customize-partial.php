@@ -1,14 +1,14 @@
 <?php
 /**
- * Customize API: WP_Customize_Partial class
+ * Live manager API: WP_Customize_Partial class
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 4.5.0
  */
 
 /**
- * Core Customizer class for implementing selective refresh partials.
+ * Core live manager class for implementing selective refresh partials.
  *
  * Representation of a rendered region in the previewed page that gets
  * selectively refreshed when an associated setting is changed.
@@ -131,7 +131,7 @@ class WP_Customize_Partial {
 	 *
 	 * @since 4.5.0
 	 *
-	 * @param WP_Customize_Selective_Refresh $component Customize Partial Refresh plugin instance.
+	 * @param WP_Customize_Selective_Refresh $component Live manager partial refresh plugin instance.
 	 * @param string                         $id        Control ID.
 	 * @param array                          $args      {
 	 *     Optional. Arguments to override class property defaults.

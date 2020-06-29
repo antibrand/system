@@ -1,14 +1,14 @@
 <?php
 /**
- * Customize API: WP_Customize_Header_Image_Control class
+ * Live manager API: WP_Customize_Header_Image_Control class
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 4.4.0
  */
 
 /**
- * Customize Header Image Control class.
+ * Live manager Header Image Control class.
  *
  * @since 3.4.0
  *
@@ -24,7 +24,7 @@ class WP_Customize_Header_Image_Control extends WP_Customize_Image_Control {
 	 *
 	 * @since 3.4.0
 	 *
-	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
+	 * @param WP_Customize_Manager $manager Live manager bootstrap instance.
 	 */
 	public function __construct( $manager ) {
 		parent::__construct( $manager, 'header_image', array(

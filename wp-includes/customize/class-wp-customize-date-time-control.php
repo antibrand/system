@@ -1,14 +1,14 @@
 <?php
 /**
- * Customize API: WP_Customize_Date_Time_Control class
+ * Live manager API: WP_Customize_Date_Time_Control class
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 4.9.0
  */
 
 /**
- * Customize Date Time Control class.
+ * Live manager date time control class
  *
  * @since 4.9.0
  *
@@ -17,7 +17,7 @@
 class WP_Customize_Date_Time_Control extends WP_Customize_Control {
 
 	/**
-	 * Customize control type.
+	 * Live manager control type.
 	 *
 	 * @since 4.9.0
 	 * @var string

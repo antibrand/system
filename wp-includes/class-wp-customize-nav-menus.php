@@ -1,16 +1,16 @@
 <?php
 /**
- * Customize Nav Menus classes
+ * Live mnager nav menus classes
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 4.3.0
  */
 
 /**
- * Customize Nav Menus class.
+ * Live mnager nav menus class
  *
- * Implements menu management in the Customizer.
+ * Implements menu management in the live manager.
  *
  * @since 4.3.0
  *
@@ -400,7 +400,7 @@ final class WP_Customize_Nav_Menus {
 	}
 
 	/**
-	 * Enqueue scripts and styles for Customizer pane.
+	 * Enqueue scripts and styles for live manager pane.
 	 *
 	 * @since 4.3.0
 	 */
@@ -442,7 +442,7 @@ final class WP_Customize_Nav_Menus {
 				'movedDown'              => __( 'Menu item moved down' ),
 				'movedLeft'              => __( 'Menu item moved out of submenu' ),
 				'movedRight'             => __( 'Menu item is now a sub-item' ),
-				/* translators: &#9656; is the unicode right-pointing triangle, and %s is the section title in the Customizer */
+				/* translators: &#9656; is the unicode right-pointing triangle, and %s is the section title in the live manager */
 				'customizingMenus'       => sprintf( __( '%s' ), esc_html( $this->manager->get_panel( 'nav_menus' )->title ) ),
 				/* translators: %s: title of menu item which is invalid */
 				'invalidTitleTpl'        => __( '%s (Invalid)' ),
@@ -656,7 +656,7 @@ final class WP_Customize_Nav_Menus {
 			) ) );
 		}
 
-		// Register each menu as a Customizer section, and add each menu item to each menu.
+		// Register each menu as a live manager section, and add each menu item to each menu.
 		foreach ( $menus as $menu ) {
 			$menu_id = $menu->term_id;
 
@@ -913,7 +913,7 @@ final class WP_Customize_Nav_Menus {
 	}
 
 	/**
-	 * Print the JavaScript templates used to render Menu Customizer components.
+	 * Print the JavaScript templates used to render Menu live manager components.
 	 *
 	 * Templates are imported into the JS use wp.template.
 	 *
@@ -1003,7 +1003,7 @@ final class WP_Customize_Nav_Menus {
 				<h3>
 					<span class="customize-action">
 						<?php
-							/* translators: &#9656; is the unicode right-pointing triangle, and %s is the section title in the Customizer */
+							/* translators: &#9656; is the unicode right-pointing triangle, and %s is the section title in the live manager */
 							printf( __( '%s' ), esc_html( $this->manager->get_panel( 'nav_menus' )->title ) );
 						?>
 					</span>
@@ -1127,7 +1127,7 @@ final class WP_Customize_Nav_Menus {
 	}
 
 	//
-	// Start functionality specific to partial-refresh of menu changes in Customizer preview.
+	// Start functionality specific to partial-refresh of menu changes in live manager preview.
 	//
 
 	/**
@@ -1169,7 +1169,7 @@ final class WP_Customize_Nav_Menus {
 	}
 
 	/**
-	 * Add hooks for the Customizer preview.
+	 * Add hooks for the live manager preview.
 	 *
 	 * @since 4.3.0
 	 */
@@ -1233,7 +1233,7 @@ final class WP_Customize_Nav_Menus {
 	 *
 	 * @since 4.7.0
 	 *
-	 * @param WP_Customize_Setting $setting Customizer setting object.
+	 * @param WP_Customize_Setting $setting live manager setting object.
 	 */
 	public function save_nav_menus_created_posts( $setting ) {
 		$post_ids = $setting->post_value();
@@ -1368,7 +1368,7 @@ final class WP_Customize_Nav_Menus {
 	}
 
 	/**
-	 * Enqueue scripts for the Customizer preview.
+	 * Enqueue scripts for the live manager preview.
 	 *
 	 * @since 4.3.0
 	 */

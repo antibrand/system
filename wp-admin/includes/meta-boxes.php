@@ -243,7 +243,7 @@ if ( $can_publish ) : // Contributors don't get to choose the date of publish ?>
 		<p>
 			<?php
 			echo sprintf(
-				/* translators: %s: URL to the Customizer */
+				/* translators: %s: URL to the live manager */
 				__( 'This draft comes from your <a href="%s">unpublished customization changes</a>. You can edit, but there&#8217;s no need to publish now. It will be published automatically with those changes.' ),
 				esc_url(
 					add_query_arg(

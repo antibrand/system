@@ -1,14 +1,14 @@
 <?php
 /**
- * Customize API: WP_Customize_Nav_Menus_Panel class
+ * Live manager API: WP_Customize_Nav_Menus_Panel class
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 4.4.0
  */
 
 /**
- * Customize Nav Menus Panel Class
+ * Live manager nav menus panel class
  *
  * Needed to add screen options.
  *
@@ -74,7 +74,7 @@ class WP_Customize_Nav_Menus_Panel extends WP_Customize_Panel {
 			<div class="accordion-section-title">
 				<span class="preview-notice">
 					<?php
-					/* translators: %s: the site/panel title in the Customizer */
+					/* translators: %s: the site/panel title in the live manager */
 					printf( __( 'You are managing %s' ), '<strong class="panel-title">{{ data.title }}</strong>' );
 					?>
 				</span>

@@ -1,16 +1,16 @@
 <?php
 /**
- * Customize Widgets classes
+ * Live manager widgets classes
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 3.9.0
  */
 
 /**
- * Customize Widgets class.
+ * Live manager widgets class.
  *
- * Implements widget management in the Customizer.
+ * Implements widget management in the live manager.
  *
  * @since 3.9.0
  *
@@ -254,7 +254,7 @@ final class WP_Customize_Widgets {
 	/**
 	 * Override sidebars_widgets for theme switch.
 	 *
-	 * When switching a theme via the Customizer, supply any previously-configured
+	 * When switching a theme via the live manager, supply any previously-configured
 	 * sidebars_widgets from the target theme as the initial sidebars_widgets
 	 * setting. Also store the old theme's existing settings so that they can
 	 * be passed along for storing in the sidebars_widgets theme_mod when the
@@ -285,9 +285,9 @@ final class WP_Customize_Widgets {
 	}
 
 	/**
-	 * Filters old_sidebars_widgets_data Customizer setting.
+	 * Filters old_sidebars_widgets_data live manager setting.
 	 *
-	 * When switching themes, filter the Customizer setting old_sidebars_widgets_data
+	 * When switching themes, filter the live manager setting old_sidebars_widgets_data
 	 * to supply initial $sidebars_widgets before they were overridden by retrieve_widgets().
 	 * The value for old_sidebars_widgets_data gets set in the old theme's sidebars_widgets
 	 * theme_mod.
@@ -306,7 +306,7 @@ final class WP_Customize_Widgets {
 	/**
 	 * Filters sidebars_widgets option for theme switch.
 	 *
-	 * When switching themes, the retrieve_widgets() function is run when the Customizer initializes,
+	 * When switching themes, the retrieve_widgets() function is run when the live manager initializes,
 	 * and then the new sidebars_widgets here get supplied as the default value for the sidebars_widgets
 	 * option.
 	 *
@@ -325,7 +325,7 @@ final class WP_Customize_Widgets {
 	}
 
 	/**
-	 * Ensures all widgets get loaded into the Customizer.
+	 * Ensures all widgets get loaded into the live manager.
 	 *
 	 * Note: these actions are also fired in wp_ajax_update_widget().
 	 *
@@ -359,7 +359,7 @@ final class WP_Customize_Widgets {
 	}
 
 	/**
-	 * Registers Customizer settings and controls for all sidebars and widgets.
+	 * Registers live manager settings and controls for all sidebars and widgets.
 	 *
 	 * @since 3.9.0
 	 *
@@ -450,12 +450,12 @@ final class WP_Customize_Widgets {
 					);
 
 					/**
-					 * Filters Customizer widget section arguments for a given sidebar.
+					 * Filters live manager widget section arguments for a given sidebar.
 					 *
 					 * @since 3.9.0
 					 *
-					 * @param array      $section_args Array of Customizer widget section arguments.
-					 * @param string     $section_id   Customizer section ID.
+					 * @param array      $section_args Array of live manager widget section arguments.
+					 * @param string     $section_id   Live manager section ID.
 					 * @param int|string $sidebar_id   Sidebar ID.
 					 */
 					$section_args = apply_filters( 'customizer_widgets_section_args', $section_args, $section_id, $sidebar_id );
@@ -524,7 +524,7 @@ final class WP_Customize_Widgets {
 	}
 
 	/**
-	 * Converts a widget_id into its corresponding Customizer setting ID (option name).
+	 * Converts a widget_id into its corresponding live manager setting ID (option name).
 	 *
 	 * @since 3.9.0
 	 *
@@ -545,8 +545,8 @@ final class WP_Customize_Widgets {
 	 * Determines whether the widget is considered "wide".
 	 *
 	 * Core widgets which may have controls wider than 250, but can still be shown
-	 * in the narrow Customizer panel. The RSS and Text widgets in Core, for example,
-	 * have widths of 400 and yet they still render fine in the Customizer panel.
+	 * in the narrow live manager panel. The RSS and Text widgets in Core, for example,
+	 * have widths of 400 and yet they still render fine in the live manager panel.
 	 *
 	 * This method will return all Core widgets as being not wide, but this can be
 	 * overridden with the {@see 'is_wide_widget_in_customizer'} filter.
@@ -650,7 +650,7 @@ final class WP_Customize_Widgets {
 	}
 
 	/**
-	 * Enqueues scripts and styles for Customizer panel and export data to JavaScript.
+	 * Enqueues scripts and styles for live manager panel and export data to JavaScript.
 	 *
 	 * @since 3.9.0
 	 *
@@ -755,7 +755,7 @@ final class WP_Customize_Widgets {
 				'error'            => __( 'An error has occurred. Please reload the page and try again.' ),
 				'widgetMovedUp'    => __( 'Widget moved up' ),
 				'widgetMovedDown'  => __( 'Widget moved down' ),
-				'navigatePreview'  => __( 'You can navigate to other pages on your site while using the Customizer to view and edit the widgets displayed on those pages.' ),
+				'navigatePreview'  => __( 'You can navigate to other pages on your site while using the live manager to view and edit the widgets displayed on those pages.' ),
 				'someAreasShown'   => $some_non_rendered_areas_messages,
 				'noAreasShown'     => $no_areas_shown_message,
 				'reorderModeOn'    => __( 'Reorder mode enabled' ),
@@ -798,7 +798,7 @@ final class WP_Customize_Widgets {
 				</button>
 				<h3>
 					<span class="customize-action"><?php
-						/* translators: &#9656; is the unicode right-pointing triangle, and %s is the section title in the Customizer */
+						/* translators: &#9656; is the unicode right-pointing triangle, and %s is the section title in the live manager */
 						echo sprintf( __( '%s' ), esc_html( $this->manager->get_panel( 'widgets' )->title ) );
 					?></span>
 					<?php _e( 'Add a Widget' ); ?>
@@ -842,7 +842,7 @@ final class WP_Customize_Widgets {
 	}
 
 	/**
-	 * Retrieves common arguments to supply when constructing a Customizer setting.
+	 * Retrieves common arguments to supply when constructing a live manager setting.
 	 *
 	 * @since 3.9.0
 	 *
@@ -870,13 +870,13 @@ final class WP_Customize_Widgets {
 		$args = array_merge( $args, $overrides );
 
 		/**
-		 * Filters the common arguments supplied when constructing a Customizer setting.
+		 * Filters the common arguments supplied when constructing a live manager setting.
 		 *
 		 * @since 3.9.0
 		 *
 		 * @see WP_Customize_Setting
 		 *
-		 * @param array  $args Array of Customizer setting arguments.
+		 * @param array  $args Array of live manager setting arguments.
 		 * @param string $id   Widget setting ID.
 		 */
 		return apply_filters( 'widget_customizer_setting_args', $args, $id );
@@ -1050,7 +1050,7 @@ final class WP_Customize_Widgets {
 	}
 
 	/**
-	 * Adds hooks for the Customizer preview.
+	 * Adds hooks for the live manager preview.
 	 *
 	 * @since 3.9.0
 	 */
@@ -1078,7 +1078,7 @@ final class WP_Customize_Widgets {
 	 *
 	 * Because wp_get_sidebars_widgets() gets called early at {@see 'init' } (via
 	 * wp_convert_widget_settings()) and can set global variable `$_wp_sidebars_widgets`
-	 * to the value of `get_option( 'sidebars_widgets' )` before the Customizer preview
+	 * to the value of `get_option( 'sidebars_widgets' )` before the live manager preview
 	 * filter is added, it has to be reset after the filter has been added.
 	 *
 	 * @since 3.9.0
@@ -1094,7 +1094,7 @@ final class WP_Customize_Widgets {
 	}
 
 	/**
-	 * Enqueues scripts for the Customizer preview.
+	 * Enqueues scripts for the live manager preview.
 	 *
 	 * @since 3.9.0
 	 */
@@ -1142,7 +1142,7 @@ final class WP_Customize_Widgets {
 			restore_previous_locale();
 		}
 
-		// Prepare Customizer settings to pass to JavaScript.
+		// Prepare live manager settings to pass to JavaScript.
 		$settings = array(
 			'renderedSidebars'   => array_fill_keys( array_unique( $this->rendered_sidebars ), true ),
 			'renderedWidgets'    => array_fill_keys( array_keys( $this->rendered_widgets ), true ),
@@ -1473,7 +1473,7 @@ final class WP_Customize_Widgets {
 	/**
 	 * Updates widget settings asynchronously.
 	 *
-	 * Allows the Customizer to update a widget using its form, but return the new
+	 * Allows the live manager to update a widget using its form, but return the new
 	 * instance info via Ajax instead of saving it to the options table.
 	 *
 	 * Most code here copied from wp_ajax_save_widget().

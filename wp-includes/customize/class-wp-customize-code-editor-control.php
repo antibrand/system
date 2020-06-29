@@ -1,14 +1,14 @@
 <?php
 /**
- * Customize API: WP_Customize_Code_Editor_Control class
+ * Live manager API: WP_Customize_Code_Editor_Control class
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 4.9.0
  */
 
 /**
- * Customize Code Editor Control class.
+ * Live manager code editor control class
  *
  * @since 4.9.0
  *
@@ -17,7 +17,7 @@
 class WP_Customize_Code_Editor_Control extends WP_Customize_Control {
 
 	/**
-	 * Customize control type.
+	 * Live manager control type.
 	 *
 	 * @since 4.9.0
 	 * @var string

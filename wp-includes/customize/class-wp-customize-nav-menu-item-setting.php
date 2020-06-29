@@ -1,14 +1,14 @@
 <?php
 /**
- * Customize API: WP_Customize_Nav_Menu_Item_Setting class
+ * Live manager API: WP_Customize_Nav_Menu_Item_Setting class
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 4.4.0
  */
 
 /**
- * Customize Setting to represent a nav_menu.
+ * Live manager Setting to represent a nav_menu.
  *
  * Subclass of WP_Customize_Setting to represent a nav_menu taxonomy term, and
  * the IDs for the nav_menu_items associated with the nav menu.
@@ -155,7 +155,7 @@ class WP_Customize_Nav_Menu_Item_Setting extends WP_Customize_Setting {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param WP_Customize_Manager $manager Bootstrap Customizer instance.
+	 * @param WP_Customize_Manager $manager Bootstrap live manager instance.
 	 * @param string               $id      An specific ID of the setting. Can be a
 	 *                                      theme mod or option name.
 	 * @param array                $args    Optional. Setting arguments.
@@ -765,7 +765,7 @@ class WP_Customize_Nav_Menu_Item_Setting extends WP_Customize_Setting {
 				} else {
 					$this->update_status = 'deleted';
 				}
-				// @todo send back the IDs for all associated nav menu items deleted, so these settings (and controls) can be removed from Customizer?
+				// @todo send back the IDs for all associated nav menu items deleted, so these settings (and controls) can be removed from Live manager?
 			}
 		} else {
 

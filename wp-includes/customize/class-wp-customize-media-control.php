@@ -1,14 +1,14 @@
 <?php
 /**
- * Customize API: WP_Customize_Media_Control class
+ * Live manager API: WP_Customize_Media_Control class
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 4.4.0
  */
 
 /**
- * Customize Media Control class.
+ * Live manager media control class
  *
  * @since 4.2.0
  *
@@ -45,7 +45,7 @@ class WP_Customize_Media_Control extends WP_Customize_Control {
 	 * @since 4.1.0
 	 * @since 4.2.0 Moved from WP_Customize_Upload_Control.
 	 *
-	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
+	 * @param WP_Customize_Manager $manager Live manager bootstrap instance.
 	 * @param string               $id      Control ID.
 	 * @param array                $args    Optional. Arguments to override class property defaults.
 	 */

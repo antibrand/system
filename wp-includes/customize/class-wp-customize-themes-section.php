@@ -1,14 +1,14 @@
 <?php
 /**
- * Customize API: WP_Customize_Themes_Section class
+ * Live manager API: WP_Customize_Themes_Section class
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 4.4.0
  */
 
 /**
- * Customize Themes Section class.
+ * Live manager themes section class
  *
  * A UI container for theme controls, which are displayed within sections.
  *

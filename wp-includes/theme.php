@@ -729,9 +729,9 @@ function switch_theme( $stylesheet ) {
 		add_option( "theme_mods_$stylesheet", $default_theme_mods );
 	} else {
 		/*
-		 * Since retrieve_widgets() is called when initializing a theme in the Customizer,
+		 * Since retrieve_widgets() is called when initializing a theme in the live manager,
 		 * we need to remove the theme mods to avoid overwriting changes made via
-		 * the Customizer when accessing wp-admin/widgets.php.
+		 * the live manager when accessing wp-admin/widgets.php.
 		 */
 		if ( 'wp_ajax_customize_save' === current_action() ) {
 			remove_theme_mod( 'sidebars_widgets' );
@@ -1458,7 +1458,7 @@ function is_header_video_active() {
 /**
  * Retrieve the markup for a custom header.
  *
- * The container div will always be returned in the Customizer preview.
+ * The container div will always be returned in the live manager preview.
  *
  * @since 4.7.0
  *
@@ -1478,7 +1478,7 @@ function get_custom_header_markup() {
 /**
  * Print the markup for a custom header.
  *
- * A container div will always be printed in the Customizer preview.
+ * A container div will always be printed in the live manager preview.
  *
  * @since 4.7.0
  */
@@ -2431,7 +2431,7 @@ function _custom_header_background_just_in_time() {
 }
 
 /**
- * Adds CSS to hide header text for custom logo, based on Customizer setting.
+ * Adds CSS to hide header text for custom logo, based on live manager setting.
  *
  * @since 4.5.0
  * @access private
@@ -2690,7 +2690,7 @@ function check_theme_switched() {
 	if ( $stylesheet = get_option( 'theme_switched' ) ) {
 		$old_theme = wp_get_theme( $stylesheet );
 
-		// Prevent widget & menu mapping from running since Customizer already called it up front
+		// Prevent widget & menu mapping from running since live manager already called it up front
 		if ( get_option( 'theme_switched_via_customizer' ) ) {
 			remove_action( 'after_switch_theme', '_wp_menus_changed' );
 			remove_action( 'after_switch_theme', '_wp_sidebars_changed' );
@@ -2725,11 +2725,11 @@ function check_theme_switched() {
 /**
  * Includes and instantiates the WP_Customize_Manager class.
  *
- * Loads the Customizer at plugins_loaded when accessing the customize.php admin
+ * Loads the live manager at plugins_loaded when accessing the customize.php admin
  * page or when any request includes a wp_customize=on param or a customize_changeset
- * param (a UUID). This param is a signal for whether to bootstrap the Customizer when
- * loading, especially in the Customizer preview
- * or when making Customizer Ajax requests for widgets or menus.
+ * param (a UUID). This param is a signal for whether to bootstrap the live manager when
+ * loading, especially in the live manager preview
+ * or when making live manager Ajax requests for widgets or menus.
  *
  * @since 3.4.0
  *
@@ -2815,7 +2815,7 @@ function _wp_customize_include() {
  * @access private
  *
  * @global wpdb $wpdb Database abstraction object.
- * @global WP_Customize_Manager $wp_customize Customizer instance.
+ * @global WP_Customize_Manager $wp_customize Live manager instance.
  *
  * @param string  $new_status     New post status.
  * @param string  $old_status     Old post status.
@@ -2925,7 +2925,7 @@ function _wp_customize_loader_settings() {
 		'browser'       => $browser,
 		'l10n'          => array(
 			'saveAlert'       => __( 'The changes you made will be lost if you navigate away from this page.' ),
-			'mainIframeTitle' => __( 'Customizer' ),
+			'mainIframeTitle' => __( 'Live Manager' ),
 		),
 	);
 
@@ -2940,7 +2940,7 @@ function _wp_customize_loader_settings() {
 }
 
 /**
- * Returns a URL to load the Customizer.
+ * Returns a URL to load the live manager.
  *
  * @since 3.4.0
  *
@@ -2956,7 +2956,7 @@ function wp_customize_url( $stylesheet = null ) {
 }
 
 /**
- * Prints a script to check whether or not the Customizer is supported,
+ * Prints a script to check whether or not the live manager is supported,
  * and apply either the no-customize-support or customize-support class
  * to the body.
  *
@@ -3003,13 +3003,13 @@ function wp_customize_support_script() {
 }
 
 /**
- * Whether the site is being previewed in the Customizer.
+ * Whether the site is being previewed in the live manager.
  *
  * @since 4.0.0
  *
- * @global WP_Customize_Manager $wp_customize Customizer instance.
+ * @global WP_Customize_Manager $wp_customize live manager instance.
  *
- * @return bool True if the site is being previewed in the Customizer, false otherwise.
+ * @return bool True if the site is being previewed in the live manager, false otherwise.
  */
 function is_customize_preview() {
 	global $wp_customize;
@@ -3031,7 +3031,7 @@ function is_customize_preview() {
  * publishing, then transition any dependent auto-drafts to a draft status so
  * that they likewise will not be garbage-collected but also so that they can
  * be edited in the admin before publishing since there is not yet a post/page
- * editing flow in the Customizer. See #39752.
+ * editing flow in the live manager.
  *
  * @since 4.8.0
  * @access private

@@ -1,14 +1,14 @@
 <?php
 /**
- * Customize API: WP_Widget_Form_Customize_Control class
+ * Live manager API: WP_Widget_Form_Customize_Control class
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 4.4.0
  */
 
 /**
- * Widget Form Customize Control class.
+ * Live manager widget form control class
  *
  * @since 3.9.0
  *

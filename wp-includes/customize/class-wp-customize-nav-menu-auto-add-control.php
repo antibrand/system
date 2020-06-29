@@ -1,14 +1,14 @@
 <?php
 /**
- * Customize API: WP_Customize_Nav_Menu_Auto_Add_Control class
+ * Live manager API: WP_Customize_Nav_Menu_Auto_Add_Control class
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 4.4.0
  */
 
 /**
- * Customize control to represent the auto_add field for a given menu.
+ * Live manager control to represent the auto_add field for a given menu.
  *
  * @since 4.3.0
  *

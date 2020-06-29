@@ -1,15 +1,15 @@
 <?php
 /**
- * Customize API: WP_Customize_New_Menu_Section class
+ * Live manager API: WP_Customize_New_Menu_Section class
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 4.4.0
  * @deprecated 4.9.0 This file is no longer used as of the menu creation UX introduced in #40104.
  */
 
 /**
- * Customize Menu Section Class
+ * Live manager menu section class
  *
  * @since 4.3.0
  * @deprecated 4.9.0 This class is no longer used as of the menu creation UX introduced in #40104.
@@ -33,7 +33,7 @@ class WP_Customize_New_Menu_Section extends WP_Customize_Section {
 	 *
 	 * @since 4.9.0
 	 *
-	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
+	 * @param WP_Customize_Manager $manager Live manager bootstrap instance.
 	 * @param string               $id      An specific ID of the section.
 	 * @param array                $args    Section arguments.
 	 */

@@ -1,14 +1,14 @@
 <?php
 /**
- * Customize API: WP_Customize_Nav_Menu_Locations_Control class
+ * Live manager API: WP_Customize_Nav_Menu_Locations_Control class
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 4.9.0
  */
 
 /**
- * Customize Nav Menu Locations Control Class.
+ * Live manager nav Menu locations control class
  *
  * @since 4.9.0
  */

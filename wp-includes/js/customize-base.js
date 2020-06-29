@@ -532,7 +532,7 @@ window.wp = window.wp || {};
 		}
 	});
 
-	// Create a global events bus on the Customizer.
+	// Create a global events bus on the live manager.
 	$.extend( api.Values.prototype, api.Events );
 
 

@@ -107,8 +107,8 @@
 			el.addClass( 'wp-color-picker' );
 
 			/*
-			 * Check if there's already a wrapping label, e.g. in the Customizer.
-			 * If there's no label, add a default one to match the Customizer template.
+			 * Check if there's already a wrapping label, e.g. in the live manager.
+			 * If there's no label, add a default one to match the live manager template.
 			 */
 			if ( ! el.parent( 'label' ).length ) {
 				// Wrap the input field in the default label.
@@ -120,7 +120,7 @@
 			}
 
 			/*
-			 * At this point, either it's the standalone version or the Customizer
+			 * At this point, either it's the standalone version or the live manager
 			 * one, we have a wrapping label to use as hook in the DOM, let's store it.
 			 */
 			self.wrappingLabel = el.parent();

@@ -1,14 +1,14 @@
 <?php
 /**
- * Customize API: WP_Customize_Themes_Panel class
+ * Live manager API: WP_Customize_Themes_Panel class
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 4.9.0
  */
 
 /**
- * Customize Themes Panel Class
+ * Live manager themes panel class
  *
  * @since 4.9.0
  *
@@ -71,7 +71,7 @@ class WP_Customize_Themes_Panel extends WP_Customize_Panel {
 			<div class="accordion-section-title">
 				<span class="preview-notice">
 					<?php
-					/* translators: %s: themes panel title in the Customizer */
+					/* translators: %s: themes panel title in the live manager */
 					echo sprintf( __( 'You are browsing %s' ), '<strong class="panel-title">' . __( 'Themes' ) . '</strong>' ); // Separate strings for consistency with other panels.
 					?>
 				</span>

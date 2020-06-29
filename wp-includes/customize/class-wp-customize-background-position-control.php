@@ -1,14 +1,14 @@
 <?php
 /**
- * Customize API: WP_Customize_Background_Position_Control class
+ * Live manager API: WP_Customize_Background_Position_Control class
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 4.7.0
  */
 
 /**
- * Customize Background Position Control class.
+ * Live manager background position control class
  *
  * @since 4.7.0
  *

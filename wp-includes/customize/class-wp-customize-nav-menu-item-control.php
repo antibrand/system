@@ -1,14 +1,14 @@
 <?php
 /**
- * Customize API: WP_Customize_Nav_Menu_Item_Control class
+ * Live manager API: WP_Customize_Nav_Menu_Item_Control class
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 4.4.0
  */
 
 /**
- * Customize control to represent the name field for a given menu.
+ * Live manager control to represent the name field for a given menu.
  *
  * @since 4.3.0
  */
@@ -37,7 +37,7 @@ class WP_Customize_Nav_Menu_Item_Control extends WP_Customize_Control {
 	 *
 	 * @see WP_Customize_Control::__construct()
 	 *
-	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
+	 * @param WP_Customize_Manager $manager Live manager bootstrap instance.
 	 * @param string               $id      The control ID.
 	 * @param array                $args    Optional. Overrides class property defaults.
 	 */

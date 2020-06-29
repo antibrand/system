@@ -1,14 +1,14 @@
 <?php
 /**
- * Customize API: WP_Customize_Selective_Refresh class
+ * Live manager API: WP_Customize_Selective_Refresh class
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 4.5.0
  */
 
 /**
- * Core Customizer class for implementing selective refresh.
+ * Core Live manager class for implementing selective refresh
  *
  * @since 4.5.0
  */
@@ -22,7 +22,7 @@ final class WP_Customize_Selective_Refresh {
 	const RENDER_QUERY_VAR = 'wp_customize_render_partials';
 
 	/**
-	 * Customize manager.
+	 * Live manager
 	 *
 	 * @since 4.5.0
 	 * @var WP_Customize_Manager
@@ -83,7 +83,7 @@ final class WP_Customize_Selective_Refresh {
 	 *
 	 * @since 4.5.0
 	 *
-	 * @param WP_Customize_Partial|string $id   Customize Partial object, or Panel ID.
+	 * @param WP_Customize_Partial|string $id   Live manager partial object, or Panel ID.
 	 * @param array                       $args {
 	 *  Optional. Array of properties for the new Partials object. Default empty array.
 	 *
@@ -154,7 +154,7 @@ final class WP_Customize_Selective_Refresh {
 	}
 
 	/**
-	 * Initializes the Customizer preview.
+	 * Initializes the live manager preview.
 	 *
 	 * @since 4.5.0
 	 */

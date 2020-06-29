@@ -1,22 +1,22 @@
 <?php
 /**
- * Customize Manager classes
+ * Live manager classes
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 3.4.0
  */
 
 /**
- * Customize Manager class.
+ * Live manager class
  *
- * Bootstraps the Customize experience on the server-side.
+ * Bootstraps the live manager experience on the server-side.
  *
  * Sets up the theme-switching process if a theme other than the active one is
  * being previewed and customized.
  *
- * Serves as a factory for Customize Controls and Settings, and
- * instantiates default Customize Controls and Settings.
+ * Serves as a factory for live manager controls and Settings, and
+ * instantiates default live manager controls and Settings.
  *
  * @since 3.4.0
  */
@@ -38,7 +38,7 @@ final class WP_Customize_Manager {
 	protected $original_stylesheet;
 
 	/**
-	 * Whether this is a Customizer pageload.
+	 * Whether this is a live manager pageload.
 	 *
 	 * @since 3.4.0
 	 * @var bool
@@ -46,7 +46,7 @@ final class WP_Customize_Manager {
 	protected $previewing = false;
 
 	/**
-	 * Methods and properties dealing with managing widgets in the Customizer.
+	 * Methods and properties dealing with managing widgets in the live manager.
 	 *
 	 * @since 3.9.0
 	 * @var WP_Customize_Widgets
@@ -54,7 +54,7 @@ final class WP_Customize_Manager {
 	public $widgets;
 
 	/**
-	 * Methods and properties dealing with managing nav menus in the Customizer.
+	 * Methods and properties dealing with managing nav menus in the live manager.
 	 *
 	 * @since 4.3.0
 	 * @var WP_Customize_Nav_Menus
@@ -62,7 +62,7 @@ final class WP_Customize_Manager {
 	public $nav_menus;
 
 	/**
-	 * Methods and properties dealing with selective refresh in the Customizer preview.
+	 * Methods and properties dealing with selective refresh in the live manager preview.
 	 *
 	 * @since 4.5.0
 	 * @var WP_Customize_Selective_Refresh
@@ -150,7 +150,7 @@ final class WP_Customize_Manager {
 	protected $preview_url;
 
 	/**
-	 * URL to link the user to when closing the Customizer.
+	 * URL to link the user to when closing the live manager.
 	 *
 	 * @since 4.4.0
 	 * @var string
@@ -206,7 +206,7 @@ final class WP_Customize_Manager {
 	protected $saved_starter_content_changeset = false;
 
 	/**
-	 * Unsanitized values for Customize Settings parsed from $_POST['customized'].
+	 * Unsanitized values for live manager settings parsed from $_POST['customized'].
 	 *
 	 * @var array
 	 */
@@ -335,7 +335,7 @@ final class WP_Customize_Manager {
 		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-nav-menu-setting.php' );
 
 		/**
-		 * Filters the core Customizer components to load.
+		 * Filters the core live manager components to load.
 		 *
 		 * This allows Core components to be excluded from being instantiated by
 		 * filtering them out of the array. Note that this filter generally runs
@@ -367,7 +367,7 @@ final class WP_Customize_Manager {
 		add_action( 'setup_theme', array( $this, 'setup_theme' ) );
 		add_action( 'wp_loaded',   array( $this, 'wp_loaded' ) );
 
-		// Do not spawn cron (especially the alternate cron) while running the Customizer.
+		// Do not spawn cron (especially the alternate cron) while running the live manager.
 		remove_action( 'init', 'wp_cron' );
 
 		// Do not run update checks when rendering the controls.
@@ -601,7 +601,7 @@ final class WP_Customize_Manager {
 	 * Establish the loaded changeset.
 	 *
 	 * This method runs right at after_setup_theme and applies the 'customize_changeset_branching' filter to determine
-	 * whether concurrent changesets are allowed. Then if the Customizer is not initialized with a `changeset_uuid` param,
+	 * whether concurrent changesets are allowed. Then if the live manager is not initialized with a `changeset_uuid` param,
 	 * this method will determine which UUID should be used. If changeset branching is disabled, then the most saved
 	 * changeset will be loaded by default. Otherwise, if there are no existing saved changesets or if changeset branching is
 	 * enabled, then a new UUID will be generated.
@@ -684,7 +684,7 @@ final class WP_Customize_Manager {
 		}
 
 		/**
-		 * Fires once the Customizer theme preview has started.
+		 * Fires once the live manager theme preview has started.
 		 *
 		 * @since 3.4.0
 		 *
@@ -721,7 +721,7 @@ final class WP_Customize_Manager {
 		}
 
 		/**
-		 * Fires once the Customizer theme preview has stopped.
+		 * Fires once the live manager theme preview has stopped.
 		 *
 		 * @since 3.4.0
 		 *
@@ -769,7 +769,7 @@ final class WP_Customize_Manager {
 		 *
 		 * By default in core, when changeset branching is not allowed, changesets will operate
 		 * linearly in that only one saved changeset will exist at a time (with a 'draft' or
-		 * 'future' status). This makes the Customizer operate in a way that is similar to going to
+		 * 'future' status). This makes the live manager operate in a way that is similar to going to
 		 * "edit" to one existing post: all users will be making changes to the same post, and autosave
 		 * revisions will be made for that post.
 		 *
@@ -780,7 +780,7 @@ final class WP_Customize_Manager {
 		 * user's specific post.
 		 *
 		 * Since linear changesets are deemed to be more suitable for the majority of users,
-		 * they are the default. For sites that have heavy site management in the Customizer
+		 * they are the default. For sites that have heavy site management in the live manager
 		 * by multiple users then branching changesets should be enabled by means of this filter.
 		 *
 		 * @since 4.9.0
@@ -1823,7 +1823,7 @@ final class WP_Customize_Manager {
 	public function customize_preview_init() {
 
 		/*
-		 * Now that Customizer previews are loaded into iframes via GET requests
+		 * Now that live manager previews are loaded into iframes via GET requests
 		 * and natural URLs with transaction UUIDs added, we need to ensure that
 		 * the responses are never cached by proxies. In practice, this will not
 		 * be needed if the user is logged-in anyway. But if anonymous access is
@@ -1838,7 +1838,7 @@ final class WP_Customize_Manager {
 		add_filter( 'wp_headers', array( $this, 'filter_iframe_security_headers' ) );
 
 		/*
-		 * If preview is being served inside the customizer preview iframe, and
+		 * If preview is being served inside the live manager preview iframe, and
 		 * if the user doesn't have customize capability, then it is assumed
 		 * that the user's session has expired and they need to re-authenticate.
 		 */
@@ -1859,7 +1859,7 @@ final class WP_Customize_Manager {
 		add_filter( 'get_edit_post_link', '__return_empty_string' );
 
 		/**
-		 * Fires once the Customizer preview has initialized and JavaScript
+		 * Fires once the live manager preview has initialized and JavaScript
 		 * settings have been printed.
 		 *
 		 * @since 3.4.0
@@ -1952,14 +1952,14 @@ final class WP_Customize_Manager {
 	 * Print a workaround to handle HTML5 tags in IE < 9.
 	 *
 	 * @since 3.4.0
-	 * @deprecated 4.7.0 Customizer no longer supports IE8, so all supported browsers recognize HTML5.
+	 * @deprecated 4.7.0 Live manager no longer supports IE8, so all supported browsers recognize HTML5.
 	 */
 	public function customize_preview_html5() {
 		_deprecated_function( __FUNCTION__, '4.7.0' );
 	}
 
 	/**
-	 * Print CSS for loading indicators for the Customizer preview.
+	 * Print CSS for loading indicators for the live manager preview.
 	 *
 	 * @since 4.2.0
 	 */
@@ -2142,7 +2142,7 @@ final class WP_Customize_Manager {
 	}
 
 	/**
-	 * Prints a signature so we can ensure the Customizer was properly executed.
+	 * Prints a signature so we can ensure the live manager was properly executed.
 	 *
 	 * @since 3.4.0
 	 * @deprecated 4.7.0
@@ -2152,7 +2152,7 @@ final class WP_Customize_Manager {
 	}
 
 	/**
-	 * Removes the signature in case we experience a case where the Customizer was not properly executed.
+	 * Removes the signature in case we experience a case where the live manager was not properly executed.
 	 *
 	 * @since 3.4.0
 	 * @deprecated 4.7.0
@@ -3118,7 +3118,7 @@ final class WP_Customize_Manager {
 	}
 
 	/**
-	 * Filter heartbeat settings for the Customizer.
+	 * Filter heartbeat settings for the live manager.
 	 *
 	 * @since 4.9.0
 	 * @param array $settings Current settings to filter.
@@ -3344,7 +3344,7 @@ final class WP_Customize_Manager {
 		$this->add_dynamic_settings( $changeset_setting_ids );
 
 		/**
-		 * Fires once the theme has switched in the Customizer, but before settings
+		 * Fires once the theme has switched in the live manager, but before settings
 		 * have been saved.
 		 *
 		 * @since 3.4.0
@@ -3398,7 +3398,7 @@ final class WP_Customize_Manager {
 		}
 
 		/**
-		 * Fires after Customize settings have been saved.
+		 * Fires after live manager settings have been saved.
 		 *
 		 * @since 3.6.0
 		 *
@@ -3579,13 +3579,13 @@ final class WP_Customize_Manager {
 	 *  @type string       $capability            Capability required for the setting. Default 'edit_theme_options'
 	 *  @type string|array $theme_supports        Theme features required to support the panel. Default is none.
 	 *  @type string       $default               Default value for the setting. Default is empty string.
-	 *  @type string       $transport             Options for rendering the live preview of changes in Theme Customizer.
+	 *  @type string       $transport             Options for rendering the live preview of changes in Theme manager.
 	 *                                            Using 'refresh' makes the change visible by reloading the whole preview.
 	 *                                            Using 'postMessage' allows a custom JavaScript to handle live changes.
 	 *                                            Default is 'refresh'
 	 *  @type callable     $validate_callback     Server-side validation callback for the setting's value.
-	 *  @type callable     $sanitize_callback     Callback to filter a Customize setting value in un-slashed form.
-	 *  @type callable     $sanitize_js_callback  Callback to convert a Customize PHP setting value to a value that is
+	 *  @type callable     $sanitize_callback     Callback to filter a live manager setting value in un-slashed form.
+	 *  @type callable     $sanitize_js_callback  Callback to convert a live manager PHP setting value to a value that is
 	 *                                            JSON serializable.
 	 *  @type bool         $dirty                 Whether or not the setting is initially dirty when created.
 	 * }
@@ -4185,7 +4185,7 @@ final class WP_Customize_Manager {
 			<p class="customize-control-title">
 				<?php esc_html_e( 'Share Preview Link' ); ?>
 			</p>
-			<p class="description customize-control-description"><?php esc_html_e( 'See how changes would look live on your website, and share the preview with people who can\'t access the Customizer.' ); ?></p>
+			<p class="description customize-control-description"><?php esc_html_e( 'See how changes would look live on your website, and share the preview with people who can\'t access the live manager.' ); ?></p>
 			<div class="customize-control-notifications-container"></div>
 			<div class="preview-link-wrapper">
 				<label for="{{ elementPrefix }}customize-preview-link-input" class="screen-reader-text"><?php esc_html_e( 'Preview Link' ); ?></label>
@@ -4352,7 +4352,7 @@ final class WP_Customize_Manager {
 	}
 
 	/**
-	 * Get the template string for the Customizer pane document title.
+	 * Get the template string for the live manager pane document title.
 	 *
 	 * @since 4.4.0
 	 *
@@ -4361,7 +4361,7 @@ final class WP_Customize_Manager {
 	public function get_document_title_template() {
 		if ( $this->is_theme_active() ) {
 			/* translators: %s: document title from the preview */
-			$document_title_tmpl = __( 'Customize: %s' );
+			$document_title_tmpl = __( 'Manage: %s' );
 		} else {
 			/* translators: %s: document title from the preview */
 			$document_title_tmpl = __( 'Live Preview: %s' );
@@ -4418,7 +4418,7 @@ final class WP_Customize_Manager {
 	 * Get URLs allowed to be previewed.
 	 *
 	 * If the front end and the admin are served from the same domain, load the
-	 * preview over ssl if the Customizer is being loaded over ssl. This avoids
+	 * preview over ssl if the live manager is being loaded over ssl. This avoids
 	 * insecure content warnings. This is not attempted if the admin and front end
 	 * are on different domains to avoid the case where the front end doesn't have
 	 * ssl certs. Domain mapping plugins can allow other urls in these conditions
@@ -4436,7 +4436,7 @@ final class WP_Customize_Manager {
 		}
 
 		/**
-		 * Filters the list of URLs allowed to be clicked and followed in the Customizer preview.
+		 * Filters the list of URLs allowed to be clicked and followed in the live manager preview.
 		 *
 		 * @since 3.4.0
 		 *
@@ -4459,7 +4459,7 @@ final class WP_Customize_Manager {
 	}
 
 	/**
-	 * Set URL to link the user to when closing the Customizer.
+	 * Set URL to link the user to when closing the live manager.
 	 *
 	 * URL is validated.
 	 *
@@ -4475,11 +4475,11 @@ final class WP_Customize_Manager {
 	}
 
 	/**
-	 * Get URL to link the user to when closing the Customizer.
+	 * Get URL to link the user to when closing the live manager.
 	 *
 	 * @since 4.4.0
 	 *
-	 * @return string URL for link to close Customizer.
+	 * @return string URL for link to close live manager.
 	 */
 	public function get_return_url() {
 		$referer = wp_get_referer();
@@ -4532,7 +4532,7 @@ final class WP_Customize_Manager {
 	}
 
 	/**
-	 * Get nonces for the Customizer.
+	 * Get nonces for the live manager.
 	 *
 	 * @since 4.5.0
 	 *
@@ -4549,7 +4549,7 @@ final class WP_Customize_Manager {
 		);
 
 		/**
-		 * Filters nonces for Customizer.
+		 * Filters nonces for live manager.
 		 *
 		 * @since 4.2.0
 		 *
@@ -4623,7 +4623,7 @@ final class WP_Customize_Manager {
 			);
 		}
 
-		// Prepare Customizer settings to pass to JavaScript.
+		// Prepare live manager settings to pass to JavaScript.
 		$changeset_post = null;
 		if ( $changeset_post_id ) {
 			$changeset_post = get_post( $changeset_post_id );
@@ -4706,7 +4706,7 @@ final class WP_Customize_Manager {
 			),
 		);
 
-		// Temporarily disable installation in Customizer. See #42184.
+		// Temporarily disable installation in live manager. See #42184.
 		$filesystem_method = get_filesystem_method();
 		ob_start();
 		$filesystem_credentials_are_stored = request_filesystem_credentials( self_admin_url() );
@@ -4715,14 +4715,14 @@ final class WP_Customize_Manager {
 			$settings['theme']['_filesystemCredentialsNeeded'] = true;
 		}
 
-		// Prepare Customize Section objects to pass to JavaScript.
+		// Prepare live manager section objects to pass to JavaScript.
 		foreach ( $this->sections() as $id => $section ) {
 			if ( $section->check_capabilities() ) {
 				$settings['sections'][ $id ] = $section->json();
 			}
 		}
 
-		// Prepare Customize Panel objects to pass to JavaScript.
+		// Prepare live manager panel objects to pass to JavaScript.
 		foreach ( $this->panels() as $panel_id => $panel ) {
 			if ( $panel->check_capabilities() ) {
 				$settings['panels'][ $panel_id ] = $panel->json();
@@ -4794,7 +4794,7 @@ final class WP_Customize_Manager {
 		);
 
 		/**
-		 * Filters the available devices to allow previewing in the Customizer.
+		 * Filters the available devices to allow previewing in the live manager.
 		 *
 		 * @since 4.5.0
 		 *
@@ -4846,7 +4846,7 @@ final class WP_Customize_Manager {
 		}
 		*/
 
-		// Themes Setting (unused - the theme is considerably more fundamental to the Customizer experience).
+		// Themes Setting (unused - the theme is considerably more fundamental to the live manager experience).
 		$this->add_setting( new WP_Customize_Filter_Setting( $this, 'active_theme', array(
 			'capability' => 'switch_themes',
 		) ) );
@@ -4899,7 +4899,7 @@ final class WP_Customize_Manager {
 		$this->add_setting( 'site_icon', array(
 			'type'       => 'option',
 			'capability' => 'manage_options',
-			'transport'  => 'postMessage', // Previewed with JS in the Customizer controls window.
+			'transport'  => 'postMessage', // Previewed with JS in the live manager controls window.
 		) );
 
 		$this->add_control( new WP_Customize_Site_Icon_Control( $this, 'site_icon', array(

@@ -1,9 +1,9 @@
 <?php
 /**
- * Customize API: WP_Customize_Filter_Setting class
+ * Live manager API: WP_Customize_Filter_Setting class
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 4.4.0
  */
 

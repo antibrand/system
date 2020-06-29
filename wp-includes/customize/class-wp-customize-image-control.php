@@ -1,14 +1,14 @@
 <?php
 /**
- * Customize API: WP_Customize_Image_Control class
+ * Live manager API: WP_Customize_Image_Control class
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 4.4.0
  */
 
 /**
- * Customize Image Control class.
+ * Live manager image control class
  *
  * @since 3.4.0
  *

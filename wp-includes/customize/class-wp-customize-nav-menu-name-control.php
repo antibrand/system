@@ -1,14 +1,14 @@
 <?php
 /**
- * Customize API: WP_Customize_Nav_Menu_Name_Control class
+ * Live manager API: WP_Customize_Nav_Menu_Name_Control class
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 4.4.0
  */
 
 /**
- * Customize control to represent the name field for a given menu.
+ *Live manager control to represent the name field for a given menu.
  *
  * @since 4.3.0
  *

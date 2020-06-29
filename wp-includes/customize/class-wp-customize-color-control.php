@@ -1,14 +1,14 @@
 <?php
 /**
- * Customize API: WP_Customize_Color_Control class
+ * Live manager API: WP_Customize_Color_Control class
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 4.4.0
  */
 
 /**
- * Customize Color Control class.
+ * Live manager color control class
  *
  * @since 3.4.0
  *
@@ -43,7 +43,7 @@ class WP_Customize_Color_Control extends WP_Customize_Control {
 	 * @since 3.4.0
 	 * @uses WP_Customize_Control::__construct()
 	 *
-	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
+	 * @param WP_Customize_Manager $manager Live manager bootstrap instance.
 	 * @param string               $id      Control ID.
 	 * @param array                $args    Optional. Arguments to override class property defaults.
 	 */

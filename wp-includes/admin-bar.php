@@ -287,7 +287,7 @@ function wp_admin_bar_site_menu( $wp_admin_bar ) {
 }
 
 /**
- * Adds the "Customize" link to the Toolbar.
+ * Adds the "Manage" link to the Toolbar.
  *
  * @since 4.3.0
  *
@@ -319,7 +319,7 @@ function wp_admin_bar_customize_menu( $wp_admin_bar ) {
 
 	$wp_admin_bar->add_menu( array(
 		'id'     => 'customize',
-		'title'  => __( 'Customize' ),
+		'title'  => __( 'Live Manager' ),
 		'href'   => $customize_url,
 		'meta'   => array(
 			'class' => 'hide-if-no-customize',

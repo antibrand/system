@@ -1,14 +1,14 @@
 <?php
 /**
- * Customize Setting classes
+ * Live manager setting classes
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 3.4.0
  */
 
 /**
- * Customize Setting class.
+ * Live manager setting class
  *
  * Handles saving and sanitizing of settings.
  *
@@ -18,7 +18,7 @@
  */
 class WP_Customize_Setting {
 	/**
-	 * Customizer bootstrap instance.
+	 * Live manager bootstrap instance.
 	 *
 	 * @since 3.4.0
 	 * @var WP_Customize_Manager
@@ -66,7 +66,7 @@ class WP_Customize_Setting {
 	public $default = '';
 
 	/**
-	 * Options for rendering the live preview of changes in Theme Customizer.
+	 * Options for rendering the live preview of changes in theme live manager.
 	 *
 	 * Set this value to 'postMessage' to enable a custom Javascript handler to render changes to this setting
 	 * as opposed to reloading the whole page.
@@ -85,7 +85,7 @@ class WP_Customize_Setting {
 	public $validate_callback = '';
 
 	/**
-	 * Callback to filter a Customize setting value in un-slashed form.
+	 * Callback to filter a live manager setting value in un-slashed form.
 	 *
 	 * @since 3.4.0
 	 * @var callable
@@ -93,7 +93,7 @@ class WP_Customize_Setting {
 	public $sanitize_callback = '';
 
 	/**
-	 * Callback to convert a Customize PHP setting value to a value that is JSON serializable.
+	 * Callback to convert a live manager PHP setting value to a value that is JSON serializable.
 	 *
 	 * @since 3.4.0
 	 * @var string
@@ -104,7 +104,7 @@ class WP_Customize_Setting {
 	 * Whether or not the setting is initially dirty when created.
 	 *
 	 * This is used to ensure that a setting will be sent from the pane to the
-	 * preview when loading the Customizer. Normally a setting only is synced to
+	 * preview when loading the live manager. Normally a setting only is synced to
 	 * the preview if it has been changed. This allows the setting to be sent
 	 * from the start.
 	 *
@@ -549,7 +549,7 @@ class WP_Customize_Setting {
 	public function sanitize( $value ) {
 
 		/**
-		 * Filters a Customize setting value in un-slashed form.
+		 * Filters a live manager setting value in un-slashed form.
 		 *
 		 * @since 3.4.0
 		 *
@@ -580,7 +580,7 @@ class WP_Customize_Setting {
 		$validity = new WP_Error();
 
 		/**
-		 * Validates a Customize setting value.
+		 * Validates a live manager setting value.
 		 *
 		 * Plugins should amend the `$validity` object via its `WP_Error::add()` method.
 		 *
@@ -734,7 +734,7 @@ class WP_Customize_Setting {
 			$value = $this->get_root_value( $this->default );
 
 			/**
-			 * Filters a Customize setting value not handled as a theme_mod or option.
+			 * Filters a live manager setting value not handled as a theme_mod or option.
 			 *
 			 * The dynamic portion of the hook name, `$id_base`, refers to
 			 * the base slug of the setting name, initialized from `$this->id_data['base']`.
@@ -773,7 +773,7 @@ class WP_Customize_Setting {
 	public function js_value() {
 
 		/**
-		 * Filters a Customize setting value for use in JavaScript.
+		 * Filters a live manager setting value for use in JavaScript.
 		 *
 		 * The dynamic portion of the hook name, `$this->id`, refers to the setting ID.
 		 *

@@ -452,7 +452,7 @@ class Custom_Image_Header {
 	<p>
 		<?php
 		printf(
-			__( 'You can now manage and live-preview Custom Header in the <a href="%1$s">Customizer</a>.' ),
+			__( 'You can now manage and preview headers in the <a href="%1$s">Live Manager</a>.' ),
 			admin_url( 'customize.php?autofocus[control]=header_image' )
 		);
 		?>
@@ -1300,7 +1300,7 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 	 * header image for the current theme.
 	 *
 	 * Triggered when the user clicks the overlay "X" button next to each image
-	 * choice in the Customizer's Header tool.
+	 * choice in the Live Manager's Header tool.
 	 *
 	 * @since 3.9.0
 	 */
@@ -1324,11 +1324,11 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 	}
 
 	/**
-	 * Updates the last-used postmeta on a header image attachment after saving a new header image via the Customizer.
+	 * Updates the last-used postmeta on a header image attachment after saving a new header image via the Live Manager.
 	 *
 	 * @since 3.9.0
 	 *
-	 * @param WP_Customize_Manager $wp_customize Customize manager.
+	 * @param WP_Customize_Manager $wp_customize Live Manager.
 	 */
 	public function customize_set_last_used( $wp_customize ) {
 

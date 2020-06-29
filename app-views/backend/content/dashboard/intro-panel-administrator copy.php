@@ -241,7 +241,7 @@ $user_greeting = sprintf(
 		<div id='customize' class="app-tab-content top-panel-tab hide-if-no-js">
 
 			<header>
-				<h2><?php _e( 'Customize Your Site' ); ?></h2>
+				<h2><?php _e( 'Manage Your Framework' ); ?></h2>
 				<p class="description"><?php _e( 'Choose layout options, color schemes, and more.' ); ?></p>
 			</header>
 

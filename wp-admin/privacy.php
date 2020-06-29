@@ -72,7 +72,7 @@ if ( ! empty( $action ) ) {
 				&& current_theme_supports( 'menus' )
 			) {
 				$privacy_page_updated_message = sprintf(
-					/* translators: %s: URL to Customizer -> Menus */
+					/* translators: %s: URL to live manager -> menus */
 					__( 'Privacy Policy page updated successfully. Remember to <a href="%s">update menus</a>!' ),
 					esc_url( add_query_arg( 'autofocus[panel]', 'nav_menus', admin_url( 'customize.php' ) ) )
 				);

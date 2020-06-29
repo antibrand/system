@@ -1,11 +1,11 @@
 <?php
 /**
- * Customize API: WP_Customize_Custom_CSS_Setting class
+ * Live manager API: WP_Customize_Custom_CSS_Setting class
  *
  * This handles validation, sanitization and saving of the value.
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 4.7.0
  */
 

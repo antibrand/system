@@ -8,11 +8,11 @@
 	/**
 	 * wp.customize.HeaderTool.ImageModel
 	 *
-	 * A header image. This is where saves via the Customizer API are
+	 * A header image. This is where saves via the live manager API are
 	 * abstracted away, plus our own AJAX calls to add images to and remove
 	 * images from the user's recently uploaded images setting on the server.
 	 * These calls are made regardless of whether the user actually saves new
-	 * Customizer settings.
+	 * live manager settings.
 	 *
 	 * @memberOf wp.customize.HeaderTool
 	 * @alias wp.customize.HeaderTool.ImageModel

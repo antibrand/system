@@ -181,7 +181,7 @@ if ( 'undefined' === typeof window.wp.codeEditor ) {
 
 		/*
 		 * Make sure setting validities are set if the user tries to click Publish
-		 * while an autocomplete dropdown is still open. The Customizer will block
+		 * while an autocomplete dropdown is still open. The live manager will block
 		 * saving when a setting has an error notifications on it. This is only
 		 * necessary for mouse interactions because keyboards will have already
 		 * blurred the field and cause onUpdateErrorNotice to have already been

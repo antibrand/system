@@ -1,14 +1,14 @@
 <?php
 /**
- * Customize API: WP_Customize_Cropped_Image_Control class
+ * Live manager API: WP_Customize_Cropped_Image_Control class
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since 4.4.0
  */
 
 /**
- * Customize Cropped Image Control class.
+ * Live manager cropped image control class
  *
  * @since 4.3.0
  *

@@ -1014,7 +1014,7 @@
 		} else {
 			$notice = $( '.theme-info .notice' ).add( $theme.find( '.update-message' ) );
 
-			// Focus on Customize button after updating.
+			// Focus on live manager button after updating.
 			if ( isModalOpen ) {
 				$( '.load-customize:visible' ).focus();
 			} else {
@@ -1129,7 +1129,7 @@
 	 * @typedef {object} installThemeSuccess
 	 * @param {object} response              Response from the server.
 	 * @param {string} response.slug         Slug of the theme to be installed.
-	 * @param {string} response.customizeUrl URL to the Customizer for the just installed theme.
+	 * @param {string} response.customizeUrl URL to the live manager for the just installed theme.
 	 * @param {string} response.activateUrl  URL to activate the just installed theme.
 	 */
 	wp.updates.installThemeSuccess = function( response ) {

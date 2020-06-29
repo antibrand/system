@@ -1,14 +1,14 @@
 <?php
 /**
- * Customize API: WP_Customize_Site_Icon_Control class
+ * Live manager API: WP_Customize_Site_Icon_Control class
  *
  * @package App_Package
- * @subpackage Customize
+ * @subpackage Live_Manager
  * @since WP 4.4.0
  */
 
 /**
- * Customize Site Icon control class
+ * Live manager site icon control class
  *
  * Used only for custom functionality in JavaScript.
  *
@@ -32,7 +32,7 @@ class WP_Customize_Site_Icon_Control extends WP_Customize_Cropped_Image_Control 
 	 *
 	 * @since WP 4.3.0
 	 * @access public
-	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
+	 * @param WP_Customize_Manager $manager Live manager bootstrap instance.
 	 * @param string $id Control ID.
 	 * @param array $args Optional. Arguments to override class property defaults.
 	 * @return self
