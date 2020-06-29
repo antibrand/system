@@ -2,7 +2,7 @@
  * Default dark color scheme
  */
 body {
-  background-color: #222;
+  background-color: #222222;
   color: #ffffff;
 }
 
@@ -59,7 +59,7 @@ ul.striped > :nth-child(odd),
  * ../../admin/partials/forms.scss
  */
 fieldset {
-  background-color: #222;
+  background-color: #222222;
   border-color: #414141;
 }
 
@@ -137,7 +137,7 @@ select:disabled, select.disabled {
 }
 
 optgroup {
-  background-color: #222;
+  background-color: #222222;
 }
 
 ::-webkit-input-placeholder {
@@ -383,11 +383,11 @@ optgroup {
 }
 
 .app-tabs .app-tabs-list .app-tab.active {
-  border-bottom-color: #222;
+  border-bottom-color: #222222;
 }
 
 .app-tabs .app-tabs-list .app-tab.active a {
-  background-color: #222;
+  background-color: #222222;
   color: #ffffff;
 }
 
@@ -439,7 +439,7 @@ div.mce-statusbar,
 }
 
 .wp-editor-expand #wp-content-editor-tools {
-  background-color: #222;
+  background-color: #222222;
   border-color: #626262 !important;
 }
 
@@ -462,7 +462,7 @@ div.mce-statusbar,
 
 .tmce-active .switch-tmce,
 .html-active .switch-html {
-  border-bottom-color: #222 !important;
+  border-bottom-color: #222222 !important;
   color: #ffffff !important;
 }
 
@@ -470,7 +470,7 @@ div.mce-statusbar,
 .html-active .switch-html:hover,
 .html-active .switch-html:focus {
   background-color: #2f2f2f !important;
-  border-bottom-color: #222 !important;
+  border-bottom-color: #222222 !important;
   color: #ffffff !important;
 }
 
@@ -521,7 +521,7 @@ div.mce-statusbar,
 .media-modal,
 .media-modal-content,
 .media-frame-content {
-  background: #222;
+  background: #222222;
   border-color: #414141;
 }
 
@@ -686,6 +686,26 @@ ul.add-menu-item-tabs li.tabs,
 }
 
 /**
+ * Live Manager
+ */
+.wp-full-overlay-sidebar,
+#customize-controls .customize-info .accordion-section-title,
+.wp-full-overlay-sidebar .wp-full-overlay-header {
+  background-color: #222222;
+  color: #ffffff;
+}
+
+.customize-controls-close {
+  background-color: #222222;
+  color: #ffffff;
+}
+
+.customize-controls-close:focus, .customize-controls-close:hover, .customize-controls-preview-toggle:focus, .customize-controls-preview-toggle:hover {
+  background-color: #ffee00;
+  color: #222222;
+}
+
+/**
  * Unique styles
  *
  * The styles are unique to the color scheme and do not
@@ -731,7 +751,7 @@ fieldset.scheme-list {
 .app-admin .acf-table > tbody > tr > td,
 .app-admin .acf-table > thead > tr > th,
 .app-admin .acf-table > thead > tr > td {
-  background-color: #222 !important;
+  background-color: #222222 !important;
 }
 
 .app-admin .acf-tfoot,

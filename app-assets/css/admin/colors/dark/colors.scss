@@ -11,7 +11,7 @@ $app_secondary_color: #222222;
 $app_tertiary_color: #3ad4fb;
 $app_highlight_color: $app_yellow;
 
-$body_background: #222;
+$body_background: #222222;
 $text_color: $white;
 $box_background_color: lighten( $color: $app_secondary_color, $amount: 2.5% );
 $box_border_color: lighten( $color: $app_secondary_color, $amount: 12% );
@@ -684,6 +684,26 @@ ul.add-menu-item-tabs li.tabs,
 .plugins tr.active + tr.inactive th,
 .plugins tr.active + tr.inactive td {
 	border-color: $box_border_color;
+}
+
+/**
+ * Live Manager
+ */
+.wp-full-overlay-sidebar,
+#customize-controls .customize-info .accordion-section-title,
+.wp-full-overlay-sidebar .wp-full-overlay-header {
+	background-color: $body_background;
+	color: $text_color;
+}
+
+.customize-controls-close {
+	background-color: $body_background;
+	color: $text_color;
+}
+
+.customize-controls-close:focus, .customize-controls-close:hover, .customize-controls-preview-toggle:focus, .customize-controls-preview-toggle:hover {
+	background-color: $button_action_background_color;
+	color: $button_action_text_color;
 }
 
 /**
