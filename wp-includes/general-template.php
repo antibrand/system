@@ -4042,6 +4042,82 @@ function register_admin_color_schemes() {
 }
 
 /**
+ * Register user code editor theme css file
+ *
+ * Allows a plugin to register a new admin colour scheme. For example:
+ *
+ *     app_user_code_theme( 'classic', __( 'Classic' ), admin_url( "css/colors-classic.css" ), array(
+ *         '#07273E', '#14568A', '#D54E21', '#2683AE'
+ *     ) );
+ *
+ * @since 1.0.0
+ * @global array $app_user_code_themes
+ * @param  string $key    The unique key for this theme.
+ * @param  string $name   The name of the theme.
+ * @param  string $url    The URL of the CSS file containing the color scheme.
+ * @param  array  $colors Optional. An array of CSS color definition strings which are used
+ *                       to give the user a feel for the theme.
+ * @param  array  $icons {
+ *     Optional. CSS color definitions used to color any SVG icons.
+ *
+ *     @type string $base    SVG icon base color.
+ *     @type string $focus   SVG icon color on focus.
+ *     @type string $current SVG icon color of current admin menu link.
+ * }
+ */
+function app_user_code_theme( $key, $name, $url, $theme = [] ) {
+
+	global $app_user_code_themes;
+
+	if ( ! isset( $app_user_code_themes ) ) {
+		$app_user_code_themes = [];
+	}
+
+	$app_user_code_themes[$key] = (object) [
+		'name'       => $name,
+		'url'        => $url,
+		'code-theme' => $theme
+	];
+}
+
+/**
+ * Register user code editor themes
+ *
+ * @since 1.0.0
+ */
+function register_user_code_themes() {
+
+	$suffix  = is_rtl() ? '-rtl' : '';
+	$suffix .= SCRIPT_DEBUG ? '' : '.min';
+
+	app_user_code_theme( 'default', _x( 'Default', 'code theme' ),
+		false,
+		[ '#222222', '#363636', '#ffee00', '#004499' ]
+	);
+
+	// Other color schemes are not available when running out of src
+	if ( false !== strpos( get_bloginfo( 'version' ), '-src' ) ) {
+		return;
+	}
+
+	app_user_code_theme( 'dark', _x( 'Dark', 'code theme' ),
+		app_assets_url( "css/includes/code/dark/theme$suffix.css" ),
+		[ '#1e1e1e', '#222222', '#ffee00', '#3ad4fb' ]
+	);
+
+	app_user_code_theme( 'monokai', _x( 'Monokai', 'code theme' ),
+		app_assets_url( "css/includes/code/monokai/theme$suffix.css" ),
+		[ '#23282d', '#444444', '#0073aa', '#00a0d2' ]
+	);
+
+	app_user_code_theme( 'ubuntu', _x( 'Ubuntu', 'code theme' ),
+		app_assets_url( "css/includes/code/ubuntu/theme$suffix.css" ),
+		[ '#23282d', '#444444', '#0073aa', '#00a0d2' ]
+	);
+
+}
+
+/**
  * Displays the URL of an admin CSS file.
  *
  * @see WP_Styles::_css_href and its {@see 'style_loader_src'} filter.

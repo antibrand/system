@@ -819,7 +819,7 @@ function saveDomDocument($doc, $filename) {
 }
 
 /**
- * Display the default admin color scheme picker (Used in user-edit.php)
+ * Display the user admin color scheme picker (Used in user-edit.php)
  *
  * @since 3.0.0
  *
@@ -870,6 +870,53 @@ function admin_color_scheme_picker( $user_id ) {
 
 				?>
 				</ul>
+			</div>
+			<?php endforeach; ?>
+		</div>
+	</fieldset>
+	<?php
+}
+
+/**
+ * Display the user code theme picker (Used in user-edit.php)
+ *
+ * @since 3.0.0
+ *
+ * @global array $app_user_code_themes
+ *
+ * @param int $user_id User ID.
+ */
+function user_code_theme_picker( $user_id ) {
+
+	global $app_user_code_themes;
+
+	ksort( $app_user_code_themes );
+
+	if ( isset( $app_user_code_themes['default'] ) ) {
+
+		// Set Default ('default') and Dark should go first.
+		$app_user_code_themes = array_filter( array_merge( [ 'default' => '', 'dark' => '' ], $app_user_code_themes ) );
+	}
+
+	$current_theme = get_user_option( 'code_theme', $user_id );
+
+	if ( empty( $current_theme ) || ! isset( $app_user_code_themes[ $current_theme ] ) ) {
+		$current_theme = 'default';
+	}
+
+	?>
+	<fieldset id="code-theme-picker" class="scheme-list">
+		<legend class="screen-reader-text"><span><?php _e( 'User Code Theme' ); ?></span></legend>
+		<div class="user-code-theme-options">
+		<?php
+		wp_nonce_field( 'save-code-theme', 'code-theme-nonce', false );
+		foreach ( $app_user_code_themes as $theme => $theme_info ) :
+
+			?>
+			<div class="code-theme-option <?php echo ( $theme == $current_theme ) ? 'selected' : ''; ?>">
+				<input name="code_theme" id="code_theme_<?php echo esc_attr( $theme ); ?>" type="radio" value="<?php echo esc_attr( $theme ); ?>" class="tog" <?php checked( $theme, $current_theme ); ?> />
+				<input type="hidden" class="code_theme_url" value="<?php echo esc_url( $theme_info->url ); ?>" />
+				<label for="code_theme_<?php echo esc_attr( $theme ); ?>"><?php echo esc_html( $theme_info->name ); ?></label>
 			</div>
 			<?php endforeach; ?>
 		</div>

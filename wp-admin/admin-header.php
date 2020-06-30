@@ -186,6 +186,7 @@ if ( $current_screen->taxonomy ) {
 $admin_body_class .= ' branch-' . str_replace( [ '.', ',' ], '-', floatval( get_app_info( 'version' ) ) );
 $admin_body_class .= ' version-' . str_replace( '.', '-', preg_replace( '/^([.0-9]+).*/', '$1', get_app_info( 'version' ) ) );
 $admin_body_class .= ' admin-color-' . sanitize_html_class( get_user_option( 'admin_color' ), 'default' );
+$admin_body_class .= ' code-theme-' . sanitize_html_class( get_user_option( 'code_theme' ), 'default' );
 $admin_body_class .= ' locale-' . sanitize_html_class( strtolower( str_replace( '_', '-', get_user_locale() ) ) );
 
 if ( wp_is_mobile() ) {

@@ -2865,11 +2865,11 @@ function wp_ajax_get_revision_diffs() {
  * Ajax handler for auto-saving the selected color scheme for
  * a user's own profile.
  *
- * @since 3.8.0
- *
+ * @since  WP 3.8.0
  * @global array $_wp_admin_css_colors
  */
 function wp_ajax_save_user_color_scheme() {
+
 	global $_wp_admin_css_colors;
 
 	check_ajax_referer( 'save-color-scheme', 'nonce' );
@@ -2883,10 +2883,38 @@ function wp_ajax_save_user_color_scheme() {
 	$previous_color_scheme = get_user_meta( get_current_user_id(), 'admin_color', true );
 	update_user_meta( get_current_user_id(), 'admin_color', $color_scheme );
 
-	wp_send_json_success( array(
+	wp_send_json_success( [
 		'previousScheme' => 'admin-color-' . $previous_color_scheme,
 		'currentScheme'  => 'admin-color-' . $color_scheme
-	) );
+	] );
+}
+
+/**
+ * Ajax handler for auto-saving the selected code theme for
+ * a user's own profile.
+ *
+ * @since 1.0.0
+ * @global array $app_user_code_themes
+ */
+function wp_ajax_save_user_code_theme() {
+
+	global $app_user_code_themes;
+
+	check_ajax_referer( 'save-code-theme', 'nonce' );
+
+	$code_theme = sanitize_key( $_POST['code_theme'] );
+
+	if ( ! isset( $app_user_code_themes[ $code_theme ] ) ) {
+		wp_send_json_error();
+	}
+
+	$previous_code_theme = get_user_meta( get_current_user_id(), 'code_theme', true );
+	update_user_meta( get_current_user_id(), 'code_theme', $code_theme );
+
+	wp_send_json_success( [
+		'previousCodeTheme' => 'code-theme-' . $previous_code_theme,
+		'currentCodeTheme'  => 'code-theme-' . $code_theme
+	] );
 }
 
 /**

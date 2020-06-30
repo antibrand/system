@@ -368,8 +368,10 @@ add_action( 'wp_head', 'wp_post_preview_js', 1 );
 add_filter( 'pre_option_gmt_offset','wp_timezone_override_offset' );
 
 // User Color Schemes
-add_action( 'admin_init', 'register_admin_color_schemes', 1);
+add_action( 'admin_init', 'register_admin_color_schemes', 1 );
 add_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
+add_action( 'admin_init', 'register_user_code_themes', 1 );
+add_action( 'user_code_theme_picker', 'user_code_theme_picker' );
 
 // This option no longer exists; tell plugins we always support auto-embedding.
 add_filter( 'pre_option_embed_autourls', '__return_true' );
@@ -459,6 +461,7 @@ add_filter( 'customize_controls_print_styles', 'wp_resource_hints', 1 );
 
 add_action( 'wp_default_styles', 'wp_default_styles' );
 add_filter( 'style_loader_src', 'app_style_loader_src', 10, 2 );
+add_filter( 'style_loader_src', 'app_code_theme_loader_src', 10, 2 );
 
 // Taxonomy
 add_action( 'init', 'create_initial_taxonomies', 0 ); // highest priority

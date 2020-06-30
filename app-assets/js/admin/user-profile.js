@@ -437,6 +437,56 @@
 			}
 		});
 
+		$codepicker = $( '#code-theme-picker' );
+		$stylesheet = $( '#theme-css' );
+		user_id = $( 'input#user_id' ).val();
+		current_user_id = $( 'input[name="checkuser_id"]' ).val();
+
+		$codepicker.on( 'click.codepicker', '.code-theme-option', function() {
+			var colors,
+				$this = $(this);
+
+			if ( $this.hasClass( 'selected' ) ) {
+				return;
+			}
+
+			$this.siblings( '.selected' ).removeClass( 'selected' );
+			$this.addClass( 'selected' ).find( 'input[type="radio"]' ).prop( 'checked', true );
+
+			// Set color scheme
+			if ( user_id === current_user_id ) {
+				// Load the colors stylesheet.
+				// The default color scheme won't have one, so we'll need to create an element.
+				if ( 0 === $stylesheet.length ) {
+					$stylesheet = $( '<link rel="stylesheet" />' ).appendTo( 'head' );
+				}
+				$stylesheet.attr( 'href', $this.children( '.css_url' ).val() );
+
+				// repaint icons
+				if ( typeof wp !== 'undefined' && wp.svgPainter ) {
+					try {
+						colors = $.parseJSON( $this.children( '.icon_colors' ).val() );
+					} catch ( error ) {}
+
+					if ( colors ) {
+						wp.svgPainter.setColors( colors );
+						wp.svgPainter.paint();
+					}
+				}
+
+				// update user code option
+				$.post( ajaxurl, {
+					action:       'save-user-code-theme',
+					code_theme: $this.children( 'input[name="code_theme"]' ).val(),
+					nonce:        $('#code-theme-nonce').val()
+				}).done( function( response ) {
+					if ( response.success ) {
+						$( 'body' ).removeClass( response.data.previousCodeTheme ).addClass( response.data.currentCodeTheme );
+					}
+				});
+			}
+		});
+
 		bindPasswordForm();
 	});
 

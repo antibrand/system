@@ -591,6 +591,12 @@ $_old_files = array(
 'wp-admin/css/colors.min.css',
 'wp-admin/css/colors-rtl.css',
 'wp-admin/css/colors-rtl.min.css',
+
+'app-assets/css/includes/code/default/theme.css',
+'app-assets/css/includes/code/default/theme.min.css',
+'app-assets/css/includes/code/default/theme-rtl.css',
+'app-assets/css/includes/code/default/theme-rtl.min.css',
+
 // Following files added back in 4.5 see #36083
 // 'wp-admin/css/media-rtl.min.css',
 // 'wp-admin/css/media.min.css',

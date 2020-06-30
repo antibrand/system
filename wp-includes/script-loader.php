@@ -942,6 +942,9 @@ function wp_default_styles( &$styles ) {
 	// Register a stylesheet for the selected admin color scheme.
 	$styles->add( 'colors', true, [ 'app-admin' ] );
 
+	// Register a stylesheet for the selected user code theme.
+	$styles->add( 'code-theme', true, [ 'app-admin' ] );
+
 	// Load minified stylesheets unless SCRIPT_DEBUG is true.
 	if ( SCRIPT_DEBUG ) {
 		$suffix = '';
@@ -962,13 +965,13 @@ function wp_default_styles( &$styles ) {
 	$styles->add( 'widgets',     "/app-assets/css/admin/screens/widgets$suffix.css", [ 'app-pointer' ] );
 	$styles->add( 'profile',     "/app-assets/css/admin/screens/profile$suffix.css" );
 	$styles->add( 'site-icon',   "/app-assets/css/admin/screens/site-icon$suffix.css" );
-	$styles->add( 'code-editor', "/app-assets/css/admin/screens/code-editor$suffix.css", [ 'app-codemirror' ] );
+	$styles->add( 'code-editor', "/app-assets/css/admin/screens/code-editor$suffix.css", [ 'app-codemirror', 'code-theme' ] );
 
 	$styles->add( 'app-admin', false, [ 'dashicons', 'admin', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'nav-menus', 'widgets', 'profile', 'site-icon' ] );
 
 	$styles->add( 'login',               "/app-assets/css/admin/screens/login$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'install',             "/app-assets/css/admin/screens/install$suffix.css" );
-	$styles->add( 'customize-controls',  "/app-assets/css/admin/screens/customize-controls$suffix.css", [ 'app-admin', 'colors', 'imgareaselect' ] );
+	$styles->add( 'customize-controls',  "/app-assets/css/admin/screens/customize-controls$suffix.css", [ 'app-admin', 'colors', 'code-theme', 'imgareaselect' ] );
 	$styles->add( 'customize-widgets',   "/app-assets/css/admin/screens/customize-widgets$suffix.css", [ 'app-admin', 'colors' ] );
 	$styles->add( 'customize-nav-menus', "/app-assets/css/admin/screens/customize-nav-menus$suffix.css", [ 'app-admin', 'colors' ] );
 
@@ -1160,6 +1163,63 @@ function app_style_loader_src( $src, $handle ) {
 
 		$color = $_wp_admin_css_colors[$color];
 		$url   = $color->url;
+
+		if ( ! $url ) {
+			return false;
+		}
+
+		$parsed = parse_url( $src );
+
+		if ( isset( $parsed['query'] ) && $parsed['query'] ) {
+
+			wp_parse_str( $parsed['query'], $qv );
+			$url = add_query_arg( $qv, $url );
+		}
+
+		return $url;
+	}
+
+	return $src;
+}
+
+/**
+ * Code editor CSS for changing the styles.
+ *
+ * If installing the 'wp-admin/' directory will be replaced with './'.
+ *
+ * The $app_user_code_themes global manages the code editor CSS
+ * stylesheet that is loaded. The option that is set is 'code_theme' and is the
+ * color and key for the array. The value for the color key is an object with
+ * a 'url' parameter that has the URL path to the CSS file.
+ *
+ * The query from $src parameter will be appended to the URL that is given from
+ * the $app_user_code_themes array value URL.
+ *
+ * @since 2.6.0
+ * @global array $app_user_code_themes
+ *
+ * @param string $src    Source URL.
+ * @param string $handle Either 'theme' or 'theme-rtl'.
+ * @return string|false URL path to CSS stylesheet for Code editor.
+ */
+function app_code_theme_loader_src( $src, $handle ) {
+
+	global $app_user_code_themes;
+
+	if ( wp_installing() ) {
+		return preg_replace( '#^wp-admin/#', './', $src );
+	}
+
+	if ( 'code-theme' == $handle ) {
+
+		$theme = get_user_option( 'code_theme' );
+
+		if ( empty( $theme ) || ! isset( $app_user_code_themes[$theme] ) ) {
+			$theme = 'default';
+		}
+
+		$theme = $app_user_code_themes[$theme];
+		$url   = $theme->url;
 
 		if ( ! $url ) {
 			return false;

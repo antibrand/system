@@ -334,6 +334,14 @@ if ( isset( $errors ) && is_wp_error( $errors ) ) : ?>
 				</tr>
 			<?php endif;  ?>
 
+			<?php if ( $app_user_code_themes && count( $app_user_code_themes ) > 1 && has_action( 'user_code_theme_picker' ) ) : ?>
+				<tr class="user-code-theme-wrap">
+					<th scope="row"><?php _e( 'Code Editor Theme' ); ?></th>
+					<td><?php do_action( 'user_code_theme_picker', $user_id );
+					?></td>
+				</tr>
+			<?php endif; ?>
+
 			<?php if ( ! ( IS_PROFILE_PAGE && ! $user_can_edit ) ) : ?>
 				<tr class="user-comment-shortcuts-wrap">
 					<th scope="row"><?php _e( 'Keyboard Shortcuts' ); ?></th>

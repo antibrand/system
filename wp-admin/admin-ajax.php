@@ -108,6 +108,7 @@ $core_actions_post = [
 	'heartbeat',
 	'get-revision-diffs',
 	'save-user-color-scheme',
+	'save-user-code-theme',
 	'update-widget',
 	'query-themes',
 	'parse-embed',
