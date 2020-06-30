@@ -646,10 +646,6 @@ ul.add-menu-item-tabs li.tabs,
   border-color: #626262;
 }
 
-.theme-overlay .theme-actions .theme-action-buttons .delete-theme {
-  background-color: #282828;
-}
-
 .theme-overlay .theme-actions .theme-action-buttons .delete-theme:hover, .theme-overlay .theme-actions .theme-action-buttons .delete-theme:focus {
   background: #dd0000;
 }
@@ -688,21 +684,67 @@ ul.add-menu-item-tabs li.tabs,
 /**
  * Live Manager
  */
-.wp-full-overlay-sidebar,
-#customize-controls .customize-info .accordion-section-title,
-.wp-full-overlay-sidebar .wp-full-overlay-header {
-  background-color: #222222;
-  color: #ffffff;
+.wp-full-overlay-sidebar {
+  background-color: #222222 !important;
+  border-color: #414141 !important;
+  color: #ffffff !important;
 }
 
-.customize-controls-close {
-  background-color: #222222;
-  color: #ffffff;
+.wp-full-overlay.in-themes-panel,
+#available-widgets,
+#available-menu-items,
+#available-widgets .widget-tpl,
+#available-menu-items .item-tpl {
+  background-color: #222222 !important;
 }
 
-.customize-controls-close:focus, .customize-controls-close:hover, .customize-controls-preview-toggle:focus, .customize-controls-preview-toggle:hover {
-  background-color: #ffee00;
-  color: #222222;
+#customize-theme-controls .control-panel-themes > .accordion-section-title:hover,
+#customize-theme-controls .control-panel-themes > .accordion-section-title,
+#customize-theme-controls .accordion-section-title,
+#customize-outer-theme-controls .accordion-section-title,
+#customize-theme-controls .control-section:last-of-type.open,
+#customize-theme-controls .control-section:last-of-type > .accordion-section-title,
+.customize-section-title,
+.expanded .wp-full-overlay-footer,
+.customize-preview-header.themes-filter-bar,
+.control-panel-themes #accordion-section-installed_themes,
+.control-panel-themes .customize-themes-section-title,
+#customize-theme-controls .control-section.open,
+#customize-theme-controls .control-panel-content:not(.control-panel-nav_menus) .control-section:nth-child(2),
+#customize-theme-controls .control-panel-nav_menus .control-section-nav_menu,
+#customize-theme-controls .control-section-nav_menu_locations .accordion-section-title,
+#available-widgets .widget-tpl,
+#available-menu-items .item-tpl,
+#available-widgets-list,
+#customize-controls .customize-info .customize-panel-description,
+#customize-controls .customize-info .customize-section-description,
+#customize-outer-theme-controls .customize-info .customize-section-description,
+#customize-controls .no-widget-areas-rendered-notice {
+  border-color: #414141 !important;
+}
+
+#available-widgets .widget-tpl:hover,
+#available-widgets .widget-tpl.selected {
+  border-bottom-color: #414141 !important;
+}
+
+.wp-full-overlay-footer .devices button:before {
+  color: #ffffff !important;
+}
+
+.wp-full-overlay-footer .devices button.active:before {
+  color: #3ad4fb !important;
+}
+
+.wp-full-overlay-footer .devices button:focus,
+.wp-full-overlay-footer .devices button.active:hover,
+.wp-full-overlay-footer .devices button:hover:before,
+.wp-full-overlay-footer .devices button:focus:before {
+  color: #ffffff !important;
+}
+
+.theme-browser .theme:hover {
+  border-color: #ffffff !important;
 }
 
 /**

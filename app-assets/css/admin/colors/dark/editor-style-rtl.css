@@ -2,7 +2,7 @@
  * Default dark color scheme
  */
 body {
-  background-color: #222;
+  background-color: #222222;
   color: #ffffff;
 }
 
@@ -59,7 +59,7 @@ ul.striped > :nth-child(odd),
  * ../../admin/partials/forms.scss
  */
 fieldset {
-  background-color: #222;
+  background-color: #222222;
   border-color: #414141;
 }
 
@@ -137,7 +137,7 @@ select:disabled, select.disabled {
 }
 
 optgroup {
-  background-color: #222;
+  background-color: #222222;
 }
 
 ::-webkit-input-placeholder {
@@ -383,11 +383,11 @@ optgroup {
 }
 
 .app-tabs .app-tabs-list .app-tab.active {
-  border-bottom-color: #222;
+  border-bottom-color: #222222;
 }
 
 .app-tabs .app-tabs-list .app-tab.active a {
-  background-color: #222;
+  background-color: #222222;
   color: #ffffff;
 }
 
@@ -439,7 +439,7 @@ div.mce-statusbar,
 }
 
 .wp-editor-expand #wp-content-editor-tools {
-  background-color: #222;
+  background-color: #222222;
   border-color: #626262 !important;
 }
 
@@ -462,7 +462,7 @@ div.mce-statusbar,
 
 .tmce-active .switch-tmce,
 .html-active .switch-html {
-  border-bottom-color: #222 !important;
+  border-bottom-color: #222222 !important;
   color: #ffffff !important;
 }
 
@@ -470,7 +470,7 @@ div.mce-statusbar,
 .html-active .switch-html:hover,
 .html-active .switch-html:focus {
   background-color: #2f2f2f !important;
-  border-bottom-color: #222 !important;
+  border-bottom-color: #222222 !important;
   color: #ffffff !important;
 }
 
@@ -521,7 +521,7 @@ div.mce-statusbar,
 .media-modal,
 .media-modal-content,
 .media-frame-content {
-  background: #222;
+  background: #222222;
   border-color: #414141;
 }
 
@@ -646,10 +646,6 @@ ul.add-menu-item-tabs li.tabs,
   border-color: #626262;
 }
 
-.theme-overlay .theme-actions .theme-action-buttons .delete-theme {
-  background-color: #282828;
-}
-
 .theme-overlay .theme-actions .theme-action-buttons .delete-theme:hover, .theme-overlay .theme-actions .theme-action-buttons .delete-theme:focus {
   background: #dd0000;
 }
@@ -683,6 +679,63 @@ ul.add-menu-item-tabs li.tabs,
 .plugins tr.active + tr.inactive th,
 .plugins tr.active + tr.inactive td {
   border-color: #414141;
+}
+
+/**
+ * Live Manager
+ */
+.wp-full-overlay-sidebar {
+  background-color: #222222 !important;
+  border-color: #414141 !important;
+  color: #ffffff !important;
+}
+
+.wp-full-overlay.in-themes-panel,
+#available-widgets,
+#available-menu-items {
+  background-color: #222222 !important;
+}
+
+#customize-theme-controls .control-panel-themes > .accordion-section-title:hover,
+#customize-theme-controls .control-panel-themes > .accordion-section-title,
+#customize-theme-controls .accordion-section-title,
+#customize-outer-theme-controls .accordion-section-title,
+#customize-theme-controls .control-section:last-of-type.open,
+#customize-theme-controls .control-section:last-of-type > .accordion-section-title,
+.customize-section-title,
+.expanded .wp-full-overlay-footer,
+.customize-preview-header.themes-filter-bar,
+.control-panel-themes #accordion-section-installed_themes,
+.control-panel-themes .customize-themes-section-title,
+#customize-theme-controls .control-section.open,
+#customize-theme-controls .control-panel-content:not(.control-panel-nav_menus) .control-section:nth-child(2),
+#customize-theme-controls .control-panel-nav_menus .control-section-nav_menu,
+#customize-theme-controls .control-section-nav_menu_locations .accordion-section-title {
+  border-color: #414141 !important;
+}
+
+#available-widgets .widget-tpl:hover,
+#available-widgets .widget-tpl.selected {
+  border-bottom-color: #414141 !important;
+}
+
+.wp-full-overlay-footer .devices button:before {
+  color: #ffffff !important;
+}
+
+.wp-full-overlay-footer .devices button.active:before {
+  color: #3ad4fb !important;
+}
+
+.wp-full-overlay-footer .devices button:focus,
+.wp-full-overlay-footer .devices button.active:hover,
+.wp-full-overlay-footer .devices button:hover:before,
+.wp-full-overlay-footer .devices button:focus:before {
+  color: #ffffff !important;
+}
+
+.theme-browser .theme:hover {
+  border-color: #ffffff !important;
 }
 
 /**
@@ -731,7 +784,7 @@ fieldset.scheme-list {
 .app-admin .acf-table > tbody > tr > td,
 .app-admin .acf-table > thead > tr > th,
 .app-admin .acf-table > thead > tr > td {
-  background-color: #222 !important;
+  background-color: #222222 !important;
 }
 
 .app-admin .acf-tfoot,

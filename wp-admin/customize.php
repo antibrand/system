@@ -196,7 +196,7 @@ do_action( 'customize_controls_print_scripts' );
 					<span class="controls"><?php _e( 'Manage' ); ?></span>
 					<span class="preview"><?php _e( 'Preview' ); ?></span>
 				</button>
-				<a class="customize-controls-close" href="<?php echo esc_url( $wp_customize->get_return_url() ); ?>">
+				<a class="button customize-controls-close" href="<?php echo esc_url( $wp_customize->get_return_url() ); ?>">
 					<span class="screen-reader-text"><?php _e( 'Close the live manager and go back to the previous page' ); ?></span>
 				</a>
 			</div>

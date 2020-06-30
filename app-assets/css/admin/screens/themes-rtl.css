@@ -1159,7 +1159,7 @@ body.full-overlay-active {
   padding: 0;
   margin: 0;
   z-index: 10;
-  background: #eee;
+  background: #ffffff;
   border-left: none;
 }
 
@@ -1348,7 +1348,6 @@ body.full-overlay-active {
   right: 0;
   padding: 9px 10px 9px 0;
   height: 45px;
-  color: #656a6f;
   outline: 0;
   line-height: 1;
   background-color: transparent !important;
@@ -1379,12 +1378,6 @@ body.full-overlay-active {
   overflow: hidden;
 }
 
-.wp-full-overlay .collapse-sidebar:hover .collapse-sidebar-arrow,
-.wp-full-overlay .collapse-sidebar:focus .collapse-sidebar-arrow {
-  -webkit-box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
-  box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
-}
-
 .wp-full-overlay .collapse-sidebar-label {
   margin-right: 3px;
 }
@@ -1396,7 +1389,6 @@ body.full-overlay-active {
 .wp-full-overlay .collapse-sidebar-arrow:before {
   display: block;
   content: "\f148";
-  background: #eee;
   font: normal 20px/1 dashicons;
   speak: none;
   padding: 0;
@@ -1434,11 +1426,11 @@ body.full-overlay-active {
 
 /* Device/preview size toggles */
 .wp-full-overlay {
-  background: #191e23;
+  background: #000000;
 }
 
 .wp-full-overlay-main {
-  background-color: #f1f1f1;
+  background-color: #ffffff;
 }
 
 .expanded .wp-full-overlay-footer {
@@ -1451,7 +1443,6 @@ body.full-overlay-active {
   width: calc( 18% - 1px);
   height: 45px;
   border-top: 1px solid #ddd;
-  background: #eee;
 }
 
 .wp-full-overlay-footer .devices-wrapper {
@@ -1460,9 +1451,6 @@ body.full-overlay-active {
 
 .wp-full-overlay-footer .devices {
   position: relative;
-  background: #eee;
-  -webkit-box-shadow: 20px 0 10px -5px #eee;
-  box-shadow: 20px 0 10px -5px #eee;
 }
 
 .wp-full-overlay-footer .devices button {
@@ -1493,30 +1481,18 @@ body.full-overlay-active {
   vertical-align: top;
   margin: 3px 0;
   padding: 4px 8px;
-  color: #656a6f;
-}
-
-.wp-full-overlay-footer .devices button.active {
-  border-bottom-color: #191e23;
-}
-
-.wp-full-overlay-footer .devices button:hover,
-.wp-full-overlay-footer .devices button:focus {
-  background-color: #ffffff;
-}
-
-.wp-full-overlay-footer .devices button:focus,
-.wp-full-overlay-footer .devices button.active:hover {
-  border-bottom-color: #004499;
+  color: #222222;
 }
 
 .wp-full-overlay-footer .devices button.active:before {
-  color: #191e23;
+  color: #004499;
 }
 
+.wp-full-overlay-footer .devices button:focus,
+.wp-full-overlay-footer .devices button.active:hover,
 .wp-full-overlay-footer .devices button:hover:before,
 .wp-full-overlay-footer .devices button:focus:before {
-  color: #004499;
+  color: #005fd6;
 }
 
 .wp-full-overlay-footer .devices .preview-desktop:before {

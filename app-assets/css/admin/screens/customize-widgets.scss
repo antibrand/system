@@ -24,17 +24,7 @@
 
 /* Note: widget-tops are more compact when (max-height: 700px) and (min-width: 981px). */
 .customize-control-widget_form .widget-top {
-	background: #fff;
 	transition: opacity 0.5s;
-}
-
-.customize-control .widget-action {
-	color: #72777c;
-}
-
-.customize-control .widget-top:hover .widget-action,
-.customize-control .widget-action:focus {
-	color: #23282d;
 }
 
 .customize-control-widget_form:not(.widget-rendered) .widget-top {
@@ -252,10 +242,7 @@
 
 #available-widgets .widget-tpl:hover,
 #available-widgets .widget-tpl.selected {
-	background: #f3f3f5;
-	border-bottom-color: #ccc;
-	color: #0073aa;
-	border-left: 4px solid #0073aa;
+	border-bottom-color: $box_border_color;
 }
 
 #customize-controls .widget-title h3 {
@@ -269,7 +256,6 @@
 
 #available-widgets .widget .widget-description {
 	padding: 0;
-	color: #72777c;
 }
 
 #customize-preview {
@@ -308,7 +294,6 @@ body.adding-widget #customize-preview {
 	margin-right: 20px;
 	width: 20px;
 	height: 20px;
-	color: #32373c;
 	font: normal 20px/1 dashicons;
 	text-align: center;
 	box-sizing: border-box;

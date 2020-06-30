@@ -902,10 +902,6 @@ ul.add-menu-item-tabs li.tabs,
   border-color: #888888;
 }
 
-.theme-overlay .theme-actions .theme-action-buttons .delete-theme {
-  background-color: white;
-}
-
 .theme-overlay .theme-actions .theme-action-buttons .delete-theme:hover, .theme-overlay .theme-actions .theme-action-buttons .delete-theme:focus {
   background: #dd0000;
 }
@@ -939,6 +935,72 @@ ul.add-menu-item-tabs li.tabs,
 .plugins tr.active + tr.inactive th,
 .plugins tr.active + tr.inactive td {
   border-color: #888888;
+}
+
+/**
+ * Live Manager
+ */
+.wp-full-overlay-sidebar {
+  background-color: #f1f1f1 !important;
+  border-color: #888888 !important;
+  color: #444444 !important;
+}
+
+.wp-full-overlay.in-themes-panel,
+#available-widgets,
+#available-menu-items,
+#available-widgets .widget-tpl,
+#available-menu-items .item-tpl {
+  background-color: #f1f1f1 !important;
+}
+
+#customize-theme-controls .control-panel-themes > .accordion-section-title:hover,
+#customize-theme-controls .control-panel-themes > .accordion-section-title,
+#customize-theme-controls .accordion-section-title,
+#customize-outer-theme-controls .accordion-section-title,
+#customize-theme-controls .control-section:last-of-type.open,
+#customize-theme-controls .control-section:last-of-type > .accordion-section-title,
+.customize-section-title,
+.expanded .wp-full-overlay-footer,
+.customize-preview-header.themes-filter-bar,
+.control-panel-themes #accordion-section-installed_themes,
+.control-panel-themes .customize-themes-section-title,
+#customize-theme-controls .control-section.open,
+#customize-theme-controls .control-panel-content:not(.control-panel-nav_menus) .control-section:nth-child(2),
+#customize-theme-controls .control-panel-nav_menus .control-section-nav_menu,
+#customize-theme-controls .control-section-nav_menu_locations .accordion-section-title,
+#available-widgets .widget-tpl,
+#available-menu-items .item-tpl,
+#available-widgets-list,
+#customize-controls .customize-info .customize-panel-description,
+#customize-controls .customize-info .customize-section-description,
+#customize-outer-theme-controls .customize-info .customize-section-description,
+#customize-controls .no-widget-areas-rendered-notice {
+  border-color: #888888 !important;
+}
+
+#available-widgets .widget-tpl:hover,
+#available-widgets .widget-tpl.selected {
+  border-bottom-color: #888888 !important;
+}
+
+.wp-full-overlay-footer .devices button:before {
+  color: #444444 !important;
+}
+
+.wp-full-overlay-footer .devices button.active:before {
+  color: #0073aa !important;
+}
+
+.wp-full-overlay-footer .devices button:focus,
+.wp-full-overlay-footer .devices button.active:hover,
+.wp-full-overlay-footer .devices button:hover:before,
+.wp-full-overlay-footer .devices button:focus:before {
+  color: #0096dd !important;
+}
+
+.theme-browser .theme:hover {
+  border-color: #0096dd !important;
 }
 
 /**

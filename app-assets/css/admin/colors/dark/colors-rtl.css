@@ -646,10 +646,6 @@ ul.add-menu-item-tabs li.tabs,
   border-color: #626262;
 }
 
-.theme-overlay .theme-actions .theme-action-buttons .delete-theme {
-  background-color: #282828;
-}
-
 .theme-overlay .theme-actions .theme-action-buttons .delete-theme:hover, .theme-overlay .theme-actions .theme-action-buttons .delete-theme:focus {
   background: #dd0000;
 }
