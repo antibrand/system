@@ -314,7 +314,7 @@ if ( isset( $errors ) && is_wp_error( $errors ) ) : ?>
 					</td>
 				</tr>
 			<?php endif; ?>
-			<?php if ( count( $_wp_admin_css_colors ) > 1 && has_action( 'admin_color_scheme_picker' ) ) : ?>
+			<?php if ( $_wp_admin_css_colors && count( $_wp_admin_css_colors ) > 1 && has_action( 'admin_color_scheme_picker' ) ) : ?>
 				<tr class="user-admin-color-wrap">
 					<th scope="row"><?php _e( 'User Color Scheme' ); ?></th>
 					<td><?php

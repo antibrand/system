@@ -458,7 +458,7 @@ add_filter( 'print_scripts_array', 'wp_prototype_before_jquery' );
 add_filter( 'customize_controls_print_styles', 'wp_resource_hints', 1 );
 
 add_action( 'wp_default_styles', 'wp_default_styles' );
-add_filter( 'style_loader_src', 'wp_style_loader_src', 10, 2 );
+add_filter( 'style_loader_src', 'app_style_loader_src', 10, 2 );
 
 // Taxonomy
 add_action( 'init', 'create_initial_taxonomies', 0 ); // highest priority
