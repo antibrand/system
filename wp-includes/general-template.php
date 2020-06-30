@@ -3237,7 +3237,7 @@ function wp_editor( $content, $editor_id, $settings = array() ) {
  * Outputs the editor scripts, stylesheets, and default settings.
  *
  * The editor can be initialized when needed after page load.
- * See wp.editor.initialize() in wp-admin/js/editor.js for initialization options.
+ * See wp.editor.initialize() in app-assets/js/admin/editor.js for initialization options.
  *
  * @uses _WP_Editors
  * @since WP 4.8.0
