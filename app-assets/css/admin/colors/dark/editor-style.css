@@ -692,7 +692,9 @@ ul.add-menu-item-tabs li.tabs,
 
 .wp-full-overlay.in-themes-panel,
 #available-widgets,
-#available-menu-items {
+#available-menu-items,
+#available-widgets .widget-tpl,
+#available-menu-items .item-tpl {
   background-color: #222222 !important;
 }
 
@@ -710,7 +712,14 @@ ul.add-menu-item-tabs li.tabs,
 #customize-theme-controls .control-section.open,
 #customize-theme-controls .control-panel-content:not(.control-panel-nav_menus) .control-section:nth-child(2),
 #customize-theme-controls .control-panel-nav_menus .control-section-nav_menu,
-#customize-theme-controls .control-section-nav_menu_locations .accordion-section-title {
+#customize-theme-controls .control-section-nav_menu_locations .accordion-section-title,
+#available-widgets .widget-tpl,
+#available-menu-items .item-tpl,
+#available-widgets-list,
+#customize-controls .customize-info .customize-panel-description,
+#customize-controls .customize-info .customize-section-description,
+#customize-outer-theme-controls .customize-info .customize-section-description,
+#customize-controls .no-widget-areas-rendered-notice {
   border-color: #414141 !important;
 }
 
@@ -736,6 +745,13 @@ ul.add-menu-item-tabs li.tabs,
 
 .theme-browser .theme:hover {
   border-color: #ffffff !important;
+}
+
+/**
+ * CodeMirror code linter
+ */
+.CodeMirror {
+  background-color: #222222;
 }
 
 /**
