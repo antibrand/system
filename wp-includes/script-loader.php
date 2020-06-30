@@ -943,7 +943,7 @@ function wp_default_styles( &$styles ) {
 	$styles->add( 'colors', true, [ 'app-admin' ] );
 
 	// Register a stylesheet for the selected user code theme.
-	$styles->add( 'code-theme', true, [ 'app-admin' ] );
+	$styles->add( 'code-theme', true, [ 'app-codemirror' ] );
 
 	// Load minified stylesheets unless SCRIPT_DEBUG is true.
 	if ( SCRIPT_DEBUG ) {
