@@ -512,12 +512,16 @@ final class WP_Post_Type {
 	 * @since 4.6.0
 	 */
 	public function add_supports() {
+
 		if ( ! empty( $this->supports ) ) {
+
 			add_post_type_support( $this->name, $this->supports );
 			unset( $this->supports );
+
 		} elseif ( false !== $this->supports ) {
+
 			// Add default features.
-			add_post_type_support( $this->name, array( 'title', 'editor' ) );
+			add_post_type_support( $this->name, [ 'title', 'editor' ] );
 		}
 	}
 

@@ -1903,6 +1903,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 
 		$post_type_attributes = array(
 			'title',
+			'subtitle',
 			'editor',
 			'author',
 			'excerpt',
@@ -1916,6 +1917,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 		$fixed_schemas = array(
 			'post' => array(
 				'title',
+				'subtitle',
 				'editor',
 				'author',
 				'excerpt',
@@ -1927,6 +1929,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 			),
 			'page' => array(
 				'title',
+				'subtitle',
 				'editor',
 				'author',
 				'excerpt',
@@ -1938,6 +1941,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 			),
 			'attachment' => array(
 				'title',
+				'subtitle',
 				'author',
 				'comments',
 				'revisions',
@@ -1970,6 +1974,31 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 							),
 							'rendered' => array(
 								'description' => __( 'HTML title for the object, transformed for display.' ),
+								'type'        => 'string',
+								'context'     => array( 'view', 'edit', 'embed' ),
+								'readonly'    => true,
+							),
+						),
+					);
+					break;
+
+				case 'subtitle':
+					$schema['properties']['subtitle'] = array(
+						'description' => __( 'The subtitle for the object.' ),
+						'type'        => 'object',
+						'context'     => array( 'view', 'edit', 'embed' ),
+						'arg_options' => array(
+							'sanitize_callback' => null, // Note: sanitization implemented in self::prepare_item_for_database()
+							'validate_callback' => null, // Note: validation implemented in self::prepare_item_for_database()
+						),
+						'properties'  => array(
+							'raw' => array(
+								'description' => __( 'Subtitle for the object, as it exists in the database.' ),
+								'type'        => 'string',
+								'context'     => array( 'edit' ),
+							),
+							'rendered' => array(
+								'description' => __( 'HTML subtitle for the object, transformed for display.' ),
 								'type'        => 'string',
 								'context'     => array( 'view', 'edit', 'embed' ),
 								'readonly'    => true,

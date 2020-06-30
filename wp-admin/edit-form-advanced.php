@@ -739,6 +739,15 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 							<label class="screen-reader-text" id="title-prompt-text" for="title"><?php echo $title_placeholder; ?></label>
 							<input type="text" name="post_title" size="30" value="<?php echo esc_attr( $post->post_title ); ?>" id="title" spellcheck="true" autocomplete="off" />
 						</div>
+						<?php
+						/**
+						 * Subtitle field
+						 *
+						 * Only display if the post type supports the subtitle.
+						 *
+						 * @since 1.0.0
+						 */
+						if ( post_type_supports( get_post_type(), 'subtitle' ) ) : ?>
 						<div id="subtitlewrap">
 							<?php
 							/**
@@ -765,6 +774,10 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 							</p>
 						</div>
 						<?php
+
+						// End if post type supports subtitle.
+						endif;
+
 						/**
 						 * Fires before the permalink field in the edit form.
 						 *

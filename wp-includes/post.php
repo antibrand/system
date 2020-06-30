@@ -32,7 +32,7 @@ function create_initial_post_types() {
 		'rewrite' => false,
 		'query_var' => false,
 		'delete_with_user' => true,
-		'supports' => array( 'title', 'editor', 'description', 'excerpt', 'author', 'thumbnail', 'custom-fields', 'comments', 'revisions', 'post-formats' ),
+		'supports' => array( 'title', 'subtitle', 'editor', 'description', 'excerpt', 'author', 'thumbnail', 'custom-fields', 'comments', 'revisions', 'post-formats' ),
 		'show_in_rest' => true,
 		'rest_base' => 'posts',
 		'rest_controller_class' => 'WP_REST_Posts_Controller',
@@ -53,7 +53,7 @@ function create_initial_post_types() {
 		'rewrite' => false,
 		'query_var' => false,
 		'delete_with_user' => true,
-		'supports' => array( 'title', 'editor', 'description', 'author', 'thumbnail', 'page-attributes', 'custom-fields', 'comments', 'revisions' ),
+		'supports' => array( 'title', 'subtitle', 'editor', 'description', 'author', 'thumbnail', 'page-attributes', 'custom-fields', 'comments', 'revisions' ),
 		'show_in_rest' => true,
 		'rest_base' => 'pages',
 		'rest_controller_class' => 'WP_REST_Posts_Controller',
@@ -82,7 +82,7 @@ function create_initial_post_types() {
 		'query_var' => false,
 		'show_in_nav_menus' => false,
 		'delete_with_user' => true,
-		'supports' => array( 'title', 'author', 'comments' ),
+		'supports' => array( 'title', 'subtitle', 'author', 'comments' ),
 		'show_in_rest' => true,
 		'rest_base' => 'media',
 		'rest_controller_class' => 'WP_REST_Attachments_Controller',
@@ -1177,6 +1177,7 @@ function get_post_types( $args = array(), $output = 'names', $operator = 'and' )
  * @return WP_Post_Type|WP_Error The registered post type object, or an error object.
  */
 function register_post_type( $post_type, $args = array() ) {
+
 	global $wp_post_types;
 
 	if ( ! is_array( $wp_post_types ) ) {
@@ -1228,6 +1229,7 @@ function register_post_type( $post_type, $args = array() ) {
  * @return bool|WP_Error True on success, WP_Error on failure or if the post type doesn't exist.
  */
 function unregister_post_type( $post_type ) {
+
 	global $wp_post_types;
 
 	if ( ! post_type_exists( $post_type ) ) {
