@@ -298,41 +298,41 @@ final class WP_Customize_Manager {
 		require_once( ABSPATH . WPINC . '/class-wp-customize-section.php' );
 		require_once( ABSPATH . WPINC . '/class-wp-customize-control.php' );
 
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-color-control.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-media-control.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-upload-control.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-image-control.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-background-image-control.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-background-position-control.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-cropped-image-control.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-site-icon-control.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-header-image-control.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-theme-control.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-code-editor-control.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-widget-area-customize-control.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-widget-form-customize-control.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-nav-menu-control.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-nav-menu-item-control.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-nav-menu-location-control.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-nav-menu-name-control.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-nav-menu-locations-control.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-nav-menu-auto-add-control.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-new-menu-control.php' ); // @todo Remove in 5.0. See #42364.
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-color-control.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-media-control.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-upload-control.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-image-control.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-background-image-control.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-background-position-control.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-cropped-image-control.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-site-icon-control.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-header-image-control.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-theme-control.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-code-editor-control.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-widget-area-customize-control.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-widget-form-customize-control.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-nav-menu-control.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-nav-menu-item-control.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-nav-menu-location-control.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-nav-menu-name-control.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-nav-menu-locations-control.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-nav-menu-auto-add-control.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-new-menu-control.php' ); // @todo Remove in 5.0. See #42364.
 
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-nav-menus-panel.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-nav-menus-panel.php' );
 
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-themes-panel.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-themes-section.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-sidebar-section.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-nav-menu-section.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-new-menu-section.php' ); // @todo Remove in 5.0. See #42364.
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-themes-panel.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-themes-section.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-sidebar-section.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-nav-menu-section.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-new-menu-section.php' ); // @todo Remove in 5.0. See #42364.
 
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-custom-css-setting.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-filter-setting.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-header-image-setting.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-background-image-setting.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-nav-menu-item-setting.php' );
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-nav-menu-setting.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-custom-css-setting.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-filter-setting.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-header-image-setting.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-background-image-setting.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-nav-menu-item-setting.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-nav-menu-setting.php' );
 
 		/**
 		 * Filters the core live manager components to load.
@@ -351,7 +351,7 @@ final class WP_Customize_Manager {
 		 */
 		$components = apply_filters( 'customize_loaded_components', $this->components, $this );
 
-		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-selective-refresh.php' );
+		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-selective-refresh.php' );
 		$this->selective_refresh = new WP_Customize_Selective_Refresh( $this );
 
 		if ( in_array( 'widgets', $components, true ) ) {
