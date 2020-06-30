@@ -174,7 +174,7 @@ _.extend( media, /** @lends wp.media */{
 	 *
 	 * Fetch a JavaScript template for an id, and return a templating function for it.
 	 *
-	 * See wp.template() in `wp-includes/js/wp-util.js`.
+	 * See wp.template() in `app-assets/js/includes/wp-util.js`.
 	 *
 	 * @borrows wp.template as template
 	 */
@@ -184,7 +184,7 @@ _.extend( media, /** @lends wp.media */{
 	 * media.post( [action], [data] )
 	 *
 	 * Sends a POST request.
-	 * See wp.ajax.post() in `wp-includes/js/wp-util.js`.
+	 * See wp.ajax.post() in `app-assets/js/includes/wp-util.js`.
 	 *
 	 * @borrows wp.ajax.post as post
 	 */
@@ -194,7 +194,7 @@ _.extend( media, /** @lends wp.media */{
 	 * media.ajax( [action], [options] )
 	 *
 	 * Sends an XHR request.
-	 * See wp.ajax.send() in `wp-includes/js/wp-util.js`.
+	 * See wp.ajax.send() in `app-assets/js/includes/wp-util.js`.
 	 *
 	 * @borrows wp.ajax.send as ajax
 	 */

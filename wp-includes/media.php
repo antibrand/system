@@ -3955,11 +3955,12 @@ function attachment_url_to_postid( $url ) {
  * @return array The relevant CSS file URLs.
  */
 function wpview_media_sandbox_styles() {
- 	$version = 'ver=' . get_bloginfo( 'version' );
- 	$mediaelement = includes_url( "js/mediaelement/mediaelementplayer-legacy.min.css?$version" );
- 	$wpmediaelement = includes_url( "js/mediaelement/wp-mediaelement.css?$version" );
 
-	return array( $mediaelement, $wpmediaelement );
+ 	$version        = 'ver=' . get_bloginfo( 'version' );
+ 	$mediaelement   = app_assets_url( "js/includes/mediaelement/mediaelementplayer-legacy.min.css?$version" );
+ 	$wpmediaelement = app_assets_url( "js/includes/mediaelement/wp-mediaelement.css?$version" );
+
+	return [ $mediaelement, $wpmediaelement ];
 }
 
 /**

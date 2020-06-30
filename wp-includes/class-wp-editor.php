@@ -916,7 +916,7 @@ final class _WP_Editors {
 
 	public static function get_baseurl() {
 		if ( empty( self::$baseurl ) ) {
-			self::$baseurl = includes_url( 'js/tinymce' );
+			self::$baseurl = app_assets_url( 'js/includes/tinymce' );
 		}
 
 		return self::$baseurl;
@@ -1002,7 +1002,7 @@ final class _WP_Editors {
 		$settings['content_css'] =
 			includes_url( "css/dashicons$suffix.css?$version" )
 			. ','
-			. includes_url( "js/tinymce/skins/app-editor/app-editor-content$suffix.css?$version" )
+			. app_assets_url( "js/includes/tinymce/skins/app-editor/app-editor-content$suffix.css?$version" )
 			. ','
 			. app_assets_url( "css/admin/colors/$admin_color/editor-style$direction$suffix.css?$version" );
 
