@@ -4090,7 +4090,7 @@ function register_user_code_themes() {
 	$suffix  = is_rtl() ? '-rtl' : '';
 	$suffix .= SCRIPT_DEBUG ? '' : '.min';
 
-	app_user_code_theme( 'default', _x( 'Default', 'code theme' ),
+	app_user_code_theme( 'default', _x( 'Default Light', 'code theme' ),
 		false,
 		[ '#222222', '#363636', '#ffee00', '#004499' ]
 	);
@@ -4100,18 +4100,18 @@ function register_user_code_themes() {
 		return;
 	}
 
-	app_user_code_theme( 'dark', _x( 'Dark', 'code theme' ),
+	app_user_code_theme( 'dark', _x( 'Default Dark', 'code theme' ),
 		app_assets_url( "css/includes/code/dark/theme$suffix.css" ),
 		[ '#1e1e1e', '#222222', '#ffee00', '#3ad4fb' ]
 	);
 
-	app_user_code_theme( 'monokai', _x( 'Monokai', 'code theme' ),
-		app_assets_url( "css/includes/code/monokai/theme$suffix.css" ),
+	app_user_code_theme( 'islander', _x( 'Islander', 'code theme' ),
+		app_assets_url( "css/includes/code/islander/theme$suffix.css" ),
 		[ '#23282d', '#444444', '#0073aa', '#00a0d2' ]
 	);
 
-	app_user_code_theme( 'ubuntu', _x( 'Ubuntu', 'code theme' ),
-		app_assets_url( "css/includes/code/ubuntu/theme$suffix.css" ),
+	app_user_code_theme( 'gethubbed', _x( 'Get Hubbed', 'code theme' ),
+		app_assets_url( "css/includes/code/gethubbed/theme$suffix.css" ),
 		[ '#23282d', '#444444', '#0073aa', '#00a0d2' ]
 	);
 

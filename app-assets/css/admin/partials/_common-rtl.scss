@@ -1266,6 +1266,7 @@ div.error {
 	padding: 5px 8px;
 	font-weight: 600;
 	text-decoration: none;
+	border: none !important;
 }
 
 .wrap #templateside span.notice {
@@ -2789,6 +2790,7 @@ img {
 	margin: 0;
 	padding: 0;
 }
+
 #templateside > ul {
 	box-sizing: border-box;
 	margin-top: 0;
@@ -2799,9 +2801,11 @@ img {
 	border: 1px solid $box_border_color;
 	border-right: none;
 }
+
 #templateside ul ul {
 	padding-right: 12px;
 }
+
 #templateside > ul > li > ul[role=group] {
 	padding-right: 0;
 }
@@ -2823,12 +2827,15 @@ img {
 	position: absolute;
 	pointer-events: none;
 }
+
 [role="treeitem"][aria-expanded="false"] > .folder-label .icon:after {
 	content: "\f141";
 }
+
 [role="treeitem"][aria-expanded="true"] > .folder-label .icon:after {
 	content: "\f140";
 }
+
 [role="treeitem"] .folder-label {
 	display: block;
 	padding: 3px 12px 3px 3px;
@@ -2839,10 +2846,8 @@ img {
 [role="treeitem"] {
 	outline: 0;
 }
-[role="treeitem"] .folder-label.focus {
-	color: #124964;
-	box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, .8);
-}
+
+[role="treeitem"] .folder-label.focus {}
 
 .tree-folder {
 	margin: 0;
@@ -2884,9 +2889,34 @@ img {
 }
 
 /* current-file needs to adjustment for .notice styles */
-#templateside .current-file {
-	margin: -4px 0 -2px;
+#templateside {
+
+	a {
+		color: $text_color;
+
+		&:hover,
+		&:focus {
+			color: $link_action_color;
+		}
+	}
+
+	.current-file {
+		margin: -4px 0 -2px;
+
+		a {
+			background-color: $app_highlight_color;
+			color: $text_color;
+			font-weight: 700;
+
+			&:hover,
+			&:focus {
+				background-color: $app_highlight_color;
+				color: $text_color;
+			}
+		}
+	}
 }
+
 .tree-folder > .current-file::before {
 	right: 4px;
 	height: 15px;
@@ -2894,6 +2924,7 @@ img {
 	border-right: none;
 	top: 3px;
 }
+
 .tree-folder > .current-file::after {
 	bottom: -4px;
 	height: 7px;
@@ -2951,10 +2982,12 @@ img {
 #template .submit input[type=submit][disabled] {
 	cursor: not-allowed;
 }
+
 #templateside {
 	float: left;
 	width: 16em;
 	word-wrap: break-word;
+	background-color: $body_background;
 }
 
 #postcustomstuff p.submit {
@@ -2994,10 +3027,8 @@ img {
 }
 
 .nonessential {
-	color: #666;
 	font-size: 11px;
 	font-style: italic;
-	padding-right: 12px;
 }
 
 #documentation {

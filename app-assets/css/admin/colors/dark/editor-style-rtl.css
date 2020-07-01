@@ -1,6 +1,9 @@
 /**
  * Default dark color scheme
  */
+/**
+ * Default dark color scheme
+ */
 body {
   background-color: #222222;
   color: #ffffff;
@@ -748,10 +751,28 @@ ul.add-menu-item-tabs li.tabs,
 }
 
 /**
- * CodeMirror code linter
+ * Editor pages
+ *
+ * Theme and plugin code editor screens.
  */
-.CodeMirror {
+.CodeMirror-scrollbar-filler,
+.CodeMirror-gutter-filler,
+#templateside {
   background-color: #222222;
+}
+
+#template textarea,
+#template .CodeMirror,
+#templateside > ul {
+  border-color: #414141;
+}
+
+#templateside a {
+  color: #ffffff;
+}
+
+#templateside a:hover, #templateside a:focus {
+  color: #3ad4fb;
 }
 
 /**

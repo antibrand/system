@@ -1,3 +1,66 @@
+///
+/// CodeMirror dark theme
+///
+/// Made to go with the app's default dark admin theme.
+
+@import '../../../admin/colors/dark/_variables';
+
 .CodeMirror {
-	background-color: #222;
+	background-color: $body_background;
+	color: $text_color;
+}
+
+.CodeMirror-gutters {
+    border-color: $box_border_color;
+    background-color: inherit;
+}
+
+.CodeMirror-activeline-background {
+	background: $box_background_color;
+}
+
+.cm-s-default .cm-comment {
+	color: $light_gray;
+}
+
+span[role="presentation"] {
+	color: #adceff;
+}
+
+.cm-s-default .cm-keyword {
+	color: #ffee00;
+
+	& ~ .cm-keyword {
+		color: #ff0066;
+	}
+}
+
+.cm-s-default .cm-builtin {
+	color: #ffaa00;
+}
+
+.cm-s-default .cm-variable-2 {
+	color: #71c837;
+}
+
+.cm-s-default .cm-def,
+.cm-def {
+	color: #5599ff;
+}
+
+.cm-s-default .cm-string,
+.cm-string {
+	color: #a467ff;
+}
+
+.cm-variable {
+	color: #2affd5;
+}
+
+.cm-s-default .cm-number {
+    color: #ff7700;
+}
+
+.cm-s-default .cm-atom {
+	color: #ff0066;
 }

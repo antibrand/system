@@ -1,0 +1,89 @@
+/**
+ * Classic (Fresh) color scheme
+ */
+
+// Import general app variables.
+@import '../../../includes/modules/_colors';
+
+// Global app color variables.
+$app_primary_color: #0073aa;
+$app_secondary_color: #23282d;
+$app_tertiary_color: #00a0d2;
+$app_highlight_color: #0073aa;
+
+$body_background: #f1f1f1;
+$text_color: #444444;
+$box_background_color: lighten( $color: $pale_gray, $amount: 20% );
+$box_border_color: $light_gray;
+$box_text_color: inherit !default;
+$link_color: $app_primary_color;
+$link_action_color: lighten( $link_color, 10% );
+
+$notify_color: $app_orange;
+$error_color: $app_red;
+$warning_color: $app_yellow;
+$success_color: $app_green;
+
+// Form color variables.
+$form_background_color: $body_background;
+$form_border_color: $light_gray;
+$form_text_color: $text_color;
+$form_action_background_color: $form_background_color;
+$form_action_border_color: $link_action_color;
+$form_action_text_color: $text_color;
+$form_focus: $link_action_color;
+$form_checked: $link_action_color;
+$form_placeholder_color: $light_gray;
+
+// Button color variables.
+$button_background_color: lighten( $color: $pale_gray, $amount: 13% );
+$button_border_color: $form_border_color;
+$button_text_color: $text_color;
+$button_action_background_color: $app_highlight_color;
+$button_action_border_color: $app_highlight_color;
+$button_action_text_color: $white;
+
+// Admin menu & admin-bar color variables.
+$menu_base_color: $app_secondary_color;
+$menu_text_color: $off_white;
+$menu_icon_color: darken( $menu_text_color, 25% );
+
+$menu_icon: $menu_icon_color;
+$menu_background: $menu_base_color;
+
+$menu_highlight_text: $menu_text_color;
+$menu_highlight_icon: $menu_text_color;
+$menu_highlight_background: $app_highlight_color;
+
+$menu_current_text: $menu_highlight_text;
+$menu_current_icon: $menu_highlight_icon;
+$menu_current_background: $menu_highlight_background;
+
+$menu_submenu_text: mix( $menu_base_color, $menu_text_color, 10% );
+$menu_submenu_background: #32373c;
+$menu_submenu_background_alt: desaturate( lighten( $menu_background, 7% ), 7% );
+
+$menu_submenu_focus_text: $menu_text_color;
+$menu_submenu_current_text: $menu_text_color;
+
+$menu_bubble_text: $menu_text_color;
+$menu_bubble_background: $notify_color;
+$menu_bubble_current_text: $menu_text_color;
+$menu_bubble_current_background: $menu_submenu_background;
+
+$menu_collapse_text: $menu_icon;
+$menu_collapse_icon: $menu_icon;
+$menu_collapse_focus_text: $menu_text_color;
+$menu_collapse_focus_icon: $menu_highlight_icon;
+
+$menu_customizer_text: mix( $menu_base_color, $menu_text_color, 40% );
+
+$adminbar_avatar_frame: lighten( $menu_background, 7% );
+$adminbar_input_background: lighten( $menu_background, 7% );
+
+$editor_button_background_color: $form_background_color;
+$editor_button_border_color: $form_border_color;
+$editor_button_text_color: darken( $text_color, 25% );
+$editor_button_action_background_color: $app_highlight_color;
+$editor_button_action_border_color: $button_border_color;
+$editor_button_action_text_color: $button_text_color;

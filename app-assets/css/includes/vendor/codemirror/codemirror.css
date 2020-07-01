@@ -15,7 +15,7 @@
 }
 
 .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {
-  background-color: white;
+  background-color: #ffffff;
 }
 
 .CodeMirror-gutters {
@@ -109,7 +109,7 @@
 }
 
 .CodeMirror-ruler {
-  border-left: 1px solid #ccc;
+  border-left: 1px solid #cccccc;
   top: 0;
   bottom: 0;
   position: absolute;
@@ -174,7 +174,7 @@
 
 .cm-s-default .cm-comment {
   font-style: italic;
-  color: #666;
+  color: #555555;
 }
 
 .cm-s-default .cm-string {

@@ -465,13 +465,13 @@ function wp_default_scripts( &$scripts ) {
 		apply_filters( 'mejs_settings', $mejs_settings )
 	);
 
-	$scripts->add( 'wp-codemirror', '/app-assets/js/includes/vendor/codemirror/codemirror.min.js', array(), '5.29.1-alpha-ee20357' );
+	$scripts->add( 'app-codemirror', '/app-assets/js/includes/vendor/codemirror/codemirror.min.js', array(), '5.29.1-alpha-ee20357' );
 	$scripts->add( 'csslint', '/app-assets/js/includes/vendor/codemirror/csslint.js', array(), '1.0.5' );
 	$scripts->add( 'jshint', '/app-assets/js/includes/vendor/codemirror/jshint.js', array(), '2.9.5.999' );
 	$scripts->add( 'jsonlint', '/app-assets/js/includes/vendor/codemirror/jsonlint.js', array(), '1.6.2' );
 	$scripts->add( 'htmlhint', '/app-assets/js/includes/vendor/codemirror/htmlhint.js', array(), '0.9.14-xwp' );
 	$scripts->add( 'htmlhint-kses', '/app-assets/js/includes/vendor/codemirror/htmlhint-kses.js', array( 'htmlhint' ) );
-	$scripts->add( 'code-editor', "/app-assets/js/admin/code-editor$suffix.js", array( 'jquery', 'wp-codemirror', 'underscore' ) );
+	$scripts->add( 'code-editor', "/app-assets/js/admin/code-editor$suffix.js", array( 'jquery', 'app-codemirror', 'underscore' ) );
 	$scripts->add( 'wp-theme-plugin-editor', "/app-assets/js/admin/theme-plugin-editor$suffix.js", array( 'wp-util', 'wp-sanitize', 'jquery', 'jquery-ui-core', 'wp-a11y', 'underscore' ) );
 	did_action( 'init' ) && $scripts->add_inline_script( 'wp-theme-plugin-editor', sprintf( 'wp.themePluginEditor.l10n = %s;', wp_json_encode( array(
 		'saveAlert' => __( 'The changes you made will be lost if you navigate away from this page.' ),
@@ -943,7 +943,7 @@ function wp_default_styles( &$styles ) {
 	$styles->add( 'colors', true, [ 'app-admin' ] );
 
 	// Register a stylesheet for the selected user code theme.
-	$styles->add( 'code-theme', true, [ 'app-codemirror' ] );
+	$styles->add( 'code-theme', true, [ 'app-codemirror' ], '' );
 
 	// Load minified stylesheets unless SCRIPT_DEBUG is true.
 	if ( SCRIPT_DEBUG ) {
@@ -993,7 +993,7 @@ function wp_default_styles( &$styles ) {
 	$styles->add( 'mediaelement',         "/app-assets/js/includes/mediaelement/mediaelementplayer-legacy.min.css", [], '4.2.6-78496d1' );
 	$styles->add( 'app-mediaelement',      "/app-assets/js/includes/mediaelement/wp-mediaelement$suffix.css", [ 'mediaelement' ] );
 	$styles->add( 'thickbox',             '/app-assets/js/includes/thickbox/thickbox.css', [ 'dashicons' ] );
-	$styles->add( 'app-codemirror',        '/app-assets/css/includes/vendor/codemirror/codemirror.min.css', [], '5.29.1-alpha-ee20357' );
+	$styles->add( 'app-codemirror',        '/app-assets/css/includes/vendor/codemirror/codemirror.min.css', [], '4.9.8' );
 
 	// RTL stylesheets.
 	$rtl_styles = [

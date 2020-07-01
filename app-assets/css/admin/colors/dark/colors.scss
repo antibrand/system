@@ -2,86 +2,8 @@
  * Default dark color scheme
  */
 
-// Import general app variables.
-@import '../../../includes/modules/_colors';
-
-// Global app color variables.
-$app_primary_color: $app_yellow;
-$app_secondary_color: #222222;
-$app_tertiary_color: #3ad4fb;
-$app_highlight_color: $app_yellow;
-
-$body_background: #222222;
-$text_color: $white;
-$box_background_color: lighten( $color: $app_secondary_color, $amount: 2.5% );
-$box_border_color: lighten( $color: $app_secondary_color, $amount: 12% );
-$box_text_color: inherit !default;
-$link_color: $app_tertiary_color;
-$link_action_color: $text_color;
-
-// Form color variables.
-$form_background_color: lighten( $color: $app_secondary_color, $amount: 5% );
-$form_border_color: lighten( $color: $app_secondary_color, $amount: 25% );
-$form_text_color: $text_color;
-$form_action_background_color: $form_background_color;
-$form_action_border_color: $link_action_color;
-$form_action_text_color: $text_color;
-$form_focus: $link_action_color;
-$form_checked: $link_action_color;
-$form_placeholder_color: lighten( $color: $form_background_color, $amount: 40% );
-
-// Button color variables.
-$button_background_color: $form_background_color;
-$button_border_color: $form_border_color;
-$button_text_color: $text_color;
-$button_action_background_color: $app_highlight_color;
-$button_action_border_color: $button_border_color;
-$button_action_text_color: $app_secondary_color;
-
-// Admin menu & admin-bar color variables.
-$menu_base_color: $app_secondary_color;
-$menu_text_color: $text_color;
-$menu_icon_color: darken( $menu_text_color, 25% );
-
-$menu_icon: $menu_icon_color;
-$menu_background: $menu_base_color;
-
-$menu_highlight_text: $menu_text_color;
-$menu_highlight_icon: $menu_text_color;
-$menu_highlight_background: $app_highlight_color;
-
-$menu_current_text: $menu_highlight_text;
-$menu_current_icon: $menu_highlight_icon;
-$menu_current_background: $menu_highlight_background;
-
-$menu_submenu_text: mix( $menu_base_color, $menu_text_color, 30% );
-$menu_submenu_background: darken( $menu_base_color, 7% );
-$menu_submenu_background_alt: desaturate( lighten( $menu_background, 7% ), 7% );
-
-$menu_submenu_focus_text: $app_highlight_color;
-$menu_submenu_current_text: $menu_text_color;
-
-$menu_bubble_text: $menu_text_color;
-$menu_bubble_background: $notify_color;
-$menu_bubble_current_text: $menu_text_color;
-$menu_bubble_current_background: $menu_submenu_background;
-
-$menu_collapse_text: $menu_icon;
-$menu_collapse_icon: $menu_icon;
-$menu_collapse_focus_text: $menu_text_color;
-$menu_collapse_focus_icon: $menu_highlight_icon;
-
-$menu_customizer_text: mix( $menu_base_color, $menu_text_color, 40% );
-
-$adminbar_avatar_frame: lighten( $menu_background, 7% );
-$adminbar_input_background: lighten( $menu_background, 7% );
-
-$editor_button_background_color: $form_background_color;
-$editor_button_border_color: $form_border_color;
-$editor_button_text_color: darken( $text_color, 25% );
-$editor_button_action_background_color: $app_highlight_color;
-$editor_button_action_border_color: $button_border_color;
-$editor_button_action_text_color: $button_text_color;
+// Import theme variables.
+@import '_variables';
 
 body {
 	background-color: $body_background;
@@ -749,6 +671,35 @@ ul.add-menu-item-tabs li.tabs,
 
 .theme-browser .theme:hover {
 	border-color: $form_action_border_color !important;
+}
+
+/**
+ * Editor pages
+ *
+ * Theme and plugin code editor screens.
+ */
+.CodeMirror-scrollbar-filler,
+.CodeMirror-gutter-filler,
+#templateside {
+	background-color: $body_background;
+}
+
+#template textarea,
+#template .CodeMirror,
+#templateside > ul {
+	border-color: $box_border_color;
+}
+
+#templateside {
+
+	a {
+		color: $text_color;
+
+		&:hover,
+		&:focus {
+			color: $link_color;
+		}
+	}
 }
 
 /**

@@ -1,6 +1,9 @@
 /**
  * Classic (Fresh) color scheme
  */
+/**
+ * Classic (Fresh) color scheme
+ */
 body {
   background-color: #f1f1f1;
   color: #444444;
@@ -1001,6 +1004,41 @@ ul.add-menu-item-tabs li.tabs,
 
 .theme-browser .theme:hover {
   border-color: #0096dd !important;
+}
+
+/**
+ * Editor pages
+ *
+ * Theme and plugin code editor screens.
+ */
+.CodeMirror-scrollbar-filler,
+.CodeMirror-gutter-filler,
+#templateside {
+  background-color: #f1f1f1;
+}
+
+#template textarea,
+#template .CodeMirror,
+#templateside > ul {
+  border-color: #888888;
+}
+
+#templateside a {
+  color: #444444;
+}
+
+#templateside a:hover, #templateside a:focus {
+  color: #0073aa;
+}
+
+#templateside .current-file a {
+  background-color: #0073aa;
+  color: #ffffff;
+}
+
+#templateside .current-file a:hover, #templateside .current-file a:focus {
+  background-color: #0073aa;
+  color: #ffffff;
 }
 
 /**

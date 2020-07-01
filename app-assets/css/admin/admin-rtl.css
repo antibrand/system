@@ -3761,6 +3761,7 @@ div.error {
   padding: 5px 8px;
   font-weight: 600;
   text-decoration: none;
+  border: none !important;
 }
 
 .wrap #templateside span.notice {
@@ -5371,12 +5372,6 @@ img {
   outline: 0;
 }
 
-[role="treeitem"] .folder-label.focus {
-  color: #124964;
-  -webkit-box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
-          box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
-}
-
 .tree-folder {
   margin: 0;
   position: relative;
@@ -5420,8 +5415,27 @@ img {
 }
 
 /* current-file needs to adjustment for .notice styles */
+#templateside a {
+  color: #222222;
+}
+
+#templateside a:hover, #templateside a:focus {
+  color: #005fd6;
+}
+
 #templateside .current-file {
   margin: -4px 0 -2px;
+}
+
+#templateside .current-file a {
+  background-color: #ffee00;
+  color: #222222;
+  font-weight: 700;
+}
+
+#templateside .current-file a:hover, #templateside .current-file a:focus {
+  background-color: #ffee00;
+  color: #222222;
 }
 
 .tree-folder > .current-file::before {
@@ -5497,6 +5511,7 @@ img {
   float: left;
   width: 16em;
   word-wrap: break-word;
+  background-color: #ffffff;
 }
 
 #postcustomstuff p.submit {
@@ -5536,10 +5551,8 @@ img {
 }
 
 .nonessential {
-  color: #666;
   font-size: 11px;
   font-style: italic;
-  padding-right: 12px;
 }
 
 #documentation {

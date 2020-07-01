@@ -1,3 +1,16 @@
+///
+/// CodeMirror dark theme
+///
+/// Made to go with the app's default dark admin theme.
+
+// Import general app variables from app-assets/includes.
+@import '../../modules/_typography';
+@import '../../modules/_colors';
+
 .CodeMirror {
 	background-color: #222;
+}
+
+.CodeMirror-activeline-background {
+	background: #333;
 }

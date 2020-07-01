@@ -1,5 +1,5 @@
 ///
-/// CodeMirror code linter
+/// CodeMirror
 ///
 /// Modified for this app.
 
@@ -34,7 +34,7 @@
 .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {
 
 	// The little square between H and V scrollbars.
-	background-color: white;
+	background-color: $body_background;
 }
 
 // Gutter.
@@ -133,7 +133,7 @@
 }
 
 .CodeMirror-ruler {
-	border-left: 1px solid #ccc;
+	border-left: 1px solid $box_border_color;
 	top: 0; bottom: 0;
 	position: absolute;
 }
@@ -203,7 +203,7 @@
 
 .cm-s-default .cm-comment {
 	font-style: italic;
-	color: #666;
+	color: $medium_gray;
 }
 
 .cm-s-default .cm-string {
@@ -270,6 +270,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 .CodeMirror-matchingtag {
 	background: rgba(255, 150, 0, .3);
 }
+
 
 .CodeMirror-activeline-background {
 	background: #eee;
