@@ -1,6 +1,6 @@
 <?php
 /**
- * Toolbar API: APP_User_Toolbar class
+ * Toolbar API: User_Toolbar class
  *
  * @package App_Package
  * @subpackage Toolbar
@@ -14,7 +14,7 @@ namespace AppNamespace\Includes;
  *
  * @since Previous 3.1.0
  */
-class APP_User_Toolbar {
+class User_Toolbar {
 
 	private $nodes = [];
 
@@ -47,7 +47,7 @@ class APP_User_Toolbar {
 				return is_ssl() ? 'https://' : 'http://';
 
 			case 'menu' :
-				_deprecated_argument( 'Includes\APP_User_Toolbar', '3.3.0', 'Modify admin bar nodes with Includes\APP_User_Toolbar::get_node(), Includes\APP_User_Toolbar::add_node(), and Includes\APP_User_Toolbar::remove_node(), not the <code>menu</code> property.' );
+				_deprecated_argument( 'Includes\User_Toolbar', '3.3.0', 'Modify admin bar nodes with Includes\User_Toolbar::get_node(), Includes\User_Toolbar::add_node(), and Includes\User_Toolbar::remove_node(), not the <code>menu</code> property.' );
 				return [];
 		}
 	}
@@ -99,7 +99,7 @@ class APP_User_Toolbar {
 		wp_enqueue_style( 'user-toolbar' );
 
 		/**
-		 * Fires after APP_User_Toolbar is initialized.
+		 * Fires after User_Toolbar is initialized.
 		 *
 		 * @since Previous 3.1.0
 		 */
@@ -344,7 +344,7 @@ class APP_User_Toolbar {
 		// Normalize nodes: define internal 'children' and 'type' properties.
 		foreach ( $this->_get_nodes() as $node ) {
 
-			$node->children = array();
+			$node->children = [];
 			$node->type = ( $node->group ) ? 'group' : 'item';
 
 			unset( $node->group );
@@ -451,7 +451,7 @@ class APP_User_Toolbar {
 						if ( $index === false ) {
 							$grandparent->children[] = $container;
 						} else {
-							array_splice( $grandparent->children, $index, 1, array( $container ) );
+							array_splice( $grandparent->children, $index, 1, [ $container ] );
 						}
 					}
 
@@ -710,15 +710,15 @@ class APP_User_Toolbar {
 	 * Renders toolbar items recursively.
 	 *
 	 * @since Previous 3.1.0
-	 * @deprecated 3.3.0 Use Includes\APP_User_Toolbar::_render_item() or Includes\APP_User_Toolbar::render() instead.
-	 * @see Includes\APP_User_Toolbar::_render_item()
-	 * @see Includes\APP_User_Toolbar::render()
+	 * @deprecated 3.3.0 Use Includes\User_Toolbar::_render_item() or Includes\User_Toolbar::render() instead.
+	 * @see Includes\User_Toolbar::_render_item()
+	 * @see Includes\User_Toolbar::render()
 	 * @param string $id    Unused.
 	 * @param object $node
 	 */
 	public function recursive_render( $id, $node ) {
 
-		_deprecated_function( __METHOD__, '3.3.0', 'Includes\APP_User_Toolbar::render(), Includes\APP_User_Toolbar::_render_item()' );
+		_deprecated_function( __METHOD__, '3.3.0', 'Includes\User_Toolbar::render(), Includes\User_Toolbar::_render_item()' );
 		$this->_render_item( $node );
 	}
 

@@ -19,7 +19,7 @@ use \AppNamespace\Includes as Includes;
  *
  * @since  Previous 3.1.0
  * @access private
- * @global APP_User_Toolbar $wp_admin_bar
+ * @global User_Toolbar $wp_admin_bar
  * @return bool Whether the user toolbar was successfully initialized.
  */
 function app_user_toolbar_init() {
@@ -34,9 +34,9 @@ function app_user_toolbar_init() {
 	 * Instantiate the user toolbar
 	 *
 	 * @since 1.0.0
-	 * @param string $wp_admin_bar_class Admin bar class to use. Default 'APP_User_Toolbar'.
+	 * @param string $wp_admin_bar_class Admin bar class to use. Default 'User_Toolbar'.
 	 */
-	$wp_admin_bar = new Includes\APP_User_Toolbar;
+	$wp_admin_bar = new Includes\User_Toolbar;
 
 	$wp_admin_bar->initialize();
 	$wp_admin_bar->add_menus();
@@ -56,7 +56,7 @@ function app_user_toolbar_init() {
  * the `$post` global, among others.
  *
  * @since  Previous 3.1.0
- * @global APP_User_Toolbar $wp_admin_bar
+ * @global User_Toolbar $wp_admin_bar
  * @return void
  */
 function app_toolbar_render() {
@@ -73,7 +73,7 @@ function app_toolbar_render() {
 	 * This is the hook used to add, remove, or manipulate user toolbar items.
 	 *
 	 * @since Previous 3.1.0
-	 * @param APP_User_Toolbar $wp_admin_bar APP_User_Toolbar instance, passed by reference
+	 * @param User_Toolbar $wp_admin_bar User_Toolbar instance, passed by reference
 	 */
 	do_action_ref_array( 'admin_bar_menu', array( &$wp_admin_bar ) );
 
@@ -98,7 +98,7 @@ function app_toolbar_render() {
  * Add the sidebar toggle button.
  *
  * @since  Previous 3.8.0
- * @param  APP_User_Toolbar $wp_admin_bar
+ * @param  User_Toolbar $wp_admin_bar
  * @return void
  */
 function wp_admin_bar_sidebar_toggle( $wp_admin_bar ) {
@@ -117,7 +117,7 @@ function wp_admin_bar_sidebar_toggle( $wp_admin_bar ) {
  * Add the "My Account" item.
  *
  * @since  Previous 3.3.0
- * @param  APP_User_Toolbar $wp_admin_bar
+ * @param  User_Toolbar $wp_admin_bar
  * @return void
  */
 function wp_admin_bar_my_account_item( $wp_admin_bar ) {
@@ -167,7 +167,7 @@ function wp_admin_bar_my_account_item( $wp_admin_bar ) {
  * Add the "My Account" submenu items.
  *
  * @since  Previous 3.1.0
- * @param  APP_User_Toolbar $wp_admin_bar
+ * @param  User_Toolbar $wp_admin_bar
  * @return void
  */
 function wp_admin_bar_my_account_menu( $wp_admin_bar ) {
@@ -230,7 +230,7 @@ function wp_admin_bar_my_account_menu( $wp_admin_bar ) {
  * Add the "Site Name" menu.
  *
  * @since  Previous 3.3.0
- * @param  APP_User_Toolbar $wp_admin_bar
+ * @param  User_Toolbar $wp_admin_bar
  * @return void
  */
 function wp_admin_bar_site_menu( $wp_admin_bar ) {
@@ -311,7 +311,7 @@ function wp_admin_bar_site_menu( $wp_admin_bar ) {
  * Adds the "Manage" link to the Toolbar.
  *
  * @since  Previous 4.3.0
- * @param  APP_User_Toolbar $wp_admin_bar APP_User_Toolbar instance.
+ * @param  User_Toolbar $wp_admin_bar User_Toolbar instance.
  * @global WP_Customize_Manager $wp_customize
  * @return void
  */
@@ -354,7 +354,7 @@ function wp_admin_bar_customize_menu( $wp_admin_bar ) {
  * Add the "Network Sites/[Site Name]" menu and all submenus.
  *
  * @since  Previous 3.1.0
- * @param  APP_User_Toolbar $wp_admin_bar
+ * @param  User_Toolbar $wp_admin_bar
  * @return void
  */
 function wp_admin_bar_my_sites_menu( $wp_admin_bar ) {
@@ -536,7 +536,7 @@ function wp_admin_bar_my_sites_menu( $wp_admin_bar ) {
  * Provide a shortlink.
  *
  * @since  Previous 3.1.0
- * @param  APP_User_Toolbar $wp_admin_bar
+ * @param  User_Toolbar $wp_admin_bar
  * @return void
  */
 function wp_admin_bar_shortlink_menu( $wp_admin_bar ) {
@@ -564,7 +564,7 @@ function wp_admin_bar_shortlink_menu( $wp_admin_bar ) {
  * @since  Previous 3.1.0
  * @global WP_Term  $tag
  * @global WP_Query $wp_the_query
- * @param  APP_User_Toolbar $wp_admin_bar
+ * @param  User_Toolbar $wp_admin_bar
  * @return void
  */
 function wp_admin_bar_edit_menu( $wp_admin_bar ) {
@@ -688,7 +688,7 @@ function wp_admin_bar_edit_menu( $wp_admin_bar ) {
  * Add "Add New" menu.
  *
  * @since  Previous 3.1.0
- * @param  APP_User_Toolbar $wp_admin_bar
+ * @param  User_Toolbar $wp_admin_bar
  * @return void
  */
 function wp_admin_bar_new_content_menu( $wp_admin_bar ) {
@@ -763,7 +763,7 @@ function wp_admin_bar_new_content_menu( $wp_admin_bar ) {
  * Add edit comments link with awaiting moderation count bubble.
  *
  * @since  Previous 3.1.0
- * @param  APP_User_Toolbar $wp_admin_bar
+ * @param  User_Toolbar $wp_admin_bar
  * @return void
  */
 function wp_admin_bar_comments_menu( $wp_admin_bar ) {
@@ -794,7 +794,7 @@ function wp_admin_bar_comments_menu( $wp_admin_bar ) {
  * Add appearance submenu items to the "Site Name" menu.
  *
  * @since  Previous 3.1.0
- * @param  APP_User_Toolbar $wp_admin_bar
+ * @param  User_Toolbar $wp_admin_bar
  * @return void
  */
 function wp_admin_bar_appearance_menu( $wp_admin_bar ) {
@@ -861,7 +861,7 @@ function wp_admin_bar_appearance_menu( $wp_admin_bar ) {
  * Provide an update link if theme/plugin/core updates are available.
  *
  * @since  Previous 3.1.0
- * @param  APP_User_Toolbar $wp_admin_bar
+ * @param  User_Toolbar $wp_admin_bar
  * @return void
  */
 function wp_admin_bar_updates_menu( $wp_admin_bar ) {
@@ -889,7 +889,7 @@ function wp_admin_bar_updates_menu( $wp_admin_bar ) {
  * Add search form.
  *
  * @since  Previous 3.3.0
- * @param  APP_User_Toolbar $wp_admin_bar
+ * @param  User_Toolbar $wp_admin_bar
  * @return void
  */
 function wp_admin_bar_search_menu( $wp_admin_bar ) {
@@ -919,7 +919,7 @@ function wp_admin_bar_search_menu( $wp_admin_bar ) {
  * Add secondary menus.
  *
  * @since  Previous 3.3.0
- * @param  APP_User_Toolbar $wp_admin_bar
+ * @param  User_Toolbar $wp_admin_bar
  * @return void
  */
 function wp_admin_bar_add_secondary_groups( $wp_admin_bar ) {
