@@ -399,7 +399,7 @@ class Data_Page {
 			/**
 			 * Fires at the end of the export filters form.
 			 *
-			 * @since Before 3.5.0
+			 * @since Previous 3.5.0
 			 */
 			do_action( 'export_filters' );
 			?>

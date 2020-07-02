@@ -9,7 +9,7 @@
 /**
  * Define this as a profile page
  *
- * @since Before 2.5.0
+ * @since Previous 2.5.0
  * @var   bool
  */
 define( 'IS_PROFILE_PAGE', true );

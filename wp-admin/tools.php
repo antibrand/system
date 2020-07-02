@@ -39,7 +39,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 			 *
 			 * Fires at the end of the tools administration screen
 			 *
-			 * @since Before 2.8.0
+			 * @since Previous 2.8.0
 			 */
 			do_action( 'tool_box' );
 		?>

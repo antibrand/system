@@ -132,7 +132,7 @@ function wp_underscore_video_template() {
 /**
  * Prints the templates used in the media manager.
  *
- * @since Before 3.5.0
+ * @since Previous 3.5.0
  */
 function wp_print_media_templates() {
 

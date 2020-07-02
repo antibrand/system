@@ -9,7 +9,7 @@
 /**
  * Executing Ajax process.
  *
- * @since Before 2.1.0
+ * @since Previous 2.1.0
  */
 define( 'DOING_AJAX', true );
 

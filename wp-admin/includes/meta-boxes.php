@@ -645,7 +645,7 @@ function post_description_meta_box( $post ) {
 /**
  * Display post excerpt form fields.
  *
- * @since Before 2.6.0
+ * @since Previous 2.6.0
  * @param object $post
  * @return string Returns the markup of the excerpt form.
  */

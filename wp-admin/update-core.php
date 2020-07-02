@@ -168,7 +168,7 @@ function list_core_update( $update ) {
 /**
  * Dismissed updates
  *
- * @since Before 2.7.0
+ * @since Previous 2.7.0
  */
 function dismissed_updates() {
 
@@ -210,7 +210,7 @@ function dismissed_updates() {
 /**
  * Display upgrade for downloading latest or upgrading automatically form
  *
- * @since Before 2.7.0
+ * @since Previous 2.7.0
  * @global string $required_php_version
  * @global string $required_mysql_version
  */
@@ -466,7 +466,7 @@ function list_plugin_updates() {
 /**
  * List theme updates
  *
- * @since Before 2.9.0
+ * @since Previous 2.9.0
  */
 function list_theme_updates() {
 
@@ -556,7 +556,7 @@ function list_theme_updates() {
 /**
  * List translation updates
  *
- * @since Before 3.7.0
+ * @since Previous 3.7.0
  */
 function list_translation_updates() {
 
@@ -589,7 +589,7 @@ function list_translation_updates() {
 /**
  * Upgrade core display
  *
- * @since Before 2.7.0
+ * @since Previous 2.7.0
  * @global WP_Filesystem_Base $wp_filesystem Subclass
  * @param bool $reinstall
  */
@@ -693,7 +693,7 @@ function do_core_upgrade( $reinstall = false ) {
 /**
  * Dismiss core updates
  *
- * @since Before 2.7.0
+ * @since Previous 2.7.0
  */
 function do_dismiss_core_update() {
 
@@ -715,7 +715,7 @@ function do_dismiss_core_update() {
 /**
  * Undismiss core updates
  *
- * @since Before 2.7.0
+ * @since Previous 2.7.0
  */
 function do_undismiss_core_update() {
 
@@ -835,7 +835,7 @@ if ( 'upgrade-core' == $action ) {
 	/**
 	 * Fires after the core, plugin, and theme update tables.
 	 *
-	 * @since Before 2.9.0
+	 * @since Previous 2.9.0
 	 */
 	do_action( 'core_upgrade_preamble' );
 	echo '</div>';
@@ -984,7 +984,7 @@ if ( 'upgrade-core' == $action ) {
 	 * passed update action. The hook fires in lieu of all available
 	 * default update actions.
 	 *
-	 * @since Before 3.2.0
+	 * @since Previous 3.2.0
 	 */
 	do_action( "update-core-custom_{$action}" );
 }

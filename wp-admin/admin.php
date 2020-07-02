@@ -9,7 +9,7 @@
 /**
  * In administration screens
  *
- * @since Before 2.3.2
+ * @since Previous 2.3.2
  */
 if ( ! defined( 'WP_ADMIN' ) ) {
 	define( 'WP_ADMIN', true );
@@ -43,7 +43,7 @@ if ( get_option( 'db_upgraded' ) ) {
 	/**
 	 * Fires on the next page load after a successful DB upgrade.
 	 *
-	 * @since Before 2.8.0
+	 * @since Previous 2.8.0
 	 */
 	do_action( 'after_db_upgrade' );
 
@@ -65,7 +65,7 @@ if ( get_option( 'db_upgraded' ) ) {
 	 * If the network is 50 sites or less, it will run every time. Otherwise,
 	 * it will throttle itself to reduce load.
 	 *
-	 * @since Before 3.0.0
+	 * @since Previous 3.0.0
 	 * @param bool $do_mu_upgrade Whether to perform the Multisite upgrade routine. Default true.
 	 */
 	} elseif ( apply_filters( 'do_mu_upgrade', true ) ) {
@@ -166,7 +166,7 @@ if ( current_user_can( 'manage_options' ) ) {
  *
  * This is roughly analogous to the more general {@see 'init'} hook, which fires earlier.
  *
- * @since Before 2.5.0
+ * @since Previous 2.5.0
  */
 do_action( 'admin_init' );
 
@@ -235,7 +235,7 @@ if ( isset( $plugin_page ) ) {
 		 *
 		 * @see get_plugin_page_hook()
 		 *
-		 * @since Before 2.1.0
+		 * @since Previous 2.1.0
 		 */
 		do_action( "load-{$page_hook}" );
 
@@ -247,7 +247,7 @@ if ( isset( $plugin_page ) ) {
 		 * Used to call the registered callback for a plugin screen.
 		 *
 		 * @ignore
-		 * @since Before 1.5.0
+		 * @since Previous 1.5.0
 		 */
 		do_action( $page_hook );
 
@@ -271,7 +271,7 @@ if ( isset( $plugin_page ) ) {
 		 *
 		 * @see plugin_basename()
 		 *
-		 * @since Before 1.5.0
+		 * @since Previous 1.5.0
 		 */
 		do_action( "load-{$plugin_page}" );
 
@@ -315,7 +315,7 @@ if ( isset( $plugin_page ) ) {
 	 *
 	 * The dynamic portion of the hook name, `$importer`, refers to the importer slug.
 	 *
-	 * @since Before 3.5.0
+	 * @since Previous 3.5.0
 	 */
 	do_action( "load-importer-{$importer}" );
 
@@ -337,7 +337,7 @@ if ( isset( $plugin_page ) ) {
 	 * Multisite uses this hook to filter all data through kses by default,
 	 * as a super administrator may be assisting an untrusted user.
 	 *
-	 * @since Before 3.1.0
+	 * @since Previous 3.1.0
 	 *
 	 * @param bool $force Whether to force data to be filtered through kses. Default false.
 	 */
@@ -367,7 +367,7 @@ if ( isset( $plugin_page ) ) {
 	 * 'post-new.php' etc. A complete hook for the latter would be
 	 * 'load-post-new.php'.
 	 *
-	 * @since Before 2.1.0
+	 * @since Previous 2.1.0
 	 */
 	do_action( "load-{$pagenow}" );
 
@@ -403,7 +403,7 @@ if ( ! empty( $_REQUEST['action'] ) ) {
 	 * The dynamic portion of the hook name, `$_REQUEST['action']`,
 	 * refers to the action derived from the `GET` or `POST` request.
 	 *
-	 * @since Before 2.6.0
+	 * @since Previous 2.6.0
 	 */
 	do_action( 'admin_action_' . $_REQUEST['action'] );
 }

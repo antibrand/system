@@ -285,14 +285,14 @@ class Dashboard {
 			/**
 			 * Fires after core widgets for the Network Admin dashboard have been registered.
 			 *
-			 * @since Before 3.1.0
+			 * @since Previous 3.1.0
 			 */
 			do_action( 'wp_network_dashboard_setup' );
 
 			/**
 			 * Filters the list of widgets to load for the Network Admin dashboard.
 			 *
-			 * @since Before 3.1.0
+			 * @since Previous 3.1.0
 			 *
 			 * @param array $dashboard_widgets An array of dashboard widgets.
 			 */
@@ -303,14 +303,14 @@ class Dashboard {
 			/**
 			 * Fires after core widgets for the User Admin dashboard have been registered.
 			 *
-			 * @since Before 3.1.0
+			 * @since Previous 3.1.0
 			 */
 			do_action( 'wp_user_dashboard_setup' );
 
 			/**
 			 * Filters the list of widgets to load for the User Admin dashboard.
 			 *
-			 * @since Before 3.1.0
+			 * @since Previous 3.1.0
 			 *
 			 * @param array $dashboard_widgets An array of dashboard widgets.
 			 */
@@ -321,14 +321,14 @@ class Dashboard {
 			/**
 			 * Fires after core widgets for the admin dashboard have been registered.
 			 *
-			 * @since Before 2.5.0
+			 * @since Previous 2.5.0
 			 */
 			do_action( 'app_dashboard_setup' );
 
 			/**
 			 * Filters the list of widgets to load for the admin dashboard.
 			 *
-			 * @since Before 2.5.0
+			 * @since Previous 2.5.0
 			 *
 			 * @param array $dashboard_widgets An array of dashboard widgets.
 			 */
@@ -613,7 +613,7 @@ class Dashboard {
 						 * Prior to 3.8.0, the widget was named 'Right Now'. Each element
 						 * is wrapped in list-item tags on output.
 						 *
-						 * @since Before 3.8.0
+						 * @since Previous 3.8.0
 						 * @param array $items Array of extra 'Site Overview' widget items.
 						 */
 						$elements = apply_filters( 'dashboard_glance_items', [] );
@@ -662,7 +662,7 @@ class Dashboard {
 		 *
 		 * Prior to WP 3.8.0, the widget was named 'Right Now'.
 		 *
-		 * @since Before 2.5.0
+		 * @since Previous 2.5.0
 		 */
 		do_action( 'rightnow_end' );
 
@@ -671,7 +671,7 @@ class Dashboard {
 		 *
 		 * Prior to WP 3.8.0, the widget was named 'Right Now'.
 		 *
-		 * @since Before 2.0.0
+		 * @since Previous 2.0.0
 		 */
 		do_action( 'activity_box_end' );
 
@@ -743,8 +743,8 @@ class Dashboard {
 			 *
 			 * Prior to WP 3.8.0, the widget was named 'Right Now'.
 			 *
-			 * @since Before 3.0.0
-			 * @since Before 4.5.0 The default for `$title` was updated to an empty string.
+			 * @since Previous 3.0.0
+			 * @since Previous 4.5.0 The default for `$title` was updated to an empty string.
 			 * @param string $title Default attribute text.
 			 */
 			$title = apply_filters( 'privacy_on_link_title', '' );
@@ -755,7 +755,7 @@ class Dashboard {
 			 *
 			 * Prior to WP 3.8.0, the widget was named 'Right Now'.
 			 *
-			 * @since Before 3.0.0
+			 * @since Previous 3.0.0
 			 * @param string $content Default text.
 			 */
 			$link_text = apply_filters( 'engines_discouraged_link_text' , __( 'Search Engines Discouraged' ) );
@@ -781,7 +781,7 @@ class Dashboard {
 		 *
 		 * Prior to 3.8.0, the widget was named 'Right Now'.
 		 *
-		 * @since Before 4.4.0
+		 * @since Previous 4.4.0
 		 * @since 1.0.0 Modified by this fork.
 		 * @param string $content Default text.
 		 */
@@ -795,7 +795,7 @@ class Dashboard {
 	 *
 	 * Dashboard widget that displays some basic stats about the network.
 	 *
-	 * @since Before 3.1.0
+	 * @since Previous 3.1.0
 	 * @access public
 	 * @return mixed Returns the markup of the Network Overview content
 	 */
@@ -1017,7 +1017,7 @@ class Dashboard {
 			/**
 			 * Filters the post query arguments for the 'Recent Drafts' dashboard widget.
 			 *
-			 * @since Before 4.4.0
+			 * @since Previous 4.4.0
 			 * @param array $query_args The query arguments for the 'Recent Drafts' dashboard widget.
 			 */
 			$query_args = apply_filters( 'dashboard_recent_drafts_query_args', $query_args );
@@ -1079,7 +1079,7 @@ class Dashboard {
 	 * Outputs a row for the Recent Comments widget.
 	 *
 	 * @access private
-	 * @since Before 2.7.0
+	 * @since Previous 2.7.0
 	 * @global WP_Comment $comment
 	 * @param WP_Comment $comment   The current comment.
 	 * @param bool       $show_date Optional. Whether to display the date.
@@ -1148,7 +1148,7 @@ class Dashboard {
 			 * Filters the action links displayed for each comment in the 'Recent Comments'
 			 * dashboard widget.
 			 *
-			 * @since Before 2.6.0
+			 * @since Previous 2.6.0
 			 * @param array $actions An array of comment actions. Default actions include:
 			 *              'Approve', 'Unapprove', 'Edit', 'Reply', 'Spam', 'Delete', and 'Trash'.
 			 * @param WP_Comment $comment The comment object.
@@ -1260,7 +1260,7 @@ class Dashboard {
 	/**
 	 * Site Activity widget
 	 *
-	 * @since Before 3.8.0
+	 * @since Previous 3.8.0
 	 * @access public
 	 * @return mixed Returns the markup of the Site Activity widget.
 	 */
@@ -1300,7 +1300,7 @@ class Dashboard {
 	/**
 	 * Publishing Soon and Recently Published sections.
 	 *
-	 * @since Before 3.8.0
+	 * @since Previous 3.8.0
 	 * @access public
 	 * @param array $args {
 	 *     An array of query and display arguments.
@@ -1330,7 +1330,7 @@ class Dashboard {
 		/**
 		 * Filters the query arguments used for the Recent Posts widget.
 		 *
-		 * @since Before 4.2.0
+		 * @since Previous 4.2.0
 		 * @param array $query_args The arguments passed to WP_Query to produce the list of posts.
 		 */
 		$query_args = apply_filters( 'dashboard_recent_posts_query_args', $query_args );

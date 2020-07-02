@@ -775,7 +775,7 @@ function get_page_statuses() {
 /**
  * Return statuses for privacy requests.
  *
- * @since Before 5.0.0
+ * @since Previous 5.0.0
  *
  * @return array
  */

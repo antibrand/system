@@ -321,7 +321,7 @@ function wp_script_is( $handle, $list = 'enqueued' ) {
  * Possible values for $key and $value:
  * 'conditional' string Comments for specific browsers or browser type.
  *
- * @since Before 4.2.0
+ * @since Previous 4.2.0
  *
  * @see WP_Dependency::add_data()
  *

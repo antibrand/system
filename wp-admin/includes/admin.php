@@ -4,7 +4,7 @@
  *
  * @package App_Package
  * @subpackage Administration
- * @since Before 2.3.0
+ * @since Previous 2.3.0
  */
 
 if ( ! defined( 'WP_ADMIN' ) ) {

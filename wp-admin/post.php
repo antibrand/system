@@ -178,7 +178,7 @@ switch( $action ) {
 		/**
 		 * Allows replacement of the editor.
 		 *
-		 * @since Before 4.9.0
+		 * @since Previous 4.9.0
 		 *
 		 * @param boolean Whether to replace the editor. Default false.
 		 * @param object $post Post object.
@@ -343,7 +343,7 @@ switch( $action ) {
 		 *
 		 * The dynamic portion of the hook name, `$action`, refers to the custom post action.
 		 *
-		 * @since Before 4.6.0
+		 * @since Previous 4.6.0
 		 * @param int $post_id Post ID sent with the request.
 		 */
 		do_action( "post_action_{$action}", $post_id );

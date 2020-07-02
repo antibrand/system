@@ -453,7 +453,7 @@ class List_Table {
 		 * The dynamic portion of the hook name, `$this->screen->id`, refers
 		 * to the ID of the current screen, usually a string.
 		 *
-		 * @since Before 3.5.0
+		 * @since Previous 3.5.0
 		 * @param string[] $views An array of available list table views.
 		 */
 		$views = apply_filters( "views_{$this->screen->id}", $views );

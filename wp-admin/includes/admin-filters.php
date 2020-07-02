@@ -4,7 +4,7 @@
  *
  * @package App_Package
  * @subpackage Administration
- * @since Before 4.3.0
+ * @since Previous 4.3.0
  */
 
 // Media hooks.

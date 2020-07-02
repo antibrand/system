@@ -13,7 +13,7 @@
 /**
  * Retrieves all post data for a given post.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 1.5.1 Use get_post()
  * @see get_post()
  *
@@ -49,7 +49,7 @@ function get_postdata( $postid ) {
  *
  * Use The Loop instead.
  *
- * @since Before 1.0.1
+ * @since Previous 1.0.1
  * @deprecated WP 1.5.0
  */
 function start_wp() {
@@ -67,7 +67,7 @@ function start_wp() {
 /**
  * Returns or prints a category ID.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 0.71 Use get_the_category()
  * @see get_the_category()
  *
@@ -92,7 +92,7 @@ function the_category_ID( $echo = true ) {
 /**
  * Prints a category with optional text before and after.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 0.71 Use get_the_category_by_ID()
  * @see get_the_category_by_ID()
  *
@@ -120,7 +120,7 @@ function the_category_head( $before = '', $after = '' ) {
 /**
  * Prints a link to the previous post.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 2.0.0 Use previous_post_link()
  * @see previous_post_link()
  *
@@ -162,7 +162,7 @@ function previous_post( $format = '%', $previous = 'previous post: ', $title = '
 /**
  * Prints link to the next post.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.0.0 Use next_post_link()
  * @see next_post_link()
  *
@@ -204,7 +204,7 @@ function next_post( $format = '%', $next = 'next post: ', $title = 'yes', $in_sa
 /**
  * Whether user can create a post.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 2.0.0 Use current_user_can()
  * @see current_user_can()
  *
@@ -225,7 +225,7 @@ function user_can_create_post( $user_id, $blog_id = 1, $category_id = 'None' ) {
 /**
  * Whether user can create a post.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 2.0.0 Use current_user_can()
  * @see current_user_can()
  *
@@ -246,7 +246,7 @@ function user_can_create_draft( $user_id, $blog_id = 1, $category_id = 'None' ) 
 /**
  * Whether user can edit a post.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 2.0.0 Use current_user_can()
  * @see current_user_can()
  *
@@ -275,7 +275,7 @@ function user_can_edit_post( $user_id, $post_id, $blog_id = 1 ) {
 /**
  * Whether user can delete a post.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 2.0.0 Use current_user_can()
  * @see current_user_can()
  *
@@ -295,7 +295,7 @@ function user_can_delete_post( $user_id, $post_id, $blog_id = 1 ) {
 /**
  * Whether user can set new posts' dates.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 2.0.0 Use current_user_can()
  * @see current_user_can()
  *
@@ -316,7 +316,7 @@ function user_can_set_post_date( $user_id, $blog_id = 1, $category_id = 'None' )
 /**
  * Whether user can delete a post.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 2.0.0 Use current_user_can()
  * @see current_user_can()
  *
@@ -337,7 +337,7 @@ function user_can_edit_post_date( $user_id, $post_id, $blog_id = 1 ) {
 /**
  * Whether user can delete a post.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 2.0.0 Use current_user_can()
  * @see current_user_can()
  *
@@ -357,7 +357,7 @@ function user_can_edit_post_comments( $user_id, $post_id, $blog_id = 1 ) {
 /**
  * Whether user can delete a post.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 2.0.0 Use current_user_can()
  * @see current_user_can()
  *
@@ -377,7 +377,7 @@ function user_can_delete_post_comments( $user_id, $post_id, $blog_id = 1 ) {
 /**
  * Can user can edit other user.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 2.0.0 Use current_user_can()
  * @see current_user_can()
  *
@@ -402,7 +402,7 @@ function user_can_edit_user( $user_id, $other_user ) {
 /**
  * Gets the links associated with category $cat_name.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.1.0 Use get_bookmarks()
  * @see get_bookmarks()
  *
@@ -438,7 +438,7 @@ function get_linksbyname( $cat_name = "noname", $before = '', $after = '<br />',
 /**
  * Gets the links associated with the named category.
  *
- * @since Before 1.0.1
+ * @since Previous 1.0.1
  * @deprecated WP 2.1.0 Use wp_list_bookmarks()
  * @see wp_list_bookmarks()
  *
@@ -474,7 +474,7 @@ function wp_get_linksbyname( $category, $args = '' ) {
  *      	echo '<li>' . $link->link_name . '</li>';
  *     }
  *
- * @since Before 1.0.1
+ * @since Previous 1.0.1
  * @deprecated WP 2.1.0 Use get_bookmarks()
  * @see get_bookmarks()
  *
@@ -527,7 +527,7 @@ function get_linkobjectsbyname( $cat_name = "noname" , $orderby = 'name', $limit
  * - link_rel
  * - link_notes
  *
- * @since Before 1.0.1
+ * @since Previous 1.0.1
  * @deprecated WP 2.1.0 Use get_bookmarks()
  * @see get_bookmarks()
  *
@@ -557,7 +557,7 @@ function get_linkobjects( $category = 0, $orderby = 'name', $limit = 0 ) {
 /**
  * Gets the links associated with category 'cat_name' and display rating stars/chars.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.1.0 Use get_bookmarks()
  * @see get_bookmarks()
  *
@@ -585,7 +585,7 @@ function get_linksbyname_withrating( $cat_name = "noname", $before = '', $after 
 /**
  * Gets the links associated with category n and display rating stars/chars.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.1.0 Use get_bookmarks()
  * @see get_bookmarks()
  *
@@ -613,7 +613,7 @@ function get_links_withrating( $category = -1, $before = '', $after = '<br />', 
 /**
  * Gets the auto_toggle setting.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.1.0
  *
  * @param int $id The category to get. If no category supplied uses 0
@@ -629,7 +629,7 @@ function get_autotoggle( $id = 0 ) {
 /**
  * Lists categories.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.1.0 Use wp_list_categories()
  * @see wp_list_categories()
  *
@@ -686,7 +686,7 @@ function list_cats( $optionall = 1, $all = 'All', $sort_column = 'ID', $sort_ord
 /**
  * Lists categories.
  *
- * @since Before 1.2.0
+ * @since Previous 1.2.0
  * @deprecated WP 2.1.0 Use wp_list_categories()
  * @see wp_list_categories()
  *
@@ -732,7 +732,7 @@ function wp_list_cats( $args = '' ) {
 /**
  * Deprecated method for generating a drop-down of categories.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.1.0 Use wp_dropdown_categories()
  * @see wp_dropdown_categories()
  *
@@ -786,7 +786,7 @@ function dropdown_cats( $optionall = 1, $all = 'All', $orderby = 'ID', $order = 
 /**
  * Lists authors.
  *
- * @since Before 1.2.0
+ * @since Previous 1.2.0
  * @deprecated WP 2.1.0 Use wp_list_authors()
  * @see wp_list_authors()
  *
@@ -817,7 +817,7 @@ function list_authors( $optioncount = false, $exclude_admin = true, $show_fullna
 /**
  * Retrieves a list of post categories.
  *
- * @since Before 1.0.1
+ * @since Previous 1.0.1
  * @deprecated WP 2.1.0 Use wp_get_post_categories()
  * @see wp_get_post_categories()
  *
@@ -835,7 +835,7 @@ function wp_get_post_cats( $blogid = '1', $post_ID = 0 ) {
 /**
  * Sets the categories that the post id belongs to.
  *
- * @since Before 1.0.1
+ * @since Previous 1.0.1
  * @deprecated WP 2.1.0
  * @deprecated WP Use wp_set_post_categories()
  * @see wp_set_post_categories()
@@ -855,7 +855,7 @@ function wp_set_post_cats( $blogid = '1', $post_ID = 0, $post_categories = [] ) 
 /**
  * Retrieves a list of archives.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.1.0 Use wp_get_archives()
  * @see wp_get_archives()
  *
@@ -886,7 +886,7 @@ function get_archives( $type='', $limit='', $format='html', $before = '', $after
 /**
  * Returns or Prints link to the author's posts.
  *
- * @since Before 1.2.0
+ * @since Previous 1.2.0
  * @deprecated WP 2.1.0 Use get_author_posts_url()
  * @see get_author_posts_url()
  *
@@ -911,7 +911,7 @@ function get_author_link( $echo, $author_id, $author_nicename = '' ) {
 /**
  * Print list of pages based on arguments.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.1.0 Use wp_link_pages()
  * @see wp_link_pages()
  *
@@ -945,7 +945,7 @@ function link_pages( $before = '<br />', $after = '<br />', $next_or_number = 'n
 /**
  * Get value based on option.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.1.0 Use get_option()
  * @see get_option()
  *
@@ -962,7 +962,7 @@ function get_settings( $option ) {
 /**
  * Print the permalink of the current post in the loop.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 1.2.0 Use the_permalink()
  * @see the_permalink()
  */
@@ -974,7 +974,7 @@ function permalink_link() {
 /**
  * Print the permalink to the RSS feed.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.3.0 Use the_permalink_rss()
  * @see the_permalink_rss()
  *
@@ -988,7 +988,7 @@ function permalink_single_rss( $deprecated = '' ) {
 /**
  * Gets the links associated with category.
  *
- * @since Before 1.0.1
+ * @since Previous 1.0.1
  * @deprecated WP 2.1.0 Use wp_list_bookmarks()
  * @see wp_list_bookmarks()
  *
@@ -1028,7 +1028,7 @@ function wp_get_links( $args = '' ) {
 /**
  * Gets the links associated with category by id.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.1.0 Use get_bookmarks()
  * @see get_bookmarks()
  *
@@ -1166,7 +1166,7 @@ function get_links( $category = -1, $before = '', $after = '<br />', $between = 
  * Output a list of all links, listed by category, using the settings in
  * $wpdb->linkcategories and output it as a nested HTML unordered list.
  *
- * @since Before 1.0.1
+ * @since Previous 1.0.1
  * @deprecated WP 2.1.0 Use wp_list_bookmarks()
  * @see wp_list_bookmarks()
  *
@@ -1213,7 +1213,7 @@ function get_links_list( $order = 'name' ) {
 /**
  * Show the link to the links popup and the number of links.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.1.0
  *
  * @param string $text the text of the link
@@ -1229,7 +1229,7 @@ function links_popup_script( $text = 'Links', $width=400, $height=400, $file='li
 /**
  * Legacy function that retrieved the value of a link's link_rating field.
  *
- * @since Before 1.0.1
+ * @since Previous 1.0.1
  * @deprecated WP 2.1.0 Use sanitize_bookmark_field()
  * @see sanitize_bookmark_field()
  *
@@ -1244,7 +1244,7 @@ function get_linkrating( $link ) {
 /**
  * Gets the name of category by id.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.1.0 Use get_category()
  * @see get_category()
  *
@@ -1277,7 +1277,7 @@ function get_linkcatname( $id = 0 ) {
 /**
  * Print RSS comment feed link.
  *
- * @since Before 1.0.1
+ * @since Previous 1.0.1
  * @deprecated WP 2.5.0 Use post_comments_feed_link()
  * @see post_comments_feed_link()
  *
@@ -1291,7 +1291,7 @@ function comments_rss_link( $link_text = 'Comments RSS' ) {
 /**
  * Print/Return link to category RSS2 feed.
  *
- * @since Before 1.2.0
+ * @since Previous 1.2.0
  * @deprecated WP 2.5.0 Use get_category_feed_link()
  * @see get_category_feed_link()
  *
@@ -1315,7 +1315,7 @@ function get_category_rss_link( $echo = false, $cat_ID = 1 ) {
 /**
  * Print/Return link to author RSS feed.
  *
- * @since Before 1.2.0
+ * @since Previous 1.2.0
  * @deprecated WP 2.5.0 Use get_author_feed_link()
  * @see get_author_feed_link()
  *
@@ -1339,7 +1339,7 @@ function get_author_rss_link( $echo = false, $author_id = 1 ) {
 /**
  * Return link to the post RSS feed.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 2.2.0 Use get_post_comments_feed_link()
  * @see get_post_comments_feed_link()
  *
@@ -1353,7 +1353,7 @@ function comments_rss() {
 /**
  * An alias of wp_create_user().
  *
- * @since Before 2.0.0
+ * @since Previous 2.0.0
  * @deprecated WP 2.0.0 Use wp_create_user()
  * @see wp_create_user()
  *
@@ -1380,7 +1380,7 @@ function gzip_compression() {
 /**
  * Retrieve an array of comment data about comment $comment_ID.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.7.0 Use get_comment()
  * @see get_comment()
  *
@@ -1397,7 +1397,7 @@ function get_commentdata( $comment_ID, $no_cache = 0, $include_unapproved = fals
 /**
  * Retrieve the category name by the category ID.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.8.0 Use get_cat_name()
  * @see get_cat_name()
  *
@@ -1412,7 +1412,7 @@ function get_catname( $cat_ID ) {
 /**
  * Retrieve category children list separated before and after the term IDs.
  *
- * @since Before 1.2.0
+ * @since Previous 1.2.0
  * @deprecated WP 2.8.0 Use get_term_children()
  * @see get_term_children()
  *
@@ -1458,7 +1458,7 @@ function get_category_children( $id, $before = '/', $after = '', $visited = [] )
 /**
  * Retrieves all category IDs.
  *
- * @since Before 2.0.0
+ * @since Previous 2.0.0
  * @deprecated WP 4.0.0 Use get_terms()
  * @see get_terms()
  *
@@ -1481,7 +1481,7 @@ function get_all_category_ids() {
 /**
  * Retrieve the description of the author of the current post.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 2.8.0 Use get_the_author_meta()
  * @see get_the_author_meta()
  *
@@ -1495,7 +1495,7 @@ function get_the_author_description() {
 /**
  * Display the description of the author of the current post.
  *
- * @since Before 1.0.0
+ * @since Previous 1.0.0
  * @deprecated WP 2.8.0 Use the_author_meta()
  * @see the_author_meta()
  */
@@ -1507,7 +1507,7 @@ function the_author_description() {
 /**
  * Retrieve the login name of the author of the current post.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 2.8.0 Use get_the_author_meta()
  * @see get_the_author_meta()
  *
@@ -1521,7 +1521,7 @@ function get_the_author_login() {
 /**
  * Display the login name of the author of the current post.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.8.0 Use the_author_meta()
  * @see the_author_meta()
  */
@@ -1533,7 +1533,7 @@ function the_author_login() {
 /**
  * Retrieve the first name of the author of the current post.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 2.8.0 Use get_the_author_meta()
  * @see get_the_author_meta()
  *
@@ -1547,7 +1547,7 @@ function get_the_author_firstname() {
 /**
  * Display the first name of the author of the current post.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.8.0 Use the_author_meta()
  * @see the_author_meta()
  */
@@ -1559,7 +1559,7 @@ function the_author_firstname() {
 /**
  * Retrieve the last name of the author of the current post.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 2.8.0 Use get_the_author_meta()
  * @see get_the_author_meta()
  *
@@ -1573,7 +1573,7 @@ function get_the_author_lastname() {
 /**
  * Display the last name of the author of the current post.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.8.0 Use the_author_meta()
  * @see the_author_meta()
  */
@@ -1585,7 +1585,7 @@ function the_author_lastname() {
 /**
  * Retrieve the nickname of the author of the current post.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 2.8.0 Use get_the_author_meta()
  * @see get_the_author_meta()
  *
@@ -1599,7 +1599,7 @@ function get_the_author_nickname() {
 /**
  * Display the nickname of the author of the current post.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.8.0 Use the_author_meta()
  * @see the_author_meta()
  */
@@ -1611,7 +1611,7 @@ function the_author_nickname() {
 /**
  * Retrieve the email of the author of the current post.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 2.8.0 Use get_the_author_meta()
  * @see get_the_author_meta()
  *
@@ -1625,7 +1625,7 @@ function get_the_author_email() {
 /**
  * Display the email of the author of the current post.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.8.0 Use the_author_meta()
  * @see the_author_meta()
  */
@@ -1637,7 +1637,7 @@ function the_author_email() {
 /**
  * Retrieve the ICQ number of the author of the current post.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 2.8.0 Use get_the_author_meta()
  * @see get_the_author_meta()
  *
@@ -1651,7 +1651,7 @@ function get_the_author_icq() {
 /**
  * Display the ICQ number of the author of the current post.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.8.0 Use the_author_meta()
  * @see the_author_meta()
  */
@@ -1663,7 +1663,7 @@ function the_author_icq() {
 /**
  * Retrieve the Yahoo! IM name of the author of the current post.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 2.8.0 Use get_the_author_meta()
  * @see get_the_author_meta()
  *
@@ -1677,7 +1677,7 @@ function get_the_author_yim() {
 /**
  * Display the Yahoo! IM name of the author of the current post.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.8.0 Use the_author_meta()
  * @see the_author_meta()
  */
@@ -1689,7 +1689,7 @@ function the_author_yim() {
 /**
  * Retrieve the MSN address of the author of the current post.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 2.8.0 Use get_the_author_meta()
  * @see get_the_author_meta()
  *
@@ -1703,7 +1703,7 @@ function get_the_author_msn() {
 /**
  * Display the MSN address of the author of the current post.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.8.0 Use the_author_meta()
  * @see the_author_meta()
  */
@@ -1715,7 +1715,7 @@ function the_author_msn() {
 /**
  * Retrieve the AIM address of the author of the current post.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 2.8.0 Use get_the_author_meta()
  * @see get_the_author_meta()
  *
@@ -1729,7 +1729,7 @@ function get_the_author_aim() {
 /**
  * Display the AIM address of the author of the current post.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.8.0 Use the_author_meta( 'aim' )
  * @see the_author_meta()
  */
@@ -1741,7 +1741,7 @@ function the_author_aim() {
 /**
  * Retrieve the specified author's preferred display name.
  *
- * @since Before 1.0.0
+ * @since Previous 1.0.0
  * @deprecated WP 2.8.0 Use get_the_author_meta()
  * @see get_the_author_meta()
  *
@@ -1756,7 +1756,7 @@ function get_author_name( $auth_id = false ) {
 /**
  * Retrieve the URL to the home page of the author of the current post.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 2.8.0 Use get_the_author_meta()
  * @see get_the_author_meta()
  *
@@ -1770,7 +1770,7 @@ function get_the_author_url() {
 /**
  * Display the URL to the home page of the author of the current post.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.8.0 Use the_author_meta()
  * @see the_author_meta()
  */
@@ -1782,7 +1782,7 @@ function the_author_url() {
 /**
  * Retrieve the ID of the author of the current post.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 2.8.0 Use get_the_author_meta()
  * @see get_the_author_meta()
  *
@@ -1796,7 +1796,7 @@ function get_the_author_ID() {
 /**
  * Display the ID of the author of the current post.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.8.0 Use the_author_meta()
  * @see the_author_meta()
  */
@@ -1822,7 +1822,7 @@ function the_author_ID() {
  * dots added to the end. If there is content left over, then dots will be added
  * and the rest of the content will be removed.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  *
  * @deprecated WP 2.9.0 Use the_content_feed()
  * @see the_content_feed()
@@ -1842,7 +1842,7 @@ function the_content_rss( $more_link_text='(more...)', $stripteaser=0, $more_fil
 	/**
 	 * Filters the post content in the context of an RSS feed.
 	 *
-	 * @since Before 0.71
+	 * @since Previous 0.71
 	 *
 	 * @param string $content Content of the current post.
 	 */
@@ -1895,7 +1895,7 @@ function the_content_rss( $more_link_text='(more...)', $stripteaser=0, $more_fil
  * Searches for all of the links, strips them out of the content, and places
  * them at the bottom of the content with numbers.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 2.9.0
  *
  * @param string $content Content to get links
@@ -1938,7 +1938,7 @@ function make_url_footnote( $content ) {
  * including the pipe character. If there is no pipe in the translated text then
  * everything is returned.
  *
- * @since Before 2.2.0
+ * @since Previous 2.2.0
  * @deprecated WP 2.9.0 Use _x()
  * @see _x()
  *
@@ -1955,7 +1955,7 @@ function _c( $text, $domain = 'default' ) {
  * Translates $text like translate(), but assumes that the text
  * contains a context after its last vertical bar.
  *
- * @since Before 2.5.0
+ * @since Previous 2.5.0
  * @deprecated WP 3.0.0 Use _x()
  * @see _x()
  *
@@ -1973,7 +1973,7 @@ function translate_with_context( $text, $domain = 'default' ) {
  *
  * Strips everything from the translation after the last bar.
  *
- * @since Before 2.7.0
+ * @since Previous 2.7.0
  * @deprecated WP 3.0.0 Use _nx()
  * @see _nx()
  *
@@ -1992,7 +1992,7 @@ function _nc( $single, $plural, $number, $domain = 'default' ) {
 /**
  * Retrieve the plural or single form based on the amount.
  *
- * @since Before 1.2.0
+ * @since Previous 1.2.0
  * @deprecated WP 2.8.0 Use _n()
  * @see _n()
  */
@@ -2007,7 +2007,7 @@ function __ngettext() {
 /**
  * Register plural strings in POT file, but don't translate them.
  *
- * @since Before 2.5.0
+ * @since Previous 2.5.0
  * @deprecated WP 2.8.0 Use _n_noop()
  * @see _n_noop()
  */
@@ -2023,7 +2023,7 @@ function __ngettext_noop() {
 /**
  * Retrieve all autoload options, or all options if no autoloaded ones exist.
  *
- * @since Before 1.0.0
+ * @since Previous 1.0.0
  * @deprecated WP 3.0.0 Use wp_load_alloptions() )
  * @see wp_load_alloptions()
  *
@@ -2037,7 +2037,7 @@ function get_alloptions() {
 /**
  * Retrieve HTML content of attachment image with link.
  *
- * @since Before 2.0.0
+ * @since Previous 2.0.0
  * @deprecated WP 2.5.0 Use wp_get_attachment_link()
  * @see wp_get_attachment_link()
  *
@@ -2071,7 +2071,7 @@ function get_the_attachment_link( $id = 0, $fullsize = false, $max_dims = false,
 /**
  * Retrieve icon URL and Path.
  *
- * @since Before 2.1.0
+ * @since Previous 2.1.0
  * @deprecated WP 2.5.0 Use wp_get_attachment_image_src()
  * @see wp_get_attachment_image_src()
  *
@@ -2118,7 +2118,7 @@ function get_attachment_icon_src( $id = 0, $fullsize = false ) {
 /**
  * Retrieve HTML content of icon attachment image element.
  *
- * @since Before 2.0.0
+ * @since Previous 2.0.0
  * @deprecated WP 2.5.0 Use wp_get_attachment_image()
  * @see wp_get_attachment_image()
  *
@@ -2184,7 +2184,7 @@ function get_attachment_icon( $id = 0, $fullsize = false, $max_dims = false ) {
 /**
  * Retrieve HTML content of image element.
  *
- * @since Before 2.0.0
+ * @since Previous 2.0.0
  * @deprecated WP 2.5.0 Use wp_get_attachment_image()
  * @see wp_get_attachment_image()
  *
@@ -2215,7 +2215,7 @@ function get_attachment_innerHTML( $id = 0, $fullsize = false, $max_dims = false
 /**
  * Retrieves bookmark data based on ID.
  *
- * @since Before 2.0.0
+ * @since Previous 2.0.0
  * @deprecated WP 2.1.0 Use get_bookmark()
  * @see get_bookmark()
  *
@@ -2234,7 +2234,7 @@ function get_link( $bookmark_id, $output = OBJECT, $filter = 'raw' ) {
 /**
  * Performs esc_url() for database or redirect usage.
  *
- * @since Before 2.3.1
+ * @since Previous 2.3.1
  * @deprecated WP 2.8.0 Use esc_url_raw()
  * @see esc_url_raw()
  *
@@ -2254,7 +2254,7 @@ function sanitize_url( $url, $protocols = null ) {
  * (the default behaviour) ampersands are also replaced. The 'clean_url' filter
  * is applied to the returned cleaned URL.
  *
- * @since Before 1.2.0
+ * @since Previous 1.2.0
  * @deprecated WP 3.0.0 Use esc_url()
  * @see esc_url()
  *
@@ -2279,7 +2279,7 @@ function clean_url( $url, $protocols = null, $context = 'display' ) {
  *
  * The filter {@see 'js_escape'} is also applied by esc_js().
  *
- * @since Before 2.0.4
+ * @since Previous 2.0.4
  * @deprecated WP 2.8.0 Use esc_js()
  * @see esc_js()
  *
@@ -2319,7 +2319,7 @@ function wp_specialchars( $string, $quote_style = ENT_NOQUOTES, $charset = false
 /**
  * Escaping for HTML attributes.
  *
- * @since Before 2.0.6
+ * @since Previous 2.0.6
  * @deprecated WP 2.8.0 Use esc_attr()
  * @see esc_attr()
  *
@@ -2341,7 +2341,7 @@ function attribute_escape( $text ) {
  * Passes to wp_register_sidebar_widget() after argument list and backward
  * compatibility is complete.
  *
- * @since Before 2.2.0
+ * @since Previous 2.2.0
  * @deprecated WP 2.8.0 Use wp_register_sidebar_widget()
  * @see wp_register_sidebar_widget()
  *
@@ -2384,7 +2384,7 @@ function register_sidebar_widget( $name, $output_callback, $classname = '' ) {
 /**
  * Serves as an alias of wp_unregister_sidebar_widget().
  *
- * @since Before 2.2.0
+ * @since Previous 2.2.0
  * @deprecated WP 2.8.0 Use wp_unregister_sidebar_widget()
  * @see wp_unregister_sidebar_widget()
  *
@@ -2405,7 +2405,7 @@ function unregister_sidebar_widget( $id ) {
  * Passes to wp_register_widget_control() after the argument list has
  * been compiled.
  *
- * @since Before 2.2.0
+ * @since Previous 2.2.0
  * @deprecated WP 2.8.0 Use wp_register_widget_control()
  * @see wp_register_widget_control()
  *
@@ -2452,7 +2452,7 @@ function register_widget_control( $name, $control_callback, $width = '', $height
 /**
  * Alias of wp_unregister_widget_control().
  *
- * @since Before 2.2.0
+ * @since Previous 2.2.0
  * @deprecated WP 2.8.0 Use wp_unregister_widget_control()
  * @see wp_unregister_widget_control()
  *
@@ -2466,7 +2466,7 @@ function unregister_widget_control( $id ) {
 /**
  * Remove user meta data.
  *
- * @since Before 2.0.0
+ * @since Previous 2.0.0
  * @deprecated WP 3.0.0 Use delete_user_meta()
  * @see delete_user_meta()
  *
@@ -2523,7 +2523,7 @@ function delete_usermeta( $user_id, $meta_key, $meta_value = '' ) {
  * one item to be returned, which be that single item type. If there is more
  * than one metadata value, then it will be list of metadata values.
  *
- * @since Before 2.0.0
+ * @since Previous 2.0.0
  * @deprecated WP 3.0.0 Use get_user_meta()
  * @see get_user_meta()
  *
@@ -2586,7 +2586,7 @@ function get_usermeta( $user_id, $meta_key = '' ) {
  *
  * Will remove the metadata, if the meta value is empty.
  *
- * @since Before 2.0.0
+ * @since Previous 2.0.0
  * @deprecated WP 3.0.0 Use update_user_meta()
  * @see update_user_meta()
  *
@@ -2649,7 +2649,7 @@ function update_usermeta( $user_id, $meta_key, $meta_value ) {
  * For setups that use the multisite feature. Can be used outside of the
  * multisite feature.
  *
- * @since Before 2.2.0
+ * @since Previous 2.2.0
  * @deprecated WP 3.1.0 Use get_users()
  * @see get_users()
  *
@@ -2677,7 +2677,7 @@ function get_users_of_blog( $id = '' ) {
 /**
  * Enable/disable automatic general feed link outputting.
  *
- * @since Before 2.8.0
+ * @since Previous 2.8.0
  * @deprecated WP 3.0.0 Use add_theme_support()
  * @see add_theme_support()
  *
@@ -2699,7 +2699,7 @@ function automatic_feed_links( $add = true ) {
 /**
  * Retrieve user data based on field.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 3.0.0 Use get_the_author_meta()
  * @see get_the_author_meta()
  *
@@ -2722,7 +2722,7 @@ function get_profile( $field, $user = false ) {
 /**
  * Retrieves the number of posts a user has written.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 3.0.0 Use count_user_posts()
  * @see count_user_posts()
  *
@@ -2737,7 +2737,7 @@ function get_usernumposts( $userid ) {
 /**
  * Callback used to change %uXXXX to &#YYY; syntax
  *
- * @since Before 2.8.0
+ * @since Previous 2.8.0
  * @access private
  * @deprecated WP 3.0.0
  *
@@ -2753,7 +2753,7 @@ function funky_javascript_callback( $matches ) {
  *
  * Converts unicode characters to HTML numbered entities.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 3.0.0
  *
  * @global $is_macIE
@@ -2779,7 +2779,7 @@ function funky_javascript_fix( $text ) {
 /**
  * Checks that the taxonomy name exists.
  *
- * @since Before 2.3.0
+ * @since Previous 2.3.0
  * @deprecated WP 3.0.0 Use taxonomy_exists()
  * @see taxonomy_exists()
  *
@@ -2794,7 +2794,7 @@ function is_taxonomy( $taxonomy ) {
 /**
  * Check if Term exists.
  *
- * @since Before 2.3.0
+ * @since Previous 2.3.0
  * @deprecated WP 3.0.0 Use term_exists()
  * @see term_exists()
  *
@@ -2813,7 +2813,7 @@ function is_term( $term, $taxonomy = '', $parent = 0 ) {
  *
  * Use global $plugin_page and/or get_plugin_page_hookname() hooks.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 3.1.0
  *
  * @global $plugin_page
@@ -2840,7 +2840,7 @@ function is_plugin_page() {
  * needed. It might be a legacy function left over from when there was a need
  * for updating the category cache.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 3.1.0
  *
  * @return bool Always return True
@@ -2853,7 +2853,7 @@ function update_category_cache() {
 /**
  * Check for PHP timezone support
  *
- * @since Before 2.9.0
+ * @since Previous 2.9.0
  * @deprecated WP 3.2.0
  *
  * @return bool
@@ -2866,7 +2866,7 @@ function wp_timezone_supported() {
 /**
  * Displays an editor: TinyMCE, HTML, or both.
  *
- * @since Before 2.1.0
+ * @since Previous 2.1.0
  * @deprecated WP 3.3.0 Use wp_editor()
  * @see wp_editor()
  *
@@ -2885,7 +2885,7 @@ function the_editor( $content, $id = 'content', $prev_id = 'title', $media_butto
 /**
  * Perform the query to get the $metavalues array(s) needed by _fill_user and _fill_many_users
  *
- * @since Before 3.0.0
+ * @since Previous 3.0.0
  * @deprecated WP 3.3.0
  *
  * @param array $ids User ID numbers list.
@@ -2920,7 +2920,7 @@ function get_user_metavalues( $ids ) {
  *
  * If the context is 'raw', then the user object or array will get minimal santization of the int fields.
  *
- * @since Before 2.3.0
+ * @since Previous 2.3.0
  * @deprecated WP 3.3.0
  *
  * @param object|array $user The User Object or Array
@@ -2972,7 +2972,7 @@ function sanitize_user_object( $user, $context = 'display' ) {
  *
  * Can either be start or end post relational link.
  *
- * @since Before 2.8.0
+ * @since Previous 2.8.0
  * @deprecated WP 3.3.0
  *
  * @param string $title Optional. Link title format.
@@ -3016,7 +3016,7 @@ function get_boundary_post_rel_link( $title = '%title', $in_same_cat = false, $e
 /**
  * Display relational link for the first post.
  *
- * @since Before 2.8.0
+ * @since Previous 2.8.0
  * @deprecated WP 3.3.0
  *
  * @param string $title Optional. Link title format.
@@ -3031,7 +3031,7 @@ function start_post_rel_link( $title = '%title', $in_same_cat = false, $excluded
 /**
  * Get site index relational link.
  *
- * @since Before 2.8.0
+ * @since Previous 2.8.0
  * @deprecated WP 3.3.0
  *
  * @return string
@@ -3048,7 +3048,7 @@ function get_index_rel_link() {
 /**
  * Display relational link for the site index.
  *
- * @since Before 2.8.0
+ * @since Previous 2.8.0
  * @deprecated WP 3.3.0
  */
 function index_rel_link() {
@@ -3059,7 +3059,7 @@ function index_rel_link() {
 /**
  * Get parent post relational link.
  *
- * @since Before 2.8.0
+ * @since Previous 2.8.0
  * @deprecated WP 3.3.0
  *
  * @param string $title Optional. Link title format. Default '%title'.
@@ -3092,7 +3092,7 @@ function get_parent_post_rel_link( $title = '%title' ) {
 /**
  * Display relational link for parent item
  *
- * @since Before 2.8.0
+ * @since Previous 2.8.0
  * @deprecated WP 3.3.0
  *
  * @param string $title Optional. Link title format. Default '%title'.
@@ -3105,7 +3105,7 @@ function parent_post_rel_link( $title = '%title' ) {
 /**
  * Add the "Dashboard"/"Visit Site" menu.
  *
- * @since Before 3.2.0
+ * @since Previous 3.2.0
  * @deprecated WP 3.3.0
  *
  * @param User_Toolbar $wp_admin_bar User_Toolbar instance.
@@ -3131,7 +3131,7 @@ function wp_admin_bar_dashboard_view_site_menu( $wp_admin_bar ) {
 /**
  * Checks if the current user belong to a given site.
  *
- * @since Before MU (3.0.0)
+ * @since Previous MU (3.0.0)
  * @deprecated WP 3.3.0 Use is_user_member_of_blog()
  * @see is_user_member_of_blog()
  *
@@ -3146,7 +3146,7 @@ function is_blog_user( $blog_id = 0 ) {
 /**
  * Open the file handle for debugging.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 3.4.0 Use error_log()
  * @see error_log()
  *
@@ -3164,7 +3164,7 @@ function debug_fopen( $filename, $mode ) {
 /**
  * Write contents to the file used for debugging.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 3.4.0 Use error_log()
  * @see error_log()
  *
@@ -3185,7 +3185,7 @@ function debug_fwrite( $fp, $string ) {
 /**
  * Close the debugging file handle.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 3.4.0 Use error_log()
  * @see error_log()
  *
@@ -3204,7 +3204,7 @@ function debug_fclose( $fp ) {
  * style.css and, or index.php. If the theme has a parent theme then it is
  * broken, if it is missing style.css; index.php is optional.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 3.4.0 Use wp_get_themes()
  * @see wp_get_themes()
  *
@@ -3240,7 +3240,7 @@ function get_themes() {
 /**
  * Retrieve theme data.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 3.4.0 Use wp_get_theme()
  * @see wp_get_theme()
  *
@@ -3263,7 +3263,7 @@ function get_theme( $theme ) {
 /**
  * Retrieve current theme name.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 3.4.0 Use wp_get_theme()
  * @see wp_get_theme()
  *
@@ -3286,7 +3286,7 @@ function get_current_theme() {
  * Ensures that the contents of a `<pre>...</pre>` HTML block are not
  * converted into paragraphs or line-breaks.
  *
- * @since Before 1.2.0
+ * @since Previous 1.2.0
  * @deprecated WP 3.4.0
  *
  * @param array|string $matches The array or string
@@ -3313,7 +3313,7 @@ function clean_pre( $matches ) {
 /**
  * Add callbacks for image header display.
  *
- * @since Before 2.1.0
+ * @since Previous 2.1.0
  * @deprecated WP 3.4.0 Use add_theme_support()
  * @see add_theme_support()
  *
@@ -3340,7 +3340,7 @@ function add_custom_image_header( $wp_head_callback, $admin_head_callback, $admi
 /**
  * Remove image header support.
  *
- * @since Before 3.1.0
+ * @since Previous 3.1.0
  * @deprecated WP 3.4.0 Use remove_theme_support()
  * @see remove_theme_support()
  *
@@ -3354,7 +3354,7 @@ function remove_custom_image_header() {
 /**
  * Add callbacks for background image display.
  *
- * @since Before 3.0.0
+ * @since Previous 3.0.0
  * @deprecated WP 3.4.0 Use add_theme_support()
  * @see add_theme_support()
  *
@@ -3386,7 +3386,7 @@ function add_custom_background( $wp_head_callback = '', $admin_head_callback = '
 /**
  * Remove custom background support.
  *
- * @since Before 3.1.0
+ * @since Previous 3.1.0
  * @deprecated WP 3.4.0 Use add_custom_background()
  * @see add_custom_background()
  *
@@ -3400,7 +3400,7 @@ function remove_custom_background() {
 /**
  * Retrieve theme data from parsed theme file.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 3.4.0 Use wp_get_theme()
  * @see wp_get_theme()
  *
@@ -3441,7 +3441,7 @@ function get_theme_data( $theme_file ) {
  *
  * @see update_post_cache() Posts and pages are the same, alias is intentional
  *
- * @since Before 1.5.1
+ * @since Previous 1.5.1
  * @deprecated WP 3.4.0 Use update_post_cache()
  * @see update_post_cache()
  *
@@ -3458,7 +3458,7 @@ function update_page_cache( &$pages ) {
  * Clean (read: delete ) page from cache that matches $id. Will also clean cache
  * associated with 'all_page_ids' and 'get_pages'.
  *
- * @since Before 2.0.0
+ * @since Previous 2.0.0
  * @deprecated WP 3.4.0 Use clean_post_cache
  * @see clean_post_cache()
  *
@@ -3474,7 +3474,7 @@ function clean_page_cache( $id ) {
  *
  * Deprecated in 3.4.1 and 3.5.0. Backported to 3.3.3.
  *
- * @since Before 2.0.4
+ * @since Previous 2.0.4
  * @deprecated WP 3.4.1 Use wp_nonce_ays()
  * @see wp_nonce_ays()
  *
@@ -3489,7 +3489,7 @@ function wp_explain_nonce( $action ) {
 /**
  * Display "sticky" CSS class, if a post is sticky.
  *
- * @since Before 2.7.0
+ * @since Previous 2.7.0
  * @deprecated WP 3.5.0 Use post_class()
  * @see post_class()
  *
@@ -3508,7 +3508,7 @@ function sticky_class( $post_id = null ) {
  * This is no longer needed as WP_Post lazy-loads the ancestors
  * property with get_post_ancestors().
  *
- * @since Before 2.3.4
+ * @since Previous 2.3.4
  * @deprecated WP 3.5.0 Use get_post_ancestors()
  * @see get_post_ancestors()
  *
@@ -3521,7 +3521,7 @@ function _get_post_ancestors( &$post ) {
 /**
  * Load an image from a string, if PHP supports it.
  *
- * @since Before 2.1.0
+ * @since Previous 2.1.0
  * @deprecated WP 3.5.0 Use wp_get_image_editor()
  * @see wp_get_image_editor()
  *
@@ -3563,7 +3563,7 @@ function wp_load_image( $file ) {
  * image type. If the file going in is PNG, then the resized image is going to
  * be PNG. The only supported image types are PNG, GIF, and JPEG.
  *
- * @since Before 2.5.0
+ * @since Previous 2.5.0
  * @deprecated WP 3.5.0 Use wp_get_image_editor()
  * @see wp_get_image_editor()
  *
@@ -3610,7 +3610,7 @@ function image_resize( $file, $max_w, $max_h, $crop = false, $suffix = null, $de
  * Has categories in 'post_category' property or key. Has tags in 'tags_input'
  * property or key.
  *
- * @since Before 1.0.0
+ * @since Previous 1.0.0
  * @deprecated WP 3.5.0 Use get_post()
  * @see get_post()
  *
@@ -3626,7 +3626,7 @@ function wp_get_single_post( $postid = 0, $mode = OBJECT ) {
 /**
  * Check that the user login name and password is correct.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 3.5.0 Use wp_authenticate()
  * @see wp_authenticate()
  *
@@ -3650,7 +3650,7 @@ function user_pass_ok($user_login, $user_pass) {
 /**
  * Callback formerly fired on the save_post hook. No longer needed.
  *
- * @since Before 2.3.0
+ * @since Previous 2.3.0
  * @deprecated WP 3.5.0
  */
 function _save_post_hook() {}
@@ -3658,7 +3658,7 @@ function _save_post_hook() {}
 /**
  * Check if the installed version of GD supports particular image type
  *
- * @since Before 2.9.0
+ * @since Previous 2.9.0
  * @deprecated WP 3.5.0 Use wp_image_editor_supports()
  * @see wp_image_editor_supports()
  *
@@ -3697,7 +3697,7 @@ function gd_edit_image_support($mime_type ) {
 /**
  * Converts an integer byte value to a shorthand byte value.
  *
- * @since Before 2.3.0
+ * @since Previous 2.3.0
  * @deprecated WP 3.6.0 Use size_format()
  * @see size_format()
  *
@@ -3726,7 +3726,7 @@ function wp_convert_bytes_to_hr( $bytes ) {
 /**
  * Formerly used internally to tidy up the search terms.
  *
- * @since Before 2.9.0
+ * @since Previous 2.9.0
  * @access private
  * @deprecated WP 3.7.0
  *
@@ -3744,7 +3744,7 @@ function _search_terms_tidy( $t ) {
  * Checks to see if the user has deleted the tinymce files to slim down
  * their installation.
  *
- * @since Before 2.1.0
+ * @since Previous 2.1.0
  * @deprecated WP 3.9.0
  *
  * @return bool Whether TinyMCE exists.
@@ -3765,7 +3765,7 @@ function rich_edit_exists() {
 /**
  * Old callback for tag link tooltips.
  *
- * @since Before 2.7.0
+ * @since Previous 2.7.0
  * @access private
  * @deprecated WP 3.9.0
  *
@@ -3781,7 +3781,7 @@ function default_topic_count_text( $count ) {
  *
  * Has not performed this function for many, many years. Use wpdb::prepare() instead.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 3.9.0
  *
  * @param string $content The text to format.
@@ -3795,7 +3795,7 @@ function format_to_post( $content ) {
 /**
  * Formerly used to escape strings before searching the DB. It was poorly documented and never worked as described.
  *
- * @since Before 2.5.0
+ * @since Previous 2.5.0
  * @deprecated WP 4.0.0 Use wpdb::esc_like()
  * @see wpdb::esc_like()
  *
@@ -3813,7 +3813,7 @@ function like_escape( $text ) {
  * Determines if the URL can be accessed over SSL by using the HTTP API to access
  * the URL using https as the scheme.
  *
- * @since Before 2.5.0
+ * @since Previous 2.5.0
  * @deprecated WP 4.0.0
  *
  * @param string $url The URL to test.
@@ -3843,7 +3843,7 @@ function url_is_accessable_via_ssl( $url ) {
  * Will only perform task if the user has permissions and template and preview
  * query variables exist.
  *
- * @since Before 2.6.0
+ * @since Previous 2.6.0
  * @deprecated WP 4.3.0
  */
 function preview_theme() {
@@ -3853,7 +3853,7 @@ function preview_theme() {
 /**
  * Private function to modify the current template when previewing a theme
  *
- * @since Before 2.9.0
+ * @since Previous 2.9.0
  * @deprecated WP 4.3.0
  * @access private
  *
@@ -3867,7 +3867,7 @@ function _preview_theme_template_filter() {
 /**
  * Private function to modify the current stylesheet when previewing a theme
  *
- * @since Before 2.9.0
+ * @since Previous 2.9.0
  * @deprecated WP 4.3.0
  * @access private
  *
@@ -3881,7 +3881,7 @@ function _preview_theme_stylesheet_filter() {
 /**
  * Callback function for ob_start() to capture all links in the theme.
  *
- * @since Before 2.6.0
+ * @since Previous 2.6.0
  * @deprecated WP 4.3.0
  * @access private
  *
@@ -3898,7 +3898,7 @@ function preview_theme_ob_filter( $content ) {
  *
  * Callback function for preg_replace_callback() to accept and filter matches.
  *
- * @since Before 2.6.0
+ * @since Previous 2.6.0
  * @deprecated WP 4.3.0
  * @access private
  *
@@ -3916,7 +3916,7 @@ function preview_theme_ob_filter_callback( $matches ) {
  * The {@see 'richedit_pre'} filter is applied here. If $text is empty the filter will
  * be applied to an empty string.
  *
- * @since Before 2.0.0
+ * @since Previous 2.0.0
  * @deprecated WP 4.3.0 Use format_for_editor()
  * @see format_for_editor()
  *
@@ -3938,7 +3938,7 @@ function wp_richedit_pre( $text ) {
 		 * If a non-empty string is passed, the filter is evaluated on the wp_richedit_pre()
 		 * return after being formatted.
 		 *
-		 * @since Before 2.0.0
+		 * @since Previous 2.0.0
 		 * @deprecated WP 4.3.0
 		 *
 		 * @param string $output Text for the rich text editor.
@@ -3959,7 +3959,7 @@ function wp_richedit_pre( $text ) {
  * Unless $output is empty it will pass through htmlspecialchars before the
  * {@see 'htmledit_pre'} filter is applied.
  *
- * @since Before 2.5.0
+ * @since Previous 2.5.0
  * @deprecated WP 4.3.0 Use format_for_editor()
  * @see format_for_editor()
  *
@@ -3979,7 +3979,7 @@ function wp_htmledit_pre( $output ) {
 	/**
 	 * Filters the text before it is formatted for the HTML editor.
 	 *
-	 * @since Before 2.5.0
+	 * @since Previous 2.5.0
 	 * @deprecated WP 4.3.0
 	 *
 	 * @param string $output The HTML-formatted text.
@@ -3990,7 +3990,7 @@ function wp_htmledit_pre( $output ) {
 /**
  * Retrieve permalink from post ID.
  *
- * @since Before 1.0.0
+ * @since Previous 1.0.0
  * @deprecated WP 4.4.0 Use get_permalink()
  * @see get_permalink()
  *
@@ -4008,7 +4008,7 @@ function post_permalink( $post_id = 0 ) {
  * If $file_path is a writable filename, this will do a GET request and write
  * the file to that path.
  *
- * @since Before 2.5.0
+ * @since Previous 2.5.0
  * @deprecated WP 4.4.0 Use WP_Http
  * @see WP_Http
  *
@@ -4071,7 +4071,7 @@ function wp_get_http( $url, $file_path = false, $red = 1 ) {
 /**
  * Whether SSL login should be forced.
  *
- * @since Before 2.6.0
+ * @since Previous 2.6.0
  * @deprecated WP 4.4.0 Use force_ssl_admin()
  * @see force_ssl_admin()
  *
@@ -4086,7 +4086,7 @@ function force_ssl_login( $force = null ) {
 /**
  * Retrieve path of comment popup template in current or parent template.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 4.5.0
  *
  * @return string Full path to comments popup template file.
@@ -4099,7 +4099,7 @@ function get_comments_popup_template() {
 /**
  * Whether the current URL is within the comments popup window.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 4.5.0
  *
  * @return bool
@@ -4112,7 +4112,7 @@ function is_comments_popup() {
 /**
  * Display the JS popup script to show a comment.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 4.5.0
  */
 function comments_popup_script() {
@@ -4122,7 +4122,7 @@ function comments_popup_script() {
 /**
  * Adds element attributes to open links in new windows.
  *
- * @since Before 0.71
+ * @since Previous 0.71
  * @deprecated WP 4.5.0
  *
  * @param string $text Content to replace links to open in a new window.
@@ -4141,7 +4141,7 @@ function popuplinks( $text ) {
  * Deprecated function that previously assisted in turning Google Video URLs
  * into embeds but that service has since been shut down.
  *
- * @since Before 2.9.0
+ * @since Previous 2.9.0
  * @deprecated WP 4.6.0
  *
  * @return string An empty string.
@@ -4154,7 +4154,7 @@ function wp_embed_handler_googlevideo( $matches, $attr, $url, $rawattr ) {
 /**
  * Retrieve path of paged template in current or parent template.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  * @deprecated WP 4.7.0 The paged.php template is no longer part of the theme template hierarchy.
  *
  * @return string Full path to paged template file.
@@ -4178,7 +4178,7 @@ function get_paged_template() {
  * energy demands it placed, now merely passing through its
  * input to the return.
  *
- * @since Before 1.0.0
+ * @since Previous 1.0.0
  * @deprecated WP 4.7.0 Officially dropped security support for Netscape 4.
  *
  * @param string $string
@@ -4195,7 +4195,7 @@ function wp_kses_js_entities( $string ) {
  * Used by usort() as a callback, should not be used directly. Can actually be
  * used to sort any term object.
  *
- * @since Before 2.3.0
+ * @since Previous 2.3.0
  * @deprecated WP 4.7.0 Use wp_list_sort()
  * @access private
  *
@@ -4222,7 +4222,7 @@ function _usort_terms_by_ID( $a, $b ) {
  * Used by usort() as a callback, should not be used directly. Can actually be
  * used to sort any term object.
  *
- * @since Before 2.3.0
+ * @since Previous 2.3.0
  * @deprecated WP 4.7.0 Use wp_list_sort()
  * @access private
  *
@@ -4238,7 +4238,7 @@ function _usort_terms_by_name( $a, $b ) {
 /**
  * Sort menu items by the desired key.
  *
- * @since Before 3.0.0
+ * @since Previous 3.0.0
  * @deprecated WP 4.7.0 Use wp_list_sort()
  * @access private
  *
@@ -4277,7 +4277,7 @@ function _sort_nav_menu_items( $a, $b ) {
 /**
  * Retrieves the Press This bookmarklet link.
  *
- * @since Before 2.6.0
+ * @since Previous 2.6.0
  * @deprecated WP 4.9.0
  *
  */
@@ -4290,7 +4290,7 @@ function get_shortcut_link() {
 	/**
 	 * Filters the Press This bookmarklet link.
 	 *
-	 * @since Before 2.6.0
+	 * @since Previous 2.6.0
 	 * @deprecated WP 4.9.0
 	 *
 	 * @param string $link The Press This bookmarklet link.
@@ -4301,7 +4301,7 @@ function get_shortcut_link() {
 /**
 * Ajax handler for saving a post from Press This.
 *
-* @since Before 4.2.0
+* @since Previous 4.2.0
 * @deprecated WP 4.9.0
 */
 function wp_ajax_press_this_save_post() {
@@ -4322,7 +4322,7 @@ function wp_ajax_press_this_save_post() {
 /**
 * Ajax handler for creating new category from Press This.
 *
-* @since Before 4.2.0
+* @since Previous 4.2.0
 * @deprecated WP 4.9.0
 */
 function wp_ajax_press_this_add_category() {
@@ -4343,7 +4343,7 @@ function wp_ajax_press_this_add_category() {
 /**
  * Display generic dashboard RSS widget feed
  *
- * @since Before 2.5.0
+ * @since Previous 2.5.0
  * @param string $widget_id
  */
 function wp_dashboard_rss_output( $widget_id ) {
@@ -4421,7 +4421,7 @@ function wp_dashboard_cached_rss_widget( $widget_id, $callback, $check_urls = []
  * Sets up $args to be used as input to wp_widget_rss_form(). Handles POST data
  * from RSS-type widgets.
  *
- * @since Before 2.5.0
+ * @since Previous 2.5.0
  * @param string $widget_id
  * @param array $form_inputs
  */

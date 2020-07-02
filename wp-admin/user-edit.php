@@ -118,7 +118,7 @@ $user_can_edit   = current_user_can( 'edit_posts' ) || current_user_can( 'edit_p
  *
  * The filter was introduced to replace the EDIT_ANY_USER constant.
  *
- * @since Before 3.0.0
+ * @since Previous 3.0.0
  *
  * @param bool $allow Whether to allow editing of any user. Default true.
  */
@@ -179,7 +179,7 @@ if ( IS_PROFILE_PAGE ) {
 	 *
 	 * The action only fires if the current user is editing their own profile.
 	 *
-	 * @since Before 2.0.0
+	 * @since Previous 2.0.0
 	 *
 	 * @param int $user_id The user ID.
 	 */
@@ -188,7 +188,7 @@ if ( IS_PROFILE_PAGE ) {
 	/**
 	 * Fires before the page loads on the 'Edit User' screen.
 	 *
-	 * @since Before 2.7.0
+	 * @since Previous 2.7.0
 	 *
 	 * @param int $user_id The user ID.
 	 */
@@ -283,7 +283,7 @@ if ( isset( $errors ) && is_wp_error( $errors ) ) : ?>
 			/**
 			 * Fires inside the your-profile form tag on the user editing screen.
 			 *
-			 * @since Before 3.0.0
+			 * @since Previous 3.0.0
 			 */
 			do_action( 'user_edit_form_tag' );
 		?>>
@@ -324,8 +324,8 @@ if ( isset( $errors ) && is_wp_error( $errors ) ) : ?>
 						* The section is only enabled if a callback is hooked to the action,
 						* and if there is more than one defined color scheme for the admin.
 						*
-						* @since Before 3.0.0
-						* @since Before 3.8.1 Added `$user_id` parameter.
+						* @since Previous 3.0.0
+						* @since Previous 3.8.1 Added `$user_id` parameter.
 						*
 						* @param int $user_id The user ID.
 						*/
@@ -400,7 +400,7 @@ if ( isset( $errors ) && is_wp_error( $errors ) ) : ?>
 			/**
 			* Fires at the end of the 'Personal Options' settings table on the user editing screen.
 			*
-			* @since Before 2.7.0
+			* @since Previous 2.7.0
 			*
 			* @param WP_User $profileuser The current WP_User object.
 			*/
@@ -415,7 +415,7 @@ if ( isset( $errors ) && is_wp_error( $errors ) ) : ?>
 			 *
 			 * The action only fires if the current user is editing their own profile.
 			 *
-			 * @since Before 2.0.0
+			 * @since Previous 2.0.0
 			 *
 			 * @param WP_User $profileuser The current WP_User object.
 			 */
@@ -569,7 +569,7 @@ if ( isset( $errors ) && is_wp_error( $errors ) ) : ?>
 							 * The dynamic portion of the filter hook, `$name`, refers to
 							 * each of the keys in the contactmethods array.
 							 *
-							 * @since Before 2.9.0
+							 * @since Previous 2.9.0
 							 *
 							 * @param string $desc The translatable label for the contactmethod.
 							 */
@@ -623,8 +623,8 @@ if ( isset( $errors ) && is_wp_error( $errors ) ) : ?>
 							/**
 							 * Filters the user profile picture description displayed under the avatar.
 							 *
-							 * @since Before 4.4.0
-							 * @since Before 4.7.0 Added the `$profileuser` parameter.
+							 * @since Previous 4.4.0
+							 * @since Previous 4.7.0 Added the `$profileuser` parameter.
 							 *
 							 * @param string  $description The description that will be printed.
 							 * @param WP_User $profileuser The current WP_User object.
@@ -641,9 +641,9 @@ if ( isset( $errors ) && is_wp_error( $errors ) ) : ?>
 			/**
 			 * Filters the display of the password fields.
 			 *
-			 * @since Before 1.5.1
-			 * @since Before 2.8.0 Added the `$profileuser` parameter.
-			 * @since Before 4.4.0 Now evaluated only in user-edit.php.
+			 * @since Previous 1.5.1
+			 * @since Previous 2.8.0 Added the `$profileuser` parameter.
+			 * @since Previous 4.4.0 Now evaluated only in user-edit.php.
 			 *
 			 * @param bool    $show        Whether to show the password fields. Default true.
 			 * @param WP_User $profileuser User object for the current user to edit.
@@ -736,7 +736,7 @@ if ( isset( $errors ) && is_wp_error( $errors ) ) : ?>
 			 *
 			 * The action only fires if the current user is editing their own profile.
 			 *
-			 * @since Before 2.0.0
+			 * @since Previous 2.0.0
 			 *
 			 * @param WP_User $profileuser The current WP_User object.
 			 */
@@ -745,7 +745,7 @@ if ( isset( $errors ) && is_wp_error( $errors ) ) : ?>
 			/**
 			 * Fires after the 'About the User' settings table on the 'Edit User' screen.
 			 *
-			 * @since Before 2.0.0
+			 * @since Previous 2.0.0
 			 *
 			 * @param WP_User $profileuser The current WP_User object.
 			 */
@@ -761,7 +761,7 @@ if ( isset( $errors ) && is_wp_error( $errors ) ) : ?>
 		 * the number of the user's capabilities exceeds their number of
 		 * roles.
 		 *
-		 * @since Before 2.8.0
+		 * @since Previous 2.8.0
 		 *
 		 * @param bool    $enable      Whether to display the capabilities. Default true.
 		 * @param WP_User $profileuser The current WP_User object.

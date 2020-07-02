@@ -40,7 +40,7 @@ require( ABSPATH . WPINC . '/version.php' );
  * configuration. In multisite, it will be overridden by default in ms-settings.php.
  *
  * @global int $blog_id
- * @since Before 2.0.0
+ * @since Previous 2.0.0
  */
 global $blog_id;
 
@@ -81,7 +81,7 @@ app_debug_mode();
  * This filter runs before it can be used by plugins. It is designed for non-web
  * run-times. If false is returned, advanced-cache.php will never be loaded.
  *
- * @since Before 4.6.0
+ * @since Previous 4.6.0
  *
  * @param bool $enable_advanced_cache Whether to enable loading advanced-cache.php (if present).
  *                                    Default true.
@@ -337,7 +337,7 @@ if ( WP_CACHE && function_exists( 'wp_cache_postload' ) ) {
  *
  * Pluggable functions are also available at this point in the loading order.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  */
 do_action( 'plugins_loaded' );
 
@@ -350,14 +350,14 @@ wp_magic_quotes();
 /**
  * Fires when comment cookies are sanitized.
  *
- * @since Before 2.0.11
+ * @since Previous 2.0.11
  */
 do_action( 'sanitize_comment_cookies' );
 
 /**
  * Query object
  * @global WP_Query $wp_the_query
- * @since Before 2.0.0
+ * @since Previous 2.0.0
  */
 $GLOBALS['wp_the_query'] = new WP_Query();
 
@@ -365,42 +365,42 @@ $GLOBALS['wp_the_query'] = new WP_Query();
  * Holds the reference to @see $wp_the_query
  * Use this global for queries
  * @global WP_Query $wp_query
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  */
 $GLOBALS['wp_query'] = $GLOBALS['wp_the_query'];
 
 /**
  * Holds the Rewrite object for creating pretty URLs
  * @global WP_Rewrite $wp_rewrite
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  */
 $GLOBALS['wp_rewrite'] = new WP_Rewrite();
 
 /**
  * Object
  * @global WP $wp
- * @since Before 2.0.0
+ * @since Previous 2.0.0
  */
 $GLOBALS['wp'] = new WP();
 
 /**
  * Widget Factory Object
  * @global WP_Widget_Factory $wp_widget_factory
- * @since Before 2.8.0
+ * @since Previous 2.8.0
  */
 $GLOBALS['wp_widget_factory'] = new WP_Widget_Factory();
 
 /**
  * User Roles
  * @global WP_Roles $wp_roles
- * @since Before 2.0.0
+ * @since Previous 2.0.0
  */
 $GLOBALS['wp_roles'] = new WP_Roles();
 
 /**
  * Fires before the theme is loaded.
  *
- * @since Before 2.6.0
+ * @since Previous 2.6.0
  */
 do_action( 'setup_theme' );
 
@@ -422,14 +422,14 @@ unset( $locale_file );
 /**
  * Locale object for loading locale domain date and various strings.
  * @global WP_Locale $wp_locale
- * @since Before 2.1.0
+ * @since Previous 2.1.0
  */
 $GLOBALS['wp_locale'] = new WP_Locale();
 
 /**
  *  Locale Switcher object for switching locales.
  *
- * @since Before 4.7.0
+ * @since Previous 4.7.0
  *
  * @global WP_Locale_Switcher $wp_locale_switcher locale switcher object.
  */
@@ -451,7 +451,7 @@ if ( ! wp_installing() || 'app-activate.php' === $pagenow ) {
 /**
  * Fires after the theme is loaded.
  *
- * @since Before 3.0.0
+ * @since Previous 3.0.0
  */
 do_action( 'after_setup_theme' );
 
@@ -467,7 +467,7 @@ $GLOBALS['wp']->init();
  *
  * If you wish to plug an action once WP is loaded, use the {@see 'wp_loaded'} hook below.
  *
- * @since Before 1.5.0
+ * @since Previous 1.5.0
  */
 do_action( 'init' );
 
@@ -486,6 +486,6 @@ if ( is_multisite() ) {
  * Ajax requests should use wp-admin/admin-ajax.php. admin-ajax.php can handle requests for
  * users not logged in.
  *
- * @since Before 3.0.0
+ * @since Previous 3.0.0
  */
 do_action( 'wp_loaded' );

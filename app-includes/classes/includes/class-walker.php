@@ -10,7 +10,7 @@
  * @subpackage Includes
  * @abstract
  *
- * @since Before 2.1.0
+ * @since Previous 2.1.0
  */
 
 namespace AppNamespace\Includes;

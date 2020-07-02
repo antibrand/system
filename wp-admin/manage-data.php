@@ -98,7 +98,7 @@ if ( isset( $_GET['download'] ) ) {
 	/**
 	 * Filters the export args.
 	 *
-	 * @since Before 3.5.0
+	 * @since Previous 3.5.0
 	 * @param array $args The arguments to send to the exporter.
 	 */
 	$args = apply_filters( 'export_args', $args );

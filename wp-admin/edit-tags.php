@@ -216,7 +216,7 @@ if ( $location ) {
 	/**
 	 * Filters the taxonomy redirect destination URL.
 	 *
-	 * @since Before 4.6.0
+	 * @since Previous 4.6.0
 	 * @param string $location The destination URL.
 	 * @param object $tax      The taxonomy object.
 	 */
@@ -383,7 +383,7 @@ if ( is_plugin_active( 'wpcat2tag-importer/wpcat2tag-importer.php' ) ) {
 							/**
 							 * Fires before the Add Category form.
 							*
-							* @since Before 2.1.0
+							* @since Previous 2.1.0
 							* @deprecated WP 3.0.0 Use {$taxonomy}_pre_add_form instead.
 							*
 							* @param object $arg Optional arguments cast to an object.
@@ -395,7 +395,7 @@ if ( is_plugin_active( 'wpcat2tag-importer/wpcat2tag-importer.php' ) ) {
 							/**
 							 * Fires before the link category form.
 							 *
-							 * @since Before 2.3.0
+							 * @since Previous 2.3.0
 							 * @deprecated WP 3.0.0 Use {$taxonomy}_pre_add_form instead.
 							 *
 							 * @param object $arg Optional arguments cast to an object.
@@ -407,7 +407,7 @@ if ( is_plugin_active( 'wpcat2tag-importer/wpcat2tag-importer.php' ) ) {
 							/**
 							 * Fires before the Add Tag form.
 							 *
-							 * @since Before 2.5.0
+							 * @since Previous 2.5.0
 							 * @deprecated WP 3.0.0 Use {$taxonomy}_pre_add_form instead.
 							 *
 							 * @param string $taxonomy The taxonomy slug.
@@ -420,7 +420,7 @@ if ( is_plugin_active( 'wpcat2tag-importer/wpcat2tag-importer.php' ) ) {
 						 *
 						 * The dynamic portion of the hook name, `$taxonomy`, refers to the taxonomy slug.
 						 *
-						 * @since Before 3.0.0
+						 * @since Previous 3.0.0
 						 *
 						 * @param string $taxonomy The taxonomy slug.
 						 */
@@ -436,7 +436,7 @@ if ( is_plugin_active( 'wpcat2tag-importer/wpcat2tag-importer.php' ) ) {
 						 *
 						 * The dynamic portion of the hook name, `$taxonomy`, refers to the taxonomy slug.
 						 *
-						 * @since Before 3.7.0
+						 * @since Previous 3.7.0
 						 */
 						do_action( "{$taxonomy}_term_new_form_tag" );
 						?>>
@@ -485,8 +485,8 @@ if ( is_plugin_active( 'wpcat2tag-importer/wpcat2tag-importer.php' ) ) {
 								/**
 								 * Filters the taxonomy parent drop-down on the Edit Term page.
 								 *
-								 * @since Before 3.7.0
-								 * @since Before 4.2.0 Added `$context` parameter.
+								 * @since Previous 3.7.0
+								 * @since Previous 4.2.0 Added `$context` parameter.
 								 *
 								 * @param array  $dropdown_args {
 								 *     An array of taxonomy parent drop-down arguments.
@@ -529,7 +529,7 @@ if ( is_plugin_active( 'wpcat2tag-importer/wpcat2tag-importer.php' ) ) {
 								/**
 								 * Fires after the Add Tag form fields for non-hierarchical taxonomies.
 								 *
-								 * @since Before 3.0.0
+								 * @since Previous 3.0.0
 								 *
 								 * @param string $taxonomy The taxonomy slug.
 								 */
@@ -541,7 +541,7 @@ if ( is_plugin_active( 'wpcat2tag-importer/wpcat2tag-importer.php' ) ) {
 							 *
 							 * The dynamic portion of the hook name, `$taxonomy`, refers to the taxonomy slug.
 							 *
-							 * @since Before 3.0.0
+							 * @since Previous 3.0.0
 							 *
 							 * @param string $taxonomy The taxonomy slug.
 							 */
@@ -553,7 +553,7 @@ if ( is_plugin_active( 'wpcat2tag-importer/wpcat2tag-importer.php' ) ) {
 								/**
 								 * Fires at the end of the Edit Category form.
 								 *
-								 * @since Before 2.1.0
+								 * @since Previous 2.1.0
 								 * @deprecated WP 3.0.0 Use {$taxonomy}_add_form instead.
 								 *
 								 * @param object $arg Optional arguments cast to an object.
@@ -564,7 +564,7 @@ if ( is_plugin_active( 'wpcat2tag-importer/wpcat2tag-importer.php' ) ) {
 								/**
 								 * Fires at the end of the Edit Link form.
 								 *
-								 * @since Before 2.3.0
+								 * @since Previous 2.3.0
 								 * @deprecated WP 3.0.0 Use {$taxonomy}_add_form instead.
 								 *
 								 * @param object $arg Optional arguments cast to an object.
@@ -575,7 +575,7 @@ if ( is_plugin_active( 'wpcat2tag-importer/wpcat2tag-importer.php' ) ) {
 								/**
 								 * Fires at the end of the Add Tag form.
 								 *
-								 * @since Before 2.7.0
+								 * @since Previous 2.7.0
 								 * @deprecated WP 3.0.0 Use {$taxonomy}_add_form instead.
 								 *
 								 * @param string $taxonomy The taxonomy slug.
@@ -588,7 +588,7 @@ if ( is_plugin_active( 'wpcat2tag-importer/wpcat2tag-importer.php' ) ) {
 							 *
 							 * The dynamic portion of the hook name, `$taxonomy`, refers to the taxonomy slug.
 							 *
-							 * @since Before 3.0.0
+							 * @since Previous 3.0.0
 							 *
 							 * @param string $taxonomy The taxonomy slug.
 							 */
@@ -646,7 +646,7 @@ if ( is_plugin_active( 'wpcat2tag-importer/wpcat2tag-importer.php' ) ) {
 			 *
 			 * The dynamic portion of the hook name, `$taxonomy`, refers to the taxonomy slug.
 			 *
-			 * @since Before 3.0.0
+			 * @since Previous 3.0.0
 			 * @param string $taxonomy The taxonomy name.
 			 */
 			do_action( "after-{$taxonomy}-table", $taxonomy );

@@ -11,7 +11,7 @@
  *
  * Bump this when something changes that might affect compatibility.
  *
- * @since Before 2.5.0
+ * @since Previous 2.5.0
  */
 define( 'EXPORT_VERSION', '1.2' );
 
@@ -69,7 +69,7 @@ function export_wp( $args = [] ) {
 	/**
 	 * Fires at the beginning of an export, before any headers are sent.
 	 *
-	 * @since Before 2.3.0
+	 * @since Previous 2.3.0
 	 * @param array $args An array of export arguments.
 	 */
 	do_action( 'export_wp', $args );
@@ -93,7 +93,7 @@ function export_wp( $args = [] ) {
 	/**
 	 * Filters the export filename.
 	 *
-	 * @since Before 4.4.0
+	 * @since Previous 4.4.0
 	 * @param string $wp_filename The name of the file for download.
 	 * @param string $sitename    The site name.
 	 * @param string $date        Today's date, formatted.
@@ -240,7 +240,7 @@ function export_wp( $args = [] ) {
 	/**
 	 * Output a cat_name XML tag from a given category object
 	 *
-	 * @since Before 2.1.0
+	 * @since Previous 2.1.0
 	 * @param object $category Category Object
 	 */
 	function wxr_cat_name( $category ) {
@@ -255,7 +255,7 @@ function export_wp( $args = [] ) {
 	/**
 	 * Output a category_description XML tag from a given category object
 	 *
-	 * @since Before 2.1.0
+	 * @since Previous 2.1.0
 	 * @param object $category Category Object
 	 */
 	function wxr_category_description( $category ) {
@@ -270,7 +270,7 @@ function export_wp( $args = [] ) {
 	/**
 	 * Output a tag_name XML tag from a given tag object
 	 *
-	 * @since Before 2.3.0
+	 * @since Previous 2.3.0
 	 * @param object $tag Tag Object
 	 */
 	function wxr_tag_name( $tag ) {
@@ -285,7 +285,7 @@ function export_wp( $args = [] ) {
 	/**
 	 * Output a tag_description XML tag from a given tag object
 	 *
-	 * @since Before 2.3.0
+	 * @since Previous 2.3.0
 	 * @param object $tag Tag Object
 	 */
 	function wxr_tag_description( $tag ) {
@@ -300,7 +300,7 @@ function export_wp( $args = [] ) {
 	/**
 	 * Output a term_name XML tag from a given term object
 	 *
-	 * @since Before 2.9.0
+	 * @since Previous 2.9.0
 	 * @param object $term Term Object
 	 */
 	function wxr_term_name( $term ) {
@@ -315,7 +315,7 @@ function export_wp( $args = [] ) {
 	/**
 	 * Output a term_description XML tag from a given term object
 	 *
-	 * @since Before 2.9.0
+	 * @since Previous 2.9.0
 	 * @param object $term Term Object
 	 */
 	function wxr_term_description( $term ) {
@@ -330,7 +330,7 @@ function export_wp( $args = [] ) {
 	/**
 	 * Output term meta XML tags for a given term object.
 	 *
-	 * @since Before 4.6.0
+	 * @since Previous 4.6.0
 	 * @param WP_Term $term Term object.
 	 */
 	function wxr_term_meta( $term ) {
@@ -346,7 +346,7 @@ function export_wp( $args = [] ) {
 			 * Returning a truthy value to the filter will skip the current meta
 			 * object from being exported.
 			 *
-			 * @since Before 4.6.0
+			 * @since Previous 4.6.0
 			 * @param bool   $skip     Whether to skip the current piece of term meta. Default false.
 			 * @param string $meta_key Current meta key.
 			 * @param object $meta     Current meta object.
@@ -365,7 +365,7 @@ function export_wp( $args = [] ) {
 	/**
 	 * Output list of authors with posts
 	 *
-	 * @since Before 3.1.0
+	 * @since Previous 3.1.0
 	 * @global wpdb $wpdb Database abstraction object.
 	 * @param array $post_ids Array of post IDs to filter the query by. Optional.
 	 */
@@ -407,7 +407,7 @@ function export_wp( $args = [] ) {
 	/**
 	 * Output all navigation menu terms
 	 *
-	 * @since Before 3.1.0
+	 * @since Previous 3.1.0
 	 */
 	function wxr_nav_menu_terms() {
 
@@ -431,7 +431,7 @@ function export_wp( $args = [] ) {
 	/**
 	 * Output list of taxonomy terms, in XML tag format, associated with a post
 	 *
-	 * @since Before 2.3.0
+	 * @since Previous 2.3.0
 	 */
 	function wxr_post_taxonomy() {
 
@@ -579,7 +579,7 @@ function export_wp( $args = [] ) {
 			/**
 			 * Filters the post content used for exports.
 			 *
-			 * @since Before 2.5.0
+			 * @since Previous 2.5.0
 			 * @param string $post_content Content of the current post.
 			 */
 			echo wxr_cdata( apply_filters( 'the_content_export', $post->post_content ) );
@@ -588,7 +588,7 @@ function export_wp( $args = [] ) {
 			/**
 			 * Filters the post excerpt used for exports.
 			 *
-			 * @since Before 2.6.0
+			 * @since Previous 2.6.0
 			 * @param string $post_excerpt Excerpt for the current post.
 			 */
 			echo wxr_cdata( apply_filters( 'the_excerpt_export', $post->post_excerpt ) );
@@ -616,7 +616,7 @@ function export_wp( $args = [] ) {
 			 * Returning a truthy value to the filter will skip the current meta
 			 * object from being exported.
 			 *
-			 * @since Before 3.3.0
+			 * @since Previous 3.3.0
 			 * @param bool   $skip     Whether to skip the current post meta. Default false.
 			 * @param string $meta_key Current meta key.
 			 * @param object $meta     Current meta object.
@@ -654,7 +654,7 @@ function export_wp( $args = [] ) {
 				 * Returning a truthy value to the filter will skip the current meta
 				 * object from being exported.
 				 *
-				 * @since Before 4.0.0
+				 * @since Previous 4.0.0
 				 * @param bool   $skip     Whether to skip the current comment meta. Default false.
 				 * @param string $meta_key Current meta key.
 				 * @param object $meta     Current meta object.

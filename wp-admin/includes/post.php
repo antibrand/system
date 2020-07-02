@@ -644,7 +644,7 @@ function get_default_post_to_edit( $post_type = 'post', $create_in_db = false ) 
 	/**
 	 * Filters the default post title initially used in the "Write Post" form.
 	 *
-	 * @since Before 1.5.0
+	 * @since Previous 1.5.0
 	 *
 	 * @param string $post_title Default post title.
 	 * @param WP_Post $post Post object.
@@ -664,7 +664,7 @@ function get_default_post_to_edit( $post_type = 'post', $create_in_db = false ) 
 	/**
 	 * Filters the default post excerpt initially used in the "Write Post" form.
 	 *
-	 * @since Before 1.5.0
+	 * @since Previous 1.5.0
 	 *
 	 * @param string $post_excerpt Default post excerpt.
 	 * @param WP_Post $post Post object.

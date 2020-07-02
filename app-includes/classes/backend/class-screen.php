@@ -4,7 +4,7 @@
  *
  * @package App_Package
  * @subpackage Administration
- * @since Before 4.4.0
+ * @since Previous 4.4.0
  */
 
 namespace AppNamespace\Backend;
@@ -12,13 +12,13 @@ namespace AppNamespace\Backend;
 /**
  * Core class used to implement an admin screen API.
  *
- * @since Before 3.3.0
+ * @since Previous 3.3.0
  */
 final class Screen {
 	/**
 	 * Any action associated with the screen. 'add' for *-add.php and *-new.php screens. Empty otherwise.
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 * @var string
 	 */
 	public $action;
@@ -27,7 +27,7 @@ final class Screen {
 	 * The base type of the screen. This is typically the same as $id but with any post types and taxonomies stripped.
 	 * For example, for an $id of 'edit-post' the base is 'edit'.
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 * @var string
 	 */
 	public $base;
@@ -43,7 +43,7 @@ final class Screen {
 	/**
 	 * The unique ID of the screen.
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 * @var string
 	 */
 	public $id;
@@ -51,7 +51,7 @@ final class Screen {
 	/**
 	 * Which admin the screen is in. network | user | site | false
 	 *
-	 * @since Before 3.5.0
+	 * @since Previous 3.5.0
 	 * @var string
 	 */
 	protected $in_admin;
@@ -61,7 +61,7 @@ final class Screen {
 	 *
 	 * Deprecated. Use in_admin() instead.
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 * @deprecated WP 3.5.0
 	 * @var bool
 	 */
@@ -72,7 +72,7 @@ final class Screen {
 	 *
 	 * Deprecated. Use in_admin() instead.
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 * @deprecated WP 3.5.0
 	 * @var bool
 	 */
@@ -83,7 +83,7 @@ final class Screen {
 	 * This is derived from $parent_file by removing the query string and any .php extension.
 	 * $parent_file values of 'edit.php?post_type=page' and 'edit.php?post_type=post' have a $parent_base of 'edit'.
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 * @var string
 	 */
 	public $parent_base;
@@ -92,7 +92,7 @@ final class Screen {
 	 * The parent_file for the screen per the admin menu system.
 	 * Some $parent_file values are 'edit.php?post_type=page', 'edit.php', and 'options-general.php'.
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 * @var string
 	 */
 	public $parent_file;
@@ -102,7 +102,7 @@ final class Screen {
 	 * The 'edit.php?post_type=page' screen has a post type of 'page'.
 	 * The 'edit-tags.php?taxonomy=$taxonomy&post_type=page' screen has a post type of 'page'.
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 * @var string
 	 */
 	public $post_type;
@@ -110,7 +110,7 @@ final class Screen {
 	/**
 	 * The taxonomy associated with the screen, if any.
 	 * The 'edit-tags.php?taxonomy=category' screen has a taxonomy of 'category'.
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 * @var string
 	 */
 	public $taxonomy;
@@ -134,7 +134,7 @@ final class Screen {
 	/**
 	 * The help tab data associated with the screen, if any.
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 * @var array
 	 */
 	private $help_tabs = [];
@@ -142,7 +142,7 @@ final class Screen {
 	/**
 	 * The help sidebar data associated with screen, if any.
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 * @var string
 	 */
 	private $help_sidebar = '';
@@ -150,7 +150,7 @@ final class Screen {
  	/**
 	 * The accessible hidden headings and text associated with the screen, if any.
 	 *
-	 * @since Before 4.4.0
+	 * @since Previous 4.4.0
 	 * @var array
 	 */
 	private $screen_reader_content = [];
@@ -166,7 +166,7 @@ final class Screen {
 	/**
 	 * The screen options associated with screen, if any.
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 * @var array
 	 */
 	private $_options = [];
@@ -174,7 +174,7 @@ final class Screen {
 	/**
 	 * The screen object registry.
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 * @static
 	 * @var array
 	 */
@@ -183,7 +183,7 @@ final class Screen {
 	/**
 	 * Stores the result of the public show_screen_options function.
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 * @var bool
 	 */
 	private $show_screen_options;
@@ -191,7 +191,7 @@ final class Screen {
 	/**
 	 * Stores the 'screen_settings' section of screen options.
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 * @var string
 	 */
 	private $screen_settings;
@@ -199,7 +199,7 @@ final class Screen {
 	/**
 	 * Fetches a screen object.
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 * @static
 	 * @global string $hook_suffix
 	 * @param string|Screen $hook_name Optional. The hook name (also known as the hook suffix) used to determine the screen.
@@ -433,7 +433,7 @@ final class Screen {
 	 * Makes the screen object the current screen.
 	 *
 	 * @see set_current_screen()
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 * @global Screen $current_screen
 	 * @global string    $taxnow
 	 * @global string    $typenow
@@ -449,7 +449,7 @@ final class Screen {
 		/**
 		 * Fires after the current screen has been set.
 		 *
-		 * @since Before 3.0.0
+		 * @since Previous 3.0.0
 		 * @param Screen $current_screen Current Screen object.
 		 */
 		do_action( 'current_screen', $current_screen );
@@ -458,14 +458,14 @@ final class Screen {
 	/**
 	 * Constructor
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 */
 	private function __construct() {}
 
 	/**
 	 * Indicates whether the screen is in a particular admin
 	 *
-	 * @since Before 3.5.0
+	 * @since Previous 3.5.0
 	 * @param string $admin The admin to check against (network | user | site).
 	 *                      If empty any of the three admins will result in true.
 	 * @return bool True if the screen is in the indicated admin, false otherwise.
@@ -481,7 +481,7 @@ final class Screen {
 	/**
 	 * Sets the old string-based contextual help for the screen for backward compatibility.
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 * @static
 	 * @param Screen $screen A screen object.
 	 * @param string $help Help text.
@@ -494,7 +494,7 @@ final class Screen {
 	 * Set the parent information for the screen.
 	 * This is called in admin-header.php after the menu parent for the screen has been determined.
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 * @param string $parent_file The parent file of the screen. Typically the $parent_file global.
 	 */
 	public function set_parentage( $parent_file ) {
@@ -507,7 +507,7 @@ final class Screen {
 	 * Adds an option for the screen.
 	 * Call this in template files after admin.php is loaded and before admin-header.php is loaded to add screen options.
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 * @param string $option Option ID
 	 * @param mixed $args Option-dependent arguments.
 	 */
@@ -518,7 +518,7 @@ final class Screen {
 	/**
 	 * Remove an option from the screen.
 	 *
-	 * @since Before 3.8.0
+	 * @since Previous 3.8.0
 	 * @param string $option Option ID.
 	 */
 	public function remove_option( $option ) {
@@ -528,7 +528,7 @@ final class Screen {
 	/**
 	 * Remove all options from the screen.
 	 *
-	 * @since Before 3.8.0
+	 * @since Previous 3.8.0
 	 */
 	public function remove_options() {
 		$this->_options = [];
@@ -537,7 +537,7 @@ final class Screen {
 	/**
 	 * Get the options registered for the screen.
 	 *
-	 * @since Before 3.8.0
+	 * @since Previous 3.8.0
 	 * @return array Options with arguments.
 	 */
 	public function get_options() {
@@ -547,7 +547,7 @@ final class Screen {
 	/**
 	 * Gets the arguments for an option for the screen.
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 * @param string $option Option name.
 	 * @param string $key    Optional. Specific array key for when the option is an array.
 	 *                       Default false.
@@ -878,8 +878,8 @@ final class Screen {
 	 * Add a help tab to the contextual help for the screen.
 	 * Call this on the load-$pagenow hook for the relevant screen.
 	 *
-	 * @since Before 3.3.0
-	 * @since Before 4.4.0 The `$priority` argument was added.
+	 * @since Previous 3.3.0
+	 * @since Previous 4.4.0 The `$priority` argument was added.
 	 * @param array $args {
 	 *     Array of arguments used to display the help tab.
 	 *
@@ -916,7 +916,7 @@ final class Screen {
 	/**
 	 * Removes a help tab from the contextual help for the screen.
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 * @param string $id The help tab ID.
 	 */
 	public function remove_help_tab( $id ) {
@@ -926,7 +926,7 @@ final class Screen {
 	/**
 	 * Removes all help tabs from the contextual help for the screen.
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 */
 	public function remove_help_tabs() {
 		$this->help_tabs = [];
@@ -946,7 +946,7 @@ final class Screen {
 	 * Add a sidebar to the contextual help for the screen.
 	 * Call this in template files after admin.php is loaded and before admin-header.php is loaded to add a sidebar to the contextual help.
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 * @param string $content Sidebar content in plain text or HTML.
 	 */
 	public function set_help_sidebar( $content ) {
@@ -1000,7 +1000,7 @@ final class Screen {
 	/**
 	 * Add accessible hidden headings and text for the screen.
 	 *
-	 * @since Before 4.4.0
+	 * @since Previous 4.4.0
 	 * @param array $content {
 	 *     An associative array of screen reader text strings.
 	 *
@@ -1028,7 +1028,7 @@ final class Screen {
 	/**
 	 * Remove all the accessible hidden headings and text for the screen.
 	 *
-	 * @since Before 4.4.0
+	 * @since Previous 4.4.0
 	 */
 	public function remove_screen_reader_content() {
 		$this->screen_reader_content = [];
@@ -1039,7 +1039,7 @@ final class Screen {
 	 *
 	 * This will trigger the deprecated filters for backward compatibility.
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 * @global string $screen_layout_columns
 	 */
 	public function render_screen_meta() {
@@ -1121,7 +1121,7 @@ final class Screen {
 		 * This hook provides back-compat for plugins using the back-compat
 		 * Filters instead of add_screen_option().
 		 *
-		 * @since Before 2.8.0
+		 * @since Previous 2.8.0
 		 * @param array     $empty_columns Empty array.
 		 * @param string    $screen_id     Screen ID.
 		 * @param Screen $this          Current Screen instance.
@@ -1221,7 +1221,7 @@ final class Screen {
 		 * This filter is currently only used on the Widgets screen to enable
 		 * accessibility mode.
 		 *
-		 * @since Before 3.0.0
+		 * @since Previous 3.0.0
 		 * @param string    $screen_settings Screen settings.
 		 * @param Screen $this            Screen object.
 		 */
@@ -1234,7 +1234,7 @@ final class Screen {
 		/**
 		 * Filters whether to show the Screen Options tab.
 		 *
-		 * @since Before 3.2.0
+		 * @since Previous 3.2.0
 		 * @param bool      $show_screen Whether to show Screen Options tab.
 		 *                               Default true.
 		 * @param Screen $this        Current Screen instance.
@@ -1247,7 +1247,7 @@ final class Screen {
 	/**
 	 * Render the screen options tab.
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 * @param array $options {
 	 *     @type bool $wrap  Whether the screen-options-wrap div will be included. Defaults to true.
 	 * }
@@ -1287,7 +1287,7 @@ final class Screen {
 		/**
 		 * Filters whether to show the Screen Options submit button.
 		 *
-		 * @since Before 4.4.0
+		 * @since Previous 4.4.0
 		 * @param bool      $show_button Whether to show Screen Options submit button.
 		 *                               Default false.
 		 * @param Screen $this        Current Screen instance.
@@ -1304,7 +1304,7 @@ final class Screen {
 	/**
 	 * Render the meta boxes preferences.
 	 *
-	 * @since Before 4.4.0
+	 * @since Previous 4.4.0
 	 * @global array $wp_meta_boxes
 	 */
 	public function render_meta_boxes_preferences() {
@@ -1376,7 +1376,7 @@ final class Screen {
 	/**
 	 * Render the list table columns preferences.
 	 *
-	 * @since Before 4.4.0
+	 * @since Previous 4.4.0
 	 */
 	public function render_list_table_columns_preferences() {
 
@@ -1425,7 +1425,7 @@ final class Screen {
 	/**
 	 * Render the option for number of columns on the page
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 */
 	public function render_screen_layout() {
 
@@ -1460,7 +1460,7 @@ final class Screen {
 	/**
 	 * Render the items per page option
 	 *
-	 * @since Before 3.3.0
+	 * @since Previous 3.3.0
 	 */
 	public function render_per_page_options() {
 
@@ -1576,7 +1576,7 @@ final class Screen {
 	/**
 	 * Render the list table view mode preferences.
 	 *
-	 * @since Before 4.4.0
+	 * @since Previous 4.4.0
 	 * @global string $mode List table view mode.
 	 */
 	public function render_view_mode() {
@@ -1593,7 +1593,7 @@ final class Screen {
 		/**
 		 * Filters the post types that have different view mode options.
 		 *
-		 * @since Before 4.4.0
+		 * @since Previous 4.4.0
 		 * @param array $view_mode_post_types Array of post types that can change view modes.
 		 *                                    Default non-hierarchical post types with show_ui on.
 		 */
@@ -1626,7 +1626,7 @@ final class Screen {
 	/**
 	 * Render screen reader text.
 	 *
-	 * @since Before 4.4.0
+	 * @since Previous 4.4.0
 	 * @param string $key The screen reader text array named key.
 	 * @param string $tag Optional. The HTML tag to wrap the screen reader text. Default h2.
 	 */

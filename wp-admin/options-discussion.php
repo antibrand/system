@@ -323,7 +323,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 							 * Avatars are stored in key/value pairs, where the key is option value,
 							 * and the name is the displayed avatar name.
 							 *
-							 * @since Before 2.6.0
+							 * @since Previous 2.6.0
 							 * @param array $avatar_defaults Array of default avatars.
 							 */
 							$avatar_defaults = apply_filters( 'avatar_defaults', $avatar_defaults );
@@ -347,7 +347,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 							/**
 							 * Filters the HTML output of the default avatar list.
 							 *
-							 * @since Before 2.6.0
+							 * @since Previous 2.6.0
 							 * @param string $avatar_list HTML markup of the avatar list.
 							 */
 							echo apply_filters( 'default_avatar_select', $avatar_list );

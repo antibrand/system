@@ -4017,7 +4017,7 @@ function get_term_link( $term, $taxonomy = '' ) {
 		/**
 		 * Filters the category link.
 		 *
-		 * @since Before 1.5.0
+		 * @since Previous 1.5.0
 		 * @param string $termlink Category link URL.
 		 * @param int    $term_id  Term ID.
 		 */

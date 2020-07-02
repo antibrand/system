@@ -215,7 +215,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 						 * Hooking to this action also converts the 'Search Engine Visibility' heading to the more
 						 * open-ended 'Site Visibility' heading.
 						 *
-						 * @since Before 2.1.0
+						 * @since Previous 2.1.0
 						 */
 						do_action( 'blog_privacy_selector' );
 

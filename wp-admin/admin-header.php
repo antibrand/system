@@ -54,7 +54,7 @@ if ( $admin_title == $title ) {
 /**
  * Filters the title tag content for an admin page.
  *
- * @since Before 3.1.0
+ * @since Previous 3.1.0
  * @param string $admin_title The page title, with extra context added.
  * @param string $title The original page title.
  */
@@ -109,7 +109,7 @@ do_action( 'app_enqueue_scripts' );
  *
  * @todo Review this when styles page-specific styles ready.
  *
- * @since Before 2.8.0
+ * @since Previous 2.8.0
  * @param string $hook_suffix The current admin page.
  */
 do_action( 'admin_enqueue_scripts', $hook_suffix );
@@ -117,28 +117,28 @@ do_action( 'admin_enqueue_scripts', $hook_suffix );
 /**
  * Fires when styles are printed for a specific admin page based on $hook_suffix.
  *
- * @since Before 2.6.0
+ * @since Previous 2.6.0
  */
 do_action( "admin_print_styles-{$hook_suffix}" );
 
 /**
  * Fires when styles are printed for all admin pages.
  *
- * @since Before 2.6.0
+ * @since Previous 2.6.0
  */
 do_action( 'admin_print_styles' );
 
 /**
  * Fires when scripts are printed for a specific admin page based on $hook_suffix.
  *
- * @since Before 2.1.0
+ * @since Previous 2.1.0
  */
 do_action( "admin_print_scripts-{$hook_suffix}" );
 
 /**
  * Fires when scripts are printed for all admin pages.
  *
- * @since Before 2.1.0
+ * @since Previous 2.1.0
  */
 do_action( 'admin_print_scripts' );
 
@@ -148,14 +148,14 @@ do_action( 'admin_print_scripts' );
  * The dynamic portion of the hook, `$hook_suffix`, refers to the hook suffix
  * for the admin page.
  *
- * @since Before 2.1.0
+ * @since Previous 2.1.0
  */
 do_action( "admin_head-{$hook_suffix}" );
 
 /**
  * Fires in head section for all admin pages.
  *
- * @since Before 2.1.0
+ * @since Previous 2.1.0
  */
 do_action( 'admin_head' );
 
@@ -216,7 +216,7 @@ $admin_body_class .= ' no-customize-support no-svg';
  * 2. Not all core admin classes are filterable, notably: app-admin, app-core-ui,
  *    and no-js cannot be removed.
  *
- * @since Before 2.3.0
+ * @since Previous 2.3.0
  *
  * @param string $classes Space-separated list of CSS classes.
  */
@@ -265,7 +265,7 @@ $admin_body_classes = apply_filters( 'admin_body_class', '' );
 					/**
 					 * Prints network admin screen notices.
 					 *
-					 * @since Before 3.1.0
+					 * @since Previous 3.1.0
 					 */
 					do_action( 'network_admin_notices' );
 
@@ -273,7 +273,7 @@ $admin_body_classes = apply_filters( 'admin_body_class', '' );
 					/**
 					 * Prints user admin screen notices.
 					 *
-					 * @since Before 3.1.0
+					 * @since Previous 3.1.0
 					 */
 					do_action( 'user_admin_notices' );
 
@@ -281,7 +281,7 @@ $admin_body_classes = apply_filters( 'admin_body_class', '' );
 					/**
 					 * Prints admin screen notices.
 					 *
-					 * @since Before 3.1.0
+					 * @since Previous 3.1.0
 					 */
 					do_action( 'admin_notices' );
 				}
@@ -289,7 +289,7 @@ $admin_body_classes = apply_filters( 'admin_body_class', '' );
 				/**
 				 * Prints generic admin screen notices.
 				 *
-				 * @since Before 3.1.0
+				 * @since Previous 3.1.0
 				 */
 				do_action( 'all_admin_notices' );
 
