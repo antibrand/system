@@ -8,6 +8,16 @@
  */
 
 /**
+ * Alias namespaces
+ *
+ * Make sure the namespaces here are the same base as that
+ * used in your copy of this website management system.
+ *
+ * @since 1.0.0
+ */
+use \AppNamespace\Includes as Includes;
+
+/**
  * Core class used for upgrading/installing themes.
  *
  * It is designed to upgrade/install themes from a local zip, remote zip URL,
@@ -16,16 +26,16 @@
  * @since 2.8.0
  * @since 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader.php.
  *
- * @see WP_Upgrader
+ * @see Installer
  */
-class Theme_Upgrader extends WP_Upgrader {
+class Theme_Upgrader extends Includes\Installer {
 
 	/**
 	 * Result of the theme upgrade offer.
 	 *
 	 * @since 2.8.0
 	 * @var array|WP_Error $result
-	 * @see WP_Upgrader::$result
+	 * @see Installer::$result
 	 */
 	public $result;
 

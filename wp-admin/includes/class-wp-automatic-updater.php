@@ -8,6 +8,16 @@
  */
 
 /**
+ * Alias namespaces
+ *
+ * Make sure the namespaces here are the same base as that
+ * used in your copy of this website management system.
+ *
+ * @since 1.0.0
+ */
+use \AppNamespace\Includes as Includes;
+
+/**
  * Core class used for handling automatic background updates.
  *
  * @since 3.7.0
@@ -372,7 +382,7 @@ class WP_Automatic_Updater {
 		if ( ! is_main_network() || ! is_main_site() )
 			return;
 
-		if ( ! WP_Upgrader::create_lock( 'auto_updater' ) )
+		if ( ! Includes\Installer::create_lock( 'auto_updater' ) )
 			return;
 
 		// Don't automatically run these thins, as we'll handle it ourselves
@@ -472,7 +482,7 @@ class WP_Automatic_Updater {
 			do_action( 'automatic_updates_complete', $this->update_results );
 		}
 
-		WP_Upgrader::release_lock( 'auto_updater' );
+		Includes\Installer::release_lock( 'auto_updater' );
 	}
 
 	/**

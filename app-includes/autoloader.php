@@ -20,6 +20,7 @@ const APP_CLASSES = [
 
 	// Classes used on the back end and/or front end.
 	'AppNamespace\Includes\User_Toolbar'    => __DIR__ . '/classes/includes/class-user-toolbar.php',
+	'AppNamespace\Includes\Installer'       => __DIR__ . '/classes/includes/class-installer.php',
 	'AppNamespace\Includes\Walker'          => __DIR__ . '/classes/includes/class-walker.php',
 	'AppNamespace\Includes\Walker_Nav_Menu' => __DIR__ . '/classes/includes/class-walker-nav-menu.php',
 	'AppNamespace\Includes\Walker_Page'     => __DIR__ . '/classes/includes/class-walker-page.php',
@@ -77,6 +78,7 @@ spl_autoload_register(
  * @link https://www.php.net/manual/en/function.class-alias.php
  */
 \class_alias( Includes\User_Toolbar :: class, \WP_Admin_Bar :: class );
+//\class_alias( Includes\Installer :: class, \WP_Upgrader :: class );
 \class_alias( Includes\Walker :: class, \Walker :: class );
 \class_alias( Includes\Walker_Nav_Menu :: class, \Walker_Nav_Menu :: class );
 \class_alias( Includes\Walker_Page :: class, \Walker_Page :: class );

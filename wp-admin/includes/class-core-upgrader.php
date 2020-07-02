@@ -8,6 +8,16 @@
  */
 
 /**
+ * Alias namespaces
+ *
+ * Make sure the namespaces here are the same base as that
+ * used in your copy of this website management system.
+ *
+ * @since 1.0.0
+ */
+use \AppNamespace\Includes as Includes;
+
+/**
  * Core class used for updating core.
  *
  * It allows for the application to upgrade itself in combination with
@@ -16,9 +26,9 @@
  * @since 2.8.0
  * @since 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader.php.
  *
- * @see WP_Upgrader
+ * @see Installer
  */
-class Core_Upgrader extends WP_Upgrader {
+class Core_Upgrader extends Includes\Installer {
 
 	/**
 	 * Initialize the upgrade strings.
@@ -113,27 +123,27 @@ class Core_Upgrader extends WP_Upgrader {
 			$to_download = 'full';
 
 		// Lock to prevent multiple Core Updates occurring
-		$lock = WP_Upgrader::create_lock( 'core_updater', 15 * MINUTE_IN_SECONDS );
+		$lock = Includes\Installer::create_lock( 'core_updater', 15 * MINUTE_IN_SECONDS );
 		if ( ! $lock ) {
 			return new WP_Error( 'locked', $this->strings['locked'] );
 		}
 
 		$download = $this->download_package( $current->packages->$to_download );
 		if ( is_wp_error( $download ) ) {
-			WP_Upgrader::release_lock( 'core_updater' );
+			Includes\Installer::release_lock( 'core_updater' );
 			return $download;
 		}
 
 		$working_dir = $this->unpack_package( $download );
 		if ( is_wp_error( $working_dir ) ) {
-			WP_Upgrader::release_lock( 'core_updater' );
+			Includes\Installer::release_lock( 'core_updater' );
 			return $working_dir;
 		}
 
 		// Copy update-core.php from the new version into place.
 		if ( !$wp_filesystem->copy($working_dir . '/wordpress/wp-admin/includes/update-core.php', $wp_dir . 'wp-admin/includes/update-core.php', true) ) {
 			$wp_filesystem->delete($working_dir, true);
-			WP_Upgrader::release_lock( 'core_updater' );
+			Includes\Installer::release_lock( 'core_updater' );
 			return new WP_Error( 'copy_failed_for_update_core_file', __( 'The update cannot be installed because we will be unable to copy some files. This is usually due to inconsistent file permissions.' ), 'wp-admin/includes/update-core.php' );
 		}
 		$wp_filesystem->chmod($wp_dir . 'wp-admin/includes/update-core.php', FS_CHMOD_FILE);
@@ -141,7 +151,7 @@ class Core_Upgrader extends WP_Upgrader {
 		require_once( ABSPATH . 'wp-admin/includes/update-core.php' );
 
 		if ( ! function_exists( 'update_core' ) ) {
-			WP_Upgrader::release_lock( 'core_updater' );
+			Includes\Installer::release_lock( 'core_updater' );
 			return new WP_Error( 'copy_failed_space', $this->strings['copy_failed_space'] );
 		}
 
@@ -218,7 +228,7 @@ class Core_Upgrader extends WP_Upgrader {
 			wp_version_check( $stats );
 		}
 
-		WP_Upgrader::release_lock( 'core_updater' );
+		Includes\Installer::release_lock( 'core_updater' );
 
 		return $result;
 	}

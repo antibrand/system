@@ -39,7 +39,7 @@ class WP_Upgrader_Skin {
 
 	/**
 	 *
-	 * @param WP_Upgrader $upgrader
+	 * @param Installer $upgrader
 	 */
 	public function set_upgrader(&$upgrader) {
 		if ( is_object($upgrader) )
