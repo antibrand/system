@@ -19,6 +19,7 @@ namespace AppNamespace;
 const APP_CLASSES = [
 
 	// Classes used on the back end and/or front end.
+	'WP_Admin_Bar'    => __DIR__ . '/classes/includes/class-user-toolbar.php',
 	'AppNamespace\Includes\Walker'          => __DIR__ . '/classes/includes/class-walker.php',
 	'AppNamespace\Includes\Walker_Nav_Menu' => __DIR__ . '/classes/includes/class-walker-nav-menu.php',
 	'AppNamespace\Includes\Walker_Page'     => __DIR__ . '/classes/includes/class-walker-page.php',

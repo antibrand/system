@@ -7,6 +7,8 @@
  * @since 3.1.0
  */
 
+// namespace AppNamespace\Includes;
+
 /**
  * Core class used to implement the Toolbar API.
  *
@@ -52,7 +54,7 @@ class WP_Admin_Bar {
 	/**
 	 */
 	public function initialize() {
-		$this->user = new stdClass;
+		$this->user = new \stdClass;
 
 		if ( is_user_logged_in() ) {
 			/* Populate settings we need for the menu based on the current user. */
