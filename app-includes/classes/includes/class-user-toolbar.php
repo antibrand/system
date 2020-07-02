@@ -1,6 +1,6 @@
 <?php
 /**
- * Toolbar API: WP_Admin_Bar class
+ * Toolbar API: APP_User_Toolbar class
  *
  * @package App_Package
  * @subpackage Toolbar
@@ -14,7 +14,7 @@
  *
  * @since 3.1.0
  */
-class WP_Admin_Bar {
+class APP_User_Toolbar {
 
 	private $nodes = [];
 
@@ -46,7 +46,7 @@ class WP_Admin_Bar {
 				return is_ssl() ? 'https://' : 'http://';
 
 			case 'menu' :
-				_deprecated_argument( 'WP_Admin_Bar', '3.3.0', 'Modify admin bar nodes with WP_Admin_Bar::get_node(), WP_Admin_Bar::add_node(), and WP_Admin_Bar::remove_node(), not the <code>menu</code> property.' );
+				_deprecated_argument( 'APP_User_Toolbar', '3.3.0', 'Modify admin bar nodes with APP_User_Toolbar::get_node(), APP_User_Toolbar::add_node(), and APP_User_Toolbar::remove_node(), not the <code>menu</code> property.' );
 				return array(); // Sorry, folks.
 		}
 	}
@@ -92,7 +92,7 @@ class WP_Admin_Bar {
 		wp_enqueue_style( 'user-toolbar' );
 
 		/**
-		 * Fires after WP_Admin_Bar is initialized.
+		 * Fires after APP_User_Toolbar is initialized.
 		 *
 		 * @since 3.1.0
 		 */
@@ -625,15 +625,15 @@ class WP_Admin_Bar {
 	 * Renders toolbar items recursively.
 	 *
 	 * @since 3.1.0
-	 * @deprecated 3.3.0 Use WP_Admin_Bar::_render_item() or WP_Admin_bar::render() instead.
-	 * @see WP_Admin_Bar::_render_item()
-	 * @see WP_Admin_Bar::render()
+	 * @deprecated 3.3.0 Use APP_User_Toolbar::_render_item() or WP_Admin_bar::render() instead.
+	 * @see APP_User_Toolbar::_render_item()
+	 * @see APP_User_Toolbar::render()
 	 *
 	 * @param string $id    Unused.
 	 * @param object $node
 	 */
 	public function recursive_render( $id, $node ) {
-		_deprecated_function( __METHOD__, '3.3.0', 'WP_Admin_bar::render(), WP_Admin_Bar::_render_item()' );
+		_deprecated_function( __METHOD__, '3.3.0', 'WP_Admin_bar::render(), APP_User_Toolbar::_render_item()' );
 		$this->_render_item( $node );
 	}
 

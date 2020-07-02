@@ -860,11 +860,11 @@ function screen_meta( $screen ) {
  * Favorite actions were deprecated in version 3.2. Use the admin bar instead.
  *
  * @since 2.7.0
- * @deprecated 3.2.0 Use WP_Admin_Bar
- * @see WP_Admin_Bar
+ * @deprecated 3.2.0 Use APP_User_Toolbar
+ * @see APP_User_Toolbar
  */
 function favorite_actions() {
-	_deprecated_function( __FUNCTION__, '3.2.0', 'WP_Admin_Bar' );
+	_deprecated_function( __FUNCTION__, '3.2.0', 'APP_User_Toolbar' );
 }
 
 /**

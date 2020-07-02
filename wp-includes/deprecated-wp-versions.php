@@ -3108,7 +3108,7 @@ function parent_post_rel_link( $title = '%title' ) {
  * @since Before 3.2.0
  * @deprecated WP 3.3.0
  *
- * @param WP_Admin_Bar $wp_admin_bar WP_Admin_Bar instance.
+ * @param APP_User_Toolbar $wp_admin_bar APP_User_Toolbar instance.
  */
 function wp_admin_bar_dashboard_view_site_menu( $wp_admin_bar ) {
 

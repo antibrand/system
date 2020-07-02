@@ -17,7 +17,7 @@ use \AppNamespace\Includes as Includes;
  *
  * @since  Before 3.1.0
  * @access private
- * @global WP_Admin_Bar $wp_admin_bar
+ * @global APP_User_Toolbar $wp_admin_bar
  * @return bool Whether the admin bar was successfully initialized.
  */
 function app_user_toolbar_init() {
@@ -35,9 +35,9 @@ function app_user_toolbar_init() {
 	 *
 	 * @since 3.1.0
 	 *
-	 * @param string $wp_admin_bar_class Admin bar class to use. Default 'WP_Admin_Bar'.
+	 * @param string $wp_admin_bar_class Admin bar class to use. Default 'APP_User_Toolbar'.
 	 */
-	$admin_bar_class = apply_filters( 'wp_admin_bar_class', 'WP_Admin_Bar' );
+	$admin_bar_class = apply_filters( 'wp_admin_bar_class', 'APP_User_Toolbar' );
 	if ( class_exists( $admin_bar_class ) ) {
 		$wp_admin_bar = new $admin_bar_class;
 	} else {
@@ -63,7 +63,7 @@ function app_user_toolbar_init() {
  *
  * @since 3.1.0
  *
- * @global WP_Admin_Bar $wp_admin_bar
+ * @global APP_User_Toolbar $wp_admin_bar
  */
 function wp_admin_bar_render() {
 	global $wp_admin_bar;
@@ -78,7 +78,7 @@ function wp_admin_bar_render() {
 	 *
 	 * @since 3.1.0
 	 *
-	 * @param WP_Admin_Bar $wp_admin_bar WP_Admin_Bar instance, passed by reference
+	 * @param APP_User_Toolbar $wp_admin_bar APP_User_Toolbar instance, passed by reference
 	 */
 	do_action_ref_array( 'admin_bar_menu', array( &$wp_admin_bar ) );
 
@@ -104,7 +104,7 @@ function wp_admin_bar_render() {
  *
  * @since 3.8.0
  *
- * @param WP_Admin_Bar $wp_admin_bar
+ * @param APP_User_Toolbar $wp_admin_bar
  */
 function wp_admin_bar_sidebar_toggle( $wp_admin_bar ) {
 	if ( is_admin() ) {
@@ -121,7 +121,7 @@ function wp_admin_bar_sidebar_toggle( $wp_admin_bar ) {
  *
  * @since 3.3.0
  *
- * @param WP_Admin_Bar $wp_admin_bar
+ * @param APP_User_Toolbar $wp_admin_bar
  */
 function wp_admin_bar_my_account_item( $wp_admin_bar ) {
 	$user_id      = get_current_user_id();
@@ -159,7 +159,7 @@ function wp_admin_bar_my_account_item( $wp_admin_bar ) {
  *
  * @since 3.1.0
  *
- * @param WP_Admin_Bar $wp_admin_bar
+ * @param APP_User_Toolbar $wp_admin_bar
  */
 function wp_admin_bar_my_account_menu( $wp_admin_bar ) {
 	$user_id      = get_current_user_id();
@@ -219,7 +219,7 @@ function wp_admin_bar_my_account_menu( $wp_admin_bar ) {
  *
  * @since 3.3.0
  *
- * @param WP_Admin_Bar $wp_admin_bar
+ * @param APP_User_Toolbar $wp_admin_bar
  */
 function wp_admin_bar_site_menu( $wp_admin_bar ) {
 	// Don't show for logged out users.
@@ -291,7 +291,7 @@ function wp_admin_bar_site_menu( $wp_admin_bar ) {
  *
  * @since 4.3.0
  *
- * @param WP_Admin_Bar $wp_admin_bar WP_Admin_Bar instance.
+ * @param APP_User_Toolbar $wp_admin_bar APP_User_Toolbar instance.
  * @global WP_Customize_Manager $wp_customize
  */
 function wp_admin_bar_customize_menu( $wp_admin_bar ) {
@@ -333,7 +333,7 @@ function wp_admin_bar_customize_menu( $wp_admin_bar ) {
  *
  * @since 3.1.0
  *
- * @param WP_Admin_Bar $wp_admin_bar
+ * @param APP_User_Toolbar $wp_admin_bar
  */
 function wp_admin_bar_my_sites_menu( $wp_admin_bar ) {
 	// Don't show for logged out users or single site mode.
@@ -502,7 +502,7 @@ function wp_admin_bar_my_sites_menu( $wp_admin_bar ) {
  *
  * @since 3.1.0
  *
- * @param WP_Admin_Bar $wp_admin_bar
+ * @param APP_User_Toolbar $wp_admin_bar
  */
 function wp_admin_bar_shortlink_menu( $wp_admin_bar ) {
 	$short = wp_get_shortlink( 0, 'query' );
@@ -529,7 +529,7 @@ function wp_admin_bar_shortlink_menu( $wp_admin_bar ) {
  * @global WP_Term  $tag
  * @global WP_Query $wp_the_query
  *
- * @param WP_Admin_Bar $wp_admin_bar
+ * @param APP_User_Toolbar $wp_admin_bar
  */
 function wp_admin_bar_edit_menu( $wp_admin_bar ) {
 	global $tag, $wp_the_query, $user_id;
@@ -639,7 +639,7 @@ function wp_admin_bar_edit_menu( $wp_admin_bar ) {
  *
  * @since 3.1.0
  *
- * @param WP_Admin_Bar $wp_admin_bar
+ * @param APP_User_Toolbar $wp_admin_bar
  */
 function wp_admin_bar_new_content_menu( $wp_admin_bar ) {
 	$actions = array();
@@ -704,7 +704,7 @@ function wp_admin_bar_new_content_menu( $wp_admin_bar ) {
  *
  * @since 3.1.0
  *
- * @param WP_Admin_Bar $wp_admin_bar
+ * @param APP_User_Toolbar $wp_admin_bar
  */
 function wp_admin_bar_comments_menu( $wp_admin_bar ) {
 	if ( !current_user_can( 'edit_posts' ) )
@@ -730,7 +730,7 @@ function wp_admin_bar_comments_menu( $wp_admin_bar ) {
  *
  * @since 3.1.0
  *
- * @param WP_Admin_Bar $wp_admin_bar
+ * @param APP_User_Toolbar $wp_admin_bar
  */
 function wp_admin_bar_appearance_menu( $wp_admin_bar ) {
 	$wp_admin_bar->add_group( array( 'parent' => 'site-name', 'id' => 'appearance' ) );
@@ -791,7 +791,7 @@ function wp_admin_bar_appearance_menu( $wp_admin_bar ) {
  *
  * @since 3.1.0
  *
- * @param WP_Admin_Bar $wp_admin_bar
+ * @param APP_User_Toolbar $wp_admin_bar
  */
 function wp_admin_bar_updates_menu( $wp_admin_bar ) {
 
@@ -818,7 +818,7 @@ function wp_admin_bar_updates_menu( $wp_admin_bar ) {
  *
  * @since 3.3.0
  *
- * @param WP_Admin_Bar $wp_admin_bar
+ * @param APP_User_Toolbar $wp_admin_bar
  */
 function wp_admin_bar_search_menu( $wp_admin_bar ) {
 	if ( is_admin() )
@@ -846,7 +846,7 @@ function wp_admin_bar_search_menu( $wp_admin_bar ) {
  *
  * @since 3.3.0
  *
- * @param WP_Admin_Bar $wp_admin_bar
+ * @param APP_User_Toolbar $wp_admin_bar
  */
 function wp_admin_bar_add_secondary_groups( $wp_admin_bar ) {
 	$wp_admin_bar->add_group( array(
