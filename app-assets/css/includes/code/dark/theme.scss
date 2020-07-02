@@ -29,9 +29,19 @@ span[role="presentation"] {
 
 .cm-s-default .cm-keyword {
 	color: #ffee00;
+}
 
-	& ~ .cm-keyword {
-		color: #ff0066;
+.CodeMirror-line {
+
+	span span.cm-keyword {
+
+		& + span.cm-keyword {
+			color: #ffaa00;
+
+			& + span.cm-keyword {
+				color: #ff0066;
+			}
+		}
 	}
 }
 
@@ -40,25 +50,33 @@ span[role="presentation"] {
 }
 
 .cm-s-default .cm-variable-2 {
-	color: #71c837;
+	color: #66ff33;
 }
 
 .cm-s-default .cm-def,
 .cm-def {
-	color: #5599ff;
+	color: #a770ff;
 }
 
 .cm-s-default .cm-string,
 .cm-string {
-	color: #a467ff;
+	color: #3ad4fb;
 }
 
 .cm-variable {
-	color: #2affd5;
+	color: #ffee00;
 }
 
 .cm-s-default .cm-number {
     color: #ff7700;
+}
+
+.cm-operator {
+	color: #ffee00;
+
+	& + .cm-string {
+		color: #ff7700;
+	}
 }
 
 .cm-s-default .cm-atom {

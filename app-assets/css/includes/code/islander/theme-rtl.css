@@ -1,1 +1,139 @@
-/* No CSS */
+.code-theme-islander .CodeMirror {
+  background: #272822;
+  color: #f8f8f2;
+}
+
+.code-theme-islander div.CodeMirror-selected {
+  background: #49483e;
+}
+
+.code-theme-islander .CodeMirror-line::-moz-selection,
+.code-theme-islander .CodeMirror-line > span::-moz-selection,
+.code-theme-islander .CodeMirror-line > span > span::-moz-selection {
+  background: rgba(73, 72, 62, 0.99);
+}
+
+.code-theme-islander .CodeMirror-line::selection,
+.code-theme-islander .CodeMirror-line > span::selection,
+.code-theme-islander .CodeMirror-line > span > span::selection {
+  background: rgba(73, 72, 62, 0.99);
+}
+
+.code-theme-islander .CodeMirror-line::-moz-selection,
+.code-theme-islander .CodeMirror-line > span::-moz-selection,
+.code-theme-islander .CodeMirror-line > span > span::-moz-selection {
+  background: rgba(73, 72, 62, 0.99);
+}
+
+.code-theme-islander .CodeMirror-gutters {
+  background: #272822;
+  border-right: 0px;
+}
+
+.code-theme-islander .CodeMirror-guttermarker {
+  color: white;
+}
+
+.code-theme-islander .CodeMirror-guttermarker-subtle {
+  color: #d0d0d0;
+}
+
+.code-theme-islander .CodeMirror-linenumber {
+  color: #d0d0d0;
+}
+
+.code-theme-islander .CodeMirror-cursor {
+  border-left: 1px solid #f8f8f0;
+}
+
+.code-theme-islander span.cm-comment {
+  color: #75715e;
+}
+
+.code-theme-islander span.cm-atom {
+  color: #ae81ff;
+}
+
+.code-theme-islander span.cm-number {
+  color: #ae81ff;
+}
+
+.code-theme-islander span.cm-comment.cm-attribute {
+  color: #97b757;
+}
+
+.code-theme-islander span.cm-comment.cm-def {
+  color: #bc9262;
+}
+
+.code-theme-islander span.cm-comment.cm-tag {
+  color: #bc6283;
+}
+
+.code-theme-islander span.cm-comment.cm-type {
+  color: #5998a6;
+}
+
+.code-theme-islander span.cm-property,
+.code-theme-islander span.cm-attribute {
+  color: #a6e22e;
+}
+
+.code-theme-islander span.cm-keyword {
+  color: #f92672;
+}
+
+.code-theme-islander span.cm-builtin {
+  color: #66d9ef;
+}
+
+.code-theme-islander span.cm-string {
+  color: #e6db74;
+}
+
+.code-theme-islander span.cm-variable {
+  color: #f8f8f2;
+}
+
+.code-theme-islander span.cm-variable-2 {
+  color: #9effff;
+}
+
+.code-theme-islander span.cm-variable-3,
+.code-theme-islander span.cm-type {
+  color: #66d9ef;
+}
+
+.code-theme-islander span.cm-def {
+  color: #fd971f;
+}
+
+.code-theme-islander span.cm-bracket {
+  color: #f8f8f2;
+}
+
+.code-theme-islander span.cm-tag {
+  color: #f92672;
+}
+
+.code-theme-islander span.cm-header {
+  color: #ae81ff;
+}
+
+.code-theme-islander span.cm-link {
+  color: #ae81ff;
+}
+
+.code-theme-islander span.cm-error {
+  background: #f92672;
+  color: #f8f8f0;
+}
+
+.code-theme-islander .CodeMirror-activeline-background {
+  background: #373831;
+}
+
+.code-theme-islander .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: white !important;
+}
