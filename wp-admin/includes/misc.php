@@ -850,6 +850,7 @@ function admin_color_scheme_picker( $user_id ) {
 		<div class="user-color-options">
 		<?php
 		wp_nonce_field( 'save-color-scheme', 'color-nonce', false );
+
 		foreach ( $_wp_admin_css_colors as $color => $color_info ) :
 
 			?>
@@ -910,6 +911,7 @@ function user_code_theme_picker( $user_id ) {
 		<div class="user-code-theme-options">
 		<?php
 		wp_nonce_field( 'save-code-theme', 'code-theme-nonce', false );
+
 		foreach ( $app_user_code_themes as $theme => $theme_info ) :
 
 			?>

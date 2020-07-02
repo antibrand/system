@@ -508,7 +508,7 @@ class APP_User_Toolbar {
 				do_action( 'user_toolbar_flags' );
 				?>
 			</div>
-			<a class="screen-reader-shortcut" href="<?php echo esc_url( wp_logout_url() ); ?>"><?php _e('Log Out'); ?></a>
+			<a class="screen-reader-shortcut" href="<?php echo esc_url( wp_logout_url() ); ?>"><?php _e( 'Log Out' ); ?></a>
 			<?php endif; ?>
 		</div>
 
