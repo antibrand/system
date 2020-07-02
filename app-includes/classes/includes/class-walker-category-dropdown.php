@@ -4,7 +4,7 @@
  *
  * @package App_Package
  * @subpackage Template
- * @since WP 4.4.0
+ * @since Before 4.4.0
  */
 
 namespace AppNamespace\Includes;
@@ -24,7 +24,7 @@ use \AppNamespace\Backend as Backend;
  *
  * @see Walker
  *
- * @since WP 2.1.0
+ * @since Before 2.1.0
  */
 class Walker_Category_Dropdown extends Walker {
 
@@ -56,7 +56,7 @@ class Walker_Category_Dropdown extends Walker {
 	 *
 	 * @see Walker::start_el()
 	 *
-	 * @since WP 2.1.0
+	 * @since Before 2.1.0
 	 * @access public
 	 * @param string $output   Used to append additional content (passed by reference).
 	 * @param object $category Category data object.

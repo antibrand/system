@@ -7,7 +7,7 @@
  * @package App_Package
  * @subpackage Administration
  *
- * @since WP 3.0.0
+ * @since Before 3.0.0
  */
 
 define( 'WP_INSTALLING_NETWORK', true );

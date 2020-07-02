@@ -4,7 +4,7 @@
  *
  * @package App_Package
  * @subpackage Live_Manager
- * @since WP 4.4.0
+ * @since Before 4.4.0
  */
 
 /**
@@ -12,7 +12,7 @@
  *
  * Used only for custom functionality in JavaScript.
  *
- * @since WP 4.3.0
+ * @since Before 4.3.0
  *
  * @see WP_Customize_Cropped_Image_Control
  */
@@ -30,7 +30,7 @@ class WP_Customize_Site_Icon_Control extends WP_Customize_Cropped_Image_Control 
 	/**
 	 * Constructor method
 	 *
-	 * @since WP 4.3.0
+	 * @since Before 4.3.0
 	 * @access public
 	 * @param WP_Customize_Manager $manager Live manager bootstrap instance.
 	 * @param string $id Control ID.
@@ -45,7 +45,7 @@ class WP_Customize_Site_Icon_Control extends WP_Customize_Cropped_Image_Control 
 	/**
 	 * Renders a JS template for the content of the site icon control.
 	 *
-	 * @since WP 4.5.0
+	 * @since Before 4.5.0
 	 * @access public
 	 * @return string Returns the markup of the site icon control.
 	 */

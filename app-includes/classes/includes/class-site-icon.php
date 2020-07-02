@@ -4,7 +4,7 @@
  *
  * @package App_Package
  * @subpackage Includes
- * @since WP 4.3.0
+ * @since Before 4.3.0
  */
 
 namespace AppNamespace\Includes;
@@ -12,7 +12,7 @@ namespace AppNamespace\Includes;
 /**
  * Core class used to implement site icon functionality.
  *
- * @since WP 4.3.0
+ * @since Before 4.3.0
  */
 class Site_Icon {
 
@@ -114,7 +114,7 @@ class Site_Icon {
 	/**
 	 * Inserts an attachment.
 	 *
-	 * @since WP 4.3.0
+	 * @since Before 4.3.0
 	 * @access public
 	 * @param array $object Attachment object.
 	 * @param string $file File path of the attached image.
@@ -130,7 +130,7 @@ class Site_Icon {
 		 *
 		 * @see wp_generate_attachment_metadata()
 		 *
-		 * @since WP 4.3.0
+		 * @since Before 4.3.0
 		 * @param array $metadata Attachment metadata.
 		 */
 		$metadata = apply_filters( 'site_icon_attachment_metadata', $metadata );
@@ -142,7 +142,7 @@ class Site_Icon {
 	/**
 	 * Adds additional sizes to be made when creating the site_icon images.
 	 *
-	 * @since WP 4.3.0
+	 * @since Before 4.3.0
 	 * @access public
 	 * @param array $sizes List of additional sizes.
 	 * @return array Additional image sizes.
@@ -154,7 +154,7 @@ class Site_Icon {
 		/**
 		 * Filters the different dimensions that a site icon is saved in.
 		 *
-		 * @since WP 4.3.0
+		 * @since Before 4.3.0
 		 * @param array $site_icon_sizes Sizes available for the Site Icon.
 		 */
 		$this->site_icon_sizes = apply_filters( 'site_icon_image_sizes', $this->site_icon_sizes );

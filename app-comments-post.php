@@ -44,8 +44,8 @@ $cookies_consent = ( isset( $_POST['wp-comment-cookies-consent'] ) );
 /**
  * Perform other actions when comment cookies are set.
  *
- * @since WP 3.4.0
- * @since WP 4.9.6 The `$cookies_consent` parameter was added.
+ * @since Before 3.4.0
+ * @since Before 4.9.6 The `$cookies_consent` parameter was added.
  *
  * @param WP_Comment $comment Comment object.
  * @param WP_User $user Comment author's user object. The user may not exist.
@@ -62,7 +62,7 @@ if ( empty( $_POST['redirect_to'] ) ) {
 /**
  * Filters the location URI to send the commenter after posting.
  *
- * @since WP 2.0.5
+ * @since Before 2.0.5
  *
  * @param string $location The 'redirect_to' URI sent via $_POST.
  * @param WP_Comment $comment Comment object.

@@ -10,7 +10,7 @@
  * @subpackage Includes
  * @abstract
  *
- * @since WP 2.1.0
+ * @since Before 2.1.0
  */
 
 namespace AppNamespace\Includes;

@@ -18,7 +18,7 @@ namespace AppNamespace\Includes;
  * core functions pass this class in the event of an error and
  * if not handled properly will result in code errors.
  *
- * @since WP 2.1.0
+ * @since Before 2.1.0
  */
 class Error_Messages {
 	/**

@@ -1040,7 +1040,7 @@ final class WP_Theme implements ArrayAccess {
 	 * Screenshots for a theme must be in the stylesheet directory. (In the case of child
 	 * themes, parent theme screenshots are not inherited.)
 	 *
-	 * @since WP 3.4.0
+	 * @since Before 3.4.0
 	 *
 	 * @param string $uri Type of URL to return, either 'relative' or an absolute URI. Defaults to absolute URI.
 	 * @return string|false Screenshot file. False if the theme does not have a screenshot.

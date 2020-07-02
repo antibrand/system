@@ -124,7 +124,7 @@ if ( $doaction ) {
 		 *
 		 * The dynamic portion of the hook name, `$screen`, refers to the current screen ID.
 		 *
-		 * @since WP 4.7.0
+		 * @since Before 4.7.0
 		 * @param string $redirect_url The redirect URL.
 		 * @param string $doaction     The action being taken.
 		 * @param array  $items        The items to take the action on.

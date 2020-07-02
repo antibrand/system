@@ -4,7 +4,7 @@
  *
  * @package App_Package
  * @subpackage Template
- * @since WP 4.4.0
+ * @since Before 4.4.0
  */
 
 namespace AppNamespace\Includes;
@@ -22,7 +22,7 @@ use \AppNamespace\Backend as Backend;
 /**
  * Core class used to create an HTML list of categories.
  *
- * @since WP 2.1.0
+ * @since Before 2.1.0
  *
  * @see Walker
  */
@@ -133,7 +133,7 @@ class Walker_Category extends Walker {
 			/**
 			 * Filters the category description for display.
 			 *
-			 * @since WP 1.2.0
+			 * @since Before 1.2.0
 			 * @param string $description Category description.
 			 * @param object $category    Category object.
 			 */
@@ -223,7 +223,7 @@ class Walker_Category extends Walker {
 			 *
 			 * @see wp_list_categories()
 			 *
-			 * @since WP 4.2.0
+			 * @since Before 4.2.0
 			 * @param array  $css_classes An array of CSS classes to be applied to each list item.
 			 * @param object $category    Category data object.
 			 * @param int    $depth       Depth of page, used for padding.

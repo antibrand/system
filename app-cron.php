@@ -134,7 +134,7 @@ foreach ( $crons as $timestamp => $cronhooks ) {
 			 * Fires scheduled events.
 			 *
 			 * @ignore
-			 * @since WP 2.1.0
+			 * @since Before 2.1.0
 			 *
 			 * @param string $hook Name of the hook that was scheduled to be fired.
 			 * @param array  $args The arguments to be passed to the hook.

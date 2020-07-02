@@ -4,7 +4,7 @@
  *
  * @package App_Package
  * @subpackage List_Table
- * @since WP 3.1.0
+ * @since Before 3.1.0
  */
 
 /**
@@ -21,7 +21,7 @@ use \AppNamespace\Backend as Backend;
  * Fetch an instance of a WP_List_Table class.
  *
  * @access private
- * @since WP 3.1.0
+ * @since Before 3.1.0
  * @global string $hook_suffix
  * @param string $class The type of the list table, which is the class name.
  * @param array $args Optional. Arguments to pass to the class. Accepts 'screen'.

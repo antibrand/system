@@ -44,7 +44,7 @@
  * | `$is_ssl`            | Yes           |  Yes               | No       | No             |
  * | `$fields`            | Yes           |  Yes               | No       | No             |
  *
- * @since WP 2.7.0
+ * @since Before 2.7.0
  * @param string       $action API action to perform: 'query_plugins', 'plugin_information',
  *                     'hot_tags' or 'hot_categories'.
  * @param array|object $args   {
@@ -114,7 +114,7 @@ function plugins_api( $action, $args = [] ) {
 	 *
 	 * Important: An object MUST be returned to this filter.
 	 *
-	 * @since WP 2.7.0
+	 * @since Before 2.7.0
 	 * @param object $args   Plugin API arguments.
 	 * @param string $action The type of information being requested from the Plugin Installation API.
 	 */
@@ -128,7 +128,7 @@ function plugins_api( $action, $args = [] ) {
 	 * If `$action` is 'query_plugins' or 'plugin_information', an object MUST be passed.
 	 * If `$action` is 'hot_tags' or 'hot_categories', an array should be passed.
 	 *
-	 * @since WP 2.7.0
+	 * @since Before 2.7.0
 	 * @param false|object|array $result The result object or array. Default false.
 	 * @param string             $action The type of information being requested from the Plugin Installation API.
 	 * @param object             $args   Plugin API arguments.
@@ -184,7 +184,7 @@ function plugins_api( $action, $args = [] ) {
 	/**
 	 * Filters the Plugin Installation API response results.
 	 *
-	 * @since WP 2.7.0
+	 * @since Before 2.7.0
 	 * @param object|WP_Error $res    Response object or WP_Error.
 	 * @param string          $action The type of information being requested from the Plugin Installation API.
 	 * @param object          $args   Plugin API arguments.
@@ -195,7 +195,7 @@ function plugins_api( $action, $args = [] ) {
 /**
  * Retrieve popular WordPress plugin tags.
  *
- * @since WP 2.7.0
+ * @since Before 2.7.0
  * @param array $args
  * @return array
  */
@@ -221,7 +221,7 @@ function install_popular_tags( $args = [] ) {
 /**
  * Plugins install template
  *
- * @since WP 2.7.0
+ * @since Before 2.7.0
  * @return mixed Returns the markup of the plugins install interface.
  */
 function install_dashboard() {
@@ -271,8 +271,8 @@ function install_dashboard() {
 /**
  * Displays a search form for searching plugins.
  *
- * @since WP 2.7.0
- * @since WP 4.6.0 The `$type_selector` parameter was deprecated.
+ * @since Before 2.7.0
+ * @since Before 4.6.0 The `$type_selector` parameter was deprecated.
  * @param bool $deprecated Not used.
  * @return mixed Returns the markup of the plugins search form.
  */
@@ -316,7 +316,7 @@ function install_search_form( $deprecated = true ) {
 /**
  * Show a username form for the favorites page
  *
- * @since WP 3.5.0
+ * @since Before 3.5.0
  * @return mixed Returns the markup of the plugins user favorites form.
  */
 function install_plugins_favorites_form() {
@@ -345,7 +345,7 @@ function install_plugins_favorites_form() {
 /**
  * Display plugin content based on plugin list
  *
- * @since WP 2.7.0
+ * @since Before 2.7.0
  * @global WP_List_Table $wp_list_table
  * @return mixed Returns the markup of the plugins lists.
  */
@@ -390,7 +390,7 @@ function display_plugins_table() {
 /**
  * Determine the status we can perform on a plugin
  *
- * @since WP 3.0.0
+ * @since Before 3.0.0
  * @param  array|object $api  Data about the plugin retrieved from the API.
  * @param  bool         $loop Optional. Disable further loops. Default false.
  * @return array {
@@ -501,7 +501,7 @@ function install_plugin_install_status( $api, $loop = false ) {
 /**
  * Display plugin information in dialog box form.
  *
- * @since WP 2.7.0
+ * @since Before 2.7.0
  * @global string $tab
  */
 function install_plugin_information() {

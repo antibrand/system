@@ -92,7 +92,7 @@ if ( isset( $_REQUEST['action'] ) && 'adduser' == $_REQUEST['action'] ) {
 			/**
 			 * Fires immediately after a user is invited to join a site, but before the notification is sent.
 			 *
-			 * @since WP 4.4.0
+			 * @since Before 4.4.0
 			 * @param int    $user_id     The invited user's ID.
 			 * @param array  $role        The role of invited user.
 			 * @param string $newuser_key The key of the invitation.
@@ -168,7 +168,7 @@ Please click the following link to confirm the invite:
 			/**
 			 * Filters the user_login, also known as the username, before it is added to the site.
 			 *
-			 * @since WP 2.0.3
+			 * @since Before 2.0.3
 			 * @param string $user_login The sanitized username.
 			 */
 			$new_user_login = apply_filters( 'pre_user_login', sanitize_user( wp_unslash( $_REQUEST['user_login'] ), true ) );
@@ -328,7 +328,7 @@ wp_enqueue_script( 'user-profile' );
 /**
  * Filters whether to enable user auto-complete for non-super admins in Multisite.
  *
- * @since WP 3.4.0
+ * @since Before 3.4.0
  * @param bool $enable Whether to enable auto-complete for non-super admins. Default false.
  */
 if ( is_multisite() && current_user_can( 'promote_users' ) && ! wp_is_large_network( 'users' )

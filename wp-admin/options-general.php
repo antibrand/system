@@ -372,8 +372,8 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 					/**
 					* Filters the default date formats.
 					*
-					* @since WP 2.7.0
-					* @since WP 4.0.0 Added ISO date standard YYYY-MM-DD format.
+					* @since Before 2.7.0
+					* @since Before 4.0.0 Added ISO date standard YYYY-MM-DD format.
 					* @param array $default_date_formats Array of default date formats.
 					*/
 					$date_formats = array_unique( apply_filters( 'date_formats', array( __( 'F j, Y' ), 'Y-m-d', 'm/d/Y', 'd/m/Y' ) ) );
@@ -416,7 +416,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 						/**
 						* Filters the default time formats.
 						*
-						* @since WP 2.7.0
+						* @since Before 2.7.0
 						* @param array $default_time_formats Array of default time formats.
 						*/
 						$time_formats = array_unique( apply_filters( 'time_formats', array( __( 'g:i a' ), 'g:i A', 'H:i' ) ) );

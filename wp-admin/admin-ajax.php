@@ -9,7 +9,7 @@
 /**
  * Executing Ajax process.
  *
- * @since WP 2.1.0
+ * @since Before 2.1.0
  */
 define( 'DOING_AJAX', true );
 

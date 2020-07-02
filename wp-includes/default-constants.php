@@ -437,13 +437,13 @@ function wp_templating_constants() {
 
 	/**
 	 * Filesystem path to the current active template directory
-	 * @since WP 1.5.0
+	 * @since Before 1.5.0
 	 */
 	define( 'TEMPLATEPATH', get_template_directory() );
 
 	/**
 	 * Filesystem path to the current active template stylesheet directory
-	 * @since WP 2.1.0
+	 * @since Before 2.1.0
 	 */
 	define( 'STYLESHEETPATH', get_stylesheet_directory() );
 
@@ -452,7 +452,7 @@ function wp_templating_constants() {
 	 * Used as the default theme when installing new sites.
 	 * It will be used as the fallback if the current theme doesn't exist.
 	 *
-	 * @since WP 3.0.0
+	 * @since Before 3.0.0
 	 * @see WP_Theme::get_core_default_theme()
 	 */
 	if ( ! defined( 'WP_DEFAULT_THEME' ) ) {

@@ -4,7 +4,7 @@
  *
  * @package App_Package
  * @subpackage Administration
- * @since WP 3.1.0
+ * @since Before 3.1.0
  */
 
 namespace AppNamespace\Backend;
@@ -12,7 +12,7 @@ namespace AppNamespace\Backend;
 /**
  * Core class used to implement displaying plugins to install in a list table.
  *
- * @since WP 3.1.0
+ * @since Before 3.1.0
  * @access private
  *
  * @see List_Table
@@ -139,7 +139,7 @@ class Plugin_Install_List_Table extends List_Table {
 		/**
 		 * Filters the tabs shown on the Plugin Install screen.
 		 *
-		 * @since WP 2.7.0
+		 * @since Before 2.7.0
 		 * @param array $tabs The tabs shown on the Plugin Install screen. Defaults include 'featured', 'popular',
 		 *                    'recommended', 'favorites', and 'upload'.
 		 */
@@ -148,7 +148,7 @@ class Plugin_Install_List_Table extends List_Table {
 		/**
 		 * Filters tabs not associated with a menu item on the Plugin Install screen.
 		 *
-		 * @since WP 2.7.0
+		 * @since Before 2.7.0
 		 * @param array $nonmenu_tabs The tabs that don't have a Menu item on the Plugin Install screen.
 		 */
 		$nonmenu_tabs = apply_filters( 'install_plugins_nonmenu_tabs', $nonmenu_tabs );
@@ -246,7 +246,7 @@ class Plugin_Install_List_Table extends List_Table {
 		 * The dynamic portion of the hook name, `$tab`, refers to the plugin install tabs.
 		 * Default tabs include 'featured', 'popular', 'recommended', 'favorites', and 'upload'.
 		 *
-		 * @since WP 3.7.0
+		 * @since Before 3.7.0
 		 * @param array|bool $args Plugin Install API arguments.
 		 */
 		$args = apply_filters( "install_plugins_table_api_args_{$tab}", $args );
@@ -457,7 +457,7 @@ class Plugin_Install_List_Table extends List_Table {
 					/**
 					 * Fires before the Plugin Install table header pagination is displayed.
 					 *
-					 * @since WP 2.7.0
+					 * @since Before 2.7.0
 					 */
 					do_action( 'install_plugins_table_header' ); ?>
 				</div>
@@ -691,7 +691,7 @@ class Plugin_Install_List_Table extends List_Table {
 			/**
 			 * Filters the install action links for a plugin.
 			 *
-			 * @since WP 2.7.0
+			 * @since Before 2.7.0
 			 * @param array $action_links An array of plugin action hyperlinks. Defaults are links to Details and Install Now.
 			 * @param array $plugin       The plugin currently being listed.
 			 */

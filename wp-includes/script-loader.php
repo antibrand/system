@@ -1022,7 +1022,7 @@ function wp_default_styles( &$styles ) {
 /**
  * Reorder JavaScript scripts array to place prototype before jQuery.
  *
- * @since WP 2.3.1
+ * @since Before 2.3.1
  * @param array $js_array JavaScript scripts array
  * @return array Reordered array, if needed.
  */
@@ -1052,7 +1052,7 @@ function wp_prototype_before_jquery( $js_array ) {
  *
  * These localizations require information that may not be loaded even by init.
  *
- * @since WP 2.5.0
+ * @since Before 2.5.0
  */
 function wp_just_in_time_script_localization() {
 

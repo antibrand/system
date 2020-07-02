@@ -38,8 +38,8 @@ $_wp_editor_expand = $_content_editor_dfw = false;
 /**
  * Filters whether to enable the 'expand' functionality in the post editor.
  *
- * @since WP 4.0.0
- * @since WP 4.1.0 Added the `$post_type` parameter.
+ * @since Before 4.0.0
+ * @since Before 4.1.0 Added the `$post_type` parameter.
  *
  * @param bool $expand Whether to enable the 'expand' functionality. Default true.
  * @param string $post_type Post type.
@@ -204,7 +204,7 @@ $messages['attachment'] = array_fill( 1, 10, __( 'Media file updated.' ) );
  *
  * @see $messages declarations above for defaults.
  *
- * @since WP 3.0.0
+ * @since Before 3.0.0
  * @param array $messages Post updated messages.
  */
 $messages = apply_filters( 'post_updated_messages', $messages );
@@ -347,7 +347,7 @@ if ( post_type_supports( $post_type, 'custom-fields' ) ) {
 /**
  * Fires in the middle of built-in meta box registration.
  *
- * @since WP 2.1.0
+ * @since Before 2.1.0
  * @deprecated WP 3.7.0 Use 'add_meta_boxes' instead.
  * @param WP_Post $post Post object.
  */
@@ -390,7 +390,7 @@ if ( post_type_supports( $post_type, 'author' ) && current_user_can( $post_type_
 /**
  * Fires after all built-in meta boxes have been added.
  *
- * @since WP 3.0.0
+ * @since Before 3.0.0
  * @param string $post_type Post type.
  * @param WP_Post $post Post object.
  */
@@ -402,7 +402,7 @@ do_action( 'add_meta_boxes', $post_type, $post );
  *
  * The dynamic portion of the hook, `$post_type`, refers to the post type of the post.
  *
- * @since WP 3.0.0
+ * @since Before 3.0.0
  * @param WP_Post $post Post object.
  */
 do_action( "add_meta_boxes_{$post_type}", $post );
@@ -412,7 +412,7 @@ do_action( "add_meta_boxes_{$post_type}", $post );
  *
  * Fires once for each of the default meta box contexts: normal, advanced, and side.
  *
- * @since WP 3.0.0
+ * @since Before 3.0.0
  * @param string $post_type Post type of the post.
  * @param string $context string  Meta box context.
  * @param WP_Post $post Post object.
@@ -679,7 +679,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 		/**
 		 * Fires inside the post editor form tag.
 		 *
-		 * @since WP 3.0.0
+		 * @since Before 3.0.0
 		 * @param WP_Post $post Post object.
 		 */
 		do_action( 'post_edit_form_tag', $post );
@@ -712,7 +712,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 		 *
 		 * At this point, the required hidden fields and nonces have already been output.
 		 *
-		 * @since WP 3.7.0
+		 * @since Before 3.7.0
 		 * @param WP_Post $post Post object.
 		 */
 		do_action( 'edit_form_top', $post );
@@ -730,7 +730,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 							/**
 							 * Filters the title field placeholder text.
 							 *
-							 * @since WP 3.1.0
+							 * @since Before 3.1.0
 							 * @param string $text Placeholder text. Default 'Add Title Here'.
 							 * @param WP_Post $post Post object.
 							 */
@@ -781,7 +781,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 						/**
 						 * Fires before the permalink field in the edit form.
 						 *
-						 * @since WP 4.1.0
+						 * @since Before 4.1.0
 						 * @param WP_Post $post Post object.
 						 */
 						do_action( 'edit_form_before_permalink', $post );
@@ -823,7 +823,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 					/**
 					 * Fires after the title field.
 					 *
-					 * @since WP 3.5.0
+					 * @since Before 3.5.0
 					 * @param WP_Post $post Post object.
 					 */
 					do_action( 'edit_form_after_title', $post );
@@ -872,7 +872,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 				/**
 				 * Fires after the content editor.
 				 *
-				 * @since WP 3.5.0
+				 * @since Before 3.5.0
 				 * @param WP_Post $post Post object.
 				 */
 				do_action( 'edit_form_after_editor', $post );
@@ -888,7 +888,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 						 * The submitpage box is a meta box with 'side' context so
 						 * this hook fires just before it is output.
 						 *
-						 * @since WP 2.5.0
+						 * @since Before 2.5.0
 						 * @param WP_Post $post Post object.
 						 */
 						do_action( 'submitpage_box', $post );
@@ -901,7 +901,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 						 * The submitpost box is a meta box with 'side' context so
 						 * this hook fires just before it is output.
 						 *
-						 * @since WP 2.5.0
+						 * @since Before 2.5.0
 						 * @param WP_Post $post Post object.
 						 */
 						do_action( 'submitpost_box', $post );
@@ -921,7 +921,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 						 * Fires after 'normal' context meta boxes have been output for
 						 * the 'page' post type.
 						 *
-						 * @since WP 1.5.0
+						 * @since Before 1.5.0
 						 * @param WP_Post $post Post object.
 						 */
 						do_action( 'edit_page_form', $post );
@@ -931,7 +931,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 						 * Fires after 'normal' context meta boxes have been output for
 						 * all post types other than 'page'.
 						 *
-						 * @since WP 1.5.0
+						 * @since Before 1.5.0
 						 * @param WP_Post $post Post object.
 						 */
 						do_action( 'edit_form_advanced', $post );
@@ -945,7 +945,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 				 * Fires after all meta box sections have been output,
 				 * before the closing #post-body div.
 				 *
-				 * @since WP 2.1.0
+				 * @since Before 2.1.0
 				 * @param WP_Post $post Post object.
 				 */
 				do_action( 'dbx_post_sidebar', $post );

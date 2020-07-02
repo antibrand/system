@@ -470,7 +470,7 @@ $bulk_messages['page'] = [
  *
  * By default, custom post types use the messages for the 'post' post type.
  *
- * @since WP 3.7.0
+ * @since Before 3.7.0
  * @param array $bulk_messages Arrays of messages, each keyed by the corresponding post type. Messages are
  *                             keyed with 'updated', 'locked', 'deleted', 'trashed', and 'untrashed'.
  * @param array $bulk_counts   Array of item counts for each message, used to build internationalized strings.

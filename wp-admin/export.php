@@ -22,7 +22,7 @@ $parent_file = 'options-general.php';
 /**
  * Display JavaScript on the page.
  *
- * @since WP 3.5.0
+ * @since Before 3.5.0
  */
 function export_add_js() {
 
@@ -143,7 +143,7 @@ if ( isset( $_GET['download'] ) ) {
 	/**
 	 * Filters the export args.
 	 *
-	 * @since WP 3.5.0
+	 * @since Before 3.5.0
 	 * @param array $args The arguments to send to the exporter.
 	 */
 	$args = apply_filters( 'export_args', $args );
@@ -161,7 +161,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
  * @global wpdb $wpdb Database abstraction object.
  * @global WP_Locale $wp_locale Date and Time Locale object.
  *
- * @since WP 3.1.0
+ * @since Before 3.1.0
  * @param string $post_type The post type. Default 'post'.
  */
 function export_date_options( $post_type = 'post' ) {
@@ -337,7 +337,7 @@ function export_date_options( $post_type = 'post' ) {
 	/**
 	 * Fires at the end of the export filters form.
 	 *
-	 * @since WP 3.5.0
+	 * @since Before 3.5.0
 	 */
 	do_action( 'export_filters' );
 	?>

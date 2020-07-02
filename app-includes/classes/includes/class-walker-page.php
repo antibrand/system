@@ -4,7 +4,7 @@
  *
  * @package App_Package
  * @subpackage Template
- * @since WP 4.4.0
+ * @since Before 4.4.0
  */
 
 namespace AppNamespace\Includes;
@@ -22,7 +22,7 @@ use \AppNamespace\Backend as Backend;
 /**
  * Core walker class used to create an HTML list of pages.
  *
- * @since WP 2.1.0
+ * @since Before 2.1.0
  *
  * @see Walker
  */
@@ -162,7 +162,7 @@ class Walker_Page extends Walker {
 		 *
 		 * @see wp_list_pages()
 		 *
-		 * @since WP 2.8.0
+		 * @since Before 2.8.0
 		 * @param array   $css_class    An array of CSS classes to be applied
 		 *                              to each list item.
 		 * @param WP_Post $page         Page data object.
@@ -186,7 +186,7 @@ class Walker_Page extends Walker {
 		/**
 		 * Filters the HTML attributes applied to a page menu item's anchor element.
 		 *
-		 * @since WP 4.8.0
+		 * @since Before 4.8.0
 		 *
 		 * @param array $atts {
 		 *     The HTML attributes applied to the menu item's `<a>` element, empty strings are ignored.

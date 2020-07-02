@@ -334,7 +334,7 @@ require( ABSPATH . 'wp-admin/admin-header.php' );
 						/**
 						 * Filters the list of available permalink structure tags on the Permalinks settings page.
 						 *
-						 * @since WP 4.8.0
+						 * @since Before 4.8.0
 						 * @param array $available_tags A key => value pair of available permalink structure tags.
 						 */
 						$available_tags = apply_filters( 'available_permalink_structure_tags', $available_tags );
