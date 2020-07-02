@@ -492,11 +492,11 @@ class APP_User_Toolbar {
 		}
 
 		?>
-		<div id="wpadminbar" class="<?php echo $class; ?>">
+		<div id="app-toolbar" class="<?php echo $class; ?>">
 			<?php if ( ! is_admin() ) { ?>
-				<a class="screen-reader-shortcut" href="#app-toolbar" tabindex="1"><?php _e( 'Skip to toolbar' ); ?></a>
+				<a class="screen-reader-shortcut" href="#app-toolbar-links" tabindex="1"><?php _e( 'Skip to toolbar' ); ?></a>
 			<?php } ?>
-			<div class="quicklinks" id="app-toolbar" role="navigation" aria-label="<?php esc_attr_e( 'Toolbar' ); ?>" tabindex="0">
+			<div class="quicklinks" id="app-toolbar-links" role="navigation" aria-label="<?php esc_attr_e( 'Toolbar' ); ?>" tabindex="0">
 				<?php foreach ( $root->children as $group ) {
 					$this->_render_group( $group );
 				} ?>

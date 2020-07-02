@@ -947,7 +947,7 @@ function wp_admin_bar_add_secondary_groups( $wp_admin_bar ) {
  * @return string Retuns a CSS style block.
  */
 function app_user_toolbar_header() { ?>
-<style type="text/css" media="print">#wpadminbar { display: none; }</style>
+<style type="text/css" media="print">#app-toolbar { display: none; }</style>
 <?php
 }
 

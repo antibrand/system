@@ -8,7 +8,7 @@ if ( typeof(jQuery) != 'undefined' ) {
 		/* jshint ignore:end */
 	}
 	jQuery(document).ready(function($){
-		var adminbar = $('#wpadminbar'), refresh, touchOpen, touchClose, disableHoverIntent = false;
+		var adminbar = $('#app-toolbar'), refresh, touchOpen, touchClose, disableHoverIntent = false;
 
 		refresh = function(i, el){ // force the browser to refresh the tabbing index
 			var node = $(el), tab = node.attr('tabindex');
@@ -47,7 +47,7 @@ if ( typeof(jQuery) != 'undefined' ) {
 			var mobileEvent = /Mobile\/.+Safari/.test(navigator.userAgent) ? 'touchstart' : 'click';
 			// close any open drop-downs when the click/touch is not on the toolbar
 			$(document.body).on( mobileEvent+'.wp-mobile-hover', function(e) {
-				if ( !$(e.target).closest('#wpadminbar').length )
+				if ( !$(e.target).closest('#app-toolbar').length )
 					adminbar.find('li.menupop.hover').removeClass('hover');
 			});
 		};
@@ -93,7 +93,7 @@ if ( typeof(jQuery) != 'undefined' ) {
 			}).focus().select();
 		});
 
-		$('#wpadminbar li.menupop > .ab-item').bind('keydown.adminbar', function(e){
+		$('#app-toolbar li.menupop > .ab-item').bind('keydown.adminbar', function(e){
 			if ( e.which != 13 )
 				return;
 
@@ -105,7 +105,7 @@ if ( typeof(jQuery) != 'undefined' ) {
 			e.preventDefault();
 
 			if ( !wrap.length )
-				wrap = $('#wpadminbar .quicklinks');
+				wrap = $('#app-toolbar .quicklinks');
 
 			wrap.find('.menupop').removeClass('hover');
 
@@ -116,7 +116,7 @@ if ( typeof(jQuery) != 'undefined' ) {
 			target.siblings('.ab-sub-wrapper').find('.ab-item').each(refresh);
 		}).each(refresh);
 
-		$('#wpadminbar .ab-item').bind('keydown.adminbar', function(e){
+		$('#app-toolbar .ab-item').bind('keydown.adminbar', function(e){
 			if ( e.which != 27 )
 				return;
 
@@ -130,7 +130,7 @@ if ( typeof(jQuery) != 'undefined' ) {
 		});
 
 		adminbar.click( function(e) {
-			if ( e.target.id != 'wpadminbar' && e.target.id != 'wp-admin-bar-top-secondary' ) {
+			if ( e.target.id != 'app-toolbar' && e.target.id != 'wp-admin-bar-top-secondary' ) {
 				return;
 			}
 
@@ -307,8 +307,8 @@ if ( typeof(jQuery) != 'undefined' ) {
 		scrollToTop = function(t) {
 			var distance, speed, step, steps, timer, speed_step;
 
-			// Ensure that the #wpadminbar was the target of the click.
-			if ( t.id != 'wpadminbar' && t.id != 'wp-admin-bar-top-secondary' )
+			// Ensure that the #app-toolbar was the target of the click.
+			if ( t.id != 'app-toolbar' && t.id != 'wp-admin-bar-top-secondary' )
 				return;
 
 			distance    = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
@@ -339,7 +339,7 @@ if ( typeof(jQuery) != 'undefined' ) {
 		};
 
 		addEvent(w, 'load', function() {
-			aB = d.getElementById('wpadminbar');
+			aB = d.getElementById('app-toolbar');
 
 			if ( d.body && aB ) {
 				d.body.appendChild( aB );

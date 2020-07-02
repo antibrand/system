@@ -448,7 +448,7 @@ form#tags-filter {
   display: none;
 }
 
-.post-php.mce-fullscreen #wpadminbar,
+.post-php.mce-fullscreen #app-toolbar,
 .mce-fullscreen #wp-content-wrap .mce-wp-dfw {
   display: none;
 }

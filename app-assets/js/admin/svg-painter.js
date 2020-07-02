@@ -119,7 +119,7 @@ wp.svgPainter = ( function( $, window, document, undefined ) {
 	return {
 		init: function() {
 			painter = this;
-			selector = $( '#adminmenu .wp-menu-image, #wpadminbar .ab-item' );
+			selector = $( '#adminmenu .wp-menu-image, #app-toolbar .ab-item' );
 
 			this.setColors();
 			this.findElements();

@@ -2048,8 +2048,8 @@ jQuery(document).ready( function($) {
 			W = ( 1040 < width ) ? 1040 : width,
 			adminbar_height = 0;
 
-		if ( $('#wpadminbar').length ) {
-			adminbar_height = parseInt( $('#wpadminbar').css('height'), 10 );
+		if ( $('#app-toolbar').length ) {
+			adminbar_height = parseInt( $('#app-toolbar').css('height'), 10 );
 		}
 
 		if ( tbWindow.size() ) {

@@ -1,6 +1,6 @@
 /* global getUserSetting, setUserSetting */
 ( function( tinymce ) {
-// Set the minimum value for the modals z-index higher than #wpadminbar (100000)
+// Set the minimum value for the modals z-index higher than #app-toolbar (100000)
 if ( ! tinymce.ui.FloatPanel.zIndex || tinymce.ui.FloatPanel.zIndex < 100100 ) {
 	tinymce.ui.FloatPanel.zIndex = 100100;
 }
@@ -689,7 +689,7 @@ tinymce.PluginManager.add( 'wordpress', function( editor ) {
 			currentSelection,
 			timeout,
 			container = editor.getContainer(),
-			wpAdminbar = document.getElementById( 'wpadminbar' ),
+			wpAdminbar = document.getElementById( 'app-toolbar' ),
 			mceIframe = document.getElementById( editor.id + '_ifr' ),
 			mceToolbar,
 			mceStatusbar,

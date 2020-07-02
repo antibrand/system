@@ -169,7 +169,7 @@ Manage = MediaFrame.extend(/** @lends wp.media.view.MediaFrame.Manage.prototype 
 
 		this.$body = $( document.body );
 		this.$window = $( window );
-		this.$adminBar = $( '#wpadminbar' );
+		this.$adminBar = $( '#app-toolbar' );
 		// Store the Add New button for later reuse in wp.media.view.UploaderInline.
 		this.$uploaderToggler = $( '.page-title-action' )
 			.attr( 'aria-expanded', 'false' )

@@ -336,7 +336,7 @@
 		var queryParams, $element = $( element );
 
 		// Skip links in admin bar.
-		if ( $element.closest( '#wpadminbar' ).length ) {
+		if ( $element.closest( '#app-toolbar' ).length ) {
 			return;
 		}
 

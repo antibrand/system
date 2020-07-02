@@ -314,7 +314,7 @@ $document.ready( function() {
 		$toolbarPopups = $toolbar.find( 'a[aria-haspopup="true"]' ),
 		$sortables = $('.meta-box-sortables'),
 		wpResponsiveActive = false,
-		$adminbar = $( '#wpadminbar' ),
+		$adminbar = $( '#app-toolbar' ),
 		lastScrollPosition = 0,
 		pinnedMenuTop = false,
 		pinnedMenuBottom = false,

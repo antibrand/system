@@ -3,7 +3,7 @@
 
 	var $window = $( window ),
 		$document = $( document ),
-		$adminBar = $( '#wpadminbar' ),
+		$adminBar = $( '#app-toolbar' ),
 		$footer = $( '#wpfooter' );
 
 	/**
