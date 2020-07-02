@@ -3,7 +3,7 @@
  * Toolbar API: User_Toolbar class
  *
  * @package App_Package
- * @subpackage Toolbar
+ * @subpackage Includes\Toolbar
  * @since Previous 3.1.0
  */
 
