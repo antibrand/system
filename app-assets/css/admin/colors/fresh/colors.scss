@@ -496,7 +496,7 @@ ul#adminmenu > li.current > a.current:after {
 	color: $menu_icon;
 }
 
-#wpadminbar > #wp-toolbar > #wp-admin-bar-top-secondary > #wp-admin-bar-search #adminbarsearch input.adminbar-input:focus {
+#wpadminbar > #app-toolbar > #wp-admin-bar-top-secondary > #wp-admin-bar-search #adminbarsearch input.adminbar-input:focus {
 	color: $menu_text_color;
 	background: $adminbar_input_background;
 }

@@ -606,7 +606,7 @@ ul#adminmenu > li.current > a.current:after {
   color: #aeaeae;
 }
 
-#wpadminbar > #wp-toolbar > #wp-admin-bar-top-secondary > #wp-admin-bar-search #adminbarsearch input.adminbar-input:focus {
+#wpadminbar > #app-toolbar > #wp-admin-bar-top-secondary > #wp-admin-bar-search #adminbarsearch input.adminbar-input:focus {
   color: #eeeeee;
   background: #333a41;
 }
