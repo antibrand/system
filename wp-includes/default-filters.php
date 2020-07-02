@@ -484,21 +484,34 @@ add_filter( 'nav_menu_item_id', '_nav_menu_item_id_use_once', 10, 2 );
 // Widgets
 add_action( 'init', 'wp_widgets_init', 1 );
 
-// Admin Bar
-// Don't remove. Wrong way to disable.
+/**
+ * User toolbar
+ *
+ * Don't remove. Wrong way to disable.
+ */
 add_action( 'template_redirect', 'app_user_toolbar_init', 0 );
 add_action( 'admin_init', 'app_user_toolbar_init' );
 add_action( 'before_signup_header', 'app_user_toolbar_init' );
 add_action( 'activate_header', 'app_user_toolbar_init' );
-add_action( 'wp_footer', 'wp_admin_bar_render', 1000 );
-add_action( 'app_toolbar_render', 'wp_admin_bar_render' );
 
-// Former admin filters that can also be hooked on the front end
+// Frontend toolbar.
+add_action( 'wp_footer', 'app_toolbar_render', 1000 );
+
+// Backend toolbar.
+add_action( 'app_toolbar_render', 'app_toolbar_render' );
+
+/**
+ * Former admin filters
+ *
+ * Can also be hooked on the front end.
+ */
 add_action( 'media_buttons', 'media_buttons' );
 add_filter( 'image_send_to_editor', 'image_add_caption', 20, 8 );
 add_filter( 'media_send_to_editor', 'image_media_send_to_editor', 10, 3 );
 
-// Embeds
+/**
+ * Embeds
+ */
 add_action( 'rest_api_init',          'wp_oembed_register_route'              );
 add_filter( 'rest_pre_serve_request', '_oembed_rest_pre_serve_request', 10, 4 );
 
