@@ -1330,6 +1330,7 @@ table.form-table td .updated p {
           box-sizing: border-box;
   margin-bottom: 0.1875rem;
   border: solid 2px transparent;
+  cursor: pointer;
 }
 
 .color-palette {
@@ -1368,8 +1369,17 @@ table.form-table td .updated p {
   border: solid 1px #888888;
 }
 
-.color-option {
-  cursor: pointer;
+.user-code-theme-options {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.user-code-theme-options > div:not(:last-of-type) {
+  margin-left: 1em;
 }
 
 /*------------------------------------------------------------------------------

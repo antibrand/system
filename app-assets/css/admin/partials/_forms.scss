@@ -751,6 +751,16 @@ table.form-table td .updated p {
 	}
 }
 
+.user-code-theme-options {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+
+	& > div:not(:last-of-type) {
+		margin-right: 1em;
+	}
+}
+
 /*------------------------------------------------------------------------------
   19.0 - Tools
 ------------------------------------------------------------------------------*/

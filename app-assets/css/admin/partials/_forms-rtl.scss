@@ -723,6 +723,7 @@ table.form-table td .updated p {
 	box-sizing: border-box;
 	margin-bottom: 0.1875rem;
 	border: solid 2px transparent;
+	cursor: pointer;
 }
 
 .color-palette {
@@ -755,8 +756,14 @@ table.form-table td .updated p {
 	}
 }
 
-.color-option {
-	cursor: pointer;
+.user-code-theme-options {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+
+	& > div:not(:last-of-type) {
+		margin-left: 1em;
+	}
 }
 
 /*------------------------------------------------------------------------------
