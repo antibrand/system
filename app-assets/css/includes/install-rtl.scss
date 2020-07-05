@@ -1,8 +1,8 @@
-@import '../includes/partials/_reset';
-@import '../includes/partials/_font-faces';
-@import 'partials/_typography';
+@import 'partials/_reset';
+@import 'partials/_font-faces';
+@import '../admin/partials/_typography';
 @import '../admin/partials/_forms';
-@import '../includes/partials/_buttons';
+@import 'partials/_buttons';
 
 p,
 ul,
@@ -22,7 +22,7 @@ ol {
 
 		.app-logo {
 			max-width: 80px;
-			margin-right: 1em;
+			margin-left: 1em;
 
 			img {
 				display: block;
@@ -353,12 +353,22 @@ fieldset {
 .step .spinner {
 	display: inline-block;
 	vertical-align: middle;
-	margin-right: 15px;
+	margin-left: 15px;
 }
 
 .button.hide-if-no-js,
 .hide-if-no-js {
 	display: none;
+}
+
+::-moz-selection {
+	background-color: $app_highlight_color;
+	color: $black;
+}
+
+::selection {
+	background-color: $app_highlight_color;
+	color: $black;
 }
 
 /**

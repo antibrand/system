@@ -2593,6 +2593,16 @@ fieldset.tabbed-legend > div:first-of-type p:first-of-type {
   display: none;
 }
 
+::-moz-selection {
+  background-color: #ffee00;
+  color: #000000;
+}
+
+::selection {
+  background-color: #ffee00;
+  color: #000000;
+}
+
 /**
  * HiDPI Displays
  */

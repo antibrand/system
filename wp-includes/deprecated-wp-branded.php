@@ -9,3 +9,6 @@
  * @package App_Package
  * @subpackage Deprecated
  */
+
+// function wp_admin_css() {}
+// function wp_admin_css_uri() {}

@@ -10,7 +10,11 @@
 
 // Store the locations of functions, classes, and core content.
 define( 'APPINC', 'app-includes' );
-define( 'APPVIEWS', 'app-views' );
+
+// Define APPVIEWS for page markup directory.
+if ( ! defined( 'APPVIEWS' ) ) {
+	define( 'APPVIEWS', ABSPATH . 'app-views/' );
+}
 define( 'WPINC', 'wp-includes' );
 
 /**
@@ -230,7 +234,7 @@ require( ABSPATH . WPINC . '/class-wp-widget.php' );
 require( ABSPATH . WPINC . '/class-wp-widget-factory.php' );
 require( ABSPATH . WPINC . '/nav-menu.php' );
 require( ABSPATH . WPINC . '/nav-menu-template.php' );
-require( ABSPATH . APPVIEWS . '/includes/user-toolbar.php' );
+require( APPVIEWS . '/includes/user-toolbar.php' );
 require( ABSPATH . WPINC . '/rest-api.php' );
 require( ABSPATH . WPINC . '/rest-api/class-wp-rest-server.php' );
 require( ABSPATH . WPINC . '/rest-api/class-wp-rest-response.php' );

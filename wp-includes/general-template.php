@@ -4123,6 +4123,85 @@ function register_user_code_themes() {
  * @see WP_Styles::_css_href and its {@see 'style_loader_src'} filter.
  *
  * @since Previous  WP 2.3.0
+ * @param  string $file file relative to app-assets/ without its ".css" extension.
+ * @return string
+ */
+function app_assets_css_uri( $file = 'app-assets' ) {
+
+	if ( defined( 'WP_INSTALLING' ) ) {
+		$_file = "./$file.css";
+	} else {
+		$_file = app_assets_url( "/css/$file.css" );
+	}
+
+	$_file = add_query_arg( 'version', get_bloginfo( 'version' ),  $_file );
+
+	/**
+	 * Filters the URI of an admin CSS file.
+	 *
+	 * @since Previous 2.3.0
+	 * @param string $_file Relative path to the file with query arguments attached.
+	 * @param string $file  Relative path to the file, minus its ".css" extension.
+	 */
+	return apply_filters( 'app_assets_css_uri', $_file, $file );
+}
+
+/**
+ * Enqueues or directly prints a stylesheet link to the specified CSS file.
+ *
+ * "Intelligently" decides to enqueue or to print the CSS file. If the
+ * {@see 'wp_print_styles'} action has *not* yet been called, the CSS file will be
+ * enqueued. If the {@see 'wp_print_styles'} action has been called, the CSS link will
+ * be printed. Printing may be forced by passing true as the $force_echo
+ * (second) parameter.
+ *
+ * For backward compatibility with 2.3 calling method: If the $file
+ * (first) parameter does not correspond to a registered CSS file, we assume
+ * $file is a file relative to app-assets/ without its ".css" extension. A
+ * stylesheet link to that generated URL is printed.
+ *
+ * @since Previous 2.3.0
+ * @param string $file       Optional. Style handle name or file name (without ".css" extension) relative
+ * 	                         to app-assets/. Defaults to 'app-assets'.
+ * @param bool   $force_echo Optional. Force the stylesheet link to be printed rather than enqueued.
+ */
+function app_assets_css( $file = 'app-assets', $force_echo = false ) {
+	// For backward compatibility
+	$handle = 0 === strpos( $file, 'css/' ) ? substr( $file, 4 ) : $file;
+
+	if ( wp_styles()->query( $handle ) ) {
+		if ( $force_echo || did_action( 'wp_print_styles' ) ) // we already printed the style queue. Print this one immediately
+			wp_print_styles( $handle );
+		else // Add to style queue
+			wp_enqueue_style( $handle );
+		return;
+	}
+
+	/**
+	 * Filters the stylesheet link to the specified CSS file.
+	 *
+	 * If the site is set to display right-to-left, the RTL stylesheet link
+	 * will be used instead.
+	 *
+	 * @since Previous 2.3.0
+	 * @param string $stylesheet_link HTML link element for the stylesheet.
+	 * @param string $file            Style handle name or filename (without ".css" extension)
+	 *                                relative to app-assets/. Defaults to 'app-assets'.
+	 */
+	echo apply_filters( 'app_assets_css', "<link rel='stylesheet' href='" . esc_url( app_assets_url( $file ) ) . "' type='text/css' />\n", $file );
+
+	if ( function_exists( 'is_rtl' ) && is_rtl() ) {
+		/** This filter is documented in wp-includes/general-template.php */
+		echo apply_filters( 'app_assets_css', "<link rel='stylesheet' href='" . esc_url( app_assets_url( "$file-rtl" ) ) . "' type='text/css' />\n", "$file-rtl" );
+	}
+}
+
+/**
+ * Displays the URL of an admin CSS file.
+ *
+ * @see WP_Styles::_css_href and its {@see 'style_loader_src'} filter.
+ *
+ * @since Previous  WP 2.3.0
  * @param  string $file file relative to wp-admin/ without its ".css" extension.
  * @return string
  */
