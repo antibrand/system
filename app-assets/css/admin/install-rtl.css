@@ -1,7 +1,4 @@
 /**
- * Styles for system install screens
- */
-/**
  * Browser reset and starter styles
  */
 @-ms-viewport {
@@ -463,188 +460,6 @@ textarea {
 }
 
 /**
- * General button styles
- *
- * Button padding of 0.75rem top & bottom plus
- * the 1rem line height is to match the 2.5rem
- * height of submit type inputs.
- */
-.button,
-.button-primary,
-.button-secondary {
-  display: inline-block;
-  vertical-align: baseline;
-  margin: 0;
-  padding: 0.75rem 1rem;
-  background: #ffffff;
-  border: solid 1px #888888;
-  font-size: 0.875rem;
-  font-weight: bold;
-  font-weight: 700;
-  line-height: 1;
-  text-decoration: none;
-  color: #222222;
-  white-space: nowrap;
-  cursor: pointer;
-  -webkit-appearance: none;
-  -webkit-transition: all .1s linear;
-  transition: all .1s linear;
-}
-
-.button.button-small,
-.button-primary.button-small,
-.button-secondary.button-small {
-  font-size: 0.6875rem;
-}
-
-.button.button-large,
-.button-primary.button-large,
-.button-secondary.button-large {
-  font-size: 1rem;
-}
-
-.button.button-hightlight, .button.button-hero,
-.button-primary.button-hightlight,
-.button-primary.button-hero,
-.button-secondary.button-hightlight,
-.button-secondary.button-hero {
-  background-color: #ffee00;
-}
-
-.button.button-hightlight:hover, .button.button-hightlight:focus, .button.button-hero:hover, .button.button-hero:focus,
-.button-primary.button-hightlight:hover,
-.button-primary.button-hightlight:focus,
-.button-primary.button-hero:hover,
-.button-primary.button-hero:focus,
-.button-secondary.button-hightlight:hover,
-.button-secondary.button-hightlight:focus,
-.button-secondary.button-hero:hover,
-.button-secondary.button-hero:focus {
-  background-color: #222222;
-  border-color: #222222;
-  color: #ffffff;
-}
-
-.button.button-hero,
-.button-primary.button-hero,
-.button-secondary.button-hero {
-  height: auto;
-  padding: 1em 2em;
-  font-size: 1.0625rem;
-  line-height: 1.4;
-}
-
-.button:active, .button:focus,
-.button-primary:active,
-.button-primary:focus,
-.button-secondary:active,
-.button-secondary:focus {
-  outline: none;
-}
-
-.button.hidden,
-.button-primary.hidden,
-.button-secondary.hidden {
-  display: none;
-}
-
-.button.hover, .button:hover, .button.focus, .button:focus, .button.active, .button:active, .button.current,
-.button-primary.hover,
-.button-primary:hover,
-.button-primary.focus,
-.button-primary:focus,
-.button-primary.active,
-.button-primary:active,
-.button-primary.current,
-.button-secondary.hover,
-.button-secondary:hover,
-.button-secondary.focus,
-.button-secondary:focus,
-.button-secondary.active,
-.button-secondary:active,
-.button-secondary.current {
-  background: #ffee00;
-  color: #222222;
-  color-adjust: exact !important;
-}
-
-.button[disabled], .button:disabled, .button.disabled, .button.button-disabled,
-.button-primary[disabled],
-.button-primary:disabled,
-.button-primary.disabled,
-.button-primary.button-disabled,
-.button-secondary[disabled],
-.button-secondary:disabled,
-.button-secondary.disabled,
-.button-secondary.button-disabled {
-  background: #eeeeee;
-  color: #888888;
-  cursor: default;
-}
-
-/**
- * Button links
- *
- * These are button elements that look like links,
- * for semantically correct HTML with the looks
- * of a standard link.
- */
-.button-link {
-  margin: 0;
-  padding: 0;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  background: none;
-  border: none;
-  outline: none;
-  text-align: left;
-  text-decoration: underline;
-  color: #004499;
-  cursor: pointer;
-}
-
-.button-link:hover, .button-link:focus, .button-link:active {
-  color: #005fd6;
-}
-
-.button-link-delete {
-  color: #dd0000;
-}
-
-.button-link-delete:hover, .button-link-delete:focus {
-  color: #dd0000;
-}
-
-/*
- * Button Groups
- */
-.button-group {
-  position: relative;
-  display: inline-block;
-  white-space: nowrap;
-  font-size: 0;
-  vertical-align: middle;
-}
-
-.button-group > .button {
-  display: inline-block;
-  z-index: 10;
-}
-
-.button-group > .button.button-primary {
-  z-index: 100;
-}
-
-.button-group > .button:hover {
-  z-index: 20;
-}
-
-.button-group > .button:focus {
-  position: relative;
-  z-index: 1;
-}
-
-/**
  * General app typography
  *
  * These styles are primarily used in administration pages.
@@ -833,7 +648,7 @@ textarea:focus {
 }
 
 /**
- * Specific input field styles
+ * Specific field styles
  *
  * Make sure dimensional changes match select.
  */
@@ -857,15 +672,15 @@ input[type="checkbox"], input[type="radio"] {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-      align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-      justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   clear: none;
   width: 1em;
   height: 1em;
-  margin-left: 0.3125rem;
+  margin-right: 0.3125rem;
   padding: 0;
   vertical-align: middle;
   outline: 0;
@@ -996,11 +811,11 @@ input[type="number"] {
 
 select {
   height: 2.5rem;
-  padding: 0 0.5em 0 1.5rem;
+  padding: 0 1.5em 0 0.5em;
   font-size: 0.875rem;
   line-height: 1em;
   background-repeat: no-repeat;
-  background-position: left calc(50% + 2px);
+  background-position: right calc(50% + 2px);
   background-size: 1.5em;
   border-radius: 0;
 }
@@ -1064,7 +879,7 @@ textarea:disabled, textarea.disabled {
   content: "\f534";
   font: normal 20px/1 dashicons;
   color: #dd0000;
-  margin-right: 1.5rem;
+  margin-left: 1.5rem;
   vertical-align: middle;
 }
 
@@ -1076,7 +891,7 @@ textarea:disabled, textarea.disabled {
   content: '\f534';
   font: normal 20px/1 dashicons;
   color: #dd0000;
-  margin: 0 1.5rem 0 0.5rem;
+  margin: 0 0.5 0 1.75rem;
   vertical-align: middle;
 }
 
@@ -1135,16 +950,16 @@ input[type="number"].tiny-text {
 #doaction,
 #doaction2,
 #post-query-submit {
-  margin: 0 0 0 0.5em;
+  margin: 0 0.5em 0 0;
 }
 
 .tablenav .actions select {
-  float: right;
-  margin-left: 6px;
+  float: left;
+  margin-right: 6px;
 }
 
 #timezone_string option {
-  margin-right: 1em;
+  margin-left: 1em;
 }
 
 .options-media-php [for*="_size_"] {
@@ -1161,7 +976,7 @@ input[type="number"].tiny-text {
 }
 
 #pass-strength-result {
-  margin: -2px 1px 5px 5px;
+  margin: -2px 5px 5px 1px;
   padding: 3px 5px;
   text-align: center;
   width: 25em;
@@ -1225,19 +1040,19 @@ input[type="number"].tiny-text {
 }
 
 p.search-box {
-  float: left;
+  float: right;
   margin: 0;
 }
 
 .network-admin.themes-php p.search-box {
-  clear: right;
+  clear: left;
 }
 
 .search-box input[name="s"],
 .tablenav .search-plugins input[name="s"],
 .tagsdiv .newtag {
-  float: right;
-  margin: 0 0 5px 5px;
+  float: left;
+  margin: 0 5px 5px 0;
 }
 
 .js.plugins-php .search-box .wp-filter-search {
@@ -1255,7 +1070,7 @@ input.ui-autocomplete-input.open {
 }
 
 ul#add-to-blog-users {
-  margin: 0 1em 0 0;
+  margin: 0 0 0 1em;
 }
 
 .ui-autocomplete {
@@ -1272,7 +1087,7 @@ ul#add-to-blog-users {
   margin-bottom: 0;
   padding: 4px 10px;
   white-space: nowrap;
-  text-align: right;
+  text-align: left;
   cursor: pointer;
 }
 
@@ -1328,8 +1143,8 @@ ul#add-to-blog-users {
  */
 .form-table th {
   vertical-align: top;
-  text-align: right;
-  padding: 1.5rem 0 0 0.5em;
+  text-align: left;
+  padding: 1.5rem 0.5em 0 0;
   width: 200px;
   line-height: 1.3;
   font-weight: 600;
@@ -1368,7 +1183,7 @@ ul#add-to-blog-users {
 .form-table input.tog,
 .form-table input[type="radio"] {
   margin-top: -4px;
-  margin-left: 4px;
+  margin-right: 4px;
   float: none;
 }
 
@@ -1463,7 +1278,7 @@ table.form-table td .updated p {
 }
 
 .user-code-theme-options > div:not(:last-of-type) {
-  margin-left: 1em;
+  margin-right: 1em;
 }
 
 /*------------------------------------------------------------------------------
@@ -1528,8 +1343,8 @@ table.form-table td .updated p {
 }
 
 .form-table.permalink-structure .available-structure-tags li {
-  float: right;
-  margin-left: 5px;
+  float: left;
+  margin-right: 5px;
 }
 
 /*------------------------------------------------------------------------------
@@ -1616,20 +1431,20 @@ table.form-table td .updated p {
 
 .request-filesystem-credentials-dialog .ftp-username,
 .request-filesystem-credentials-dialog .ftp-password {
-  float: right;
+  float: left;
   width: 48%;
 }
 
 .request-filesystem-credentials-dialog .ftp-password {
-  margin-right: 4%;
+  margin-left: 4%;
 }
 
 .request-filesystem-credentials-dialog .request-filesystem-credentials-action-buttons {
-  text-align: left;
+  text-align: right;
 }
 
 .request-filesystem-credentials-dialog label[for="ftp"] {
-  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .request-filesystem-credentials-dialog #auth-keys-desc {
@@ -1637,7 +1452,7 @@ table.form-table td .updated p {
 }
 
 #request-filesystem-credentials-dialog .button:not(:last-child) {
-  margin-left: 10px;
+  margin-right: 10px;
 }
 
 #request-filesystem-credentials-form .cancel-button {
@@ -1694,7 +1509,7 @@ table.form-table td .updated p {
 
 .tools-privacy-policy-page input.button,
 .tools-privacy-policy-page select {
-  margin-right: 6px;
+  margin-left: 6px;
 }
 
 .tools-privacy-edit {
@@ -1737,12 +1552,12 @@ table.form-table td .updated p {
 
 .privacy_requests .status-request-confirmed th,
 .privacy_requests .status-request-confirmed td {
-  border-right-color: #44aa11;
+  border-left-color: #44aa11;
 }
 
 .privacy_requests .status-request-failed th,
 .privacy_requests .status-request-failed td {
-  border-right-color: #dd0000;
+  border-left-color: #dd0000;
 }
 
 .privacy_requests .export_personal_data_failed a {
@@ -1786,7 +1601,7 @@ table.form-table td .updated p {
 .email-personal-data::before {
   display: inline-block;
   font: normal 20px/1 dashicons;
-  margin: 3px -2px 0 5px;
+  margin: 3px 5px 0 -2px;
   speak: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -1809,7 +1624,7 @@ table.form-table td .updated p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-right: 1.5em;
+  margin-left: 1.5em;
 }
 
 .export-filters li {
@@ -1847,7 +1662,7 @@ table.form-table td .updated p {
     margin: 0.5em 0;
   }
   .form-table table.color-palette {
-    margin-left: 1em;
+    margin-right: 1em;
   }
   .form-table td input[type="text"],
   .form-table td input[type="email"],
@@ -1866,8 +1681,8 @@ table.form-table td .updated p {
             box-sizing: border-box;
   }
   .form-table .form-required.form-invalid td:after {
-    float: left;
-    margin: -30px 0 0 3px;
+    float: right;
+    margin: -30px 3px 0 0;
   }
   .admin-main .form-table td select {
     height: 40px;
@@ -1921,13 +1736,13 @@ table.form-table td .updated p {
     margin-bottom: 0;
     padding-bottom: 6px;
     padding-top: 4px;
-    padding-right: 0;
+    padding-left: 0;
   }
   .form-table.permalink-structure td code {
-    margin-right: 32px;
+    margin-left: 32px;
   }
   .form-table.permalink-structure td input[type="text"] {
-    margin-right: 32px;
+    margin-left: 32px;
     margin-top: 4px;
     width: 96%;
   }
@@ -1955,7 +1770,7 @@ table.form-table td .updated p {
   }
   .wp-pwd [type="text"],
   .wp-pwd [type="password"] {
-    padding-left: 40px;
+    padding-right: 40px;
   }
   .wp-pwd button.button {
     background: transparent;
@@ -1966,7 +1781,7 @@ table.form-table td .updated p {
     margin: 0;
     padding: 5px 10px;
     position: absolute;
-    left: 0;
+    right: 0;
     top: 0;
   }
   .wp-pwd button.button:hover,
@@ -1994,14 +1809,14 @@ table.form-table td .updated p {
     margin-bottom: 1em;
   }
   .tools-privacy-policy-page .wp-create-privacy-page .button {
-    margin-right: 0;
+    margin-left: 0;
   }
   .wp-list-table.privacy_requests tr:not(.inline-edit-row):not(.no-items) td.column-primary:not(.check-column) {
     display: table-cell;
   }
   .wp-list-table.privacy_requests.widefat th input,
   .wp-list-table.privacy_requests.widefat thead td input {
-    margin-right: 5px;
+    margin-left: 5px;
   }
 }
 
@@ -2033,7 +1848,7 @@ table.form-table td .updated p {
     position: fixed;
     top: 0;
     margin: 0;
-    right: 0;
+    left: 0;
   }
 }
 
@@ -2048,29 +1863,29 @@ table.form-table td .updated p {
 @media only screen and (max-width: 320px) {
   .options-general-php .date-time-text.date-time-custom-text {
     min-width: 0;
-    margin-left: 0.5em;
+    margin-right: 0.5em;
   }
 }
 
 @-webkit-keyframes rotation {
   0% {
     -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(-359deg);
-    transform: rotate(-359deg);
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
   }
 }
 
 @keyframes rotation {
   0% {
     -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(-359deg);
-    transform: rotate(-359deg);
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
   }
 }
 
@@ -2085,53 +1900,41 @@ table.form-table td .updated p {
   display: none;
 }
 
-/* Needs higher specificiity. */
 .wp-picker-container .wp-color-result.button {
-  height: 24px;
-  margin: 0 0px 6px 6px;
-  padding: 0 30px 0 0;
-  font-size: 11px;
+  height: 2.5rem;
+  margin: 0 0.5em 0.5em 0px;
+  padding: 0 0 0 2rem;
+  font-size: 0.6875rem;
+}
+
+.wp-picker-container .wp-color-result:hover, .wp-picker-container .wp-color-result:focus {
+  background: #ffffff;
+}
+
+.wp-picker-container .wp-color-result:hover:after, .wp-picker-container .wp-color-result:focus:after {
+  color: #23282d;
+  border-color: #a0a5aa;
+  border-left: 1px solid #999;
+}
+
+.wp-picker-container .wp-color-result:focus {
+  border-color: #005fd6;
+}
+
+.wp-picker-container .wp-color-result:active {
+  -webkit-transform: none !important;
+          transform: none !important;
 }
 
 .wp-color-result-text {
-  background: #f7f7f7;
-  border-radius: 2px 0 0 2px;
-  border-right: 1px solid #ccc;
-  color: #555;
   display: block;
-  line-height: 22px;
-  padding: 0 6px;
+  border-left: 1px solid #888888;
+  padding: 0 0.5em;
   text-align: center;
-}
-
-.wp-color-result:hover,
-.wp-color-result:focus {
-  background: #fafafa;
-  border-color: #999;
-  color: #23282d;
-}
-
-.wp-color-result:hover:after,
-.wp-color-result:focus:after {
-  color: #23282d;
-  border-color: #a0a5aa;
-  border-right: 1px solid #999;
 }
 
 .wp-picker-containers {
   display: inline-block;
-}
-
-.wp-color-result:focus {
-  border-color: #5b9dd9;
-  -webkit-box-shadow: 0 0 3px rgba(0, 115, 170, 0.8);
-          box-shadow: 0 0 3px rgba(0, 115, 170, 0.8);
-}
-
-.wp-color-result:active {
-  /* See Trac ticket #39662 */
-  -webkit-transform: none !important;
-  transform: none !important;
 }
 
 .wp-picker-open + .wp-picker-input-wrap {
@@ -2151,7 +1954,7 @@ table.form-table td .updated p {
 
 .wp-picker-input-wrap .button,
 .wp-customizer .wp-picker-input-wrap .button {
-  margin-right: 6px;
+  margin-left: 6px;
 }
 
 .wp-picker-container .iris-square-slider .ui-slider-handle:focus {
@@ -2174,16 +1977,16 @@ table.form-table td .updated p {
 }
 
 .wp-color-picker::-webkit-input-placeholder {
-  color: #72777c;
+  color: #888888;
 }
 
 .wp-color-picker::-moz-placeholder {
-  color: #72777c;
+  color: #888888;
   opacity: 1;
 }
 
 .wp-color-picker:-ms-input-placeholder {
-  color: #72777c;
+  color: #888888;
 }
 
 .wp-picker-container input[type="text"].iris-error {
@@ -2215,7 +2018,7 @@ table.form-table td .updated p {
   }
   .wp-picker-container .wp-color-result.button {
     height: auto;
-    padding: 0 40px 0 0;
+    padding: 0 0 0 40px;
     font-size: 14px;
     line-height: 29px;
   }
@@ -2240,5 +2043,542 @@ table.form-table td .updated p {
   }
   .wp-customizer .wp-picker-container input[type="text"].wp-color-picker {
     padding: 6px 5px;
+  }
+}
+
+/**
+ * General button styles
+ *
+ * Button padding of 0.75rem top & bottom plus
+ * the 1rem line height is to match the 2.5rem
+ * height of submit type inputs.
+ */
+.button,
+.button-primary,
+.button-secondary {
+  display: inline-block;
+  vertical-align: baseline;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  background: #ffffff;
+  border: solid 1px #888888;
+  font-size: 0.875rem;
+  font-weight: bold;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  color: #222222;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+}
+
+.button.button-small,
+.button-primary.button-small,
+.button-secondary.button-small {
+  font-size: 0.6875rem;
+}
+
+.button.button-large,
+.button-primary.button-large,
+.button-secondary.button-large {
+  font-size: 1rem;
+}
+
+.button.button-hightlight, .button.button-hero,
+.button-primary.button-hightlight,
+.button-primary.button-hero,
+.button-secondary.button-hightlight,
+.button-secondary.button-hero {
+  background-color: #ffee00;
+}
+
+.button.button-hightlight:hover, .button.button-hightlight:focus, .button.button-hero:hover, .button.button-hero:focus,
+.button-primary.button-hightlight:hover,
+.button-primary.button-hightlight:focus,
+.button-primary.button-hero:hover,
+.button-primary.button-hero:focus,
+.button-secondary.button-hightlight:hover,
+.button-secondary.button-hightlight:focus,
+.button-secondary.button-hero:hover,
+.button-secondary.button-hero:focus {
+  background-color: #222222;
+  border-color: #222222;
+  color: #ffffff;
+}
+
+.button.button-hero,
+.button-primary.button-hero,
+.button-secondary.button-hero {
+  height: auto;
+  padding: 1em 2em;
+  font-size: 1.0625rem;
+  line-height: 1.4;
+}
+
+.button:active, .button:focus,
+.button-primary:active,
+.button-primary:focus,
+.button-secondary:active,
+.button-secondary:focus {
+  outline: none;
+}
+
+.button.hidden,
+.button-primary.hidden,
+.button-secondary.hidden {
+  display: none;
+}
+
+.button.hover, .button:hover, .button.focus, .button:focus, .button.active, .button:active, .button.current,
+.button-primary.hover,
+.button-primary:hover,
+.button-primary.focus,
+.button-primary:focus,
+.button-primary.active,
+.button-primary:active,
+.button-primary.current,
+.button-secondary.hover,
+.button-secondary:hover,
+.button-secondary.focus,
+.button-secondary:focus,
+.button-secondary.active,
+.button-secondary:active,
+.button-secondary.current {
+  background: #ffee00;
+  color: #222222;
+  color-adjust: exact !important;
+}
+
+.button[disabled], .button:disabled, .button.disabled, .button.button-disabled,
+.button-primary[disabled],
+.button-primary:disabled,
+.button-primary.disabled,
+.button-primary.button-disabled,
+.button-secondary[disabled],
+.button-secondary:disabled,
+.button-secondary.disabled,
+.button-secondary.button-disabled {
+  background: #eeeeee;
+  color: #888888;
+  cursor: default;
+}
+
+/**
+ * Button links
+ *
+ * These are button elements that look like links,
+ * for semantically correct HTML with the looks
+ * of a standard link.
+ */
+.button-link {
+  margin: 0;
+  padding: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background: none;
+  border: none;
+  outline: none;
+  text-align: left;
+  text-decoration: underline;
+  color: #004499;
+  cursor: pointer;
+}
+
+.button-link:hover, .button-link:focus, .button-link:active {
+  color: #005fd6;
+}
+
+.button-link-delete {
+  color: #dd0000;
+}
+
+.button-link-delete:hover, .button-link-delete:focus {
+  color: #dd0000;
+}
+
+/*
+ * Button Groups
+ */
+.button-group {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 0;
+  vertical-align: middle;
+}
+
+.button-group > .button {
+  display: inline-block;
+  z-index: 10;
+}
+
+.button-group > .button.button-primary {
+  z-index: 100;
+}
+
+.button-group > .button:hover {
+  z-index: 20;
+}
+
+.button-group > .button:focus {
+  position: relative;
+  z-index: 1;
+}
+
+p,
+ul,
+ol {
+  margin-top: 1em;
+}
+
+.app-header {
+  width: 100%;
+  padding: 2rem;
+}
+
+.app-header .app-identity {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.app-header .app-identity .app-logo {
+  max-width: 80px;
+  margin-left: 1em;
+}
+
+.app-header .app-identity .app-logo img {
+  display: block;
+  border-radius: 50%;
+}
+
+.app-header .app-identity .app-title {
+  margin: 0;
+  line-height: 1.1;
+}
+
+.app-header .app-identity .app-description {
+  margin-top: 0.25em;
+  font-size: 1.125rem;
+  line-height: 1.2;
+}
+
+@supports (font-variation-settings: normal) {
+  .app-header .app-identity .app-description {
+    font-weight: 550;
+  }
+}
+
+.setup-install-wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.setup-install-wrap header h2 {
+  margin: 0;
+}
+
+.setup-install-wrap ul li,
+.setup-install-wrap ol li {
+  font-weight: bold;
+}
+
+.setup-install-wrap ul li span,
+.setup-install-wrap ol li span {
+  font-size: 0.85em;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.app-footer {
+  max-width: 1280px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  font-size: 0.85em;
+  font-style: italic;
+}
+
+form .description {
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
+ul,
+ol,
+dl {
+  padding-left: 1em;
+}
+
+a img {
+  border: 0;
+}
+
+.language-chooser .step {
+  margin: 20px 0 15px -30px;
+}
+
+.language-chooser.app-core-ui .step .button.button-large {
+  height: 36px;
+  font-size: 14px;
+  line-height: 33px;
+  vertical-align: middle;
+}
+
+fieldset.tabbed-legend {
+  margin-top: 3em;
+  padding-top: 0;
+}
+
+fieldset.tabbed-legend legend {
+  padding: 0.5em 1em;
+  border: solid 1px #888888;
+  border-bottom: none;
+  -webkit-transform: translateY(calc( -50% + 2px));
+          transform: translateY(calc( -50% + 2px));
+}
+
+fieldset.tabbed-legend > div:first-of-type p:first-of-type {
+  margin-top: 0;
+}
+
+.form-table {
+  border-collapse: collapse;
+  margin-top: 1em;
+  width: 100%;
+}
+
+.form-table td {
+  margin-bottom: 9px;
+  padding: 10px 20px 10px 0;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.form-table th {
+  font-size: 14px;
+  text-align: left;
+  padding: 10px 20px 10px 0;
+  width: 140px;
+  vertical-align: middle;
+}
+
+.form-table code {
+  line-height: 18px;
+  font-size: 14px;
+}
+
+.form-table p {
+  margin: 4px 0 0 0;
+  font-size: 11px;
+}
+
+.form-table input[type=text],
+.form-table input[type=email],
+.form-table input[type=url],
+.form-table input[type=password] {
+  width: 206px;
+}
+
+.form-table th p {
+  font-weight: 400;
+}
+
+.form-table.install-success th,
+.form-table.install-success td {
+  vertical-align: middle;
+  padding: 16px 20px 16px 0;
+}
+
+.form-table.install-success td p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.form-table.install-success td code {
+  margin: 0;
+  font-size: 18px;
+}
+
+#error-page {
+  margin-top: 50px;
+}
+
+#error-page p {
+  font-size: 14px;
+  line-height: 18px;
+  margin: 25px 0 20px;
+}
+
+.wp-hide-pw > .dashicons {
+  position: relative;
+  height: 0.5em;
+  line-height: 1;
+  vertical-align: text-top;
+}
+
+#pass-strength-result {
+  background-color: #eee;
+  border: 1px solid #ddd;
+  margin: 0.5em;
+  padding: 3px 5px;
+  text-align: center;
+  width: 218px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  opacity: 0;
+}
+
+#pass-strength-result.short {
+  background-color: #f1adad;
+  border-color: #e35b5b;
+  opacity: 1;
+}
+
+#pass-strength-result.bad {
+  background-color: #fbc5a9;
+  border-color: #f78b53;
+  opacity: 1;
+}
+
+#pass-strength-result.good {
+  background-color: #ffe399;
+  border-color: #ffc733;
+  opacity: 1;
+}
+
+#pass-strength-result.strong {
+  background-color: #c1e1b9;
+  border-color: #83c373;
+  opacity: 1;
+}
+
+#pass1.short, #pass1-text.short {
+  border-color: #e35b5b;
+}
+
+#pass1.bad, #pass1-text.bad {
+  border-color: #f78b53;
+}
+
+#pass1.good, #pass1-text.good {
+  border-color: #ffc733;
+}
+
+#pass1.strong, #pass1-text.strong {
+  border-color: #83c373;
+}
+
+.password-weak {
+  display: none;
+}
+
+.message {
+  border-left: 4px solid #dd0000;
+  padding: .7em .6em;
+  background-color: #fbeaea;
+}
+
+/* rtl:ignore */
+#dbname,
+#uname,
+#pwd,
+#dbhost,
+#prefix,
+#user_login,
+#admin_email,
+#pass1,
+#pass2 {
+  direction: ltr;
+}
+
+#pass1-text,
+.show-password #pass1 {
+  display: none;
+}
+
+.show-password #pass1-text {
+  display: inline-block;
+}
+
+.form-table span.description.important {
+  font-size: 12px;
+}
+
+@media screen and (max-width: 782px) {
+  .form-table {
+    margin-top: 0;
+  }
+  .form-table th,
+  .form-table td {
+    display: block;
+    width: auto;
+  }
+  .form-table th {
+    padding: 20px 0 0;
+  }
+  .form-table td {
+    padding: 5px 0;
+    border: 0;
+    margin: 0;
+  }
+}
+
+.language-chooser select {
+  display: block;
+  width: 100%;
+}
+
+.screen-reader-input,
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+.spinner {
+  background: url(../images/spinner.gif) no-repeat;
+  background-size: 20px 20px;
+  visibility: hidden;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  width: 20px;
+  height: 20px;
+  margin: 2px 5px 0;
+}
+
+.step .spinner {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 15px;
+}
+
+.button.hide-if-no-js,
+.hide-if-no-js {
+  display: none;
+}
+
+/**
+ * HiDPI Displays
+ */
+@media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+  .spinner {
+    background-image: url(../images/spinner-2x.gif);
   }
 }
