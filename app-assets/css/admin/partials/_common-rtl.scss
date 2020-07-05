@@ -237,15 +237,12 @@ ol.ol-decimal > li {
 	margin: 0 0 0.5em;
 }
 
-/* rtl:ignore */
 .ltr {
 	direction: ltr;
 }
 
-/* rtl:ignore */
 .code,
 code {
-	font-family: Consolas, Monaco, monospace;
 	direction: ltr;
 	unicode-bidi: embed;
 }

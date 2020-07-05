@@ -107,3 +107,17 @@ abbr[data-original-title],
 dfn[title] {
 	border-bottom: 1px dotted;
 }
+
+pre,
+code,
+kbd,
+samp {
+	font-family: $monospace;
+
+	@supports( font-variation-settings: normal ) {
+		font-family: $league_mono;
+
+		// Keep scale with Inter.
+		font-size: 0.925em;
+	}
+}
