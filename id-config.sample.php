@@ -3,11 +3,14 @@
  * Identity configuration
  *
  * To define your own identity for the website management system
- * copy or rename this file as `identity-config.php` and include
- * in the root directory.
+ * copy or rename the `id-config.sample.php` file as `id-config.php`
+ * and include in the root directory.
  *
- * Support is included for `identity-config.php` to be included
+ * Support is included for `id-config.php` to be included
  * one directory above the website management system root.
+ *
+ * If using this system as your own for further development then
+ * change the identity defaults in the `id-config.sample.php` file.
  *
  * @see `wp-includes/default-constants.php` for fallback definitions.
  *
@@ -32,7 +35,7 @@
  *    Namespaces encapsulate code and help solve naming conflicts.
  *
  *    Find `AppNamespace` and replace with something unique to your system,
- *    include underscores between words.
+ *    underscores between words is acceptable.
  *
  *    The namespace name PHP and compound names starting with this name
  *    are reserved for internal language use and should not be used.
@@ -71,6 +74,6 @@ define( 'APP_LOGO', dirname( dirname( $_SERVER['PHP_SELF'] ) ) . '/app-assets/im
 define( 'APP_COLOR', 'inherit' );
 define( 'APP_DARK_COLOR', 'white' );
 define( 'APP_BG_COLOR', 'white' );
-define( 'APP_DARK_BG_COLOR', '#252525' );
+define( 'APP_DARK_BG_COLOR', '#222222' );
 define( 'APP_PRIMARY_COLOR', '#ffee00' );
 define( 'APP_SECONDARY_COLOR', '#3ad4fb' );
