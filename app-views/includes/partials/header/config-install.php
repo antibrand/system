@@ -124,7 +124,7 @@ header( 'Content-Type: text/html; charset=utf-8' );
 </head>
 <body class="<?php echo $body_classes; ?>">
 	<header class="app-header">
-		<div class="app-identity global-wrapper">
+		<div class="app-identity">
 			<div class="app-logo">
 				<?php echo $app_logo; ?>
 			</div>

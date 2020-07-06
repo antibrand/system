@@ -614,7 +614,7 @@ if ( ! /iPad|iPod|iPhone/.test( navigator.userAgent ) ) {
 
 ?>
 	<div class="setup-install-wrap setup-install-connection-success">
-		<main class="setup-config-content global-wrapper">
+		<main class="setup-config-content">
 
 			<h2><?php _e( 'Successful Database Connection' ); ?></h2>
 

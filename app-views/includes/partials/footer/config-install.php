@@ -8,7 +8,7 @@
 
 ?>
 <footer id="colophon" class="app-footer">
-	<div class="footer-content global-wrapper">
+	<div class="footer-content">
 	<?php echo sprintf(
 		'<p>%1s %2s</p>',
 		__( 'This is the installation process for' ),
