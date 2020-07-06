@@ -2769,7 +2769,7 @@ function _default_wp_die_handler( $message, $title = '', $args = array() ) {
 <?php include_once( ABSPATH . 'wp-admin/partials/header/config-install.php' ); ?>
 <?php endif; // ! did_action( 'admin_head' ) ?>
 	<div class="setup-install-wrap setup-install-error">
-		<main class="setup-config-content">
+		<main class="config-content">
 			<?php echo $message; ?>
 		</main>
 	</div>

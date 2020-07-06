@@ -844,7 +844,7 @@ function get_current_network_id() {
  * Used for errors encountered during the initial loading process, before
  * the locale has been properly detected and loaded.
  *
- * Designed for unusual load sequences (like setup-config.php) or for when
+ * Designed for unusual load sequences (like config.php) or for when
  * the script will then terminate with an error, otherwise there is a risk
  * that a file can be double-included.
  *

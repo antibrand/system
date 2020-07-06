@@ -140,7 +140,7 @@ switch( $step ) :
 	case 0 :
 
 	// Variable for the step 1 parameter.
-	$step_1 = 'setup-config.php?step=1';
+	$step_1 = 'config.php?step=1';
 
 	// Get the page header.
 	include( ABSPATH . 'app-views/includes/partials/header/config-install.php' );
@@ -148,12 +148,12 @@ switch( $step ) :
 	// Begin case 0 content.
 ?>
 	<div class="setup-install-wrap setup-install-introduction">
-		<main class="setup-config-content">
+		<main class="config-content">
 
 			<h2><?php _e( 'Setup Introduction' ); ?></h2>
 
 			<p><?php _e( 'For the installation process you will need to know the following information.' ); ?></p>
-			<ol id="setup-config-database-info-list">
+			<ol id="config-database-info-list">
 				<li><?php _e( 'Database name' ); ?></li>
 				<li><?php _e( 'Database username' ); ?></li>
 				<li><?php _e( 'Database password' ); ?></li>
@@ -171,7 +171,7 @@ switch( $step ) :
 
 			<p><?php _e( 'You have the option to give this website management system an identity of your own. This can be changed after installation but before installing you may want to consider a name for the system:' ); ?></p>
 
-			<ul id="setup-config-identity-info-list">
+			<ul id="config-identity-info-list">
 				<li><?php _e( 'A name for the system' ); ?></li>
 				<li><?php _e( 'A tagline or description' ); ?></li>
 				<li><?php _e( 'An image that represents the name or identity' ); ?></li>
@@ -207,11 +207,11 @@ switch( $step ) :
 ?>
 	<div class="setup-install-wrap setup-install-installation">
 
-		<main class="setup-config-content">
+		<main class="config-content">
 
 			<h2><?php _e( 'System Configuration' ); ?></h2>
 
-			<form class="setup-config-form" method="post" action="setup-config.php?step=2">
+			<form class="config-form" method="post" action="config.php?step=2">
 
 				<fieldset class="tabbed-legend">
 
@@ -221,30 +221,30 @@ switch( $step ) :
 
 						<p><?php _e( 'Enter an application name to be used throughout the website management system. This allows you to "white label" the application and can be changed at any time in the <code>id-config</code> file in the application\'s root directory.' ); ?></p>
 
-						<p class="setup-config-field setup-config-app-name">
+						<p class="config-field config-app-name">
 							<label for="app_name"><?php _e( 'Application Name' ); ?></label>
 							<br /><input name="app_name" id="app_name" type="text" size="35" value="" placeholder="<?php echo htmlspecialchars( _x( 'White Label System', 'example name for the website management system' ), ENT_QUOTES ); ?>" />
-							<br /><span class="description setup-config-field-description"><?php _e( 'Enter the name to use for your website management system.' ); ?></span>
+							<br /><span class="description config-field-description"><?php _e( 'Enter the name to use for your website management system.' ); ?></span>
 						</p>
-						<p class="setup-config-field setup-config-app-tagline">
+						<p class="config-field config-app-tagline">
 							<label for="app_tagline"><?php _e( 'Application Tagline/Description' ); ?></label>
 							<br /><input name="app_tagline" id="app_tagline" type="text" size="55" value="" placeholder="<?php echo htmlspecialchars( _x( 'Your tagline or description', 'example tagline for the website management system' ), ENT_QUOTES ); ?>" />
-							<br /><span class="description setup-config-field-description"><?php _e( 'Used in documentation, system status features, etc.' ); ?></span>
+							<br /><span class="description config-field-description"><?php _e( 'Used in documentation, system status features, etc.' ); ?></span>
 						</p>
-						<p class="setup-config-field setup-config-app-website">
+						<p class="config-field config-app-website">
 							<label for="app_website"><?php _e( 'Application Website' ); ?></label>
 							<br /><input name="app_website" id="app_website" type="text" size="35" value="" placeholder="<?php echo esc_url( 'https://example.com/' ); ?>" />
-							<br /><span class="description setup-config-field-description"><?php _e( 'Link users to your website for more information.' ); ?></span>
+							<br /><span class="description config-field-description"><?php _e( 'Link users to your website for more information.' ); ?></span>
 						</p>
 
 					</div>
 
 					<div id="white-label-inputs-info" class="install-fieldset-section">
 
-						<p class="setup-config-field setup-config-app-logo">
+						<p class="config-field config-app-logo">
 							<label for="app_logo"><?php _e( 'Application Logo' ); ?></label>
 							<br /><input name="app_logo" id="app_logo" type="file" accept="image/png, image/jpg, image/jpeg image/gif" />
-							<br /><span class="description setup-config-field-description"><?php _e( 'Accepts .png, .jpg, .jpeg, .gif.' ); ?></span>
+							<br /><span class="description config-field-description"><?php _e( 'Accepts .png, .jpg, .jpeg, .gif.' ); ?></span>
 						</p>
 
 					</div>
@@ -354,7 +354,7 @@ switch( $step ) :
 	$app_db_prefix   = trim( wp_unslash( $_POST['app_db_prefix'] ) );
 
 	// Variable for the step 1 parameter.
-	$step_1  = 'setup-config.php?step=1';
+	$step_1  = 'config.php?step=1';
 
 	// Variable for the installation page template.
 	$install = 'install.php';
@@ -625,7 +625,7 @@ if ( ! /iPad|iPod|iPhone/.test( navigator.userAgent ) ) {
 		include( ABSPATH . 'app-views/includes/partials/header/config-install.php' );
 ?>
 	<div class="setup-install-wrap setup-install-connection-success">
-		<main class="setup-config-content">
+		<main class="config-content">
 
 			<h2><?php _e( 'Successful Database Connection' ); ?></h2>
 

@@ -61,14 +61,14 @@ if ( file_exists( ABSPATH . 'app-config.php' ) ) {
 
 	require_once( ABSPATH . WPINC . '/functions.php' );
 
-	$path = wp_guess_url() . '/app-views/includes/setup-config.php';
+	$path = wp_guess_url() . '/app-views/includes/config.php';
 
 	/**
-	 * We're going to redirect to setup-config.php. While this shouldn't result
+	 * We're going to redirect to config.php. While this shouldn't result
 	 * in an infinite loop, that's a silly thing to assume, don't you think? If
 	 * we're traveling in circles, our last-ditch effort is "Need more help?"
 	 */
-	if ( false === strpos( $_SERVER['REQUEST_URI'], 'setup-config' ) ) {
+	if ( false === strpos( $_SERVER['REQUEST_URI'], 'config' ) ) {
 		header( 'Location: ' . $path );
 		exit;
 	}

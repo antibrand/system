@@ -1,6 +1,6 @@
 <?php
 /**
- * Header for setup-config and install pages
+ * Header for config and install pages
  *
  * @package    App_Package
  * @subpackage Administration
