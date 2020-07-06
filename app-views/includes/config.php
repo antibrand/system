@@ -56,10 +56,13 @@ if ( file_exists( ABSPATH . 'app-config.sample.php' ) ) {
  * configuration file is not found in the root directory.
  */
 } else {
-	wp_die( '<p>' . sprintf(
-		__( 'A %s file is needed from which to work. Please upload this file to the root directory of your installation.' ),
-		'<code>app-config.sample.php</code>'
-		) . '</p>'
+	wp_die(
+		sprintf(
+			'<p>%1s <code>%2s</code> %3s</p>',
+			__( 'The file' ),
+			'app-config.sample.php',
+			__( 'is needed from which to work. Please upload this file to the root directory of your installation.' )
+		)
 	);
 }
 
@@ -68,11 +71,15 @@ if ( file_exists( ABSPATH . 'app-config.sample.php' ) ) {
  * configuration file has been created.
  */
 if ( file_exists( ABSPATH . 'app-config.php' ) ) {
-	wp_die( '<p>' . sprintf(
-			__( 'The file %1$s already exists. If you need to reset any of the configuration items in this file, please delete it first. You may try <a href="%2$s">installing now</a>.' ),
-			'<code>app-config.php</code>',
-			'install.php'
-		) . '</p>'
+	wp_die(
+		sprintf(
+			'<p>%1s <code>%2s</code> %3s <a href="%4s">%5s</a></p>',
+			__( 'The file' ),
+			'app-config.php',
+			__( 'already exists. If you need to reset any of the configuration items in this file, please delete it first. You may try' ),
+			esc_url( 'install.php' ),
+			__( 'installing now' )
+		)
 	);
 }
 
@@ -82,11 +89,15 @@ if ( file_exists( ABSPATH . 'app-config.php' ) ) {
  * not part of another installation.
  */
 if ( @file_exists( ABSPATH . '../app-config.php' ) && ! @file_exists( ABSPATH . '../app-settings.php' ) ) {
-	wp_die( '<p>' . sprintf(
-			__( 'The file %1$s already exists one level above your installation. If you need to reset any of the configuration items in this file, please delete it first. You may try <a href="%2$s">installing now</a>.' ),
-			'<code>app-config.php</code>',
-			'install.php'
-		) . '</p>'
+	wp_die(
+		sprintf(
+			'<p>%1s <code>%2s</code> %3s <a href="%4s">%5s</a></p>',
+			__( 'The file' ),
+			__( 'already exists one level above your installation. If you need to reset any of the configuration items in this file, please delete it first. You may try' ),
+			'app-config.php',
+			esc_url( 'install.php' ),
+			__( 'installing now' )
+		)
 	);
 }
 
@@ -146,42 +157,7 @@ switch( $step ) :
 	$step_1 = 'config.php?step=1';
 
 	// Begin case 0 content.
-?>
-	<div class="setup-install-wrap setup-install-introduction">
-		<main class="config-content">
-
-			<h2><?php _e( 'Setup Introduction' ); ?></h2>
-
-			<p><?php _e( 'For the installation process you will need to know the following information.' ); ?></p>
-			<ol id="config-database-info-list">
-				<li><?php _e( 'Database name' ); ?></li>
-				<li><?php _e( 'Database username' ); ?></li>
-				<li><?php _e( 'Database password' ); ?></li>
-				<li><?php _e( 'Database host' ); ?></li>
-			</ol>
-			<p><?php _e( 'If you don&#8217;t have this information then you will need to contact your web host.' ); ?></p>
-			<p><?php
-				printf( __( 'This information is needed to create a configuration file. If for any reason this automatic file creation doesn&#8217;t work then find the %1$s file in the root directory, open it in a text editor, fill in your information, and save it as %2$s in the same directory.' ),
-					'<code>app-config.sample.php</code>',
-					'<code>app-config.php</code>'
-				);
-			?></p>
-
-			<h2><?php _e( 'Optional Information' ); ?></h2>
-
-			<p><?php _e( 'You have the option to give this website management system an identity of your own. This can be changed after installation but before installing you may want to consider a name for the system:' ); ?></p>
-
-			<ul id="config-identity-info-list">
-				<li><?php _e( 'A name for the system' ); ?></li>
-				<li><?php _e( 'A tagline or description' ); ?></li>
-				<li><?php _e( 'An image that represents the name or identity' ); ?></li>
-				<li><?php _e( 'Any website associated with the system' ); ?></li>
-			</ul>
-
-			<p class="step"><a href="<?php echo $step_1; ?>" class="button button-large"><?php _e( 'Begin Installation' ); ?></a></p>
-		</main>
-	</div>
-	<?php
+	include_once( ABSPATH . 'app-views/includes/partials/content/config-step-zero.php' );
 
 	// End case 0 page content.
 	break;
@@ -199,121 +175,7 @@ switch( $step ) :
 	$GLOBALS['wp_locale'] = new WP_Locale();
 
 	// Begin case 1 content.
-?>
-	<div class="setup-install-wrap setup-install-installation">
-
-		<main class="config-content">
-
-			<h2><?php _e( 'System Configuration' ); ?></h2>
-
-			<form class="config-form" method="post" action="config.php?step=2">
-
-				<fieldset class="tabbed-legend">
-
-					<legend><?php _e( 'White Label' ); ?></legend>
-
-					<div id="white-label-inputs-info" class="install-fieldset-section">
-
-						<p><?php _e( 'Enter an application name to be used throughout the website management system. This allows you to "white label" the application and can be changed at any time in the <code>id-config</code> file in the application\'s root directory.' ); ?></p>
-
-						<p class="config-field config-app-name">
-							<label for="app_name"><?php _e( 'Application Name' ); ?></label>
-							<br /><input name="app_name" id="app_name" type="text" size="35" value="" placeholder="<?php echo htmlspecialchars( _x( 'White Label System', 'example name for the website management system' ), ENT_QUOTES ); ?>" />
-							<br /><span class="description config-field-description"><?php _e( 'Enter the name to use for your website management system.' ); ?></span>
-						</p>
-						<p class="config-field config-app-tagline">
-							<label for="app_tagline"><?php _e( 'Application Tagline/Description' ); ?></label>
-							<br /><input name="app_tagline" id="app_tagline" type="text" size="55" value="" placeholder="<?php echo htmlspecialchars( _x( 'Your tagline or description', 'example tagline for the website management system' ), ENT_QUOTES ); ?>" />
-							<br /><span class="description config-field-description"><?php _e( 'Used in documentation, system status features, etc.' ); ?></span>
-						</p>
-						<p class="config-field config-app-website">
-							<label for="app_website"><?php _e( 'Application Website' ); ?></label>
-							<br /><input name="app_website" id="app_website" type="text" size="35" value="" placeholder="<?php echo esc_url( 'https://example.com/' ); ?>" />
-							<br /><span class="description config-field-description"><?php _e( 'Link users to your website for more information.' ); ?></span>
-						</p>
-
-					</div>
-
-					<div id="white-label-inputs-info" class="install-fieldset-section">
-
-						<p class="config-field config-app-logo">
-							<label for="app_logo"><?php _e( 'Application Logo' ); ?></label>
-							<br /><input name="app_logo" id="app_logo" type="file" accept="image/png, image/jpg, image/jpeg image/gif" />
-							<br /><span class="description config-field-description"><?php _e( 'Accepts .png, .jpg, .jpeg, .gif.' ); ?></span>
-						</p>
-
-					</div>
-
-				</fieldset>
-
-				<fieldset class="tabbed-legend">
-
-					<legend><?php _e( 'Database Connection' ); ?></legend>
-
-					<div>
-						<p><?php _e( 'Enter your database connection details below. If you&#8217;re not sure about these, contact your host.' ); ?></p>
-
-						<p><?php _e( 'Unique database table prefixes are needed if you want to run more than one installation with a single database. For security purposes a random prefix has been generated. You can void this by entering your own prefix. It is recommended for legibility that the prefix ends in an underscore.' ); ?></p>
-					</div>
-
-					<table class="form-table">
-						<tr>
-							<th scope="row"><label for="app_db_name"><?php _e( 'Database Name' ); ?></label></th>
-							<td><input name="app_db_name" id="app_db_name" type="text" size="25" value="" placeholder="<?php echo htmlspecialchars( _x( 'name', 'example database name' ), ENT_QUOTES ); ?>" /></td>
-							<td><?php _e( 'The name of the database you want to use.' ); ?></td>
-						</tr>
-						<tr>
-							<th scope="row"><label for="app_db_user"><?php _e( 'Database User' ); ?></label></th>
-							<td><input name="app_db_user" id="app_db_user" type="text" size="25" value="" placeholder="<?php echo htmlspecialchars( _x( 'root', 'example database user name' ), ENT_QUOTES ); ?>" /></td>
-							<td><?php _e( 'Your database user name.' ); ?></td>
-						</tr>
-						<tr>
-							<th scope="row"><label for="app_db_password"><?php _e( 'Database Password' ); ?></label></th>
-							<td><input name="app_db_password" id="app_db_password" type="text" size="25" value="" placeholder="<?php echo htmlspecialchars( _x( 'mysql', 'example password' ), ENT_QUOTES ); ?>" autocomplete="off" /></td>
-							<td><?php _e( 'Your database password.' ); ?></td>
-						</tr>
-						<tr>
-							<th scope="row"><label for="app_db_host"><?php _e( 'Database Host' ); ?></label></th>
-							<td><input name="app_db_host" id="app_db_host" type="text" size="25" value="localhost" placeholder="localhost" /></td>
-							<td><?php
-								printf( __( 'You should be able to get this info from your web host, if %s doesn&#8217;t work.' ),'<code>localhost</code>' );
-							?></td>
-						</tr>
-						<tr>
-							<th scope="row"><label for="app_db_prefix"><?php _e( 'Database Prefix' ); ?></label></th>
-							<td>
-								<input name="app_db_prefix" id="app_db_prefix" type="text" value="app_<?php echo esc_attr( md5( time() ) ); ?>_" placeholder="app_" size="25" />
-								<?php echo sprintf(
-									'<p class="description">%1s <code>%2s</code> %3s</p>',
-									__( 'The random table prefix does not necessarily make the database more secure but the option is provided for those who wish to use it. You may want to use something simple, such as' ),
-									'app_',
-									__( '. But whatever you choose it is recommended that you end the prefix with an underscore to make the database more legible.' )
-								); ?>
-							</td>
-							<td><?php echo sprintf(
-								'%1s <code>app_%2s_</code><br />%3s',
-								esc_html__( 'Random table prefix is:' ),
-								md5( time() ),
-								esc_html__( 'Change this if you want to define your own prefix.' )
-
-							); ?></td>
-						</tr>
-					</table>
-
-				</fieldset>
-
-				<?php if ( isset( $_GET['noapi'] ) ) : ?>
-				<input name="noapi" type="hidden" value="1" />
-				<?php endif; ?>
-
-				<input type="hidden" name="language" value="<?php echo esc_attr( $language ); ?>" />
-
-				<p class="step"><input name="submit" type="submit" value="<?php echo htmlspecialchars( __( 'Submit Information' ), ENT_QUOTES ); ?>" class="button button-large" /></p>
-
-			</form>
-		</main>
-	</div>
-	<?php
+	include_once( ABSPATH . 'app-views/includes/partials/content/config-step-one.php' );
 
 	// End case 1 page content.
 	break;
@@ -536,35 +398,8 @@ switch( $step ) :
 	 * the necessary permissions to write the new configuration files.
 	 */
 	if ( ! is_writable( ABSPATH ) ) :
+		include_once( ABSPATH . 'app-views/includes/partials/content/config-not-writable.php' );
 
-?>
-	<div class="setup-install-wrap setup-install-no-write">
-		<p><?php
-			/* translators: %s: app-config.php */
-			printf( __( 'Sorry, but I can&#8217;t write the %s file.' ), '<code>app-config.php</code>' );
-		?></p>
-		<p><?php
-			/* translators: %s: app-config.php */
-			printf( __( 'You can create the %s file manually and paste the following text into it.' ), '<code>app-config.php</code>' );
-		?></p>
-		<textarea id="app-config" cols="98" rows="15" class="code" readonly="readonly"><?php
-				foreach ( $app_config_file as $line ) {
-					echo htmlentities($line, ENT_COMPAT, 'UTF-8' );
-				}
-		?></textarea>
-		<p><?php _e( 'After you&#8217;ve done that, click &#8220;Run the installation.&#8221;' ); ?></p>
-		<p class="step"><a href="<?php echo $install; ?>" class="button button-large"><?php _e( 'Run the installation' ); ?></a></p>
-	</div>
-<script>
-(function(){
-if ( ! /iPad|iPod|iPhone/.test( navigator.userAgent ) ) {
-	var el = document.getElementById( 'app-config' );
-	el.focus();
-	el.select();
-}
-})();
-</script>
-<?php
 	/**
 	 * Files can be written
 	 *
@@ -588,9 +423,11 @@ if ( ! /iPad|iPod|iPhone/.test( navigator.userAgent ) ) {
 
 		// Write the new `app-config.php` file.
 		$app_handle = fopen( $path_to_app_config, 'w' );
+
 		foreach ( $app_config_file as $line ) {
 			fwrite( $app_handle, $line );
 		}
+
 		fclose( $app_handle );
 		chmod( $path_to_app_config, 0666 );
 
@@ -612,17 +449,8 @@ if ( ! /iPad|iPod|iPhone/.test( navigator.userAgent ) ) {
 		fclose( $id_handle );
 		chmod( $path_to_id_config, 0666 );
 
-?>
-	<div class="setup-install-wrap setup-install-connection-success">
-		<main class="config-content">
+		include_once( ABSPATH . 'app-views/includes/partials/content/config-database-success.php' );
 
-			<h2><?php _e( 'Successful Database Connection' ); ?></h2>
-
-			<p><?php _e( 'The website management system can now communicate with your database.' ); ?></p>
-			<p class="step"><a href="<?php echo $install; ?>" class="button button-large"><?php _e( 'Run the installation' ); ?></a></p>
-		</main>
-	</div>
-	<?php
 	endif;
 
 	// End case 2 content.

@@ -2,7 +2,7 @@
 /**
  * Header for config and install pages
  *
- * @package    App_Package
+ * @package App_Package
  * @subpackage Administration
  */
 
