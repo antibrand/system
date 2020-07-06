@@ -712,10 +712,9 @@ input[type="checkbox"], input[type="radio"] {
   transition: .05s border-color ease-in-out;
 }
 
-input[type="checkbox"]:before, input[type="checkbox"]:before, input[type="radio"]:before, input[type="radio"]:before {
+input[type="checkbox"]:before, input[type="radio"]:before {
+  content: '';
   display: inline-block;
-  width: 0.325em;
-  height: 0.325em;
   vertical-align: middle;
   font-family: 'dashicons';
   speak: never;
@@ -746,14 +745,16 @@ input[type="radio"]:checked:before {
   background-color: #005fd6;
 }
 
+input[type="checkbox"]:before {
+  width: 1.25em;
+  height: 1.25em;
+}
+
 input[type="checkbox"]:checked:before {
-  content: "\f147";
-  margin: -0.6em 0 0 -0.7em;
-  width: 0.325em;
-  height: 0.325em;
-  font-size: 1.5rem;
-  line-height: 1;
-  color: #005fd6;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><rect x='0' /><g><path fill='%23005fd6' d='M14.83 4.89l1.34.94-5.81 8.38H9.02L5.78 9.67l1.34-1.25 2.57 2.4z' /></g></svg>");
+  background-repeat: no-repeat;
+  background-size: 1.25em;
+  background-position: -0.25em 0;
 }
 
 input[type="search"] {
@@ -2248,6 +2249,16 @@ table.form-table td .updated p {
   z-index: 1;
 }
 
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 p,
 ul,
 ol {
@@ -2298,6 +2309,10 @@ ol {
 }
 
 .setup-install-wrap {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 2rem;
@@ -2327,9 +2342,12 @@ ol {
 }
 
 .app-footer {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 100%;
   max-width: 1280px;
-  margin: 2rem auto;
-  padding: 0 2rem;
+  margin: 3rem auto 0;
+  padding: 2rem;
   font-size: 0.85em;
   font-style: italic;
 }
@@ -2353,7 +2371,33 @@ a img {
   margin-top: 3rem;
 }
 
+.step a span {
+  display: inline-block;
+}
+
+.step a span svg {
+  height: 1em;
+  vertical-align: bottom;
+}
+
+.step a.next span {
+  margin-left: 0.5em;
+}
+
+.step a.next span.next-point-left {
+  display: none;
+}
+
+.step a.prev span {
+  margin-right: 0.5em;
+}
+
+.step a.prev span.prev-point-right {
+  display: none;
+}
+
 fieldset {
+  margin: 0;
   padding: 0;
   border: none;
 }
@@ -2597,6 +2641,10 @@ fieldset.tabbed-legend > div:first-of-type p:first-of-type {
 .no-js .button.hide-if-no-js,
 .no-js .hide-if-no-js {
   display: none;
+}
+
+.no-js section > h2 {
+  margin-top: 2em;
 }
 
 ::-moz-selection {

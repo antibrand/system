@@ -65,6 +65,17 @@ textarea {
 	}
 }
 
+/// Checkbox input color functions
+///
+/// @function checked-bg-color Function to encode the hashtag in the
+///		variable for checkbox background image checked color in the
+///     SVG fill attributes.
+
+// Checkbox checked background color.
+@function checked-bg-color() {
+	@return '%23' + str-slice( '#{$form_action_border_color}', 2, -1 );
+}
+
 /**
  * Specific field styles
  *
@@ -113,11 +124,9 @@ input {
 		-webkit-appearance: none;
 		transition: .05s border-color ease-in-out;
 
-		&:before,
 		&:before {
+			content: '';
 			display: inline-block;
-			width: 0.325em;
-			height: 0.325em;
 			vertical-align: middle;
 			font-family: 'dashicons';
 			speak: never;
@@ -154,14 +163,16 @@ input {
 
 	&[type="checkbox"] {
 
+		&:before {
+			width: 1.25em;
+			height: 1.25em;
+		}
+
 		&:checked:before {
-			content: "\f147";
-			margin: -0.6em 0 0 -0.7em;
-			width: 0.325em;
-			height: 0.325em;
-			font-size: 1.5rem;
-			line-height: 1;
-			color: $form_checked;
+			background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><rect x='0' /><g><path fill='#{ checked-bg-color() }' d='M14.83 4.89l1.34.94-5.81 8.38H9.02L5.78 9.67l1.34-1.25 2.57 2.4z' /></g></svg>");
+			background-repeat: no-repeat;
+			background-size: 1.25em;
+			background-position: -0.25em 0;
 		}
 	}
 

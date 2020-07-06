@@ -78,8 +78,8 @@ ol {
 
 .app-footer {
 	max-width: 1280px;
-	margin: 2rem auto;
-	padding: 0 2rem;
+	margin: 3rem auto 0;
+	padding: 2rem;
 	font-size: 0.85em;
 	font-style: italic;
 }
@@ -104,6 +104,7 @@ a img {
 }
 
 fieldset {
+	margin: 0;
 	padding: 0;
 	border: none;
 
@@ -359,6 +360,10 @@ fieldset {
 	.button.hide-if-no-js,
 	.hide-if-no-js {
 		display: none;
+	}
+
+	section > h2 {
+		margin-top: 2em;
 	}
 }
 
