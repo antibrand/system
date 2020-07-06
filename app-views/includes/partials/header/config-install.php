@@ -98,6 +98,10 @@ header( 'Content-Type: text/html; charset=utf-8' );
 
 	<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
 
+	<?php
+	// Enqueue jQuery for form steps (prev/next).
+	wp_print_scripts( 'jquery' ); ?>
+
 	<?php app_assets_css( 'install', true ); ?>
 	<!-- style>
 		body {

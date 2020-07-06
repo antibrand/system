@@ -153,31 +153,29 @@ switch( $step ) :
 	 */
 	case 0 :
 
-	// Variable for the step 1 parameter.
-	$step_1 = 'config.php?step=1';
-
-	// Begin case 0 content.
-	include_once( ABSPATH . 'app-views/includes/partials/content/config-step-zero.php' );
-
-	// End case 0 page content.
-	break;
-
-	/**
-	 * Case 1: System Configuration
-	 *
-	 * This template includes forms for database information and
-	 * credentials, and for system identity configuration.
-	 */
-	case 1 :
-
 	// Load the system language.
 	load_default_textdomain( $language );
 	$GLOBALS['wp_locale'] = new WP_Locale();
 
-	// Begin case 1 content.
-	include_once( ABSPATH . 'app-views/includes/partials/content/config-step-one.php' );
+	?>
+	<div class="setup-install-wrap">
 
-	// End case 1 page content.
+		<main class="config-content">
+
+			<form class="config-form" method="post" action="config.php?step=1">
+
+				<?php
+				include_once( ABSPATH . 'app-views/includes/partials/content/config-intro.php' );
+				include_once( ABSPATH . 'app-views/includes/partials/content/config-info.php' );
+				include_once( ABSPATH . 'app-views/includes/partials/content/config-identity.php' );
+				include_once( ABSPATH . 'app-views/includes/partials/content/config-database.php' );
+				?>
+			</form>
+		</main>
+	</div>
+	<?php
+
+	// End case 0 page content.
 	break;
 
 	/**
@@ -189,7 +187,7 @@ switch( $step ) :
 	 * This also displays a success message if a database connection
 	 * was made or displays various error messages.
 	 */
-	case 2 :
+	case 1 :
 
 	// Load the system language.
 	load_default_textdomain( $language );
@@ -208,25 +206,25 @@ switch( $step ) :
 	$app_db_host     = trim( wp_unslash( $_POST['app_db_host'] ) );
 	$app_db_prefix   = trim( wp_unslash( $_POST['app_db_prefix'] ) );
 
-	// Variable for the step 1 parameter.
-	$step_1  = 'config.php?step=1';
+	// Variable for the step 0 parameter.
+	$step_0  = 'config.php?step=0';
 
 	// Variable for the installation page template.
 	$install = 'install.php';
 	if ( isset( $_REQUEST['noapi'] ) ) {
-		$step_1 .= '&amp;noapi';
+		$step_0 .= '&amp;noapi';
 	}
 
 	// Set up the URL parameter for the system language.
 	if ( ! empty( $language ) ) {
-		$step_1  .= '&amp;language=' . $language;
+		$step_0  .= '&amp;language=' . $language;
 		$install .= '?language=' . $language;
 	} else {
 		$install .= '';
 	}
 
 	// Variable for the button to try configuration again.
-	$tryagain_link = '<p class="step"><a href="' . $step_1 . '" onclick="javascript:history.go(-1);return false;" class="button button-large">' . __( 'Try again' ) . '</a></p>';
+	$tryagain_link = '<p class="step"><a href="config.php" onclick="javascript:history.go(-1);return false;" class="button button-large">' . __( 'Try again' ) . '</a></p>';
 
 	// Stop & display message if there is no database prefix available.
 	if ( empty( $app_db_prefix ) ) {
@@ -467,7 +465,41 @@ include( ABSPATH . 'app-views/includes/partials/footer/config-install.php' );
  *
  * @todo Remove if or when necessary.
  */
+
+
+/**
+ * jQuery navigation
+ *
+ * Shows the previous or next step in the configuration form
+ *
+ * @since 1.0.0
+ */
 ?>
+<script>
+jQuery(document).ready( function($) {
+
+	// Step to show first, by ID.
+	var $curr = $( '#config-intro' );
+
+	// Hide all sections with the form-step class.
+	$( 'section.form-step' ).hide();
+
+	// Show the first form-step section.
+	$curr.show();
+
+	$( '.prev' ).click( function() {
+		$curr = $curr.prev();
+		$( 'section.form-step' ).hide();
+		$curr.fadeIn(250);
+	});
+
+	$( '.next' ).click( function() {
+		$curr = $curr.next();
+		$( 'section.form-step' ).hide();
+		$curr.fadeIn(250);
+	});
+});
+</script>
 </body>
 </html>
 <?php

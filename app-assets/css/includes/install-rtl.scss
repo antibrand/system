@@ -99,18 +99,13 @@ a img {
 	border:0
 }
 
-.language-chooser .step {
-	margin: 20px 0 15px -30px;
-}
-
-.language-chooser.app-core-ui .step .button.button-large {
-	height: 36px;
-	font-size: 14px;
-	line-height: 33px;
-	vertical-align: middle;
+.step {
+	margin-top: 3rem;
 }
 
 fieldset {
+	padding: 0;
+	border: none;
 
 	&.tabbed-legend {
 
@@ -360,9 +355,11 @@ fieldset {
 	margin-left: 15px;
 }
 
-.button.hide-if-no-js,
-.hide-if-no-js {
-	display: none;
+.no-js {
+	.button.hide-if-no-js,
+	.hide-if-no-js {
+		display: none;
+	}
 }
 
 ::-moz-selection {

@@ -1052,7 +1052,7 @@ class wpdb {
 				} elseif ( ! empty( ( $db ) ) ) {
 					$message .= '<li>' . sprintf(
 						/* translators: 1: database user, 2: database name */
-						__( 'Does the user have permission to use the %2$s database?' ),
+						__( 'Does the user have permission to use the %1$s database?' ),
 						'<code>' . htmlspecialchars( $db, ENT_QUOTES ) . '</code>'
 					) . "</li>\n";
 				} elseif ( ! empty( ( $this->dbuser ) ) ) {
@@ -1087,6 +1087,13 @@ class wpdb {
 					/* translators: %s: support forums URL */
 					__( 'If you don&#8217;t know how to set up a database you should <strong>contact your host</strong>.' )
 				) . "</p>\n";
+
+				$message .= sprintf(
+					'<p class="step"><a href="%1s" class="button button-large">%2s</a></p>',
+					esc_url( 'config.php' ),
+					__( 'Retry Installation' )
+
+				);
 
 				$this->bail( $message, 'db_select_fail' );
 			}

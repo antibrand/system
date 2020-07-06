@@ -2349,15 +2349,13 @@ a img {
   border: 0;
 }
 
-.language-chooser .step {
-  margin: 20px 0 15px -30px;
+.step {
+  margin-top: 3rem;
 }
 
-.language-chooser.app-core-ui .step .button.button-large {
-  height: 36px;
-  font-size: 14px;
-  line-height: 33px;
-  vertical-align: middle;
+fieldset {
+  padding: 0;
+  border: none;
 }
 
 fieldset.tabbed-legend {
@@ -2596,8 +2594,8 @@ fieldset.tabbed-legend > div:first-of-type p:first-of-type {
   margin-left: 15px;
 }
 
-.button.hide-if-no-js,
-.hide-if-no-js {
+.no-js .button.hide-if-no-js,
+.no-js .hide-if-no-js {
   display: none;
 }
 
