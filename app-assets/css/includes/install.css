@@ -48,6 +48,7 @@ html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockq
 }
 
 body {
+  min-height: 100%;
   font-size: inherit;
   line-height: 1;
 }
@@ -2255,7 +2256,6 @@ ol {
 
 .app-header {
   width: 100%;
-  padding: 2rem;
 }
 
 .app-header .app-identity {
@@ -2267,6 +2267,7 @@ ol {
           align-items: center;
   max-width: 1280px;
   margin: 0 auto;
+  padding: 2rem;
 }
 
 .app-header .app-identity .app-logo {
@@ -2309,6 +2310,13 @@ ol {
 .setup-install-wrap ul li,
 .setup-install-wrap ol li {
   font-weight: bold;
+}
+
+@supports (font-variation-settings: normal) {
+  .setup-install-wrap ul li,
+  .setup-install-wrap ol li {
+    font-weight: 550;
+  }
 }
 
 .setup-install-wrap ul li span,
