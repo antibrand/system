@@ -192,56 +192,6 @@ fieldset {
 	vertical-align: text-top;
 }
 
-#pass-strength-result {
-	text-align: center;
-	box-sizing: border-box;
-	opacity: 0;
-
-	&.short {
-		color: $error_color;
-		opacity: 1;
-	}
-
-	&.bad {
-		color: $notify_color;
-		opacity: 1;
-	}
-
-	&.good {
-		color: $warning_color;
-		opacity: 1;
-	}
-
-	&.strong {
-		color: $success_color;
-		opacity: 1;
-	}
-}
-
-#pass1.short,
-#pass1-text.short {
-	color: $error_color;
-}
-
-#pass1.bad,
-#pass1-text.bad {
-	color: $notify_color;
-}
-
-#pass1.good,
-#pass1-text.good {
-	color: $warning_color;
-}
-
-#pass1.strong,
-#pass1-text.strong {
-	color: $success_color;
-}
-
-.password-weak {
-	display: none;
-}
-
 .message {
 	border-left: 4px solid $error_color;
 	padding: .7em .6em;

@@ -227,12 +227,18 @@ table {
   font-size: inherit;
 }
 
+table tr {
+  display: table-row;
+}
+
 table th {
+  display: table-cell;
   font-weight: bold;
   vertical-align: middle;
 }
 
 table td {
+  display: table-cell;
   font-weight: normal;
   vertical-align: top;
 }
@@ -1157,7 +1163,7 @@ ul#add-to-blog-users {
 
 .form-table td {
   margin-bottom: 9px;
-  padding: 15px 10px;
+  padding: 1em;
   line-height: 1.3;
   vertical-align: middle;
 }
@@ -1180,7 +1186,7 @@ ul#add-to-blog-users {
 .form-table th {
   vertical-align: top;
   text-align: left;
-  padding: 1.5rem 0.5em 0 0;
+  padding: 1em;
   width: 200px;
   line-height: 1.3;
   font-weight: 600;
@@ -2442,57 +2448,6 @@ fieldset .config-field small {
   height: 0.5em;
   line-height: 1;
   vertical-align: text-top;
-}
-
-#pass-strength-result {
-  text-align: center;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  opacity: 0;
-}
-
-#pass-strength-result.short {
-  color: #dd0000;
-  opacity: 1;
-}
-
-#pass-strength-result.bad {
-  color: #ee6600;
-  opacity: 1;
-}
-
-#pass-strength-result.good {
-  color: #ffee00;
-  opacity: 1;
-}
-
-#pass-strength-result.strong {
-  color: #44aa11;
-  opacity: 1;
-}
-
-#pass1.short,
-#pass1-text.short {
-  color: #dd0000;
-}
-
-#pass1.bad,
-#pass1-text.bad {
-  color: #ee6600;
-}
-
-#pass1.good,
-#pass1-text.good {
-  color: #ffee00;
-}
-
-#pass1.strong,
-#pass1-text.strong {
-  color: #44aa11;
-}
-
-.password-weak {
-  display: none;
 }
 
 .message {

@@ -309,12 +309,18 @@ table {
 	border-spacing: 0;
 	font-size: inherit;
 
+	tr {
+		display: table-row;
+	}
+
 	th {
+		display: table-cell;
 		font-weight: bold;
 		vertical-align: middle;
 	}
 
 	td {
+		display: table-cell;
 		font-weight: normal;
 		vertical-align: top;
 

@@ -230,12 +230,18 @@ table {
   font-size: inherit;
 }
 
+table tr {
+  display: table-row;
+}
+
 table th {
+  display: table-cell;
   font-weight: bold;
   vertical-align: middle;
 }
 
 table td {
+  display: table-cell;
   font-weight: normal;
   vertical-align: top;
 }
