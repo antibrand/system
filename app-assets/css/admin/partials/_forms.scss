@@ -67,12 +67,12 @@ textarea {
 
 /// Checkbox input color functions
 ///
-/// @function checked-bg-color Function to encode the hashtag in the
+/// @function checked_bg_color Function to encode the hashtag in the
 ///		variable for checkbox background image checked color in the
 ///     SVG fill attributes.
 
 // Checkbox checked background color.
-@function checked-bg-color() {
+@function checked_bg_color() {
 	@return '%23' + str-slice( '#{$form_action_border_color}', 2, -1 );
 }
 
@@ -169,7 +169,7 @@ input {
 		}
 
 		&:checked:before {
-			background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><rect x='0' /><g><path fill='#{ checked-bg-color() }' d='M14.83 4.89l1.34.94-5.81 8.38H9.02L5.78 9.67l1.34-1.25 2.57 2.4z' /></g></svg>");
+			background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><rect x='0' /><g><path fill='#{ checked_bg_color() }' d='M14.83 4.89l1.34.94-5.81 8.38H9.02L5.78 9.67l1.34-1.25 2.57 2.4z' /></g></svg>");
 			background-repeat: no-repeat;
 			background-size: 1.25em;
 			background-position: -0.25em 0;
@@ -272,10 +272,10 @@ input {
 /// Make sure dimensional changes match various
 /// text and submit type inputs.
 ///
-/// @function select-bg-color Function to encode the hashtag in the
+/// @function select_bg_color Function to encode the hashtag in the
 /// 	variable for arrow background image color in the SVG fill attributes.
 ///
-/// @function select-action-bg-color Function to encode the hashtag in the
+/// @function select_action_bg_color Function to encode the hashtag in the
 ///		variable for arrow background image focus color in the SVG fill attributes.
 ///
 /// Background size affects the size of the arrow down image.
@@ -283,12 +283,12 @@ input {
 /// size of the right-positioned background image.
 
 // Arrow color.
-@function select-bg-color() {
+@function select_bg_color() {
 	@return '%23' + str-slice( '#{$form_text_color}', 2, -1 );
 }
 
 // Arrow focus color.
-@function select-action-bg-color() {
+@function select_action_bg_color() {
 	@return '%23' + str-slice( '#{$form_focus}', 2, -1 );
 }
 
@@ -306,10 +306,10 @@ select {
 	border-radius: 0;
 
 	&:not([multiple]):not([size]) {
-		background-image: url( "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{ select-bg-color() }' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E" );
+		background-image: url( "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{ select_bg_color() }' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E" );
 
 		&:focus {
-			background-image: url( "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{ select-action-bg-color() }' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E" );
+			background-image: url( "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{ select_action_bg_color() }' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E" );
 		}
 	}
 

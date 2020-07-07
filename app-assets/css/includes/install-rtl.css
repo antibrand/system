@@ -2249,6 +2249,16 @@ table.form-table td .updated p {
   z-index: 1;
 }
 
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 p,
 ul,
 ol {
@@ -2266,6 +2276,7 @@ ol {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -2278,7 +2289,6 @@ ol {
 
 .app-header .app-identity .app-logo img {
   display: block;
-  border-radius: 50%;
 }
 
 .app-header .app-identity .app-title {
@@ -2299,6 +2309,10 @@ ol {
 }
 
 .setup-install-wrap {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 2rem;
@@ -2328,6 +2342,9 @@ ol {
 }
 
 .app-footer {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 100%;
   max-width: 1280px;
   margin: 3rem auto 0;
   padding: 2rem;
@@ -2352,6 +2369,28 @@ a img {
 
 .step {
   margin-top: 3rem;
+}
+
+.step a:before, .step a:after {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-size: 0.5em;
+}
+
+.step a.next:after {
+  width: 1em;
+  height: 0.75em;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512' fill='%23222222'><path d='M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z'/></svg>");
+  background-position: 0.5em center;
+}
+
+.step a.prev:before {
+  width: 1em;
+  height: 0.75em;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512' fill='%23222222'><path d='M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z'/></svg>");
+  background-position: 0 center;
 }
 
 fieldset {
@@ -2453,55 +2492,50 @@ fieldset.tabbed-legend > div:first-of-type p:first-of-type {
 }
 
 #pass-strength-result {
-  background-color: #eee;
-  border: 1px solid #ddd;
-  margin: 0.5em;
-  padding: 3px 5px;
   text-align: center;
-  width: 218px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   opacity: 0;
 }
 
 #pass-strength-result.short {
-  background-color: #f1adad;
-  border-color: #e35b5b;
+  color: #dd0000;
   opacity: 1;
 }
 
 #pass-strength-result.bad {
-  background-color: #fbc5a9;
-  border-color: #f78b53;
+  color: #ee6600;
   opacity: 1;
 }
 
 #pass-strength-result.good {
-  background-color: #ffe399;
-  border-color: #ffc733;
+  color: #ffee00;
   opacity: 1;
 }
 
 #pass-strength-result.strong {
-  background-color: #c1e1b9;
-  border-color: #83c373;
+  color: #44aa11;
   opacity: 1;
 }
 
-#pass1.short, #pass1-text.short {
-  border-color: #e35b5b;
+#pass1.short,
+#pass1-text.short {
+  color: #dd0000;
 }
 
-#pass1.bad, #pass1-text.bad {
-  border-color: #f78b53;
+#pass1.bad,
+#pass1-text.bad {
+  color: #ee6600;
 }
 
-#pass1.good, #pass1-text.good {
-  border-color: #ffc733;
+#pass1.good,
+#pass1-text.good {
+  color: #ffee00;
 }
 
-#pass1.strong, #pass1-text.strong {
-  border-color: #83c373;
+#pass1.strong,
+#pass1-text.strong {
+  color: #44aa11;
 }
 
 .password-weak {
@@ -2511,7 +2545,6 @@ fieldset.tabbed-legend > div:first-of-type p:first-of-type {
 .message {
   border-left: 4px solid #dd0000;
   padding: .7em .6em;
-  background-color: #fbeaea;
 }
 
 /* rtl:ignore */
