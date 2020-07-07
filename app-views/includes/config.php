@@ -33,6 +33,9 @@ require( ABSPATH . 'app-settings.php' );
 require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 require_once( ABSPATH . 'wp-admin/includes/translation-install.php' );
 
+// Get the identity image or white label logo.
+$app_get_logo = dirname( dirname( dirname( $_SERVER['PHP_SELF'] ) ) ) . '/app-assets/images/app-icon.png';
+
 /**
  * Set the headers to prevent caching
  *
@@ -46,60 +49,72 @@ nocache_headers();
  * Look for the `app-config.sample.php` file,
  * including one level up from the app root.
  */
-if ( file_exists( ABSPATH . 'app-config.sample.php' ) ) {
+if ( file_exists( ABSPATH . 'app-config.sample.php' ) ) :
 	$app_config_file = file( ABSPATH . 'app-config.sample.php' );
-} elseif ( file_exists( dirname( ABSPATH ) . '/app-config.sample.php' ) ) {
+
+elseif ( file_exists( dirname( ABSPATH ) . '/app-config.sample.php' ) ) :
 	$app_config_file = file( dirname( ABSPATH ) . '/app-config.sample.php' );
 
 /**
  * Stop the configuration process and display a message if the sample
  * configuration file is not found in the root directory.
  */
-} else {
-	wp_die(
-		sprintf(
-			'<p>%1s <code>%2s</code> %3s</p>',
-			__( 'The file' ),
-			'app-config.sample.php',
-			__( 'is needed from which to work. Please upload this file to the root directory of your installation.' )
-		)
-	);
-}
+else :
+
+// Get the page header.
+include( ABSPATH . 'app-views/includes/partials/header/config-install.php' );
+
+// Get the message content.
+include_once( ABSPATH . 'app-views/includes/partials/content/config-sample-missing.php' );
+
+// Get the page footer.
+include( ABSPATH . 'app-views/includes/partials/footer/config-install.php' );
+
+// Stop the configuration process.
+wp_die( null );
+
+endif;
 
 /**
  * Stop the configuration process and display a message if the
  * configuration file has been created.
  */
-if ( file_exists( ABSPATH . 'app-config.php' ) ) {
-	wp_die(
-		sprintf(
-			'<p>%1s <code>%2s</code> %3s <a href="%4s">%5s</a></p>',
-			__( 'The file' ),
-			'app-config.php',
-			__( 'already exists. If you need to reset any of the configuration items in this file, please delete it first. You may try' ),
-			esc_url( 'install.php' ),
-			__( 'installing now' )
-		)
-	);
-}
+if ( file_exists( ABSPATH . 'app-config.php' ) ) :
+
+// Get the page header.
+include( ABSPATH . 'app-views/includes/partials/header/config-install.php' );
+
+// Get the message content.
+include_once( ABSPATH . 'app-views/includes/partials/content/config-exists.php' );
+
+// Get the page footer.
+include( ABSPATH . 'app-views/includes/partials/footer/config-install.php' );
+
+// Stop the configuration process.
+wp_die( null );
+
+endif;
 
 /**
  * Stop the configuration process and display a message if the
  * configuration file exists above the root directory but is
  * not part of another installation.
  */
-if ( @file_exists( ABSPATH . '../app-config.php' ) && ! @file_exists( ABSPATH . '../app-settings.php' ) ) {
-	wp_die(
-		sprintf(
-			'<p>%1s <code>%2s</code> %3s <a href="%4s">%5s</a></p>',
-			__( 'The file' ),
-			__( 'already exists one level above your installation. If you need to reset any of the configuration items in this file, please delete it first. You may try' ),
-			'app-config.php',
-			esc_url( 'install.php' ),
-			__( 'installing now' )
-		)
-	);
-}
+if ( @file_exists( ABSPATH . '../app-config.php' ) && ! @file_exists( ABSPATH . '../app-settings.php' ) ) :
+
+// Get the page header.
+include( ABSPATH . 'app-views/includes/partials/header/config-install.php' );
+
+// Get the message content.
+include_once( ABSPATH . 'app-views/includes/partials/content/config-exists-above.php' );
+
+// Get the page footer.
+include( ABSPATH . 'app-views/includes/partials/footer/config-install.php' );
+
+// Stop the configuration process.
+wp_die( null );
+
+endif;
 
 /**
  * Look for the `id-config.sample.php` file,
@@ -110,6 +125,7 @@ if ( @file_exists( ABSPATH . '../app-config.php' ) && ! @file_exists( ABSPATH . 
  */
 if ( file_exists( ABSPATH . 'id-config.sample.php' ) ) {
 	$id_config_file = file( ABSPATH . 'id-config.sample.php' );
+
 } elseif ( file_exists( dirname( ABSPATH ) . '/id-config.sample.php' ) ) {
 	$id_config_file = file( dirname( ABSPATH ) . '/id-config.sample.php' );
 }
@@ -130,9 +146,6 @@ if ( ! empty( $_REQUEST['language'] ) ) {
 } elseif ( isset( $GLOBALS['wp_local_package'] ) ) {
 	$language = $GLOBALS['wp_local_package'];
 }
-
-// Get the identity image or white label logo.
-$app_get_logo = dirname( dirname( dirname( $_SERVER['PHP_SELF'] ) ) ) . '/app-assets/images/app-icon.png';
 
 // Get the page header.
 include( ABSPATH . 'app-views/includes/partials/header/config-install.php' );
@@ -167,8 +180,8 @@ switch( $step ) :
 				<?php
 				include_once( ABSPATH . 'app-views/includes/partials/content/config-intro.php' );
 				include_once( ABSPATH . 'app-views/includes/partials/content/config-info.php' );
-				include_once( ABSPATH . 'app-views/includes/partials/content/config-identity.php' );
 				include_once( ABSPATH . 'app-views/includes/partials/content/config-database.php' );
+				include_once( ABSPATH . 'app-views/includes/partials/content/config-identity.php' );
 				?>
 			</form>
 		</main>
@@ -279,11 +292,15 @@ switch( $step ) :
 	 */
 	$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_ []{}<>~`+=,.;:/?|';
 	$max   = strlen( $chars ) - 1;
+
 	for ( $i = 0; $i < 8; $i++ ) {
+
 		$key = '';
+
 		for ( $j = 0; $j < 64; $j++ ) {
 			$key .= substr( $chars, random_int( 0, $max ), 1 );
 		}
+
 		$secret_keys[] = $key;
 	}
 
@@ -318,6 +335,7 @@ switch( $step ) :
 			case 'DB_PASSWORD' :
 			case 'DB_HOST'     :
 				$app_config_file[ $line_num ] = "define( '" . $constant . "'," . $padding . "'" . addcslashes( constant( $constant ), "\\'" ) . "' );\r\n";
+
 				break;
 
 			// Database character set.
@@ -325,6 +343,7 @@ switch( $step ) :
 				if ( 'utf8mb4' === $wpdb->charset || ( ! $wpdb->charset && $wpdb->has_cap( 'utf8mb4' ) ) ) {
 					$app_config_file[ $line_num ] = "define( '" . $constant . "'," . $padding . "'utf8mb4' );\r\n";
 				}
+
 				break;
 
 			// Security keys and salts.
@@ -337,6 +356,7 @@ switch( $step ) :
 			case 'LOGGED_IN_SALT'   :
 			case 'NONCE_SALT'       :
 				$app_config_file[ $line_num ] = "define( '" . $constant . "'," . $padding . "'" . $secret_keys[$key++] . "' );\r\n";
+
 				break;
 
 		// End cases to be replaced.
@@ -369,15 +389,22 @@ switch( $step ) :
 			// White label definitions.
 			case 'APP_NAME' :
 				$id_config_file[ $line_num ] = "define( '" . $constant . "'," . $padding . "'" . $app_name . "' );\r\n";
+
 				break;
+
 			case 'APP_TAGLINE' :
 				$id_config_file[ $line_num ] = "define( '" . $constant . "'," . $padding . "'" . $app_tagline . "' );\r\n";
+
 				break;
+
 			case 'APP_WEBSITE' :
 				$id_config_file[ $line_num ] = "define( '" . $constant . "'," . $padding . "'" . $app_website . "' );\r\n";
+
 				break;
+
 			case 'APP_LOGO' :
 				$id_config_file[ $line_num ] = "define( '" . $constant . "'," . $padding . "'" . $app_logo . "' );\r\n";
+
 				break;
 
 		// End cases to be replaced.
@@ -475,31 +502,58 @@ include( ABSPATH . 'app-views/includes/partials/footer/config-install.php' );
  * @since 1.0.0
  */
 ?>
+<!-- jQuery navigation -->
 <script>
 jQuery(document).ready( function($) {
 
 	// Step to show first, by ID.
-	var $curr = $( '#config-intro' );
+	var $current = $( '#config-intro' );
 
 	// Hide all sections with the form-step class.
 	$( 'section.form-step' ).hide();
 
 	// Show the first form-step section.
-	$curr.show();
+	$current.show();
 
 	$( '.prev' ).click( function() {
-		$curr = $curr.prev();
+		$current = $current.prev();
 		$( 'section.form-step' ).hide();
-		$curr.fadeIn(250);
+		$current.fadeIn(250);
 	});
 
 	$( '.next' ).click( function() {
-		$curr = $curr.next();
+		$current = $current.next();
 		$( 'section.form-step' ).hide();
-		$curr.fadeIn(250);
+		$current.fadeIn(250);
 	});
 });
 </script>
+
+<!-- Remove hashtags from URL -->
+<script>
+jQuery(document).ready( function($) {
+
+	$( 'a[href*="#"]' )
+
+	// Ignore links that don't link to anything.
+	.not( '[href="#"]' )
+	.not( '[href="#0"]' )
+	.click( function(event) {
+		if (
+			location.pathname.replace( /^\//, '' ) == this.pathname.replace( /^\//, '' )
+			&&
+			location.hostname == this.hostname
+		) {
+			var target = $( this.hash );
+
+			if ( target.length ) {
+				event.preventDefault();
+			}
+		}
+	});
+});
+</script>
+
 </body>
 </html>
 <?php

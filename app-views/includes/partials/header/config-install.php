@@ -98,6 +98,18 @@ header( 'Content-Type: text/html; charset=utf-8' );
 
 	<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
 
+	<style>
+	/**
+	 * Hide form steps if JavaScript is running
+	 *
+	 * These will be revealed by jQuery navigation or
+	 * if JavaScript is disabled.
+	 */
+	.js .form-step {
+		display: none;
+	}
+	</style>
+
 	<?php
 	// Enqueue jQuery for form steps (prev/next).
 	wp_print_scripts( 'jquery' ); ?>

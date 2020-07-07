@@ -1,31 +1,35 @@
 <?php
 /**
- * Not writable message for the config page
+ * Sample configuration file not found
  *
  * @package App_Package
  * @subpackage Administration
  */
 
 ?>
-<div class="setup-install-wrap setup-install-no-write">
+<div class="setup-install-wrap">
 
 	<main class="config-content">
 
-		<?php
-			echo sprintf(
-				'<p>%1s <code>%2s</code> %3s</p>',
-				__( 'The' ),
-				'app-config.php',
-				__( 'file cannot be written as needed. You can manually create the file in the root directory of the website management system and paste the following code into it.' )
-			);
-		?>
+		<h2><?php _e( 'Configuration File Not Found' ); ?></h2>
 
-		<p><?php _e( 'When the config file is ready, click the "Run Installation" button.' ); ?></p>
+		<?php echo sprintf(
+			'<p>%1s <code>%2s</code> %3s</p>',
+			__( 'The' ),
+			'app-config.sample.php',
+			__( 'file is needed for the configuration process to write a new configuration file. Upload this file to the root directory of the website management system.' )
+		); ?>
 
-		<p class="copy-sample-config">
-			<button class="button" onclick="selectText( 'sample-config' )"><?php _e( 'Select All to Copy' ); ?></button>
-			<a href="<?php echo esc_url( $install ); ?>" class="button"><?php _e( 'Run Installation' ); ?></a>
-		</p>
+		<?php echo sprintf(
+			'<p>%1s <code>%2s</code> %3s</p>',
+			__( 'The code below is recommended for the' ),
+			'app-config.sample.php',
+			__( 'file. If you cannot find the sample file that came with the website management system then try the following.' )
+		); ?>
+
+		<h2><?php _e( 'Sample Configuration File' ); ?></h2>
+
+		<p class="copy-sample-config"><button class="button" onclick="selectText( 'sample-config' )"><?php _e( 'Select All to Copy' ); ?></button></p>
 
 		<pre id="sample-config" class="sample-config-code">
 &lt;?php
@@ -226,11 +230,6 @@ define( 'APP_LOGIN', '/' . 'login' . '/' );
 require( ABSPATH . 'app-settings.php' );
 
 		</pre>
-
-		<p>
-			<button class="button" onclick="selectText( 'sample-config' )"><?php _e( 'Select All to Copy' ); ?></button>
-			<a href="<?php echo esc_url( $install ); ?>" class="button"><?php _e( 'Run Installation' ); ?></a>
-		</p>
 
 	</main>
 </div>

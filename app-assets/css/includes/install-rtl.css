@@ -341,9 +341,7 @@ samp {
 pre {
   overflow: auto;
   -ms-overflow-style: scrollbar;
-  white-space: pre;
   white-space: pre-wrap;
-  white-space: pre-line;
   word-wrap: break-word;
 }
 
@@ -2393,6 +2391,12 @@ a img {
   background-position: 0 center;
 }
 
+.step .spinner {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 1em;
+}
+
 fieldset {
   margin: 0;
   padding: 0;
@@ -2422,29 +2426,33 @@ fieldset.tabbed-legend > div:first-of-type p:first-of-type {
   width: 100%;
 }
 
-.form-table td {
-  margin-bottom: 9px;
-  padding: 10px 20px 10px 0;
-  font-size: 14px;
-  vertical-align: middle;
-}
-
 .form-table th {
-  font-size: 14px;
+  font-size: 0.875rem;
   text-align: left;
-  padding: 10px 20px 10px 0;
+  padding: 0.75em 1.25em 0.75em 0;
   width: 140px;
   vertical-align: middle;
 }
 
-.form-table code {
-  line-height: 18px;
-  font-size: 14px;
+.form-table th p {
+  font-weight: 400;
+}
+
+.form-table td {
+  margin-bottom: 0.5em;
+  padding: 0.75em 1.25em 0.75em 0;
+  font-size: 0.875rem;
+  vertical-align: middle;
 }
 
 .form-table p {
-  margin: 4px 0 0 0;
-  font-size: 11px;
+  margin: 0.25em 0 0 0;
+  font-size: 0.6875rem;
+}
+
+.form-table code {
+  line-height: 1em;
+  font-size: 0.875rem;
 }
 
 .form-table input[type=text],
@@ -2454,24 +2462,19 @@ fieldset.tabbed-legend > div:first-of-type p:first-of-type {
   width: 206px;
 }
 
-.form-table th p {
-  font-weight: 400;
-}
-
 .form-table.install-success th,
 .form-table.install-success td {
   vertical-align: middle;
-  padding: 16px 20px 16px 0;
+  padding: 0.75em 1.25em 0.75em 0;
 }
 
 .form-table.install-success td p {
   margin: 0;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .form-table.install-success td code {
   margin: 0;
-  font-size: 18px;
 }
 
 #error-page {
@@ -2479,9 +2482,8 @@ fieldset.tabbed-legend > div:first-of-type p:first-of-type {
 }
 
 #error-page p {
-  font-size: 14px;
-  line-height: 18px;
-  margin: 25px 0 20px;
+  font-size: 0.875rem;
+  margin: 2rem 0;
 }
 
 .wp-hide-pw > .dashicons {
@@ -2547,19 +2549,6 @@ fieldset.tabbed-legend > div:first-of-type p:first-of-type {
   padding: .7em .6em;
 }
 
-/* rtl:ignore */
-#dbname,
-#uname,
-#pwd,
-#dbhost,
-#prefix,
-#user_login,
-#admin_email,
-#pass1,
-#pass2 {
-  direction: ltr;
-}
-
 #pass1-text,
 .show-password #pass1 {
   display: none;
@@ -2570,7 +2559,19 @@ fieldset.tabbed-legend > div:first-of-type p:first-of-type {
 }
 
 .form-table span.description.important {
-  font-size: 12px;
+  font-size: 0.75rem;
+}
+
+.copy-sample-config {
+  margin-top: 2rem;
+}
+
+.sample-config-code {
+  margin-top: 1em;
+  padding: 1rem;
+  background-color: #eeeeee;
+  border: solid 1px #cccccc;
+  cursor: text;
 }
 
 @media screen and (max-width: 782px) {
@@ -2583,12 +2584,12 @@ fieldset.tabbed-legend > div:first-of-type p:first-of-type {
     width: auto;
   }
   .form-table th {
-    padding: 20px 0 0;
+    padding: 1.5em 0 0;
   }
   .form-table td {
-    padding: 5px 0;
-    border: 0;
     margin: 0;
+    padding: 0.25em 0;
+    border: 0;
   }
 }
 
@@ -2613,20 +2614,14 @@ fieldset.tabbed-legend > div:first-of-type p:first-of-type {
 }
 
 .spinner {
-  background: url(../images/spinner.gif) no-repeat;
+  background: url(../../images/spinner.gif) no-repeat;
   background-size: 20px 20px;
   visibility: hidden;
   opacity: 0.7;
   filter: alpha(opacity=70);
   width: 20px;
   height: 20px;
-  margin: 2px 5px 0;
-}
-
-.step .spinner {
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 15px;
+  margin: 0.25em 0.25em 0;
 }
 
 .no-js .button.hide-if-no-js,
@@ -2653,6 +2648,6 @@ fieldset.tabbed-legend > div:first-of-type p:first-of-type {
  */
 @media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
   .spinner {
-    background-image: url(../images/spinner-2x.gif);
+    background-image: url(../../images/spinner-2x.gif);
   }
 }
