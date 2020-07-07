@@ -318,10 +318,10 @@
 				if ( ! $weakCheckbox.prop( 'checked' ) ) {
 					$submitButtons.prop( 'disabled', true );
 				}
-				$weakRow.show();
+				$weakRow.css( 'display', 'table-row' );
 			} else {
 				$submitButtons.prop( 'disabled', false );
-				$weakRow.hide();
+				$weakRow.css( 'display', 'none' );
 			}
 		}
 	}
