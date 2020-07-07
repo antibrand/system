@@ -1005,95 +1005,41 @@ class wpdb {
 	 * The database name will be changed based on the current database
 	 * connection. On failure, the execution will bail and display an DB error.
 	 *
-	 * @since 0.71
+	 * The error message is provided by a template partial.
 	 *
-	 * @param string        $db  MySQL database name
+	 * @see app-views/includes/partials/content/config-database-select.php
+	 *
+	 * @since Previous 0.71
+	 * @since 1.0.0 The use of a template partial.
+	 *
+	 * @param string $db MySQL database name
 	 * @param resource|null $dbh Optional link identifier.
 	 */
 	public function select( $db, $dbh = null ) {
-		if ( is_null($dbh) )
+
+		if ( is_null ( $dbh ) ) {
 			$dbh = $this->dbh;
+		}
 
 		if ( $this->use_mysqli ) {
 			$success = mysqli_select_db( $dbh, $db );
 		} else {
 			$success = mysql_select_db( $db, $dbh );
 		}
+
 		if ( ! $success ) {
+
 			$this->ready = false;
+
 			if ( ! did_action( 'template_redirect' ) ) {
+
 				wp_load_translations_early();
 
-				$message = '<header><h2>' . __( 'Can&#8217;t select a database' ) . "</h2></header>\n";
+				ob_start();
 
-				if ( ! empty( $db ) ) {
-					$message .= '<p>' . sprintf(
-						/* translators: %s: database name */
-						__( 'We were able to connect to the database server (which means your username and password is okay) but not able to select the "%s" database.' ),
-						'<code>' . htmlspecialchars( $db, ENT_QUOTES ) . '</code>'
-					) . "</p>\n";
-				} else {
-					$message .= '<p>' . sprintf(
-						/* translators: %s: database name */
-						__( 'We were able to connect to the database server (which means your username and password is okay) but not able to select the database.' )
-					) . "</p>\n";
-				}
+				include_once( ABSPATH . 'app-views/includes/partials/content/config-database-select.php' );
 
-				$message .= "<ul>\n";
-				$message .= '<li>' . __( 'Are you sure it exists?' ) . "</li>\n";
-
-				if ( ! empty( ( $db && $this->dbuser ) ) ) {
-					$message .= '<li>' . sprintf(
-						/* translators: 1: database user, 2: database name */
-						__( 'Does the user %1$s have permission to use the %2$s database?' ),
-						'<code>' . htmlspecialchars( $this->dbuser, ENT_QUOTES )  . '</code>',
-						'<code>' . htmlspecialchars( $db, ENT_QUOTES ) . '</code>'
-					) . "</li>\n";
-				} elseif ( ! empty( ( $db ) ) ) {
-					$message .= '<li>' . sprintf(
-						/* translators: 1: database user, 2: database name */
-						__( 'Does the user have permission to use the %1$s database?' ),
-						'<code>' . htmlspecialchars( $db, ENT_QUOTES ) . '</code>'
-					) . "</li>\n";
-				} elseif ( ! empty( ( $this->dbuser ) ) ) {
-					$message .= '<li>' . sprintf(
-						/* translators: 1: database user, 2: database name */
-						__( 'Does the user %1$s have permission to use the database?' ),
-						'<code>' . htmlspecialchars( $this->dbuser, ENT_QUOTES )  . '</code>'
-					) . "</li>\n";
-				}  else {
-					$message .= '<li>' . sprintf(
-						/* translators: 1: database user, 2: database name */
-						__( 'Does the user have permission to use the database?' )
-					) . "</li>\n";
-				}
-
-				if ( ! empty( ( $db ) ) ) {
-					$message .= '<li>' . sprintf(
-						/* translators: %s: database name */
-						__( 'On some systems the name of your database is prefixed with your username, so it would be like <code>username_%1$s</code>. Could that be the problem?' ),
-						htmlspecialchars( $db, ENT_QUOTES )
-					). "</li>\n";
-				} else {
-					$message .= '<li>' . sprintf(
-						/* translators: %s: database name */
-						__( 'On some systems the name of your database is prefixed with your username. Could that be the problem?' )
-					). "</li>\n";
-				}
-
-				$message .= "</ul>\n";
-
-				$message .= '<p>' . sprintf(
-					/* translators: %s: support forums URL */
-					__( 'If you don&#8217;t know how to set up a database you should <strong>contact your host</strong>.' )
-				) . "</p>\n";
-
-				$message .= sprintf(
-					'<p class="step"><a href="%1s" class="button button-large">%2s</a></p>',
-					esc_url( 'config.php' ),
-					__( 'Retry Installation' )
-
-				);
+				$message = ob_get_clean();
 
 				$this->bail( $message, 'db_select_fail' );
 			}
