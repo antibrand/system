@@ -19,6 +19,19 @@ if ( is_rtl() ) {
 	$body_classes .= 'rtl';
 }
 
+// Define a name of the website management system.
+if ( APP_NAME ) {
+	$app_name = APP_NAME;
+} else {
+	$app_name = __( 'system' );
+}
+
+if ( APP_TAGLINE ) {
+	$app_tagline = APP_TAGLINE;
+} else {
+	$app_tagline = __( 'generic, white-label website management' );
+}
+
 // Get the identity image or white label logo.
 $app_get_logo = dirname( dirname( dirname( $_SERVER['PHP_SELF'] ) ) ) . '/app-assets/images/app-icon.png';
 
@@ -145,8 +158,8 @@ header( 'Content-Type: text/html; charset=utf-8' );
 				<?php echo $app_logo; ?>
 			</div>
 			<div class="app-title-description">
-				<h1 class="app-title"><?php echo APP_NAME; ?></h1>
-				<p class="app-description"><?php echo APP_TAGLINE; ?></p>
+				<h1 class="app-title"><?php echo $app_name; ?></h1>
+				<p class="app-description"><?php echo $app_tagline; ?></p>
 			</div>
 		</div>
 	</header>

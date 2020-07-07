@@ -207,12 +207,13 @@ if ( is_blog_installed() ) {
 	// Get the page header.
 	include_once( ABSPATH . 'app-views/includes/partials/header/config-install.php' );
 
-	die(
-		'<h1>' . __( 'Already Installed' ) . '</h1>' .
-		'<p>' . __( 'You appear to have already installed the website management system. To reinstall please clear your old database tables first.' ) . '</p>' .
-		'<p class="step"><a href="' . esc_url( wp_login_url() ) . '" class="button button-large">' . __( 'Log In' ) . '</a></p>' .
-		'</body></html>'
-	);
+	// Get the message content.
+	include_once( ABSPATH . 'app-views/includes/partials/content/install-exists.php' );
+
+	// Get the page footer.
+	include( ABSPATH . 'app-views/includes/partials/footer/config-install.php' );
+
+	return;
 }
 
 /**
@@ -230,13 +231,15 @@ $php_compat    = version_compare( $php_version, $required_php_version, '>=' );
 $mysql_compat  = version_compare( $mysql_version, $required_mysql_version, '>=' ) || file_exists( WP_CONTENT_DIR . '/db.php' );
 
 if ( ! $mysql_compat && !$php_compat ) {
-	/* translators: 1: app version number, 2: Minimum required PHP version number, 3: Minimum required MySQL version number, 4: Current PHP version number, 5: Current MySQL version number */
+
 	$compat = sprintf( __( 'You cannot install because %1$s %2$s requires PHP version %3$s or higher and MySQL version %4$s or higher. You are running PHP version %4$s and MySQL version %5$s.' ), APP_NAME, $app_version, $required_php_version, $required_mysql_version, $php_version, $mysql_version );
+
 } elseif ( ! $php_compat ) {
-	/* translators: 1: app version number, 2: Minimum required PHP version number, 3: Current PHP version number */
+
 	$compat = sprintf( __( 'You cannot install because %1$s %2$s requires PHP version %3$s or higher. You are running version %4$s.' ), APP_NAME, $app_version, $required_php_version, $php_version );
+
 } elseif ( ! $mysql_compat ) {
-	/* translators: 1: app version number, 2: Minimum required MySQL version number, 3: Current MySQL version number */
+
 	$compat = sprintf( __( 'You cannot install because %1$s %2$s requires MySQL version %3$s or higher. You are running version %4$s.' ), APP_NAME, $app_version, $required_mysql_version, $mysql_version );
 }
 
@@ -284,8 +287,10 @@ if ( defined( 'DO_NOT_UPGRADE_GLOBAL_TABLES' ) ) {
  * @global WP_Locale $wp_locale
  */
 $language = '';
+
 if ( ! empty( $_REQUEST['language'] ) ) {
 	$language = preg_replace( '/[^a-zA-Z0-9_]/', '', $_REQUEST['language'] );
+
 } elseif ( isset( $GLOBALS['wp_local_package'] ) ) {
 	$language = $GLOBALS['wp_local_package'];
 }
@@ -293,8 +298,11 @@ if ( ! empty( $_REQUEST['language'] ) ) {
 $scripts_to_print = [ 'jquery' ];
 
 switch( $step ) {
-	case 0: // Step 0
+
+	case 0 : // Step 0
+
 		if ( wp_can_install_language_pack() && empty( $language ) && ( $languages = wp_get_available_translations() ) ) {
+
 			$scripts_to_print[] = 'language-chooser';
 
 			// Get the page header.
@@ -303,14 +311,19 @@ switch( $step ) {
 			echo '<form id="setup" method="post" action="?step=1">';
 			wp_install_language_form( $languages );
 			echo '</form>';
+
 			break;
 		}
 
 		// Deliberately fall through if we can't reach the translations API.
 
-	case 1: // Step 1, direct link or from language chooser.
+	// Step 1, direct link or from language chooser.
+	case 1 :
+
 		if ( ! empty( $language ) ) {
+
 			$loaded_language = wp_download_language_pack( $language );
+
 			if ( $loaded_language ) {
 				load_default_textdomain( $loaded_language );
 				$GLOBALS['wp_locale'] = new WP_Locale();
@@ -329,11 +342,15 @@ switch( $step ) {
 
 <?php
 		display_setup_form();
+
 		break;
-	case 2:
+
+	case 2 :
+
 		if ( ! empty( $language ) && load_default_textdomain( $language ) ) {
 			$loaded_language      = $language;
 			$GLOBALS['wp_locale'] = new WP_Locale();
+
 		} else {
 			$loaded_language = 'en_US';
 		}
@@ -357,23 +374,29 @@ switch( $step ) {
 
 		// Check email address.
 		$error = false;
+
 		if ( empty( $user_name ) ) {
-			// TODO: poka-yoke
+
 			display_setup_form( __( 'Please provide a valid username.' ) );
 			$error = true;
+
 		} elseif ( $user_name != sanitize_user( $user_name, true ) ) {
+
 			display_setup_form( __( 'The username you provided has invalid characters.' ) );
 			$error = true;
+
 		} elseif ( $admin_password != $admin_password_check ) {
-			// TODO: poka-yoke
+
 			display_setup_form( __( 'Your passwords do not match. Please try again.' ) );
 			$error = true;
+
 		} elseif ( empty( $admin_email ) ) {
-			// TODO: poka-yoke
+
 			display_setup_form( __( 'You must provide an email address.' ) );
 			$error = true;
+
 		} elseif ( ! is_email( $admin_email ) ) {
-			// TODO: poka-yoke
+
 			display_setup_form( __( 'Sorry, that isn&#8217;t a valid email address. Email addresses look like <code>username@example.com</code>.' ) );
 			$error = true;
 		}
@@ -406,6 +429,7 @@ switch( $step ) {
 
 <?php
 		}
+
 		break;
 }
 
