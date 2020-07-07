@@ -23,6 +23,30 @@ fieldset {
 			font-weight: 600;
 		}
 	}
+
+	&.tabbed-legend {
+
+		// Margin & padding counteract the translate on legend.
+		margin-top: 3em;
+		padding-top: 0;
+
+		legend {
+			padding: 0.5em 1em;
+			border: solid 1px $form_border_color;
+			border-bottom: none;
+			transform: translateY( calc( -50% + 2px ) );
+		}
+
+		& > div {
+			&:first-of-type {
+				p {
+					&:first-of-type {
+						margin-top: 0;
+					}
+				}
+			}
+		}
+	}
 }
 
 label {

@@ -708,6 +708,23 @@ fieldset legend {
   }
 }
 
+fieldset.tabbed-legend {
+  margin-top: 3em;
+  padding-top: 0;
+}
+
+fieldset.tabbed-legend legend {
+  padding: 0.5em 1em;
+  border: solid 1px #888888;
+  border-bottom: none;
+  -webkit-transform: translateY(calc( -50% + 2px));
+          transform: translateY(calc( -50% + 2px));
+}
+
+fieldset.tabbed-legend > div:first-of-type p:first-of-type {
+  margin-top: 0;
+}
+
 label {
   font-weight: 700;
   cursor: pointer;
