@@ -25,9 +25,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', dirname( dirname( dirname( __FILE__ ) ) ) . '/' );
 }
 
-// Start output buffering.
-ob_start();
-
 // Load dependency files.
 require( ABSPATH . 'app-settings.php' );
 require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -71,7 +68,7 @@ include_once( ABSPATH . 'app-views/includes/partials/content/config-sample-missi
 include( ABSPATH . 'app-views/includes/partials/footer/config-install.php' );
 
 // Stop the configuration process.
-wp_die( null );
+return;
 
 endif;
 
@@ -91,7 +88,7 @@ include_once( ABSPATH . 'app-views/includes/partials/content/config-exists.php' 
 include( ABSPATH . 'app-views/includes/partials/footer/config-install.php' );
 
 // Stop the configuration process.
-wp_die( null );
+return;
 
 endif;
 
@@ -112,7 +109,7 @@ include_once( ABSPATH . 'app-views/includes/partials/content/config-exists-above
 include( ABSPATH . 'app-views/includes/partials/footer/config-install.php' );
 
 // Stop the configuration process.
-wp_die( null );
+return;
 
 endif;
 
@@ -132,9 +129,9 @@ if ( file_exists( ABSPATH . 'id-config.sample.php' ) ) {
 
 // Set URL "step" parameters for the paginated installation process.
 if ( isset( $_GET['step'] ) ) {
-	$step = (int) $_GET['step'];
+	$step = $_GET['step'];
 } else {
-	$step = 0;
+	$step = 'begin';
 }
 
 // Set a blank language variable.
@@ -159,12 +156,12 @@ include( ABSPATH . 'app-views/includes/partials/header/config-install.php' );
 switch( $step ) :
 
 	/**
-	 * Case 0: Setup Introduction
+	 * Case begin: Setup Introduction
 	 *
 	 * This template notifies the user of the information which is needed
 	 * for installation of the website management system.
 	 */
-	case 0 :
+	case 'begin' :
 
 	// Load the system language.
 	load_default_textdomain( $language );
@@ -175,7 +172,7 @@ switch( $step ) :
 
 		<main class="config-content">
 
-			<form class="config-form" method="post" action="config.php?step=1">
+			<form class="config-form" method="post" action="config.php?step=ready">
 
 				<?php
 				include_once( ABSPATH . 'app-views/includes/partials/content/config-intro.php' );
@@ -188,11 +185,11 @@ switch( $step ) :
 	</div>
 	<?php
 
-	// End case 0 page content.
+	// End case begin page content.
 	break;
 
 	/**
-	 * Case 2: Create files
+	 * Case ready: Create files
 	 *
 	 * This creates the system and identity configuration files if
 	 * possible then moves on to the installation page template.
@@ -200,7 +197,7 @@ switch( $step ) :
 	 * This also displays a success message if a database connection
 	 * was made or displays various error messages.
 	 */
-	case 1 :
+	case 'ready' :
 
 	// Load the system language.
 	load_default_textdomain( $language );
@@ -219,18 +216,18 @@ switch( $step ) :
 	$app_db_host     = trim( wp_unslash( $_POST['app_db_host'] ) );
 	$app_db_prefix   = trim( wp_unslash( $_POST['app_db_prefix'] ) );
 
-	// Variable for the step 0 parameter.
-	$step_0  = 'config.php?step=0';
+	// Variable for the step begin parameter.
+	$step_begin  = 'config.php?step=begin';
 
 	// Variable for the installation page template.
 	$install = 'install.php';
 	if ( isset( $_REQUEST['noapi'] ) ) {
-		$step_0 .= '&amp;noapi';
+		$step_begin .= '&amp;noapi';
 	}
 
 	// Set up the URL parameter for the system language.
 	if ( ! empty( $language ) ) {
-		$step_0  .= '&amp;language=' . $language;
+		$step_begin  .= '&amp;language=' . $language;
 		$install .= '?language=' . $language;
 	} else {
 		$install .= '';
@@ -471,6 +468,7 @@ switch( $step ) :
 		foreach ( $id_config_file as $line ) {
 			fwrite( $id_handle, $line );
 		}
+
 		fclose( $id_handle );
 		chmod( $path_to_id_config, 0666 );
 
@@ -478,7 +476,7 @@ switch( $step ) :
 
 	endif;
 
-	// End case 2 content.
+	// End case ready.
 	break;
 
 // End the paginated setup & config pages markup.
@@ -486,6 +484,8 @@ endswitch;
 
 // Get the page footer.
 include( ABSPATH . 'app-views/includes/partials/footer/config-install.php' );
+
+wp_print_scripts( 'language-chooser' );
 
 /**
  * wp_print_scripts( 'language-chooser' );
@@ -556,7 +556,3 @@ jQuery(document).ready( function($) {
 
 </body>
 </html>
-<?php
-
-// End output buffering.
-ob_end_flush();
