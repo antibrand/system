@@ -20,79 +20,39 @@ if ( is_rtl() ) {
 }
 
 // Define a name of the website management system.
-if ( APP_NAME ) {
+if ( defined( 'APP_NAME' ) && APP_NAME ) {
 	$app_name = APP_NAME;
 } else {
 	$app_name = __( 'system' );
 }
 
-if ( APP_TAGLINE ) {
+if ( defined( 'APP_TAGLINE' ) && APP_TAGLINE ) {
 	$app_tagline = APP_TAGLINE;
 } else {
 	$app_tagline = __( 'generic, white-label website management' );
 }
 
 // Get the identity image or white label logo.
-$app_get_logo = dirname( dirname( dirname( $_SERVER['PHP_SELF'] ) ) ) . '/app-assets/images/app-icon.png';
-
-// Link for the logo image.
-$app_link = APP_WEBSITE;
+$app_get_logo = dirname( dirname( dirname( $_SERVER['REQUEST_URI'] ) ) ) . '/app-assets/images/app-icon.png';
 
 // Conditional logo markup.
-if ( APP_WEBSITE ) {
+if ( defined( 'APP_WEBSITE' ) && APP_WEBSITE ) {
 
 	$app_logo = sprintf(
 		'<a href="%1s"><img src="%2s" class="app-logo-image" alt="%3s" itemprop="logo" width="512" height="512"></a>',
-		APP_WEBSITE,
-		$app_get_logo,
-		APP_NAME
+		esc_url( APP_WEBSITE ),
+		esc_attr( $app_get_logo ),
+		esc_html( APP_NAME )
 	);
 
 } else {
 
 	$app_logo = sprintf(
 		'<img src="%1s" class="app-logo-image" alt="%2s" itemprop="logo" width="512" height="512">',
-		$app_get_logo,
-		APP_NAME
+		esc_attr( $app_get_logo ),
+		esc_html( APP_NAME )
 	);
 
-}
-
-// Identity colors
-if ( defined( 'APP_COLOR' ) ) {
-	$app_color = APP_COLOR;
-} else {
-	$app_color = 'inherit';
-}
-
-if ( defined( 'APP_DARK_COLOR' ) ) {
-	$app_dark_color = APP_DARK_COLOR;
-} else {
-	$app_dark_color = 'white';
-}
-
-if ( defined( 'APP_BG_COLOR' ) ) {
-	$app_bg_color = APP_BG_COLOR;
-} else {
-	$app_bg_color = 'white';
-}
-
-if ( defined( 'APP_DARK_BG_COLOR' ) ) {
-	$app_dark_bg_color = APP_DARK_BG_COLOR;
-} else {
-	$app_dark_bg_color = '#252525';
-}
-
-if ( defined( 'APP_PRIMARY_COLOR' ) ) {
-	$app_primary_color = APP_PRIMARY_COLOR;
-} else {
-	$app_primary_color = '#ffee00';
-}
-
-if ( defined( 'APP_SECONDARY_COLOR' ) ) {
-	$app_secondary_color = APP_SECONDARY_COLOR;
-} else {
-	$app_secondary_color = '#3ad4fb';
 }
 
 header( 'Content-Type: text/html; charset=utf-8' );
@@ -105,7 +65,7 @@ header( 'Content-Type: text/html; charset=utf-8' );
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="robots" content="noindex,nofollow" />
 
-	<link rel="icon" href="<?php echo $app_get_logo; ?>" />
+	<link rel="icon" href="<?php echo esc_attr( $app_get_logo ); ?>" />
 
 	<title><?php _e( 'Configuration File Setup' ); ?></title>
 
@@ -128,28 +88,7 @@ header( 'Content-Type: text/html; charset=utf-8' );
 	wp_print_scripts( 'jquery' ); ?>
 
 	<?php app_assets_css( 'install', true ); ?>
-	<!-- style>
-		body {
-			background-color: <?php // echo $app_bg_color; ?>;
-			color: <?php // echo $app_color; ?>
-		}
-		.dark-mode {
-			background-color: <?php // echo $app_dark_bg_color; ?>;
-			color: <?php // echo $app_dark_color; ?>
-		}
-		.setup-install-wrap .button {
-			background-color: <?php // echo $app_primary_color; ?>;
-			border-color: <?php // echo $app_primary_color; ?>
-		}
-		.setup-install-wrap .button:hover,
-		.setup-install-wrap .button:focus {
-			background-color: <?php // echo $app_secondary_color; ?>;
-			border-color: <?php // echo $app_secondary_color; ?>
-		}
-		.dark-mode code {
-			color: #222222
-		}
-	</style> -->
+
 </head>
 <body class="<?php echo $body_classes; ?>">
 	<header class="app-header">
