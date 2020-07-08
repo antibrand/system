@@ -18,7 +18,8 @@ namespace AppNamespace;
  */
 const APP_CLASSES = [
 
-	// Classes used on the back end and/or front end.
+	// Includes.
+	'AppNamespace\Includes\App_Install'     => __DIR__ . '/classes/includes/class-app-install.php',
 	'AppNamespace\Includes\User_Logging'    => __DIR__ . '/classes/includes/class-user-logging.php',
 	'AppNamespace\Includes\User_Toolbar'    => __DIR__ . '/classes/includes/class-user-toolbar.php',
 	'AppNamespace\Includes\Installer'       => __DIR__ . '/classes/includes/class-installer.php',
@@ -33,7 +34,7 @@ const APP_CLASSES = [
 	'AppNamespace\Includes\Import_Data_Content' => __DIR__ . '/classes/includes/class-import-data-content.php',
 	'AppNamespace\Includes\Error_Messages'  => __DIR__ . '/classes/includes/class-error-messages.php',
 
-	// Classes used in the back end only.
+	// Backend.
 	'AppNamespace\Backend\Screen'               => __DIR__ . '/classes/backend/class-screen.php',
 	'AppNamespace\Backend\Dashboard'            => __DIR__ . '/classes/backend/class-dashboard.php',
 	'AppNamespace\Backend\Data_Page'            => __DIR__ . '/classes/backend/class-data-page.php',
