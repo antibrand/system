@@ -19,6 +19,7 @@ namespace AppNamespace;
 const APP_CLASSES = [
 
 	// Classes used on the back end and/or front end.
+	'AppNamespace\Includes\User_Logging'    => __DIR__ . '/classes/includes/class-user-logging.php',
 	'AppNamespace\Includes\User_Toolbar'    => __DIR__ . '/classes/includes/class-user-toolbar.php',
 	'AppNamespace\Includes\Installer'       => __DIR__ . '/classes/includes/class-installer.php',
 	'AppNamespace\Includes\Walker'          => __DIR__ . '/classes/includes/class-walker.php',
