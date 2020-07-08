@@ -2186,7 +2186,8 @@ function get_password_reset_key( $user ) {
 
 	// Now insert the key, hashed, into the DB.
 	if ( empty( $wp_hasher ) ) {
-		$wp_hasher = new Includes\PasswordHash( 8, true );
+		require_once ABSPATH . WPINC . '/class-phpass.php';
+		$wp_hasher = new PasswordHash( 8, true );
 	}
 	$hashed = time() . ':' . $wp_hasher->HashPassword( $key );
 	$key_saved = $wpdb->update( $wpdb->users, array( 'user_activation_key' => $hashed ), array( 'user_login' => $user->user_login ) );
@@ -2230,7 +2231,8 @@ function check_password_reset_key($key, $login) {
 		return new WP_Error('invalid_key', __('Invalid key'));
 
 	if ( empty( $wp_hasher ) ) {
-		$wp_hasher = new Includes\PasswordHash( 8, true );
+		require_once ABSPATH . WPINC . '/class-phpass.php';
+		$wp_hasher = new PasswordHash( 8, true );
 	}
 
 	/**
@@ -3390,7 +3392,8 @@ function wp_generate_user_request_key( $request_id ) {
 
 	// Return the key, hashed.
 	if ( empty( $wp_hasher ) ) {
-		$wp_hasher = new Includes\PasswordHash( 8, true );
+		require_once ABSPATH . WPINC . '/class-phpass.php';
+		$wp_hasher = new PasswordHash( 8, true );
 	}
 
 	wp_update_post( array(
@@ -3432,7 +3435,8 @@ function wp_validate_user_request_key( $request_id, $key ) {
 	}
 
 	if ( empty( $wp_hasher ) ) {
-		$wp_hasher = new Includes\PasswordHash( 8, true );
+		require_once ABSPATH . WPINC . '/class-phpass.php';
+		$wp_hasher = new PasswordHash( 8, true );
 	}
 
 	$key_request_time = $request->modified_timestamp;

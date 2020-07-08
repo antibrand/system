@@ -20,7 +20,6 @@ const APP_CLASSES = [
 
 	// Includes.
 	'AppNamespace\Includes\App_Install'     => __DIR__ . '/classes/includes/class-app-install.php',
-	'AppNamespace\Includes\PasswordHash'    => __DIR__ . '/classes/includes/class-phpass.php',
 	'AppNamespace\Includes\User_Logging'    => __DIR__ . '/classes/includes/class-user-logging.php',
 	'AppNamespace\Includes\User_Toolbar'    => __DIR__ . '/classes/includes/class-user-toolbar.php',
 	'AppNamespace\Includes\Installer'       => __DIR__ . '/classes/includes/class-installer.php',

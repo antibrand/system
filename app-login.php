@@ -81,12 +81,7 @@ if ( SITECOOKIEPATH != COOKIEPATH ) {
 	setcookie( TEST_COOKIE, 'WP Cookie check', 0, SITECOOKIEPATH, COOKIE_DOMAIN, $secure );
 }
 
-if ( ! empty( $_GET['wp_lang'] ) ) {
-	$lang = sanitize_text_field( $_GET['wp_lang'] );
-} else {
-	$lang = '';
-}
-
+$lang            = ! empty( $_GET['wp_lang'] ) ? sanitize_text_field( $_GET['wp_lang'] ) : '';
 $switched_locale = switch_to_locale( $lang );
 
 /**
@@ -121,7 +116,8 @@ switch ( $action ) {
 			exit();
 		}
 
-		$hasher = new Includes\PasswordHash( 8, true );
+		require_once ABSPATH . WPINC . '/class-phpass.php';
+		$hasher = new PasswordHash( 8, true );
 
 		/**
 		 * Filters the life span of the post password cookie.
@@ -400,6 +396,7 @@ switch ( $action ) {
 			 * Fires following the 'Strength indicator' meter in the user password reset form.
 			 *
 			 * @since Previous 3.9.0
+			 *
 			 * @param WP_User $user User object of the user whose password is being reset.
 			 */
 			do_action( 'resetpass_form', $user );
@@ -440,6 +437,7 @@ switch ( $action ) {
 			 * Filters the Multisite sign up URL.
 			 *
 			 * @since Previous 3.0.0
+			 *
 			 * @param string $sign_up_url The sign up URL.
 			 */
 			wp_redirect( apply_filters( 'wp_signup_location', network_site_url( 'app-signup.php' ) ) );
@@ -484,6 +482,7 @@ switch ( $action ) {
 		 * Filters the registration redirect URL.
 		 *
 		 * @since Previous 3.0.0
+		 *
 		 * @param string $registration_redirect The redirect destination URL.
 		 */
 		$redirect_to = apply_filters( 'registration_redirect', $registration_redirect );
@@ -645,6 +644,7 @@ switch ( $action ) {
 			 * Filters the login redirect URL.
 			 *
 			 * @since Previous 3.0.0
+			 *
 			 * @param string           $redirect_to           The redirect destination URL.
 			 * @param string           $requested_redirect_to The requested redirect destination URL passed as a parameter.
 			 * @param WP_User|WP_Error $user                  WP_User object if login was successful, WP_Error object otherwise.
@@ -742,6 +742,7 @@ switch ( $action ) {
 			 * Filters the login page errors.
 			 *
 			 * @since Previous 3.6.0
+			 *
 			 * @param object $errors      WP Error object.
 			 * @param string $redirect_to Redirect destination URL.
 			 */
@@ -863,6 +864,7 @@ switch ( $action ) {
 			 * Filters whether to print the call to `wp_attempt_focus()` on the login screen.
 			 *
 			 * @since Previous 4.8.0
+			 *
 			 * @param bool $print Whether to print the function call. Default true.
 			 */
 			if ( apply_filters( 'enable_login_autofocus', true ) && ! $error ) { ?>
