@@ -1843,7 +1843,7 @@ function wp_new_user_notification( $user_id, $deprecated = null, $notify = '' ) 
 	// Generate something random for a password reset key.
 	$key = wp_generate_password( 20, false );
 
-	/** This action is documented in wp-login.php */
+	/** This action is documented in app-login.php */
 	do_action( 'retrieve_password_key', $user->user_login, $key );
 
 	// Now insert the key, hashed, into the DB.
@@ -1859,7 +1859,7 @@ function wp_new_user_notification( $user_id, $deprecated = null, $notify = '' ) 
 	/* translators: %s: user login */
 	$message = sprintf(__('Username: %s'), $user->user_login) . "\r\n\r\n";
 	$message .= __('To set your password, visit the following address:') . "\r\n\r\n";
-	$message .= '<' . network_site_url("wp-login.php?action=rp&key=$key&login=" . rawurlencode($user->user_login), 'login') . ">\r\n\r\n";
+	$message .= '<' . network_site_url("app-login.php?action=rp&key=$key&login=" . rawurlencode($user->user_login), 'login') . ">\r\n\r\n";
 
 	$message .= wp_login_url() . "\r\n";
 

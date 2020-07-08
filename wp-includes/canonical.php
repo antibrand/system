@@ -345,7 +345,7 @@ function redirect_canonical( $requested_url = null, $do_redirect = true ) {
 
 		if ( 'wp-register.php' == basename( $redirect['path'] ) ) {
 			if ( is_multisite() ) {
-				/** This filter is documented in wp-login.php */
+				/** This filter is documented in app-login.php */
 				$redirect_url = apply_filters( 'wp_signup_location', network_site_url( 'app-signup.php' ) );
 			} else {
 				$redirect_url = wp_registration_url();
@@ -643,7 +643,7 @@ function redirect_guess_404_permalink() {
  * Redirects a variety of shorthand URLs to the admin.
  *
  * If a user visits example.com/admin, they'll be redirected to /wp-admin.
- * Visiting /login redirects to /wp-login.php, and so on.
+ * Visiting /login redirects to /app-login.php, and so on.
  *
  * @since 3.4.0
  *
@@ -667,7 +667,7 @@ function wp_redirect_admin_locations() {
 	}
 
 	$logins = array(
-		home_url( 'wp-login.php', 'relative' ),
+		home_url( 'app-login.php', 'relative' ),
 		home_url( 'login', 'relative' ),
 		site_url( 'login', 'relative' ),
 	);

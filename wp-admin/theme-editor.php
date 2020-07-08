@@ -391,7 +391,7 @@ if ( $file_description != $file_show ) {
 
 		// Get a back URL.
 		$referer = wp_get_referer();
-		$excluded_referer_basenames = array( 'theme-editor.php', 'wp-login.php' );
+		$excluded_referer_basenames = array( 'theme-editor.php', 'app-login.php' );
 
 		if ( $referer && ! in_array( basename( parse_url( $referer, PHP_URL_PATH ) ), $excluded_referer_basenames, true ) ) {
 			$return_url = $referer;

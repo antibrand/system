@@ -1015,7 +1015,7 @@ function is_admin_bar_showing() {
 
 	if ( ! isset( $show_admin_bar ) ) {
 
-		if ( ! is_user_logged_in() || 'wp-login.php' == $pagenow ) {
+		if ( ! is_user_logged_in() || 'app-login.php' == $pagenow ) {
 			$show_admin_bar = false;
 		} else {
 			$show_admin_bar = _get_admin_bar_pref();
