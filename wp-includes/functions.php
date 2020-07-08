@@ -2766,14 +2766,14 @@ function _default_wp_die_handler( $message, $title = '', $args = array() ) {
 			$text_direction = 'rtl';
 ?>
 
-<?php include_once( ABSPATH . 'wp-admin/partials/header/config-install.php' ); ?>
+<?php include_once( ABSPATH . 'app-views/includes/partials/header/config-install.php' ); ?>
 <?php endif; // ! did_action( 'admin_head' ) ?>
 	<div class="setup-install-wrap setup-install-error">
 		<main class="config-content">
 			<?php echo $message; ?>
 		</main>
 	</div>
-<?php include_once( ABSPATH . 'wp-admin/partials/footer/config-install.php' );
+<?php include_once( ABSPATH . 'app-views/includes/partials/footer/config-install.php' );
 
 	die();
 }
