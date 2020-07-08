@@ -6,6 +6,8 @@
  * @package App_Package
  */
 
+use \AppNamespace\Includes as Includes;
+
 // Define the application name.
 if ( ! defined( 'APP_NAME' ) ) {
 	define( 'APP_NAME', 'system' );
@@ -1848,8 +1850,7 @@ function wp_new_user_notification( $user_id, $deprecated = null, $notify = '' ) 
 
 	// Now insert the key, hashed, into the DB.
 	if ( empty( $wp_hasher ) ) {
-		require_once ABSPATH . WPINC . '/class-phpass.php';
-		$wp_hasher = new PasswordHash( 8, true );
+		$wp_hasher = new Includes\PasswordHash( 8, true );
 	}
 	$hashed = time() . ':' . $wp_hasher->HashPassword( $key );
 	$wpdb->update( $wpdb->users, array( 'user_activation_key' => $hashed ), array( 'user_login' => $user->user_login ) );
@@ -2154,13 +2155,14 @@ if ( !function_exists('wp_hash_password') ) :
  * @param string $password Plain text user password to hash
  * @return string The hash string of the password
  */
-function wp_hash_password($password) {
+function wp_hash_password( $password ) {
+
 	global $wp_hasher;
 
-	if ( empty($wp_hasher) ) {
-		require_once( ABSPATH . WPINC . '/class-phpass.php');
-		// By default, use the portable hash from phpass
-		$wp_hasher = new PasswordHash(8, true);
+	if ( empty( $wp_hasher ) ) {
+
+		// By default, use the portable hash from phpass.
+		$wp_hasher = new Includes\PasswordHash( 8, true );
 	}
 
 	return $wp_hasher->HashPassword( trim( $password ) );
@@ -2217,10 +2219,10 @@ function wp_check_password($password, $hash, $user_id = '') {
 
 	// If the stored hash is longer than an MD5, presume the
 	// new style phpass portable hash.
-	if ( empty($wp_hasher) ) {
-		require_once( ABSPATH . WPINC . '/class-phpass.php');
+	if ( empty( $wp_hasher ) ) {
+
 		// By default, use the portable hash from phpass
-		$wp_hasher = new PasswordHash(8, true);
+		$wp_hasher = new Includes\PasswordHash(8, true);
 	}
 
 	$check = $wp_hasher->CheckPassword($password, $hash);
