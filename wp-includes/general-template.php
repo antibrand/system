@@ -4128,7 +4128,7 @@ function register_user_code_themes() {
  */
 function app_assets_css_uri( $file = 'app-assets' ) {
 
-	if ( defined( 'APP_INSTALLING' ) ) {
+	if ( defined( 'WP_INSTALLING' ) ) {
 		$_file = "./$file.css";
 	} else {
 		$_file = app_assets_url( "/css/$file.css" );
@@ -4207,7 +4207,7 @@ function app_assets_css( $file = 'app-assets', $force_echo = false ) {
  */
 function wp_admin_css_uri( $file = 'wp-admin' ) {
 
-	if ( defined( 'APP_INSTALLING' ) ) {
+	if ( defined( 'WP_INSTALLING' ) ) {
 		$_file = "./$file.css";
 	} else {
 		$_file = admin_url( "$file.css" );
