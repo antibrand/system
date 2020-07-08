@@ -23,7 +23,7 @@ class User_Logging {
 	 * Constructor method
 	 *
 	 * @since  1.0.0
-	 * @access private
+	 * @access public
 	 * @return self
 	 */
 	public function __construct() {}
@@ -31,12 +31,14 @@ class User_Logging {
 	/**
 	 * Output the login page header.
 	 *
-	 * @param string $title Optional. Login Page title to display in the `<title>` element.
+	 * @since  1.0.0
+	 * @access public
+	 * @param  string $title Optional. Login Page title to display in the `<title>` element.
 	 *                      Default 'Log In'.
-	 * @param string $message Optional. Message to display in header. Default empty.
-	 * @param WP_Error $wp_error Optional. The error to pass. Default is a WP_Error instance.
+	 * @param  string $message Optional. Message to display in header. Default empty.
+	 * @param  WP_Error $wp_error Optional. The error to pass. Default is a WP_Error instance.
 	 */
-	function login_header( $title = 'Log In', $message = '', $wp_error = null ) {
+	public function login_header( $title = 'Log In', $message = '', $wp_error = null ) {
 
 		global $error, $interim_login, $action;
 
@@ -250,7 +252,9 @@ class User_Logging {
 	/**
 	 * Outputs the footer for the login page.
 	 *
-	 * @param string $input_id Which input to auto-focus
+	 * @since  1.0.0
+	 * @access public
+	 * @param  string $input_id Which input to auto-focus
 	 */
 	public function login_footer( $input_id = '' ) {
 
@@ -299,6 +303,8 @@ class User_Logging {
 	/**
 	 * Handles sending password retrieval email to user.
 	 *
+	 * @since  1.0.0
+	 * @access public
 	 * @return bool|WP_Error True: when finish. WP_Error on error
 	 */
 	public function retrieve_password() {
@@ -414,6 +420,10 @@ class User_Logging {
 	 *
 	 * This is not added by add_action( 'login_head' ) lin WordPress,
 	 * but here it is removable by plugins.
+	 * 
+	 * @since 1.0.0
+	 * @access public
+	 * @return string Returns JavaScript markup.
 	 */
 	public function logout_remove_data() {
 

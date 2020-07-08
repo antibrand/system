@@ -13,6 +13,7 @@ use \AppNamespace\Includes as Includes;
 // Make sure that the website management system bootstrap has run before continuing.
 require( dirname( __FILE__ ) . '/app-load.php' );
 
+// New instance of the User_Logging class.
 $user_log = new Includes\User_Logging;
 
 // Redirect to https login if forced to use SSL.
