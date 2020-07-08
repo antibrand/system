@@ -859,8 +859,7 @@ function post_password_required( $post = null ) {
 		return apply_filters( 'post_password_required', true, $post );
 	}
 
-	require_once ABSPATH . WPINC . '/class-phpass.php';
-	$hasher = new PasswordHash( 8, true );
+	$hasher = new Includes\PasswordHash( 8, true );
 
 	$hash = wp_unslash( $_COOKIE[ 'wp-postpass_' . COOKIEHASH ] );
 	if ( 0 !== strpos( $hash, '$P$B' ) ) {
