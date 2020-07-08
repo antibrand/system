@@ -7,7 +7,7 @@
  */
 
 /**
- * Footer message
+ * Config & install footer message
  *
  * Looks for a user-defined name for the
  * website management system.
