@@ -78,7 +78,7 @@ class PasswordHash {
 
 		$output = '';
 
-		if ( @is_readable('/dev/urandom') && ( $fh = @fopen( '/dev/urandom', 'rb' ) ) ) {
+		if ( @is_readable( '/dev/urandom' ) && ( $fh = @fopen( '/dev/urandom', 'rb' ) ) ) {
 			$output = fread( $fh, $count );
 			fclose( $fh );
 		}
@@ -161,6 +161,14 @@ class PasswordHash {
 		return $output;
 	}
 
+	/**
+	 * Generate salts
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param  [type] $input
+	 * @return string
+	 */
 	public function crypt_private( $password, $setting ) {
 
 		$output = '*0';
@@ -209,6 +217,14 @@ class PasswordHash {
 		return $output;
 	}
 
+	/**
+	 * Generate blowfish salts
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param  [type] $input
+	 * @return string
+	 */
 	public function gensalt_blowfish( $input ) {
 
 		/**
@@ -255,6 +271,14 @@ class PasswordHash {
 		return $output;
 	}
 
+	/**
+	 * Hash password
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param  [type] $password
+	 * @return string
+	 */
 	public function HashPassword( $password ) {
 
 		$random = '';
@@ -270,7 +294,7 @@ class PasswordHash {
 		}
 
 		if ( strlen( $random ) < 6 ) {
-			$random = $this->get_random_bytes(6);
+			$random = $this->get_random_bytes( 6 );
 		}
 
 		$hash = $this->crypt_private( $password, $this->gensalt_private( $random ) );
@@ -287,6 +311,15 @@ class PasswordHash {
 		return '*';
 	}
 
+	/**
+	 * Check password
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param  [type] $password
+	 * @param  [type] $stored_hash
+	 * @return string
+	 */
 	public function CheckPassword( $password, $stored_hash ) {
 
 		$hash = $this->crypt_private( $password, $stored_hash );
