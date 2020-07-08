@@ -176,7 +176,8 @@ switch( $step ) :
 
 				<?php
 				include_once( ABSPATH . 'app-views/includes/partials/content/config-intro.php' );
-				include_once( ABSPATH . 'app-views/includes/partials/content/config-info.php' );
+				include_once( ABSPATH . 'app-views/includes/partials/content/config-info-database.php' );
+				include_once( ABSPATH . 'app-views/includes/partials/content/config-info-identity.php' );
 				include_once( ABSPATH . 'app-views/includes/partials/content/config-database.php' );
 				include_once( ABSPATH . 'app-views/includes/partials/content/config-identity.php' );
 				?>

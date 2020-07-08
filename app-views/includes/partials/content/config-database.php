@@ -65,7 +65,7 @@
 	</fieldset>
 
 	<p class="step hide-if-no-js">
-		<a href="#config-info-optional" class="button prev">
+		<a href="#config-info-identity" class="button prev">
 			<?php _e( 'Previous' ); ?>
 		</a>
 		<a href="#config-identity" class="button next">
