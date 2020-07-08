@@ -10,7 +10,7 @@
  * @since Previous 3.0.0
  */
 
-define( 'WP_INSTALLING_NETWORK', true );
+define( 'APP_INSTALLING_NETWORK', true );
 
 // Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );

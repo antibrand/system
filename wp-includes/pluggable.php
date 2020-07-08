@@ -2323,7 +2323,7 @@ function wp_rand( $min = 0, $max = 0 ) {
 		$rnd_value .= sha1($rnd_value);
 		$rnd_value .= sha1($rnd_value . $seed);
 		$seed = md5($seed . $rnd_value);
-		if ( ! defined( 'WP_SETUP_CONFIG' ) && ! defined( 'WP_INSTALLING' ) ) {
+		if ( ! defined( 'WP_SETUP_CONFIG' ) && ! defined( 'APP_INSTALLING' ) ) {
 			set_transient( 'random_seed', $seed );
 		}
 	}

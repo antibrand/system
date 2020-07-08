@@ -12,7 +12,7 @@
  * @since 1.5.1
  * @var bool
  */
-define( 'WP_INSTALLING', true );
+define( 'APP_INSTALLING', true );
 
 // Load the website management system.
 require( dirname( dirname( __FILE__ ) ) . '/app-load.php' );

@@ -333,7 +333,7 @@ function app_debug_mode() {
 		error_reporting( E_CORE_ERROR | E_CORE_WARNING | E_COMPILE_ERROR | E_ERROR | E_WARNING | E_PARSE | E_USER_ERROR | E_USER_WARNING | E_RECOVERABLE_ERROR );
 	}
 
-	if ( defined( 'XMLRPC_REQUEST' ) || defined( 'REST_REQUEST' ) || ( defined( 'WP_INSTALLING' ) && WP_INSTALLING ) || wp_doing_ajax() ) {
+	if ( defined( 'XMLRPC_REQUEST' ) || defined( 'REST_REQUEST' ) || ( defined( 'APP_INSTALLING' ) && APP_INSTALLING ) || wp_doing_ajax() ) {
 		@ini_set( 'display_errors', 0 );
 	}
 }
@@ -930,7 +930,7 @@ function wp_load_translations_early() {
 /**
  * Check or set whether the application is in "installation" mode.
  *
- * If the `WP_INSTALLING` constant is defined during the bootstrap, `wp_installing()` will default to `true`.
+ * If the `APP_INSTALLING` constant is defined during the bootstrap, `wp_installing()` will default to `true`.
  *
  * @since 4.4.0
  *
@@ -944,9 +944,9 @@ function wp_load_translations_early() {
 function wp_installing( $is_installing = null ) {
 	static $installing = null;
 
-	// Support for the `WP_INSTALLING` constant, defined before WP is loaded.
+	// Support for the `APP_INSTALLING` constant, defined before WP is loaded.
 	if ( is_null( $installing ) ) {
-		$installing = defined( 'WP_INSTALLING' ) && WP_INSTALLING;
+		$installing = defined( 'APP_INSTALLING' ) && APP_INSTALLING;
 	}
 
 	if ( ! is_null( $is_installing ) ) {

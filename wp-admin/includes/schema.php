@@ -53,7 +53,7 @@ function wp_get_db_schema( $scope = 'all', $blog_id = null ) {
 		$old_blog_id = $wpdb->set_blog_id( $blog_id );
 
 	// Engage multisite if in the middle of turning it on from network.php.
-	$is_multisite = is_multisite() || ( defined( 'WP_INSTALLING_NETWORK' ) && WP_INSTALLING_NETWORK );
+	$is_multisite = is_multisite() || ( defined( 'APP_INSTALLING_NETWORK' ) && APP_INSTALLING_NETWORK );
 
 	/*
 	 * Indexes have a maximum size of 767 bytes. Historically, we haven't need to be concerned about that.
@@ -900,8 +900,8 @@ if ( !function_exists( 'install_network' ) ) :
  * @since 3.0.0
  */
 function install_network() {
-	if ( ! defined( 'WP_INSTALLING_NETWORK' ) )
-		define( 'WP_INSTALLING_NETWORK', true );
+	if ( ! defined( 'APP_INSTALLING_NETWORK' ) )
+		define( 'APP_INSTALLING_NETWORK', true );
 
 	dbDelta( wp_get_db_schema( 'global' ) );
 }

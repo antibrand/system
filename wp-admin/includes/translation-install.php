@@ -141,7 +141,7 @@ function wp_get_available_translations() {
 		$translations[ $translation['language'] ] = $translation;
 	}
 
-	if ( ! defined( 'WP_INSTALLING' ) ) {
+	if ( ! defined( 'APP_INSTALLING' ) ) {
 		set_site_transient( 'available_translations', $translations, 3 * HOUR_IN_SECONDS );
 	}
 

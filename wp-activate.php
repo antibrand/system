@@ -8,7 +8,7 @@
  * @package App_Package
  */
 
-define( 'WP_INSTALLING', true );
+define( 'APP_INSTALLING', true );
 
 // Set up the application environment.
 require( dirname( __FILE__ ) . '/app-load.php' );

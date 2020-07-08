@@ -10,7 +10,7 @@
  */
 
 // Start with a clean slate.
-define( 'WP_INSTALLING', true );
+define( 'APP_INSTALLING', true );
 define( 'WP_SETUP_CONFIG', true );
 
 /**
