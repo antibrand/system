@@ -58,7 +58,7 @@ define( 'APP_TAGLINE', 'generic, white-label website management' );
 define( 'APP_WEBSITE', '' );
 
 // Define a logo or icon path for the website management system.
-define( 'APP_LOGO', dirname( dirname( $_SERVER['PHP_SELF'] ) ) . '/app-assets/images/app-icon.jpg' );
+define( 'APP_IMAGE', dirname( dirname( $_SERVER['PHP_SELF'] ) ) . '/app-assets/images/app-icon.jpg' );
 
 /**
  * Identity colors

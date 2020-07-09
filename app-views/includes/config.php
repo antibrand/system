@@ -400,7 +400,7 @@ switch( $step ) :
 
 				break;
 
-			case 'APP_LOGO' :
+			case 'APP_IMAGE' :
 				$id_config_file[ $line_num ] = "define( '" . $constant . "'," . $padding . "'" . $app_logo . "' );\r\n";
 
 				break;

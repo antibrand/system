@@ -60,8 +60,8 @@ function wp_initial_constants() {
 		}
 
 		// Define a logo path for the website management system.
-		if ( ! defined( 'APP_LOGO' ) ) {
-			define( 'APP_LOGO', '' );
+		if ( ! defined( 'APP_IMAGE' ) ) {
+			define( 'APP_IMAGE', '' );
 		}
 	}
 
