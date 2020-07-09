@@ -12,7 +12,7 @@ define( 'APP_INSTALLING', true );
 require( dirname( __FILE__ ) . '/app-load.php' );
 
 // Get the site header.
-require( dirname( __FILE__ ) . '/app-blog-header.php' );
+require( dirname( __FILE__ ) . '/app-site-header.php' );
 
 if ( ! is_multisite() ) {
 	wp_redirect( wp_registration_url() );
