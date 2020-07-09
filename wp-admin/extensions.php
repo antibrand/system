@@ -16,12 +16,13 @@ if ( ! current_user_can( 'manage_options' ) ) {
 $wp_list_table = _get_list_table( 'AppNamespace\Backend\Extensions_List_Table' );
 $pagenum       = $wp_list_table->get_pagenum();
 
-$plugin = isset( $_REQUEST['plugin'] ) ? wp_unslash( $_REQUEST['plugin'] ) : '';
-$s      = isset( $_REQUEST['s'] ) ? urlencode( wp_unslash( $_REQUEST['s'] ) ) : '';
-
 $wp_list_table->prepare_items();
 
-add_screen_option( 'per_page', [ 'default' => 999 ] );
+/**
+ * add_screen_option( 'per_page', [ 'default' => 20 ] );
+ *
+ * @todo Fix this screen option or remove it.
+ */
 
 $title       = __( 'System Extensions' );
 $parent_file = 'plugins.php';
