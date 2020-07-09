@@ -1,8 +1,7 @@
 *.log
 app-config.php
 id-config.php
-app-extend/
-app-includes/extend/
+# app-extend/
 wp-content/advanced-cache.php
 wp-content/backup-db/
 wp-content/backups/
@@ -10,7 +9,6 @@ wp-content/blogs.dir/
 wp-content/cache/
 wp-content/upgrade/
 wp-content/uploads/
-wp-content/plugins/
 wp-content/themes/
 
 /.htaccess
