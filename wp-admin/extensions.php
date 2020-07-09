@@ -55,7 +55,7 @@ $invalid = validate_active_plugins();
 		 * @since 1.0.0
 		 * @param array $plugins_all An array containing all installed plugins.
 		 */
-		do_action( 'pre_current_active_plugins', $plugins['mustuse'] ); ?>
+		do_action( 'pre_current_active_plugins', $plugins['extension'] ); ?>
 
 		<?php
 

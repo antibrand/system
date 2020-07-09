@@ -286,7 +286,7 @@ class Plugin_Install_List_Table extends List_Table {
 					'active',
 					'inactive',
 					'recently_activated',
-					'mustuse',
+					'extension',
 					'dropins'
 				],
 				[]

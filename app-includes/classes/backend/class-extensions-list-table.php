@@ -39,7 +39,7 @@ class Extensions_List_Table extends List_Table {
 			'screen' => isset( $args['screen'] ) ? $args['screen'] : null,
 		] );
 
-		$status = 'mustuse';
+		$status = 'extension';
 		$page   = $this->get_pagenum();
 	}
 
@@ -86,7 +86,7 @@ class Extensions_List_Table extends List_Table {
 		$plugins = [
 			'all'     => $all_plugins,
 			'search'  => [],
-			'mustuse' => []
+			'extension' => []
 		];
 
 		$screen = $this->screen;
@@ -100,15 +100,15 @@ class Extensions_List_Table extends List_Table {
 			 * which can be used in a single site or Multisite network.
 			 *
 			 * The $type parameter allows you to differentiate between the type of advanced
-			 * plugins to filter the display of. Contexts include 'mustuse' and 'dropins'.
+			 * plugins to filter the display of. Contexts include 'extension' and 'dropins'.
 			 *
 			 * @since 1.0.0
 			 * @param bool   $show Whether to show the advanced plugins for the specified
 			 *                     plugin type. Default true.
-			 * @param string $type The plugin type. Accepts 'mustuse', 'dropins'.
+			 * @param string $type The plugin type. Accepts 'extension', 'dropins'.
 			 */
-			if ( apply_filters( 'show_advanced_plugins', true, 'mustuse' ) ) {
-				$plugins['mustuse'] = get_mu_plugins();
+			if ( apply_filters( 'show_advanced_plugins', true, 'extension' ) ) {
+				$plugins['extension'] = get_mu_plugins();
 			}
 		}
 
@@ -136,8 +136,8 @@ class Extensions_List_Table extends List_Table {
 			$totals[ $type ] = count( $list );
 		}
 
-		if ( empty( $plugins[ $status ] ) && ! in_array( $status, [ 'mustuse' ] ) ) {
-			$status = 'mustuse';
+		if ( empty( $plugins[ $status ] ) && ! in_array( $status, [ 'extension' ] ) ) {
+			$status = 'extension';
 		}
 
 		$this->items = [];
@@ -237,13 +237,13 @@ class Extensions_List_Table extends List_Table {
 
 		global $status;
 
-		if ( ! in_array( $status, [ 'mustuse', 'dropins' ] ) ) {
+		if ( ! in_array( $status, [ 'extension', 'dropins' ] ) ) {
 			$cb = '<input type="checkbox" />';
 		} else {
 			$cb = '';
 		}
 
-		if ( in_array( $status, [ 'mustuse' ] ) ) {
+		if ( in_array( $status, [ 'extension' ] ) ) {
 			$name = __( 'Extension' );
 		} else {
 			$name = __( 'Plugin' );
@@ -283,7 +283,7 @@ class Extensions_List_Table extends List_Table {
 
 			switch ( $type ) {
 
-				case 'mustuse':
+				case 'extension':
 					$text = _n( 'Extensions <span class="count">(%s)</span>', 'Extensions <span class="count">(%s)</span>', $count );
 					break;
 			}
@@ -300,7 +300,7 @@ class Extensions_List_Table extends List_Table {
 
 		global $status;
 
-		if ( is_multisite() && ! $this->screen->in_admin( 'network' ) && in_array( $status, [ 'mustuse' ] ) ) {
+		if ( is_multisite() && ! $this->screen->in_admin( 'network' ) && in_array( $status, [ 'extension' ] ) ) {
 			return;
 		}
 
@@ -352,7 +352,7 @@ class Extensions_List_Table extends List_Table {
 			 * @param string $plugin_file Path to the plugin file relative to the plugins directory.
 			 * @param array  $plugin_data An array of plugin data. See `get_plugin_data()`.
 			 * @param string $context     The plugin context. By default this can include 'all', 'active', 'inactive',
-			 *                            'recently_activated', 'upgrade', 'mustuse', 'dropins', and 'search'.
+			 *                            'recently_activated', 'upgrade', 'extension', 'dropins', and 'search'.
 			 */
 			$actions = apply_filters( 'network_admin_plugin_action_links', $actions, $plugin_file, $plugin_data, $context );
 
@@ -369,7 +369,7 @@ class Extensions_List_Table extends List_Table {
 			 * @param string $plugin_file Path to the plugin file relative to the plugins directory.
 			 * @param array  $plugin_data An array of plugin data. See `get_plugin_data()`.
 			 * @param string $context     The plugin context. By default this can include 'all', 'active', 'inactive',
-			 *                            'recently_activated', 'upgrade', 'mustuse', 'dropins', and 'search'.
+			 *                            'recently_activated', 'upgrade', 'extension', 'dropins', and 'search'.
 			 */
 			$actions = apply_filters( "network_admin_plugin_action_links_{$plugin_file}", $actions, $plugin_file, $plugin_data, $context );
 
@@ -388,7 +388,7 @@ class Extensions_List_Table extends List_Table {
 			 * @param string $plugin_file Path to the plugin file relative to the plugins directory.
 			 * @param array  $plugin_data An array of plugin data. See `get_plugin_data()`.
 			 * @param string $context     The plugin context. By default this can include 'all', 'active', 'inactive',
-			 *                            'recently_activated', 'upgrade', 'mustuse', 'dropins', and 'search'.
+			 *                            'recently_activated', 'upgrade', 'extension', 'dropins', and 'search'.
 			 */
 			$actions = apply_filters( 'plugin_action_links', $actions, $plugin_file, $plugin_data, $context );
 
@@ -407,7 +407,7 @@ class Extensions_List_Table extends List_Table {
 			 * @param string $plugin_file Path to the plugin file relative to the plugins directory.
 			 * @param array  $plugin_data An array of plugin data. See `get_plugin_data()`.
 			 * @param string $context     The plugin context. By default this can include 'all', 'active', 'inactive',
-			 *                            'recently_activated', 'upgrade', 'mustuse', 'dropins', and 'search'.
+			 *                            'recently_activated', 'upgrade', 'extension', 'dropins', and 'search'.
 			 */
 			$actions = apply_filters( "plugin_action_links_{$plugin_file}", $actions, $plugin_file, $plugin_data, $context );
 
@@ -416,7 +416,7 @@ class Extensions_List_Table extends List_Table {
 		$class       = $is_active ? 'active' : 'inactive';
 		$checkbox_id =  "checkbox_" . md5( $plugin_data['Name'] );
 
-		if ( $restrict_network_active || $restrict_network_only || in_array( $status, [ 'mustuse' ] ) ) {
+		if ( $restrict_network_active || $restrict_network_only || in_array( $status, [ 'extension' ] ) ) {
 			$checkbox = '';
 		} else {
 			$checkbox = "<label class='screen-reader-text' for='" . $checkbox_id . "' >" . sprintf( __( 'Select %s' ), $plugin_data['Name'] ) . "</label>"
