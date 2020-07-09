@@ -1,7 +1,7 @@
 *.log
 app-config.php
 id-config.php
-app-extends/
+# app-extend/
 app-includes/extend/
 wp-content/advanced-cache.php
 wp-content/backup-db/

@@ -225,25 +225,25 @@ function wp_plugin_directory_constants() {
 	}
 
 	/**
-	 * Allows for the app-extends directory to be moved from the default location.
+	 * Allows for the app-extend directory to be moved from the default location.
 	 *
 	 * @since Previous 2.8.0
 	 */
 	if ( ! defined( 'APP_EXTEND_DIR' ) ) {
 
 		// Full path, no trailing slash.
-		define( 'APP_EXTEND_DIR', ABSPATH . 'app-extends' );
+		define( 'APP_EXTEND_DIR', ABSPATH . 'app-extend' );
 	}
 
 	/**
-	 * Allows for the app-extends directory to be moved from the default location.
+	 * Allows for the app-extend directory to be moved from the default location.
 	 *
 	 * @since Previous 2.8.0
 	 */
 	if ( ! defined( 'APP_EXTEND_URL' ) ) {
 
 		// Full url, no trailing slash.
-		define( 'APP_EXTEND_URL', ABSPATH . 'app-extends' );
+		define( 'APP_EXTEND_URL', ABSPATH . 'app-extend' );
 	}
 }
 
