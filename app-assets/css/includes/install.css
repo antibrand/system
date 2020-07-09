@@ -586,6 +586,15 @@ samp {
   }
 }
 
+@supports (font-variation-settings: "wdth") {
+  pre,
+  code,
+  kbd,
+  samp {
+    font-variation-settings: "wdth" 110;
+  }
+}
+
 /**
  * Administration form styles
  */

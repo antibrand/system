@@ -120,4 +120,8 @@ samp {
 		// Keep scale with Inter.
 		font-size: 0.925em;
 	}
+
+	@supports( font-variation-settings: "wdth" ) {
+		font-variation-settings: "wdth" 110;
+	}
 }
