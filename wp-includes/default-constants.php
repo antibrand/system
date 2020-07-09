@@ -218,18 +218,6 @@ function wp_plugin_directory_constants() {
 	}
 
 	/**
-	 * Allows for the plugins directory to be moved from the default location.
-	 *
-	 * @since 2.1.0
-	 * @deprecated
-	 */
-	if ( ! defined( 'PLUGINDIR' ) ) {
-
-		// Relative to ABSPATH. For back compat.
-		define( 'PLUGINDIR', 'wp-content/plugins' );
-	}
-
-	/**
 	 * Allows for the app-extends directory to be moved from the default location.
 	 *
 	 * @since 2.8.0
@@ -249,18 +237,6 @@ function wp_plugin_directory_constants() {
 
 		// full url, no trailing slash
 		define( 'APP_EXTEND_URL', ABSPATH . 'app-extends' );
-	}
-
-	/**
-	 * Allows for the app-extends directory to be moved from the default location.
-	 *
-	 * @since 2.8.0
-	 * @deprecated
-	 */
-	if ( ! defined( 'MUPLUGINDIR' ) ) {
-
-		// Relative to ABSPATH. For back compat.
-		define( 'MUPLUGINDIR', 'app-extends' );
 	}
 }
 
@@ -378,15 +354,8 @@ function wp_ssl_constants() {
 			define( 'FORCE_SSL_ADMIN', false );
 		}
 	}
-	force_ssl_admin( FORCE_SSL_ADMIN );
 
-	/**
-	 * @since 2.6.0
-	 * @deprecated 4.0.0
-	 */
-	if ( defined( 'FORCE_SSL_LOGIN' ) && FORCE_SSL_LOGIN ) {
-		force_ssl_admin( true );
-	}
+	force_ssl_admin( FORCE_SSL_ADMIN );
 }
 
 /**
