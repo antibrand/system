@@ -379,20 +379,33 @@ class Plugins_List_Table extends List_Table {
 	 * @return array
 	 */
 	public function get_columns() {
+
 		global $status;
 
-		return array(
-			'cb'          => !in_array( $status, array( 'mustuse', 'dropins' ) ) ? '<input type="checkbox" />' : '',
-			'name'        => __( 'Plugin' ),
+		if ( ! in_array( $status, [ 'mustuse', 'dropins' ] ) ) {
+			$cb = '<input type="checkbox" />';
+		} else {
+			$cb = '';
+		}
+
+		if ( in_array( $status, [ 'mustuse' ] ) ) {
+			$name = __( 'Extension' );
+		} else {
+			$name = __( 'Plugin' );
+		}
+
+		return [
+			'cb'          => $cb,
+			'name'        => $name,
 			'description' => __( 'Description' ),
-		);
+		];
 	}
 
 	/**
 	 * @return array
 	 */
 	protected function get_sortable_columns() {
-		return array();
+		return [];
 	}
 
 	/**

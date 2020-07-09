@@ -462,7 +462,7 @@ if ( ! is_multisite() && current_user_can( 'update_plugins' ) ) {
 $menu[65] = [
 	sprintf(
 		'%1s %2s',
-		__( 'Plugins' ),
+		__( 'Extend' ),
 		$count
 	),
 	'activate_plugins',
@@ -474,19 +474,25 @@ $menu[65] = [
 ];
 
 $submenu['plugins.php'][5] = [
-	__( 'Manage Plugins' ),
+	__( 'Plugins' ),
 	'activate_plugins',
 	'plugins.php'
 ];
 
-	if ( ! is_multisite() ) {
+$submenu['plugins.php'][10] = [
+	__( 'Extensions' ),
+	'activate_plugins',
+	'plugins.php?plugin_status=mustuse'
+];
 
-		$submenu['plugins.php'][15] = [
-			_x( 'Plugin Editor', 'plugin editor' ),
-			'edit_plugins',
-			'plugin-editor.php'
-		];
-	}
+if ( ! is_multisite() ) {
+
+	$submenu['plugins.php'][15] = [
+		_x( 'Plugin Editor', 'plugin editor' ),
+		'edit_plugins',
+		'plugin-editor.php'
+	];
+}
 
 unset( $update_data );
 
