@@ -3144,42 +3144,42 @@ function wp_check_jsonp_callback( $callback ) {
 /**
  * Retrieve the home page URL.
  *
- * If the constant named 'WP_HOME' exists, then it will be used and returned
+ * If the constant named 'APP_HOME' exists, then it will be used and returned
  * by the function. This can be used to counter the redirection on your local
  * development environment.
  *
  * @since 2.2.0
  * @access private
  *
- * @see WP_HOME
+ * @see APP_HOME
  *
  * @param string $url URL for the home location.
  * @return string Homepage location.
  */
 function _config_wp_home( $url = '' ) {
-	if ( defined( 'WP_HOME' ) )
-		return untrailingslashit( WP_HOME );
+	if ( defined( 'APP_HOME' ) )
+		return untrailingslashit( APP_HOME );
 	return $url;
 }
 
 /**
  * Retrieve the site URL.
  *
- * If the constant named 'WP_SITEURL' is defined, then the value in that
+ * If the constant named 'APP_SITEURL' is defined, then the value in that
  * constant will always be returned. This can be used for debugging a site
  * on your localhost while not having to change the database to your URL.
  *
  * @since 2.2.0
  * @access private
  *
- * @see WP_SITEURL
+ * @see APP_SITEURL
  *
  * @param string $url URL to set the site location.
  * @return string The Site URL.
  */
 function _config_wp_siteurl( $url = '' ) {
-	if ( defined( 'WP_SITEURL' ) )
-		return untrailingslashit( WP_SITEURL );
+	if ( defined( 'APP_SITEURL' ) )
+		return untrailingslashit( APP_SITEURL );
 	return $url;
 }
 
@@ -4197,8 +4197,8 @@ function force_ssl_admin( $force = null ) {
  */
 function wp_guess_url() {
 
-	if ( defined( 'WP_SITEURL' ) && '' != WP_SITEURL ) {
-		$url = WP_SITEURL;
+	if ( defined( 'APP_SITEURL' ) && '' != APP_SITEURL ) {
+		$url = APP_SITEURL;
 
 	} else {
 

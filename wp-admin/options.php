@@ -160,9 +160,9 @@ if ( get_site_option( 'initial_db_version' ) < 32453 ) {
 }
 
 if ( !is_multisite() ) {
-	if ( !defined( 'WP_SITEURL' ) )
+	if ( !defined( 'APP_SITEURL' ) )
 		$whitelist_options['general'][] = 'siteurl';
-	if ( !defined( 'WP_HOME' ) )
+	if ( !defined( 'APP_HOME' ) )
 		$whitelist_options['general'][] = 'home';
 
 	$whitelist_options['general'][] = 'users_can_register';

@@ -120,16 +120,16 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 		<tr>
 			<th scope="row"><label for="siteurl"><?php _e( 'Application Address (URL)' ) ?></label></th>
 
-			<td><input name="siteurl" type="url" id="siteurl" value="<?php form_option( 'siteurl' ); ?>"<?php disabled( defined( 'WP_SITEURL' ) ); ?> class="regular-text code<?php if ( defined( 'WP_SITEURL' ) ) echo ' disabled' ?>" /></td>
+			<td><input name="siteurl" type="url" id="siteurl" value="<?php form_option( 'siteurl' ); ?>"<?php disabled( defined( 'APP_SITEURL' ) ); ?> class="regular-text code<?php if ( defined( 'APP_SITEURL' ) ) echo ' disabled' ?>" /></td>
 		</tr>
 
 		<tr>
 			<th scope="row"><label for="home"><?php _e( 'Site Address (URL)' ) ?></label></th>
 
 			<td>
-				<input name="home" type="url" id="home" aria-describedby="home-description" value="<?php form_option( 'home' ); ?>"<?php disabled( defined( 'WP_HOME' ) ); ?> class="regular-text code<?php if ( defined( 'WP_HOME' ) ) echo ' disabled' ?>" />
+				<input name="home" type="url" id="home" aria-describedby="home-description" value="<?php form_option( 'home' ); ?>"<?php disabled( defined( 'APP_HOME' ) ); ?> class="regular-text code<?php if ( defined( 'APP_HOME' ) ) echo ' disabled' ?>" />
 
-				<?php if ( ! defined( 'WP_HOME' ) ) : ?>
+				<?php if ( ! defined( 'APP_HOME' ) ) : ?>
 				<p class="description" id="home-description"><?php
 					printf(
 						// Eranslators: %s: Codex URL.

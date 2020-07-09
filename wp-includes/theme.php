@@ -764,7 +764,7 @@ function switch_theme( $stylesheet ) {
  * disable this functionality.
  *
  * @since 1.5.0
- * @see WP_DEFAULT_THEME
+ * @see APP_DEFAULT_THEME
  *
  * @return bool
  */
@@ -790,19 +790,19 @@ function validate_current_theme() {
 		return true;
 	}
 
-	$default = wp_get_theme( WP_DEFAULT_THEME );
+	$default = wp_get_theme( APP_DEFAULT_THEME );
 	if ( $default->exists() ) {
-		switch_theme( WP_DEFAULT_THEME );
+		switch_theme( APP_DEFAULT_THEME );
 		return false;
 	}
 
 	/**
-	 * If we're in an invalid state but WP_DEFAULT_THEME doesn't exist,
+	 * If we're in an invalid state but APP_DEFAULT_THEME doesn't exist,
 	 * switch to the latest core default theme that's installed.
 	 * If it turns out that this latest core default theme is our current
 	 * theme, then there's nothing we can do about that, so we have to bail,
 	 * rather than going into an infinite loop. (This is why there are
-	 * checks against WP_DEFAULT_THEME above, also.) We also can't do anything
+	 * checks against APP_DEFAULT_THEME above, also.) We also can't do anything
 	 * if it turns out there is no default theme installed. (That's `false`.)
 	 */
 	$default = WP_Theme::get_core_default_theme();

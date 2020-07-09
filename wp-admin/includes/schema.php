@@ -374,14 +374,14 @@ function populate_options() {
 		$uploads_use_yearmonth_folders = 1;
 	}
 
-	// If WP_DEFAULT_THEME doesn't exist, fall back to the latest core default theme.
-	$stylesheet = $template = WP_DEFAULT_THEME;
-	$theme = wp_get_theme( WP_DEFAULT_THEME );
+	// If APP_DEFAULT_THEME doesn't exist, fall back to the latest core default theme.
+	$stylesheet = $template = APP_DEFAULT_THEME;
+	$theme = wp_get_theme( APP_DEFAULT_THEME );
 	if ( ! $theme->exists() ) {
 		$theme = WP_Theme::get_core_default_theme();
 	}
 
-	// If we can't find a core default theme, WP_DEFAULT_THEME is the best we can do.
+	// If we can't find a core default theme, APP_DEFAULT_THEME is the best we can do.
 	if ( $theme ) {
 		$stylesheet = $theme->get_stylesheet();
 		$template   = $theme->get_template();
@@ -969,12 +969,12 @@ function populate_network( $network_id = 1, $domain = '', $email = '', $site_nam
 		$allowed_themes[ $template ] = true;
 	}
 
-	if ( WP_DEFAULT_THEME != $stylesheet && WP_DEFAULT_THEME != $template ) {
-		$allowed_themes[ WP_DEFAULT_THEME ] = true;
+	if ( APP_DEFAULT_THEME != $stylesheet && APP_DEFAULT_THEME != $template ) {
+		$allowed_themes[ APP_DEFAULT_THEME ] = true;
 	}
 
-	// If WP_DEFAULT_THEME doesn't exist, also whitelist the latest core default theme.
-	if ( ! wp_get_theme( WP_DEFAULT_THEME )->exists() ) {
+	// If APP_DEFAULT_THEME doesn't exist, also whitelist the latest core default theme.
+	if ( ! wp_get_theme( APP_DEFAULT_THEME )->exists() ) {
 		if ( $core_default = WP_Theme::get_core_default_theme() ) {
 			$allowed_themes[ $core_default->get_stylesheet() ] = true;
 		}
