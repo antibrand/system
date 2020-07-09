@@ -26,7 +26,7 @@ function is_subdomain_install() {
  * Returns array of network plugin files to be included in global scope.
  *
  * The default directory is wp-content/plugins. To change the default directory
- * manually, define `WP_PLUGIN_DIR` and `WP_PLUGIN_URL` in `app-config.php`.
+ * manually, define `APP_PLUGIN_DIR` and `APP_PLUGIN_URL` in `app-config.php`.
  *
  * @access private
  * @since 3.1.0
@@ -45,9 +45,9 @@ function wp_get_active_network_plugins() {
 	foreach ( $active_plugins as $plugin ) {
 		if ( ! validate_file( $plugin ) // $plugin must validate as file
 			&& '.php' == substr( $plugin, -4 ) // $plugin must end with '.php'
-			&& file_exists( WP_PLUGIN_DIR . '/' . $plugin ) // $plugin must exist
+			&& file_exists( APP_PLUGIN_DIR . '/' . $plugin ) // $plugin must exist
 			)
-		$plugins[] = WP_PLUGIN_DIR . '/' . $plugin;
+		$plugins[] = APP_PLUGIN_DIR . '/' . $plugin;
 	}
 	return $plugins;
 }

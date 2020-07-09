@@ -4310,7 +4310,7 @@ function wp_ajax_press_this_save_post() {
 
 	if ( is_plugin_active( 'press-this/press-this-plugin.php' ) ) {
 
-		include( WP_PLUGIN_DIR . '/press-this/class-wp-press-this-plugin.php' );
+		include( APP_PLUGIN_DIR . '/press-this/class-wp-press-this-plugin.php' );
 		$wp_press_this = new WP_Press_This_Plugin();
 		$wp_press_this->save_post();
 
@@ -4331,7 +4331,7 @@ function wp_ajax_press_this_add_category() {
 
 	if ( is_plugin_active( 'press-this/press-this-plugin.php' ) ) {
 
-		include( WP_PLUGIN_DIR . '/press-this/class-wp-press-this-plugin.php' );
+		include( APP_PLUGIN_DIR . '/press-this/class-wp-press-this-plugin.php' );
 		$wp_press_this = new WP_Press_This_Plugin();
 		$wp_press_this->add_category();
 

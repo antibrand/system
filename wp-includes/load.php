@@ -585,7 +585,7 @@ function wp_get_mu_plugins() {
  * While upgrading or installing, no plugins are returned.
  *
  * The default directory is wp-content/plugins. To change the default
- * directory manually, define `WP_PLUGIN_DIR` and `WP_PLUGIN_URL`
+ * directory manually, define `APP_PLUGIN_DIR` and `APP_PLUGIN_URL`
  * in app-config.php.
  *
  * @since 3.0.0
@@ -611,11 +611,11 @@ function wp_get_active_and_valid_plugins() {
 	foreach ( $active_plugins as $plugin ) {
 		if ( ! validate_file( $plugin ) // $plugin must validate as file
 			&& '.php' == substr( $plugin, -4 ) // $plugin must end with '.php'
-			&& file_exists( WP_PLUGIN_DIR . '/' . $plugin ) // $plugin must exist
+			&& file_exists( APP_PLUGIN_DIR . '/' . $plugin ) // $plugin must exist
 			// not already included as a network plugin
-			&& ( ! $network_plugins || ! in_array( WP_PLUGIN_DIR . '/' . $plugin, $network_plugins ) )
+			&& ( ! $network_plugins || ! in_array( APP_PLUGIN_DIR . '/' . $plugin, $network_plugins ) )
 			)
-		$plugins[] = WP_PLUGIN_DIR . '/' . $plugin;
+		$plugins[] = APP_PLUGIN_DIR . '/' . $plugin;
 	}
 	return $plugins;
 }

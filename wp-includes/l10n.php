@@ -698,7 +698,7 @@ function load_default_textdomain( $locale = null ) {
  *
  * @param string $domain          Unique identifier for retrieving translated strings
  * @param string $deprecated      Optional. Use the $plugin_rel_path parameter instead. Default false.
- * @param string $plugin_rel_path Optional. Relative path to WP_PLUGIN_DIR where the .mo file resides.
+ * @param string $plugin_rel_path Optional. Relative path to APP_PLUGIN_DIR where the .mo file resides.
  *                                Default false.
  * @return bool True when textdomain is successfully loaded, false otherwise.
  */
@@ -721,12 +721,12 @@ function load_plugin_textdomain( $domain, $deprecated = false, $plugin_rel_path 
 	}
 
 	if ( false !== $plugin_rel_path ) {
-		$path = WP_PLUGIN_DIR . '/' . trim( $plugin_rel_path, '/' );
+		$path = APP_PLUGIN_DIR . '/' . trim( $plugin_rel_path, '/' );
 	} elseif ( false !== $deprecated ) {
 		_deprecated_argument( __FUNCTION__, '2.7.0' );
 		$path = ABSPATH . trim( $deprecated, '/' );
 	} else {
-		$path = WP_PLUGIN_DIR;
+		$path = APP_PLUGIN_DIR;
 	}
 
 	return load_textdomain( $domain, $path . '/' . $mofile );

@@ -3776,7 +3776,7 @@ function wp_ajax_update_plugin() {
 		wp_send_json_error( $status );
 	}
 
-	$plugin_data          = get_plugin_data( WP_PLUGIN_DIR . '/' . $plugin );
+	$plugin_data          = get_plugin_data( APP_PLUGIN_DIR . '/' . $plugin );
 	$status['plugin']     = $plugin;
 	$status['pluginName'] = $plugin_data['Name'];
 
@@ -3879,7 +3879,7 @@ function wp_ajax_delete_plugin() {
 		wp_send_json_error( $status );
 	}
 
-	$plugin_data          = get_plugin_data( WP_PLUGIN_DIR . '/' . $plugin );
+	$plugin_data          = get_plugin_data( APP_PLUGIN_DIR . '/' . $plugin );
 	$status['plugin']     = $plugin;
 	$status['pluginName'] = $plugin_data['Name'];
 

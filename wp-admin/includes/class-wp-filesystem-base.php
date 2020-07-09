@@ -72,14 +72,14 @@ class WP_Filesystem_Base {
 	}
 
 	/**
-	 * Return the path on the remote filesystem of WP_PLUGIN_DIR.
+	 * Return the path on the remote filesystem of APP_PLUGIN_DIR.
 	 *
 	 * @since 2.7.0
 	 *
 	 * @return string The location of the remote path.
 	 */
 	public function wp_plugins_dir() {
-		return $this->find_folder(WP_PLUGIN_DIR);
+		return $this->find_folder(APP_PLUGIN_DIR);
 	}
 
 	/**
@@ -173,7 +173,7 @@ class WP_Filesystem_Base {
 			$constant_overrides = array(
 				'FTP_BASE' => ABSPATH,
 				'FTP_CONTENT_DIR' => WP_CONTENT_DIR,
-				'FTP_PLUGIN_DIR' => WP_PLUGIN_DIR,
+				'FTP_PLUGIN_DIR' => APP_PLUGIN_DIR,
 				'FTP_LANG_DIR' => WP_LANG_DIR
 			);
 

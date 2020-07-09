@@ -3203,7 +3203,7 @@ function plugins_url( $path = '', $plugin = '' ) {
 	if ( !empty($plugin) && 0 === strpos($plugin, $mu_plugin_dir) )
 		$url = APP_EXTEND_URL;
 	else
-		$url = WP_PLUGIN_URL;
+		$url = APP_PLUGIN_URL;
 
 
 	$url = set_url_scheme( $url );

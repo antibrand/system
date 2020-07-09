@@ -207,10 +207,10 @@ function wp_plugin_directory_constants() {
 	 *
 	 * @since Previous 2.6.0
 	 */
-	if ( ! defined( 'WP_PLUGIN_DIR' ) ) {
+	if ( ! defined( 'APP_PLUGIN_DIR' ) ) {
 
 		// Full path, no trailing slash.
-		define( 'WP_PLUGIN_DIR', WP_CONTENT_DIR . '/plugins' );
+		define( 'APP_PLUGIN_DIR', ABSPATH . 'app-extend/plugins' );
 	}
 
 	/**
@@ -218,10 +218,10 @@ function wp_plugin_directory_constants() {
 	 *
 	 * @since Previous 2.6.0
 	 */
-	if ( ! defined( 'WP_PLUGIN_URL' ) ) {
+	if ( ! defined( 'APP_PLUGIN_URL' ) ) {
 
 		// Full url, no trailing slash.
-		define( 'WP_PLUGIN_URL', WP_CONTENT_URL . '/plugins' );
+		define( 'APP_PLUGIN_URL', ABSPATH . 'app-extend/plugins' );
 	}
 
 	/**
@@ -232,7 +232,7 @@ function wp_plugin_directory_constants() {
 	if ( ! defined( 'APP_EXTEND_DIR' ) ) {
 
 		// Full path, no trailing slash.
-		define( 'APP_EXTEND_DIR', ABSPATH . 'app-extend' );
+		define( 'APP_EXTEND_DIR', ABSPATH . 'app-extend/extensions' );
 	}
 
 	/**
@@ -243,7 +243,7 @@ function wp_plugin_directory_constants() {
 	if ( ! defined( 'APP_EXTEND_URL' ) ) {
 
 		// Full url, no trailing slash.
-		define( 'APP_EXTEND_URL', ABSPATH . 'app-extend' );
+		define( 'APP_EXTEND_URL', ABSPATH . 'app-extend/extensions' );
 	}
 }
 
@@ -338,7 +338,7 @@ function wp_cookie_constants() {
 	 * @since Previous 2.6.0
 	 */
 	if ( ! defined( 'PLUGINS_COOKIE_PATH' ) ) {
-		define( 'PLUGINS_COOKIE_PATH', preg_replace( '|https?://[^/]+|i', '', WP_PLUGIN_URL) );
+		define( 'PLUGINS_COOKIE_PATH', preg_replace( '|https?://[^/]+|i', '', APP_PLUGIN_URL) );
 	}
 
 	/**

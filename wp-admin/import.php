@@ -117,7 +117,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
 				$plugin_slug = $data['install'];
 
-				if ( file_exists( WP_PLUGIN_DIR . '/' . $plugin_slug ) ) {
+				if ( file_exists( APP_PLUGIN_DIR . '/' . $plugin_slug ) ) {
 
 					// Looks like an importer is installed, but not active.
 					$plugins = get_plugins( '/' . $plugin_slug );

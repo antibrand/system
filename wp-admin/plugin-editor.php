@@ -84,7 +84,7 @@ if ( empty( $file ) ) {
 }
 
 $file      = validate_file_to_edit( $file, $plugin_files );
-$real_file = WP_PLUGIN_DIR . '/' . $file;
+$real_file = APP_PLUGIN_DIR . '/' . $file;
 
 // Handle fallback editing of file when JavaScript is not available.
 $edit_error     = null;
@@ -221,7 +221,7 @@ wp_add_inline_script( 'wp-theme-plugin-editor', sprintf( 'wp.themePluginEditor.t
 
 require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
-update_recently_edited( WP_PLUGIN_DIR . '/' . $file );
+update_recently_edited( APP_PLUGIN_DIR . '/' . $file );
 
 if ( ! empty( $posted_content ) ) {
 	$content = $posted_content;

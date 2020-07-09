@@ -1324,7 +1324,7 @@ function _upgrade_422_remove_genericons() {
 	}
 
 	// Plugins
-	$affected_plugin_files = _upgrade_422_find_genericons_files_in_folder( WP_PLUGIN_DIR );
+	$affected_plugin_files = _upgrade_422_find_genericons_files_in_folder( APP_PLUGIN_DIR );
 	$affected_files        = array_merge( $affected_files, $affected_plugin_files );
 
 	foreach ( $affected_files as $file ) {

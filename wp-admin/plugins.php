@@ -353,7 +353,7 @@ if ( $action ) {
 
 						if ( '.' == $plugin_slug ) {
 
-							if ( $data = get_plugin_data( WP_PLUGIN_DIR . '/' . $plugin ) ) {
+							if ( $data = get_plugin_data( APP_PLUGIN_DIR . '/' . $plugin ) ) {
 
 								$plugin_info[ $plugin ] = $data;
 								$plugin_info[ $plugin ]['is_uninstallable'] = is_uninstallable_plugin( $plugin );
@@ -541,7 +541,7 @@ $help_troubleshooting .= sprintf(
 $help_troubleshooting .= sprintf(
 	'<p>%1s <code>%2s</code> %3s</p>',
 	__( 'If something goes wrong with a plugin and you can&#8217;t use the application, delete or rename that file in the' ),
-	WP_PLUGIN_DIR,
+	APP_PLUGIN_DIR,
 	__( 'directory and it will be automatically deactivated.' )
 );
 
