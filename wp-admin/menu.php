@@ -481,8 +481,8 @@ $submenu['plugins.php'][5] = [
 
 $submenu['plugins.php'][10] = [
 	__( 'Extensions' ),
-	'activate_plugins',
-	'plugins.php?plugin_status=mustuse'
+	'manage_options',
+	'extensions.php'
 ];
 
 if ( ! is_multisite() ) {

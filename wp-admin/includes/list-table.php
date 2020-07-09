@@ -40,6 +40,7 @@ function _get_list_table( $class, $args = [] ) {
 		'AppNamespace\Backend\Post_Comments_List_Table'  => [ 'comments', 'post-comments' ],
 		'AppNamespace\Backend\Links_List_Table'          => 'links',
 		'AppNamespace\Backend\Plugins_List_Table'        => 'plugins',
+		'AppNamespace\Backend\Extensions_List_Table'     => 'extensions',
 		'AppNamespace\Backend\Plugin_Install_List_Table' => 'plugin-install',
 		'AppNamespace\Backend\Themes_List_Table'         => 'themes',
 		'AppNamespace\Backend\Theme_Install_List_Table'  => [ 'themes', 'theme-install' ],
