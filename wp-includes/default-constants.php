@@ -230,29 +230,29 @@ function wp_plugin_directory_constants() {
 	}
 
 	/**
-	 * Allows for the app-includes/extend directory to be moved from the default location.
+	 * Allows for the app-extends directory to be moved from the default location.
 	 *
 	 * @since 2.8.0
 	 */
 	if ( ! defined( 'APP_EXTEND_DIR' ) ) {
 
 		// full path, no trailing slash
-		define( 'APP_EXTEND_DIR', ABSPATH . 'app-includes/extend' );
+		define( 'APP_EXTEND_DIR', ABSPATH . 'app-extends' );
 	}
 
 	/**
-	 * Allows for the app-includes/extend directory to be moved from the default location.
+	 * Allows for the app-extends directory to be moved from the default location.
 	 *
 	 * @since 2.8.0
 	 */
 	if ( ! defined( 'APP_EXTEND_URL' ) ) {
 
 		// full url, no trailing slash
-		define( 'APP_EXTEND_URL', ABSPATH . 'app-includes/extend' );
+		define( 'APP_EXTEND_URL', ABSPATH . 'app-extends' );
 	}
 
 	/**
-	 * Allows for the app-includes/extend directory to be moved from the default location.
+	 * Allows for the app-extends directory to be moved from the default location.
 	 *
 	 * @since 2.8.0
 	 * @deprecated
@@ -260,7 +260,7 @@ function wp_plugin_directory_constants() {
 	if ( ! defined( 'MUPLUGINDIR' ) ) {
 
 		// Relative to ABSPATH. For back compat.
-		define( 'MUPLUGINDIR', 'app-includes/extend' );
+		define( 'MUPLUGINDIR', 'app-extends' );
 	}
 }
 
