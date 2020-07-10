@@ -4191,12 +4191,19 @@ function force_ssl_admin( $force = null ) {
  * Will remove wp-admin links to retrieve only return URLs not in the wp-admin
  * directory.
  *
- * @since 2.6.0
- *
- * @return string The guessed URL.
+ * @since Previous 2.6.0
+ * @return string Returns the guessed URL.
  */
 function wp_guess_url() {
 
+	// HTML templates directory name.
+	if ( defined( 'APP_VIEWS' ) ) {
+		$views = APP_VIEWS;
+	} else {
+		$views = 'app-views';
+	}
+
+	// The URL of the system.
 	if ( defined( 'APP_SITEURL' ) && '' != APP_SITEURL ) {
 		$url = APP_SITEURL;
 
@@ -4206,8 +4213,8 @@ function wp_guess_url() {
 		$script_filename_dir = dirname( $_SERVER['SCRIPT_FILENAME'] );
 
 		// The request is for the app-views directory.
-		if ( strpos( $_SERVER['REQUEST_URI'], 'app-views' ) !== false || strpos( $_SERVER['REQUEST_URI'], 'app-login.php' ) !== false ) {
-			$path = preg_replace( '#/(app-views/.*|app-login.php)#i', '', $_SERVER['REQUEST_URI'] );
+		if ( strpos( $_SERVER['REQUEST_URI'], $views ) !== false || strpos( $_SERVER['REQUEST_URI'], 'app-login.php' ) !== false ) {
+			$path = preg_replace( "#/($views/.*|app-login.php)#i", '', $_SERVER['REQUEST_URI'] );
 
 		// The request is for the wp-admin directory.
 		} elseif ( strpos( $_SERVER['REQUEST_URI'], 'wp-admin' ) !== false || strpos( $_SERVER['REQUEST_URI'], 'app-login.php' ) !== false ) {

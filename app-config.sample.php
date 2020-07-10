@@ -186,16 +186,36 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Path to HTML templates
+ * HTML templates directory name
  *
  * Defines the directory of files which print the HTML
  * of various page templates and template partials.
  *
- * The trailing slash is included when the constant is
- * redefined elsewhere.
+ * @since 1.0.0
  */
 if ( ! defined( 'APP_VIEWS' ) ) {
-	define( 'APP_VIEWS', ABSPATH . 'app-views' . '/' );
+	define( 'APP_VIEWS', 'app-views' );
+}
+
+/**
+ * Path to HTML templates
+ *
+ * Defines the path to the directory of files which
+ * print the HTML of various page templates and
+ * template partials.
+ *
+ * The trailing slash is included when the constant is
+ * redefined elsewhere.
+ *
+ * Also defined in…
+ * @see app-load.php
+ * @see app-settings.php
+ * @see app-views/includes/config.php
+ *
+ * @since 1.0.0
+ */
+if ( ! defined( 'APP_VIEWS_PATH' ) ) {
+	define( 'APP_VIEWS_PATH', ABSPATH . APP_VIEWS . '/' );
 }
 
 /**
@@ -225,8 +245,13 @@ if ( ! defined( 'APP_LOGIN' ) ) {
  * @since 1.0.0
  */
 
-// Default language.
-// define( 'WPLANG', 'en_US' );
+/**
+ * Default language
+ *
+ * Keeping this in U.S. English until the languages settings
+ * can be corrected.
+ */
+define( 'WPLANG', 'en_US' );
 
 // Default language directory.
 // define( 'WP_LANG_DIR', ABSPATH . 'wp-content/languages' );

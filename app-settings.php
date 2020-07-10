@@ -11,10 +11,16 @@
 // Store the locations of functions, classes, and core content.
 define( 'APPINC', 'app-includes' );
 
-// Define APP_VIEWS for page markup directory.
+// HTML templates directory name.
 if ( ! defined( 'APP_VIEWS' ) ) {
-	define( 'APP_VIEWS', ABSPATH . 'app-views/' );
+	define( 'APP_VIEWS', 'app-views' );
 }
+
+// Path to HTML templates.
+if ( ! defined( 'APP_VIEWS_PATH' ) ) {
+	define( 'APP_VIEWS_PATH', ABSPATH . APP_VIEWS . '/' );
+}
+
 define( 'WPINC', 'wp-includes' );
 
 /**
@@ -234,7 +240,7 @@ require( ABSPATH . WPINC . '/class-wp-widget.php' );
 require( ABSPATH . WPINC . '/class-wp-widget-factory.php' );
 require( ABSPATH . WPINC . '/nav-menu.php' );
 require( ABSPATH . WPINC . '/nav-menu-template.php' );
-require( APP_VIEWS . '/includes/user-toolbar.php' );
+require( APP_VIEWS_PATH . '/includes/user-toolbar.php' );
 require( ABSPATH . WPINC . '/rest-api.php' );
 require( ABSPATH . WPINC . '/rest-api/class-wp-rest-server.php' );
 require( ABSPATH . WPINC . '/rest-api/class-wp-rest-response.php' );

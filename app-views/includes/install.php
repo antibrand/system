@@ -79,13 +79,13 @@ $app_install->display_setup_form();
 if ( is_blog_installed() ) {
 
 	// Get the page header.
-	include_once( ABSPATH . 'app-views/includes/partials/header/config-install.php' );
+	include_once( APP_VIEWS_PATH . 'includes/partials/header/config-install.php' );
 
 	// Get the message content.
-	include_once( ABSPATH . 'app-views/includes/partials/content/install-exists.php' );
+	include_once( APP_VIEWS_PATH . 'includes/partials/content/install-exists.php' );
 
 	// Get the page footer.
-	include( ABSPATH . 'app-views/includes/partials/footer/config-install.php' );
+	include( APP_VIEWS_PATH . 'includes/partials/footer/config-install.php' );
 
 	return;
 }
@@ -120,7 +120,7 @@ if ( ! $mysql_compat && !$php_compat ) {
 if ( ! $mysql_compat || ! $php_compat ) {
 
 	// Get the page header.
-	include_once( ABSPATH . 'app-views/includes/partials/header/config-install.php' );
+	include_once( APP_VIEWS_PATH . 'includes/partials/header/config-install.php' );
 
 	die( '<h1>' . __( 'Insufficient Requirements' ) . '</h1><p>' . $compat . '</p></body></html>' );
 }
@@ -128,7 +128,7 @@ if ( ! $mysql_compat || ! $php_compat ) {
 if ( ! is_string( $wpdb->base_prefix ) || '' === $wpdb->base_prefix ) {
 
 	// Get the page header.
-	include_once( ABSPATH . 'app-views/includes/partials/header/config-install.php' );
+	include_once( APP_VIEWS_PATH . 'includes/partials/header/config-install.php' );
 
 	die(
 		'<h1>' . __( 'Configuration Error' ) . '</h1>' .
@@ -144,7 +144,7 @@ if ( ! is_string( $wpdb->base_prefix ) || '' === $wpdb->base_prefix ) {
 if ( defined( 'DO_NOT_UPGRADE_GLOBAL_TABLES' ) ) {
 
 	// Get the page header.
-	include_once( ABSPATH . 'app-views/includes/partials/header/config-install.php' );
+	include_once( APP_VIEWS_PATH . 'includes/partials/header/config-install.php' );
 
 	die(
 		'<h1>' . __( 'Configuration Error' ) . '</h1>' .
@@ -180,7 +180,7 @@ switch( $step ) {
 			$scripts_to_print[] = 'language-chooser';
 
 			// Get the page header.
-			include_once( ABSPATH . 'app-views/includes/partials/header/config-install.php' );
+			include_once( APP_VIEWS_PATH . 'includes/partials/header/config-install.php' );
 
 			echo '<form id="setup" method="post" action="?step=1">';
 			wp_install_language_form( $languages );
@@ -207,7 +207,7 @@ switch( $step ) {
 		$scripts_to_print[] = 'user-profile';
 
 		// Get the page header.
-		include_once( ABSPATH . 'app-views/includes/partials/header/config-install.php' );
+		include_once( APP_VIEWS_PATH . 'includes/partials/header/config-install.php' );
 ?>
 	<div class="setup-install-wrap setup-install-introduction">
 		<h1><?php _e( 'Information Needed' ); ?></h1>
@@ -236,7 +236,7 @@ switch( $step ) {
 		$scripts_to_print[] = 'user-profile';
 
 		// Get the page header.
-		include_once( ABSPATH . 'app-views/includes/partials/header/config-install.php' );
+		include_once( APP_VIEWS_PATH . 'includes/partials/header/config-install.php' );
 
 		// Fill in the data we gathered.
 		$weblog_title         = isset( $_POST['weblog_title'] ) ? trim( wp_unslash( $_POST['weblog_title'] ) ) : '';
@@ -280,7 +280,7 @@ switch( $step ) {
 			$result = wp_install( $weblog_title, $user_name, $admin_email, $public, '', wp_slash( $admin_password ), $loaded_language );
 
 			// Get the successful installation message content.
-			include_once( ABSPATH . 'app-views/includes/partials/content/install-success.php' );
+			include_once( APP_VIEWS_PATH . 'includes/partials/content/install-success.php' );
 
 		}
 
@@ -296,7 +296,7 @@ if ( ! wp_is_mobile() ) {
 wp_print_scripts( $scripts_to_print );
 
 // Get the page footer.
-include( ABSPATH . 'app-views/includes/partials/footer/config-install.php' );
+include( APP_VIEWS_PATH . 'includes/partials/footer/config-install.php' );
 
 ?>
 </body>

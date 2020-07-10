@@ -20,9 +20,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
 }
 
-// Define APP_VIEWS for page markup directory.
+// HTML templates directory name.
 if ( ! defined( 'APP_VIEWS' ) ) {
-	define( 'APP_VIEWS', ABSPATH . 'app-views/' );
+	define( 'APP_VIEWS', 'app-views' );
+}
+
+// Define APP_VIEWS_PATH for page markup directory.
+if ( ! defined( 'APP_VIEWS_PATH' ) ) {
+	define( 'APP_VIEWS_PATH',  ABSPATH . APP_VIEWS . '/' );
 }
 
 // Define APPASSETS for assets directory.
@@ -61,6 +66,11 @@ if ( file_exists( ABSPATH . 'app-config.php' ) ) {
 
 	require_once( ABSPATH . WPINC . '/functions.php' );
 
+	/**
+	 * Try to find the configuration template.
+	 *
+	 * @see wp-includes/functions.php
+	 */
 	$path = wp_guess_url() . '/app-views/includes/config.php';
 
 	/**
