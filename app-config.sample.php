@@ -186,15 +186,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Path to HTML templates
+ *
+ * Defines the directory of files which print the HTML
+ * of various page templates and template partials.
+ *
+ * The trailing slash is included when the constant is
+ * redefined elsewhere.
+ */
+if ( ! defined( 'APP_VIEWS' ) ) {
+	define( 'APP_VIEWS', ABSPATH . 'app-views' . '/' );
+}
+
+/**
  * User login path
  *
  * The default login directory is `/login`. You can
  * rename the directory and define the directory
  * name here.
  *
+ * The trailing slash is included when the constant is
+ * redefined elsewhere.
+ *
  * @since 1.0.0
  */
-define( 'APP_LOGIN', '/' . 'login' . '/' );
+if ( ! defined( 'APP_LOGIN' ) ) {
+	define( 'APP_LOGIN', ABSPATH . 'login' . '/' );
+}
 
 /**
  * System translation

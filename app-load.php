@@ -20,9 +20,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
 }
 
-// Define APPVIEWS for page markup directory.
-if ( ! defined( 'APPVIEWS' ) ) {
-	define( 'APPVIEWS', ABSPATH . 'app-views/' );
+// Define APP_VIEWS for page markup directory.
+if ( ! defined( 'APP_VIEWS' ) ) {
+	define( 'APP_VIEWS', ABSPATH . 'app-views/' );
 }
 
 // Define APPASSETS for assets directory.
