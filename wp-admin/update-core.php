@@ -975,7 +975,7 @@ if ( 'upgrade-core' == $action ) {
 	$url     = 'update-core.php?action=do-translation-upgrade';
 	$nonce   = 'upgrade-translations';
 	$title   = __( 'Update Translations' );
-	$context = WP_LANG_DIR;
+	$context = APP_LANG_DIR;
 
 	$upgrader = new Language_Pack_Upgrader( new Language_Pack_Upgrader_Skin( compact( 'url', 'nonce', 'title', 'context' ) ) );
 	$result   = $upgrader->bulk_upgrade();

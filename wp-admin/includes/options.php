@@ -78,7 +78,7 @@ function options_general_add_js() {
 				}, function( d ) { spinner.removeClass( 'is-active' ); example.text( d ); } );
 		});
 
-		var languageSelect = $( '#WPLANG' );
+		var languageSelect = $( '#APP_LANG' );
 		$( 'form' ).submit( function() {
 			// Don't show a spinner for English and installed languages,
 			// as there is nothing to download.

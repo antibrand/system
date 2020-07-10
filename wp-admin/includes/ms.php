@@ -868,7 +868,7 @@ function network_settings_add_js() {
 ?>
 <script type="text/javascript">
 jQuery(document).ready( function($) {
-	var languageSelect = $( '#WPLANG' );
+	var languageSelect = $( '#APP_LANG' );
 	$( 'form' ).submit( function() {
 		// Don't show a spinner for English and installed languages,
 		// as there is nothing to download.

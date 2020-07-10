@@ -4194,10 +4194,10 @@ function sanitize_option( $option, $value ) {
 			}
 			break;
 
-		case 'WPLANG':
+		case 'APP_LANG':
 			$allowed = get_available_languages();
-			if ( ! is_multisite() && defined( 'WPLANG' ) && '' !== WPLANG && 'en_US' !== WPLANG ) {
-				$allowed[] = WPLANG;
+			if ( ! is_multisite() && defined( 'APP_LANG' ) && '' !== APP_LANG && 'en_US' !== APP_LANG ) {
+				$allowed[] = APP_LANG;
 			}
 			if ( ! in_array( $value, $allowed ) && ! empty( $value ) ) {
 				$value = get_option( $option );

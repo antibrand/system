@@ -13,7 +13,7 @@
  * If the locale is set, then it will filter the locale in the {@see 'locale'}
  * filter hook and return the value.
  *
- * If the locale is not set already, then the WPLANG constant is used if it is
+ * If the locale is not set already, then the APP_LANG constant is used if it is
  * defined. Then it is filtered through the {@see 'locale'} filter hook and
  * the value for the locale global set and the locale is returned.
  *
@@ -45,23 +45,23 @@ function get_locale() {
 		$locale = $wp_local_package;
 	}
 
-	// WPLANG was defined in app-config.
-	if ( defined( 'WPLANG' ) ) {
-		$locale = WPLANG;
+	// APP_LANG was defined in app-config.
+	if ( defined( 'APP_LANG' ) ) {
+		$locale = APP_LANG;
 	}
 
 	// If multisite, check options.
 	if ( is_multisite() ) {
 		// Don't check blog option when installing.
-		if ( wp_installing() || ( false === $ms_locale = get_option( 'WPLANG' ) ) ) {
-			$ms_locale = get_site_option( 'WPLANG' );
+		if ( wp_installing() || ( false === $ms_locale = get_option( 'APP_LANG' ) ) ) {
+			$ms_locale = get_site_option( 'APP_LANG' );
 		}
 
 		if ( $ms_locale !== false ) {
 			$locale = $ms_locale;
 		}
 	} else {
-		$db_locale = get_option( 'WPLANG' );
+		$db_locale = get_option( 'APP_LANG' );
 		if ( $db_locale !== false ) {
 			$locale = $db_locale;
 		}
@@ -651,7 +651,7 @@ function unload_textdomain( $domain ) {
 /**
  * Load default translated strings based on locale.
  *
- * Loads the .mo file in WP_LANG_DIR constant path from the root.
+ * Loads the .mo file in APP_LANG_DIR constant path from the root.
  * The translated (.mo) file is named based on the locale.
  *
  * @see load_textdomain()
@@ -669,19 +669,19 @@ function load_default_textdomain( $locale = null ) {
 	// Unload previously loaded strings so we can switch translations.
 	unload_textdomain( 'default' );
 
-	$return = load_textdomain( 'default', WP_LANG_DIR . "/$locale.mo" );
+	$return = load_textdomain( 'default', APP_LANG_DIR . "/$locale.mo" );
 
-	if ( ( is_multisite() || ( defined( 'APP_INSTALLING_NETWORK' ) && APP_INSTALLING_NETWORK ) ) && ! file_exists(  WP_LANG_DIR . "/admin-$locale.mo" ) ) {
-		load_textdomain( 'default', WP_LANG_DIR . "/ms-$locale.mo" );
+	if ( ( is_multisite() || ( defined( 'APP_INSTALLING_NETWORK' ) && APP_INSTALLING_NETWORK ) ) && ! file_exists(  APP_LANG_DIR . "/admin-$locale.mo" ) ) {
+		load_textdomain( 'default', APP_LANG_DIR . "/ms-$locale.mo" );
 		return $return;
 	}
 
 	if ( is_admin() || wp_installing() || ( defined( 'WP_REPAIRING' ) && WP_REPAIRING ) ) {
-		load_textdomain( 'default', WP_LANG_DIR . "/admin-$locale.mo" );
+		load_textdomain( 'default', APP_LANG_DIR . "/admin-$locale.mo" );
 	}
 
 	if ( is_network_admin() || ( defined( 'APP_INSTALLING_NETWORK' ) && APP_INSTALLING_NETWORK ) )
-		load_textdomain( 'default', WP_LANG_DIR . "/admin-network-$locale.mo" );
+		load_textdomain( 'default', APP_LANG_DIR . "/admin-network-$locale.mo" );
 
 	return $return;
 }
@@ -716,7 +716,7 @@ function load_plugin_textdomain( $domain, $deprecated = false, $plugin_rel_path 
 	$mofile = $domain . '-' . $locale . '.mo';
 
 	// Try to load from the languages directory first.
-	if ( load_textdomain( $domain, WP_LANG_DIR . '/plugins/' . $mofile ) ) {
+	if ( load_textdomain( $domain, APP_LANG_DIR . '/plugins/' . $mofile ) ) {
 		return true;
 	}
 
@@ -750,7 +750,7 @@ function load_muplugin_textdomain( $domain, $mu_plugin_rel_path = '' ) {
 	$mofile = $domain . '-' . $locale . '.mo';
 
 	// Try to load from the languages directory first.
-	if ( load_textdomain( $domain, WP_LANG_DIR . '/plugins/' . $mofile ) ) {
+	if ( load_textdomain( $domain, APP_LANG_DIR . '/plugins/' . $mofile ) ) {
 		return true;
 	}
 
@@ -789,7 +789,7 @@ function load_theme_textdomain( $domain, $path = false ) {
 	$mofile = $domain . '-' . $locale . '.mo';
 
 	// Try to load from the languages directory first.
-	if ( load_textdomain( $domain, WP_LANG_DIR . '/themes/' . $mofile ) ) {
+	if ( load_textdomain( $domain, APP_LANG_DIR . '/themes/' . $mofile ) ) {
 		return true;
 	}
 
@@ -825,7 +825,7 @@ function load_child_theme_textdomain( $domain, $path = false ) {
  * Loads plugin and theme textdomains just-in-time.
  *
  * When a textdomain is encountered for the first time, we try to load
- * the translation file from `wp-content/languages`, removing the need
+ * the translation file from `APP_LANG_DIR`, removing the need
  * to call load_plugin_texdomain() or load_theme_texdomain().
  *
  * @since 4.6.0
@@ -903,8 +903,8 @@ function _get_path_to_translation_from_lang_dir( $domain ) {
 		$cached_mofiles = array();
 
 		$locations = array(
-			WP_LANG_DIR . '/plugins',
-			WP_LANG_DIR . '/themes',
+			APP_LANG_DIR . '/plugins',
+			APP_LANG_DIR . '/themes',
 		);
 
 		foreach ( $locations as $location ) {
@@ -918,12 +918,12 @@ function _get_path_to_translation_from_lang_dir( $domain ) {
 	$locale = is_admin() ? get_user_locale() : get_locale();
 	$mofile = "{$domain}-{$locale}.mo";
 
-	$path = WP_LANG_DIR . '/plugins/' . $mofile;
+	$path = APP_LANG_DIR . '/plugins/' . $mofile;
 	if ( in_array( $path, $cached_mofiles ) ) {
 		return $path;
 	}
 
-	$path = WP_LANG_DIR . '/themes/' . $mofile;
+	$path = APP_LANG_DIR . '/themes/' . $mofile;
 	if ( in_array( $path, $cached_mofiles ) ) {
 		return $path;
 	}
@@ -996,19 +996,19 @@ function translate_user_role( $name ) {
 /**
  * Get all available languages based on the presence of *.mo files in a given directory.
  *
- * The default directory is WP_LANG_DIR.
+ * The default directory is APP_LANG_DIR.
  *
  * @since 3.0.0
  * @since 4.7.0 The results are now filterable with the {@see 'get_available_languages'} filter.
  *
  * @param string $dir A directory to search for language files.
- *                    Default WP_LANG_DIR.
+ *                    Default APP_LANG_DIR.
  * @return array An array of language codes or an empty array if no languages are present. Language codes are formed by stripping the .mo extension from the language file names.
  */
 function get_available_languages( $dir = null ) {
 	$languages = array();
 
-	$lang_files = glob( ( is_null( $dir ) ? WP_LANG_DIR : $dir ) . '/*.mo' );
+	$lang_files = glob( ( is_null( $dir ) ? APP_LANG_DIR : $dir ) . '/*.mo' );
 	if ( $lang_files ) {
 		foreach ( $lang_files as $lang_file ) {
 			$lang_file = basename( $lang_file, '.mo' );
@@ -1033,7 +1033,7 @@ function get_available_languages( $dir = null ) {
 /**
  * Get installed translations.
  *
- * Looks in the wp-content/languages directory for translations of
+ * Looks in the APP_LANG_DIR directory for translations of
  * plugins or themes.
  *
  * @since 3.7.0
@@ -1047,20 +1047,20 @@ function wp_get_installed_translations( $type ) {
 
 	$dir = 'core' === $type ? '' : "/$type";
 
-	if ( ! is_dir( WP_LANG_DIR ) )
+	if ( ! is_dir( APP_LANG_DIR ) )
 		return array();
 
-	if ( $dir && ! is_dir( WP_LANG_DIR . $dir ) )
+	if ( $dir && ! is_dir( APP_LANG_DIR . $dir ) )
 		return array();
 
-	$files = scandir( WP_LANG_DIR . $dir );
+	$files = scandir( APP_LANG_DIR . $dir );
 	if ( ! $files )
 		return array();
 
 	$language_data = array();
 
 	foreach ( $files as $file ) {
-		if ( '.' === $file[0] || is_dir( WP_LANG_DIR . "$dir/$file" ) ) {
+		if ( '.' === $file[0] || is_dir( APP_LANG_DIR . "$dir/$file" ) ) {
 			continue;
 		}
 		if ( substr( $file, -3 ) !== '.po' ) {
@@ -1077,7 +1077,7 @@ function wp_get_installed_translations( $type ) {
 		if ( '' === $textdomain ) {
 			$textdomain = 'default';
 		}
-		$language_data[ $textdomain ][ $language ] = wp_get_pomo_file_data( WP_LANG_DIR . "$dir/$file" );
+		$language_data[ $textdomain ][ $language ] = wp_get_pomo_file_data( APP_LANG_DIR . "$dir/$file" );
 	}
 	return $language_data;
 }

@@ -14,7 +14,7 @@ if ( ! defined( 'WP_ADMIN' ) ) {
 	 * some setup was skipped. Make sure the admin message catalog is loaded since
 	 * load_default_textdomain() will not have done so in this context.
 	 */
-	load_textdomain( 'default', WP_LANG_DIR . '/admin-' . get_locale() . '.mo' );
+	load_textdomain( 'default', APP_LANG_DIR . '/admin-' . get_locale() . '.mo' );
 }
 
 // Administration Hooks.

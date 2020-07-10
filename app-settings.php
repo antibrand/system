@@ -111,7 +111,7 @@ if ( WP_CACHE && apply_filters( 'enable_loading_advanced_cache_dropin', true ) )
 	}
 }
 
-// Define WP_LANG_DIR if not set.
+// Define APP_LANG_DIR if not set.
 wp_set_lang_dir();
 
 // Load early files.
@@ -421,7 +421,7 @@ wp_templating_constants(  );
 load_default_textdomain();
 
 $locale      = get_locale();
-$locale_file = WP_LANG_DIR . "/$locale.php";
+$locale_file = APP_LANG_DIR . "/$locale.php";
 
 if ( ( 0 === validate_file( $locale ) ) && is_readable( $locale_file ) ) {
 	require( $locale_file );

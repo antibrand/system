@@ -341,7 +341,7 @@ function app_debug_mode() {
 /**
  * Set the location of the language directory.
  *
- * To set directory manually, define the `WP_LANG_DIR` constant
+ * To set directory manually, define the `APP_LANG_DIR` constant
  * in app-config.php.
  *
  * If the language directory exists within `WP_CONTENT_DIR`, it
@@ -352,8 +352,11 @@ function app_debug_mode() {
  * @access private
  */
 function wp_set_lang_dir() {
-	if ( !defined( 'WP_LANG_DIR' ) ) {
-		if ( file_exists( WP_CONTENT_DIR . '/languages' ) && @is_dir( WP_CONTENT_DIR . '/languages' ) || !@is_dir(ABSPATH . WPINC . '/languages') ) {
+
+	if ( ! defined( 'APP_LANG_DIR' ) ) {
+
+		if ( file_exists( ABSPATH . 'app-languages' ) && @is_dir( ABSPATH . 'app-languages' ) || !@is_dir( ABSPATH . WPINC . '/languages' ) ) {
+
 			/**
 			 * Server path of the language directory.
 			 *
@@ -361,12 +364,16 @@ function wp_set_lang_dir() {
 			 *
 			 * @since 2.1.0
 			 */
-			define( 'WP_LANG_DIR', WP_CONTENT_DIR . '/languages' );
-			if ( !defined( 'LANGDIR' ) ) {
+			define( 'APP_LANG_DIR', ABSPATH . 'app-languages' );
+
+			if ( ! defined( 'LANGDIR' ) ) {
+
 				// Old static relative path maintained for limited backward compatibility - won't work in some cases.
-				define( 'LANGDIR', 'wp-content/languages' );
+				define( 'LANGDIR', ABSPATH . 'app-languages' );
 			}
+
 		} else {
+
 			/**
 			 * Server path of the language directory.
 			 *
@@ -374,8 +381,10 @@ function wp_set_lang_dir() {
 			 *
 			 * @since 2.1.0
 			 */
-			define( 'WP_LANG_DIR', ABSPATH . WPINC . '/languages' );
-			if ( !defined( 'LANGDIR' ) ) {
+			define( 'APP_LANG_DIR', ABSPATH . WPINC . '/languages' );
+
+			if ( ! defined( 'LANGDIR' ) ) {
+
 				// Old relative path maintained for backward compatibility.
 				define( 'LANGDIR', WPINC . '/languages' );
 			}
@@ -881,10 +890,10 @@ function wp_load_translations_early() {
 	$locales = $locations = array();
 
 	while ( true ) {
-		if ( defined( 'WPLANG' ) ) {
-			if ( '' == WPLANG )
+		if ( defined( 'APP_LANG' ) ) {
+			if ( '' == APP_LANG )
 				break;
-			$locales[] = WPLANG;
+			$locales[] = APP_LANG;
 		}
 
 		if ( isset( $wp_local_package ) )
@@ -893,14 +902,14 @@ function wp_load_translations_early() {
 		if ( ! $locales )
 			break;
 
-		if ( defined( 'WP_LANG_DIR' ) && @is_dir( WP_LANG_DIR ) )
-			$locations[] = WP_LANG_DIR;
+		if ( defined( 'APP_LANG_DIR' ) && @is_dir( APP_LANG_DIR ) )
+			$locations[] = APP_LANG_DIR;
 
 		if ( defined( 'WP_CONTENT_DIR' ) && @is_dir( WP_CONTENT_DIR . '/languages' ) )
 			$locations[] = WP_CONTENT_DIR . '/languages';
 
-		if ( @is_dir( ABSPATH . 'wp-content/languages' ) )
-			$locations[] = ABSPATH . 'wp-content/languages';
+		if ( @is_dir( ABSPATH . 'app-languages' ) )
+			$locations[] = ABSPATH . 'app-languages';
 
 		if ( @is_dir( ABSPATH . WPINC . '/languages' ) )
 			$locations[] = ABSPATH . WPINC . '/languages';

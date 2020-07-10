@@ -203,14 +203,14 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 		$languages    = get_available_languages();
 		$translations = wp_get_available_translations();
 
-		if ( ! is_multisite() && defined( 'WPLANG' ) && '' !== WPLANG && 'en_US' !== WPLANG && ! in_array( WPLANG, $languages ) ) {
-			$languages[] = WPLANG;
+		if ( ! is_multisite() && defined( 'APP_LANG' ) && '' !== APP_LANG && 'en_US' !== APP_LANG && ! in_array( APP_LANG, $languages ) ) {
+			$languages[] = APP_LANG;
 		}
 
 		if ( ! empty( $languages ) || ! empty( $translations ) ) {
 			?>
 			<tr>
-				<th scope="row"><label for="WPLANG"><?php _e( 'Site Language' ); ?></label></th>
+				<th scope="row"><label for="APP_LANG"><?php _e( 'Site Language' ); ?></label></th>
 
 				<td>
 					<?php
@@ -220,26 +220,26 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 					}
 
 					wp_dropdown_languages( [
-						'name'         => 'WPLANG',
-						'id'           => 'WPLANG',
+						'name'         => 'APP_LANG',
+						'id'           => 'APP_LANG',
 						'selected'     => $locale,
 						'languages'    => $languages,
 						'translations' => $translations,
 						'show_available_translations' => current_user_can( 'install_languages' ) && wp_can_install_language_pack(),
 					] );
 
-					// Add note about deprecated WPLANG constant.
-					if ( defined( 'WPLANG' ) && ( '' !== WPLANG ) && $locale !== WPLANG ) {
+					// Add note about deprecated APP_LANG constant.
+					if ( defined( 'APP_LANG' ) && ( '' !== APP_LANG ) && $locale !== APP_LANG ) {
 
 						if ( is_multisite() && current_user_can( 'manage_network_options' )
 							|| ! is_multisite() && current_user_can( 'manage_options' ) ) {
 							?>
 							<p class="description">
-								<strong><?php _e( 'Note:' ); ?></strong> <?php printf( __( 'The %s constant in your %s file is no longer needed.' ), '<code>WPLANG</code>', '<code>app-config.php</code>' ); ?>
+								<strong><?php _e( 'Note:' ); ?></strong> <?php printf( __( 'The %s constant in your %s file is no longer needed.' ), '<code>APP_LANG</code>', '<code>app-config.php</code>' ); ?>
 							</p>
 							<?php
 						}
-						_deprecated_argument( 'define()', '4.0.0', sprintf( __( 'The %s constant in your %s file is no longer needed.' ), 'WPLANG', 'app-config.php' ) );
+						_deprecated_argument( 'define()', '4.0.0', sprintf( __( 'The %s constant in your %s file is no longer needed.' ), 'APP_LANG', 'app-config.php' ) );
 					}
 					?>
 				</td>

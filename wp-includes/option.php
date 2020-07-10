@@ -1884,7 +1884,7 @@ function register_initial_settings() {
 		'description'  => __( 'A day number of the week that the week should start on.' ),
 	) );
 
-	register_setting( 'general', 'WPLANG', array(
+	register_setting( 'general', 'APP_LANG', array(
 		'show_in_rest' => array(
 			'name' => 'language',
 		),

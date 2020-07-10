@@ -89,7 +89,7 @@ $whitelist_options = array(
 		'time_format',
 		'start_of_week',
 		'timezone_string',
-		'WPLANG',
+		'APP_LANG',
 		'new_admin_email',
 	),
 	'discussion' => array(
@@ -236,13 +236,13 @@ if ( 'update' == $action ) {
 		}
 
 		// Handle translation installation.
-		if ( ! empty( $_POST['WPLANG'] ) && current_user_can( 'install_languages' ) ) {
+		if ( ! empty( $_POST['APP_LANG'] ) && current_user_can( 'install_languages' ) ) {
 			require_once( ABSPATH . 'wp-admin/includes/translation-install.php' );
 
 			if ( wp_can_install_language_pack() ) {
-				$language = wp_download_language_pack( $_POST['WPLANG'] );
+				$language = wp_download_language_pack( $_POST['APP_LANG'] );
 				if ( $language ) {
-					$_POST['WPLANG'] = $language;
+					$_POST['APP_LANG'] = $language;
 				}
 			}
 		}
@@ -275,7 +275,7 @@ if ( 'update' == $action ) {
 		}
 
 		/*
-		 * Switch translation in case WPLANG was changed.
+		 * Switch translation in case APP_LANG was changed.
 		 * The global $locale is used in get_locale() which is
 		 * used as a fallback in get_user_locale().
 		 */

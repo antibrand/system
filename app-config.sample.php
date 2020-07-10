@@ -251,10 +251,10 @@ if ( ! defined( 'APP_LOGIN' ) ) {
  * Keeping this in U.S. English until the languages settings
  * can be corrected.
  */
-define( 'WPLANG', 'en_US' );
+define( 'APP_LANG', 'en_US' );
 
 // Default language directory.
-// define( 'WP_LANG_DIR', ABSPATH . 'wp-content/languages' );
+define( 'APP_LANG_DIR', ABSPATH . 'app-languages' );
 
 /**
  * End customization

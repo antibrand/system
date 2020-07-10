@@ -74,15 +74,15 @@ if ( $_POST ) {
 		'upload_space_check_disabled', 'blog_upload_space', 'upload_filetypes', 'site_name',
 		'first_post', 'first_page', 'first_comment', 'first_comment_url', 'first_comment_author',
 		'welcome_email', 'welcome_user_email', 'fileupload_maxk', 'global_terms_enabled',
-		'illegal_names', 'limited_email_domains', 'banned_email_domains', 'WPLANG', 'new_admin_email',
+		'illegal_names', 'limited_email_domains', 'banned_email_domains', 'APP_LANG', 'new_admin_email',
 		'first_comment_email',
 	);
 
 	// Handle translation installation.
-	if ( ! empty( $_POST['WPLANG'] ) && current_user_can( 'install_languages' ) && wp_can_install_language_pack() ) {
-		$language = wp_download_language_pack( $_POST['WPLANG'] );
+	if ( ! empty( $_POST['APP_LANG'] ) && current_user_can( 'install_languages' ) && wp_can_install_language_pack() ) {
+		$language = wp_download_language_pack( $_POST['APP_LANG'] );
 		if ( $language ) {
-			$_POST['WPLANG'] = $language;
+			$_POST['APP_LANG'] = $language;
 		}
 	}
 
@@ -362,18 +362,18 @@ if ( isset( $_GET['updated'] ) ) {
 			<h2><?php _e( 'Language Settings' ); ?></h2>
 			<table class="form-table">
 				<tr>
-					<th><label for="WPLANG"><?php _e( 'Default Language' ); ?></label></th>
+					<th><label for="APP_LANG"><?php _e( 'Default Language' ); ?></label></th>
 					<td>
 						<?php
-						$lang = get_site_option( 'WPLANG' );
+						$lang = get_site_option( 'APP_LANG' );
 						if ( ! in_array( $lang, $languages ) ) {
 							$lang = '';
 						}
 
 						wp_dropdown_languages(
 							array(
-								'name'         => 'WPLANG',
-								'id'           => 'WPLANG',
+								'name'         => 'APP_LANG',
+								'id'           => 'APP_LANG',
 								'selected'     => $lang,
 								'languages'    => $languages,
 								'translations' => $translations,

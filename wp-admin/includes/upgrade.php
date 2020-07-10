@@ -54,7 +54,7 @@ function wp_install( $blog_title, $user_name, $user_email, $public, $deprecated 
 	update_option( 'fresh_site', 1 );
 
 	if ( $language ) {
-		update_option( 'WPLANG', $language );
+		update_option( 'APP_LANG', $language );
 	}
 
 	$guessurl = wp_guess_url();
@@ -1608,11 +1608,11 @@ function upgrade_380() {
 function upgrade_400() {
 	global $wp_current_db_version;
 	if ( $wp_current_db_version < 29630 ) {
-		if ( ! is_multisite() && false === get_option( 'WPLANG' ) ) {
-			if ( defined( 'WPLANG' ) && ( '' !== WPLANG ) && in_array( WPLANG, get_available_languages() ) ) {
-				update_option( 'WPLANG', WPLANG );
+		if ( ! is_multisite() && false === get_option( 'APP_LANG' ) ) {
+			if ( defined( 'APP_LANG' ) && ( '' !== APP_LANG ) && in_array( APP_LANG, get_available_languages() ) ) {
+				update_option( 'APP_LANG', APP_LANG );
 			} else {
-				update_option( 'WPLANG', '' );
+				update_option( 'APP_LANG', '' );
 			}
 		}
 	}

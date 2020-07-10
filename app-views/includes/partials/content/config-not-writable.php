@@ -217,10 +217,10 @@ define( 'APP_LOGIN', '/' . 'login' . '/' );
  */
 
 // Default language.
-// define( 'WPLANG', 'en_US' );
+// define( 'APP_LANG', 'en_US' );
 
 // Default language directory.
-// define( 'WP_LANG_DIR', ABSPATH . 'wp-content/languages' );
+// define( 'APP_LANG_DIR', ABSPATH . 'app-languages' );
 
 // Sets up vars and included files.
 require( ABSPATH . 'app-settings.php' );

@@ -280,7 +280,7 @@ class WP_Automatic_Updater {
 				break;
 			case 'translation':
 				$upgrader = new Language_Pack_Upgrader( $skin );
-				$context  = WP_CONTENT_DIR; // WP_LANG_DIR;
+				$context  = WP_CONTENT_DIR; // APP_LANG_DIR;
 				break;
 		}
 

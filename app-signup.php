@@ -153,10 +153,10 @@ function show_blog_form( $blogname = '', $blog_title = '', $errors = '' ) {
 			<label for="site-language"><?php _e( 'Site Language:' ); ?></label>
 			<?php
 			// Network default.
-			$lang = get_site_option( 'WPLANG' );
+			$lang = get_site_option( 'APP_LANG' );
 
-			if ( isset( $_POST['WPLANG'] ) ) {
-				$lang = $_POST['WPLANG'];
+			if ( isset( $_POST['APP_LANG'] ) ) {
+				$lang = $_POST['APP_LANG'];
 			}
 
 			// Use US English if the default isn't available.
@@ -165,7 +165,7 @@ function show_blog_form( $blogname = '', $blog_title = '', $errors = '' ) {
 			}
 
 			wp_dropdown_languages( array(
-				'name'                        => 'WPLANG',
+				'name'                        => 'APP_LANG',
 				'id'                          => 'site-language',
 				'selected'                    => $lang,
 				'languages'                   => $languages,
@@ -389,15 +389,15 @@ function validate_another_blog_signup() {
 	);
 
 	// Handle the language setting for the new site.
-	if ( ! empty( $_POST['WPLANG'] ) ) {
+	if ( ! empty( $_POST['APP_LANG'] ) ) {
 
 		$languages = signup_get_available_languages();
 
-		if ( in_array( $_POST['WPLANG'], $languages ) ) {
-			$language = wp_unslash( sanitize_text_field( $_POST['WPLANG'] ) );
+		if ( in_array( $_POST['APP_LANG'], $languages ) ) {
+			$language = wp_unslash( sanitize_text_field( $_POST['APP_LANG'] ) );
 
 			if ( $language ) {
-				$blog_meta_defaults['WPLANG'] = $language;
+				$blog_meta_defaults['APP_LANG'] = $language;
 			}
 		}
 
@@ -720,15 +720,15 @@ function validate_blog_signup() {
 	$signup_meta = array ('lang_id' => 1, 'public' => $public);
 
 	// Handle the language setting for the new site.
-	if ( ! empty( $_POST['WPLANG'] ) ) {
+	if ( ! empty( $_POST['APP_LANG'] ) ) {
 
 		$languages = signup_get_available_languages();
 
-		if ( in_array( $_POST['WPLANG'], $languages ) ) {
-			$language = wp_unslash( sanitize_text_field( $_POST['WPLANG'] ) );
+		if ( in_array( $_POST['APP_LANG'], $languages ) ) {
+			$language = wp_unslash( sanitize_text_field( $_POST['APP_LANG'] ) );
 
 			if ( $language ) {
-				$signup_meta['WPLANG'] = $language;
+				$signup_meta['APP_LANG'] = $language;
 			}
 		}
 

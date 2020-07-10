@@ -1190,7 +1190,7 @@ function wpmu_create_user( $user_name, $password, $email ) {
 function wpmu_create_blog( $domain, $path, $title, $user_id, $meta = array(), $network_id = 1 ) {
 	$defaults = array(
 		'public' => 0,
-		'WPLANG' => get_network_option( $network_id, 'WPLANG' ),
+		'APP_LANG' => get_network_option( $network_id, 'APP_LANG' ),
 	);
 	$meta = wp_parse_args( $meta, $defaults );
 

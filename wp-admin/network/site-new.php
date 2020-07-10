@@ -59,15 +59,15 @@ if ( isset($_REQUEST['action']) && 'add-site' == $_REQUEST['action'] ) {
 	);
 
 	// Handle translation installation for the new site.
-	if ( isset( $_POST['WPLANG'] ) ) {
-		if ( '' === $_POST['WPLANG'] ) {
-			$meta['WPLANG'] = ''; // en_US
-		} elseif ( in_array( $_POST['WPLANG'], get_available_languages() ) ) {
-			$meta['WPLANG'] = $_POST['WPLANG'];
+	if ( isset( $_POST['APP_LANG'] ) ) {
+		if ( '' === $_POST['APP_LANG'] ) {
+			$meta['APP_LANG'] = ''; // en_US
+		} elseif ( in_array( $_POST['APP_LANG'], get_available_languages() ) ) {
+			$meta['APP_LANG'] = $_POST['APP_LANG'];
 		} elseif ( current_user_can( 'install_languages' ) && wp_can_install_language_pack() ) {
-			$language = wp_download_language_pack( wp_unslash( $_POST['WPLANG'] ) );
+			$language = wp_download_language_pack( wp_unslash( $_POST['APP_LANG'] ) );
 			if ( $language ) {
-				$meta['WPLANG'] = $language;
+				$meta['APP_LANG'] = $language;
 			}
 		}
 	}
@@ -219,7 +219,7 @@ if ( ! empty( $messages ) ) {
 				<td>
 					<?php
 					// Network default.
-					$lang = get_site_option( 'WPLANG' );
+					$lang = get_site_option( 'APP_LANG' );
 
 					// Use English if the default isn't available.
 					if ( ! in_array( $lang, $languages ) ) {
@@ -228,7 +228,7 @@ if ( ! empty( $messages ) ) {
 
 					wp_dropdown_languages(
 						array(
-							'name'                        => 'WPLANG',
+							'name'                        => 'APP_LANG',
 							'id'                          => 'site-language',
 							'selected'                    => $lang,
 							'languages'                   => $languages,
