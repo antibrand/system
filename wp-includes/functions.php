@@ -1963,7 +1963,7 @@ function _wp_upload_dir( $time = null ) {
 	}
 
 	// If multisite (and if not the main site in a post-MU network)
-	if ( is_multisite() && ! ( is_main_network() && is_main_site() && defined( 'MULTISITE' ) ) ) {
+	if ( is_multisite() && ! ( is_main_network() && is_main_site() && defined( 'APP_NETWORK' ) ) ) {
 
 		if ( ! get_site_option( 'ms_files_rewriting' ) ) {
 			/*
@@ -1975,7 +1975,7 @@ function _wp_upload_dir( $time = null ) {
 			 * had wp-content/uploads for the main site.)
 			 */
 
-			if ( defined( 'MULTISITE' ) )
+			if ( defined( 'APP_NETWORK' ) )
 				$ms_dir = '/sites/' . get_current_blog_id();
 			else
 				$ms_dir = '/' . get_current_blog_id();
@@ -5506,7 +5506,7 @@ function wp_raise_memory_limit( $context = 'admin' ) {
 		return false;
 	}
 
-	$wp_max_limit     = WP_MAX_MEMORY_LIMIT;
+	$wp_max_limit     = APP_MAX_MEMORY_LIMIT;
 	$wp_max_limit_int = wp_convert_hr_to_bytes( $wp_max_limit );
 	$filtered_limit   = $wp_max_limit;
 
@@ -5519,7 +5519,7 @@ function wp_raise_memory_limit( $context = 'admin' ) {
 			 * like updates. Memory limits when processing images (uploaded or edited by
 			 * users of any role) are handled separately.
 			 *
-			 * The `WP_MAX_MEMORY_LIMIT` constant specifically defines the maximum memory
+			 * The `APP_MAX_MEMORY_LIMIT` constant specifically defines the maximum memory
 			 * limit available when in the administration back end. The default is 256M
 			 * (256 megabytes of memory) or the original `memory_limit` php.ini value if
 			 * this is higher.
@@ -5541,7 +5541,7 @@ function wp_raise_memory_limit( $context = 'admin' ) {
 			 * @since 4.6.0 The default now takes the original `memory_limit` into account.
 			 *
 			 * @param int|string $filtered_limit Maximum memory limit to allocate for images.
-			 *                                   Default `WP_MAX_MEMORY_LIMIT` or the original
+			 *                                   Default `APP_MAX_MEMORY_LIMIT` or the original
 			 *                                   php.ini `memory_limit`, whichever is higher.
 			 *                                   Accepts an integer (bytes), or a shorthand string
 			 *                                   notation, such as '256M'.

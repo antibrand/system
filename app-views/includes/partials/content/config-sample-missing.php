@@ -119,10 +119,10 @@ define( 'automatic_updater_disabled', true );
 define( 'wp_auto_update_core', false );
 
 // PHP memory limit for this site.
-// define( 'WP_MEMORY_LIMIT', '256M' );
+// define( 'APP_MEMORY_LIMIT', '256M' );
 
 // Increase admin-side memory limit.
-// define( 'WP_MAX_MEMORY_LIMIT', '256M' );
+// define( 'APP_MAX_MEMORY_LIMIT', '256M' );
 
 /**
  * Site development
@@ -132,14 +132,14 @@ define( 'wp_auto_update_core', false );
  */
 define( 'APP_DEV_MODE', false );
 define( 'APP_DEBUG', false );
-define( 'WP_DEBUG_LOG', false );
-define( 'WP_DEBUG_DISPLAY', true );
+define( 'APP_DEBUG_LOG', false );
+define( 'APP_DEBUG_DISPLAY', true );
 
 // Switch for local dev
-define( 'WP_LOCAL_DEV', false );
+define( 'APP_LOCAL_DEV', false );
 
-// Use local URL if WP_LOCAL_DEV is true.
-if ( defined( 'WP_LOCAL_DEV' ) && WP_LOCAL_DEV ) {
+// Use local URL if APP_LOCAL_DEV is true.
+if ( defined( 'APP_LOCAL_DEV' ) && APP_LOCAL_DEV ) {
 	// update_option( 'siteurl', 'https://local.example.dev' );
 	// update_option( 'home', 'https://local.example.dev' );
 }
@@ -151,14 +151,14 @@ if ( defined( 'WP_LOCAL_DEV' ) && WP_LOCAL_DEV ) {
  * Multisite network
  *
  * This is provided for reference. To begin network
- * activation change `WP_ALLOW_MULTISITE` to `true`.
+ * activation change `APP_ALLOW_NETWORK` to `true`.
  *
  * Once acivated the user interface will provide
  * definitions with which to replace those
- * following `WP_ALLOW_MULTISITE`.
+ * following `APP_ALLOW_NETWORK`.
  */
-// define( 'WP_ALLOW_MULTISITE', true );
-// define( 'MULTISITE', false );
+// define( 'APP_ALLOW_NETWORK', true );
+// define( 'APP_NETWORK', false );
 // define( 'SUBDOMAIN_INSTALL', '' );
 // define( 'DOMAIN_CURRENT_SITE', '' );
 // define( 'PATH_CURRENT_SITE', '' );

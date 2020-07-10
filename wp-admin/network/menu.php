@@ -63,7 +63,7 @@ $submenu['plugins.php'][10] = array( _x('Add New', 'plugin'), 'install_plugins',
 $submenu['plugins.php'][15] = array( _x('Editor', 'plugin editor'), 'edit_plugins', 'plugin-editor.php' );
 
 $menu[25] = array(__('Settings'), 'manage_network_options', 'settings.php', '', 'menu-top menu-icon-settings', 'menu-settings', 'dashicons-admin-settings');
-if ( defined( 'MULTISITE' ) && defined( 'WP_ALLOW_MULTISITE' ) && WP_ALLOW_MULTISITE ) {
+if ( defined( 'APP_NETWORK' ) && defined( 'APP_ALLOW_NETWORK' ) && APP_ALLOW_NETWORK ) {
 	$submenu['settings.php'][5]  = array( __('Network Settings'), 'manage_network_options', 'settings.php' );
 	$submenu['settings.php'][10] = array( __('Network Setup'), 'setup_network', 'setup.php' );
 }
