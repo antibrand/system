@@ -411,7 +411,7 @@ final class WP_Customize_Selective_Refresh {
 			'contents' => $contents,
 		);
 
-		if ( defined( 'APP_DEBUG_DISPLAY' ) && APP_DEBUG_DISPLAY ) {
+		if ( defined( 'WP_DEBUG_DISPLAY' ) && WP_DEBUG_DISPLAY ) {
 			$response['errors'] = $this->triggered_errors;
 		}
 
@@ -441,7 +441,7 @@ final class WP_Customize_Selective_Refresh {
 		 *
 		 *     @type array $contents Associative array mapping a partial ID its corresponding array of contents
 		 *                           for the containers requested.
-		 *     @type array $errors   List of errors triggered during rendering of partials, if `APP_DEBUG_DISPLAY`
+		 *     @type array $errors   List of errors triggered during rendering of partials, if `WP_DEBUG_DISPLAY`
 		 *                           is enabled.
 		 * }
 		 * @param WP_Customize_Selective_Refresh $this     Selective refresh component.

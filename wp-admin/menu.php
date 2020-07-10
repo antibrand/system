@@ -661,7 +661,7 @@ if ( is_multisite() && ! is_main_site() ) {
 	];
 }
 
-if ( ! is_multisite() && defined( 'APP_ALLOW_NETWORK' ) && APP_ALLOW_NETWORK ) {
+if ( ! is_multisite() && defined( 'WP_ALLOW_MULTISITE' ) && WP_ALLOW_MULTISITE ) {
 	$submenu['options-general.php'][80] = [
 		__( 'Network Setup' ),
 		'setup_network',

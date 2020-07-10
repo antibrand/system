@@ -80,33 +80,33 @@ function wp_initial_constants() {
 	$current_limit_int = wp_convert_hr_to_bytes( $current_limit );
 
 	// Define memory limits.
-	if ( ! defined( 'APP_MEMORY_LIMIT' ) ) {
+	if ( ! defined( 'WP_MEMORY_LIMIT' ) ) {
 
 		if ( false === wp_is_ini_value_changeable( 'memory_limit' ) ) {
-			define( 'APP_MEMORY_LIMIT', $current_limit );
+			define( 'WP_MEMORY_LIMIT', $current_limit );
 		} elseif ( is_multisite() ) {
-			define( 'APP_MEMORY_LIMIT', '64M' );
+			define( 'WP_MEMORY_LIMIT', '64M' );
 		} else {
-			define( 'APP_MEMORY_LIMIT', '40M' );
+			define( 'WP_MEMORY_LIMIT', '40M' );
 		}
 	}
 
-	if ( ! defined( 'APP_MAX_MEMORY_LIMIT' ) ) {
+	if ( ! defined( 'WP_MAX_MEMORY_LIMIT' ) ) {
 
 		if ( false === wp_is_ini_value_changeable( 'memory_limit' ) ) {
-			define( 'APP_MAX_MEMORY_LIMIT', $current_limit );
+			define( 'WP_MAX_MEMORY_LIMIT', $current_limit );
 		} elseif ( -1 === $current_limit_int || $current_limit_int > 268435456 /* = 256M */ ) {
-			define( 'APP_MAX_MEMORY_LIMIT', $current_limit );
+			define( 'WP_MAX_MEMORY_LIMIT', $current_limit );
 		} else {
-			define( 'APP_MAX_MEMORY_LIMIT', '256M' );
+			define( 'WP_MAX_MEMORY_LIMIT', '256M' );
 		}
 	}
 
 	// Set memory limits.
-	$wp_limit_int = wp_convert_hr_to_bytes( APP_MEMORY_LIMIT );
+	$wp_limit_int = wp_convert_hr_to_bytes( WP_MEMORY_LIMIT );
 
 	if ( -1 !== $current_limit_int && ( -1 === $wp_limit_int || $wp_limit_int > $current_limit_int ) ) {
-		@ini_set( 'memory_limit', APP_MEMORY_LIMIT );
+		@ini_set( 'memory_limit', WP_MEMORY_LIMIT );
 	}
 
 	if ( ! isset( $blog_id ) ) {
@@ -123,15 +123,15 @@ function wp_initial_constants() {
 		define( 'APP_DEBUG', false );
 	}
 
-	// Add define( 'APP_DEBUG_DISPLAY', null); to app-config.php use the globally configured setting for
+	// Add define( 'WP_DEBUG_DISPLAY', null); to app-config.php use the globally configured setting for
 	// display_errors and not force errors to be displayed. Use false to force display_errors off.
-	if ( ! defined( 'APP_DEBUG_DISPLAY' ) ) {
-		define( 'APP_DEBUG_DISPLAY', true );
+	if ( ! defined( 'WP_DEBUG_DISPLAY' ) ) {
+		define( 'WP_DEBUG_DISPLAY', true );
 	}
 
-	// Add define( 'APP_DEBUG_LOG', true ); to enable error logging to wp-content/debug.log.
-	if ( ! defined( 'APP_DEBUG_LOG' ) ) {
-		define( 'APP_DEBUG_LOG', false );
+	// Add define( 'WP_DEBUG_LOG', true ); to enable error logging to wp-content/debug.log.
+	if ( ! defined( 'WP_DEBUG_LOG' ) ) {
+		define( 'WP_DEBUG_LOG', false );
 	}
 
 	if ( ! defined( 'WP_CACHE' ) ) {
