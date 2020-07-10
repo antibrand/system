@@ -62,12 +62,12 @@ header( 'Content-Type: text/html; charset=utf-8' );
 <html <?php language_attributes(); ?> class="no-js">
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo( 'charset' ); ?>" />
 	<meta name="robots" content="noindex,nofollow" />
 
-	<link rel="icon" href="<?php echo esc_attr( $app_get_logo ); ?>" />
-
 	<title><?php _e( 'Configuration File Setup' ); ?></title>
+
+	<link rel="icon" href="<?php echo esc_attr( $app_get_logo ); ?>" />
 
 	<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
 
