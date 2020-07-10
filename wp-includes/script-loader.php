@@ -969,8 +969,9 @@ function wp_default_styles( &$styles ) {
 
 	$styles->add( 'app-admin', false, [ 'dashicons', 'admin', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'nav-menus', 'widgets', 'profile', 'site-icon' ] );
 
+	$styles->add( 'utility',             "/app-assets/css/includes/utility$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'login',               "/app-assets/css/includes/login$suffix.css", [ 'dashicons' ] );
-	$styles->add( 'install',             "/app-assets/css/includes/install$suffix.css" );
+	$styles->add( 'install',             "/app-assets/css/includes/install$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'customize-controls',  "/app-assets/css/admin/screens/customize-controls$suffix.css", [ 'app-admin', 'colors', 'code-theme', 'imgareaselect' ] );
 	$styles->add( 'customize-widgets',   "/app-assets/css/admin/screens/customize-widgets$suffix.css", [ 'app-admin', 'colors' ] );
 	$styles->add( 'customize-nav-menus', "/app-assets/css/admin/screens/customize-nav-menus$suffix.css", [ 'app-admin', 'colors' ] );
