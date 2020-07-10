@@ -6,6 +6,8 @@
  * @subpackage Users
  */
 
+use \AppNamespace\Includes as Includes;
+
 /**
  * Authenticates and logs a user in with 'remember' capability.
  *
@@ -145,7 +147,7 @@ function wp_authenticate_username_password($user, $username, $password) {
 	if ( !$user ) {
 		return new WP_Error( 'invalid_username',
 			__( '<strong>ERROR</strong>: Invalid username.' ) .
-			' <a href="' . wp_lostpassword_url() . '">' .
+			' <a href="' . app_lostpassword_url() . '">' .
 			__( 'Lost your password?' ) .
 			'</a>'
 		);
@@ -171,7 +173,7 @@ function wp_authenticate_username_password($user, $username, $password) {
 				__( '<strong>ERROR</strong>: The password you entered for the username %s is incorrect.' ),
 				'<strong>' . $username . '</strong>'
 			) .
-			' <a href="' . wp_lostpassword_url() . '">' .
+			' <a href="' . app_lostpassword_url() . '">' .
 			__( 'Lost your password?' ) .
 			'</a>'
 		);
@@ -223,7 +225,7 @@ function wp_authenticate_email_password( $user, $email, $password ) {
 	if ( ! $user ) {
 		return new WP_Error( 'invalid_email',
 			__( '<strong>ERROR</strong>: Invalid email address.' ) .
-			' <a href="' . wp_lostpassword_url() . '">' .
+			' <a href="' . app_lostpassword_url() . '">' .
 			__( 'Lost your password?' ) .
 			'</a>'
 		);
@@ -243,7 +245,7 @@ function wp_authenticate_email_password( $user, $email, $password ) {
 				__( '<strong>ERROR</strong>: The password you entered for the email address %s is incorrect.' ),
 				'<strong>' . $email . '</strong>'
 			) .
-			' <a href="' . wp_lostpassword_url() . '">' .
+			' <a href="' . app_lostpassword_url() . '">' .
 			__( 'Lost your password?' ) .
 			'</a>'
 		);
