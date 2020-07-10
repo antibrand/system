@@ -545,14 +545,40 @@ function wp_login_form( $args = [] ) {
  * @param string $redirect Path to redirect to on login.
  * @return string Lost password URL.
  */
-function app_lostpassword_url( $redirect = '' ) {
-
+function wp_lostpassword_url( $redirect = '' ) {
 	$args = array( 'action' => 'lostpassword' );
-	if ( ! empty( $redirect ) ) {
+	if ( !empty($redirect) ) {
 		$args['redirect_to'] = urlencode( $redirect );
 	}
 
 	$lostpassword_url = add_query_arg( $args, network_site_url( 'app-login.php', 'login' ) );
+
+	/**
+	 * Filters the Lost Password URL.
+	 *
+	 * @since Previous 2.8.0
+	 *
+	 * @param string $lostpassword_url The lost password page URL.
+	 * @param string $redirect         The path to redirect to on login.
+	 */
+	return apply_filters( 'lostpassword_url', $lostpassword_url, $redirect );
+}
+
+/**
+ * Returns the URL that allows the user to retrieve the lost password
+ *
+ * @since Previous 2.8.0
+ *
+ * @param string $redirect Path to redirect to on login.
+ * @return string Lost password URL.
+ */
+function app_lostpassword_url( $redirect = '' ) {
+	$args = array( 'action' => 'lostpassword' );
+	if ( !empty($redirect) ) {
+		$args['redirect_to'] = urlencode( $redirect );
+	}
+
+	$lostpassword_url = add_query_arg( $args, network_site_url( APP_LOGIN, 'login' ) );
 
 	/**
 	 * Filters the Lost Password URL.

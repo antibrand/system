@@ -117,7 +117,7 @@ get_header( 'wp-activate' );
 						network_site_url( 'app-login.php', 'login' ),
 						$signup->user_login,
 						$signup->user_email,
-						app_lostpassword_url()
+						wp_lostpassword_url()
 					);
 				} else {
 					printf(
@@ -126,7 +126,7 @@ get_header( 'wp-activate' );
 						sprintf( '<a href="http://%1$s">%1$s</a>', $signup->domain ),
 						$signup->user_login,
 						$signup->user_email,
-						app_lostpassword_url()
+						wp_lostpassword_url()
 					);
 				}
 				echo '</p>';
