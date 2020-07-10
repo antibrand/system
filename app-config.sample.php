@@ -20,6 +20,8 @@
  * MySQL settings
  *
  * You can get this info from your web host.
+ *
+ * @since 1.0.0
  */
 
 // Database name.
@@ -47,6 +49,8 @@ define( 'DB_COLLATE', '' );
  *
  * You can change these at any point in time to invalidate all existing cookies.
  * This will force all users to have to log in again.
+ *
+ * @since 1.0.0
  */
 define( 'AUTH_KEY',         'Put your unique phrase here' );
 define( 'SECURE_AUTH_KEY',  'Put your unique phrase here' );
@@ -62,6 +66,8 @@ define( 'NONCE_SALT',       'Put your unique phrase here' );
  *
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
+ *
+ * @since 1.0.0
  */
 $table_prefix  = 'app_';
 
@@ -71,6 +77,8 @@ $table_prefix  = 'app_';
  * The default login directory is `/login`. You can
  * rename the directory and define the directory
  * name here.
+ *
+ * @since 1.0.0
  */
 define( 'APP_LOGIN', 'login' );
 
@@ -78,6 +86,8 @@ define( 'APP_LOGIN', 'login' );
  * Disable automatic updates.
  *
  * This will prevent WordPress overwriting files.
+ *
+ * @since 1.0.0
  *
  * @todo Review this if updates are removed entirely.
  */
@@ -95,13 +105,13 @@ define( 'wp_auto_update_core', false );
  *
  * It is strongly recommended that plugin and theme developers use
  * APP_DEBUG in their development environments.
+ *
+ * @since 1.0.0
  */
 define( 'APP_DEV_MODE', false );
 define( 'APP_DEBUG', false );
 define( 'WP_DEBUG_LOG', false );
 define( 'WP_DEBUG_DISPLAY', true );
-
-// Switch for local dev
 define( 'WP_LOCAL_DEV', false );
 
 // Use local URL if WP_LOCAL_DEV is true.
@@ -122,6 +132,8 @@ if ( defined( 'WP_LOCAL_DEV' ) && WP_LOCAL_DEV ) {
  * Once acivated the user interface will provide
  * definitions with which to replace those
  * following `WP_ALLOW_MULTISITE`.
+ *
+ * @since 1.0.0
  */
 // define( 'WP_ALLOW_MULTISITE', true );
 // define( 'MULTISITE', false );
@@ -158,12 +170,12 @@ if ( defined( 'WP_LOCAL_DEV' ) && WP_LOCAL_DEV ) {
 // define( 'ENFORCE_GZIP', false );
 
 /**
- * End customization
+ * Absolute path to the app directory
  *
  * Do not add or edit anything below this comment block.
+ *
+ * @since 1.0.0
  */
-
-// Absolute path to the app directory.
 if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
 }
@@ -174,6 +186,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * The default login directory is `/login`. You can
  * rename the directory and define the directory
  * name here.
+ *
+ * @since 1.0.0
  */
 define( 'APP_LOGIN', '/' . 'login' . '/' );
 
@@ -184,6 +198,8 @@ define( 'APP_LOGIN', '/' . 'login' . '/' );
  * are provided for reference while local
  * translations are worked out. The were
  * deprecated in WP 4.0.0.
+ *
+ * @since 1.0.0
  */
 
 // Default language.
@@ -191,6 +207,14 @@ define( 'APP_LOGIN', '/' . 'login' . '/' );
 
 // Default language directory.
 // define( 'WP_LANG_DIR', ABSPATH . 'wp-content/languages' );
+
+/**
+ * End customization
+ *
+ * Do not add or edit anything below this comment block.
+ *
+ * @since 1.0.0
+ */
 
 // Sets up vars and included files.
 require( ABSPATH . 'app-settings.php' );
