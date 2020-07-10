@@ -172,7 +172,12 @@ if ( defined( 'WP_LOCAL_DEV' ) && WP_LOCAL_DEV ) {
 /**
  * Absolute path to the app directory
  *
- * Do not add or edit anything below this comment block.
+ * Do not edit this lightly. The `ABSPATH` constant is
+ * used extensively throughout the website management
+ * system.
+ *
+ * The trailing slash is included when the constant is
+ * redefined elsewhere.
  *
  * @since 1.0.0
  */
