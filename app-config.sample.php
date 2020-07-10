@@ -228,8 +228,6 @@ if ( ! defined( 'APP_VIEWS_PATH' ) ) {
  * The trailing slash is included when the constant is
  * redefined elsewhere.
  *
- * @todo Implement this or remove it.
- *
  * @since 1.0.0
  */
 if ( ! defined( 'APP_LOGIN' ) ) {

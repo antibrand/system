@@ -255,38 +255,34 @@ function wp_authenticate_email_password( $user, $email, $password ) {
 /**
  * Authenticate the user using the auth cookie.
  *
- * @since  Previous 2.8.0
+ * @since 2.8.0
+ *
  * @global string $auth_secure_cookie
- * @param  WP_User|WP_Error|null $user WP_User or WP_Error object from a previous callback. Default null.
- * @param  string $username Username. If not empty, cancels the cookie authentication.
- * @param  string $password Password. If not empty, cancels the cookie authentication.
+ *
+ * @param WP_User|WP_Error|null $user     WP_User or WP_Error object from a previous callback. Default null.
+ * @param string                $username Username. If not empty, cancels the cookie authentication.
+ * @param string                $password Password. If not empty, cancels the cookie authentication.
  * @return WP_User|WP_Error WP_User on success, WP_Error on failure.
  */
-function wp_authenticate_cookie( $user, $username, $password ) {
-
+function wp_authenticate_cookie($user, $username, $password) {
 	if ( $user instanceof WP_User ) {
 		return $user;
 	}
 
-	if ( empty( $username ) && empty( $password ) ) {
-
+	if ( empty($username) && empty($password) ) {
 		$user_id = wp_validate_auth_cookie();
-
-		if ( $user_id ) {
-			return new WP_User( $user_id );
-		}
+		if ( $user_id )
+			return new WP_User($user_id);
 
 		global $auth_secure_cookie;
 
-		if ( $auth_secure_cookie ) {
+		if ( $auth_secure_cookie )
 			$auth_cookie = SECURE_AUTH_COOKIE;
-		} else {
+		else
 			$auth_cookie = AUTH_COOKIE;
-		}
 
-		if ( ! empty( $_COOKIE[$auth_cookie] ) ) {
-			return new WP_Error( 'expired_session', __( 'Please log in again.' ) );
-		}
+		if ( !empty($_COOKIE[$auth_cookie]) )
+			return new WP_Error('expired_session', __('Please log in again.'));
 
 		// If the cookie is not set, be silent.
 	}

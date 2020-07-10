@@ -5196,54 +5196,44 @@ function wp_auth_check_load() {
  * @since 3.6.0
  */
 function wp_auth_check_html() {
-
-	$login_url      = wp_login_url();
+	$login_url = wp_login_url();
 	$current_domain = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'];
-	$same_domain    = ( strpos( $login_url, $current_domain ) === 0 );
+	$same_domain = ( strpos( $login_url, $current_domain ) === 0 );
 
 	/**
 	 * Filters whether the authentication check originated at the same domain.
 	 *
-	 * @since Previous 3.6.0
+	 * @since 3.6.0
+	 *
 	 * @param bool $same_domain Whether the authentication check originated at the same domain.
 	 */
 	$same_domain = apply_filters( 'wp_auth_check_same_domain', $same_domain );
-	$wrap_class  = $same_domain ? 'hidden' : 'hidden fallback';
+	$wrap_class = $same_domain ? 'hidden' : 'hidden fallback';
 
 	?>
 	<div id="wp-auth-check-wrap" class="<?php echo $wrap_class; ?>">
+	<div id="wp-auth-check-bg"></div>
+	<div id="wp-auth-check">
+	<button type="button" class="wp-auth-check-close button-link"><span class="screen-reader-text"><?php _e( 'Close dialog' ); ?></span></button>
+	<?php
 
-		<div id="wp-auth-check-bg"></div>
+	if ( $same_domain ) {
+		$login_src = add_query_arg( array(
+			'interim-login' => '1',
+			'wp_lang'       => get_user_locale(),
+		), $login_url );
+		?>
+		<div id="wp-auth-check-form" class="loading" data-src="<?php echo esc_url( $login_src ); ?>"></div>
+		<?php
+	}
 
-		<div id="wp-auth-check">
-
-			<button type="button" class="wp-auth-check-close button-link">
-				<span class="screen-reader-text"><?php _e( 'Close dialog' ); ?></span>
-			</button>
-			<?php
-			if ( $same_domain ) {
-
-				$login_src = add_query_arg( [
-					'interim-login' => '1',
-					'wp_lang'       => get_user_locale(),
-				], $login_url );
-
-				?>
-				<div id="wp-auth-check-form" class="loading" data-src="<?php echo esc_url( $login_src ); ?>"></div>
-				<?php
-			}
-
-			?>
-			<div class="wp-auth-fallback">
-
-				<p><b class="wp-auth-fallback-expired" tabindex="0"><?php _e( 'Session expired' ); ?></b></p>
-				<p>
-					<a href="<?php echo esc_url( $login_url ); ?>" target="_blank"><?php _e( 'Please log in again.' ); ?></a>
-					<?php _e( 'The login page will open in a new window. After logging in you can close it and return to this page.' ); ?>
-				</p>
-
-			</div>
-		</div>
+	?>
+	<div class="wp-auth-fallback">
+		<p><b class="wp-auth-fallback-expired" tabindex="0"><?php _e('Session expired'); ?></b></p>
+		<p><a href="<?php echo esc_url( $login_url ); ?>" target="_blank"><?php _e('Please log in again.'); ?></a>
+		<?php _e('The login page will open in a new window. After logging in you can close it and return to this page.'); ?></p>
+	</div>
+	</div>
 	</div>
 	<?php
 }

@@ -820,7 +820,7 @@ switch ( $action ) {
 
 					// This filter is documented in wp-includes/general-template.php.
 					echo apply_filters( 'register', $registration_url );
-
+					
 				endif;
 
 				?>

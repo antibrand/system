@@ -62,107 +62,24 @@ header( 'Content-Type: text/html; charset=utf-8' );
 
 ?>
 <!doctype html>
+<html <?php language_attributes(); ?> class="no-js">
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-	<meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo( 'charset' ); ?>" />
-	<meta name="robots" content="noindex,follow" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="robots" content="noindex,nofollow" />
 
-	<title><?php echo esc_html( $login_title ); ?></title>
+	<link rel="icon" href="<?php echo $app_get_logo; ?>" />
 
-	<link rel="icon" href="<?php echo esc_attr( $app_get_logo ); ?>" />
+	<title><?php _e( 'Configuration File Setup' ); ?></title>
 
 	<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
 
-	<?php wp_enqueue_style( 'login' );
+	<?php
+	// Enqueue jQuery for form steps (prev/next).
+	wp_print_scripts( 'jquery' ); ?>
 
-	// Remove all stored post data on logging out.
-	if ( 'loggedout' == $wp_error->get_error_code() ) {
-		add_action( 'login_head', [ $this, 'logout_remove_data' ] );
-	}
-
-	/**
-	 * Enqueue scripts and styles for the login page.
-	 *
-	 * @since Previous 3.1.0
-	 */
-	do_action( 'login_enqueue_scripts' );
-
-	/**
-	 * Fires in the login page header after scripts are enqueued.
-	 *
-	 * @since Previous 2.1.0
-	 */
-	do_action( 'login_head' );
-
-	if ( is_multisite() ) {
-
-		$login_header_url   = network_home_url();
-		$login_header_title = get_network()->site_name;
-
-	} else {
-
-		$login_header_url   = site_url();
-		$login_header_title = get_bloginfo( 'name' );
-	}
-
-	/**
-	 * Filters link URL of the header logo above login form.
-	 *
-	 * @since Previous 2.1.0
-	 * @param string $login_header_url Login header logo URL.
-	 */
-	$login_header_url = apply_filters( 'login_headerurl', $login_header_url );
-
-	/**
-	 * Filters the title attribute of the header logo above login form.
-	 *
-	 * @since Previous 2.1.0
-	 * @param string $login_header_title Login header logo title attribute.
-	 */
-	$login_header_title = apply_filters( 'login_headertitle', $login_header_title );
-
-	/*
-	* To match the URL/title set above, Multisite sites have the blog name,
-	* while single sites get the header title.
-	*/
-	if ( is_multisite() ) {
-		$login_header_text = get_bloginfo( 'name', 'display' );
-	} else {
-		$login_header_text = $login_header_title;
-	}
-
-	$classes = array( 'login-action-' . $action, 'app-core-ui' );
-
-	if ( is_rtl() ) {
-		$classes[] = 'rtl';
-	}
-
-	if ( $interim_login ) {
-
-		$classes[] = 'interim-login';
-		?>
-		<style type="text/css">html{background-color: transparent;}</style>
-		<?php
-
-		if ( 'success' ===  $interim_login ) {
-			$classes[] = 'interim-login-success';
-		}
-	}
-
-	$classes[] =' locale-' . sanitize_html_class( strtolower( str_replace( '_', '-', get_locale() ) ) );
-
-	/**
-	 * Filters the login page body classes.
-	 *
-	 * @since Previous 3.5.0
-	 * @param array  $classes An array of body classes.
-	 * @param string $action  The action that brought the visitor to the login page.
-	 */
-	$classes = apply_filters( 'login_body_class', $classes, $action );
-
-?>
 </head>
-<body class="login <?php echo esc_attr( implode( ' ', $classes ) ); ?>">
+<body class="<?php echo $body_classes; ?>">
 	<header class="app-header">
 		<div class="app-identity">
 			<div class="app-logo">
@@ -174,80 +91,3 @@ header( 'Content-Type: text/html; charset=utf-8' );
 			</div>
 		</div>
 	</header>
-	<?php
-	/**
-	 * Fires in the login page header after the body tag is opened.
-	 *
-	 * @since Previous 4.6.0
-	 */
-	do_action( 'login_header' );
-
-	?>
-	<div id="login">
-		<h1><a href="<?php echo esc_url( $login_header_url ); ?>" title="<?php echo esc_attr( $login_header_title ); ?>" tabindex="-1"><?php echo $login_header_text; ?></a></h1>
-	<?php
-
-	unset( $login_header_url, $login_header_title );
-
-	/**
-	 * Filters the message to display above the login form.
-	 *
-	 * @since Previous 2.1.0
-	 *
-	 * @param string $message Login message text.
-	 */
-	$message = apply_filters( 'login_message', $message );
-
-	if ( ! empty( $message ) ) {
-		echo $message . "\n";
-	}
-
-	// In case a plugin uses $error rather than the $wp_errors object
-	if ( ! empty( $error ) ) {
-
-		$wp_error->add( 'error', $error );
-		unset( $error );
-	}
-
-	if ( $wp_error->get_error_code() ) {
-
-		$errors   = '';
-		$messages = '';
-
-		foreach ( $wp_error->get_error_codes() as $code ) {
-
-			$severity = $wp_error->get_error_data( $code );
-
-			foreach ( $wp_error->get_error_messages( $code ) as $error_message ) {
-
-				if ( 'message' == $severity ) {
-					$messages .= '	' . $error_message . "<br />\n";
-				} else {
-					$errors .= '	' . $error_message . "<br />\n";
-				}
-			}
-		}
-
-		if ( ! empty( $errors ) ) {
-			/**
-			 * Filters the error messages displayed above the login form.
-			 *
-			 * @since Previous 2.1.0
-			 *
-			 * @param string $errors Login error message.
-			 */
-			echo '<div id="login_error">' . apply_filters( 'login_errors', $errors ) . "</div>\n";
-		}
-
-		if ( ! empty( $messages ) ) {
-			/**
-			 * Filters instructional messages displayed above the login form.
-			 *
-			 * @since Previous 2.5.0
-			 *
-			 * @param string $messages Login messages.
-			 */
-			echo '<p class="message">' . apply_filters( 'login_messages', $messages ) . "</p>\n";
-		}
-	}
-	?>
