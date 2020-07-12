@@ -2716,64 +2716,88 @@ function wp_die( $message = '', $title = '', $args = array() ) {
  * @param string          $title   Optional. Error title. Default empty.
  * @param string|array    $args    Optional. Arguments to control behavior. Default empty array.
  */
-function _default_wp_die_handler( $message, $title = '', $args = array() ) {
-	$defaults = array( 'response' => 500 );
-	$r = wp_parse_args($args, $defaults);
+function _default_wp_die_handler( $message, $title = '', $args = [] ) {
 
-	$have_gettext = function_exists('__');
+	$defaults     = [ 'response' => 500 ];
+	$r            = wp_parse_args( $args, $defaults );
+	$have_gettext = function_exists( '__' );
 
 	if ( function_exists( 'is_wp_error' ) && is_wp_error( $message ) ) {
+
 		if ( empty( $title ) ) {
+
 			$error_data = $message->get_error_data();
-			if ( is_array( $error_data ) && isset( $error_data['title'] ) )
+
+			if ( is_array( $error_data ) && isset( $error_data['title'] ) ) {
 				$title = $error_data['title'];
+			}
 		}
+
 		$errors = $message->get_error_messages();
+
 		switch ( count( $errors ) ) {
-		case 0 :
-			$message = '';
-			break;
-		case 1 :
-			$message = "<p>{$errors[0]}</p>";
-			break;
-		default :
-			$message = "<ul>\n\t\t<li>" . join( "</li>\n\t\t<li>", $errors ) . "</li>\n\t</ul>";
-			break;
+
+			case 0 :
+				$message = '';
+				break;
+
+			case 1 :
+				$message = "{$errors[0]}";
+				break;
+
+			default :
+				$message = "<ul>\n\t\t<li>" . join( "</li>\n\t\t<li>", $errors ) . "</li>\n\t</ul>";
+				break;
 		}
+
 	} elseif ( is_string( $message ) ) {
-		$message = "<p>$message</p>";
+		$message = $message;
 	}
 
 	if ( isset( $r['back_link'] ) && $r['back_link'] ) {
-		$back_text = $have_gettext? __('&laquo; Back') : '&laquo; Back';
-		$message .= "\n<p><a href='javascript:history.back()'>$back_text</a></p>";
+		$back_text = $have_gettext? __( 'Go Back' ) : 'Go Back';
+		$message  .= "\n<p><a href='javascript:history.back()'>$back_text</a></p>";
 	}
 
 	if ( ! did_action( 'admin_head' ) ) :
-		if ( !headers_sent() ) {
+
+		if ( ! headers_sent() ) {
+
 			status_header( $r['response'] );
 			nocache_headers();
 			header( 'Content-Type: text/html; charset=utf-8' );
 		}
 
-		if ( empty($title) )
-			$title = $have_gettext ? __('Error') : 'Error';
+		if ( empty( $title ) ) {
+
+			if ( $have_gettext ) {
+				$title = __( 'System Error' );
+			} else {
+				$title = 'System Error';
+			}
+		}
 
 		$text_direction = 'ltr';
-		if ( isset($r['text_direction']) && 'rtl' == $r['text_direction'] )
+
+		if ( isset( $r['text_direction'] ) && 'rtl' == $r['text_direction'] ) {
 			$text_direction = 'rtl';
-		elseif ( function_exists( 'is_rtl' ) && is_rtl() )
+		} elseif ( function_exists( 'is_rtl' ) && is_rtl() ) {
 			$text_direction = 'rtl';
+		}
 ?>
 
-<?php include_once( ABSPATH . 'app-views/includes/partials/header/config-install.php' ); ?>
-<?php endif; // ! did_action( 'admin_head' ) ?>
-	<div class="setup-install-wrap setup-install-error">
-		<main class="config-content">
+<?php include_once( ABSPATH . 'app-views/includes/partials/header/default-die.php' );
+
+endif; // ! did_action( 'admin_head' )
+
+?>
+	<div class="utility-wrap system-error">
+		<main class="system-error-content">
+			<h1><?php echo $title; ?></h1>
 			<?php echo $message; ?>
 		</main>
 	</div>
-<?php include_once( ABSPATH . 'app-views/includes/partials/footer/config-install.php' );
+<?php include_once( ABSPATH . 'app-views/includes/partials/footer/default-die.php' );
 
 	die();
 }
