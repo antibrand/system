@@ -69,7 +69,7 @@ define( 'NONCE_SALT',       'Put your unique phrase here' );
  *
  * @since 1.0.0
  */
-$table_prefix  = 'app_';
+$table_prefix = 'app_';
 
 /**
  * User login directory
