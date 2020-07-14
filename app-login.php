@@ -518,7 +518,7 @@ switch ( $action ) {
 
 		<p id="nav">
 			<a href="<?php echo esc_url( wp_login_url() ); ?>"><?php _e( 'Log in' ); ?></a>
-			<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php _e( 'Lost your password?' ); ?></a>
+			<a href="<?php echo esc_url( app_lostpassword_url() ); ?>"><?php _e( 'Lost your password?' ); ?></a>
 		</p>
 
 		<?php
@@ -824,7 +824,7 @@ switch ( $action ) {
 				endif;
 
 				?>
-				<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php _e( 'Lost your password?' ); ?></a>
+				<a href="<?php echo esc_url( app_lostpassword_url() ); ?>"><?php _e( 'Lost your password?' ); ?></a>
 
 			<?php endif; ?>
 		</p>
