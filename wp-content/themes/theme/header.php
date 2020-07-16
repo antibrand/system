@@ -64,7 +64,7 @@ if ( function_exists( 'before_html' ) ) {
 	<?php do_action( 'after_wp_head' ); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class( 'frontend' ); ?>>
 <?php AB_Theme\Tags\before_page(); ?>
 <div id="page" class="site" itemscope="itemscope" itemtype="<?php AB_Theme\Tags\site_schema(); ?>">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'antibrand' ); ?></a>

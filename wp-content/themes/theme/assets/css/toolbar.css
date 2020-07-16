@@ -98,86 +98,54 @@
 /**
  * Typography
  */
-body {
-  background: #ffffff;
+body.frontend {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   line-height: 1.5;
-  color: #222222;
+  /**
+	* Links
+	*
+	* Any change to the default link style ought to be applied to button-link too.
+	*/
 }
 
 @supports (font-variation-settings: normal) {
-  body {
+  body.frontend {
     font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 }
 
-body.dark-mode {
-  background: #121212;
-  color: #ffffff;
-}
-
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode h4,
-body.dark-mode h5,
-body.dark-mode h6,
-body.dark-mode p,
-body.dark-mode ul,
-body.dark-mode ol,
-body.dark-mode li,
-body.dark-mode a,
-body.dark-mode a:visited {
-  color: #ffffff;
-}
-
-body.dark-mode #wpadminbar,
-body.dark-mode #wpadminbar .ab-top-menu > li.hover > .ab-item,
-body.dark-mode #wpadminbar.nojq .quicklinks .ab-top-menu > li > .ab-item:focus,
-body.dark-mode #wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
-body.dark-mode #wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus,
-body.dark-mode #wpadminbar .menupop .ab-sub-wrapper,
-body.dark-mode #wpadminbar .shortlink-input {
-  background: #333333;
-}
-
-.serif {
-  font-family: NonBreakingSpaceOverride, "Hoefler Text", Garamond, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "Liberation Serif", "Times New Roman", Constantia, Times, Georgia, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
-
-@supports (font-variation-settings: normal) {
-  .serif {
-    font-family: "Crimson Pro", NonBreakingSpaceOverride, "Hoefler Text", Garamond, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "Liberation Serif", "Times New Roman", Constantia, Times, Georgia, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  }
-}
-
-.entry-content,
-.sidebar,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul,
-ol {
+body.frontend .entry-content,
+body.frontend .sidebar,
+body.frontend h1,
+body.frontend h2,
+body.frontend h3,
+body.frontend h4,
+body.frontend h5,
+body.frontend h6,
+body.frontend p,
+body.frontend ul,
+body.frontend ol {
   margin-top: 1em;
 }
 
-/**
- * Links
- *
- * Any change to the default link style ought to be applied to button-link too.
- */
-a {
+body.frontend a {
   color: #004499;
   -webkit-print-color-adjust: exact !important;
   color-adjust: exact !important;
 }
 
-a:hover, a:focus {
+body.frontend a:hover, body.frontend a:focus {
   color: #005fd6;
+}
+
+body.frontend.serif {
+  font-family: NonBreakingSpaceOverride, "Hoefler Text", Garamond, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "Liberation Serif", "Times New Roman", Constantia, Times, Georgia, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@supports (font-variation-settings: normal) {
+  body.frontend.serif {
+    font-family: "Crimson Pro", NonBreakingSpaceOverride, "Hoefler Text", Garamond, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "Liberation Serif", "Times New Roman", Constantia, Times, Georgia, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
 }
 
 .entry-title a {
@@ -235,18 +203,13 @@ samp {
   position: absolute !important;
   width: 1px;
   word-wrap: normal !important;
-  /* Many screen reader and browser combinations announce broken words as they would appear visually. */
 }
 
 .screen-reader-text:focus {
-  background-color: #f1f1f1;
   border-radius: 3px;
-  -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
   clip: auto !important;
   -webkit-clip-path: none;
   clip-path: none;
-  color: #21759b;
   display: block;
   font-size: 14px;
   font-size: 0.875rem;
@@ -259,11 +222,10 @@ samp {
   top: 5px;
   width: auto;
   z-index: 100000;
-  /* Above WP toolbar. */
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
+  body.frontend {
     background: #121212;
     color: #ffffff;
   }

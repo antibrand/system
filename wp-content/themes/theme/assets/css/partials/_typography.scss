@@ -5,82 +5,50 @@
 /**
  * Typography
  */
-body {
-	background: $body_background;
+body.frontend {
 	font-family: $sans;
 	line-height: 1.5;
-	color:$text_color;
 
 	@supports( font-variation-settings: normal ) {
 		font-family: $variable_sans;
 	}
 
-	&.dark-mode {
-		background: $near_black;
-		color: $white;
+	.entry-content,
+	.sidebar,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	ul,
+	ol {
+		margin-top: 1em;
+	}
 
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6,
-		p,
-		ul,
-		ol,
-		li,
-		a,
-		a:visited {
-			color: $white;
-		}
+	/**
+	* Links
+	*
+	* Any change to the default link style ought to be applied to button-link too.
+	*/
+	a {
+		color: $link_color;
+		-webkit-print-color-adjust: exact !important;
+				color-adjust: exact !important;
 
-		#wpadminbar,
-		#wpadminbar .ab-top-menu > li.hover > .ab-item,
-		#wpadminbar.nojq .quicklinks .ab-top-menu > li > .ab-item:focus,
-		#wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
-		#wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus,
-		#wpadminbar .menupop .ab-sub-wrapper,
-		#wpadminbar .shortlink-input {
-			background: $dark_gray;
+		&:hover,
+		&:focus {
+			color: $link_action_color;
 		}
 	}
-}
 
-.serif {
-	font-family: $serif;
+	&.serif {
+		font-family: $serif;
 
-	@supports( font-variation-settings: normal ) {
-		font-family: $variable_serif;
-	}
-}
-
-.entry-content,
-.sidebar,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul,
-ol {
-	margin-top: 1em;
-}
-
-/**
- * Links
- *
- * Any change to the default link style ought to be applied to button-link too.
- */
- a {
-	color: $link_color;
-	-webkit-print-color-adjust: exact !important;
-	        color-adjust: exact !important;
-
-	&:hover,
-	&:focus {
-		color: $link_action_color;
+		@supports( font-variation-settings: normal ) {
+			font-family: $variable_serif;
+		}
 	}
 }
 
@@ -133,18 +101,16 @@ samp {
 	padding: 0;
 	position: absolute !important;
 	width: 1px;
-	word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+
+	// Many screen reader and browser combinations announce broken words as they would appear visually.
+	word-wrap: normal !important;
 }
 
 .screen-reader-text:focus {
-	background-color: #f1f1f1;
 	border-radius: 3px;
-	-webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-	        box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
 	clip: auto !important;
 	-webkit-clip-path: none;
 	        clip-path: none;
-	color: #21759b;
 	display: block;
 	font-size: 14px;
 	font-size: 0.875rem;
@@ -156,13 +122,14 @@ samp {
 	text-decoration: none;
 	top: 5px;
 	width: auto;
+
+	// Above User toolbar.
 	z-index: 100000;
-	/* Above WP toolbar. */
 }
 
 @media ( prefers-color-scheme: dark ) {
 
-	body {
+	body.frontend {
 		background: $near_black;
 		color: $white;
 	}
