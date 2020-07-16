@@ -969,8 +969,6 @@ function wp_default_styles( &$styles ) {
 
 	$styles->add( 'app-admin', false, [ 'dashicons', 'admin', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'nav-menus', 'widgets', 'profile', 'site-icon' ] );
 
-	$styles->add( 'login',               "/app-assets/css/admin/screens/login$suffix.css", [ 'dashicons' ] );
-	$styles->add( 'install',             "/app-assets/css/includes/install$suffix.css" );
 	$styles->add( 'customize-controls',  "/app-assets/css/admin/screens/customize-controls$suffix.css", [ 'app-admin', 'colors', 'code-theme', 'imgareaselect' ] );
 	$styles->add( 'customize-widgets',   "/app-assets/css/admin/screens/customize-widgets$suffix.css", [ 'app-admin', 'colors' ] );
 	$styles->add( 'customize-nav-menus', "/app-assets/css/admin/screens/customize-nav-menus$suffix.css", [ 'app-admin', 'colors' ] );
@@ -979,11 +977,13 @@ function wp_default_styles( &$styles ) {
 	$styles->add( 'dashicons', "/app-assets/css/includes/dashicons$suffix.css" );
 
 	// Includes stylesheets.
+	$styles->add( 'install',               "/app-assets/css/includes/install$suffix.css" );
+	$styles->add( 'login',                 "/app-assets/css/includes/login$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'user-toolbar',          "/app-assets/css/includes/user-toolbar$suffix.css", [ 'dashicons' ] );
-	$styles->add( 'app-auth-check',         "/app-assets/css/includes/app-auth-check$suffix.css", [ 'dashicons' ] );
+	$styles->add( 'app-auth-check',        "/app-assets/css/includes/app-auth-check$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'editor-buttons',        "/app-assets/css/includes/editor$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'media-views',           "/app-assets/css/includes/media-views$suffix.css", [ 'dashicons', 'app-mediaelement' ] );
-	$styles->add( 'app-pointer',            "/app-assets/css/includes/app-pointer$suffix.css", [ 'dashicons' ] );
+	$styles->add( 'app-pointer',           "/app-assets/css/includes/app-pointer$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'customize-preview',     "/app-assets/css/includes/customize-preview$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'app-embed-template-ie', "/app-assets/css/includes/app-embed-template-ie$suffix.css" );
 
@@ -991,20 +991,19 @@ function wp_default_styles( &$styles ) {
 	$styles->add( 'imgareaselect',        '/app-assets/js/includes/imgareaselect/imgareaselect.css', [], '0.9.8' );
 	$styles->add( 'app-jquery-ui-dialog', "/app-assets/css/includes/jquery-ui-dialog$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'mediaelement',         "/app-assets/js/includes/mediaelement/mediaelementplayer-legacy.min.css", [], '4.2.6-78496d1' );
-	$styles->add( 'app-mediaelement',      "/app-assets/js/includes/mediaelement/wp-mediaelement$suffix.css", [ 'mediaelement' ] );
+	$styles->add( 'app-mediaelement',     "/app-assets/js/includes/mediaelement/wp-mediaelement$suffix.css", [ 'mediaelement' ] );
 	$styles->add( 'thickbox',             '/app-assets/js/includes/thickbox/thickbox.css', [ 'dashicons' ] );
-	$styles->add( 'app-codemirror',        '/app-assets/css/includes/vendor/codemirror/codemirror.min.css', [], '4.9.8' );
+	$styles->add( 'app-codemirror',       '/app-assets/css/includes/vendor/codemirror/codemirror.min.css', [], '4.9.8' );
 
 	// RTL stylesheets.
 	$rtl_styles = [
 
 		// Admin stylesheets.
 		'admin', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'plugins', 'nav-menus',
-		'widgets', 'profile', 'site-icon', 'install', 'customize-controls', 'customize-widgets', 'customize-nav-menus', 'customize-preview',
-		'login',
+		'widgets', 'profile', 'site-icon', 'customize-controls', 'customize-widgets', 'customize-nav-menus', 'customize-preview',
 
 		// Includes stylesheets.
-		'user-toolbar', 'app-auth-check', 'editor-buttons', 'media-views', 'app-pointer',
+		'install', 'login', 'user-toolbar', 'app-auth-check', 'editor-buttons', 'media-views', 'app-pointer',
 		'app-jquery-ui-dialog'
 	];
 
