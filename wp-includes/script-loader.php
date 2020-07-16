@@ -977,6 +977,7 @@ function wp_default_styles( &$styles ) {
 	$styles->add( 'dashicons', "/app-assets/css/includes/dashicons$suffix.css" );
 
 	// Includes stylesheets.
+	$styles->add( 'utility',               "/app-assets/css/includes/utility$suffix.css" );
 	$styles->add( 'install',               "/app-assets/css/includes/install$suffix.css" );
 	$styles->add( 'login',                 "/app-assets/css/includes/login$suffix.css", [ 'dashicons' ] );
 	$styles->add( 'user-toolbar',          "/app-assets/css/includes/user-toolbar$suffix.css", [ 'dashicons' ] );
@@ -1003,7 +1004,7 @@ function wp_default_styles( &$styles ) {
 		'widgets', 'profile', 'site-icon', 'customize-controls', 'customize-widgets', 'customize-nav-menus', 'customize-preview',
 
 		// Includes stylesheets.
-		'install', 'login', 'user-toolbar', 'app-auth-check', 'editor-buttons', 'media-views', 'app-pointer',
+		'utility', 'install', 'login', 'user-toolbar', 'app-auth-check', 'editor-buttons', 'media-views', 'app-pointer',
 		'app-jquery-ui-dialog'
 	];
 
