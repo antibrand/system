@@ -18,7 +18,7 @@
  *
  * @see id-config.sample.php in the root directory.
  */
-if ( defined( 'APP_NAME' && APP_NAME ) ) {
+if ( defined( 'APP_NAME' ) && APP_NAME ) {
 	$message = sprintf(
 		'<p>%1s %2s</p>',
 		__( 'This is the error and warning handler for' ),
