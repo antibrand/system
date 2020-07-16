@@ -112,7 +112,7 @@ body {
 }
 
 body.dark-mode {
-  background: #252525;
+  background: #121212;
   color: #ffffff;
 }
 
@@ -165,12 +165,19 @@ ol {
   margin-top: 1em;
 }
 
+/**
+ * Links
+ *
+ * Any change to the default link style ought to be applied to button-link too.
+ */
 a {
-  color: #0000ee;
+  color: #004499;
+  -webkit-print-color-adjust: exact !important;
+  color-adjust: exact !important;
 }
 
-a:visited {
-  color: #551a8b;
+a:hover, a:focus {
+  color: #005fd6;
 }
 
 .entry-title a {
@@ -257,7 +264,7 @@ samp {
 
 @media (prefers-color-scheme: dark) {
   body {
-    background: #252525;
+    background: #121212;
     color: #ffffff;
   }
   h1,

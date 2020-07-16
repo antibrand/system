@@ -6,14 +6,33 @@
  * @see functions.php/setup
  */
 $white: #ffffff;
-$dark_bg: #252525;
-$text: #222222;
-$link: #0000ee;
-$visited: #551a8b;
-$dark_gray: #333333;
-$medium_gray: #555555;
-$light_gray: #888888;
-$pale_gray: #cccccc;
-$error: #dc3232;
-$warning: #ffb900;
-$success: #46b450;
+$off_white: #eeeeee !default;
+$pale_gray: #cccccc !default;
+$light_gray: #888888 !default;
+$medium_gray: #555555 !default;
+$dark_gray: #333333 !default;
+$near_black: #121212 !default;
+$black: #000000;
+$app_green: #44aa11 !default;
+$app_yellow: #ffee00 !default;
+$app_orange: #ee6600 !default;
+$app_red: #dd0000 !default;
+
+// Global app color variables.
+$app_primary_color: $app_yellow !default;
+$app_secondary_color: #222222 !default;
+$app_tertiary_color: #004499 !default;
+$app_highlight_color: $app_yellow !default;
+
+$body_background: $white !default;
+$text_color: $app_secondary_color !default;
+
+// Standard links.
+$link_color: $app_tertiary_color !default;
+$link_action_color: lighten( $link_color, 12% ) !default;
+
+// Bring attention to messages and user actions.
+$notify_color: $app_orange !default;
+$error_color: $app_red !default;
+$warning_color: $app_yellow !default;
+$success_color: $app_green !default;

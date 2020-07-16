@@ -6,17 +6,17 @@
  * Typography
  */
 body {
-	background: $white;
+	background: $body_background;
 	font-family: $sans;
 	line-height: 1.5;
-	color: $text;
+	color:$text_color;
 
 	@supports( font-variation-settings: normal ) {
 		font-family: $variable_sans;
 	}
 
 	&.dark-mode {
-		background: $dark_bg;
+		background: $near_black;
 		color: $white;
 
 		h1,
@@ -68,12 +68,20 @@ ol {
 	margin-top: 1em;
 }
 
-a {
-	color: $link;
-}
+/**
+ * Links
+ *
+ * Any change to the default link style ought to be applied to button-link too.
+ */
+ a {
+	color: $link_color;
+	-webkit-print-color-adjust: exact !important;
+	        color-adjust: exact !important;
 
-a:visited {
-	color: $visited;
+	&:hover,
+	&:focus {
+		color: $link_action_color;
+	}
 }
 
 .entry-title {
@@ -155,7 +163,7 @@ samp {
 @media ( prefers-color-scheme: dark ) {
 
 	body {
-		background: $dark_bg;
+		background: $near_black;
 		color: $white;
 	}
 

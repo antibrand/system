@@ -194,13 +194,13 @@ h2 + .search-form {
 	padding: 0;
 	background: none;
 	border: none;
-	color: $text;
+	color: $text_color;
 
 	&:hover,
 	&:focus {
 		background: none;
 		border: none;
-		color: $text;
+		color: $text_color;
 
 		svg {
 			fill: currentColor;
