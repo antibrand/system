@@ -31,10 +31,10 @@ body.js .theme-browser.search-loading {
   bottom: 3%;
   background-color: #ffffff;
   -webkit-box-shadow: 0 1px 20px 5px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 1px 20px 5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 20px 5px rgba(0, 0, 0, 0.1);
   z-index: 1001;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -70,14 +70,12 @@ body.js .theme-browser.search-loading {
   display: block;
   overflow: hidden;
   position: relative;
-  height: 100%;
   -webkit-backface-visibility: hidden;
   -webkit-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
 }
 
 .theme-browser .themes .theme .theme-cover-image:after {
-  content: "";
   display: block;
   padding-top: 62%;
   padding-top: calc(100% / 1.625);
@@ -103,9 +101,19 @@ body.js .theme-browser.search-loading {
 }
 
 .theme-browser .theme {
-  cursor: pointer;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   border: 1px solid #888888;
+  cursor: pointer;
 }
 
 .theme-browser .theme .notice,
@@ -157,14 +165,12 @@ body.js .theme-browser.search-loading {
   display: block;
   overflow: hidden;
   position: relative;
-  height: 100%;
   -webkit-backface-visibility: hidden;
   -webkit-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
 }
 
 .theme-browser .theme .theme-cover-image:after {
-  content: "";
   display: block;
   padding-top: 62%;
   padding-top: calc(100% / 1.625);
@@ -176,8 +182,7 @@ body.js .theme-browser.search-loading {
   height: auto;
   min-height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
-  position: absolute;
+  object-fit: cover;
   left: 0;
   top: 0;
   -webkit-transition: opacity 0.2s ease-in-out;
@@ -213,7 +218,7 @@ body.js .theme-browser.search-loading {
   color: #ffffff;
   padding-right: 110px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 .theme-browser .theme.active .theme-name span {
@@ -241,7 +246,7 @@ body.js .theme-browser.search-loading {
   right: 0.3em;
   z-index: 3;
   -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 .theme-browser .theme .theme-author {
@@ -510,11 +515,11 @@ body.js .theme-browser.search-loading {
 .theme-overlay .screenshot {
   border: 1px solid #ffffff;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
   overflow: hidden;
   position: relative;
   -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
 }
 
 .theme-overlay .cover-image :after,
@@ -594,9 +599,9 @@ body.js .theme-browser.search-loading {
           justify-content: space-between;
   background-color: #ffffff;
   -webkit-box-shadow: 0 1px 20px 5px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 1px 20px 5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 20px 5px rgba(0, 0, 0, 0.1);
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -768,18 +773,18 @@ body.js .theme-browser.search-loading {
 ------------------------------------------------------------------------------*/
 .upload-theme-wrap .upload-theme {
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin: 0;
   padding: 3em 0;
   width: 100%;
@@ -889,14 +894,14 @@ div#custom-background-image img {
   background: #eee;
   border-color: #999;
   -webkit-box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.5);
-  box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.5);
+          box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
 .background-position-control input[type="radio"]:focus ~ .button {
   border-color: #5b9dd9;
   -webkit-box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.5), 0 0 3px rgba(0, 115, 170, 0.8);
-  box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.5), 0 0 3px rgba(0, 115, 170, 0.8);
+          box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.5), 0 0 3px rgba(0, 115, 170, 0.8);
   color: #23282d;
 }
 
@@ -936,7 +941,7 @@ div#custom-background-image img {
 .background-position-control .button-group .button {
   border-radius: 0;
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
   /* Following properties are overridden by buttons responsive styles (see: wp-includes/css/buttons.css). */
   height: 40px !important;
   line-height: 37px !important;
@@ -953,7 +958,7 @@ div#custom-background-image img {
 
 .background-position-control .button-group:last-child .button {
   -webkit-box-shadow: 0 1px 0 #ccc;
-  box-shadow: 0 1px 0 #ccc;
+          box-shadow: 0 1px 0 #ccc;
 }
 
 .background-position-control .button-group > label {
@@ -966,7 +971,7 @@ div#custom-background-image img {
 
 .background-position-control .button-group:first-child > label:first-child .dashicons {
   -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 .background-position-control .button-group:first-child > label:last-child .button {
@@ -975,7 +980,7 @@ div#custom-background-image img {
 
 .background-position-control .button-group:first-child > label:last-child .dashicons {
   -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 
 .background-position-control .button-group:last-child > label:first-child .button {
@@ -984,7 +989,7 @@ div#custom-background-image img {
 
 .background-position-control .button-group:last-child > label:first-child .dashicons {
   -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 
 .background-position-control .button-group:last-child > label:last-child .button {
@@ -993,7 +998,7 @@ div#custom-background-image img {
 
 .background-position-control .button-group:last-child > label:last-child .dashicons {
   -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 .background-position-control .button-group .dashicons {
@@ -1028,7 +1033,7 @@ body.full-overlay-active {
 
 .wp-full-overlay-sidebar {
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
   position: fixed;
   min-width: 300px;
   max-width: 600px;
@@ -1110,7 +1115,7 @@ body.full-overlay-active {
   margin: 0;
   border-top: none;
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
 }
 
 .wp-full-overlay-sidebar .wp-full-overlay-header a.back {
@@ -1122,7 +1127,7 @@ body.full-overlay-active {
   border-bottom: none;
   border-top: none;
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
 }
 
 .wp-full-overlay-sidebar .wp-full-overlay-sidebar-content {
@@ -1167,7 +1172,7 @@ body.full-overlay-active {
   color: #000;
   outline: none;
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
 }
 
 .theme-install-overlay .close-full-overlay:before {
@@ -1233,7 +1238,7 @@ body.full-overlay-active {
   background-color: transparent !important;
   border: none !important;
   -webkit-box-shadow: none !important;
-  box-shadow: none !important;
+          box-shadow: none !important;
   border-radius: 0 !important;
 }
 
@@ -1284,13 +1289,13 @@ body.full-overlay-active {
 .wp-full-overlay.collapsed .collapse-sidebar-arrow:before,
 .rtl .wp-full-overlay .collapse-sidebar-arrow:before {
   -webkit-transform: rotate(180.001deg);
-  transform: rotate(180.001deg);
+          transform: rotate(180.001deg);
   /* Firefox: promoting to its own layer to trigger anti-aliasing  */
 }
 
 .rtl .wp-full-overlay.collapsed .collapse-sidebar-arrow:before {
   -webkit-transform: none;
-  transform: none;
+          transform: none;
 }
 
 /* Animations */
@@ -1301,7 +1306,7 @@ body.full-overlay-active {
   -webkit-transition-property: left, right, top, bottom, width, margin;
   transition-property: left, right, top, bottom, width, margin;
   -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
+          transition-duration: 0.2s;
 }
 
 /* Device/preview size toggles */
@@ -1341,7 +1346,7 @@ body.full-overlay-active {
   padding: 0 3px;
   margin: 0 0 0 -4px;
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
   border-top: 1px solid transparent;
   border-bottom: 4px solid transparent;
   -webkit-transition: .15s color ease-in-out, .15s background-color ease-in-out, .15s border-color ease-in-out;
@@ -1350,7 +1355,7 @@ body.full-overlay-active {
 
 .wp-full-overlay-footer .devices button:focus {
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
   outline: none;
 }
 
@@ -1564,7 +1569,7 @@ body.full-overlay-active {
   z-index: -1;
   margin: -10px 0 0 -10px;
   -webkit-transform: translateZ(0);
-  transform: translateZ(0);
+          transform: translateZ(0);
   background: transparent url(../images/spinner.gif) no-repeat center center;
   background-size: 20px 20px;
 }
