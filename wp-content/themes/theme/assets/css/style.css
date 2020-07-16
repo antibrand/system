@@ -1,100 +1,162 @@
 /**
- * Browser reset
+ * Browser reset and starter styles
  */
-html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, button, input, select, textarea, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+/**
+ * Colors
+ *
+ * Some variables use colors set by args in the functions file.
+ *
+ * @see functions.php/setup
+ */
+@-ms-viewport {
+  width: device-width;
+}
+
+html {
+  height: 100%;
+  -ms-overflow-style: scrollbar;
+  font-size: 100%;
+  cursor: default;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  word-break: break-word;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+}
+
+*,
+::before,
+::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+::before,
+::after {
+  font-size: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+}
+
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, button, input, select, option, textarea, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
-  vertical-align: baseline;
   background: transparent;
-}
-
-article, aside, details, div, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-  display: block;
-}
-
-audio, canvas, progress, video {
-  display: inline-block;
   vertical-align: baseline;
-}
-
-html {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  height: 100%;
-  overflow-y: scroll;
-  font-size: 100%;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
 
 body {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  min-height: 100%;
   font-size: inherit;
   line-height: 1;
 }
 
-*, *:before, *:after {
-  -webkit-box-sizing: inherit;
-  box-sizing: inherit;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+article,
+aside,
+details,
+div,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+blockquote,
+summary {
+  display: block;
 }
 
-*:before, *:after {
-  font-size: inherit;
+[hidden],
+template {
+  display: none;
 }
 
-img, object, embed, video {
+img,
+svg,
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+}
+
+img,
+svg,
+audio,
+canvas,
+progress,
+iframe,
+video {
+  vertical-align: middle;
+}
+
+img,
+svg,
+object,
+embed,
+video {
   max-width: 100%;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
 }
 
 img {
   height: auto;
-  -ms-interpolation-mode: bicubic;
   border: 0;
 }
 
 hr {
   display: block;
   -webkit-box-sizing: content-box;
-  box-sizing: content-box;
+          box-sizing: content-box;
+  overflow: visible;
   height: 0;
-  border: 0;
-  border-top: 1px solid #ccc;
   margin: 1em 0;
   padding: 0;
+  border: 0;
+  border-top: 1px solid #cccccc;
 }
 
-a, a:hover, a:active, a:focus {
-  outline: none;
-  background-color: transparent;
-}
-
-small {
-  font-size: 85%;
-}
-
-ol {
-  list-style-type: decimal;
-}
-
-ol ol {
-  list-style-type: lower-alpha;
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  font: inherit;
+  color: inherit;
 }
 
 input {
   line-height: normal;
 }
 
-input, textarea, select, button {
-  border: solid 1px #ccc;
+input::-webkit-inner-spin-button {
+  opacity: 1;
+}
+
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  vertical-align: baseline;
 }
 
 input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
@@ -109,89 +171,154 @@ input[type="search"] {
 
 input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
 }
 
-input[type="radio"], input[type="checkbox"] {
-  vertical-align: baseline;
+input[type="button"], input[type="reset"], input[type="submit"], input[type="image"] {
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
-input::-webkit-inner-spin-button {
-  opacity: 1;
+input[disabled] {
+  cursor: default;
 }
 
-*::-webkit-input-placeholder {
-  color: #888;
-  opacity: 1;
-}
-
-*:-ms-input-placeholder {
-  color: #888;
-  opacity: 1;
-}
-
-*::-ms-input-placeholder {
-  color: #888;
-  opacity: 1;
-}
-
-*::placeholder {
-  color: #888;
-  opacity: 1;
+input,
+textarea,
+select,
+button {
+  border: solid 1px #cccccc;
 }
 
 textarea {
   overflow: auto;
 }
 
-button, input, optgroup, select, textarea {
-  color: inherit;
-  font: inherit;
-  margin: 0;
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+::-ms-expand {
+  display: none;
 }
 
 button {
   overflow: visible;
-}
-
-button, html input[type="button"], input[type="reset"], input[type="submit"], input[type="image"] {
+  cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  cursor: pointer;
 }
 
-button[disabled], html input[disabled] {
+button[disabled] {
   cursor: default;
 }
 
-button::-moz-focus-inner, input::-moz-focus-inner {
+button::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
 
+optgroup {
+  font-weight: bold;
+}
+
 table {
-  font-size: inherit;
   border-collapse: collapse;
   border-spacing: 0;
+  font-size: inherit;
 }
 
-td, th {
-  padding: 0;
+table tr {
+  display: table-row;
 }
 
-th {
+table th {
+  display: table-cell;
   font-weight: bold;
   vertical-align: middle;
 }
 
-td, td img {
+table td {
+  display: table-cell;
   font-weight: normal;
   vertical-align: top;
 }
 
-abbr[title], dfn[title] {
-  border-bottom: 1px dotted;
+table td img {
+  font-weight: normal;
+  vertical-align: top;
+}
+
+a {
+  outline: none;
+  background-color: transparent;
+}
+
+a:hover, a:focus, a:active {
+  outline: none;
+  background-color: transparent;
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: normal;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+ol ol {
+  list-style-type: lower-alpha;
+}
+
+small {
+  font-size: 85%;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote :before,
+blockquote :after,
+q :before,
+q :after {
+  content: '';
+  content: none;
+}
+
+q,
+cite {
+  font-style: normal;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+svg:where(:not([fill])) {
+  fill: currentColor;
+}
+
+abbr[title],
+abbr[data-original-title],
+dfn[title] {
   cursor: help;
 }
 
@@ -199,35 +326,11 @@ dfn {
   font-style: italic;
 }
 
-del {
-  text-decoration: line-through;
-}
-
-blockquote {
-  quotes: none;
-}
-
-q, cite {
-  font-style: italic;
-}
-
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-
-svg:not(:root) {
-  overflow: hidden;
-}
-
-[hidden], template {
-  display: none;
-}
-
-sub, sup {
+sub,
+sup {
+  position: relative;
   font-size: 75%;
   line-height: 0;
-  position: relative;
   vertical-align: baseline;
 }
 
@@ -239,39 +342,69 @@ sub {
   bottom: -0.25em;
 }
 
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  font-family: SFMono-Regular, "Menlo", "Consolas", "Roboto Mono", "Ubuntu Monospace", "Noto Mono", "Oxygen Mono", "Liberation Mono", "Courier New", Courier, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1em;
+}
+
 pre {
   overflow: auto;
-  white-space: pre;
+  -ms-overflow-style: scrollbar;
   white-space: pre-wrap;
-  white-space: pre-line;
   word-wrap: break-word;
 }
 
-pre, code, kbd, samp {
-  font-family: 'Courier New', Courier, monospace;
+a,
+area,
+button,
+[role="button"],
+input:not([type="range"]),
+label,
+select,
+summary,
+textarea {
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
 }
 
-b, strong, optgroup {
-  font-weight: bold;
+:dir(ltr) td:not([align]),
+:dir(ltr) th:not([align]),
+*[dir=ltr] td:not([align]),
+*[dir=ltr] th:not([align]) {
+  text-align: left;
 }
 
-/* .clearfix class for clearing floats */
-.clearfix {
-  clear: both;
-  display: block;
-  height: 0;
-  overflow: hidden;
-  zoom: 1;
+:dir(rtl) td:not([align]),
+:dir(rtl) th:not([align]),
+*[dir=rtl] td:not([align]),
+*[dir=rtl] th:not([align]) {
+  text-align: right;
 }
 
-/**
- * SASS/SCSS variables
- *
- * The following variables are used in other .scss files.
- * Make sure that this files is called early in style,scss.
- *
- * @link https://sass-lang.com/documentation/variables
- */
+::-webkit-input-placeholder {
+  color: #888888;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: #888888;
+  opacity: 1;
+}
+
+::-ms-input-placeholder {
+  color: #888888;
+  opacity: 1;
+}
+
+::placeholder {
+  color: #888888;
+  opacity: 1;
+}
+
 /**
  * Colors
  *
@@ -280,21 +413,94 @@ b, strong, optgroup {
  * @see functions.php/setup
  */
 /**
- * Font sizes
+ * Sans-serif font
  *
- * The font size variables presume a browser default of 16px,
- * in which case the variable number is equivelent to a px number.
+ * The website management system uses Inter variable as a sans-serif font.
  *
- * SASS can't have variables beginning with a numeral.
+ * @link https://github.com/rsms/inter
+ */
+@font-face {
+  font-family: 'Inter';
+  font-weight: 100 900;
+  font-style: normal;
+  src: url(../fonts/inter/inter-upright-var.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 100 900;
+  font-style: italic;
+  src: url(../fonts/inter/inter-italic-var.woff2) format("woff2");
+}
+
+/**
+ * Serif font
+ *
+ * The website management system uses Crimson Pro variable as a serif font.
+ *
+ * @link https://github.com/Fonthausen/CrimsonPro
+ */
+@font-face {
+  font-family: 'Crimson Pro';
+  font-weight: 100 900;
+  font-style: normal;
+  src: url(../fonts/crimson/crimson-pro-roman.woff) format("woff");
+}
+
+@font-face {
+  font-family: 'Crimson Pro';
+  font-weight: 100 900;
+  font-style: italic;
+  src: url(../fonts/crimson/crimson-pro-italic.woff) format("woff");
+}
+
+/**
+ * Chrome renders extra-wide &nbsp; characters for the Hoefler Text font.
+ * This results in a jumping cursor when typing in both the classic editor and
+ * block editor. The following font-face override fixes the issue by manually
+ * inserting a custom font that includes just a Hoefler Text space replacement
+ * for that character instead.
+ */
+@font-face {
+  font-family: NonBreakingSpaceOverride;
+  src: url(data:application/font-woff2;charset=utf-8;base64,d09GMgABAAAAAAMoAA0AAAAACDQAAALTAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP0ZGVE0cGh4GYACCahEICjx3CywAATYCJANUBCAFhiEHgWwbXQfILgpsY+rQRRARwyAs6uL7pxzYhxEE+32b3aeHmifR6tklkS9hiZA0ewkqGRJE+H7/+6378ASViK/PGeavqJyOzsceKi1s3BCiQsiOdn1r/RBgIJYEgCUhbm/8/8/h4saPssnTNkkiWUBrTRtjmQSajw3Ui3pZ3LYDPD+XG2C3JA/yKAS8/rU5eNfuGqRf4eNNgV4YAlIIgxglEkWe6FYpq10+wi3g+/nUgvgPFczNrz/RsTgVm/zfbPuHZlsuQECxuyqBcQwKFBjFgKO8AqP4bAN9tFJtnM9xPcbNjeXS/x1wY/xU52f5W/X1+9cnH4YwKIaoRRAkUkj/YlAAeF/624foiIDBgBmgQBeGAyhBljUPZUm/l2dTvmpqcBDUOHdbPZWd8JsBAsGr4w8/EDn82/bUPx4eh0YNrQTBuHO2FjQEAGBwK0DeI37DpQVqdERS4gZBhpeUhWCfLFz7J99aEBgsJCHvUGAdAPp4IADDCAPCEFMGpMZ9AQpTfQtQGhLbGVBZFV8BaqNyP68oTZgHNj3M8kBPfXTTC9t90UuzYhy9ciH0grVlOcqyCytisvbsERsEYztiznR0WCrmTksJwbSNK6fd1Rvr25I9oLvctUoEbNOmXJbqgYgPXEHJ82IUsrCnpkxh23F1rfZ2zcRnJYoXtauB3VTFkFXQg3uoZYD5qE0kdjDtoDoF1h2bulGmev5HbYhbrjtohQSRI4aNOkffIcT+d3v6atpaYh3JvPoQsztCcqvaBkppDSPcQ3bw3KaCBo1f5CJWTZEgW3LjLofYg51MaVezrx8xZitYbQ9KYeoRaqQdVLwSEfrKXLK1otCWOKNdR/YwYAfon5Yk8O2MJfSD10dPGA5PIJJQMkah0ugMJiv6x4Dm7LEa8xnrRGGGLAg4sAlbsA07sAt76DOsXKO3hIjtIlpnnFrt1qW4kh6NhS83P/6HB/fl1SMAAA==) format("woff2"), url(data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAAUQAA0AAAAACDQAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAAE9AAAABwAAAAchf5yU0dERUYAAATYAAAAHAAAAB4AJwAbT1MvMgAAAaAAAABJAAAAYJAcgU5jbWFwAAACIAAAAF4AAAFqUUxBZ2dhc3AAAATQAAAACAAAAAgAAAAQZ2x5ZgAAApAAAAAyAAAAPL0n8y9oZWFkAAABMAAAADAAAAA2Fi93Z2hoZWEAAAFgAAAAHQAAACQOSgWaaG10eAAAAewAAAAzAAAAVC7TAQBsb2NhAAACgAAAABAAAAAsAOQBAm1heHAAAAGAAAAAHQAAACAAWQALbmFtZQAAAsQAAAF6AAADIYvD/Adwb3N0AAAEQAAAAI4AAADsapk2o3jaY2BkYGAA4ov5mwzj+W2+MnCzXwCKMNzgCBSB0LfbQDQ7AxuI4mBgAlEAFKQIRHjaY2BkYGD3+NvCwMDBAALsDAyMDKhAFAA3+wH3AAAAeNpjYGRgYBBl4GBgYgABEMnIABJzAPMZAAVmAGUAAAB42mNgZlJhnMDAysDCKsKygYGBYRqEZtrDYMT4D8gHSmEHjgUFOQwODAqqf9g9/rYwMLB7MNUAhRlBcsxBrMlASoGBEQAj8QtyAAAAeNrjYGBkAAGmWQwMjO8gmBnIZ2NA0ExAzNjAAFYJVn0ASBsD6VAIDZb7AtELAgANIgb9AHjaY2BgYGaAYBkGRgYQSAHyGMF8FgYPIM3HwMHAxMDGoMCwQIFLQV8hXvXP//9AcRCfAcb///h/ygPW+w/vb7olBjUHCTCyMcAFGZmABBO6AogThgZgIUsXAEDcEzcAAHjaY2BgECMCyoEgACZaAed42mNgYmRgYGBnYGNgYAZSDJqMgorCgoqCjECRXwwNrCAKSP5mAAFGBiRgyAAAi/YFBQAAeNqtkc1OwkAUhU/5M25cEhcsZick0AwlBJq6MWwgJkAgYV/KAA2lJeUn+hY+gktXvpKv4dLTMqKycGHsTZNv7px7z50ZAFd4hYHjdw1Ls4EiHjVncIFnzVnc4F1zDkWjrzmPW+NNcwGlzIRKI3fJlUyrEjZQxb3mDH2fNGfRx4vmHKqG0JzHg6E0F9DOlFBGBxUI1GEzLNT4S0aLuTtsGAEUuYcQHkyg3KmIum1bNUvKlrjbbAIleqHHnS4iSudpQcySMYtdFiXlAxzSbAwfMxK6kZoHKhbjjespMTioOPZnzI+4ucCeTVyKMVKLfeAS6vSWaTinuZwzyy/Dc7vaed+6KaV0kukdPUk6yOcctZPvvxxqksq2lEW8RvHjMEO2FCl/zy6p3NEm0R9OFSafJdldc4QVeyaaObMBO0/5cCaa6d9Ggyubxire+lEojscdjoWUR1xGOy8KD8mG2ZLO2l2paDc3A39qmU2z2W5YNv5+u79e6QfGJY/hAAB42m3NywrCMBQE0DupWp/1AYI7/6DEaLQu66Mrd35BKUWKJSlFv1+rue4cGM7shgR981qSon+ZNwUJ8iDgoYU2OvDRRQ99DDDECAHGmGCKmf80hZSx/Kik/LliFbtmN6xmt+yOjdg9GztV4tROnRwX/Bsaaw51nt4Lc7tWaZYHp/MlzKx51LZs5htNri+2AAAAAQAB//8AD3jaY2BkYGDgAWIxIGZiYARCESBmAfMYAAR6AEMAAAABAAAAANXtRbgAAAAA2AhRFAAAAADYCNuG) format("woff");
+}
+
+/**
+ * Monospace font
+ *
+ * The website management system uses League Mono variable as a serif font.
+ *
+ * @link https://github.com/sursly/leaguemono
+ */
+@font-face {
+  font-family: 'League Mono';
+  font-weight: 100 900;
+  font-style: normal;
+  src: url(../fonts/league-mono/LeagueMonoVariable.woff2) format("woff2");
+}
+
+/**
+ * Colors
+ *
+ * Some variables use colors set by args in the functions file.
+ *
+ * @see functions.php/setup
  */
 /**
  * Typography
  */
 body {
   background: #ffffff;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   line-height: 1.5;
   color: #222222;
+}
+
+@supports (font-variation-settings: normal) {
+  body {
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
 }
 
 body.dark-mode {
@@ -328,7 +534,13 @@ body.dark-mode #wpadminbar .shortlink-input {
 }
 
 .serif {
-  font-family: 'Hoefler Text', 'Baskerville Old Face', Garamond, Times, 'Times New Roman', serif;
+  font-family: NonBreakingSpaceOverride, "Hoefler Text", Garamond, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "Liberation Serif", "Times New Roman", Constantia, Times, Georgia, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@supports (font-variation-settings: normal) {
+  .serif {
+    font-family: "Crimson Pro", NonBreakingSpaceOverride, "Hoefler Text", Garamond, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "Liberation Serif", "Times New Roman", Constantia, Times, Georgia, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
 }
 
 .entry-content,
@@ -367,6 +579,32 @@ a:visited {
 .entry-content ol,
 .widget-area ol {
   padding-left: 1em;
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-family: SFMono-Regular, "Menlo", "Consolas", "Roboto Mono", "Ubuntu Monospace", "Noto Mono", "Oxygen Mono", "Liberation Mono", "Courier New", Courier, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@supports (font-variation-settings: normal) {
+  pre,
+  code,
+  kbd,
+  samp {
+    font-family: "League Mono", SFMono-Regular, "Menlo", "Consolas", "Roboto Mono", "Ubuntu Monospace", "Noto Mono", "Oxygen Mono", "Liberation Mono", "Courier New", Courier, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 0.925em;
+  }
+}
+
+@supports (font-variation-settings: "wdth") {
+  pre,
+  code,
+  kbd,
+  samp {
+    font-variation-settings: "wdth" 110;
+  }
 }
 
 /* Text meant only for screen readers. */

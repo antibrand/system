@@ -1,7 +1,8 @@
 /**
  * General
  */
-@import '_variables';
+@import 'partials/_typography';
+@import 'modules/_colors';
 
 body {
 	direction: rtl;

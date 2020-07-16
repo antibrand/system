@@ -46,6 +46,8 @@ if ( function_exists( 'before_html' ) ) {
 
 // Begin HTML output.
 ?>
+<!doctype html>
+<?php do_action( 'before_html' ); ?>
 <html <?php language_attributes(); ?> class="no-js">
 <head id="<?php echo get_bloginfo( 'wpurl' ); ?>" data-template-set="<?php echo get_template(); ?>">
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
