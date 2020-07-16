@@ -218,7 +218,7 @@ switch( $step ) :
 	$app_name    = trim( wp_unslash( $_POST['app_name'] ) );
 	$app_tagline = trim( wp_unslash( $_POST['app_tagline'] ) );
 	$app_website = trim( wp_unslash( $_POST['app_website'] ) );
-	$app_logo    = trim( wp_unslash( $_POST['app_logo'] ) );
+	$app_icon    = trim( wp_unslash( $_POST['app_icon'] ) );
 
 	// Get the database fields.
 	$app_db_name     = trim( wp_unslash( $_POST['app_db_name'] ) );
@@ -411,7 +411,7 @@ switch( $step ) :
 				break;
 
 			case 'APP_IMAGE' :
-				$id_config_file[ $line_num ] = "define( '" . $constant . "'," . $padding . "'" . $app_logo . "' );\r\n";
+				$id_config_file[ $line_num ] = "define( '" . $constant . "'," . $padding . "'" . $app_icon . "' );\r\n";
 
 				break;
 

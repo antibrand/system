@@ -63,8 +63,8 @@ if ( defined( 'APP_WEBSITE' ) && APP_WEBSITE ) {
 			</p>
 
 			<p class="config-field config-app-logo">
-				<label for="app_logo"><?php _e( 'Application Logo' ); ?></label>
-				<br /><input name="app_logo" id="app_logo" type="file" accept="image/png, image/jpg, image/jpeg image/gif" />
+				<label for="app_icon"><?php _e( 'Application Icon' ); ?></label>
+				<br /><input name="app_icon" id="app_icon" type="file" accept="image/png, image/jpg, image/jpeg image/gif" />
 				<br /><span class="description config-field-description"><?php _e( 'Accepts .png, .jpg, .jpeg, .gif.' ); ?></span>
 			</p>
 

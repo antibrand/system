@@ -38,7 +38,7 @@ $app_get_logo = dirname( dirname( dirname( $_SERVER['REQUEST_URI'] ) ) ) . '/app
 // Conditional logo markup.
 if ( defined( 'APP_WEBSITE' ) && APP_WEBSITE ) {
 
-	$app_logo = sprintf(
+	$app_icon = sprintf(
 		'<a href="%1s"><img src="%2s" class="app-logo-image" alt="%3s" itemprop="logo" width="512" height="512"></a>',
 		esc_url( APP_WEBSITE ),
 		esc_attr( $app_get_logo ),
@@ -47,7 +47,7 @@ if ( defined( 'APP_WEBSITE' ) && APP_WEBSITE ) {
 
 } else {
 
-	$app_logo = sprintf(
+	$app_icon = sprintf(
 		'<img src="%1s" class="app-logo-image" alt="%2s" itemprop="logo" width="512" height="512">',
 		esc_attr( $app_get_logo ),
 		esc_html( APP_NAME )
@@ -94,7 +94,7 @@ header( 'Content-Type: text/html; charset=utf-8' );
 	<header class="app-header">
 		<div class="app-identity">
 			<div class="app-logo">
-				<?php echo $app_logo; ?>
+				<?php echo $app_icon; ?>
 			</div>
 			<div class="app-title-description">
 				<h1 class="app-title"><?php echo $app_name; ?></h1>

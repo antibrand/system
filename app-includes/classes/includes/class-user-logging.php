@@ -64,7 +64,7 @@ class User_Logging {
 		// Conditional logo markup.
 		if ( defined( 'APP_WEBSITE' ) && APP_WEBSITE ) {
 
-			$app_logo = sprintf(
+			$app_icon = sprintf(
 				'<a href="%1s"><img src="%2s" class="app-logo-image" alt="%3s" itemprop="logo" width="512" height="512"></a>',
 				esc_url( APP_WEBSITE ),
 				esc_attr( $app_get_logo ),
@@ -73,7 +73,7 @@ class User_Logging {
 
 		} else {
 
-			$app_logo = sprintf(
+			$app_icon = sprintf(
 				'<img src="%1s" class="app-logo-image" alt="%2s" itemprop="logo" width="512" height="512">',
 				esc_attr( $app_get_logo ),
 				esc_html( APP_NAME )
@@ -199,7 +199,7 @@ class User_Logging {
 		<header class="login-header">
 			<div class="login-identity">
 				<div class="site-logo">
-					<?php echo $app_logo; ?>
+					<?php echo $app_icon; ?>
 				</div>
 				<div class="site-title-description">
 					<p class="site-title">
