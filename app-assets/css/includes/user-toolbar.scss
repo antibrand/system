@@ -12,7 +12,7 @@
 	line-height: 32px;
 
 	@supports ( font-variation-settings: normal ) {
-		font-family: $inter;
+		font-family: $variable_sans;
 		font-weight: 550;
 	}
 }

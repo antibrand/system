@@ -60,7 +60,7 @@
 ///
 /// Font stack variables
 ///
-/// The $sans and $serif stacks are default. The $inter and $crimson
+/// The $sans and $serif stacks are default. The $variable_sans and $variable_serif
 /// stacks are used in @supports( font-variation-settings ) queries.
 ///
 $sans :
@@ -80,7 +80,7 @@ $sans :
 	'Segoe UI Symbol',
 	'Noto Color Emoji';
 
-$inter :
+$variable_sans :
 	'Inter',
 	system-ui,
 	-apple-system,
@@ -117,7 +117,7 @@ $serif :
 	'Segoe UI Symbol',
 	'Noto Color Emoji';
 
-$crimson :
+$variable_serif :
 	'Crimson Pro',
 	NonBreakingSpaceOverride,
 	'Hoefler Text',
@@ -154,7 +154,7 @@ $monospace :
 	'Segoe UI Symbol',
 	'Noto Color Emoji';
 
-$league_mono :
+$variable_mono :
 	'League Mono',
 	SFMono-Regular,
 	'Menlo',

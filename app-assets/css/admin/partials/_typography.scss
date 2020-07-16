@@ -15,7 +15,7 @@ body {
 	color: $text_color;
 
 	@supports( font-variation-settings: normal ) {
-		font-family: $inter;
+		font-family: $variable_sans;
 	}
 }
 
@@ -115,7 +115,7 @@ samp {
 	font-family: $monospace;
 
 	@supports( font-variation-settings: normal ) {
-		font-family: $league_mono;
+		font-family: $variable_mono;
 
 		// Keep scale with Inter.
 		font-size: 0.925em;
