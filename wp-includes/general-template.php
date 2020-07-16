@@ -552,7 +552,7 @@ function app_lostpassword_url( $redirect = '' ) {
 		$args['redirect_to'] = urlencode( $redirect );
 	}
 
-	$lostpassword_url = add_query_arg( $args, network_site_url( APP_LOGIN, 'login' ) );
+	$lostpassword_url = add_query_arg( $args, network_site_url( 'app-login.php', 'login' ) );
 
 	/**
 	 * Filters the lost password URL
