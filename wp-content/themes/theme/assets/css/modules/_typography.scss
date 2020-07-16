@@ -1,0 +1,173 @@
+///
+/// General app typography variables
+///
+/// These styles are primarily used in administration pages,
+/// but also common features such as the user toolbar. For this
+/// reason the file is not kept in the css/admin directory.
+
+///
+/// Font sizes
+///
+/// The font size variables presume a browser default of 16px,
+/// in which case the variable number is equivelent to a px number.
+///
+/// SASS can't have variables beginning with a numeral.
+///
+  $px10: 0.625rem;
+  $px11: 0.6875rem;
+  $px12: 0.75rem;
+  $px13: 0.8125rem;
+  $px14: 0.875rem;
+  $px15: 0.9375rem;
+  $px16: 1rem;
+  $px17: 1.0625rem;
+  $px18: 1.125rem;
+  $px19: 1.1875rem;
+  $px20: 1.25rem;
+  $px21: 1.3125rem;
+  $px22: 1.375rem;
+  $px23: 1.4375rem;
+  $px24: 1.5rem;
+  $px25: 1.5625rem;
+  $px26: 1.625rem;
+  $px27: 1.6875rem;
+  $px28: 1.75rem;
+  $px29: 1.8125rem;
+  $px30: 1.875rem;
+  $px31: 1.9375rem;
+  $px32: 2rem;
+  $px33: 2.0625rem;
+  $px34: 2.125rem;
+  $px35: 2.1875rem;
+  $px36: 2.25rem;
+  $px37: 2.3125rem;
+  $px38: 2.375rem;
+  $px39: 2.4375rem;
+  $px40: 2.5rem;
+  $px41: 2.5625rem;
+  $px42: 2.625rem;
+  $px43: 2.6875rem;
+  $px44: 2.75rem;
+  $px45: 2.8125rem;
+  $px46: 2.875rem;
+  $px47: 2.9375rem;
+  $px48: 3rem;
+  $px49: 3.0625rem;
+  $px50: 3.125rem;
+  $px51: 3.1875rem;
+  $px52: 3.25rem;
+
+///
+/// Font stack variables
+///
+/// The $sans and $serif stacks are default. The $variable_sans and $variable_serif
+/// stacks are used in @supports( font-variation-settings ) queries.
+///
+$sans :
+	system-ui,
+	-apple-system,
+	BlinkMacSystemFont,
+	'Segoe UI',
+	Roboto,
+	Oxygen-Sans,
+	Ubuntu,
+	Cantarell,
+	'Helvetica Neue',
+	Helvetica,
+	sans-serif,
+	'Apple Color Emoji',
+	'Segoe UI Emoji',
+	'Segoe UI Symbol',
+	'Noto Color Emoji';
+
+$variable_sans :
+	'Inter',
+	system-ui,
+	-apple-system,
+	BlinkMacSystemFont,
+	'Segoe UI',
+	Roboto,
+	Oxygen-Sans,
+	Ubuntu,
+	Cantarell,
+	'Helvetica Neue',
+	Helvetica,
+	sans-serif,
+	'Apple Color Emoji',
+	'Segoe UI Emoji',
+	'Segoe UI Symbol',
+	'Noto Color Emoji';
+
+$serif :
+	NonBreakingSpaceOverride,
+	'Hoefler Text',
+	Garamond,
+	'Lucida Bright',
+	Lucidabright,
+	'Lucida Serif',
+	Lucida,
+	'Liberation Serif',
+	'Times New Roman',
+	Constantia,
+	Times,
+	Georgia,
+	serif,
+	'Apple Color Emoji',
+	'Segoe UI Emoji',
+	'Segoe UI Symbol',
+	'Noto Color Emoji';
+
+$variable_serif :
+	'Crimson Pro',
+	NonBreakingSpaceOverride,
+	'Hoefler Text',
+	Garamond,
+	'Lucida Bright',
+	Lucidabright,
+	'Lucida Serif',
+	Lucida,
+	'Liberation Serif',
+	'Times New Roman',
+	Constantia,
+	Times,
+	Georgia,
+	serif,
+	'Apple Color Emoji',
+	'Segoe UI Emoji',
+	'Segoe UI Symbol',
+	'Noto Color Emoji';
+
+$monospace :
+	SFMono-Regular,
+	'Menlo',
+	'Consolas',
+	'Roboto Mono',
+	'Ubuntu Monospace',
+	'Noto Mono',
+	'Oxygen Mono',
+	'Liberation Mono',
+	'Courier New',
+	Courier,
+	monospace,
+	'Apple Color Emoji',
+	'Segoe UI Emoji',
+	'Segoe UI Symbol',
+	'Noto Color Emoji';
+
+$variable_mono :
+	'League Mono',
+	SFMono-Regular,
+	'Menlo',
+	'Consolas',
+	'Roboto Mono',
+	'Ubuntu Monospace',
+	'Noto Mono',
+	'Oxygen Mono',
+	'Liberation Mono',
+	'Courier New',
+	Courier,
+	monospace,
+	'Apple Color Emoji',
+	'Segoe UI Emoji',
+	'Segoe UI Symbol',
+	'Noto Color Emoji';

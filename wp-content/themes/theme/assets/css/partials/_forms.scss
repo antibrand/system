@@ -1,0 +1,325 @@
+/**
+ * Forms
+ */
+ form * + * {
+	margin-top: 1em;
+}
+
+fieldset {
+	margin-top: 1em;
+	padding: 1em 1.5em;
+	border: solid 1px $pale_gray;
+}
+
+legend {
+	padding: 0 0.5em;
+}
+
+label {}
+
+input,
+textarea,
+select,
+button {
+	width: 100%;
+	max-width: 640px;
+	padding: 1rem;
+	font: inherit;
+	background: inherit;
+	border: solid 1px $pale_gray;
+
+	&:focus {
+		border-color: $light_gray;
+	}
+}
+
+label + input:not([type="checkbox"]):not([type="radio"]),
+label ~ input:not([type="checkbox"]):not([type="radio"]),
+label + button,
+label ~ button,
+label + textarea,
+label ~ textarea,
+label + select,
+label ~ select {
+	margin-top: 0;
+	display: block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="text"],
+input[type="password"],
+input[type="url"],
+input[type="tel"] {}
+
+input[type="search"] {
+	&+button {}
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+	width: auto;
+	cursor: pointer;
+}
+
+button,
+button[type="submit"],
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+input[type="image"] {
+	width: auto;
+	cursor: pointer;
+	font-weight: bold;
+
+	svg {
+		width: 24px;
+		height: 24px;
+		vertical-align: middle;
+		fill: currentColor;
+	}
+
+	&:hover,
+	&:focus {
+		background: $pale_gray;
+		border-color: $light_gray;
+	}
+
+	&.menu-toggle {
+		background: none;
+		border: none;
+		color: inherit;
+
+		svg {
+			width: 1rem;
+			height: 1rem;
+			fill: currentColor;
+		}
+	}
+}
+
+input[type="number"] {
+	width: auto;
+	padding: 0.6em 1em;
+}
+
+input[type="range"] {
+	padding: 1.3em 1em;
+	cursor: pointer;
+}
+
+input[type="date"] {}
+
+button:disabled,
+button[disabled],
+input:disabled,
+input[disabled] {
+	opacity: 0.5;
+	cursor: not-allowed !important;
+}
+
+textarea {
+	min-height: 200px;
+	margin-top: 1em;
+	padding: 1em;
+	font: inherit;
+	font-size: 85%;
+}
+
+select {
+	margin-top: 1em;
+	padding: 0.5em 1em;
+	font: inherit;
+}
+
+option {}
+
+*::-webkit-input-placeholder,
+*:-moz-placeholder,
+*::-moz-placeholder,
+*:-ms-input-placeholder,
+*::-webkit-input-placeholder {
+	color: $light_gray !important;
+}
+
+*::-webkit-input-placeholder,
+*:-moz-placeholder,
+*::-moz-placeholder,
+*:-ms-input-placeholder,
+*::placeholder {
+	color: $light_gray !important;
+}
+
+/* Search form */
+.search-form {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: nowrap;
+	    flex-wrap: nowrap;
+	margin-top: 1em;
+}
+
+h2 + .search-form {
+	margin-top: 0.5em;
+}
+
+.search-label,
+.search-form input[type="search"],
+.search-form input[type="submit"] {
+	display: inline-block;
+	margin-top: 0;
+}
+
+.search-label {
+	margin-right: 0.3em
+}
+
+.search-submit {}
+
+.theme-toggle {
+	display: inline-block;
+}
+
+.no-js .theme-toggle {
+	display: none;
+}
+
+// Theme toggle button element.
+.theme-toggle-button {
+	position: relative;
+	margin: 0;
+	font-size: $px16;
+	padding: 0;
+	background: none;
+	border: none;
+	color: $text;
+
+	&:hover,
+	&:focus {
+		background: none;
+		border: none;
+		color: $text;
+
+		svg {
+			fill: currentColor;
+		}
+	}
+
+	span {
+		display: inline-block;
+
+		&:first-of-type {
+			transform: translateY(0.3em);
+		}
+	}
+
+	svg {
+		display: inline-block;
+		width: 2em;
+		height: 2em;
+		vertical-align: middle;
+		fill: currentColor;
+		border-radius: 50%;
+		background-image: radial-gradient(
+			circle,
+			yellow 0%,
+			white 70%
+		);
+	}
+}
+
+.dark-mode {
+
+	input,
+	textarea,
+	select,
+	button {
+		background: $dark_gray;
+		border-color: $medium_gray;
+		color: $white;
+
+		&:focus {
+			border-color: $light_gray;
+		}
+	}
+
+	button,
+	button[type="submit"],
+	input[type="submit"],
+	input[type="button"],
+	input[type="reset"],
+	input[type="image"] {
+
+		&:hover,
+		&:focus {
+			background: $medium_gray;
+			border-color: $light_gray;
+		}
+	}
+
+	// Theme toggle button element.
+	.theme-toggle-button {
+		background: none;
+		border: none;
+		color: $white;
+
+		&:hover,
+		&:focus {
+			background: none;
+			border: none;
+		}
+
+		svg {
+			fill: currentColor;
+			background: none;
+		}
+	}
+}
+
+@media ( prefers-color-scheme: dark ) {
+
+	input,
+	textarea,
+	select,
+	button {
+		background: $dark_gray;
+		border-color: $medium_gray;
+		color: $white;
+
+		&:focus {
+			border-color: $light_gray;
+		}
+	}
+
+	button,
+	button[type="submit"],
+	input[type="submit"],
+	input[type="button"],
+	input[type="reset"],
+	input[type="image"] {
+
+		&:hover,
+		&:focus {
+			background: $medium_gray;
+			border-color: $light_gray;
+		}
+	}
+
+	// Theme toggle button element.
+	.theme-toggle-button {
+		background: none;
+		border: none;
+
+		&:hover,
+		&:focus {
+			background: none;
+			border: none;
+		}
+
+		svg {
+			fill: #ffee00;
+		}
+	}
+}

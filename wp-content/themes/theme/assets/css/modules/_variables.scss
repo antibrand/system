@@ -1,0 +1,28 @@
+/**
+ * SASS/SCSS variables
+ *
+ * The following variables are used in other .scss files.
+ * Make sure that this files is called early in style,scss.
+ *
+ * @link https://sass-lang.com/documentation/variables
+ */
+
+/**
+ * Colors
+ *
+ * Some variables use colors set by args in the functions file.
+ *
+ * @see functions.php/setup
+ */
+$white: #ffffff;
+$dark_bg: #252525;
+$text: #222222;
+$link: #0000ee;
+$visited: #551a8b;
+$dark_gray: #333333;
+$medium_gray: #555555;
+$light_gray: #888888;
+$pale_gray: #cccccc;
+$error: #dc3232;
+$warning: #ffb900;
+$success: #46b450;
