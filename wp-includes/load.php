@@ -532,30 +532,38 @@ function wp_start_object_cache() {
 }
 
 /**
- * Redirect to the installer if the application is not installed.
+ * Redirect to the installer
  *
+ * Redirects if the application is not installed.
  * Dies with an error message when Multisite is enabled.
  *
- * @since 3.0.0
+ * @since  3.0.0
  * @access private
+ * @return void
  */
 function wp_not_installed() {
+
 	if ( is_multisite() ) {
+
 		if ( ! is_blog_installed() && ! wp_installing() ) {
+
 			nocache_headers();
 
 			wp_die( __( 'The site you have requested is not installed properly. Please contact the system administrator.' ) );
 		}
+
 	} elseif ( ! is_blog_installed() && ! wp_installing() ) {
+
 		nocache_headers();
 
 		require( ABSPATH . WPINC . '/kses.php' );
 		require( ABSPATH . WPINC . '/pluggable.php' );
 		require( ABSPATH . WPINC . '/formatting.php' );
 
-		$link = wp_guess_url() . '/wp-admin/install.php';
+		$link = wp_guess_url() . '/app-views/includes/install.php';
 
 		wp_redirect( $link );
+
 		die();
 	}
 }
