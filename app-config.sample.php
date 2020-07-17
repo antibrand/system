@@ -186,6 +186,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Compatability version
+ *
+ * Sets a version which may be required by plugins & themes.
+ */
+if ( ! defined( 'COMPAT_VERSION' ) ) {
+	define( 'COMPAT_VERSION', '5.0' );
+}
+
+/**
  * HTML templates directory name
  *
  * Defines the directory of files which print the HTML

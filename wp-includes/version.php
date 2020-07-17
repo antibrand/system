@@ -1,19 +1,24 @@
 <?php
 /**
- * The version string
+ * The version of this system
  *
  * @global string $app_version
  */
 $app_version = '1.0.0';
 
 /**
- * The WordPress version string
+ * The compatability version checked by plugins & themes
  *
- * Using the version from whence this was derived.
+ * This is may be defined in the app-config.php file.
+ * Fallback is the version from whence this was derived.
  *
  * @global string $wp_version
  */
-$wp_version = '4.9.8';
+if ( defined( 'COMPAT_VERSION' ) && COMPAT_VERSION ) {
+	$wp_version = COMPAT_VERSION;
+} else {
+	$wp_version = '100';
+}
 
 /**
  * Holds the DB revision, increments when changes are made to the DB schema.
@@ -34,7 +39,7 @@ $tinymce_version = '4800-20180716';
  *
  * @global string $required_php_version
  */
-$required_php_version = '5.6';
+$required_php_version = '7.0';
 
 /**
  * Holds the required MySQL version
