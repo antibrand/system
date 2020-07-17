@@ -635,11 +635,20 @@ h2 + .search-form {
 
 	// Theme toggle button element.
 	.theme-toggle-button {
+		background: none;
+		border: none;
 		color: $white;
 
 		&:hover,
 		&:focus {
+			background: none;
+			border: none;
 			color: $white;
+		}
+
+		svg {
+			fill: currentColor;
+			background: none;
 		}
 	}
 }

@@ -1335,11 +1335,20 @@ h2 + .search-form {
 }
 
 .dark-mode .theme-toggle-button {
+  background: none;
+  border: none;
   color: #ffffff;
 }
 
 .dark-mode .theme-toggle-button:hover, .dark-mode .theme-toggle-button:focus {
+  background: none;
+  border: none;
   color: #ffffff;
+}
+
+.dark-mode .theme-toggle-button svg {
+  fill: currentColor;
+  background: none;
 }
 
 @media (prefers-color-scheme: dark) {
