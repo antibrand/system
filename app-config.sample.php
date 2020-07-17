@@ -235,6 +235,23 @@ if ( ! defined( 'APP_LOGIN' ) ) {
 }
 
 /**
+ * Default theme
+ *
+ * Slug of the default theme for this installation.
+ * Used as the default theme when installing new sites.
+ * It will be used as the fallback if the current theme doesn't exist.
+ * Defined in the default constants file if not defined here.
+ *
+ * @see WP_Theme::get_core_default_theme()
+ * @see wp-includes/default-constants.php
+ *
+ * @since 1.0.0
+ */
+if ( ! defined( 'APP_DEFAULT_THEME' ) ) {
+	define( 'APP_DEFAULT_THEME', 'theme' );
+}
+
+/**
  * System translation
  *
  * The following two translation definitions
