@@ -17,7 +17,7 @@ $app_version = '1.0.0';
 if ( defined( 'COMPAT_VERSION' ) && COMPAT_VERSION ) {
 	$wp_version = COMPAT_VERSION;
 } else {
-	$wp_version = '100';
+	$wp_version = '4.9.8';
 }
 
 /**
