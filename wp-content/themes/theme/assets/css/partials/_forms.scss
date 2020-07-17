@@ -8,7 +8,7 @@
 fieldset {
 	margin-top: 1em;
 	padding: 1em 1.5em;
-	border: solid 1px $pale_gray;
+	border: solid 1px $form_border_color;
 }
 
 legend {
@@ -25,11 +25,11 @@ button {
 	max-width: 640px;
 	padding: 1rem;
 	font: inherit;
-	background: inherit;
-	border: solid 1px $pale_gray;
+	background: $form_background_color;
+	border: solid 1px $form_border_color;
 
 	&:focus {
-		border-color: $light_gray;
+		border-color: $form_action_border_color;
 	}
 }
 
@@ -70,6 +70,8 @@ input[type="reset"],
 input[type="image"] {
 	width: auto;
 	cursor: pointer;
+	background: $button_background_color;
+	border: solid 1px $button_border_color;
 	font-weight: bold;
 
 	svg {
@@ -81,8 +83,9 @@ input[type="image"] {
 
 	&:hover,
 	&:focus {
-		background: $pale_gray;
-		border-color: $light_gray;
+		background: $button_action_background_color;
+		border-color: $button_action_border_color;
+		color: $button_action_text_color;
 	}
 
 	&.menu-toggle {
@@ -139,7 +142,7 @@ option {}
 *::-moz-placeholder,
 *:-ms-input-placeholder,
 *::-webkit-input-placeholder {
-	color: $light_gray !important;
+	color: $form_placeholder_color !important;
 }
 
 *::-webkit-input-placeholder,
@@ -147,7 +150,7 @@ option {}
 *::-moz-placeholder,
 *:-ms-input-placeholder,
 *::placeholder {
-	color: $light_gray !important;
+	color: $form_placeholder_color !important;
 }
 
 /* Search form */
@@ -225,7 +228,7 @@ h2 + .search-form {
 		background-image: radial-gradient(
 			circle,
 			yellow 0%,
-			white 70%
+			transparent 70%
 		);
 	}
 }
@@ -236,12 +239,11 @@ h2 + .search-form {
 	textarea,
 	select,
 	button {
-		background: $dark_gray;
-		border-color: $medium_gray;
-		color: $white;
+		background: $form_background_color_dark;
+		border-color: $form_border_color_dark;
 
 		&:focus {
-			border-color: $light_gray;
+			border-color: $form_action_border_color_dark;
 		}
 	}
 
@@ -251,12 +253,44 @@ h2 + .search-form {
 	input[type="button"],
 	input[type="reset"],
 	input[type="image"] {
+		background: $button_background_color_dark;
+		border-color: $button_border_color_dark;
+		font-weight: bold;
 
 		&:hover,
 		&:focus {
-			background: $medium_gray;
-			border-color: $light_gray;
+			background: $button_action_background_color_dark;
+			border-color: $button_action_border_color_dark;
+			color: $button_action_text_color_dark;
 		}
+
+		&.menu-toggle {
+			background: none;
+			border: none;
+			color: inherit;
+
+			svg {
+				width: 1rem;
+				height: 1rem;
+				fill: currentColor;
+			}
+		}
+	}
+
+	*::-webkit-input-placeholder,
+	*:-moz-placeholder,
+	*::-moz-placeholder,
+	*:-ms-input-placeholder,
+	*::-webkit-input-placeholder {
+		color: $form_placeholder_color_dark !important;
+	}
+
+	*::-webkit-input-placeholder,
+	*:-moz-placeholder,
+	*::-moz-placeholder,
+	*:-ms-input-placeholder,
+	*::placeholder {
+		color: $form_placeholder_color_dark !important;
 	}
 
 	// Theme toggle button element.
@@ -269,6 +303,7 @@ h2 + .search-form {
 		&:focus {
 			background: none;
 			border: none;
+			color: $white;
 		}
 
 		svg {
@@ -284,12 +319,11 @@ h2 + .search-form {
 	textarea,
 	select,
 	button {
-		background: $dark_gray;
-		border-color: $medium_gray;
-		color: $white;
+		background: $form_background_color_dark;
+		border-color: $form_border_color_dark;
 
 		&:focus {
-			border-color: $light_gray;
+			border-color: $form_action_border_color_dark;
 		}
 	}
 
@@ -299,27 +333,43 @@ h2 + .search-form {
 	input[type="button"],
 	input[type="reset"],
 	input[type="image"] {
+		background: $button_background_color_dark;
+		border-color: $button_border_color_dark;
+		font-weight: bold;
 
 		&:hover,
 		&:focus {
-			background: $medium_gray;
-			border-color: $light_gray;
+			background: $button_action_background_color_dark;
+			border-color: $button_action_border_color_dark;
+			color: $button_action_text_color_dark;
+		}
+
+		&.menu-toggle {
+			background: none;
+			border: none;
+			color: inherit;
+
+			svg {
+				width: 1rem;
+				height: 1rem;
+				fill: currentColor;
+			}
 		}
 	}
 
-	// Theme toggle button element.
-	.theme-toggle-button {
-		background: none;
-		border: none;
+	*::-webkit-input-placeholder,
+	*:-moz-placeholder,
+	*::-moz-placeholder,
+	*:-ms-input-placeholder,
+	*::-webkit-input-placeholder {
+		color: $form_placeholder_color_dark !important;
+	}
 
-		&:hover,
-		&:focus {
-			background: none;
-			border: none;
-		}
-
-		svg {
-			fill: #ffee00;
-		}
+	*::-webkit-input-placeholder,
+	*:-moz-placeholder,
+	*::-moz-placeholder,
+	*:-ms-input-placeholder,
+	*::placeholder {
+		color: $form_placeholder_color_dark !important;
 	}
 }

@@ -27,22 +27,6 @@ body.frontend {
 		margin-top: 1em;
 	}
 
-	/**
-	* Links
-	*
-	* Any change to the default link style ought to be applied to button-link too.
-	*/
-	a {
-		color: $link_color;
-		-webkit-print-color-adjust: exact !important;
-				color-adjust: exact !important;
-
-		&:hover,
-		&:focus {
-			color: $link_action_color;
-		}
-	}
-
 	&.serif {
 		font-family: $serif;
 
@@ -125,37 +109,4 @@ samp {
 
 	// Above User toolbar.
 	z-index: 100000;
-}
-
-@media ( prefers-color-scheme: dark ) {
-
-	body.frontend {
-		background: $near_black;
-		color: $white;
-	}
-
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6,
-	p,
-	ul,
-	ol,
-	li,
-	a,
-	a:visited {
-		color: $white;
-	}
-
-	#wpadminbar,
-	#wpadminbar .ab-top-menu > li.hover > .ab-item,
-	#wpadminbar.nojq .quicklinks .ab-top-menu > li > .ab-item:focus,
-	#wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
-	#wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus,
-	#wpadminbar .menupop .ab-sub-wrapper,
-	#wpadminbar .shortlink-input {
-		background: $dark_gray;
-	}
 }

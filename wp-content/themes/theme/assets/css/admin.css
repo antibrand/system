@@ -6,6 +6,9 @@
  * @see functions.php/setup
  */
 /**
+ * Dark mode
+ */
+/**
  * Sans-serif font
  *
  * The website management system uses Inter variable as a sans-serif font.
@@ -81,16 +84,14 @@
  * @see functions.php/setup
  */
 /**
+ * Dark mode
+ */
+/**
  * Typography
  */
 body.frontend {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   line-height: 1.5;
-  /**
-	* Links
-	*
-	* Any change to the default link style ought to be applied to button-link too.
-	*/
 }
 
 @supports (font-variation-settings: normal) {
@@ -111,16 +112,6 @@ body.frontend p,
 body.frontend ul,
 body.frontend ol {
   margin-top: 1em;
-}
-
-body.frontend a {
-  color: #004499;
-  -webkit-print-color-adjust: exact !important;
-  color-adjust: exact !important;
-}
-
-body.frontend a:hover, body.frontend a:focus {
-  color: #005fd6;
 }
 
 body.frontend.serif {
@@ -207,36 +198,6 @@ samp {
   top: 5px;
   width: auto;
   z-index: 100000;
-}
-
-@media (prefers-color-scheme: dark) {
-  body.frontend {
-    background: #121212;
-    color: #ffffff;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  ul,
-  ol,
-  li,
-  a,
-  a:visited {
-    color: #ffffff;
-  }
-  #wpadminbar,
-  #wpadminbar .ab-top-menu > li.hover > .ab-item,
-  #wpadminbar.nojq .quicklinks .ab-top-menu > li > .ab-item:focus,
-  #wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
-  #wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus,
-  #wpadminbar .menupop .ab-sub-wrapper,
-  #wpadminbar .shortlink-input {
-    background: #333333;
-  }
 }
 
 .theme-info-page {

@@ -8,6 +8,9 @@
  *
  * @see functions.php/setup
  */
+/**
+ * Dark mode
+ */
 @-ms-viewport {
   width: device-width;
 }
@@ -413,6 +416,9 @@ textarea {
  * @see functions.php/setup
  */
 /**
+ * Dark mode
+ */
+/**
  * Sans-serif font
  *
  * The website management system uses Inter variable as a sans-serif font.
@@ -488,16 +494,14 @@ textarea {
  * @see functions.php/setup
  */
 /**
+ * Dark mode
+ */
+/**
  * Typography
  */
 body.frontend {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   line-height: 1.5;
-  /**
-	* Links
-	*
-	* Any change to the default link style ought to be applied to button-link too.
-	*/
 }
 
 @supports (font-variation-settings: normal) {
@@ -518,16 +522,6 @@ body.frontend p,
 body.frontend ul,
 body.frontend ol {
   margin-top: 1em;
-}
-
-body.frontend a {
-  color: #004499;
-  -webkit-print-color-adjust: exact !important;
-  color-adjust: exact !important;
-}
-
-body.frontend a:hover, body.frontend a:focus {
-  color: #005fd6;
 }
 
 body.frontend.serif {
@@ -616,43 +610,13 @@ samp {
   z-index: 100000;
 }
 
-@media (prefers-color-scheme: dark) {
-  body.frontend {
-    background: #121212;
-    color: #ffffff;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  ul,
-  ol,
-  li,
-  a,
-  a:visited {
-    color: #ffffff;
-  }
-  #wpadminbar,
-  #wpadminbar .ab-top-menu > li.hover > .ab-item,
-  #wpadminbar.nojq .quicklinks .ab-top-menu > li > .ab-item:focus,
-  #wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
-  #wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus,
-  #wpadminbar .menupop .ab-sub-wrapper,
-  #wpadminbar .shortlink-input {
-    background: #333333;
-  }
-}
-
 body {
   background: #ffffff;
   color: #222222;
 }
 
 body.dark-mode {
-  background: #121212;
+  background: #222222;
   color: #ffffff;
 }
 
@@ -665,10 +629,16 @@ body.dark-mode h6,
 body.dark-mode p,
 body.dark-mode ul,
 body.dark-mode ol,
-body.dark-mode li,
-body.dark-mode a,
-body.dark-mode a:visited {
+body.dark-mode li {
   color: #ffffff;
+}
+
+body.dark-mode a {
+  color: #ffffff;
+}
+
+body.dark-mode a:hover, body.dark-mode a:focus {
+  color: #3ad4fb;
 }
 
 body.dark-mode #wpadminbar,
@@ -679,6 +649,21 @@ body.dark-mode #wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus,
 body.dark-mode #wpadminbar .menupop .ab-sub-wrapper,
 body.dark-mode #wpadminbar .shortlink-input {
   background: #333333;
+}
+
+/**
+ * Links
+ *
+ * Any change to the default link style ought to be applied to button-link too.
+ */
+a {
+  color: #004499;
+  -webkit-print-color-adjust: exact !important;
+  color-adjust: exact !important;
+}
+
+a:hover, a:focus {
+  color: #005fd6;
 }
 
 .site {
@@ -740,6 +725,46 @@ main article {
 }
 
 /**
+ * User prefers a dark color scheme
+ */
+@media (prefers-color-scheme: dark) {
+  .theme-toggle {
+    display: none !important;
+  }
+  body {
+    background: #222222;
+    color: #ffffff;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  li {
+    color: #ffffff;
+  }
+  a {
+    color: #ffffff;
+  }
+  a:hover, a:focus {
+    color: #3ad4fb;
+  }
+  #wpadminbar,
+  #wpadminbar .ab-top-menu > li.hover > .ab-item,
+  #wpadminbar.nojq .quicklinks .ab-top-menu > li > .ab-item:focus,
+  #wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
+  #wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus,
+  #wpadminbar .menupop .ab-sub-wrapper,
+  #wpadminbar .shortlink-input {
+    background: #333333;
+  }
+}
+
+/**
  * Forms
  */
 form * + * {
@@ -749,7 +774,7 @@ form * + * {
 fieldset {
   margin-top: 1em;
   padding: 1em 1.5em;
-  border: solid 1px #cccccc;
+  border: solid 1px #888888;
 }
 
 legend {
@@ -765,14 +790,14 @@ button {
   padding: 1rem;
   font: inherit;
   background: inherit;
-  border: solid 1px #cccccc;
+  border: solid 1px #888888;
 }
 
 input:focus,
 textarea:focus,
 select:focus,
 button:focus {
-  border-color: #888888;
+  border-color: #005fd6;
 }
 
 label + input:not([type="checkbox"]):not([type="radio"]),
@@ -801,6 +826,8 @@ input[type="reset"],
 input[type="image"] {
   width: auto;
   cursor: pointer;
+  background: #ffffff;
+  border: solid 1px #888888;
   font-weight: bold;
 }
 
@@ -827,8 +854,9 @@ input[type="reset"]:hover,
 input[type="reset"]:focus,
 input[type="image"]:hover,
 input[type="image"]:focus {
-  background: #cccccc;
+  background: #ffee00;
   border-color: #888888;
+  color: #222222;
 }
 
 button.menu-toggle,
@@ -970,23 +998,33 @@ h2 + .search-form {
   vertical-align: middle;
   fill: currentColor;
   border-radius: 50%;
-  background-image: radial-gradient(circle, yellow 0%, white 70%);
+  background-image: radial-gradient(circle, yellow 0%, transparent 70%);
 }
 
 .dark-mode input,
 .dark-mode textarea,
 .dark-mode select,
 .dark-mode button {
-  background: #333333;
-  border-color: #555555;
-  color: #ffffff;
+  background: #2f2f2f;
+  border-color: #626262;
 }
 
 .dark-mode input:focus,
 .dark-mode textarea:focus,
 .dark-mode select:focus,
 .dark-mode button:focus {
-  border-color: #888888;
+  border-color: #3ad4fb;
+}
+
+.dark-mode button,
+.dark-mode button[type="submit"],
+.dark-mode input[type="submit"],
+.dark-mode input[type="button"],
+.dark-mode input[type="reset"],
+.dark-mode input[type="image"] {
+  background: #2f2f2f;
+  border-color: #626262;
+  font-weight: bold;
 }
 
 .dark-mode button:hover, .dark-mode button:focus,
@@ -1000,8 +1038,47 @@ h2 + .search-form {
 .dark-mode input[type="reset"]:focus,
 .dark-mode input[type="image"]:hover,
 .dark-mode input[type="image"]:focus {
-  background: #555555;
-  border-color: #888888;
+  background: #ffee00;
+  border-color: #626262;
+  color: #222222;
+}
+
+.dark-mode button.menu-toggle,
+.dark-mode button[type="submit"].menu-toggle,
+.dark-mode input[type="submit"].menu-toggle,
+.dark-mode input[type="button"].menu-toggle,
+.dark-mode input[type="reset"].menu-toggle,
+.dark-mode input[type="image"].menu-toggle {
+  background: none;
+  border: none;
+  color: inherit;
+}
+
+.dark-mode button.menu-toggle svg,
+.dark-mode button[type="submit"].menu-toggle svg,
+.dark-mode input[type="submit"].menu-toggle svg,
+.dark-mode input[type="button"].menu-toggle svg,
+.dark-mode input[type="reset"].menu-toggle svg,
+.dark-mode input[type="image"].menu-toggle svg {
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+}
+
+.dark-mode *::-webkit-input-placeholder,
+.dark-mode *:-moz-placeholder,
+.dark-mode *::-moz-placeholder,
+.dark-mode *:-ms-input-placeholder,
+.dark-mode *::-webkit-input-placeholder {
+  color: #959595 !important;
+}
+
+.dark-mode *::-webkit-input-placeholder,
+.dark-mode *:-moz-placeholder,
+.dark-mode *::-moz-placeholder,
+.dark-mode *:-ms-input-placeholder,
+.dark-mode *::placeholder {
+  color: #959595 !important;
 }
 
 .dark-mode .theme-toggle-button {
@@ -1013,6 +1090,7 @@ h2 + .search-form {
 .dark-mode .theme-toggle-button:hover, .dark-mode .theme-toggle-button:focus {
   background: none;
   border: none;
+  color: #ffffff;
 }
 
 .dark-mode .theme-toggle-button svg {
@@ -1025,15 +1103,24 @@ h2 + .search-form {
   textarea,
   select,
   button {
-    background: #333333;
-    border-color: #555555;
-    color: #ffffff;
+    background: #2f2f2f;
+    border-color: #626262;
   }
   input:focus,
   textarea:focus,
   select:focus,
   button:focus {
-    border-color: #888888;
+    border-color: #3ad4fb;
+  }
+  button,
+  button[type="submit"],
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"],
+  input[type="image"] {
+    background: #2f2f2f;
+    border-color: #626262;
+    font-weight: bold;
   }
   button:hover, button:focus,
   button[type="submit"]:hover,
@@ -1046,19 +1133,43 @@ h2 + .search-form {
   input[type="reset"]:focus,
   input[type="image"]:hover,
   input[type="image"]:focus {
-    background: #555555;
-    border-color: #888888;
+    background: #ffee00;
+    border-color: #626262;
+    color: #222222;
   }
-  .theme-toggle-button {
+  button.menu-toggle,
+  button[type="submit"].menu-toggle,
+  input[type="submit"].menu-toggle,
+  input[type="button"].menu-toggle,
+  input[type="reset"].menu-toggle,
+  input[type="image"].menu-toggle {
     background: none;
     border: none;
+    color: inherit;
   }
-  .theme-toggle-button:hover, .theme-toggle-button:focus {
-    background: none;
-    border: none;
+  button.menu-toggle svg,
+  button[type="submit"].menu-toggle svg,
+  input[type="submit"].menu-toggle svg,
+  input[type="button"].menu-toggle svg,
+  input[type="reset"].menu-toggle svg,
+  input[type="image"].menu-toggle svg {
+    width: 1rem;
+    height: 1rem;
+    fill: currentColor;
   }
-  .theme-toggle-button svg {
-    fill: #ffee00;
+  *::-webkit-input-placeholder,
+  *:-moz-placeholder,
+  *::-moz-placeholder,
+  *:-ms-input-placeholder,
+  *::-webkit-input-placeholder {
+    color: #959595 !important;
+  }
+  *::-webkit-input-placeholder,
+  *:-moz-placeholder,
+  *::-moz-placeholder,
+  *:-ms-input-placeholder,
+  *::placeholder {
+    color: #959595 !important;
   }
 }
 
@@ -1111,6 +1222,16 @@ h2 + .search-form {
   margin: 1em 0;
 }
 
+.dark-mode .site-identity .site-title a {
+  color: inherit;
+}
+
+@media (prefers-color-scheme: dark) {
+  .site-identity .site-title a {
+    color: inherit;
+  }
+}
+
 /**
  * Navigation
  */
@@ -1154,10 +1275,6 @@ h2 + .search-form {
 .main-navigation ul ul li a {
   width: 100%;
   padding: 0.25em 0.75em;
-}
-
-.main-navigation ul ul li a:hover, .main-navigation ul ul li a:focus {
-  background: #cccccc;
 }
 
 .main-navigation li {
@@ -1224,19 +1341,12 @@ h2 + .search-form {
 }
 
 .dark-mode .main-navigation ul ul {
-  background: #333333;
-}
-
-.dark-mode .main-navigation ul ul li a:hover, .dark-mode .main-navigation ul ul li a:focus {
-  background: #555555;
+  background: #222222;
 }
 
 @media (prefers-color-scheme: dark) {
   .main-navigation ul ul {
-    background: #333333;
-  }
-  .main-navigation ul ul li a:hover, .main-navigation ul ul li a:focus {
-    background: #555555;
+    background: #222222;
   }
 }
 
@@ -1482,7 +1592,7 @@ figure.alignnone {
 /**
  * Footer
  */
-.copyright-text {
+.footer-message {
   font-size: 0.825em;
   text-align: center;
 }

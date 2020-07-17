@@ -3,8 +3,8 @@ body {
 	color:$text_color;
 
 	&.dark-mode {
-		background: $near_black;
-		color: $white;
+		background: $body_background_dark;
+		color: $text_color_dark;
 
 		h1,
 		h2,
@@ -15,10 +15,17 @@ body {
 		p,
 		ul,
 		ol,
-		li,
-		a,
-		a:visited {
-			color: $white;
+		li {
+			color: $text_color_dark;
+		}
+
+		a {
+			color: $link_color_dark;
+
+			&:hover,
+			&:focus {
+				color: $link_action_color_dark;
+			}
 		}
 
 		#wpadminbar,
@@ -30,6 +37,22 @@ body {
 		#wpadminbar .shortlink-input {
 			background: $dark_gray;
 		}
+	}
+}
+
+/**
+ * Links
+ *
+ * Any change to the default link style ought to be applied to button-link too.
+ */
+a {
+	color: $link_color;
+	-webkit-print-color-adjust: exact !important;
+			color-adjust: exact !important;
+
+	&:hover,
+	&:focus {
+		color: $link_action_color;
 	}
 }
 
@@ -96,5 +119,53 @@ main article {
 			max-width: 30%;
 			margin-left: $px30;
 		}
+	}
+}
+
+/**
+ * User prefers a dark color scheme
+ */
+@media ( prefers-color-scheme: dark ) {
+
+	// Dark mode toggle not needed for this preference.
+	.theme-toggle {
+		display: none !important;
+	}
+
+	body {
+		background: $body_background_dark;
+		color: $text_color_dark;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	ul,
+	ol,
+	li {
+		color: $text_color_dark;
+	}
+
+	a {
+		color: $link_color_dark;
+
+		&:hover,
+		&:focus {
+			color: $link_action_color_dark;
+		}
+	}
+
+	#wpadminbar,
+	#wpadminbar .ab-top-menu > li.hover > .ab-item,
+	#wpadminbar.nojq .quicklinks .ab-top-menu > li > .ab-item:focus,
+	#wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
+	#wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus,
+	#wpadminbar .menupop .ab-sub-wrapper,
+	#wpadminbar .shortlink-input {
+		background: $dark_gray;
 	}
 }
