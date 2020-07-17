@@ -26,6 +26,12 @@
 		font-size: 2em;
 		font-weight: bold;
 
+		@supports( font-variation-settings: normal ) {
+
+			// Letter spacing for Inter font.
+			letter-spacing: -0.02em;
+		}
+
 		& a {
 			color: inherit;
 			text-decoration: inherit;

@@ -1092,6 +1092,12 @@ h2 + .search-form {
   font-weight: bold;
 }
 
+@supports (font-variation-settings: normal) {
+  .site-identity .site-title {
+    letter-spacing: -0.02em;
+  }
+}
+
 .site-identity .site-title a {
   color: inherit;
   text-decoration: inherit;
