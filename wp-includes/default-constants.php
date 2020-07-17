@@ -221,7 +221,7 @@ function wp_plugin_directory_constants() {
 	if ( ! defined( 'APP_PLUGIN_URL' ) ) {
 
 		// Full url, no trailing slash.
-		define( 'APP_PLUGIN_URL', ABSPATH . 'app-extend/plugins' );
+		define( 'APP_PLUGIN_URL', get_option( 'siteurl' ) . '/app-extend/plugins' );
 	}
 
 	/**
@@ -338,7 +338,7 @@ function wp_cookie_constants() {
 	 * @since Previous 2.6.0
 	 */
 	if ( ! defined( 'PLUGINS_COOKIE_PATH' ) ) {
-		define( 'PLUGINS_COOKIE_PATH', preg_replace( '|https?://[^/]+|i', '', APP_PLUGIN_URL) );
+		define( 'PLUGINS_COOKIE_PATH', preg_replace( '|https?://[^/]+|i', '', APP_PLUGIN_URL ) );
 	}
 
 	/**
