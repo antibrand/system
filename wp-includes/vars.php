@@ -222,7 +222,7 @@ function app_agent_body_class( $classes ) {
 		if ( $is_lynx ) {
 			$classes = 'browser-lynx';
 		} elseif ( $is_gecko ) {
-			$classes = 'browser-gecko';
+			$classes = 'browser-firefox-gecko';
 		} elseif ( $is_opera ) {
 			$classes = 'browser-opera';
 		} elseif ( $is_NS4 ) {
@@ -267,7 +267,7 @@ function app_agent_body_class( $classes ) {
 		if ( $is_lynx ) {
 			$classes[] = 'browser-lynx';
 		} elseif ( $is_gecko ) {
-			$classes[] = 'browser-gecko';
+			$classes[] = 'browser-firefox-gecko';
 		} elseif ( $is_opera ) {
 			$classes[] = 'browser-opera';
 		} elseif ( $is_NS4 ) {
