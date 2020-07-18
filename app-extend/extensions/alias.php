@@ -3,7 +3,8 @@
  * Alias
  *
  * Creates aliases for PHP classes, methods, and functions
- * that have been moved or previously had brand prefixes.
+ * that have been moved or may be required for compatibility
+ * with plugins & themes written for other systems.
  *
  * @package Alias
  * @version 1.0.0
@@ -12,6 +13,11 @@
  * Description: Deprecated PHP constants, classes, methods, and functions.
  */
 
+// Stop here if the system is not loaded.
+if ( ! defined( 'ABSPATH' ) ) {
+	return;
+}
+
 /**
  * Alias constants
  *
@@ -19,8 +25,15 @@
  */
 
 // Debug mode.
-if ( ! defined( 'WP_DEBUG' ) && defined( 'APP_DEBUG' ) ) {
+if ( ! defined( 'WP_DEBUG' ) && ( defined( 'APP_DEBUG' ) && APP_DEBUG ) ) {
 	define( 'WP_DEBUG', APP_DEBUG );
+}
+
+// Languages directory.
+if ( ! defined( 'WP_LANG_DIR' ) && APP_LANG_DIR ) {
+	define( 'WP_LANG_DIR', APP_LANG_DIR );
+} else {
+	define( 'WP_LANG_DIR', ABSPATH . 'app-languages' );
 }
 
 /**
