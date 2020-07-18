@@ -969,6 +969,11 @@ input[type="search"] {
   -webkit-appearance: textfield;
 }
 
+input[type="search"].search {
+  height: 3em;
+  line-height: 3em;
+}
+
 input[type="search"]::-webkit-search-decoration {
   display: none;
 }
@@ -1129,6 +1134,25 @@ input[type="image"]:focus {
   background: #ffee00;
   border-color: #888888;
   color: #222222;
+}
+
+form button.search-submit,
+button[type="submit"].search-submit,
+input[type="submit"].search-submit,
+input[type="button"].search-submit,
+input[type="reset"].search-submit,
+input[type="image"].search-submit {
+  height: 3em;
+}
+
+form button.search-submit svg,
+button[type="submit"].search-submit svg,
+input[type="submit"].search-submit svg,
+input[type="button"].search-submit svg,
+input[type="reset"].search-submit svg,
+input[type="image"].search-submit svg {
+  width: 1em;
+  height: 1em;
 }
 
 form button.menu-toggle,
