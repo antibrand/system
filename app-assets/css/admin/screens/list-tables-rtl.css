@@ -1215,7 +1215,8 @@ ul.cat-checklist {
 .plugins tr.active.plugin-update-tr + tr.inactive th,
 .plugins tr.active.plugin-update-tr + tr.inactive td,
 .plugins tr.active + tr.inactive th,
-.plugins tr.active + tr.inactive td {
+.plugins tr.active + tr.inactive td,
+tr.extensions-item + tr.extensions-item {
   border-top: 1px solid #cccccc;
 }
 
