@@ -55,6 +55,12 @@ figure.alignright {
 	margin: 0 0 0 0.3em;
 }
 
+form button.search-submit,
+button[type="submit"].search-submit {
+	border: solid 1px $form_action_border_color;
+	border-right: none;
+}
+
 /**
  * Navigation
  */
@@ -145,5 +151,23 @@ figure.alignright {
 	.site-logo {
 		margin-right: 0;
 		margin-left: 1em;
+	}
+}
+
+.dark-mode {
+
+	form button.search-submit,
+	button[type="submit"].search-submit {
+		border: solid 1px $form_action_border_color;
+		border-right: none;
+	}
+}
+
+@media ( prefers-color-scheme: dark ) {
+
+	form button.search-submit,
+	button[type="submit"].search-submit {
+		border: solid 1px $form_action_border_color;
+		border-right: none;
 	}
 }

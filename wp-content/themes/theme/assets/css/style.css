@@ -1143,6 +1143,7 @@ input[type="button"].search-submit,
 input[type="reset"].search-submit,
 input[type="image"].search-submit {
   height: 3em;
+  border-left: none;
 }
 
 form button.search-submit svg,
