@@ -907,7 +907,7 @@ function wp_default_styles( &$styles ) {
 	$styles->content_url     = defined( 'WP_CONTENT_URL' )? WP_CONTENT_URL : '';
 	$styles->default_version = get_bloginfo( 'version' );
 	$styles->text_direction  = function_exists( 'is_rtl' ) && is_rtl() ? 'rtl' : 'ltr';
-	$styles->default_dirs    = [ '/wp-admin/', '/wp-includes/css/' ];
+	$styles->default_dirs    = [ '/app-assets/css/', '/wp-includes/css/' ];
 
 	// Register a stylesheet for the selected admin color scheme.
 	$styles->add( 'colors', true, [ 'app-admin' ] );
@@ -1128,7 +1128,7 @@ function wp_localize_jquery_ui_datepicker() {
 /**
  * Administration Screen CSS for changing the styles.
  *
- * If installing the 'wp-admin/' directory will be replaced with './'.
+ * If installing the 'app-assets/css/' directory will be replaced with './'.
  *
  * The $_wp_admin_css_colors global manages the Administration Screens CSS
  * stylesheet that is loaded. The option that is set is 'admin_color' and is the
@@ -1149,7 +1149,7 @@ function app_style_loader_src( $src, $handle ) {
 	global $_wp_admin_css_colors;
 
 	if ( wp_installing() ) {
-		return preg_replace( '#^wp-admin/#', './', $src );
+		return preg_replace( '#^app-assets/css/#', '././', $src );
 	}
 
 	if ( 'colors' == $handle ) {
@@ -1184,7 +1184,7 @@ function app_style_loader_src( $src, $handle ) {
 /**
  * Code editor CSS for changing the styles.
  *
- * If installing the 'wp-admin/' directory will be replaced with './'.
+ * If installing the 'app-assets/css/' directory will be replaced with './'.
  *
  * The $app_user_code_themes global manages the code editor CSS
  * stylesheet that is loaded. The option that is set is 'code_theme' and is the
@@ -1205,7 +1205,7 @@ function app_code_theme_loader_src( $src, $handle ) {
 	global $app_user_code_themes;
 
 	if ( wp_installing() ) {
-		return preg_replace( '#^wp-admin/#', './', $src );
+		return preg_replace( '#^app-assets/css/#', '././', $src );
 	}
 
 	if ( 'code-theme' == $handle ) {
