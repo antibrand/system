@@ -903,11 +903,16 @@ function wp_default_styles( &$styles ) {
 		$guessurl = wp_guess_url();
 	}
 
-	$styles->base_url        = $guessurl;
-	$styles->content_url     = defined( 'WP_CONTENT_URL' )? WP_CONTENT_URL : '';
-	$styles->default_version = get_bloginfo( 'version' );
+	if ( is_multisite() ) {
+		$styles->base_url = network_site_url();
+	} else {
+		$styles->base_url = $guessurl;
+	}
+
+	$styles->content_url     = defined( 'WP_CONTENT_URL' ) ? WP_CONTENT_URL : '';
+	$styles->default_version = $app_version;
 	$styles->text_direction  = function_exists( 'is_rtl' ) && is_rtl() ? 'rtl' : 'ltr';
-	$styles->default_dirs    = [ '/app-assets/css/', '/wp-includes/css/' ];
+	$styles->default_dirs    = [ 'app-assets/css/admin/', 'app-assets/css/includes/' ];
 
 	// Register a stylesheet for the selected admin color scheme.
 	$styles->add( 'colors', true, [ 'app-admin' ] );
@@ -1078,7 +1083,7 @@ function wp_just_in_time_script_localization() {
 
 /**
  * Localizes the jQuery UI datepicker.
- * 
+ *
  * @link https://api.jqueryui.com/datepicker/#options
  *
  * @since  Previous 4.6.0
@@ -1149,7 +1154,7 @@ function app_style_loader_src( $src, $handle ) {
 	global $_wp_admin_css_colors;
 
 	if ( wp_installing() ) {
-		return preg_replace( '#^app-assets/css/#', '././', $src );
+		return preg_replace( '#^app-assets/css/#', './', $src );
 	}
 
 	if ( 'colors' == $handle ) {
@@ -1205,7 +1210,7 @@ function app_code_theme_loader_src( $src, $handle ) {
 	global $app_user_code_themes;
 
 	if ( wp_installing() ) {
-		return preg_replace( '#^app-assets/css/#', '././', $src );
+		return preg_replace( '#^app-assets/css/#', './', $src );
 	}
 
 	if ( 'code-theme' == $handle ) {
@@ -1242,7 +1247,7 @@ function app_code_theme_loader_src( $src, $handle ) {
  *
  * Postpones the scripts that were queued for the footer.
  * print_footer_scripts() is called in the footer to print these scripts.
- * 
+ *
  * @see wp_print_scripts()
  *
  * @since Previous 2.8.0
@@ -1443,7 +1448,7 @@ function print_admin_styles() {
 	script_concat_settings();
 
 	$wp_styles->do_concat = $concatenate_scripts;
-	$wp_styles->do_items(false);
+	$wp_styles->do_items( false );
 
 	/**
 	 * Filters whether to print the admin styles.
@@ -1527,7 +1532,7 @@ function _print_styles() {
 		$concat = 'load%5B%5D=' . implode( '&load%5B%5D=', $concat );
 		$href   = $wp_styles->base_url . "/wp-admin/load-styles.php?c={$zip}&dir={$dir}&" . $concat . '&ver=' . $ver;
 
-		echo "<link rel='stylesheet' href='" . esc_attr( $href) . "' type='text/css' media='all' />\n";
+		echo "<link rel='stylesheet' href='" . esc_attr( $href ) . "' type='text/css' media='all' />\n";
 
 		if ( ! empty( $wp_styles->print_code ) ) {
 			echo "<style type='text/css'>\n";
