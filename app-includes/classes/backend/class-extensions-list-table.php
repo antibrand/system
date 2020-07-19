@@ -26,32 +26,48 @@ class Extensions_List_Table extends List_Table {
 	 *
 	 * @since  1.0.0
 	 * @global string $status
-	 * @global int $page
 	 * @param  array $args An associative array of arguments.
-	 * @return void
+	 * @return self
 	 */
 	public function __construct( $args = [] ) {
 
-		global $status, $page;
+		if ( isset( $args['screen'] ) ) {
+			$screen = $args['screen'];
+		} else {
+			$screen = null;
+		}
 
 		parent::__construct( [
-			'plural' => 'extensions',
-			'screen' => isset( $args['screen'] ) ? $args['screen'] : null,
+			'screen' => $screen
 		] );
-
-		$status = 'extension';
-		$page   = $this->get_pagenum();
 	}
 
 	/**
-	 * @return array
+	 * Table classes
+	 *
+	 * CSS classes for the list table.
+	 *
+	 * @since  1.0.0
+	 * @access protected
+	 * @return array Returns an array of classes.
 	 */
 	protected function get_table_classes() {
-		return [ 'widefat', $this->_args['plural'] ];
+
+		// Array of table classes.
+		$classes = [
+			'widefat',
+			'extensions'
+		];
+
+		return $classes;
 	}
 
 	/**
-	 * @return bool
+	 * User permission
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @return bool Returns true if the user meets the capability requirement.
 	 */
 	public function ajax_user_can() {
 		return current_user_can( 'manage_options' );
@@ -60,22 +76,23 @@ class Extensions_List_Table extends List_Table {
 	/**
 	 *
 	 * @global string $status
-	 * @global array  $plugins
-	 * @global array  $totals
-	 * @global int    $page
+	 * @global array $plugins
+	 * @global array $totals
+	 * @global int $page
 	 * @global string $orderby
 	 * @global string $order
 	 * @global string $s
 	 */
 	public function prepare_items() {
 
+		// Access global variables.
 		global $status, $plugins, $totals, $page, $orderby, $order, $s;
 
 		wp_reset_vars( [ 'orderby', 'order' ] );
 
 		/**
 		 * Filters the full array of plugins to list in the Plugins list table.
-		 * 
+		 *
 		 * @see get_plugins()
 		 *
 		 * @since 1.0.0
@@ -84,8 +101,7 @@ class Extensions_List_Table extends List_Table {
 		$all_plugins = apply_filters( 'all_plugins', get_plugins() );
 
 		$plugins = [
-			'all'     => $all_plugins,
-			'search'  => [],
+			'all'       => $all_plugins,
 			'extension' => []
 		];
 
@@ -160,62 +176,10 @@ class Extensions_List_Table extends List_Table {
 
 		uasort( $this->items, [ $this, '_order_callback' ] );
 
-		$plugins_per_page = $this->get_items_per_page( str_replace( '-', '_', $screen->id . '_per_page' ), 999 );
-
-		$start = ( $page - 1 ) * $plugins_per_page;
-
-		if ( $total_this_page > $plugins_per_page ) {
-			$this->items = array_slice( $this->items, $start, $plugins_per_page );
-		}
-
 		$this->set_pagination_args( [
 			'total_items' => $total_this_page,
-			'per_page'    => $plugins_per_page,
+			'per_page'    => '9999',
 		] );
-	}
-
-	/**
-	 * @param  array $plugin
-	 * @global string $s URL encoded search term.
-	 * @return bool
-	 */
-	public function _search_callback( $plugin ) {
-
-		global $s;
-
-		foreach ( $plugin as $value ) {
-
-			if ( is_string( $value ) && false !== stripos( strip_tags( $value ), urldecode( $s ) ) ) {
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	/**
-	 * @global string $orderby
-	 * @global string $order
-	 * @param  array $plugin_a
-	 * @param  array $plugin_b
-	 * @return int
-	 */
-	public function _order_callback( $plugin_a, $plugin_b ) {
-
-		global $orderby, $order;
-
-		$a = $plugin_a[$orderby];
-		$b = $plugin_b[$orderby];
-
-		if ( $a == $b ) {
-			return 0;
-		}
-
-		if ( 'DESC' === $order ) {
-			return strcasecmp( $b, $a );
-		} else {
-			return strcasecmp( $a, $b );
-		}
 	}
 
 	/**
@@ -235,24 +199,11 @@ class Extensions_List_Table extends List_Table {
 	 */
 	public function get_columns() {
 
-		global $status;
-
-		if ( ! in_array( $status, [ 'extension', 'dropins' ] ) ) {
-			$cb = '<input type="checkbox" />';
-		} else {
-			$cb = '';
-		}
-
-		if ( in_array( $status, [ 'extension' ] ) ) {
-			$name = __( 'Extension' );
-		} else {
-			$name = __( 'Plugin' );
-		}
-
 		return [
-			'cb'          => $cb,
-			'name'        => $name,
+			'name'        => __( 'Extension' ),
 			'description' => __( 'Description' ),
+			'tags'        => __( 'Tagged' ),
+			'uri'         => __( 'Link' )
 		];
 	}
 
@@ -261,35 +212,6 @@ class Extensions_List_Table extends List_Table {
 	 */
 	protected function get_sortable_columns() {
 		return [];
-	}
-
-	/**
-	 *
-	 * @global array $totals
-	 * @global string $status
-	 * @return array
-	 */
-	protected function get_views() {
-
-		global $totals, $status;
-
-		$status_links = [];
-
-		foreach ( $totals as $type => $count ) {
-
-			if (  ! $count ) {
-				continue;
-			}
-
-			switch ( $type ) {
-
-				case 'extension':
-					$text = _n( 'Extensions <span class="count">(%s)</span>', 'Extensions <span class="count">(%s)</span>', $count );
-					break;
-			}
-		}
-
-		return $status_links;
 	}
 
 	/**
@@ -326,108 +248,23 @@ class Extensions_List_Table extends List_Table {
 		$context = $status;
 		$screen  = $this->screen;
 
-		// Pre-order.
-		$actions = [
-			'deactivate' => '',
-			'activate'   => '',
-			'details'    => '',
-			'delete'     => '',
-		];
-
 		// Do not restrict by default.
 		$restrict_network_active = false;
 		$restrict_network_only   = false;
-		$is_active = true;
-		$actions   = array_filter( $actions );
 
-		if ( $screen->in_admin( 'network' ) ) {
-
-			/**
-			 * Filters the action links displayed for each plugin in the Network Admin Plugins list table.
-			 *
-			 * @since 3.1.0
-			 *
-			 * @param array  $actions     An array of plugin action links. By default this can include 'activate',
-			 *                            'deactivate', and 'delete'.
-			 * @param string $plugin_file Path to the plugin file relative to the plugins directory.
-			 * @param array  $plugin_data An array of plugin data. See `get_plugin_data()`.
-			 * @param string $context     The plugin context. By default this can include 'all', 'active', 'inactive',
-			 *                            'recently_activated', 'upgrade', 'extension', 'dropins', and 'search'.
-			 */
-			$actions = apply_filters( 'network_admin_plugin_action_links', $actions, $plugin_file, $plugin_data, $context );
-
-			/**
-			 * Filters the list of action links displayed for a specific plugin in the Network Admin Plugins list table.
-			 *
-			 * The dynamic portion of the hook name, `$plugin_file`, refers to the path
-			 * to the plugin file, relative to the plugins directory.
-			 *
-			 * @since 3.1.0
-			 *
-			 * @param array  $actions     An array of plugin action links. By default this can include 'activate',
-			 *                            'deactivate', and 'delete'.
-			 * @param string $plugin_file Path to the plugin file relative to the plugins directory.
-			 * @param array  $plugin_data An array of plugin data. See `get_plugin_data()`.
-			 * @param string $context     The plugin context. By default this can include 'all', 'active', 'inactive',
-			 *                            'recently_activated', 'upgrade', 'extension', 'dropins', and 'search'.
-			 */
-			$actions = apply_filters( "network_admin_plugin_action_links_{$plugin_file}", $actions, $plugin_file, $plugin_data, $context );
-
-		} else {
-
-			/**
-			 * Filters the action links displayed for each plugin in the Plugins list table.
-			 *
-			 * @since 2.5.0
-			 * @since 2.6.0 The `$context` parameter was added.
-			 * @since 4.9.0 The 'Edit' link was removed from the list of action links.
-			 *
-			 * @param array  $actions     An array of plugin action links. By default this can include 'activate',
-			 *                            'deactivate', and 'delete'. With Multisite active this can also include
-			 *                            'network_active' and 'network_only' items.
-			 * @param string $plugin_file Path to the plugin file relative to the plugins directory.
-			 * @param array  $plugin_data An array of plugin data. See `get_plugin_data()`.
-			 * @param string $context     The plugin context. By default this can include 'all', 'active', 'inactive',
-			 *                            'recently_activated', 'upgrade', 'extension', 'dropins', and 'search'.
-			 */
-			$actions = apply_filters( 'plugin_action_links', $actions, $plugin_file, $plugin_data, $context );
-
-			/**
-			 * Filters the list of action links displayed for a specific plugin in the Plugins list table.
-			 *
-			 * The dynamic portion of the hook name, `$plugin_file`, refers to the path
-			 * to the plugin file, relative to the plugins directory.
-			 *
-			 * @since 2.7.0
-			 * @since 4.9.0 The 'Edit' link was removed from the list of action links.
-			 *
-			 * @param array  $actions     An array of plugin action links. By default this can include 'activate',
-			 *                            'deactivate', and 'delete'. With Multisite active this can also include
-			 *                            'network_active' and 'network_only' items.
-			 * @param string $plugin_file Path to the plugin file relative to the plugins directory.
-			 * @param array  $plugin_data An array of plugin data. See `get_plugin_data()`.
-			 * @param string $context     The plugin context. By default this can include 'all', 'active', 'inactive',
-			 *                            'recently_activated', 'upgrade', 'extension', 'dropins', and 'search'.
-			 */
-			$actions = apply_filters( "plugin_action_links_{$plugin_file}", $actions, $plugin_file, $plugin_data, $context );
-
-		}
-
-		$class       = $is_active ? 'active' : 'inactive';
-		$checkbox_id =  "checkbox_" . md5( $plugin_data['Name'] );
-
-		if ( $restrict_network_active || $restrict_network_only || in_array( $status, [ 'extension' ] ) ) {
-			$checkbox = '';
-		} else {
-			$checkbox = "<label class='screen-reader-text' for='" . $checkbox_id . "' >" . sprintf( __( 'Select %s' ), $plugin_data['Name'] ) . "</label>"
-				. "<input type='checkbox' name='checked[]' value='" . esc_attr( $plugin_file ) . "' id='" . $checkbox_id . "' />";
-		}
-
+		$class       = 'extensions-item';
 		$description = '<p>' . ( $plugin_data['Description'] ? $plugin_data['Description'] : '&nbsp;' ) . '</p>';
 		$plugin_name = $plugin_data['Name'];
+		$plugin_uri  = $plugin_data['PluginURI'];
+		$plugin_tags = $plugin_data['Tags'];
 
-		$plugin_slug = isset( $plugin_data['slug'] ) ? $plugin_data['slug'] : sanitize_title( $plugin_name );
-		printf( '<tr class="%s" data-slug="%s" data-plugin="%s">',
+		if ( isset( $plugin_data['slug'] ) ) {
+			$plugin_slug = $plugin_data['slug'];
+		} else {
+			$plugin_slug = sanitize_title( $plugin_name );
+		}
+
+		printf( '<tr class="%s" data-slug="%s" data-extension="%s">',
 			esc_attr( $class ),
 			esc_attr( $plugin_slug ),
 			esc_attr( $plugin_file )
@@ -445,19 +282,19 @@ class Extensions_List_Table extends List_Table {
 
 			switch ( $column_name ) {
 
-				case 'cb':
-					echo "<th scope='row' class='check-column'>$checkbox</th>";
-					break;
-				case 'name':
-					echo "<td class='plugin-title column-primary'><strong>$plugin_name</strong>";
-					echo $this->row_actions( $actions, true );
+				case 'name' :
+
+					echo "<td class='extension-title column-primary'><strong>$plugin_name</strong>";
 					echo "</td>";
+
 					break;
-				case 'description':
+
+				case 'description' :
+
 					$classes = 'column-description desc';
 
 					echo "<td class='$classes{$extra_classes}'>
-						<div class='plugin-description'>$description</div>
+						<div class='extension-description'>$description</div>
 						<div class='$class second plugin-version-author-uri'>";
 
 					$plugin_meta = [];
@@ -471,7 +308,7 @@ class Extensions_List_Table extends List_Table {
 						$author = $plugin_data['Author'];
 
 						if ( ! empty( $plugin_data['AuthorURI'] ) ) {
-							$author = '<a href="' . $plugin_data['AuthorURI'] . '">' . $plugin_data['Author'] . '</a>';
+							$author = '<a href="' . $plugin_data['AuthorURI'] . '" target="_blank" rel="noopener noreferrer">' . $plugin_data['Author'] . '</a>';
 						}
 
 						$plugin_meta[] = sprintf( __( 'By %s' ), $author );
@@ -498,7 +335,21 @@ class Extensions_List_Table extends List_Table {
 
 					break;
 
-				default:
+				case 'tags' :
+
+					echo "<td class='extension-tags column-primary'>$plugin_tags";
+					echo "</td>";
+
+					break;
+
+				case 'uri' :
+
+					echo "<td class='extension-link column-primary'><a href='$plugin_uri'>$plugin_uri</a>";
+					echo "</td>";
+
+					break;
+
+				default :
 
 					$classes = "$column_name column-$column_name $class";
 
