@@ -701,6 +701,13 @@ ul.add-menu-item-tabs li.tabs,
 	 border-color: $box_border_color;
  }
 
+ /**
+ * Network screen styles
+ */
+.network-add-code {
+	background-color: $box_background_color;
+}
+
 /**
  * Unique styles
  *
@@ -830,7 +837,7 @@ fieldset {
 
 				&:hover,
 				&:focus {
-					$app_red: !important;
+					color: $app_red !important;
 				}
 			}
 		}

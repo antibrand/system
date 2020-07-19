@@ -714,6 +714,13 @@ ul.add-menu-item-tabs li.tabs,
 }
 
 /**
+ * Network screen styles
+ */
+.network-add-code {
+	background-color: $box_background_color;
+}
+
+/**
  * Unique styles
  *
  * The styles are unique to the color scheme and do not
@@ -842,7 +849,7 @@ fieldset {
 
 				&:hover,
 				&:focus {
-					$app_red: !important;
+					color: $app_red !important;
 				}
 			}
 		}

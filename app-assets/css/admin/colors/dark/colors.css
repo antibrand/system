@@ -776,6 +776,13 @@ ul.add-menu-item-tabs li.tabs,
 }
 
 /**
+ * Network screen styles
+ */
+.network-add-code {
+  background-color: #282828;
+}
+
+/**
  * Unique styles
  *
  * The styles are unique to the color scheme and do not
@@ -884,6 +891,10 @@ fieldset.scheme-list {
 }
 
 .app-admin .acf-field-object.open > .handle a.delete-field {
+  color: #dd0000 !important;
+}
+
+.app-admin .acf-field-object.open > .handle a.delete-field:hover, .app-admin .acf-field-object.open > .handle a.delete-field:focus {
   color: #dd0000 !important;
 }
 

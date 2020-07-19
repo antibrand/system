@@ -1,0 +1,15 @@
+/**
+ * Network screen styles
+ */
+
+// Import general app variables from app-assets/includes.
+@import '../../includes/modules/_typography';
+@import '../../includes/modules/_colors';
+
+// This is a <pre> element.
+.network-add-code {
+	margin-top: 1em;
+	padding: 1em;
+	background-color: darken( $body_background, 25% );
+	border: solid 1px $box_border_color;
+}

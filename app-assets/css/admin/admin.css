@@ -6979,6 +6979,16 @@ li#wp-admin-bar-menu-toggle {
 }
 
 /**
+ * Network screen styles
+ */
+.network-add-code {
+  margin-top: 1em;
+  padding: 1em;
+  background-color: #efefef;
+  border: solid 1px #cccccc;
+}
+
+/**
  * Advanced Custom Fields
  *
  * Overrides the plugin styles which are intended to jive with
