@@ -350,6 +350,10 @@ table.media .column-title .filename {
 	margin-bottom: 0.2em;
 }
 
+.wp-list-table {
+	margin-top: 0.5rem;
+}
+
 /* @todo: pick a consistent list table selector */
 .wp-list-table a {
 	transition: none;
@@ -622,6 +626,7 @@ th.asc a:focus span.sorting-indicator {
 	margin: 2em 0 1em;
 
 	&.top {
+		overflow-y: auto;
 		margin: 1.5em 0 0.5em 0;
 
 		&.privacy_requests {
