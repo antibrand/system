@@ -61,6 +61,11 @@ const APP_CLASSES = [
 	'AppNamespace\Backend\Plugins_List_Table'       => __DIR__ . '/classes/backend/class-plugins-list-table.php',
 	'AppNamespace\Backend\Extensions_List_Table'    => __DIR__ . '/classes/backend/class-extensions-list-table.php',
 
+	// Network.
+	'AppNamespace\Backend\MS_Sites_List_Table'  => __DIR__ . '/classes/backend/class-network-sites-list-table.php',
+	'AppNamespace\Backend\MS_Themes_List_Table' => __DIR__ . '/classes/backend/class-network-themes-list-table.php',
+	'AppNamespace\Backend\MS_Users_List_Table'  => __DIR__ . '/classes/backend/class-network-users-list-table.php',
+
 	// Extend.
 	'AppNamespace\Includes\Extend' => __DIR__ . '/classes/includes/class-load-extensions.php'
 

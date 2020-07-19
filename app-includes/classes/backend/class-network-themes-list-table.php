@@ -145,7 +145,8 @@ class MS_Themes_List_Table extends List_Table {
 			$status = 'all';
 
 		$this->items = $themes[ $status ];
-		Theme::sort_by_name( $this->items );
+
+		// Theme::sort_by_name( $this->items );
 
 		$this->has_items = ! empty( $themes['all'] );
 		$total_this_page = $totals[ $status ];

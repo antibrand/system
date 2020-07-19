@@ -10,8 +10,8 @@
 // Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
-/** Load dashboard API */
-require_once( ABSPATH . 'wp-admin/includes/dashboard.php' );
+// Instance of the dashboard class.
+\AppNamespace\Backend\Dashboard :: instance();
 
 if ( ! current_user_can( 'manage_network' ) )
 	wp_die( __( 'Sorry, you are not allowed to access this page.' ), 403 );
@@ -47,25 +47,41 @@ get_current_screen()->add_help_tab( array(
 
 get_current_screen()->set_help_sidebar( '' );
 
-wp_dashboard_setup();
-
+// Script for AJAX, drag & drop, show/hide.
 wp_enqueue_script( 'dashboard' );
-wp_enqueue_script( 'plugin-install' );
+
+// Script for tabbed content.
+wp_enqueue_script( 'app-tabs' );
+
+// Script for media uploads.
+if ( current_user_can( 'upload_files' ) ) {
+	wp_enqueue_script( 'media-upload' );
+}
+
+// Script for modal content.
 add_thickbox();
+
+// Script for mobile devices.
+if ( wp_is_mobile() ) {
+	wp_enqueue_script( 'jquery-touch-punch' );
+}
 
 require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
 ?>
 
 <div class="wrap">
-<h1><?php echo esc_html( $title ); ?></h1>
 
-<div id="dashboard-widgets-wrap">
+	<h1><?php echo esc_html( $title ); ?></h1>
 
-<?php wp_dashboard(); ?>
+	<div id="dashboard-tabs">
+		<?php
 
-<div class="clear"></div>
-</div><!-- dashboard-widgets-wrap -->
+		// Tabbed content.
+		echo get_current_screen()->render_content_tabs();
+
+		?>
+	</div>
 
 </div><!-- wrap -->
 

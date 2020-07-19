@@ -101,7 +101,7 @@ function get_clean_basedomain() {
 function network_step1( $errors = false ) {
 	global $is_apache;
 
-	if ( defined('DO_NOT_UPGRADE_GLOBAL_TABLES') ) {
+	if ( defined( 'DO_NOT_UPGRADE_GLOBAL_TABLES' ) ) {
 		echo '<div class="error"><p><strong>' . __( 'ERROR:' ) . '</strong> ' . sprintf(
 			/* translators: %s: DO_NOT_UPGRADE_GLOBAL_TABLES */
 			__( 'The constant %s cannot be defined when creating a network.' ),
@@ -172,7 +172,7 @@ function network_step1( $errors = false ) {
 
 	if ( isset( $_POST['subdomain_install'] ) ) {
 		$subdomain_install = (bool) $_POST['subdomain_install'];
-	} elseif ( apache_mod_loaded('mod_rewrite') ) { // assume nothing
+	} elseif ( apache_mod_loaded( 'mod_rewrite' ) ) { // assume nothing
 		$subdomain_install = true;
 	} elseif ( !allow_subdirectory_install() ) {
 		$subdomain_install = true;
@@ -425,24 +425,18 @@ function network_step2( $errors = false ) {
 		<ol>
 			<li><p><?php printf(
 				/* translators: 1: app-config.php 2: location of app-config file, 3: translated version of "That's all, stop editing! Happy blogging." */
-				__( 'Add the following to your %1$s file in %2$s <strong>above</strong> the line reading %3$s:' ),
+				__( 'Add the following to your %1$s file in %2$s in the multisite network section,' ),
 				'<code>app-config.php</code>',
-				'<code>' . $location_of_wp_config . '</code>',
-				/*
-				 * translators: This string should only be translated if app-config.sample.php is localized.
-				 * You can check the localized release package or
-				 * https://i18n.svn.wordpress.org/<locale code>/branches/<wp version>/dist/app-config.sample.php
-				 */
-				'<code>/* ' . __( 'That&#8217;s all, stop editing! Happy blogging.' ) . ' */</code>'
+				'<code>' . $location_of_wp_config . '</code>'
 			); ?></p>
-				<textarea class="code" readonly="readonly" cols="100" rows="7">
-define('MULTISITE', true);
-define('SUBDOMAIN_INSTALL', <?php echo $subdomain_install ? 'true' : 'false'; ?>);
-define('DOMAIN_CURRENT_SITE', '<?php echo $hostname; ?>');
-define('PATH_CURRENT_SITE', '<?php echo $base; ?>');
-define('SITE_ID_CURRENT_SITE', 1);
-define('BLOG_ID_CURRENT_SITE', 1);
-</textarea>
+				<pre class="code network-add-code">
+define( 'MULTISITE', true );
+define( 'SUBDOMAIN_INSTALL', <?php echo $subdomain_install ? 'true' : 'false'; ?> );
+define( 'DOMAIN_CURRENT_SITE', '<?php echo $hostname; ?>' );
+define( 'PATH_CURRENT_SITE', '<?php echo $base; ?>' );
+define( 'SITE_ID_CURRENT_SITE', 1 );
+define( 'BLOG_ID_CURRENT_SITE', 1 );
+				</pre>
 <?php
 	$keys_salts = array( 'AUTH_KEY' => '', 'SECURE_AUTH_KEY' => '', 'LOGGED_IN_KEY' => '', 'NONCE_KEY' => '', 'AUTH_SALT' => '', 'SECURE_AUTH_SALT' => '', 'LOGGED_IN_SALT' => '', 'NONCE_SALT' => '' );
 	foreach ( $keys_salts as $c => $v ) {
@@ -593,8 +587,10 @@ EOF;
 		if ( ! $subdomain_install && WP_CONTENT_DIR != ABSPATH . 'wp-content' )
 			echo '<p><strong>' . __( 'Warning:' ) . ' ' . __( 'Subdirectory networks may not be fully compatible with custom wp-content directories.' ) . '</strong></p>';
 		?>
-		<textarea class="code" readonly="readonly" cols="100" rows="<?php echo substr_count( $htaccess_file, "\n" ) + 1; ?>">
-<?php echo esc_textarea( $htaccess_file ); ?></textarea></li>
+				<pre class="code network-add-code">
+<?php echo esc_textarea( $htaccess_file ); ?>
+				</pre>
+			</li>
 		</ol>
 
 	<?php endif; // end IIS/Apache code branches.
