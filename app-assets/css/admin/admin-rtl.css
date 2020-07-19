@@ -6999,8 +6999,21 @@ li#wp-admin-bar-menu-toggle {
 .network-add-code {
   margin-top: 1em;
   padding: 1em;
-  background-color: #bfbfbf;
+  background-color: #efefef;
   border: solid 1px #cccccc;
+}
+
+.network-site-settings-nav {
+  margin-top: 1em;
+  list-style: none;
+}
+
+.network-site-settings-nav li {
+  display: inline-block;
+}
+
+.network-site-settings-nav li:not(:last-of-type) {
+  margin-left: 0.25em;
 }
 
 /**

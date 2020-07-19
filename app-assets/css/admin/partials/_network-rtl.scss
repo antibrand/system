@@ -10,6 +10,19 @@
 .network-add-code {
 	margin-top: 1em;
 	padding: 1em;
-	background-color: darken( $body_background, 25% );
+	background-color: darken( $body_background, 6.25% );
 	border: solid 1px $box_border_color;
+}
+
+.network-site-settings-nav {
+	margin-top: 1em;
+	list-style: none;
+
+	li {
+		display: inline-block;
+
+		&:not( :last-of-type ) {
+			margin-left: 0.25em;
+		}
+	}
 }
