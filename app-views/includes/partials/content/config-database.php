@@ -49,16 +49,15 @@
 		<p class="config-field">
 			<label for="app_db_prefix"><?php _e( 'Database Prefix' ); ?></label>
 			<br /><?php echo sprintf(
-				'<small>%1s <code>%2s</code> %3s</small>',
-				__( 'This field is pre-filled with a randomly generated prefix. The random table prefix does not necessarily make the database more secure but the option is provided for those who wish to use it. You may want to use something simple, such as' ), 'app_', __( '. But whatever you choose it is recommended that you end the prefix with an underscore to make the database more legible.' )
+				'<small>%1s</small>',
+				__( 'This field is pre-filled with a brief database prefix, however a more lengthy prefix has been randomly generated for you. The random table prefix does not necessarily make the database more secure but the option is provided for those who wish to use it. Whatever you choose it is recommended that you end the prefix with an underscore to make the database more legible.' )
 			); ?>
-			<br /><input name="app_db_prefix" id="app_db_prefix" type="text" value="app_<?php echo esc_attr( md5( time() ) ); ?>_" placeholder="app_" size="25" />
+			<br /><input name="app_db_prefix" id="app_db_prefix" type="text" value="app_" placeholder="app_" size="25" />
 			<br /><span class="description config-field-description">
 			<?php echo sprintf(
-				'%1s <code>app_%2s_</code><br />%3s',
+				'%1s <code style="cursor: text; -webkit-user-select: all; -moz-user-select: all; -ms-user-select: all; user-select: all;">app_%2s_</code>',
 				esc_html__( 'Random table prefix is:' ),
-				md5( time() ),
-				esc_html__( 'Change this if you want to define your own prefix.' )
+				md5( time() )
 			); ?></span>
 		</p>
 
