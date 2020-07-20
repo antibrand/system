@@ -21,7 +21,7 @@ get_current_screen()->add_help_tab( array(
 	'id'      => 'overview',
 	'title'   => __('Overview'),
 	'content' =>
-		'<p>' . __('This screen is for Super Admins to add new sites to the network. This is not affected by the registration settings.') . '</p>' .
+		'<p>' . __('This screen is for Network Admins to add new sites to the network. This is not affected by the registration settings.') . '</p>' .
 		'<p>' . __('If the admin email for the new site does not exist in the database, a new user will also be created.') . '</p>'
 ) );
 

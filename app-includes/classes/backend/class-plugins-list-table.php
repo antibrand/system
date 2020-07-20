@@ -126,7 +126,7 @@ class Plugins_List_Table extends List_Table {
 			 * @since 4.4.0
 			 *
 			 * @param bool $show Whether to show network-active plugins. Default is whether the current
-			 *                   user can manage network plugins (ie. a Super Admin).
+			 *                   user can manage network plugins (ie. a Network Admin).
 			 */
 			$show_network_active = apply_filters( 'show_network_active_plugins', $show );
 		}

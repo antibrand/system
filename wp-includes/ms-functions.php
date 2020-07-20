@@ -1035,7 +1035,7 @@ function wpmu_signup_user_notification( $user_login, $user_email, $key, $meta = 
  * Hook to {@see 'wpmu_activate_user'} or {@see 'wpmu_activate_blog'} for events
  * that should happen only when users or sites are self-created (since
  * those actions are not called when users and sites are created
- * by a Super Admin).
+ * by a Network Admin).
  *
  * @since MU (3.0.0)
  *
@@ -1127,7 +1127,7 @@ function wpmu_activate_signup($key) {
  * Create a user.
  *
  * This function runs when a user self-registers as well as when
- * a Super Admin creates a new user. Hook to {@see 'wpmu_new_user'} for events
+ * a Network Admin creates a new user. Hook to {@see 'wpmu_new_user'} for events
  * that should affect all new users, but only on Multisite (otherwise
  * use {@see'user_register'}).
  *
@@ -1165,7 +1165,7 @@ function wpmu_create_user( $user_name, $password, $email ) {
  * Create a site.
  *
  * This function runs when a user self-registers a new site as well
- * as when a Super Admin creates a new site. Hook to {@see 'wpmu_new_blog'}
+ * as when a Network Admin creates a new site. Hook to {@see 'wpmu_new_blog'}
  * for events that should affect all new sites.
  *
  * On subdirectory installations, $domain is the same as the main site's
@@ -1862,7 +1862,7 @@ function recurse_dirsize( $directory, $exclude = null ) {
  * which is defined in wp-includes/functions.php in
  * get_allowed_mime_types(). This function is used to filter
  * that list against the filetype whitelist provided by Multisite
- * Super Admins at wp-admin/network/settings.php.
+ * Network Admins at wp-admin/network/settings.php.
  *
  * @since MU (3.0.0)
  *

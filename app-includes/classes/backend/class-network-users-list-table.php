@@ -143,7 +143,7 @@ class MS_Users_List_Table extends List_Table {
 		$role_links = array();
 		$role_links['all'] = "<a href='" . network_admin_url( 'users.php' ) . "'$current_link_attributes>" . sprintf( _nx( 'All <span class="count">(%s)</span>', 'All <span class="count">(%s)</span>', $total_users, 'users' ), number_format_i18n( $total_users ) ) . '</a>';
 		$current_link_attributes = $role === 'super' ? ' class="current" aria-current="page"' : '';
-		$role_links['super'] = "<a href='" . network_admin_url( 'users.php?role=super' ) . "'$current_link_attributes>" . sprintf( _n( 'Super Admin <span class="count">(%s)</span>', 'Super Admins <span class="count">(%s)</span>', $total_admins ), number_format_i18n( $total_admins ) ) . '</a>';
+		$role_links['super'] = "<a href='" . network_admin_url( 'users.php?role=super' ) . "'$current_link_attributes>" . sprintf( _n( 'Network Admin <span class="count">(%s)</span>', 'Network Admins <span class="count">(%s)</span>', $total_admins ), number_format_i18n( $total_admins ) ) . '</a>';
 
 		return $role_links;
 	}
@@ -244,7 +244,7 @@ class MS_Users_List_Table extends List_Table {
 
 		?><strong><a href="<?php echo $edit_link; ?>" class="edit"><?php echo $user->user_login; ?></a><?php
 		if ( in_array( $user->user_login, $super_admins ) ) {
-			echo ' &mdash; ' . __( 'Super Admin' );
+			echo ' &mdash; ' . __( 'Network Admin' );
 		}
 		?></strong>
 	<?php
