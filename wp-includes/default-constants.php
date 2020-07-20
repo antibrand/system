@@ -225,9 +225,9 @@ function wp_plugin_directory_constants() {
 	}
 
 	/**
-	 * Allows for the app-extend directory to be moved from the default location.
+	 * Allows for the extensions directory to be moved from the default location.
 	 *
-	 * @since Previous 2.8.0
+	 * @since 1.0.0
 	 */
 	if ( ! defined( 'APP_EXTEND_DIR' ) ) {
 
@@ -236,9 +236,9 @@ function wp_plugin_directory_constants() {
 	}
 
 	/**
-	 * Allows for the app-extend directory to be moved from the default location.
+	 * Allows for the extensions directory to be moved from the default location.
 	 *
-	 * @since Previous 2.8.0
+	 * @since Previous 1.0.0
 	 */
 	if ( ! defined( 'APP_EXTEND_URL' ) ) {
 
