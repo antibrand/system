@@ -75,7 +75,7 @@ $submenu['users.php'][5] = [
 ];
 
 $submenu['users.php'][10] = [
-	_x( 'Add New', 'user' ),
+	_x( 'Add Account', 'user' ),
 	'create_users',
 	'user-new.php'
 ];
