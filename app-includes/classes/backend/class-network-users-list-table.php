@@ -3,8 +3,8 @@
  * List Table API: MS_Users_List_Table class
  *
  * @package App_Package
- * @subpackage Administration
- * @since 3.1.0
+ * @subpackage Network
+ * @since Previous 3.1.0
  */
 
 namespace AppNamespace\Backend;
@@ -12,13 +12,15 @@ namespace AppNamespace\Backend;
 /**
  * Core class used to implement displaying users in a list table for the network admin.
  *
- * @since 3.1.0
- * @access private
- *
  * @see List_Table
+ *
+ * @since Previous 3.1.0
+ * @access private
  */
 class MS_Users_List_Table extends List_Table {
+
 	/**
+	 * User permission
 	 *
 	 * @return bool
 	 */
@@ -34,6 +36,7 @@ class MS_Users_List_Table extends List_Table {
 	 * @global string $mode
 	 */
 	public function prepare_items() {
+
 		global $usersearch, $role, $wpdb, $mode;
 
 		$usersearch = isset( $_REQUEST['s'] ) ? wp_unslash( trim( $_REQUEST['s'] ) ) : '';
@@ -94,7 +97,7 @@ class MS_Users_List_Table extends List_Table {
 		$args = apply_filters( 'users_list_table_query_args', $args );
 
 		// Query the user IDs for this page
-		$wp_user_search = new WP_User_Query( $args );
+		$wp_user_search = new \WP_User_Query( $args );
 
 		$this->items = $wp_user_search->get_results();
 
