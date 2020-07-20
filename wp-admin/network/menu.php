@@ -18,49 +18,15 @@ $menu[2] = [
 ];
 
 $submenu['index.php'][0] = [
-	__( 'Home' ),
+	__( 'Dashboard' ),
 	'read',
 	'index.php'
 ];
 
-if ( current_user_can( 'update_core' ) ) {
-	$cap = 'update_core';
-} elseif ( current_user_can( 'update_plugins' ) ) {
-	$cap = 'update_plugins';
-} elseif ( current_user_can( 'update_themes' ) ) {
-	$cap = 'update_themes';
-} else {
-	$cap = 'update_languages';
-}
-
-$update_data = wp_get_update_data();
-
-if ( $update_data['counts']['total'] ) {
-
-	$submenu['index.php'][10] = [
-		sprintf(
-			__( 'Updates %s' ),
-			"<span class='update-plugins count-{$update_data['counts']['total']}'><span class='update-count'>" . number_format_i18n( $update_data['counts']['total'] ) . "</span></span>"
-		),
-		$cap,
-		'update-core.php'
-	];
-
-} else {
-
-	$submenu['index.php'][10] = [
-		__( 'Updates' ),
-		$cap,
-		'update-core.php'
-	];
-}
-
-unset( $cap );
-
-$submenu['index.php'][15] = [
-	__( 'Upgrade Network' ),
-	'upgrade_network',
-	'upgrade.php'
+$submenu['index.php'][1] = [
+	__( 'Site Home' ),
+	'read',
+	home_url( '/' )
 ];
 
 $menu[4] = [
@@ -88,7 +54,7 @@ $submenu['sites.php'][5] = [
 ];
 
 $submenu['sites.php'][10] = [
-	_x( 'Add New', 'site' ),
+	_x( 'Add Site', 'site' ),
 	'create_sites', 'site-new.php'
 ];
 
@@ -178,7 +144,7 @@ if ( current_user_can( 'update_plugins' ) && $update_data['counts']['plugins'] )
 } else {
 
 	$menu[20] = [
-		__( 'Extend' ),
+		__( 'Plugins' ),
 		'manage_network_plugins',
 		'plugins.php',
 		'',
@@ -227,6 +193,12 @@ if ( defined( 'MULTISITE' ) && defined( 'WP_ALLOW_MULTISITE' ) && WP_ALLOW_MULTI
 		__( 'Network Setup' ),
 		'setup_network',
 		'setup.php'
+	];
+
+	$submenu['settings.php'][15] = [
+		__( 'Upgrade Network' ),
+		'upgrade_network',
+		'upgrade.php'
 	];
 }
 
