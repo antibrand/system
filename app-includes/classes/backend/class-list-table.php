@@ -412,18 +412,25 @@ class List_Table {
 				esc_html( $post_type_object->labels->add_new )
 			);
 
+		} elseif ( 'users-network' == $this->screen->id && is_multisite() && current_user_can( 'promote_users' ) ) {
+			$add_new = sprintf(
+				'<li class="list-table-add-new"><a href="%1s" class="button">%2s</a></li>',
+				esc_url( network_admin_url( 'user-new.php' ) ),
+				esc_html_x( 'Add Existing', 'user' )
+			);
+
+		} elseif ( 'users' == $this->screen->id && is_multisite() && current_user_can( 'create_users' ) ) {
+			$add_new = sprintf(
+				'<li class="list-table-add-new"><a href="%1s" class="button">%2s</a></li>',
+				esc_url( network_admin_url( 'user-new.php' ) ),
+				esc_html_x( 'Add New', 'user' )
+			);
+
 		} elseif ( 'users' == $this->screen->id && current_user_can( 'create_users' ) ) {
 			$add_new = sprintf(
 				'<li class="list-table-add-new"><a href="%1s" class="button">%2s</a></li>',
 				esc_url( admin_url( 'user-new.php' ) ),
 				esc_html_x( 'Add New', 'user' )
-			);
-
-		} elseif ( 'users-network' == $this->screen->id && is_multisite() && current_user_can( 'promote_users' ) ) {
-			$add_new = sprintf(
-				'<li class="list-table-add-new"><a href="%1s" class="button">%2s</a></li>',
-				esc_url( admin_url( 'user-new.php' ) ),
-				esc_html_x( 'Add Existing', 'user' )
 			);
 
 		} elseif ( 'plugins' == $this->screen->id && current_user_can( 'upload_plugins' ) ) {

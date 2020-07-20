@@ -211,15 +211,11 @@ if ( isset( $_REQUEST['updated'] ) && $_REQUEST['updated'] == 'true' && ! empty(
 }
 	?>
 <div class="wrap">
-	<h1><?php esc_html_e( 'Users' ); ?></h1>
+
+	<h1><?php esc_html_e( 'Network Accounts' ); ?></h1>
 
 	<?php
-	if ( current_user_can( 'create_users') ) : ?>
-		<a href="<?php echo network_admin_url('user-new.php'); ?>" class="button page-title-action"><?php echo esc_html_x( 'Add New', 'user' ); ?></a><?php
-	endif;
-
 	if ( strlen( $usersearch ) ) {
-		/* translators: %s: search keywords */
 		printf( '<p class="subtitle">' . __( 'Search results for &#8220;%s&#8221;' ) . '</p>', esc_html( $usersearch ) );
 	}
 	?>
