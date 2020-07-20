@@ -3,7 +3,7 @@
  * Network About administration panel.
  *
  * @package App_Package
- * @subpackage Multisite
+ * @subpackage Network
  * @since 3.4.0
  */
 

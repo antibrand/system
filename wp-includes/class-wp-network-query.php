@@ -3,7 +3,7 @@
  * Network API: WP_Network_Query class
  *
  * @package App_Package
- * @subpackage Multisite
+ * @subpackage Network
  * @since 4.6.0
  */
 

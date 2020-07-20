@@ -5,7 +5,7 @@
  * @since 3.0.0
  *
  * @package App_Package
- * @subpackage Multisite
+ * @subpackage Network
  */
 
 /**

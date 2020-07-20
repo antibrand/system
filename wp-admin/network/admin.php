@@ -3,7 +3,7 @@
  * Network Administration Bootstrap
  *
  * @package App_Package
- * @subpackage Multisite
+ * @subpackage Network
  * @since 3.1.0
  */
 

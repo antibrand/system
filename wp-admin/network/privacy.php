@@ -3,7 +3,7 @@
  * Network Privacy administration panel.
  *
  * @package App_Package
- * @subpackage Multisite
+ * @subpackage Network
  * @since 4.9.0
  */
 

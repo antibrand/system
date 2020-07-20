@@ -3,7 +3,7 @@
  * Multisite users administration panel.
  *
  * @package App_Package
- * @subpackage Multisite
+ * @subpackage Network
  * @since 3.0.0
  */
 

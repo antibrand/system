@@ -3,13 +3,14 @@
  * Network Sites dashboard.
  *
  * @package App_Package
- * @subpackage Multisite
- * @since 3.0.0
+ * @subpackage Network
+ * @since Previous 3.0.0
  */
 
+// Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
-if ( !is_multisite() )
+if ( ! is_multisite() )
 	wp_die( __( 'Multisite support is not enabled.' ) );
 
 if ( ! current_user_can('read') )

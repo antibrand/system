@@ -3,7 +3,7 @@
  * Edit Site Settings Administration Screen
  *
  * @package App_Package
- * @subpackage Multisite
+ * @subpackage Network
  * @since Previous 3.1.0
  */
 

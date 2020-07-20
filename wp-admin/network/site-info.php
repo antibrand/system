@@ -3,7 +3,7 @@
  * Edit Site Info Administration Screen
  *
  * @package App_Package
- * @subpackage Multisite
+ * @subpackage Network
  * @since 3.1.0
  */
 

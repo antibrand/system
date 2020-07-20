@@ -3,7 +3,7 @@
  * Site API: WP_Site class
  *
  * @package App_Package
- * @subpackage Multisite
+ * @subpackage Network
  * @since 4.5.0
  */
 

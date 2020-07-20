@@ -8,7 +8,7 @@
  * Not all of the Multisite default hooks are found in ms-default-filters.php
  *
  * @package App_Package
- * @subpackage Multisite
+ * @subpackage Network
  * @see default-filters.php
  * @since 3.0.0
  */

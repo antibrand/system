@@ -4,7 +4,7 @@
  * Site/blog functions that work with the blogs table and related data.
  *
  * @package App_Package
- * @subpackage Multisite
+ * @subpackage Network
  * @since MU (3.0.0)
  */
 
