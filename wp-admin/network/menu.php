@@ -80,44 +80,20 @@ $submenu['users.php'][10] = [
 	'user-new.php'
 ];
 
-if ( current_user_can( 'update_themes' ) && $update_data['counts']['themes'] ) {
-
-	$menu[15] = [
-		sprintf(
-			__( 'Themes %s' ),
-			"<span class='update-plugins count-{$update_data['counts']['themes']}'><span class='theme-count'>" . number_format_i18n( $update_data['counts']['themes'] ) . "</span></span>"
-		),
-		'manage_network_themes',
-		'themes.php',
-		'',
-		'menu-top menu-icon-appearance',
-		'menu-appearance',
-		'dashicons-admin-appearance'
-	];
-
-} else {
-
-	$menu[15] = [
-		__( 'Themes' ),
-		'manage_network_themes',
-		'themes.php',
-		'',
-		'menu-top menu-icon-appearance',
-		'menu-appearance',
-		'dashicons-admin-appearance'
-	];
-}
+$menu[15] = [
+	__( 'Themes' ),
+	'manage_network_themes',
+	'themes.php',
+	'',
+	'menu-top menu-icon-appearance',
+	'menu-appearance',
+	'dashicons-admin-appearance'
+];
 
 $submenu['themes.php'][5] = [
 	__( 'Installed Themes' ),
 	'manage_network_themes',
 	'themes.php'
-];
-
-$submenu['themes.php'][10] = [
-	_x( 'Add New', 'theme' ),
-	'install_themes',
-	'theme-install.php'
 ];
 
 $submenu['themes.php'][15] = [
@@ -126,43 +102,20 @@ $submenu['themes.php'][15] = [
 	'theme-editor.php'
 ];
 
-if ( current_user_can( 'update_plugins' ) && $update_data['counts']['plugins'] ) {
+$menu[20] = [
+	__( 'Plugins' ),
+	'manage_network_plugins',
+	'plugins.php',
+	'',
+	'menu-top menu-icon-plugins',
+	'menu-plugins',
+	'dashicons-admin-plugins'
+];
 
-	$menu[20] = [
-		sprintf(
-			__( 'Extend %s' ),
-			"<span class='update-plugins count-{$update_data['counts']['plugins']}'><span class='plugin-count'>" . number_format_i18n( $update_data['counts']['plugins'] ) . "</span></span>"
-		),
-		'manage_network_plugins',
-		'plugins.php',
-		'',
-		'menu-top menu-icon-plugins',
-		'menu-plugins',
-		'dashicons-admin-plugins'
-	];
-
-} else {
-
-	$menu[20] = [
-		__( 'Plugins' ),
-		'manage_network_plugins',
-		'plugins.php',
-		'',
-		'menu-top menu-icon-plugins',
-		'menu-plugins',
-		'dashicons-admin-plugins'
-	];
-}
 $submenu['plugins.php'][5] = [
 	__( 'Installed Plugins' ),
 	'manage_network_plugins',
 	'plugins.php'
-];
-
-$submenu['plugins.php'][10] = [
-	_x( 'Add New', 'plugin' ),
-	'install_plugins',
-	'plugin-install.php'
 ];
 
 $submenu['plugins.php'][15] = [
