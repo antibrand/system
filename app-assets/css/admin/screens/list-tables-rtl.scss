@@ -784,7 +784,8 @@ classes exist in paginate_links() but not seen in list table output. */
 	content: "\f163";
 }
 
-.view-switch .view-excerpt:before {
+.view-switch .view-excerpt:before,
+.view-switch .view-details:before {
 	content: "\f164";
 }
 
