@@ -460,7 +460,7 @@ final class Screen {
 	 *
 	 * @since Previous 3.3.0
 	 */
-	private function __construct() {}
+	public function __construct() {}
 
 	/**
 	 * Indicates whether the screen is in a particular admin
@@ -472,8 +472,9 @@ final class Screen {
 	 */
 	public function in_admin( $admin = null ) {
 
-		if ( empty( $admin ) )
+		if ( empty( $admin ) ) {
 			return (bool) $this->in_admin;
+		}
 
 		return ( $admin == $this->in_admin );
 	}
