@@ -207,7 +207,7 @@ if ( is_multisite() ) {
 // Update the user.
 $errors = edit_user( $user_id );
 
-// Grant or revoke super admin status if requested.
+// Grant or revoke network admin status if requested.
 if ( is_multisite() && is_network_admin() && ! IS_PROFILE_PAGE && current_user_can( 'manage_network_options' ) && ! isset( $super_admins ) && empty( $_POST['super_admin'] ) == is_super_admin( $user_id ) ) {
 	empty( $_POST['super_admin'] ) ? revoke_super_admin( $user_id ) : grant_super_admin( $user_id );
 }
@@ -239,7 +239,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 
 if ( ! IS_PROFILE_PAGE && is_super_admin( $profileuser->ID ) && current_user_can( 'manage_network_options' ) ) { ?>
 	<div class="notice notice-info">
-		<p><strong><?php _e( 'Important:' ); ?></strong> <?php _e( 'This user has super admin privileges.' ); ?></p>
+		<p><strong><?php _e( 'Important:' ); ?></strong> <?php _e( 'This user has network admin privileges.' ); ?></p>
 	</div>
 <?php } ?>
 <?php if ( isset( $_GET['updated'] ) ) : ?>
@@ -443,7 +443,7 @@ if ( isset( $errors ) && is_wp_error( $errors ) ) : ?>
 						$user_role  = reset( $user_roles );
 
 						// print the full list of roles with the primary one selected.
-						wp_dropdown_roles($user_role);
+						wp_dropdown_roles( $user_role );
 
 						// print the 'no role' option. Make it selected if the user has no role yet.
 						if ( $user_role )
@@ -461,9 +461,9 @@ if ( isset( $errors ) && is_wp_error( $errors ) ) : ?>
 					<th><?php _e( 'Network Admin' ); ?></th>
 					<td>
 					<?php if ( $profileuser->user_email != get_site_option( 'admin_email' ) || ! is_super_admin( $profileuser->ID ) ) : ?>
-						<p><label><input type="checkbox" id="super_admin" name="super_admin"<?php checked( is_super_admin( $profileuser->ID ) ); ?> /> <?php _e( 'Grant this user super admin privileges for the Network.' ); ?></label></p>
+						<p><label><input type="checkbox" id="super_admin" name="super_admin"<?php checked( is_super_admin( $profileuser->ID ) ); ?> /> <?php _e( 'Grant this user network admin privileges for the Network.' ); ?></label></p>
 					<?php else : ?>
-						<p><?php _e( 'Super admin privileges cannot be removed because this user has the network admin email.' ); ?></p>
+						<p><?php _e( 'Network admin privileges cannot be removed because this user has the network admin email.' ); ?></p>
 					<?php endif; ?>
 					</td>
 				</tr>
