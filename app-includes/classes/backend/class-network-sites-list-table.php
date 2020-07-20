@@ -28,6 +28,14 @@ class MS_Sites_List_Table extends List_Table {
 	public $status_list;
 
 	/**
+	 * The view switcher modes.
+	 *
+	 * @since 4.1.0
+	 * @var array
+	 */
+	protected $modes = [];
+
+	/**
 	 * Constructor method
 	 *
 	 * @see List_Table::__construct() for more information on default arguments.
@@ -50,6 +58,11 @@ class MS_Sites_List_Table extends List_Table {
 			'plural' => 'sites',
 			'screen' => isset( $args['screen'] ) ? $args['screen'] : null,
 		] );
+
+		$this->modes = [
+			'list'    => __( 'List View' ),
+			'details' => __( 'Details View' )
+		];
 	}
 
 	/**
@@ -80,7 +93,7 @@ class MS_Sites_List_Table extends List_Table {
 
 		if ( ! empty( $_REQUEST['mode'] ) ) {
 
-			$mode = $_REQUEST['mode'] === 'excerpt' ? 'excerpt' : 'list';
+			$mode = $_REQUEST['mode'] === 'details' ? 'details' : 'list';
 			set_user_setting( 'sites_list_mode', $mode );
 
 		} else {
