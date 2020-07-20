@@ -1,10 +1,10 @@
 <?php
 /**
- * Theme editor network administration panel.
+ * Theme editor network administration panel
  *
  * @package App_Package
  * @subpackage Network
- * @since 3.1.0
+ * @since Previous 3.1.0
  */
 
 // Load the website management system.
