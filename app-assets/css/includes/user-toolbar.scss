@@ -340,11 +340,6 @@
 	box-shadow: none;
 }
 
-#app-toolbar .quicklinks .menupop ul.ab-sub-secondary,
-#app-toolbar .quicklinks .menupop ul.ab-sub-secondary .ab-submenu {
-	background: #464b50;
-}
-
 #app-toolbar .quicklinks .menupop .ab-sub-secondary > li > a:hover,
 #app-toolbar .quicklinks .menupop .ab-sub-secondary > li .ab-item:focus a {
 	color: #00b9eb;
@@ -468,29 +463,6 @@
 /*
  * My Sites & Site Title
  */
-#app-toolbar .quicklinks li .blavatar {
-	float: left;
-	font: normal 16px/1 dashicons !important;
-	speak: none;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	color: #eee;
-}
-
-#app-toolbar .quicklinks li a:hover .blavatar,
-#app-toolbar .quicklinks li a:focus .blavatar,
-#app-toolbar .quicklinks .ab-sub-wrapper .menupop.hover > a .blavatar {
-	color: #00b9eb;
-}
-
-#app-toolbar .quicklinks li .blavatar:before {
-	content: "\f120";
-	height: 16px;
-	width: 16px;
-	display: inline-block;
-	margin: 6px 8px 0 -2px;
-}
-
 #app-toolbar #wp-admin-bar-appearance {
 	margin-top: -12px;
 }
@@ -833,7 +805,6 @@
 		overflow: hidden;
 		width: 52px;
 		padding: 0;
-		color: #a0a5aa; /* @todo not needed? this text is hidden */
 		position: relative;
 	}
 
@@ -862,10 +833,6 @@
 
 	#app-toolbar #wp-admin-bar-appearance {
 		margin-top: 0;
-	}
-
-	#app-toolbar .quicklinks li .blavatar:before {
-		display: none;
 	}
 
 	/* Search */
