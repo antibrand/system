@@ -1240,11 +1240,6 @@ tr.extensions-item + tr.extensions-item {
           box-shadow: none;
 }
 
-.plugins .active th.check-column,
-.plugin-update-tr.active td {
-  border-right: 5px solid #44aa11;
-}
-
 .wp-list-table.plugins .plugin-title,
 .wp-list-table.plugins .theme-title {
   padding-left: 12px;
