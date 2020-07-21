@@ -811,8 +811,8 @@ function is_user_admin() {
  * @return bool True if Multisite is enabled, false otherwise.
  */
 function is_multisite() {
-	if ( defined( 'MULTISITE' ) )
-		return MULTISITE;
+	if ( defined( 'APP_NETWORK' ) )
+		return APP_NETWORK;
 
 	if ( defined( 'SUBDOMAIN_INSTALL' ) || defined( 'VHOST' ) || defined( 'SUNRISE' ) )
 		return true;

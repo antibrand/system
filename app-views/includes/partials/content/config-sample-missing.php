@@ -151,14 +151,14 @@ if ( defined( 'WP_LOCAL_DEV' ) && WP_LOCAL_DEV ) {
  * Multisite network
  *
  * This is provided for reference. To begin network
- * activation change `WP_ALLOW_MULTISITE` to `true`.
+ * activation change `APP_ALLOW_NETWORK` to `true`.
  *
  * Once acivated the user interface will provide
  * definitions with which to replace those
- * following `WP_ALLOW_MULTISITE`.
+ * following `APP_ALLOW_NETWORK`.
  */
-// define( 'WP_ALLOW_MULTISITE', true );
-// define( 'MULTISITE', false );
+// define( 'APP_ALLOW_NETWORK', true );
+// define( 'APP_NETWORK', false );
 // define( 'SUBDOMAIN_INSTALL', '' );
 // define( 'DOMAIN_CURRENT_SITE', '' );
 // define( 'PATH_CURRENT_SITE', '' );

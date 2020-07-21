@@ -143,8 +143,8 @@ if ( is_multisite() ) {
 	require( ABSPATH . WPINC . '/class-wp-network-query.php' );
 	require( ABSPATH . WPINC . '/ms-blogs.php' );
 	require( ABSPATH . WPINC . '/ms-settings.php' );
-} elseif ( ! defined( 'MULTISITE' ) ) {
-	define( 'MULTISITE', false );
+} elseif ( ! defined( 'APP_NETWORK' ) ) {
+	define( 'APP_NETWORK', false );
 }
 
 register_shutdown_function( 'shutdown_action_hook' );

@@ -36,3 +36,23 @@ if ( ! defined( 'WP_LANG_DIR' ) && ( defined( 'APP_LANG_DIR' ) && APP_LANG_DIR )
 } else {
 	define( 'WP_LANG_DIR', ABSPATH . 'app-languages' );
 }
+
+/**
+ * Network constants
+ *
+ * @since 1.0.0
+ */
+
+// Allow network.
+if ( ! defined( 'WP_ALLOW_MULTISITE' ) && defined( 'APP_ALLOW_NETWORK' ) ) {
+	define( 'WP_ALLOW_MULTISITE', APP_ALLOW_NETWORK );
+} else {
+	define( 'WP_ALLOW_MULTISITE', false );
+}
+
+// Network enabled.
+if ( ! defined( 'MULTISITE' ) && defined( 'APP_NETWORK' ) ) {
+	define( 'MULTISITE', APP_NETWORK );
+} else {
+	define( 'MULTISITE', false );
+}

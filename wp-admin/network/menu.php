@@ -134,7 +134,7 @@ $menu[25] = [
 	'dashicons-admin-settings'
 ];
 
-if ( defined( 'MULTISITE' ) && defined( 'WP_ALLOW_MULTISITE' ) && WP_ALLOW_MULTISITE ) {
+if ( defined( 'APP_NETWORK' ) && defined( 'APP_ALLOW_NETWORK' ) && APP_ALLOW_NETWORK ) {
 
 	$submenu['settings.php'][5] = [
 		__( 'Network Settings' ),

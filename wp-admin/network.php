@@ -26,7 +26,7 @@ if ( is_multisite() ) {
 		exit;
 	}
 
-	if ( ! defined( 'MULTISITE' ) ) {
+	if ( ! defined( 'APP_NETWORK' ) ) {
 		wp_die( __( 'The Network creation panel is not for MU networks.' ) );
 	}
 }
@@ -38,12 +38,12 @@ foreach ( $wpdb->tables( 'ms_global' ) as $table => $prefixed_table ) {
 	$wpdb->$table = $prefixed_table;
 }
 
-if ( ! network_domain_check() && ( ! defined( 'WP_ALLOW_MULTISITE' ) || ! WP_ALLOW_MULTISITE ) ) {
+if ( ! network_domain_check() && ( ! defined( 'APP_ALLOW_NETWORK' ) || ! APP_ALLOW_NETWORK ) ) {
 	wp_die(
 		printf(
-			// Translators: 1: WP_ALLOW_MULTISITE 2: app-config.php.
+			// Translators: 1: APP_ALLOW_NETWORK 2: app-config.php.
 			__( 'You must define the %1$s constant as true in your %2$s file to allow creation of a Network.' ),
-			'<code>WP_ALLOW_MULTISITE</code>',
+			'<code>APP_ALLOW_NETWORK</code>',
 			'<code>app-config.php</code>'
 		)
 	);

@@ -1963,7 +1963,7 @@ function _wp_upload_dir( $time = null ) {
 	}
 
 	// If multisite (and if not the main site in a post-MU network)
-	if ( is_multisite() && ! ( is_main_network() && is_main_site() && defined( 'MULTISITE' ) ) ) {
+	if ( is_multisite() && ! ( is_main_network() && is_main_site() && defined( 'APP_NETWORK' ) ) ) {
 
 		if ( ! get_site_option( 'ms_files_rewriting' ) ) {
 			/*
@@ -1975,7 +1975,7 @@ function _wp_upload_dir( $time = null ) {
 			 * had wp-content/uploads for the main site.)
 			 */
 
-			if ( defined( 'MULTISITE' ) )
+			if ( defined( 'APP_NETWORK' ) )
 				$ms_dir = '/sites/' . get_current_blog_id();
 			else
 				$ms_dir = '/' . get_current_blog_id();

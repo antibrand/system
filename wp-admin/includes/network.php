@@ -430,7 +430,7 @@ function network_step2( $errors = false ) {
 				'<code>' . $location_of_wp_config . '</code>'
 			); ?></p>
 				<pre class="code network-add-code">
-define( 'MULTISITE', true );
+define( 'APP_NETWORK', true );
 define( 'SUBDOMAIN_INSTALL', <?php echo $subdomain_install ? 'true' : 'false'; ?> );
 define( 'DOMAIN_CURRENT_SITE', '<?php echo $hostname; ?>' );
 define( 'PATH_CURRENT_SITE', '<?php echo $base; ?>' );
