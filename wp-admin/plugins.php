@@ -707,11 +707,11 @@ if ( ! empty( $invalid ) ) {
 
 		<div class="list-table-top">
 
-		<?php $wp_list_table->views(); ?>
+			<?php $wp_list_table->views(); ?>
 
-		<form class="search-form search-plugins" method="get">
-			<?php $wp_list_table->search_box( __( 'Search Installed Plugins' ), 'plugin' ); ?>
-		</form>
+			<form class="search-form search-plugins" method="get">
+				<?php $wp_list_table->search_box( __( 'Search Installed Plugins' ), 'plugin' ); ?>
+			</form>
 
 		</div>
 
