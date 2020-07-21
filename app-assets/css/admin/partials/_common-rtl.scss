@@ -1879,12 +1879,11 @@ html.wp-toolbar {
 	float: right;
 	position: relative;
 	top: 1px;
-	border: 1px solid $pale_gray;
+	border: 1px solid $form_border_color;
 	border-bottom: none;
 	margin-right: 0.5em; /* half the font size so set the font size properly */
-	padding: 5px 10px;
-	font-size: 14px;
-	line-height: 24px;
+	padding: 0.5em 1em;
+	font-size: $px14;
 	font-weight: 600;
 	text-decoration: none;
 	color: $text_color;
@@ -1915,10 +1914,14 @@ h3 .nav-tab, /* Back-compat for pre-4.4 */
 	background-color: $body_background;
 }
 
+.nav-tab-wrapper + form {
+	margin-top: 2rem;
+}
+
 h1.nav-tab-wrapper, /* Back-compat for pre-4.4 */
 .wrap h2.nav-tab-wrapper, /* higher specificity to override .wrap > h2:first-child */
 .nav-tab-wrapper {
-	border-bottom: 1px solid $pale_gray;
+	border-bottom: 1px solid $form_border_color;
 	margin: 1em 0 0;
 	padding-top: 9px;
 	padding-bottom: 0;

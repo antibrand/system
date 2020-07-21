@@ -319,11 +319,27 @@ optgroup {
 	}
 }
 
-.nav-tab-active,
-.nav-tab-active:hover,
-.nav-tab-active:focus,
-.nav-tab-active:focus:active {
-	background-color: $body_background;
+h1.nav-tab-wrapper,
+.wrap h2.nav-tab-wrapper,
+.nav-tab-wrapper {
+	border-color: $form_border_color;
+}
+
+.nav-tab {
+	border-color: $form_border_color;
+	color: $text_color;
+
+	&.nav-tab-active {
+		background-color: $body_background;
+		color: $link_color;
+
+		&:hover,
+		&:focus,
+		&:focus:active {
+			background-color: $body_background;
+			color: $link_color;
+		}
+	}
 }
 
 /**

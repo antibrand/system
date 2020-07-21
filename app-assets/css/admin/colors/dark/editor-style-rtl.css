@@ -394,6 +394,27 @@ optgroup {
   color: #ffffff;
 }
 
+h1.nav-tab-wrapper,
+.wrap h2.nav-tab-wrapper,
+.nav-tab-wrapper {
+  border-color: #626262;
+}
+
+.nav-tab {
+  border-color: #626262;
+  color: #ffffff;
+}
+
+.nav-tab.nav-tab-active {
+  background-color: #222222;
+  color: #3ad4fb;
+}
+
+.nav-tab.nav-tab-active:hover, .nav-tab.nav-tab-active:focus, .nav-tab.nav-tab-active:focus:active {
+  background-color: #222222;
+  color: #3ad4fb;
+}
+
 /**
  * Dashboard
  */

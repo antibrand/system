@@ -4442,13 +4442,12 @@ html.wp-toolbar {
   float: right;
   position: relative;
   top: 1px;
-  border: 1px solid #cccccc;
+  border: 1px solid #888888;
   border-bottom: none;
   margin-right: 0.5em;
   /* half the font size so set the font size properly */
-  padding: 5px 10px;
-  font-size: 14px;
-  line-height: 24px;
+  padding: 0.5em 1em;
+  font-size: 0.875rem;
   font-weight: 600;
   text-decoration: none;
   color: #222222;
@@ -4480,10 +4479,14 @@ h3 .nav-tab,
   background-color: #ffffff;
 }
 
+.nav-tab-wrapper + form {
+  margin-top: 2rem;
+}
+
 h1.nav-tab-wrapper,
 .wrap h2.nav-tab-wrapper,
 .nav-tab-wrapper {
-  border-bottom: 1px solid #cccccc;
+  border-bottom: 1px solid #888888;
   margin: 1em 0 0;
   padding-top: 9px;
   padding-bottom: 0;
