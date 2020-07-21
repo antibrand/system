@@ -71,17 +71,17 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 				),
 				admin_url( 'customize.php' )
 			);
-			$install_actions['preview'] = '<button type="button" class="button" href="' . esc_url( $customize_url ) . '" class="hide-if-no-customize load-customize"><span aria-hidden="true">' . __( 'Live Preview' ) . '</span><span class="screen-reader-text">' . sprintf( __( 'Live Preview &#8220;%s&#8221;' ), $name ) . '</span></button>';
+			$install_actions['preview'] = '<a class="button" href="' . esc_url( $customize_url ) . '" class="hide-if-no-customize load-customize"><span aria-hidden="true">' . __( 'Live Preview' ) . '</span><span class="screen-reader-text">' . sprintf( __( 'Live Preview &#8220;%s&#8221;' ), $name ) . '</span></a>';
 		}
-		$install_actions['activate'] = '<button type="button" class="button" href="' . esc_url( $activate_link ) . '" class="activatelink"><span aria-hidden="true">' . __( 'Activate' ) . '</span><span class="screen-reader-text">' . sprintf( __( 'Activate &#8220;%s&#8221;' ), $name ) . '</span></button>';
+		$install_actions['activate'] = '<a class="button" href="' . esc_url( $activate_link ) . '" class="activatelink"><span aria-hidden="true">' . __( 'Activate' ) . '</span><span class="screen-reader-text">' . sprintf( __( 'Activate &#8220;%s&#8221;' ), $name ) . '</span></a>';
 
 		if ( is_network_admin() && current_user_can( 'manage_network_themes' ) )
-			$install_actions['network_enable'] = '<button type="button" class="button" href="' . esc_url( wp_nonce_url( 'themes.php?action=enable&amp;theme=' . urlencode( $stylesheet ), 'enable-theme_' . $stylesheet ) ) . '" target="_parent">' . __( 'Network Enable' ) . '</button>';
+			$install_actions['network_enable'] = '<a class="button" href="' . esc_url( wp_nonce_url( 'themes.php?action=enable&amp;theme=' . urlencode( $stylesheet ), 'enable-theme_' . $stylesheet ) ) . '" target="_parent">' . __( 'Network Enable' ) . '</a>';
 
 		if ( $this->type == 'web' )
-			$install_actions['themes_page'] = '<button type="button" class="button" href="' . self_admin_url( 'theme-install.php' ) . '" target="_parent">' . __( 'Return to Theme Installer' ) . '</button>';
+			$install_actions['themes_page'] = '<a class="button" href="' . self_admin_url( 'theme-install.php' ) . '" target="_parent">' . __( 'Return to Theme Installer' ) . '</a>';
 		elseif ( current_user_can( 'switch_themes' ) || current_user_can( 'edit_theme_options' ) )
-			$install_actions['themes_page'] = '<button type="button" class="button" href="' . self_admin_url( 'themes.php' ) . '" target="_parent">' . __( 'Return to Themes page' ) . '</button>';
+			$install_actions['themes_page'] = '<a class="button" href="' . self_admin_url( 'themes.php' ) . '" target="_parent">' . __( 'Return to Themes page' ) . '</a>';
 
 		if ( ! $this->result || is_wp_error($this->result) || is_network_admin() || ! current_user_can( 'switch_themes' ) )
 			unset( $install_actions['activate'], $install_actions['preview'] );
