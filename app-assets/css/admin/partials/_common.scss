@@ -3171,9 +3171,8 @@ img {
 
 .my-sites li {
 	display: block;
-	padding: 8px 3%;
-	min-height: 130px;
 	margin: 0;
+	padding: 1em;
 }
 
 @media only screen and (max-width: 599px) {
@@ -3187,21 +3186,11 @@ img {
 		background-color: #fff;
 		position: relative;
 	}
-	.my-sites.striped li:after {
-		content: "";
-		width: 1px;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		right: 0;
-		background: $pale_gray;
-	}
 
 }
 @media only screen and (min-width: 600px) and (max-width: 699px) {
 	.my-sites li{
 		float: left;
-		width: 44%;
 	}
 	.my-sites.striped li {
 		background-color: #fff;
@@ -3212,35 +3201,21 @@ img {
 	.my-sites.striped li:nth-of-type(2n+2):after {
 		content: none;
 	}
-	.my-sites li:nth-of-type(4n+1),
-	.my-sites li:nth-of-type(4n+2) {
-		background-color: #f9f9f9;
-	}
 
 }
 
 @media only screen and (min-width: 700px) and (max-width: 1199px) {
 	.my-sites li {
 		float: left;
-		width: 27.333333%;
-		background-color: #fff;
 	}
 	.my-sites.striped li:nth-of-type(3n+3):after {
 		content: none;
-	}
-	.my-sites li:nth-of-type(6n+1),
-	.my-sites li:nth-of-type(6n+2),
-	.my-sites li:nth-of-type(6n+3) {
-		background-color: #f9f9f9;
 	}
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
 	.my-sites li {
 		float: left;
-		width: 21%;
-		padding: 8px 2%;
-		background-color: #fff;
 	}
 	.my-sites.striped li:nth-of-type(4n+1) {
 		clear: left;
@@ -3248,20 +3223,11 @@ img {
 	.my-sites.striped li:nth-of-type(4n+4):after {
 		content: none;
 	}
-	.my-sites li:nth-of-type(8n+1),
-	.my-sites li:nth-of-type(8n+2),
-	.my-sites li:nth-of-type(8n+3),
-	.my-sites li:nth-of-type(8n+4) {
-		background-color: #f9f9f9;
-	}
 }
 
 @media only screen and (min-width: 1400px) and (max-width: 1599px) {
 	.my-sites li {
 		float: left;
-		width: 16%;
-		padding: 8px 2%;
-		background-color: #fff;
 	}
 	.my-sites.striped li:nth-of-type(5n+1) {
 		clear: left;
@@ -3269,35 +3235,17 @@ img {
 	.my-sites.striped li:nth-of-type(5n+5):after {
 		content: none;
 	}
-	.my-sites li:nth-of-type(10n+1),
-	.my-sites li:nth-of-type(10n+2),
-	.my-sites li:nth-of-type(10n+3),
-	.my-sites li:nth-of-type(10n+4),
-	.my-sites li:nth-of-type(10n+5) {
-		background-color: #f9f9f9;
-	}
 }
 
 @media only screen and (min-width: 1600px) {
 	.my-sites li {
 		float: left;
-		width: 12.666666%;
-		padding: 8px 2%;
-		background-color: #fff;
 	}
 	.my-sites.striped li:nth-of-type(6n+1) {
 		clear: left;
 	}
 	.my-sites.striped li:nth-of-type(6n+6):after {
 		content: none;
-	}
-	.my-sites li:nth-of-type(12n+1),
-	.my-sites li:nth-of-type(12n+2),
-	.my-sites li:nth-of-type(12n+3),
-	.my-sites li:nth-of-type(12n+4),
-	.my-sites li:nth-of-type(12n+5),
-	.my-sites li:nth-of-type(12n+6) {
-		background-color: #f9f9f9;
 	}
 }
 

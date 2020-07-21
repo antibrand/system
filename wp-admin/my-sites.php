@@ -88,11 +88,13 @@ if ( $updated ) { ?>
 
 	<h1><?php esc_html_e( $title ); ?></h1>
 
+	<p class="description"><?php _e( 'Manage your sites in this network.' ); ?></p>
+
 	<?php if ( in_array( get_site_option( 'registration' ), [ 'all', 'blog' ] ) ) {
 
 		// This filter is documented in app-login.php.
 		$sign_up_url = apply_filters( 'wp_signup_location', network_site_url( 'app-signup.php' ) );
-		printf( ' <a href="%s" class="button page-title-action">%s</a>', esc_url( $sign_up_url ), esc_html_x( 'Add New', 'site' ) );
+		printf( ' <p><a href="%s" class="button">%s</a></p>', esc_url( $sign_up_url ), esc_html_x( 'Add New', 'site' ) );
 	}
 
 	if ( empty( $blogs ) ) :
@@ -108,6 +110,7 @@ if ( $updated ) { ?>
 		<?php
 
 		choose_primary_blog();
+
 		/**
 		 * Fires before the sites list on the Network Sites screen.
 		 *
@@ -146,10 +149,10 @@ if ( $updated ) { ?>
 			echo "<li>";
 			echo "<h3>{$user_blog->blogname}</h3>";
 
-			$actions = "<a href='" . esc_url( home_url() ). "'>" . __( 'Visit' ) . '</a>';
+			$actions = "<a href='" . esc_url( home_url() ). "' class='button'>" . __( 'Visit' ) . '</a>';
 
 			if ( current_user_can( 'read' ) ) {
-				$actions .= " | <a href='" . esc_url( admin_url() ) . "'>" . __( 'Dashboard' ) . '</a>';
+				$actions .= " <a href='" . esc_url( admin_url() ) . "' class='button'>" . __( 'Dashboard' ) . '</a>';
 			}
 
 			/**
