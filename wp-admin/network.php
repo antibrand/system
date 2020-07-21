@@ -26,7 +26,7 @@ if ( is_multisite() ) {
 		exit;
 	}
 
-	if ( ! defined( 'APP_NETWORK' ) ) {
+	if ( ! defined( 'MULTISITE' ) ) {
 		wp_die( __( 'The Network creation panel is not for MU networks.' ) );
 	}
 }

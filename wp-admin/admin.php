@@ -15,15 +15,15 @@ if ( ! defined( 'WP_ADMIN' ) ) {
 	define( 'WP_ADMIN', true );
 }
 
-if ( ! defined( 'WP_NETWORK_ADMIN' ) ) {
-	define( 'WP_NETWORK_ADMIN', false );
+if ( ! defined( 'APP_NETWORK_ADMIN' ) ) {
+	define( 'APP_NETWORK_ADMIN', false );
 }
 
 if ( ! defined( 'WP_USER_ADMIN' ) ) {
 	define( 'WP_USER_ADMIN', false );
 }
 
-if ( ! WP_NETWORK_ADMIN && ! WP_USER_ADMIN ) {
+if ( ! APP_NETWORK_ADMIN && ! WP_USER_ADMIN ) {
 	define( 'WP_BLOG_ADMIN', true );
 }
 
@@ -146,7 +146,7 @@ if ( isset( $_REQUEST['taxonomy'] ) && taxonomy_exists( $_REQUEST['taxonomy'] ) 
 	$taxnow = '';
 }
 
-if ( WP_NETWORK_ADMIN ) {
+if ( APP_NETWORK_ADMIN ) {
 	require( ABSPATH . 'wp-admin/network/menu.php' );
 } elseif ( WP_USER_ADMIN ) {
 	require( ABSPATH . 'wp-admin/user/menu.php' );

@@ -3,70 +3,77 @@
  * Network Administration API.
  *
  * @package App_Package
- * @subpackage Administration
- * @since 4.4.0
+ * @subpackage Network
+ * @since Previous 4.4.0
  */
 
 /**
- * Check for an existing network.
+ * Check for an existing network
  *
- * @since 3.0.0
- *
+ * @since  Previous 3.0.0
  * @global wpdb $wpdb database abstraction object.
- *
  * @return Whether a network exists.
  */
 function network_domain_check() {
+
 	global $wpdb;
 
 	$sql = $wpdb->prepare( "SHOW TABLES LIKE %s", $wpdb->esc_like( $wpdb->site ) );
+
 	if ( $wpdb->get_var( $sql ) ) {
 		return $wpdb->get_var( "SELECT domain FROM $wpdb->site ORDER BY id ASC LIMIT 1" );
 	}
+
 	return false;
 }
 
 /**
  * Allow subdomain installation
  *
- * @since 3.0.0
+ * @since  Previous 3.0.0
  * @return bool Whether subdomain installation is allowed
  */
 function allow_subdomain_install() {
+
 	$domain = preg_replace( '|https?://([^/]+)|', '$1', get_option( 'home' ) );
-	if ( parse_url( get_option( 'home' ), PHP_URL_PATH ) || 'localhost' == $domain || preg_match( '|^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$|', $domain ) )
+
+	if ( parse_url( get_option( 'home' ), PHP_URL_PATH ) || 'localhost' == $domain || preg_match( '|^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$|', $domain ) ) {
 		return false;
+	}
 
 	return true;
 }
 
 /**
- * Allow subdirectory installation.
+ * Allow subdirectory installation
  *
- * @since 3.0.0
- *
+ * @since  Previous 3.0.0
  * @global wpdb $wpdb database abstraction object.
- *
  * @return bool Whether subdirectory installation is allowed
  */
 function allow_subdirectory_install() {
-	global $wpdb;
-        /**
-         * Filters whether to enable the subdirectory installation feature in Multisite.
-         *
-         * @since 3.0.0
-         *
-         * @param bool $allow Whether to enable the subdirectory installation feature in Multisite. Default is false.
-         */
-	if ( apply_filters( 'allow_subdirectory_install', false ) )
-		return true;
 
-	if ( defined( 'ALLOW_SUBDIRECTORY_INSTALL' ) && ALLOW_SUBDIRECTORY_INSTALL )
+	global $wpdb;
+
+	/**
+	 * Filters whether to enable the subdirectory installation feature in Multisite.
+	 *
+	 * @since Previous 3.0.0
+	 * @param bool $allow Whether to enable the subdirectory installation feature in Multisite. Default is false.
+	 */
+	if ( apply_filters( 'allow_subdirectory_install', false ) ) {
 		return true;
+	}
+
+	if ( defined( 'ALLOW_SUBDIRECTORY_INSTALL' ) && ALLOW_SUBDIRECTORY_INSTALL ) {
+		return true;
+	}
 
 	$post = $wpdb->get_row( "SELECT ID FROM $wpdb->posts WHERE post_date < DATE_SUB(NOW(), INTERVAL 1 MONTH) AND post_status = 'publish'" );
-	if ( empty( $post ) )
+
+	if ( empty( $post ) ) {
 		return true;
+	}
 
 	return false;
 }
@@ -74,69 +81,82 @@ function allow_subdirectory_install() {
 /**
  * Get base domain of network.
  *
- * @since 3.0.0
+ * @since  Previous 3.0.0
  * @return string Base domain.
  */
 function get_clean_basedomain() {
-	if ( $existing_domain = network_domain_check() )
+
+	if ( $existing_domain = network_domain_check() ) {
 		return $existing_domain;
+	}
+
 	$domain = preg_replace( '|https?://|', '', get_option( 'siteurl' ) );
-	if ( $slash = strpos( $domain, '/' ) )
+
+	if ( $slash = strpos( $domain, '/' ) ) {
 		$domain = substr( $domain, 0, $slash );
+	}
+
 	return $domain;
 }
 
 /**
  * Prints step 1 for Network installation process.
  *
- * @todo Realistically, step 1 should be a welcome screen explaining what a Network is and such. Navigating to Tools > Network
+ * @todo Realistically, step 1 should be a welcome screen explaining what a Network is. Navigating to Tools > Network
  * 	should not be a sudden "Welcome to a new install process! Fill this out and click here." See also contextual help todo.
  *
- * @since 3.0.0
- *
+ * @since Previous 3.0.0
  * @global bool $is_apache
- *
  * @param WP_Error $errors
  */
 function network_step1( $errors = false ) {
+
 	global $is_apache;
 
 	if ( defined( 'DO_NOT_UPGRADE_GLOBAL_TABLES' ) ) {
+
 		echo '<div class="error"><p><strong>' . __( 'ERROR:' ) . '</strong> ' . sprintf(
-			/* translators: %s: DO_NOT_UPGRADE_GLOBAL_TABLES */
 			__( 'The constant %s cannot be defined when creating a network.' ),
 			'<code>DO_NOT_UPGRADE_GLOBAL_TABLES</code>'
 		) . '</p></div>';
 		echo '</div>';
+
 		include( ABSPATH . 'wp-admin/admin-footer.php' );
+
 		die();
 	}
 
 	$active_plugins = get_option( 'active_plugins' );
+
 	if ( ! empty( $active_plugins ) ) {
+
 		echo '<div class="updated"><p><strong>' . __( 'Warning:' ) . '</strong> ' . sprintf(
-			/* translators: %s: Plugins screen URL */
 			__( 'Please <a href="%s">deactivate your plugins</a> before enabling the Network feature.' ),
 			admin_url( 'plugins.php?plugin_status=active' )
 		) . '</p></div>';
 		echo '<p>' . __( 'Once the network is created, you may reactivate your plugins.' ) . '</p>';
 		echo '</div>';
+
 		include( ABSPATH . 'wp-admin/admin-footer.php' );
+
 		die();
 	}
 
-	$hostname = get_clean_basedomain();
+	$hostname  = get_clean_basedomain();
 	$has_ports = strstr( $hostname, ':' );
-	if ( ( false !== $has_ports && ! in_array( $has_ports, array( ':80', ':443' ) ) ) ) {
+
+	if ( ( false !== $has_ports && ! in_array( $has_ports, [ ':80', ':443' ] ) ) ) {
+
 		echo '<div class="error"><p><strong>' . __( 'ERROR:' ) . '</strong> ' . __( 'You cannot install a network of sites with your server address.' ) . '</p></div>';
 		echo '<p>' . sprintf(
-			/* translators: %s: port number */
 			__( 'You cannot use port numbers such as %s.' ),
 			'<code>' . $has_ports . '</code>'
 		) . '</p>';
 		echo '<a href="' . esc_url( admin_url() ) . '">' . __( 'Return to Dashboard' ) . '</a>';
 		echo '</div>';
+
 		include( ABSPATH . 'wp-admin/admin-footer.php' );
+
 		die();
 	}
 
@@ -144,19 +164,23 @@ function network_step1( $errors = false ) {
 
 	wp_nonce_field( 'install-network-1' );
 
-	$error_codes = array();
+	$error_codes = [];
+
 	if ( is_wp_error( $errors ) ) {
+
 		echo '<div class="error"><p><strong>' . __( 'ERROR: The network could not be created.' ) . '</strong></p>';
-		foreach ( $errors->get_error_messages() as $error )
+
+		foreach ( $errors->get_error_messages() as $error ) {
 			echo "<p>$error</p>";
+		}
 		echo '</div>';
+
 		$error_codes = $errors->get_error_codes();
 	}
 
 	if ( ! empty( $_POST['sitename'] ) && ! in_array( 'empty_sitename', $error_codes ) ) {
 		$site_name = $_POST['sitename'];
 	} else {
-		/* translators: %s: Default network name */
 		$site_name = sprintf( __( '%s Sites' ), get_option( 'blogname' ) );
 	}
 
@@ -172,31 +196,40 @@ function network_step1( $errors = false ) {
 
 	if ( isset( $_POST['subdomain_install'] ) ) {
 		$subdomain_install = (bool) $_POST['subdomain_install'];
-	} elseif ( apache_mod_loaded( 'mod_rewrite' ) ) { // assume nothing
+
+	// Assume nothing.
+	} elseif ( apache_mod_loaded( 'mod_rewrite' ) ) {
 		$subdomain_install = true;
+
 	} elseif ( !allow_subdirectory_install() ) {
 		$subdomain_install = true;
+
 	} else {
+
 		$subdomain_install = false;
-		if ( $got_mod_rewrite = got_mod_rewrite() ) { // dangerous assumptions
+
+		// Dangerous assumptions.
+		if ( $got_mod_rewrite = got_mod_rewrite() ) {
+
 			echo '<div class="updated inline"><p><strong>' . __( 'Note:' ) . '</strong> ';
-			/* translators: %s: mod_rewrite */
 			printf( __( 'Please make sure the Apache %s module is installed as it will be used at the end of this installation.' ),
 				'<code>mod_rewrite</code>'
 			);
 			echo '</p>';
+
 		} elseif ( $is_apache ) {
+
 			echo '<div class="error inline"><p><strong>' . __( 'Warning:' ) . '</strong> ';
-			/* translators: %s: mod_rewrite */
 			printf( __( 'It looks like the Apache %s module is not installed.' ),
 				'<code>mod_rewrite</code>'
 			);
 			echo '</p>';
 		}
 
-		if ( $got_mod_rewrite || $is_apache ) { // Protect against mod_rewrite mimicry (but ! Apache)
+		// Protect against mod_rewrite mimicry (but ! Apache).
+		if ( $got_mod_rewrite || $is_apache ) {
+
 			echo '<p>';
-			/* translators: 1: mod_rewrite, 2: mod_rewrite documentation URL, 3: Google search for mod_rewrite */
 			printf( __( 'If %1$s is disabled, ask your administrator to enable that module, or look at the <a href="%2$s">Apache documentation</a> or <a href="%3$s">elsewhere</a> for help setting it up.' ),
 				'<code>mod_rewrite</code>',
 				'https://httpd.apache.org/docs/mod/mod_rewrite.html',
@@ -206,17 +239,18 @@ function network_step1( $errors = false ) {
 		}
 	}
 
-	if ( allow_subdomain_install() && allow_subdirectory_install() ) : ?>
+	if ( allow_subdomain_install() && allow_subdirectory_install() ) :
+
+	?>
 		<h3><?php esc_html_e( 'Addresses of Sites in your Network' ); ?></h3>
 		<p><?php _e( 'Please choose whether you would like sites in your network to use sub-domains or sub-directories.' ); ?>
 			<strong><?php _e( 'You cannot change this later.' ); ?></strong></p>
 		<p><?php _e( 'You will need a wildcard DNS record if you are going to use the virtual host (sub-domain) functionality.' ); ?></p>
-		<?php // @todo: Link to an MS readme? ?>
+		<?php // @todo: Link to a readme? ?>
 		<table class="form-table">
 			<tr>
 				<th><label><input type="radio" name="subdomain_install" value="1"<?php checked( $subdomain_install ); ?> /> <?php _e( 'Sub-domains' ); ?></label></th>
 				<td><?php printf(
-					/* translators: 1: hostname */
 					_x( 'like <code>site1.%1$s</code> and <code>site2.%1$s</code>', 'subdomain examples' ),
 					$hostname
 				); ?></td>
@@ -224,7 +258,6 @@ function network_step1( $errors = false ) {
 			<tr>
 				<th><label><input type="radio" name="subdomain_install" value="0"<?php checked( ! $subdomain_install ); ?> /> <?php _e( 'Sub-directories' ); ?></label></th>
 				<td><?php printf(
-					/* translators: 1: hostname */
 					_x( 'like <code>%1$s/site1</code> and <code>%1$s/site2</code>', 'subdirectory examples' ),
 					$hostname
 				); ?></td>
@@ -242,7 +275,6 @@ function network_step1( $errors = false ) {
 		?>
 		<h3><?php esc_html_e( 'Server Address' ); ?></h3>
 		<p><?php printf(
-			/* translators: 1: site url 2: host name 3. www */
 			__( 'We recommend you change your siteurl to %1$s before enabling the network feature. It will still be possible to visit your site using the %3$s prefix with an address like %2$s but any links will not have the %3$s prefix.' ),
 			'<code>' . substr( $hostname, 4 ) . '</code>',
 			'<code>' . $hostname . '</code>',
@@ -253,7 +285,6 @@ function network_step1( $errors = false ) {
 				<th scope='row'><?php esc_html_e( 'Server Address' ); ?></th>
 				<td>
 					<?php printf(
-						/* translators: %s: host name */
 						__( 'The internet address of your network will be %s.' ),
 						'<code>' . $hostname . '</code>'
 					); ?>
@@ -269,27 +300,26 @@ function network_step1( $errors = false ) {
 				<th scope="row"><?php esc_html_e( 'Sub-directory Installation' ); ?></th>
 				<td><?php
 					printf(
-						/* translators: 1: localhost 2: localhost.localdomain */
 						__( 'Because you are using %1$s, the sites in your network must use sub-directories. Consider using %2$s if you wish to use sub-domains.' ),
 						'<code>localhost</code>',
 						'<code>localhost.localdomain</code>'
 					);
-					// Uh oh:
-					if ( !allow_subdirectory_install() )
+
+					if ( ! allow_subdirectory_install() )
 						echo ' <strong>' . __( 'Warning:' ) . ' ' . __( 'The main site in a sub-directory installation will need to use a modified permalink structure, potentially breaking existing links.' ) . '</strong>';
 				?></td>
 			</tr>
-		<?php elseif ( !allow_subdomain_install() ) : ?>
+		<?php elseif ( ! allow_subdomain_install() ) : ?>
 			<tr>
 				<th scope="row"><?php esc_html_e( 'Sub-directory Installation' ); ?></th>
 				<td><?php
 					_e( 'Because your installation is in a directory, the sites in your network must use sub-directories.' );
-					// Uh oh:
-					if ( !allow_subdirectory_install() )
+
+					if ( ! allow_subdirectory_install() )
 						echo ' <strong>' . __( 'Warning:' ) . ' ' . __( 'The main site in a sub-directory installation will need to use a modified permalink structure, potentially breaking existing links.' ) . '</strong>';
 				?></td>
 			</tr>
-		<?php elseif ( !allow_subdirectory_install() ) : ?>
+		<?php elseif ( ! allow_subdirectory_install() ) : ?>
 			<tr>
 				<th scope="row"><?php esc_html_e( 'Sub-domain Installation' ); ?></th>
 				<td><?php _e( 'Because your installation is not new, the sites in your network must use sub-domains.' );
@@ -297,12 +327,12 @@ function network_step1( $errors = false ) {
 				?></td>
 			</tr>
 		<?php endif; ?>
+
 		<?php if ( ! $is_www ) : ?>
 			<tr>
 				<th scope='row'><?php esc_html_e( 'Server Address' ); ?></th>
 				<td>
 					<?php printf(
-						/* translators: %s: host name */
 						__( 'The internet address of your network will be %s.' ),
 						'<code>' . $hostname . '</code>'
 					); ?>
@@ -334,15 +364,14 @@ function network_step1( $errors = false ) {
 }
 
 /**
- * Prints step 2 for Network installation process.
+ * Prints step 2 for Network installation process
  *
- * @since 3.0.0
- *
+ * @since  Previous 3.0.0
  * @global wpdb $wpdb database abstraction object.
- *
- * @param WP_Error $errors
+ * @param  WP_Error $errors
  */
 function network_step2( $errors = false ) {
+
 	global $wpdb;
 
 	$hostname          = get_clean_basedomain();
@@ -356,22 +385,30 @@ function network_step2( $errors = false ) {
 
 
 	$location_of_wp_config = $abspath_fix;
+
 	if ( ! file_exists( ABSPATH . 'app-config.php' ) && file_exists( dirname( ABSPATH ) . '/app-config.php' ) ) {
 		$location_of_wp_config = dirname( $abspath_fix );
 	}
+
 	$location_of_wp_config = trailingslashit( $location_of_wp_config );
 
 	// Wildcard DNS message.
-	if ( is_wp_error( $errors ) )
+	if ( is_wp_error( $errors ) ) {
 		echo '<div class="error">' . $errors->get_error_message() . '</div>';
+	}
 
 	if ( $_POST ) {
-		if ( allow_subdomain_install() )
+
+		if ( allow_subdomain_install() ) {
 			$subdomain_install = allow_subdirectory_install() ? ! empty( $_POST['subdomain_install'] ) : true;
-		else
+		} else {
 			$subdomain_install = false;
+		}
+
 	} else {
+
 		if ( is_multisite() ) {
+
 			$subdomain_install = is_subdomain_install();
 ?>
 	<p><?php _e( 'The original configuration steps are shown here for reference.' ); ?></p>
@@ -397,7 +434,6 @@ function network_step2( $errors = false ) {
 			if ( file_exists( $home_path . '.htaccess' ) ) {
 				echo '<strong>' . __( 'Caution:' ) . '</strong> ';
 				printf(
-					/* translators: 1: app-config.php 2: .htaccess */
 					__( 'We recommend you back up your existing %1$s and %2$s files.' ),
 					'<code>app-config.php</code>',
 					'<code>.htaccess</code>'
@@ -405,7 +441,6 @@ function network_step2( $errors = false ) {
 			} elseif ( file_exists( $home_path . 'web.config' ) ) {
 				echo '<strong>' . __( 'Caution:' ) . '</strong> ';
 				printf(
-					/* translators: 1: app-config.php 2: web.config */
 					__( 'We recommend you back up your existing %1$s and %2$s files.' ),
 					'<code>app-config.php</code>',
 					'<code>web.config</code>'
@@ -413,7 +448,6 @@ function network_step2( $errors = false ) {
 			} else {
 				echo '<strong>' . __( 'Caution:' ) . '</strong> ';
 				printf(
-					/* translators: 1: app-config.php */
 					__( 'We recommend you back up your existing %s file.' ),
 					'<code>app-config.php</code>'
 				);
@@ -424,7 +458,6 @@ function network_step2( $errors = false ) {
 ?>
 		<ol>
 			<li><p><?php printf(
-				/* translators: 1: app-config.php 2: location of app-config file, 3: translated version of "That's all, stop editing! Happy blogging." */
 				__( 'Add the following to your %1$s file in %2$s in the multisite network section,' ),
 				'<code>app-config.php</code>',
 				'<code>' . $location_of_wp_config . '</code>'
@@ -438,21 +471,39 @@ define( 'SITE_ID_CURRENT_SITE', 1 );
 define( 'BLOG_ID_CURRENT_SITE', 1 );
 				</pre>
 <?php
-	$keys_salts = array( 'AUTH_KEY' => '', 'SECURE_AUTH_KEY' => '', 'LOGGED_IN_KEY' => '', 'NONCE_KEY' => '', 'AUTH_SALT' => '', 'SECURE_AUTH_SALT' => '', 'LOGGED_IN_SALT' => '', 'NONCE_SALT' => '' );
+	$keys_salts =[
+		'AUTH_KEY'         => '',
+		'SECURE_AUTH_KEY'  => '',
+		'LOGGED_IN_KEY'    => '',
+		'NONCE_KEY'        => '',
+		'AUTH_SALT'        => '',
+		'SECURE_AUTH_SALT' => '',
+		'LOGGED_IN_SALT'   => '',
+		'NONCE_SALT'       => ''
+	];
+
 	foreach ( $keys_salts as $c => $v ) {
-		if ( defined( $c ) )
+
+		if ( defined( $c ) ) {
 			unset( $keys_salts[ $c ] );
+		}
 	}
 
 	if ( ! empty( $keys_salts ) ) {
+
 		$keys_salts_str = '';
-		$from_api = wp_remote_get( 'https://api.wordpress.org/secret-key/1.1/salt/' );
+		$from_api       = wp_remote_get( '' );
+
 		if ( is_wp_error( $from_api ) ) {
+
 			foreach ( $keys_salts as $c => $v ) {
 				$keys_salts_str .= "\ndefine( '$c', '" . wp_generate_password( 64, true, true ) . "' );";
 			}
+
 		} else {
+
 			$from_api = explode( "\n", wp_remote_retrieve_body( $from_api ) );
+
 			foreach ( $keys_salts as $c => $v ) {
 				$keys_salts_str .= "\ndefine( '$c', '" . substr( array_shift( $from_api ), 28, 64 ) . "' );";
 			}
@@ -463,13 +514,11 @@ define( 'BLOG_ID_CURRENT_SITE', 1 );
 		<?php
 			if ( 1 == $num_keys_salts ) {
 				printf(
-					/* translators: 1: app-config.php */
 					__( 'This unique authentication key is also missing from your %s file.' ),
 					'<code>app-config.php</code>'
 				);
 			} else {
 				printf(
-					/* translators: 1: app-config.php */
 					__( 'These unique authentication keys are also missing from your %s file.' ),
 					'<code>app-config.php</code>'
 				);
@@ -484,7 +533,8 @@ define( 'BLOG_ID_CURRENT_SITE', 1 );
 </li>
 <?php
 	if ( iis7_supports_permalinks() ) :
-		// IIS doesn't support RewriteBase, all your RewriteBase are belong to us
+
+		// IIS doesn't support RewriteBase, all your RewriteBase are belong to us.
 		$iis_subdir_match = ltrim( $base, '/' ) . $subdir_match;
 		$iis_rewrite_base = ltrim( $base, '/' ) . $rewrite_base;
 		$iis_subdir_replacement = $subdomain_install ? '' : '{R:1}';
@@ -538,7 +588,6 @@ define( 'BLOG_ID_CURRENT_SITE', 1 );
 
 		echo '<li><p>';
 		printf(
-			/* translators: 1: a filename like .htaccess. 2: a file path. */
 			__( 'Add the following to your %1$s file in %2$s, <strong>replacing</strong> other rules:' ),
 			'<code>web.config</code>',
 			'<code>' . $home_path . '</code>'
@@ -578,7 +627,6 @@ EOF;
 
 		echo '<li><p>';
 		printf(
-			/* translators: 1: a filename like .htaccess. 2: a file path. */
 			__( 'Add the following to your %1$s file in %2$s, <strong>replacing</strong> other rules:' ),
 			'<code>.htaccess</code>',
 			'<code>' . $home_path . '</code>'
@@ -595,7 +643,7 @@ EOF;
 
 	<?php endif; // end IIS/Apache code branches.
 
-	if ( !is_multisite() ) { ?>
+	if ( ! is_multisite() ) { ?>
 		<p><?php _e( 'Once you complete these steps, your network is enabled and configured. You will have to log in again.' ); ?> <a href="<?php echo esc_url( wp_login_url() ); ?>"><?php _e( 'Log In' ); ?></a></p>
 <?php
 	}

@@ -275,7 +275,7 @@ final class Screen {
 
 		} else {
 
-			if ( defined( 'NETWORK_ADMIN' ) && NETWORK_ADMIN ) {
+			if ( defined( 'APP_NETWORK_ADMIN' ) && APP_NETWORK_ADMIN ) {
 				$in_admin = 'network';
 			} elseif ( defined( 'USER_ADMIN' ) && USER_ADMIN ) {
 				$in_admin = 'user';

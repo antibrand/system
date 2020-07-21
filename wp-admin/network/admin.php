@@ -7,7 +7,7 @@
  * @since 3.1.0
  */
 
-define( 'WP_NETWORK_ADMIN', true );
+define( 'APP_NETWORK_ADMIN', true );
 
 // Load the website management system.
 require_once( dirname( dirname( __FILE__ ) ) . '/admin.php' );
