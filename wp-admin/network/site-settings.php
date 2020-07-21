@@ -93,10 +93,12 @@ require( ABSPATH . 'wp-admin/admin-header.php' );
 
 	<h1 id="edit-site"><?php echo $title; ?></h1>
 
-	<ul class="network-site-settings-nav top">
-		<li><a href="<?php echo esc_url( get_home_url( $id, '/' ) ); ?>" class="button"><?php _e( 'Visit' ); ?></a>
-		<li><a href="<?php echo esc_url( get_admin_url( $id ) ); ?>" class="button"><?php _e( 'Dashboard' ); ?></a>
-	</ul>
+	<nav role="navigation">
+		<ul class="network-site-settings-nav top">
+			<li><a href="<?php echo esc_url( get_home_url( $id, '/' ) ); ?>" class="button"><?php _e( 'Visit' ); ?></a>
+			<li><a href="<?php echo esc_url( get_admin_url( $id ) ); ?>" class="button"><?php _e( 'Dashboard' ); ?></a>
+		</ul>
+	</nav>
 
 	<?php
 

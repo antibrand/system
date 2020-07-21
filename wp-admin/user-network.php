@@ -164,7 +164,7 @@ if ( $updated ) { ?>
 			 */
 			$actions = apply_filters( 'myblogs_blog_actions', $actions, $user_blog );
 
-			echo "<p class='my-sites-actions'>" . $actions . '</p>';
+			echo "<p class='user-network-actions'>" . $actions . '</p>';
 
 			// This filter is documented in wp-admin/user-network.php.
 			echo apply_filters( 'myblogs_options', '', $user_blog );
