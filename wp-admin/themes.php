@@ -249,11 +249,13 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 			<form class="search-form"></form>
 		</div>
 
+		<?php if ( ! is_multisite() && current_user_can( 'install_themes' ) ) : ?>
 		<div class="upload-theme-wrap">
 			<div id="upload-theme" class="upload-theme">
 				<?php install_themes_upload(); ?>
 			</div>
 		</div>
+		<?php endif; ?>
 
 	<?php if ( ! validate_current_theme() || isset( $_GET['broken'] ) ) : ?>
 		<div id="message1" class="updated notice is-dismissible">
