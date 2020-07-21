@@ -479,13 +479,13 @@ $submenu['plugins.php'][5] = [
 	'plugins.php'
 ];
 
-$submenu['plugins.php'][10] = [
-	__( 'Extensions' ),
-	'manage_options',
-	'extensions.php'
-];
-
 if ( ! is_multisite() ) {
+
+	$submenu['plugins.php'][10] = [
+		__( 'Extensions' ),
+		'manage_options',
+		'extensions.php'
+	];
 
 	$submenu['plugins.php'][15] = [
 		_x( 'Plugin Editor', 'plugin editor' ),
