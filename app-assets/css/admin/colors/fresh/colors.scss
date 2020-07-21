@@ -289,6 +289,12 @@ optgroup {
 	border-bottom-color: $body_background;
 }
 
+.nav-tab-active,
+.nav-tab-active:hover,
+.nav-tab-active:focus,
+.nav-tab-active:focus:active {
+	background-color: $body_background;
+}
 
 /* Admin Menu: submenu */
 
@@ -1085,7 +1091,7 @@ fieldset {
 
 				&:hover,
 				&:focus {
-					$app_red: !important;
+					color: $app_red !important;
 				}
 			}
 		}

@@ -4440,6 +4440,8 @@ html.wp-toolbar {
 ------------------------------------------------------------------------------*/
 .nav-tab {
   float: right;
+  position: relative;
+  top: 1px;
   border: 1px solid #cccccc;
   border-bottom: none;
   margin-right: 0.5em;
@@ -4475,7 +4477,7 @@ h3 .nav-tab,
 .nav-tab-active:hover,
 .nav-tab-active:focus,
 .nav-tab-active:focus:active {
-  background: inherit;
+  background-color: #ffffff;
 }
 
 h1.nav-tab-wrapper,

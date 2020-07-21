@@ -394,6 +394,13 @@ optgroup {
   color: #ffffff;
 }
 
+.nav-tab-active,
+.nav-tab-active:hover,
+.nav-tab-active:focus,
+.nav-tab-active:focus:active {
+  background-color: #222222;
+}
+
 /**
  * Dashboard
  */

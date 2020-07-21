@@ -1862,6 +1862,8 @@ html.wp-toolbar {
 
 .nav-tab {
 	float: left;
+	position: relative;
+	top: 1px;
 	border: 1px solid $pale_gray;
 	border-bottom: none;
 	margin-left: 0.5em; /* half the font size so set the font size properly */
@@ -1891,7 +1893,7 @@ h3 .nav-tab, /* Back-compat for pre-4.4 */
 .nav-tab-active:hover,
 .nav-tab-active:focus,
 .nav-tab-active:focus:active {
-	background: inherit;
+	background-color: $body_background;
 }
 
 h1.nav-tab-wrapper, /* Back-compat for pre-4.4 */

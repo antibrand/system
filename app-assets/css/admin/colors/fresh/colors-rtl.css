@@ -405,6 +405,13 @@ optgroup {
   border-bottom-color: #f1f1f1;
 }
 
+.nav-tab-active,
+.nav-tab-active:hover,
+.nav-tab-active:focus,
+.nav-tab-active:focus:active {
+  background-color: #f1f1f1;
+}
+
 /* Admin Menu: submenu */
 #adminmenu .wp-submenu,
 #adminmenu .wp-has-current-submenu .wp-submenu,
@@ -1109,6 +1116,10 @@ fieldset.scheme-list {
 }
 
 .app-admin .acf-field-object.open > .handle a.delete-field {
+  color: #dd0000 !important;
+}
+
+.app-admin .acf-field-object.open > .handle a.delete-field:hover, .app-admin .acf-field-object.open > .handle a.delete-field:focus {
   color: #dd0000 !important;
 }
 

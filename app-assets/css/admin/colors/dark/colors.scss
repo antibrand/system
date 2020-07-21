@@ -319,6 +319,13 @@ optgroup {
 	}
 }
 
+.nav-tab-active,
+.nav-tab-active:hover,
+.nav-tab-active:focus,
+.nav-tab-active:focus:active {
+	background-color: $body_background;
+}
+
 /**
  * Dashboard
  */
