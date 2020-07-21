@@ -426,6 +426,13 @@ class List_Table {
 				esc_html_x( 'Add New', 'user' )
 			);
 
+		} elseif ( 'themes' == $this->screen->id && is_multisite() && current_user_can( 'upload_themes' ) ) {
+			$add_new = sprintf(
+				'<li class="list-table-add-new"><button id="upload-theme-toggle" href="%1s" class="upload-view-toggle button">%2s</button></li>',
+				esc_url( admin_url( $post_new_file ) ),
+				esc_html( 'Upload Theme' )
+			);
+
 		} elseif ( 'users' == $this->screen->id && current_user_can( 'create_users' ) ) {
 			$add_new = sprintf(
 				'<li class="list-table-add-new"><a href="%1s" class="button">%2s</a></li>',
