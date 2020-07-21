@@ -13,6 +13,14 @@
 // function wp_admin_css() {}
 // function wp_admin_css_uri() {}
 
-function wp_lostpassword_url() {
-	return app_lostpassword_url();
+if ( ! function_exists( 'wp_lostpassword_url' ) ) {
+	function wp_lostpassword_url() {
+		return app_lostpassword_url();
+	}
+}
+
+if ( ! function_exists( 'is_multisite' ) ) {
+	function is_multisite() {
+		return is_network();
+	}
 }
