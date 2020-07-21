@@ -63,7 +63,7 @@ if ( is_network() ) {
 	$submenu['index.php'][5] = [
 		__( 'Network' ),
 		'read',
-		'my-sites.php'
+		'user-network.php'
 	];
 }
 

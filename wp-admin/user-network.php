@@ -29,7 +29,7 @@ $updated = false;
 
 if ( 'updateblogsettings' == $action && isset( $_POST['primary_blog'] ) ) {
 
-	check_admin_referer( 'update-my-sites' );
+	check_admin_referer( 'update-user-network' );
 
 	$blog = get_site( (int) $_POST['primary_blog'] );
 
@@ -166,7 +166,7 @@ if ( $updated ) { ?>
 
 			echo "<p class='my-sites-actions'>" . $actions . '</p>';
 
-			// This filter is documented in wp-admin/my-sites.php.
+			// This filter is documented in wp-admin/user-network.php.
 			echo apply_filters( 'myblogs_options', '', $user_blog );
 			echo "</li>";
 
@@ -179,7 +179,7 @@ if ( $updated ) { ?>
 		?>
 		<input type="hidden" name="action" value="updateblogsettings" />
 
-		<?php wp_nonce_field( 'update-my-sites' ); ?>
+		<?php wp_nonce_field( 'update-user-network' ); ?>
 
 		<p><?php submit_button(); ?></p>
 

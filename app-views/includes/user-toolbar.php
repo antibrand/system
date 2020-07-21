@@ -370,13 +370,13 @@ function wp_admin_bar_my_sites_menu( $wp_admin_bar ) {
 	}
 
 	if ( $wp_admin_bar->user->active_blog ) {
-		$my_sites_url = get_admin_url( $wp_admin_bar->user->active_blog->blog_id, 'my-sites.php' );
+		$my_sites_url = get_admin_url( $wp_admin_bar->user->active_blog->blog_id, 'user-network.php' );
 	} else {
-		$my_sites_url = admin_url( 'my-sites.php' );
+		$my_sites_url = admin_url( 'user-network.php' );
 	}
 
 	$wp_admin_bar->add_menu( [
-		'id'    => 'my-sites',
+		'id'    => 'user-network',
 		'title' => __( 'Network Sites' ),
 		'href'  => $my_sites_url,
 	] );
@@ -384,12 +384,12 @@ function wp_admin_bar_my_sites_menu( $wp_admin_bar ) {
 	if ( current_user_can( 'manage_network' ) ) {
 
 		$wp_admin_bar->add_group( [
-			'parent' => 'my-sites',
-			'id'     => 'my-sites-super-admin',
+			'parent' => 'user-network',
+			'id'     => 'user-network-super-admin',
 		] );
 
 		$wp_admin_bar->add_menu( [
-			'parent' => 'my-sites-super-admin',
+			'parent' => 'user-network-super-admin',
 			'id'     => 'network-admin',
 			'title'  => __( 'Network Admin' ),
 			'href'   => network_admin_url(),
@@ -455,8 +455,8 @@ function wp_admin_bar_my_sites_menu( $wp_admin_bar ) {
 
 	// Add site links
 	$wp_admin_bar->add_group( [
-		'parent' => 'my-sites',
-		'id'     => 'my-sites-list',
+		'parent' => 'user-network',
+		'id'     => 'user-network-list',
 		'meta'   => [
 			'class' => current_user_can( 'manage_network' ) ? 'ab-sub-secondary' : '',
 		],
@@ -478,7 +478,7 @@ function wp_admin_bar_my_sites_menu( $wp_admin_bar ) {
 		if ( current_user_can( 'read' ) ) {
 
 			$wp_admin_bar->add_menu( [
-				'parent' => 'my-sites-list',
+				'parent' => 'user-network-list',
 				'id'     => $menu_id,
 				'title'  => $blavatar . $blogname,
 				'href'   => admin_url(),
@@ -494,7 +494,7 @@ function wp_admin_bar_my_sites_menu( $wp_admin_bar ) {
 		} else {
 
 			$wp_admin_bar->add_menu( [
-				'parent' => 'my-sites-list',
+				'parent' => 'user-network-list',
 				'id'     => $menu_id,
 				'title'  => $blavatar . $blogname,
 				'href'   => home_url(),

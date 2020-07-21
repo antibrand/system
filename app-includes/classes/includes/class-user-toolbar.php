@@ -184,7 +184,7 @@ class User_Toolbar {
 
 		$back_compat_parents = [
 			'my-account-with-avatar' => [ 'my-account', '3.3' ],
-			'my-blogs'               => [ 'my-sites',   '3.3' ],
+			'my-blogs'               => [ 'user-network',   '3.3' ],
 		];
 
 		if ( isset( $back_compat_parents[ $args['parent'] ] ) ) {
