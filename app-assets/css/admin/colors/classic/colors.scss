@@ -1,9 +1,5 @@
 /**
- * Classic (Fresh) color scheme
- */
-
-/**
- * Classic (Fresh) color scheme
+ * Classic color scheme
  */
 
 // Import theme variables.
@@ -600,6 +596,15 @@ div.mce-statusbar,
 	border-color: $form_border_color !important;
 }
 
+.mce-menu .mce-menu-item:hover,
+.mce-menu .mce-menu-item.mce-selected,
+.mce-menu .mce-menu-item:focus,
+.mce-menu .mce-menu-item-normal.mce-active,
+.mce-menu .mce-menu-item-preview.mce-active {
+	background: $button_action_background_color;
+	color: $button_text_color;
+}
+
 .wp-editor-expand #wp-content-editor-tools {
 	background-color: $body_background;
 	border-color: $form_border_color !important;
@@ -912,6 +917,49 @@ ul.add-menu-item-tabs li.tabs,
 
 .theme-browser .theme:hover {
 	border-color: $form_action_border_color !important;
+}
+
+/**
+ * Editor pages
+ *
+ * Theme and plugin code editor screens.
+ */
+.CodeMirror-scrollbar-filler,
+.CodeMirror-gutter-filler,
+#templateside {
+	background-color: $body_background;
+}
+
+#template textarea,
+#template .CodeMirror,
+#templateside > ul {
+	border-color: $box_border_color;
+}
+
+#templateside {
+
+	a {
+		color: $text_color;
+
+		&:hover,
+		&:focus {
+			color: $link_color;
+		}
+	}
+
+	.current-file {
+
+		a {
+			background-color: $app_highlight_color;
+			color: $white;
+
+			&:hover,
+			&:focus {
+				background-color: $app_highlight_color;
+				color: $white;
+			}
+		}
+	}
 }
 
 /**

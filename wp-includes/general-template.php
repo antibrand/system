@@ -4006,8 +4006,8 @@ function register_admin_color_schemes() {
 		[ 'base' => '#888888', 'focus' => '#3ad4fb', 'current' => '#ffffff' ]
 	);
 
-	wp_admin_css_color( 'fresh', _x( 'Fresh (Classic)', 'admin color scheme' ),
-		app_assets_url( "css/admin/colors/fresh/colors$suffix.css" ),
+	wp_admin_css_color( 'classic', _x( 'Classic', 'admin color scheme' ),
+		app_assets_url( "css/admin/colors/classic/colors$suffix.css" ),
 		[ '#23282d', '#444444', '#0073aa', '#00a0d2' ],
 		[ 'base' => '#a0a5aa', 'focus' => '#00a0d2', 'current' => '#ffffff' ]
 	);
