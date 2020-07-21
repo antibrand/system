@@ -49,7 +49,7 @@ if ( get_option( 'db_upgraded' ) ) {
 
 } elseif ( get_option( 'db_version' ) != $wp_db_version && empty( $_POST ) ) {
 
-	if ( ! is_multisite() ) {
+	if ( ! is_network() ) {
 
 		wp_redirect( admin_url( 'upgrade.php?_wp_http_referer=' . urlencode( wp_unslash( $_SERVER['REQUEST_URI'] ) ) ) );
 

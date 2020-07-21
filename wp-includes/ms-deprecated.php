@@ -49,10 +49,10 @@ function generate_random_password( $len = 8 ) {
 /**
  * Determine if user is a site admin.
  *
- * Plugins should use is_multisite() instead of checking if this function exists
+ * Plugins should use is_network() instead of checking if this function exists
  * to determine if multisite is enabled.
  *
- * This function must reside in a file included only if is_multisite() due to
+ * This function must reside in a file included only if is_network() due to
  * legacy function_exists() checks to determine if multisite is enabled.
  *
  * @since MU (3.0.0)

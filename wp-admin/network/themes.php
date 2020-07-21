@@ -435,7 +435,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
 	?>
 
-	<?php if ( is_multisite() && current_user_can( 'install_themes' ) ) : ?>
+	<?php if ( is_network() && current_user_can( 'install_themes' ) ) : ?>
 	<div class="upload-theme-wrap">
 		<div id="upload-network-theme" class="upload-theme">
 			<?php install_themes_upload(); ?>

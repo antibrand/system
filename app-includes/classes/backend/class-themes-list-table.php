@@ -107,7 +107,7 @@ class Themes_List_Table extends List_Table {
 
 		$blog_id = get_current_blog_id();
 
-		if ( is_multisite() ) {
+		if ( is_network() ) {
 
 			if ( current_user_can( 'install_themes' ) && current_user_can( 'manage_network_themes' ) ) {
 
@@ -223,7 +223,7 @@ class Themes_List_Table extends List_Table {
 					. __( 'Live Preview' ) . '</button>';
 			}
 
-			if ( ! is_multisite() && current_user_can( 'delete_themes' ) ) {
+			if ( ! is_network() && current_user_can( 'delete_themes' ) ) {
 
 				$actions['delete'] = '<a class="submitdelete deletion" href="' . wp_nonce_url( 'themes.php?action=delete&amp;stylesheet=' . urlencode( $stylesheet ), 'delete-theme_' . $stylesheet )
 					. '" onclick="' . "return confirm( '" . esc_js( sprintf( __( "You are about to delete this theme '%s'\n  'Cancel' to stop, 'OK' to delete." ), $title ) )

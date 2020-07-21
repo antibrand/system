@@ -1499,7 +1499,7 @@ class Dashboard {
 	 */
 	public function dashboard_quota() {
 
-		if ( ! is_multisite() || !current_user_can( 'upload_files' ) || get_site_option( 'upload_space_check_disabled' ) ) {
+		if ( ! is_network() || !current_user_can( 'upload_files' ) || get_site_option( 'upload_space_check_disabled' ) ) {
 			return true;
 		}
 

@@ -230,7 +230,7 @@ function get_author_user_ids() {
 	_deprecated_function( __FUNCTION__, '3.1.0', 'get_users()' );
 
 	global $wpdb;
-	if ( !is_multisite() )
+	if ( !is_network() )
 		$level_key = $wpdb->get_blog_prefix() . 'user_level';
 	else
 		$level_key = $wpdb->get_blog_prefix() . 'capabilities'; // wpmu site admins don't have user_levels
@@ -292,7 +292,7 @@ function get_editable_user_ids( $user_id, $exclude_zeros = true, $post_type = 'p
 			return array();
 	}
 
-	if ( !is_multisite() )
+	if ( !is_network() )
 		$level_key = $wpdb->get_blog_prefix() . 'user_level';
 	else
 		$level_key = $wpdb->get_blog_prefix() . 'capabilities'; // wpmu site admins don't have user_levels
@@ -316,7 +316,7 @@ function get_nonauthor_user_ids() {
 
 	global $wpdb;
 
-	if ( !is_multisite() )
+	if ( !is_network() )
 		$level_key = $wpdb->get_blog_prefix() . 'user_level';
 	else
 		$level_key = $wpdb->get_blog_prefix() . 'capabilities'; // wpmu site admins don't have user_levels
@@ -543,7 +543,7 @@ class WP_User_Search {
 		if ( $this->role ) {
 			$this->query_from .= " INNER JOIN $wpdb->usermeta ON $wpdb->users.ID = $wpdb->usermeta.user_id";
 			$this->query_where .= $wpdb->prepare(" AND $wpdb->usermeta.meta_key = '{$wpdb->prefix}capabilities' AND $wpdb->usermeta.meta_value LIKE %s", '%' . $this->role . '%');
-		} elseif ( is_multisite() ) {
+		} elseif ( is_network() ) {
 			$level_key = $wpdb->prefix . 'capabilities'; // wpmu site admins don't have user_levels
 			$this->query_from .= ", $wpdb->usermeta";
 			$this->query_where .= " AND $wpdb->users.ID = $wpdb->usermeta.user_id AND meta_key = '{$level_key}'";

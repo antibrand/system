@@ -193,7 +193,7 @@ if ( wp_is_mobile() ) {
 	$admin_body_class .= ' mobile';
 }
 
-if ( is_multisite() ) {
+if ( is_network() ) {
 	$admin_body_class .= ' multisite';
 }
 

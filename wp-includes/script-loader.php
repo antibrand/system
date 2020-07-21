@@ -137,7 +137,7 @@ function wp_default_scripts( &$scripts ) {
 	// `wpApiSettings` is also used by `wp-api`, which depends on this script.
 	did_action( 'init' ) && $scripts->localize( 'wp-api-request', 'wpApiSettings', [
 		'root'          => esc_url_raw( get_rest_url() ),
-		'nonce'         => ( wp_installing() && ! is_multisite() ) ? '' : wp_create_nonce( 'wp_rest' ),
+		'nonce'         => ( wp_installing() && ! is_network() ) ? '' : wp_create_nonce( 'wp_rest' ),
 		'versionString' => 'wp/v2/',
 	] );
 
@@ -903,7 +903,7 @@ function wp_default_styles( &$styles ) {
 		$guessurl = wp_guess_url();
 	}
 
-	if ( is_multisite() ) {
+	if ( is_network() ) {
 		$styles->base_url = network_site_url();
 	} else {
 		$styles->base_url = $guessurl;

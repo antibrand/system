@@ -103,7 +103,7 @@ $action_links .= sprintf(
 	__( '<strong>Edit</strong> takes you to the editable profile screen for that user. You can also reach that screen by clicking on the username.' )
 );
 
-if ( is_multisite() ) {
+if ( is_network() ) {
 	$action_links .= sprintf(
 		'<li>%1s</li>',
 		__( '<strong>Remove</strong> allows you to remove a user from your site. It does not delete their content. You can also remove multiple users at once by using Bulk Actions.' )
@@ -196,13 +196,13 @@ case 'promote':
 
 		// The new role of the current user must also have the promote_users cap or be a multisite super admin.
 		if ( $id == $current_user->ID && ! $wp_roles->role_objects[ $role ]->has_cap( 'promote_users' )
-			&& ! ( is_multisite() && current_user_can( 'manage_network_users' ) ) ) {
+			&& ! ( is_network() && current_user_can( 'manage_network_users' ) ) ) {
 				$update = 'err_admin_role';
 				continue;
 		}
 
 		// If the user doesn't already belong to the blog, bail.
-		if ( is_multisite() && ! is_user_member_of_blog( $id ) ) {
+		if ( is_network() && ! is_user_member_of_blog( $id ) ) {
 			wp_die(
 				'<h1>' . __( 'Something went wrong.' ) . '</h1>' .
 				'<p>' . __( 'One of the selected users is not a member of this site.' ) . '</p>',
@@ -220,7 +220,7 @@ case 'promote':
 
 case 'dodelete':
 
-	if ( is_multisite() ) {
+	if ( is_network() ) {
 		wp_die( __( 'User deletion is not allowed from this screen.' ), 400 );
 	}
 
@@ -284,7 +284,7 @@ case 'dodelete':
 
 case 'delete':
 
-	if ( is_multisite() ) {
+	if ( is_network() ) {
 		wp_die( __( 'User deletion is not allowed from this screen.' ), 400 );
 	}
 
@@ -415,7 +415,7 @@ break;
 case 'doremove':
 	check_admin_referer( 'remove-users' );
 
-	if ( ! is_multisite() ) {
+	if ( ! is_network() ) {
 		wp_die( __( 'You can\'t remove users.' ), 400 );
 	}
 
@@ -451,7 +451,7 @@ case 'remove':
 
 	check_admin_referer( 'bulk-users' );
 
-	if ( ! is_multisite() ) {
+	if ( ! is_network() ) {
 		wp_die( __( 'You can\'t remove users.' ), 400 );
 	}
 

@@ -152,7 +152,7 @@ function wp_install_defaults( $user_id ) {
 	$now_gmt = current_time( 'mysql', 1 );
 	$first_post_guid = get_option( 'home' ) . '/?p=1';
 
-	if ( is_multisite() ) {
+	if ( is_network() ) {
 		$first_post = get_site_option( 'first_post' );
 
 		if ( ! $first_post ) {
@@ -190,7 +190,7 @@ function wp_install_defaults( $user_id ) {
 	$wpdb->insert( $wpdb->term_relationships, array('term_taxonomy_id' => $cat_tt_id, 'object_id' => 1) );
 
 	// Default comment
-	if ( is_multisite() ) {
+	if ( is_network() ) {
 		$first_comment_author = get_site_option( 'first_comment_author' );
 		$first_comment_email = get_site_option( 'first_comment_email' );
 		$first_comment_url = get_site_option( 'first_comment_url', network_home_url() );
@@ -213,7 +213,7 @@ To get started with moderating, editing, and deleting comments, please visit the
 	));
 
 	// First Page
-	if ( is_multisite() )
+	if ( is_network() )
 		$first_page = get_site_option( 'first_page' );
 
 	$first_page = ! empty( $first_page ) ? $first_page : sprintf( __( 'This is an sample page. It\'s different from a blog post because it will stay in one place. Pages are typically used for static content such as introductory text and contact information.' ), admin_url() );
@@ -239,7 +239,7 @@ To get started with moderating, editing, and deleting comments, please visit the
 	$wpdb->insert( $wpdb->postmeta, array( 'post_id' => 2, 'meta_key' => '_wp_page_template', 'meta_value' => 'default' ) );
 
 	// Privacy Policy page
-	if ( is_multisite() ) {
+	if ( is_network() ) {
 		// Disable by default unless the suggested content is provided.
 		$privacy_policy_content = get_site_option( 'default_privacy_policy_content' );
 	} else {
@@ -359,13 +359,13 @@ To get started with moderating, editing, and deleting comments, please visit the
 		)
 	);
 
-	if ( ! is_multisite() ) {
+	if ( ! is_network() ) {
 		update_user_meta( $user_id, 'show_top_panel', 1 );
 	} elseif ( ! is_super_admin( $user_id ) && ! metadata_exists( 'user', $user_id, 'show_top_panel' ) ) {
 		update_user_meta( $user_id, 'show_top_panel', 2 );
 	}
 
-	if ( is_multisite() ) {
+	if ( is_network() ) {
 
 		// Flush rules to pick up the new page.
 		$wp_rewrite->init();
@@ -511,11 +511,11 @@ function wp_upgrade() {
 	pre_schema_upgrade();
 	make_db_current_silent();
 	upgrade_all();
-	if ( is_multisite() && is_main_site() )
+	if ( is_network() && is_main_site() )
 		upgrade_network();
 	wp_cache_flush();
 
-	if ( is_multisite() ) {
+	if ( is_network() ) {
 		$site_id = get_current_blog_id();
 
 		if ( $wpdb->get_row( $wpdb->prepare( "SELECT blog_id FROM {$wpdb->blog_versions} WHERE blog_id = %d", $site_id ) ) ) {
@@ -1330,7 +1330,7 @@ function upgrade_280() {
 
 	if ( $wp_current_db_version < 10360 )
 		populate_roles_280();
-	if ( is_multisite() ) {
+	if ( is_network() ) {
 		$start = 0;
 		while( $rows = $wpdb->get_results( "SELECT option_name, option_value FROM $wpdb->options ORDER BY option_id LIMIT $start, 20" ) ) {
 			foreach ( $rows as $row ) {
@@ -1382,7 +1382,7 @@ function upgrade_300() {
 	if ( $wp_current_db_version < 15093 )
 		populate_roles_300();
 
-	if ( $wp_current_db_version < 14139 && is_multisite() && is_main_site() && ! defined( 'APP_NETWORK' ) && get_site_option( 'siteurl' ) === false )
+	if ( $wp_current_db_version < 14139 && is_network() && is_main_site() && ! defined( 'APP_NETWORK' ) && get_site_option( 'siteurl' ) === false )
 		add_site_option( 'siteurl', '' );
 
 	// 3.0 screen options key name changes.
@@ -1608,7 +1608,7 @@ function upgrade_380() {
 function upgrade_400() {
 	global $wp_current_db_version;
 	if ( $wp_current_db_version < 29630 ) {
-		if ( ! is_multisite() && false === get_option( 'APP_LANG' ) ) {
+		if ( ! is_network() && false === get_option( 'APP_LANG' ) ) {
 			if ( defined( 'APP_LANG' ) && ( '' !== APP_LANG ) && in_array( APP_LANG, get_available_languages() ) ) {
 				update_option( 'APP_LANG', APP_LANG );
 			} else {
@@ -1652,7 +1652,7 @@ function upgrade_430() {
 	}
 
 	if ( $wp_current_db_version < 33055 && 'utf8mb4' === $wpdb->charset ) {
-		if ( is_multisite() ) {
+		if ( is_network() ) {
 			$tables = $wpdb->tables( 'blog' );
 		} else {
 			$tables = $wpdb->tables( 'all' );
@@ -1775,7 +1775,7 @@ function upgrade_450() {
 	}
 
 	// Remove unused email confirmation options, moved to usermeta.
-	if ( $wp_current_db_version < 36679 && is_multisite() ) {
+	if ( $wp_current_db_version < 36679 && is_network() ) {
 		$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name REGEXP '^[0-9]+_new_email$'" );
 	}
 
@@ -2875,7 +2875,7 @@ function pre_schema_upgrade() {
 	}
 
 	// Multisite schema upgrades.
-	if ( $wp_current_db_version < 25448 && is_multisite() && wp_should_upgrade_global_tables() ) {
+	if ( $wp_current_db_version < 25448 && is_network() && wp_should_upgrade_global_tables() ) {
 
 		// Upgrade versions prior to 3.7
 		if ( $wp_current_db_version < 25179 ) {
@@ -2893,7 +2893,7 @@ function pre_schema_upgrade() {
 
 	// Upgrade versions prior to 4.2.
 	if ( $wp_current_db_version < 31351 ) {
-		if ( ! is_multisite() && wp_should_upgrade_global_tables() ) {
+		if ( ! is_network() && wp_should_upgrade_global_tables() ) {
 			$wpdb->query( "ALTER TABLE $wpdb->usermeta DROP INDEX meta_key, ADD INDEX meta_key(meta_key(191))" );
 		}
 		$wpdb->query( "ALTER TABLE $wpdb->terms DROP INDEX slug, ADD INDEX slug(slug(191))" );

@@ -1957,13 +1957,13 @@ function _wp_upload_dir( $time = null ) {
 	 * Honor the value of UPLOADS. This happens as long as ms-files rewriting is disabled.
 	 * We also sometimes obey UPLOADS when rewriting is enabled -- see the next block.
 	 */
-	if ( defined( 'UPLOADS' ) && ! ( is_multisite() && get_site_option( 'ms_files_rewriting' ) ) ) {
+	if ( defined( 'UPLOADS' ) && ! ( is_network() && get_site_option( 'ms_files_rewriting' ) ) ) {
 		$dir = ABSPATH . UPLOADS;
 		$url = trailingslashit( $siteurl ) . UPLOADS;
 	}
 
 	// If multisite (and if not the main site in a post-MU network)
-	if ( is_multisite() && ! ( is_main_network() && is_main_site() && defined( 'APP_NETWORK' ) ) ) {
+	if ( is_network() && ! ( is_main_network() && is_main_site() && defined( 'APP_NETWORK' ) ) ) {
 
 		if ( ! get_site_option( 'ms_files_rewriting' ) ) {
 			/*
@@ -4341,7 +4341,7 @@ function wp_suspend_cache_invalidation( $suspend = true ) {
  *              running Multisite.
  */
 function is_main_site( $site_id = null, $network_id = null ) {
-	if ( ! is_multisite() ) {
+	if ( ! is_network() ) {
 		return true;
 	}
 
@@ -4364,7 +4364,7 @@ function is_main_site( $site_id = null, $network_id = null ) {
  * @return int The ID of the main site.
  */
 function get_main_site_id( $network_id = null ) {
-	if ( ! is_multisite() ) {
+	if ( ! is_network() ) {
 		return get_current_blog_id();
 	}
 
@@ -4385,7 +4385,7 @@ function get_main_site_id( $network_id = null ) {
  * @return bool True if $network_id is the main network, or if not running Multisite.
  */
 function is_main_network( $network_id = null ) {
-	if ( ! is_multisite() ) {
+	if ( ! is_network() ) {
 		return true;
 	}
 
@@ -4406,7 +4406,7 @@ function is_main_network( $network_id = null ) {
  * @return int The ID of the main network.
  */
 function get_main_network_id() {
-	if ( ! is_multisite() ) {
+	if ( ! is_network() ) {
 		return 1;
 	}
 
@@ -4442,7 +4442,7 @@ function get_main_network_id() {
  * @return bool True if multisite and global terms enabled.
  */
 function global_terms_enabled() {
-	if ( ! is_multisite() )
+	if ( ! is_network() )
 		return false;
 
 	static $global_terms = null;

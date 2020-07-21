@@ -4196,7 +4196,7 @@ function sanitize_option( $option, $value ) {
 
 		case 'APP_LANG':
 			$allowed = get_available_languages();
-			if ( ! is_multisite() && defined( 'APP_LANG' ) && '' !== APP_LANG && 'en_US' !== APP_LANG ) {
+			if ( ! is_network() && defined( 'APP_LANG' ) && '' !== APP_LANG && 'en_US' !== APP_LANG ) {
 				$allowed[] = APP_LANG;
 			}
 			if ( ! in_array( $value, $allowed ) && ! empty( $value ) ) {

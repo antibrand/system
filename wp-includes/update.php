@@ -72,7 +72,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	else
 		$mysql_version = 'N/A';
 
-	if ( is_multisite() ) {
+	if ( is_network() ) {
 		$user_count = get_user_count();
 		$num_blogs = get_blog_count();
 		$wp_install = network_site_url();

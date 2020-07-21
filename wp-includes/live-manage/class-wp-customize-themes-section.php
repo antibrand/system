@@ -72,7 +72,7 @@ class WP_Customize_Themes_Section extends WP_Customize_Section {
 		?>
 		<li id="accordion-section-{{ data.id }}" class="theme theme-section">
 			<button type="button" class="customize-themes-section-title themes-section-{{ data.id }}">{{ data.title }}</button>
-			<?php if ( current_user_can( 'install_themes' ) || is_multisite() ) : // @todo: upload support ?>
+			<?php if ( current_user_can( 'install_themes' ) || is_network() ) : // @todo: upload support ?>
 			<?php endif; ?>
 			<div class="customize-themes-section themes-section-{{ data.id }} control-section-content themes-php">
 				<div class="theme-browser rendered">

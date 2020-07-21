@@ -477,7 +477,7 @@ class WP_User {
 	 */
 	public function get_role_caps() {
 		$switch_site = false;
-		if ( is_multisite() && $this->site_id != get_current_blog_id() ) {
+		if ( is_network() && $this->site_id != get_current_blog_id() ) {
 			$switch_site = true;
 
 			switch_to_blog( $this->site_id );
@@ -722,7 +722,7 @@ class WP_User {
 		$caps = call_user_func_array( 'map_meta_cap', $args );
 
 		// Multisite super admin has all caps by definition, Unless specifically denied.
-		if ( is_multisite() && is_super_admin( $this->ID ) ) {
+		if ( is_network() && is_super_admin( $this->ID ) ) {
 			if ( in_array('do_not_allow', $caps) )
 				return false;
 			return true;

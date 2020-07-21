@@ -131,7 +131,7 @@ function wp_admin_bar_my_account_item( $wp_admin_bar ) {
 
 	if ( current_user_can( 'read' ) ) {
 		$profile_url = get_edit_profile_url( $user_id );
-	} elseif ( is_multisite() ) {
+	} elseif ( is_network() ) {
 		$profile_url = get_dashboard_url( $user_id, 'profile.php' );
 	} else {
 		$profile_url = false;
@@ -181,7 +181,7 @@ function wp_admin_bar_my_account_menu( $wp_admin_bar ) {
 
 	if ( current_user_can( 'read' ) ) {
 		$profile_url = get_edit_profile_url( $user_id );
-	} elseif ( is_multisite() ) {
+	} elseif ( is_network() ) {
 		$profile_url = get_dashboard_url( $user_id, 'profile.php' );
 	} else {
 		$profile_url = false;
@@ -283,7 +283,7 @@ function wp_admin_bar_site_menu( $wp_admin_bar ) {
 	// Create submenu items.
 	if ( is_admin() ) {
 
-		if ( is_blog_admin() && is_multisite() && current_user_can( 'manage_sites' ) ) {
+		if ( is_blog_admin() && is_network() && current_user_can( 'manage_sites' ) ) {
 			$wp_admin_bar->add_menu( [
 				'parent' => 'site-name',
 				'id'     => 'edit-site',
@@ -360,7 +360,7 @@ function wp_admin_bar_customize_menu( $wp_admin_bar ) {
 function wp_admin_bar_my_sites_menu( $wp_admin_bar ) {
 
 	// Don't show for logged out users or single site mode.
-	if ( ! is_user_logged_in() || ! is_multisite() ) {
+	if ( ! is_user_logged_in() || ! is_network() ) {
 		return;
 	}
 
@@ -730,7 +730,7 @@ function wp_admin_bar_new_content_menu( $wp_admin_bar ) {
 		$actions['post-new.php?post_type=content'][1] = 'add-new-content';
 	}
 
-	if ( current_user_can( 'create_users' ) || ( is_multisite() && current_user_can( 'promote_users' ) ) ) {
+	if ( current_user_can( 'create_users' ) || ( is_network() && current_user_can( 'promote_users' ) ) ) {
 		$actions[ 'user-new.php' ] = array( _x( 'User', 'add new from user toolbar' ), 'new-user' );
 	}
 

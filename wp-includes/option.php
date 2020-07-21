@@ -186,7 +186,7 @@ function form_option( $option ) {
 function wp_load_alloptions() {
 	global $wpdb;
 
-	if ( ! wp_installing() || ! is_multisite() ) {
+	if ( ! wp_installing() || ! is_network() ) {
 		$alloptions = wp_cache_get( 'alloptions', 'options' );
 	} else {
 		$alloptions = false;
@@ -204,7 +204,7 @@ function wp_load_alloptions() {
 			$alloptions[$o->option_name] = $o->option_value;
 		}
 
-		if ( ! wp_installing() || ! is_multisite() ) {
+		if ( ! wp_installing() || ! is_network() ) {
 			/**
 			 * Filters all options before caching them.
 			 *
@@ -228,7 +228,7 @@ function wp_load_alloptions() {
 }
 
 /**
- * Loads and caches certain often requested site options if is_multisite() and a persistent cache is not being used.
+ * Loads and caches certain often requested site options if is_network() and a persistent cache is not being used.
  *
  * @since 3.0.0
  *
@@ -239,7 +239,7 @@ function wp_load_alloptions() {
 function wp_load_core_site_options( $network_id = null ) {
 	global $wpdb;
 
-	if ( ! is_multisite() || wp_using_ext_object_cache() || wp_installing() )
+	if ( ! is_network() || wp_using_ext_object_cache() || wp_installing() )
 		return;
 
 	if ( empty($network_id) )
@@ -842,7 +842,7 @@ function delete_expired_transients( $force_db = false ) {
 		time()
 	) );
 
-	if ( ! is_multisite() ) {
+	if ( ! is_network() ) {
 		// non-Multisite stores site transients in the options table.
 		$wpdb->query( $wpdb->prepare(
 			"DELETE a, b FROM {$wpdb->options} a, {$wpdb->options} b
@@ -854,7 +854,7 @@ function delete_expired_transients( $force_db = false ) {
 			$wpdb->esc_like( '_site_transient_timeout_' ) . '%',
 			time()
 		) );
-	} elseif ( is_multisite() && is_main_site() && is_main_network() ) {
+	} elseif ( is_network() && is_main_site() && is_main_network() ) {
 		// Multisite stores site transients in the sitemeta table.
 		$wpdb->query( $wpdb->prepare(
 			"DELETE a, b FROM {$wpdb->sitemeta} a, {$wpdb->sitemeta} b
@@ -1236,7 +1236,7 @@ function get_network_option( $network_id, $option, $default = false ) {
 		return apply_filters( "default_site_option_{$option}", $default, $option, $network_id );
 	}
 
-	if ( ! is_multisite() ) {
+	if ( ! is_network() ) {
 		/** This filter is documented in wp-includes/option.php */
 		$default = apply_filters( 'default_site_option_' . $option, $default, $option, $network_id );
 		$value = get_option( $option, $default );
@@ -1332,7 +1332,7 @@ function add_network_option( $network_id, $option, $value ) {
 
 	$notoptions_key = "$network_id:notoptions";
 
-	if ( ! is_multisite() ) {
+	if ( ! is_network() ) {
 		$result = add_option( $option, $value, '', 'no' );
 	} else {
 		$cache_key = "$network_id:$option";
@@ -1440,7 +1440,7 @@ function delete_network_option( $network_id, $option ) {
 	 */
 	do_action( "pre_delete_site_option_{$option}", $option, $network_id );
 
-	if ( ! is_multisite() ) {
+	if ( ! is_network() ) {
 		$result = delete_option( $option );
 	} else {
 		$row = $wpdb->get_row( $wpdb->prepare( "SELECT meta_id FROM {$wpdb->sitemeta} WHERE meta_key = %s AND site_id = %d", $option, $network_id ) );
@@ -1550,7 +1550,7 @@ function update_network_option( $network_id, $option, $value ) {
 		wp_cache_set( $notoptions_key, $notoptions, 'site-options' );
 	}
 
-	if ( ! is_multisite() ) {
+	if ( ! is_network() ) {
 		$result = update_option( $option, $value, 'no' );
 	} else {
 		$value = sanitize_option( $option, $value );
@@ -1832,7 +1832,7 @@ function register_initial_settings() {
 		'description'  => __( 'Site tagline.' ),
 	) );
 
-	if ( ! is_multisite() ) {
+	if ( ! is_network() ) {
 		register_setting( 'general', 'siteurl', array(
 			'show_in_rest' => array(
 				'name'    => 'url',
@@ -1845,7 +1845,7 @@ function register_initial_settings() {
 		) );
 	}
 
-	if ( ! is_multisite() ) {
+	if ( ! is_network() ) {
 		register_setting( 'general', 'admin_email', array(
 			'show_in_rest' => array(
 				'name'    => 'email',

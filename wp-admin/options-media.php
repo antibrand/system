@@ -26,7 +26,7 @@ $help_overview .= sprintf(
 	__( 'You can set maximum sizes for images inserted into your written content; you can also insert an image as Full Size.' )
 );
 
-if ( ! is_multisite() && ( get_option( 'upload_url_path' ) || ( get_option( 'upload_path' ) != 'wp-content/uploads' && get_option( 'upload_path' ) ) ) ) {
+if ( ! is_network() && ( get_option( 'upload_url_path' ) || ( get_option( 'upload_path' ) != 'wp-content/uploads' && get_option( 'upload_path' ) ) ) ) {
 
 	$help_overview .= sprintf(
 		'<p>%1s</p>',
@@ -160,7 +160,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 			</table>
 			<?php endif; ?>
 
-			<?php if ( ! is_multisite() ) :
+			<?php if ( ! is_network() ) :
 
 			?>
 			<h2 class="title"><?php _e( 'Uploading Files' ); ?></h2>

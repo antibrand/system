@@ -543,7 +543,7 @@ function wp_start_object_cache() {
  */
 function wp_not_installed() {
 
-	if ( is_multisite() ) {
+	if ( is_network() ) {
 
 		if ( ! is_blog_installed() && ! wp_installing() ) {
 
@@ -623,7 +623,7 @@ function wp_get_active_and_valid_plugins() {
 	if ( empty( $active_plugins ) || wp_installing() )
 		return $plugins;
 
-	$network_plugins = is_multisite() ? wp_get_active_network_plugins() : false;
+	$network_plugins = is_network() ? wp_get_active_network_plugins() : false;
 
 	foreach ( $active_plugins as $plugin ) {
 		if ( ! validate_file( $plugin ) // $plugin must validate as file
@@ -804,18 +804,20 @@ function is_user_admin() {
 }
 
 /**
- * If Multisite is enabled.
+ * If network is enabled
  *
- * @since 3.0.0
- *
- * @return bool True if Multisite is enabled, false otherwise.
+ * @since  1.0.0
+ * @return bool Returns true if network is enabled, false otherwise.
  */
-function is_multisite() {
-	if ( defined( 'APP_NETWORK' ) )
-		return APP_NETWORK;
+function is_network() {
 
-	if ( defined( 'SUBDOMAIN_INSTALL' ) || defined( 'VHOST' ) || defined( 'SUNRISE' ) )
+	if ( defined( 'APP_NETWORK' ) ) {
+		return APP_NETWORK;
+	}
+
+	if ( defined( 'SUBDOMAIN_INSTALL' ) || defined( 'VHOST' ) || defined( 'SUNRISE' ) ) {
 		return true;
+	}
 
 	return false;
 }
@@ -842,7 +844,7 @@ function get_current_blog_id() {
  * @return int The ID of the current network.
  */
 function get_current_network_id() {
-	if ( ! is_multisite() ) {
+	if ( ! is_network() ) {
 		return 1;
 	}
 

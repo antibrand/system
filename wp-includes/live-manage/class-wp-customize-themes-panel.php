@@ -75,13 +75,13 @@ class WP_Customize_Themes_Panel extends WP_Customize_Panel {
 					echo sprintf( __( 'You are browsing %s' ), '<strong class="panel-title">' . __( 'Themes' ) . '</strong>' ); // Separate strings for consistency with other panels.
 					?>
 				</span>
-				<?php if ( current_user_can( 'install_themes' ) && ! is_multisite() ) : ?>
+				<?php if ( current_user_can( 'install_themes' ) && ! is_network() ) : ?>
 					<# if ( data.description ) { #>
 						<button class="customize-help-toggle dashicons dashicons-editor-help" type="button" aria-expanded="false"><span class="screen-reader-text"><?php _e( 'Help' ); ?></span></button>
 					<# } #>
 				<?php endif; ?>
 			</div>
-			<?php if ( current_user_can( 'install_themes' ) && ! is_multisite() ) : ?>
+			<?php if ( current_user_can( 'install_themes' ) && ! is_network() ) : ?>
 				<# if ( data.description ) { #>
 					<div class="description customize-panel-description">
 						{{{ data.description }}}

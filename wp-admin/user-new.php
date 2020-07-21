@@ -9,7 +9,7 @@
 // Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
-if ( is_multisite() ) {
+if ( is_network() ) {
 	if ( ! current_user_can( 'create_users' ) && ! current_user_can( 'promote_users' ) ) {
 		wp_die(
 			'<h1>' . __( 'You need a higher level of permission.' ) . '</h1>' .
@@ -25,7 +25,7 @@ if ( is_multisite() ) {
 	);
 }
 
-if ( is_multisite() ) {
+if ( is_network() ) {
 	add_filter( 'wpmu_signup_user_notification_email', 'admin_created_user_email' );
 }
 
@@ -135,7 +135,7 @@ Please click the following link to confirm the invite:
 		);
 	}
 
-	if ( ! is_multisite() ) {
+	if ( ! is_network() ) {
 
 		$user_id = edit_user();
 
@@ -212,7 +212,7 @@ $parent_file = 'users.php';
 
 $do_both = false;
 
-if ( is_multisite() && current_user_can( 'promote_users' ) && current_user_can( 'create_users' ) ) {
+if ( is_network() && current_user_can( 'promote_users' ) && current_user_can( 'create_users' ) ) {
 	$do_both = true;
 }
 
@@ -226,7 +226,7 @@ $help_overview .= sprintf(
 	__( 'To add a new user to your site, fill in the form on this screen and click the Add New User button at the bottom.' )
 );
 
-if ( is_multisite() ) {
+if ( is_network() ) {
 
 	$help_overview .= sprintf(
 		'<p>%1s</p>',
@@ -331,7 +331,7 @@ wp_enqueue_script( 'user-profile' );
  * @since Previous 3.4.0
  * @param bool $enable Whether to enable auto-complete for non-super admins. Default false.
  */
-if ( is_multisite() && current_user_can( 'promote_users' ) && ! wp_is_large_network( 'users' )
+if ( is_network() && current_user_can( 'promote_users' ) && ! wp_is_large_network( 'users' )
 	&& ( current_user_can( 'manage_network_users' ) || apply_filters( 'autocomplete_users_for_site_admins', false ) )
 ) {
 	wp_enqueue_script( 'user-suggest' );
@@ -343,7 +343,7 @@ if ( isset( $_GET['update'] ) ) {
 
 	$messages = array();
 
-	if ( is_multisite() ) {
+	if ( is_network() ) {
 
 		$edit_link = '';
 
@@ -430,7 +430,7 @@ if ( ! empty( $messages ) ) {
 <div id="ajax-response"></div>
 
 <?php
-if ( is_multisite() && current_user_can( 'promote_users' ) ) {
+if ( is_network() && current_user_can( 'promote_users' ) ) {
 	if ( $do_both )
 		echo '<h2 id="add-existing-user">' . __( 'Add Existing User' ) . '</h2>';
 	if ( ! current_user_can( 'manage_network_users' ) ) {
@@ -493,7 +493,7 @@ do_action( 'user_new_form', 'add-existing-user' );
 <?php submit_button( __( 'Add Existing User' ), 'primary', 'adduser', true, array( 'id' => 'addusersub' ) ); ?>
 </form>
 <?php
-} // is_multisite()
+} // is_network()
 
 if ( current_user_can( 'create_users') ) {
 	if ( $do_both )
@@ -529,7 +529,7 @@ $new_user_ignore_pass = $creating && isset( $_POST['noconfirmation'] ) ? wp_unsl
 		<th scope="row"><label for="email"><?php _e('Email'); ?> <span class="description"><?php _e('(required)'); ?></span></label></th>
 		<td><input name="email" type="email" id="email" value="<?php echo esc_attr( $new_user_email ); ?>" /></td>
 	</tr>
-<?php if ( !is_multisite() ) { ?>
+<?php if ( !is_network() ) { ?>
 	<tr class="form-field">
 		<th scope="row"><label for="first_name"><?php _e('First Name') ?> </label></th>
 		<td><input name="first_name" type="text" id="first_name" value="<?php echo esc_attr($new_user_firstname); ?>" /></td>
@@ -590,7 +590,7 @@ $new_user_ignore_pass = $creating && isset( $_POST['noconfirmation'] ) ? wp_unsl
 			<label for="send_user_notification"><?php _e( 'Send the new user an email about their account.' ); ?></label>
 		</td>
 	</tr>
-<?php } // !is_multisite ?>
+<?php } // !is_network ?>
 	<tr class="form-field">
 		<th scope="row"><label for="role"><?php _e('Role'); ?></label></th>
 		<td><select name="role" id="role">
@@ -602,7 +602,7 @@ $new_user_ignore_pass = $creating && isset( $_POST['noconfirmation'] ) ? wp_unsl
 			</select>
 		</td>
 	</tr>
-	<?php if ( is_multisite() && current_user_can( 'manage_network_users' ) ) { ?>
+	<?php if ( is_network() && current_user_can( 'manage_network_users' ) ) { ?>
 	<tr>
 		<th scope="row"><?php _e( 'Skip Confirmation Email' ); ?></th>
 		<td>

@@ -203,7 +203,7 @@ function insert_with_markers( $filename, $marker, $insertion ) {
  * @return bool|null True on write success, false on failure. Null in multisite.
  */
 function save_mod_rewrite_rules() {
-	if ( is_multisite() )
+	if ( is_network() )
 		return;
 
 	global $wp_rewrite;
@@ -239,7 +239,7 @@ function save_mod_rewrite_rules() {
  * @return bool|null True on write success, false on failure. Null in multisite.
  */
 function iis7_save_url_rewrite_rules(){
-	if ( is_multisite() )
+	if ( is_network() )
 		return;
 
 	global $wp_rewrite;
@@ -468,7 +468,7 @@ function update_home_siteurl( $old_value, $value ) {
 	if ( wp_installing() )
 		return;
 
-	if ( is_multisite() && ms_is_switched() ) {
+	if ( is_network() && ms_is_switched() ) {
 		delete_option( 'rewrite_rules' );
 	} else {
 		flush_rewrite_rules();

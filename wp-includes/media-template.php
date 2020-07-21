@@ -179,7 +179,7 @@ function wp_print_media_templates() {
 		<# } #>
 		<?php if ( ! _device_can_upload() ) : ?>
 			<h2 class="upload-instructions"><?php printf( __( 'The web browser on your device cannot be used to upload files. You may be able to use the native app for your device instead.' ) ); ?></h2>
-		<?php elseif ( is_multisite() && ! is_upload_space_available() ) : ?>
+		<?php elseif ( is_network() && ! is_upload_space_available() ) : ?>
 			<h2 class="upload-instructions"><?php _e( 'Upload Limit Exceeded' ); ?></h2>
 			<?php
 			/** This action is documented in wp-admin/includes/media.php */

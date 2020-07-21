@@ -355,7 +355,7 @@ class WP_REST_Users_Controller extends WP_REST_Controller {
 			return $error;
 		}
 
-		if ( is_multisite() && ! is_user_member_of_blog( $user->ID ) ) {
+		if ( is_network() && ! is_user_member_of_blog( $user->ID ) ) {
 			return $error;
 		}
 
@@ -476,7 +476,7 @@ class WP_REST_Users_Controller extends WP_REST_Controller {
 
 		$user = $this->prepare_item_for_database( $request );
 
-		if ( is_multisite() ) {
+		if ( is_network() ) {
 			$ret = wpmu_validate_user_signup( $user->user_login, $user->user_email );
 
 			if ( is_wp_error( $ret['errors'] ) && ! empty( $ret['errors']->errors ) ) {
@@ -493,7 +493,7 @@ class WP_REST_Users_Controller extends WP_REST_Controller {
 			}
 		}
 
-		if ( is_multisite() ) {
+		if ( is_network() ) {
 			$user_id = wpmu_create_user( $user->user_login, $user->user_pass, $user->user_email );
 
 			if ( ! $user_id ) {
@@ -741,7 +741,7 @@ class WP_REST_Users_Controller extends WP_REST_Controller {
 	 */
 	public function delete_item( $request ) {
 		// We don't support delete requests in multisite.
-		if ( is_multisite() ) {
+		if ( is_network() ) {
 			return new WP_Error( 'rest_cannot_delete', __( 'The user cannot be deleted.' ), array( 'status' => 501 ) );
 		}
 		$user = $this->get_user( $request['id'] );
@@ -1058,7 +1058,7 @@ class WP_REST_Users_Controller extends WP_REST_Controller {
 			 * Don't let anyone with 'edit_users' (admins) edit their own role to something without it.
 			 * Multisite super admins can freely edit their blog roles -- they possess all caps.
 			 */
-			if ( ! ( is_multisite()
+			if ( ! ( is_network()
 				&& current_user_can( 'manage_sites' ) )
 				&& get_current_user_id() === $user_id
 				&& ! $potential_role->has_cap( 'edit_users' )

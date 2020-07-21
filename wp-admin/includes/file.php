@@ -777,7 +777,7 @@ function _wp_handle_upload( &$file, $overrides, $time, $action ) {
 	$test_file_size = 'wp_handle_upload' === $action ? $file['size'] : filesize( $file['tmp_name'] );
 	// A non-empty file will pass this test.
 	if ( $test_size && ! ( $test_file_size > 0 ) ) {
-		if ( is_multisite() ) {
+		if ( is_network() ) {
 			$error_msg = __( 'File is empty. Please upload something more substantial.' );
 		} else {
 			$error_msg = __( 'File is empty. Please upload something more substantial. This error could also be caused by uploads being disabled in your php.ini or by post_max_size being defined as smaller than upload_max_filesize in php.ini.' );
@@ -867,7 +867,7 @@ function _wp_handle_upload( &$file, $overrides, $time, $action ) {
 	// Compute the URL.
 	$url = $uploads['url'] . "/$filename";
 
-	if ( is_multisite() ) {
+	if ( is_network() ) {
 		delete_transient( 'dirsize_cache' );
 	}
 

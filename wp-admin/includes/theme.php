@@ -88,7 +88,7 @@ function delete_theme($stylesheet, $redirect = '') {
 	}
 
 	// Remove the theme from allowed themes on the network.
-	if ( is_multisite() ) {
+	if ( is_network() ) {
 		WP_Theme::network_disable_theme( $stylesheet );
 	}
 
@@ -175,7 +175,7 @@ function get_theme_update_available( $theme ) {
 		$details_url = add_query_arg(array('TB_iframe' => 'true', 'width' => 1024, 'height' => 800), $update['url']); //Theme browser inside WP? replace this, Also, theme preview JS will override this on the available list.
 		$update_url = wp_nonce_url( admin_url( 'update.php?action=upgrade-theme&amp;theme=' . urlencode( $stylesheet ) ), 'upgrade-theme_' . $stylesheet );
 
-		if ( !is_multisite() ) {
+		if ( !is_network() ) {
 			if ( ! current_user_can('update_themes') ) {
 				/* translators: 1: theme name, 2: theme details URL, 3: additional link attributes, 4: version number */
 				$html = sprintf( '<p><strong>' . __( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a>.' ) . '</strong></p>',

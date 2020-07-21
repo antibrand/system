@@ -240,7 +240,7 @@ function core_update_footer( $msg = '' ) {
  * @return false|void
  */
 function update_nag() {
-	if ( is_multisite() && !current_user_can('update_core') )
+	if ( is_network() && !current_user_can('update_core') )
 		return false;
 
 	global $pagenow;
@@ -348,7 +348,7 @@ function wp_plugin_update_row( $file, $plugin_data ) {
 	/** @var WP_Plugins_List_Table $wp_list_table */
 	$wp_list_table = _get_list_table( 'AppNamespace\Backend\Plugins_List_Table' );
 
-	if ( is_network_admin() || ! is_multisite() ) {
+	if ( is_network_admin() || ! is_network() ) {
 		if ( is_network_admin() ) {
 			$active_class = is_plugin_active_for_network( $file ) ? ' active' : '';
 		} else {

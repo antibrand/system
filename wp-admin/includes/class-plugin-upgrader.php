@@ -254,7 +254,7 @@ class Plugin_Upgrader extends Includes\Installer {
 		 * - a plugin with an update available is currently active.
 		 * @TODO: For multisite, maintenance mode should only kick in for individual sites if at all possible.
 		 */
-		$maintenance = ( is_multisite() && ! empty( $plugins ) );
+		$maintenance = ( is_network() && ! empty( $plugins ) );
 		foreach ( $plugins as $plugin )
 			$maintenance = $maintenance || ( is_plugin_active( $plugin ) && isset( $current->response[ $plugin] ) );
 		if ( $maintenance )

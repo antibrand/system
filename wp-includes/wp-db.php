@@ -665,7 +665,7 @@ class wpdb {
 		$charset = '';
 		$collate = '';
 
-		if ( function_exists('is_multisite') && is_multisite() ) {
+		if ( function_exists('is_network') && is_network() ) {
 			$charset = 'utf8';
 			if ( defined( 'DB_COLLATE' ) && DB_COLLATE ) {
 				$collate = DB_COLLATE;
@@ -849,7 +849,7 @@ class wpdb {
 		if ( preg_match( '|[^a-z0-9_]|i', $prefix ) )
 			return new WP_Error('invalid_db_prefix', 'Invalid database prefix' );
 
-		$old_prefix = is_multisite() ? '' : $prefix;
+		$old_prefix = is_network() ? '' : $prefix;
 
 		if ( isset( $this->base_prefix ) )
 			$old_prefix = $this->base_prefix;
@@ -860,7 +860,7 @@ class wpdb {
 			foreach ( $this->tables( 'global' ) as $table => $prefixed_table )
 				$this->$table = $prefixed_table;
 
-			if ( is_multisite() && empty( $this->blogid ) )
+			if ( is_network() && empty( $this->blogid ) )
 				return $old_prefix;
 
 			$this->prefix = $this->get_blog_prefix();
@@ -910,7 +910,7 @@ class wpdb {
 	 * @return string Blog prefix.
 	 */
 	public function get_blog_prefix( $blog_id = null ) {
-		if ( is_multisite() ) {
+		if ( is_network() ) {
 			if ( null === $blog_id )
 				$blog_id = $this->blogid;
 			$blog_id = (int) $blog_id;
@@ -954,7 +954,7 @@ class wpdb {
 		switch ( $scope ) {
 			case 'all' :
 				$tables = array_merge( $this->global_tables, $this->tables );
-				if ( is_multisite() )
+				if ( is_network() )
 					$tables = array_merge( $tables, $this->ms_global_tables );
 				break;
 			case 'blog' :
@@ -962,7 +962,7 @@ class wpdb {
 				break;
 			case 'global' :
 				$tables = $this->global_tables;
-				if ( is_multisite() )
+				if ( is_network() )
 					$tables = array_merge( $tables, $this->ms_global_tables );
 				break;
 			case 'ms_global' :
@@ -1352,7 +1352,7 @@ class wpdb {
 			return false;
 
 		// If there is an error then take note of it
-		if ( is_multisite() ) {
+		if ( is_network() ) {
 			$msg = sprintf(
 				"%s [%s]\n%s\n",
 				__( 'Database error:' ),

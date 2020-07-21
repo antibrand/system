@@ -4332,7 +4332,7 @@ final class WP_Customize_Manager {
 			$control->enqueue();
 		}
 
-		if ( ! is_multisite() && ( current_user_can( 'install_themes' ) || current_user_can( 'update_themes' ) || current_user_can( 'delete_themes' ) ) ) {
+		if ( ! is_network() && ( current_user_can( 'install_themes' ) || current_user_can( 'update_themes' ) || current_user_can( 'delete_themes' ) ) ) {
 			wp_enqueue_script( 'updates' );
 			wp_localize_script( 'updates', '_wpUpdatesItemCounts', array(
 				'totals' => wp_get_update_data(),
@@ -4834,7 +4834,7 @@ final class WP_Customize_Manager {
 		) ) );
 
 		/*
-		if ( ! is_multisite() ) {
+		if ( ! is_network() ) {
 			$this->add_section( new WP_Customize_Themes_Section( $this, 'wporg_themes', array(
 				'title'       => __( 'wordpress.org themes' ),
 				'action'      => 'wporg',

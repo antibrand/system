@@ -101,7 +101,7 @@ if ( current_user_can( 'switch_themes' ) ) {
 // Help tab: Adding Themes.
 if ( current_user_can( 'install_themes' ) ) {
 
-	if ( is_multisite() ) {
+	if ( is_network() ) {
 
 		$help_install = sprintf(
 			'<h3>%1s</h3>',
@@ -201,8 +201,8 @@ wp_reset_vars( [ 'theme', 'search' ] );
 wp_localize_script( 'theme', '_wpThemeSettings', [
 	'themes'   => $themes,
 	'settings' => [
-		'canInstall'    => ( ! is_multisite() && current_user_can( 'install_themes' ) ),
-		'installURI'    => ( ! is_multisite() && current_user_can( 'install_themes' ) ) ? admin_url( 'theme-install.php' ) : null,
+		'canInstall'    => ( ! is_network() && current_user_can( 'install_themes' ) ),
+		'installURI'    => ( ! is_network() && current_user_can( 'install_themes' ) ) ? admin_url( 'theme-install.php' ) : null,
 		'confirmDelete' => __( "Are you sure you want to delete this theme?\n\nClick 'Cancel' to go back, 'OK' to confirm the delete." ),
 		'adminUrl'      => parse_url( admin_url(), PHP_URL_PATH ),
 	],
@@ -242,14 +242,14 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 		<p class="description"><?php _e( 'Themes provide the public-facing content framework of the site, as well as the look & feel.' ); ?></p>
 
 		<div class="add-theme-wrap">
-			<?php if ( ! is_multisite() && current_user_can( 'install_themes' ) ) : ?>
+			<?php if ( ! is_network() && current_user_can( 'install_themes' ) ) : ?>
 				<button id="upload-theme-toggle" class="button page-title-action"><?php echo esc_html_x( 'Upload Theme', 'Upload new theme' ); ?></button>
 			<?php endif; ?>
 
 			<form class="search-form"></form>
 		</div>
 
-		<?php if ( ! is_multisite() && current_user_can( 'install_themes' ) ) : ?>
+		<?php if ( ! is_network() && current_user_can( 'install_themes' ) ) : ?>
 		<div class="upload-theme-wrap">
 			<div id="upload-theme" class="upload-theme">
 				<?php install_themes_upload(); ?>
@@ -283,7 +283,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
 	<?php
 	// Display error message if applicable.
-	if ( $ct->errors() && ( ! is_multisite() || current_user_can( 'manage_network_themes' ) ) ) {
+	if ( $ct->errors() && ( ! is_network() || current_user_can( 'manage_network_themes' ) ) ) {
 		echo '<div class="error"><p>' . __( 'ERROR:' ) . ' ' . $ct->errors()->get_error_message() . '</p></div>';
 	}
 
@@ -460,7 +460,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
 	<?php
 	// List broken themes, if any.
-	if ( ! is_multisite() && current_user_can('edit_themes') && $broken_themes = wp_get_themes( [ 'errors' => true ] ) ) {
+	if ( ! is_network() && current_user_can('edit_themes') && $broken_themes = wp_get_themes( [ 'errors' => true ] ) ) {
 	?>
 
 	<div class="broken-themes">

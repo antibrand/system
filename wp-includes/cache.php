@@ -326,7 +326,7 @@ class WP_Object_Cache {
 	private $blog_prefix;
 
 	/**
-	 * Holds the value of is_multisite().
+	 * Holds the value of is_network().
 	 *
 	 * @since 3.5.0
 	 * @var bool
@@ -704,7 +704,7 @@ class WP_Object_Cache {
 	 * @since 2.0.8
 	 */
 	public function __construct() {
-		$this->multisite = is_multisite();
+		$this->multisite = is_network();
 		$this->blog_prefix =  $this->multisite ? get_current_blog_id() . ':' : '';
 
 

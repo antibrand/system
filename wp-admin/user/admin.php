@@ -11,7 +11,7 @@ define( 'WP_USER_ADMIN', true );
 
 require_once( dirname( dirname( __FILE__) ) . '/admin.php' );
 
-if ( ! is_multisite() ) {
+if ( ! is_network() ) {
 	wp_redirect( admin_url() );
 	exit;
 }

@@ -9,7 +9,7 @@
 // Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
-if ( is_multisite() && ! is_network_admin() ) {
+if ( is_network() && ! is_network_admin() ) {
 
 	wp_redirect( network_admin_url( 'theme-editor.php' ) );
 

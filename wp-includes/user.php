@@ -306,7 +306,7 @@ function wp_authenticate_cookie( $user, $username, $password ) {
  * @return WP_User|WP_Error WP_User on success, WP_Error if the user is considered a spammer.
  */
 function wp_authenticate_spam_check( $user ) {
-	if ( $user instanceof WP_User && is_multisite() ) {
+	if ( $user instanceof WP_User && is_network() ) {
 		/**
 		 * Filters whether the user has been marked as a spammer.
 		 *
@@ -615,7 +615,7 @@ function get_blogs_of_user( $user_id, $all = false ) {
 	if ( empty( $keys ) )
 		return array();
 
-	if ( ! is_multisite() ) {
+	if ( ! is_network() ) {
 		$site_id = get_current_blog_id();
 		$sites = array( $site_id => new stdClass );
 		$sites[ $site_id ]->userblog_id = $site_id;
@@ -727,7 +727,7 @@ function is_user_member_of_blog( $user_id = 0, $blog_id = 0 ) {
 		}
 	}
 
-	if ( ! is_multisite() ) {
+	if ( ! is_network() ) {
 		return true;
 	}
 
@@ -858,7 +858,7 @@ function count_users( $strategy = 'time', $site_id = null ) {
 	$result = array();
 
 	if ( 'time' == $strategy ) {
-		if ( is_multisite() && $site_id != get_current_blog_id() ) {
+		if ( is_network() && $site_id != get_current_blog_id() ) {
 			switch_to_blog( $site_id );
 			$avail_roles = wp_roles()->get_names();
 			restore_current_blog();
@@ -2157,7 +2157,7 @@ function get_password_reset_key( $user ) {
 	do_action( 'retrieve_password', $user->user_login );
 
 	$allow = true;
-	if ( is_multisite() && is_user_spammy( $user ) ) {
+	if ( is_network() && is_user_spammy( $user ) ) {
 		$allow = false;
 	}
 
@@ -2522,7 +2522,7 @@ function wp_get_users_with_no_role( $site_id = null ) {
 
 	$prefix = $wpdb->get_blog_prefix( $site_id );
 
-	if ( is_multisite() && $site_id != get_current_blog_id() ) {
+	if ( is_network() && $site_id != get_current_blog_id() ) {
 		switch_to_blog( $site_id );
 		$role_names = wp_roles()->get_names();
 		restore_current_blog();

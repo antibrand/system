@@ -47,7 +47,7 @@ if ( $action ) {
 				wp_die( __( 'Sorry, you are not allowed to activate this plugin.' ) );
 			}
 
-			if ( is_multisite() && ! is_network_admin() && is_network_only_plugin( $plugin ) ) {
+			if ( is_network() && ! is_network_admin() && is_network_only_plugin( $plugin ) ) {
 				wp_redirect( self_admin_url( "plugins.php?plugin_status=$status&paged=$page&s=$s" ) );
 
 				exit;
@@ -121,7 +121,7 @@ if ( $action ) {
 				foreach ( $plugins as $i => $plugin ) {
 
 					// Only activate plugins which are not already active and are not network-only when on Multisite.
-					if ( is_plugin_active( $plugin ) || ( is_multisite() && is_network_only_plugin( $plugin ) ) ) {
+					if ( is_plugin_active( $plugin ) || ( is_network() && is_network_only_plugin( $plugin ) ) ) {
 						unset( $plugins[ $i ] );
 					}
 

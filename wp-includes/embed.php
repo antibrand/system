@@ -1058,7 +1058,7 @@ function the_embed_site_title() {
 function wp_filter_pre_oembed_result( $result, $url, $args ) {
 	$switched_blog = false;
 
-	if ( is_multisite() ) {
+	if ( is_network() ) {
 		$url_parts = wp_parse_args( wp_parse_url( $url ), array(
 			'host'   => '',
 			'path'   => '/',

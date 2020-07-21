@@ -253,7 +253,7 @@ function wp_ajax_oembed_cache() {
  * @since 3.4.0
  */
 function wp_ajax_autocomplete_user() {
-	if ( ! is_multisite() || ! current_user_can( 'promote_users' ) || wp_is_large_network( 'users' ) )
+	if ( ! is_network() || ! current_user_can( 'promote_users' ) || wp_is_large_network( 'users' ) )
 		wp_die( -1 );
 
 	/** This filter is documented in wp-admin/user-new.php */
@@ -2963,7 +2963,7 @@ function wp_ajax_query_themes() {
 		), $update_php );
 
 		if ( current_user_can( 'switch_themes' ) ) {
-			if ( is_multisite() ) {
+			if ( is_network() ) {
 				$theme->activate_url = add_query_arg( array(
 					'action'   => 'enable',
 					'_wpnonce' => wp_create_nonce( 'enable-theme_' . $theme->slug ),
@@ -2978,7 +2978,7 @@ function wp_ajax_query_themes() {
 			}
 		}
 
-		if ( ! is_multisite() && current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) {
+		if ( ! is_network() && current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) {
 			$theme->customize_url = add_query_arg( array(
 				'return' => urlencode( network_admin_url( 'theme-install.php', 'relative' ) ),
 			), wp_customize_url( $theme->slug ) );
@@ -3450,7 +3450,7 @@ function wp_ajax_install_theme() {
 	$status['themeName'] = wp_get_theme( $slug )->get( 'Name' );
 
 	if ( current_user_can( 'switch_themes' ) ) {
-		if ( is_multisite() ) {
+		if ( is_network() ) {
 			$status['activateUrl'] = add_query_arg( array(
 				'action'   => 'enable',
 				'_wpnonce' => wp_create_nonce( 'enable-theme_' . $slug ),
@@ -3465,7 +3465,7 @@ function wp_ajax_install_theme() {
 		}
 	}
 
-	if ( ! is_multisite() && current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) {
+	if ( ! is_network() && current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) {
 		$status['customizeUrl'] = add_query_arg( array(
 			'return' => urlencode( network_admin_url( 'theme-install.php', 'relative' ) ),
 		), wp_customize_url( $slug ) );
@@ -3735,7 +3735,7 @@ function wp_ajax_install_plugin() {
 		), $plugins_url );
 	}
 
-	if ( is_multisite() && current_user_can( 'manage_network_plugins' ) && 'import' !== $pagenow ) {
+	if ( is_network() && current_user_can( 'manage_network_plugins' ) && 'import' !== $pagenow ) {
 		$status['activateUrl'] = add_query_arg( array( 'networkwide' => 1 ), $status['activateUrl'] );
 	}
 

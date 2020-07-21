@@ -141,7 +141,7 @@ wp_start_object_cache();
 require( ABSPATH . WPINC . '/default-filters.php' );
 
 // Initialize multisite if enabled.
-if ( is_multisite() ) {
+if ( is_network() ) {
 	require( ABSPATH . WPINC . '/class-wp-site-query.php' );
 	require( ABSPATH . WPINC . '/class-wp-network-query.php' );
 	require( ABSPATH . WPINC . '/ms-blogs.php' );
@@ -266,7 +266,7 @@ require( ABSPATH . WPINC . '/rest-api/fields/class-wp-rest-user-meta-fields.php'
 $GLOBALS['wp_embed'] = new WP_Embed();
 
 // Load multisite-specific files.
-if ( is_multisite() ) {
+if ( is_network() ) {
 	require( ABSPATH . WPINC . '/ms-functions.php' );
 	require( ABSPATH . WPINC . '/ms-default-filters.php' );
 	require( ABSPATH . WPINC . '/ms-deprecated.php' );
@@ -287,7 +287,7 @@ foreach ( wp_get_mu_plugins() as $mu_plugin ) {
 unset( $mu_plugin );
 
 // Load network activated plugins.
-if ( is_multisite() ) {
+if ( is_network() ) {
 	foreach ( wp_get_active_network_plugins() as $network_plugin ) {
 		wp_register_plugin_realpath( $network_plugin );
 		include_once( $network_plugin );
@@ -298,7 +298,7 @@ if ( is_multisite() ) {
 // Fires once all must-use and network-activated plugins have loaded.
 do_action( 'muplugins_loaded' );
 
-if ( is_multisite() ) {
+if ( is_network() ) {
 	ms_cookie_constants();
 }
 
@@ -483,7 +483,7 @@ $GLOBALS['wp']->init();
 do_action( 'init' );
 
 // Check site status
-if ( is_multisite() ) {
+if ( is_network() ) {
 	if ( true !== ( $file = ms_site_check() ) ) {
 		require( $file );
 		die();

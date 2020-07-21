@@ -76,7 +76,7 @@ function edit_user( $user_id = 0 ) {
 		 * Don't let anyone with 'edit_users' (admins) edit their own role to something without it.
 		 * Multisite super admins can freely edit their blog roles -- they possess all caps.
 		 */
-		if ( ( is_multisite() && current_user_can( 'manage_sites' ) )
+		if ( ( is_network() && current_user_can( 'manage_sites' ) )
 		|| $user_id != get_current_user_id()
 		|| ( $potential_role && $potential_role->has_cap( 'edit_users' ) ) ) {
 			$user->role = $new_role;
@@ -487,7 +487,7 @@ function wp_delete_user( $id, $reassign = null ) {
 	}
 
 	// Delete user.
-	if ( is_multisite() ) {
+	if ( is_network() ) {
 		remove_user_from_blog( $id, get_current_blog_id() );
 
 	} else {

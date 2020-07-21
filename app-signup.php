@@ -34,7 +34,7 @@ function do_signup_header() {
 }
 add_action( 'wp_head', 'do_signup_header' );
 
-if ( !is_multisite() ) {
+if ( !is_network() ) {
 	wp_redirect( wp_registration_url() );
 	die();
 }

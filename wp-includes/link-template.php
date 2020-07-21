@@ -2939,7 +2939,7 @@ function get_home_url( $blog_id = null, $path = '', $scheme = null ) {
 
 	$orig_scheme = $scheme;
 
-	if ( empty( $blog_id ) || !is_multisite() ) {
+	if ( empty( $blog_id ) || !is_network() ) {
 		$url = get_option( 'home' );
 	} else {
 		switch_to_blog( $blog_id );
@@ -3009,7 +3009,7 @@ function site_url( $path = '', $scheme = null ) {
  * @return string Site URL link with optional path appended.
  */
 function get_site_url( $blog_id = null, $path = '', $scheme = null ) {
-	if ( empty( $blog_id ) || !is_multisite() ) {
+	if ( empty( $blog_id ) || !is_network() ) {
 		$url = get_option( 'siteurl' );
 	} else {
 		switch_to_blog( $blog_id );
@@ -3248,7 +3248,7 @@ function plugins_url( $path = '', $plugin = '' ) {
  * @return string Site URL link with optional path appended.
  */
 function network_site_url( $path = '', $scheme = null ) {
-	if ( ! is_multisite() )
+	if ( ! is_network() )
 		return site_url($path, $scheme);
 
 	$current_network = get_network();
@@ -3290,7 +3290,7 @@ function network_site_url( $path = '', $scheme = null ) {
  * @return string Home URL link with optional path appended.
  */
 function network_home_url( $path = '', $scheme = null ) {
-	if ( ! is_multisite() )
+	if ( ! is_network() )
 		return home_url($path, $scheme);
 
 	$current_network = get_network();
@@ -3332,7 +3332,7 @@ function network_home_url( $path = '', $scheme = null ) {
  * @return string Admin URL link with optional path appended.
  */
 function network_admin_url( $path = '', $scheme = 'admin' ) {
-	if ( ! is_multisite() )
+	if ( ! is_network() )
 		return admin_url( $path, $scheme );
 
 	$url = network_site_url('wp-admin/network/', $scheme);
@@ -3478,9 +3478,9 @@ function get_dashboard_url( $user_id = 0, $path = '', $scheme = 'admin' ) {
 	$user_id = $user_id ? (int) $user_id : get_current_user_id();
 
 	$blogs = get_blogs_of_user( $user_id );
-	if ( is_multisite() && ! user_can( $user_id, 'manage_network' ) && empty($blogs) ) {
+	if ( is_network() && ! user_can( $user_id, 'manage_network' ) && empty($blogs) ) {
 		$url = user_admin_url( $path, $scheme );
-	} elseif ( ! is_multisite() ) {
+	} elseif ( ! is_network() ) {
 		$url = admin_url( $path, $scheme );
 	} else {
 		$current_blog = get_current_blog_id();

@@ -122,7 +122,7 @@ $user_can_edit   = current_user_can( 'edit_posts' ) || current_user_can( 'edit_p
  *
  * @param bool $allow Whether to allow editing of any user. Default true.
  */
-if ( is_multisite()
+if ( is_network()
 	&& ! current_user_can( 'manage_network_users' )
 	&& $user_id != $current_user->ID
 	&& ! apply_filters( 'enable_edit_any_user_configuration', true )
@@ -141,7 +141,7 @@ if ( IS_PROFILE_PAGE && isset( $_GET['newuseremail'] ) && $current_user->ID ) {
 		$user->ID         = $current_user->ID;
 		$user->user_email = esc_html( trim( $new_email[ 'newemail' ] ) );
 
-		if ( is_multisite() && $wpdb->get_var( $wpdb->prepare( "SELECT user_login FROM {$wpdb->signups} WHERE user_login = %s", $current_user->user_login ) ) ) {
+		if ( is_network() && $wpdb->get_var( $wpdb->prepare( "SELECT user_login FROM {$wpdb->signups} WHERE user_login = %s", $current_user->user_login ) ) ) {
 
 			$wpdb->query( $wpdb->prepare( "UPDATE {$wpdb->signups} SET user_email = %s WHERE user_login = %s", $user->user_email, $current_user->user_login ) );
 		}
@@ -196,7 +196,7 @@ if ( IS_PROFILE_PAGE ) {
 }
 
 // Update the email address in signups, if present.
-if ( is_multisite() ) {
+if ( is_network() ) {
 	$user = get_userdata( $user_id );
 
 	if ( $user->user_login && isset( $_POST[ 'email' ] ) && is_email( $_POST[ 'email' ] ) && $wpdb->get_var( $wpdb->prepare( "SELECT user_login FROM {$wpdb->signups} WHERE user_login = %s", $user->user_login ) ) ) {
@@ -208,7 +208,7 @@ if ( is_multisite() ) {
 $errors = edit_user( $user_id );
 
 // Grant or revoke network admin status if requested.
-if ( is_multisite() && is_network_admin() && ! IS_PROFILE_PAGE && current_user_can( 'manage_network_options' ) && ! isset( $super_admins ) && empty( $_POST['super_admin'] ) == is_super_admin( $user_id ) ) {
+if ( is_network() && is_network_admin() && ! IS_PROFILE_PAGE && current_user_can( 'manage_network_options' ) && ! isset( $super_admins ) && empty( $_POST['super_admin'] ) == is_super_admin( $user_id ) ) {
 	empty( $_POST['super_admin'] ) ? revoke_super_admin( $user_id ) : grant_super_admin( $user_id );
 }
 
@@ -456,7 +456,7 @@ if ( isset( $errors ) && is_wp_error( $errors ) ) : ?>
 				</tr>
 			<?php endif; //!IS_PROFILE_PAGE
 
-			if ( is_multisite() && is_network_admin() && ! IS_PROFILE_PAGE && current_user_can( 'manage_network_options' ) && ! isset( $super_admins ) ) { ?>
+			if ( is_network() && is_network_admin() && ! IS_PROFILE_PAGE && current_user_can( 'manage_network_options' ) && ! isset( $super_admins ) ) { ?>
 				<tr class="user-super-admin-wrap">
 					<th><?php _e( 'Network Admin' ); ?></th>
 					<td>

@@ -653,7 +653,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		}
 
 		// If this isn't on WPMU then just use blogger_getUsersBlogs
-		if ( !is_multisite() ) {
+		if ( !is_network() ) {
 			array_unshift( $args, 1 );
 			return $this->blogger_getUsersBlogs( $args );
 		}
@@ -4411,7 +4411,7 @@ class wp_xmlrpc_server extends IXR_Server {
 			return $this->error;
 		}
 
-		if ( is_multisite() ) {
+		if ( is_network() ) {
 			return $this->_multisite_getUsersBlogs($args);
 		}
 
@@ -5809,7 +5809,7 @@ class wp_xmlrpc_server extends IXR_Server {
 			return $this->error;
 		}
 
-		if ( is_multisite() && upload_is_user_over_quota( false ) ) {
+		if ( is_network() && upload_is_user_over_quota( false ) ) {
 			$this->error = new IXR_Error( 401, __( 'Sorry, you have used your space allocation.' ) );
 			return $this->error;
 		}

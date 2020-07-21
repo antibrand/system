@@ -127,7 +127,7 @@ if ( ! got_url_rewrite() ) {
  * network. If the `permalink_structure` option has been changed to remove this
  * base prefix, core can no longer account for the possible collision.
  */
-if ( is_multisite() && ! is_subdomain_install() && is_main_site() && 0 === strpos( $permalink_structure, '/blog/' ) ) {
+if ( is_network() && ! is_subdomain_install() && is_main_site() && 0 === strpos( $permalink_structure, '/blog/' ) ) {
 	$blog_prefix = '/blog';
 }
 
@@ -256,7 +256,7 @@ require( ABSPATH . 'wp-admin/admin-header.php' );
 			?></p>
 
 		<?php
-		if ( is_multisite() && ! is_subdomain_install() && is_main_site() && 0 === strpos( $permalink_structure, '/blog/' ) ) {
+		if ( is_network() && ! is_subdomain_install() && is_main_site() && 0 === strpos( $permalink_structure, '/blog/' ) ) {
 
 			$permalink_structure = preg_replace( '|^/?blog|', '', $permalink_structure );
 			$category_base       = preg_replace( '|^/?blog|', '', $category_base );
@@ -398,7 +398,7 @@ require( ABSPATH . 'wp-admin/admin-header.php' );
 
 		</form>
 
-	<?php if ( ! is_multisite() ) {
+	<?php if ( ! is_network() ) {
 
 		if ( $iis7_permalinks ) :
 			if ( isset( $_POST['submit'] ) && $permalink_structure && ! $using_index_permalinks && ! $writable ) :

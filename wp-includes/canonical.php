@@ -344,7 +344,7 @@ function redirect_canonical( $requested_url = null, $do_redirect = true ) {
 		}
 
 		if ( 'wp-register.php' == basename( $redirect['path'] ) ) {
-			if ( is_multisite() ) {
+			if ( is_network() ) {
 				/** This filter is documented in app-login.php */
 				$redirect_url = apply_filters( 'wp_signup_location', network_site_url( 'app-signup.php' ) );
 			} else {

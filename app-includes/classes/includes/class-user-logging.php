@@ -117,7 +117,7 @@ class User_Logging {
 			 */
 			do_action( 'login_head' );
 
-			if ( is_multisite() ) {
+			if ( is_network() ) {
 
 				$login_header_url   = network_home_url();
 				$login_header_title = __( 'User Login' );
@@ -148,7 +148,7 @@ class User_Logging {
 			* To match the URL/title set above, Multisite sites have the blog name,
 			* while single sites get the header title.
 			*/
-			if ( is_multisite() ) {
+			if ( is_network() ) {
 				$login_header_text = __( 'User Login' );
 			} else {
 				$login_header_text = $login_header_title;
@@ -409,7 +409,7 @@ class User_Logging {
 			return $key;
 		}
 
-		if ( is_multisite() ) {
+		if ( is_network() ) {
 			$site_name = get_network()->site_name;
 
 		} else {

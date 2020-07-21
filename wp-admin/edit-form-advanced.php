@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 global $post_type, $post_type_object, $post;
 
-if ( is_multisite() ) {
+if ( is_network() ) {
 	add_action( 'admin_footer', '_admin_notice_post_locked' );
 } else {
 	$check_users = get_users( [ 'fields' => 'ID', 'number' => 2 ] );

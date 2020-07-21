@@ -412,21 +412,21 @@ class List_Table {
 				esc_html( $post_type_object->labels->add_new )
 			);
 
-		} elseif ( 'users-network' == $this->screen->id && is_multisite() && current_user_can( 'promote_users' ) ) {
+		} elseif ( 'users-network' == $this->screen->id && is_network() && current_user_can( 'promote_users' ) ) {
 			$add_new = sprintf(
 				'<li class="list-table-add-new"><a href="%1s" class="button">%2s</a></li>',
 				esc_url( network_admin_url( 'user-new.php' ) ),
 				esc_html_x( 'Add Existing', 'user' )
 			);
 
-		} elseif ( 'users' == $this->screen->id && is_multisite() && current_user_can( 'create_users' ) ) {
+		} elseif ( 'users' == $this->screen->id && is_network() && current_user_can( 'create_users' ) ) {
 			$add_new = sprintf(
 				'<li class="list-table-add-new"><a href="%1s" class="button">%2s</a></li>',
 				esc_url( network_admin_url( 'user-new.php' ) ),
 				esc_html_x( 'Add New', 'user' )
 			);
 
-		} elseif ( 'themes-network' == $this->screen->id && is_multisite() && current_user_can( 'upload_themes' ) ) {
+		} elseif ( 'themes-network' == $this->screen->id && is_network() && current_user_can( 'upload_themes' ) ) {
 			$add_new = sprintf(
 				'<li class="list-table-add-new"><button id="upload-theme-toggle" href="%1s" class="upload-view-toggle button">%2s</button></li>',
 				esc_url( admin_url( $post_new_file ) ),
@@ -440,7 +440,7 @@ class List_Table {
 				esc_html_x( 'Add New', 'user' )
 			);
 
-		} elseif ( 'plugins-network' == $this->screen->id && is_multisite() && current_user_can( 'upload_plugins' ) ) {
+		} elseif ( 'plugins-network' == $this->screen->id && is_network() && current_user_can( 'upload_plugins' ) ) {
 			$add_new = sprintf(
 				'<li class="list-table-add-new"><button id="upload-plugin-toggle" href="%1s" class="upload-view-toggle button">%2s</button></li>',
 				esc_url( admin_url( $post_new_file ) ),

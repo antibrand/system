@@ -346,7 +346,7 @@ class WP_Roles {
 			return $wp_user_roles;
 		}
 
-		if ( is_multisite() && $this->site_id != get_current_blog_id() ) {
+		if ( is_network() && $this->site_id != get_current_blog_id() ) {
 			remove_action( 'switch_blog', 'wp_switch_roles_and_user', 1 );
 
 			$roles = get_blog_option( $this->site_id, $this->role_key, array() );

@@ -47,7 +47,7 @@ function get_active_blog_for_user( $user_id ) {
 	if ( empty( $blogs ) )
 		return;
 
-	if ( ! is_multisite() ) {
+	if ( ! is_network() ) {
 		return $blogs[ get_current_blog_id() ];
 	}
 

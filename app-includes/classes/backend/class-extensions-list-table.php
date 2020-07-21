@@ -107,7 +107,7 @@ class Extensions_List_Table extends List_Table {
 
 		$screen = $this->screen;
 
-		if ( ! is_multisite() || ( $screen->in_admin( 'network' ) && current_user_can( 'manage_network_plugins' ) ) ) {
+		if ( ! is_network() || ( $screen->in_admin( 'network' ) && current_user_can( 'manage_network_plugins' ) ) ) {
 
 			/**
 			 * Filters whether to display the advanced plugins list table.
@@ -222,7 +222,7 @@ class Extensions_List_Table extends List_Table {
 
 		global $status;
 
-		if ( is_multisite() && ! $this->screen->in_admin( 'network' ) && in_array( $status, [ 'extension' ] ) ) {
+		if ( is_network() && ! $this->screen->in_admin( 'network' ) && in_array( $status, [ 'extension' ] ) ) {
 			return;
 		}
 

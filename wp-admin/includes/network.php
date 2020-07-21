@@ -407,7 +407,7 @@ function network_step2( $errors = false ) {
 
 	} else {
 
-		if ( is_multisite() ) {
+		if ( is_network() ) {
 
 			$subdomain_install = is_subdomain_install();
 ?>
@@ -426,7 +426,7 @@ function network_step2( $errors = false ) {
 	$subdir_replacement_01 = $subdomain_install ? '' : '$1';
 	$subdir_replacement_12 = $subdomain_install ? '$1' : '$2';
 
-	if ( $_POST || ! is_multisite() ) {
+	if ( $_POST || ! is_network() ) {
 ?>
 		<h3><?php esc_html_e( 'Enabling the Network' ); ?></h3>
 		<p><?php _e( 'Complete the following steps to enable the features for creating a network of sites.' ); ?></p>
@@ -548,7 +548,7 @@ define( 'BLOG_ID_CURRENT_SITE', 1 );
                     <match url="^index\.php$" ignoreCase="false" />
                     <action type="None" />
                 </rule>';
-				if ( is_multisite() && get_site_option( 'ms_files_rewriting' ) ) {
+				if ( is_network() && get_site_option( 'ms_files_rewriting' ) ) {
 					$web_config_file .= '
                 <rule name="Rule for Files" stopProcessing="true">
                     <match url="^' . $iis_subdir_match . 'files/(.+)" ignoreCase="false" />
@@ -603,7 +603,7 @@ define( 'BLOG_ID_CURRENT_SITE', 1 );
 	<?php else : // end iis7_supports_permalinks(). construct an htaccess file instead:
 
 		$ms_files_rewriting = '';
-		if ( is_multisite() && get_site_option( 'ms_files_rewriting' ) ) {
+		if ( is_network() && get_site_option( 'ms_files_rewriting' ) ) {
 			$ms_files_rewriting = "\n# uploaded files\nRewriteRule ^";
 			$ms_files_rewriting .= $subdir_match . "files/(.+) {$rewrite_base}" . WPINC . "/ms-files.php?file={$subdir_replacement_12} [L]" . "\n";
 		}
@@ -643,7 +643,7 @@ EOF;
 
 	<?php endif; // end IIS/Apache code branches.
 
-	if ( ! is_multisite() ) { ?>
+	if ( ! is_network() ) { ?>
 		<p><?php _e( 'Once you complete these steps, your network is enabled and configured. You will have to log in again.' ); ?> <a href="<?php echo esc_url( wp_login_url() ); ?>"><?php _e( 'Log In' ); ?></a></p>
 <?php
 	}

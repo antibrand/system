@@ -51,7 +51,7 @@ function get_locale() {
 	}
 
 	// If multisite, check options.
-	if ( is_multisite() ) {
+	if ( is_network() ) {
 		// Don't check blog option when installing.
 		if ( wp_installing() || ( false === $ms_locale = get_option( 'APP_LANG' ) ) ) {
 			$ms_locale = get_site_option( 'APP_LANG' );
@@ -671,7 +671,7 @@ function load_default_textdomain( $locale = null ) {
 
 	$return = load_textdomain( 'default', APP_LANG_DIR . "/$locale.mo" );
 
-	if ( ( is_multisite() || ( defined( 'APP_INSTALLING_NETWORK' ) && APP_INSTALLING_NETWORK ) ) && ! file_exists(  APP_LANG_DIR . "/admin-$locale.mo" ) ) {
+	if ( ( is_network() || ( defined( 'APP_INSTALLING_NETWORK' ) && APP_INSTALLING_NETWORK ) ) && ! file_exists(  APP_LANG_DIR . "/admin-$locale.mo" ) ) {
 		load_textdomain( 'default', APP_LANG_DIR . "/ms-$locale.mo" );
 		return $return;
 	}

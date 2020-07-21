@@ -53,7 +53,7 @@ function wp_get_db_schema( $scope = 'all', $blog_id = null ) {
 		$old_blog_id = $wpdb->set_blog_id( $blog_id );
 
 	// Engage multisite if in the middle of turning it on from network.php.
-	$is_multisite = is_multisite() || ( defined( 'APP_INSTALLING_NETWORK' ) && APP_INSTALLING_NETWORK );
+	$is_network = is_network() || ( defined( 'APP_INSTALLING_NETWORK' ) && APP_INSTALLING_NETWORK );
 
 	/*
 	 * Indexes have a maximum size of 767 bytes. Historically, we haven't need to be concerned about that.
@@ -244,7 +244,7 @@ CREATE TABLE $wpdb->posts (
 ) $charset_collate;\n";
 
 	// Global tables
-	if ( $is_multisite )
+	if ( $is_network )
 		$global_tables = $users_multi_table . $usermeta_table;
 	else
 		$global_tables = $users_single_table . $usermeta_table;
@@ -324,7 +324,7 @@ CREATE TABLE $wpdb->signups (
 			break;
 		case 'global' :
 			$queries = $global_tables;
-			if ( $is_multisite )
+			if ( $is_network )
 				$queries .= $ms_global_tables;
 			break;
 		case 'ms_global' :
@@ -333,7 +333,7 @@ CREATE TABLE $wpdb->signups (
 		case 'all' :
 		default:
 			$queries = $global_tables . $blog_tables;
-			if ( $is_multisite )
+			if ( $is_network )
 				$queries .= $ms_global_tables;
 			break;
 	}
@@ -531,13 +531,13 @@ function populate_options() {
 	);
 
 	// 3.3
-	if ( ! is_multisite() ) {
+	if ( ! is_network() ) {
 		$options['initial_db_version'] = ! empty( $wp_current_db_version ) && $wp_current_db_version < $wp_db_version
 			? $wp_current_db_version : $wp_db_version;
 	}
 
 	// 3.0 multisite
-	if ( is_multisite() ) {
+	if ( is_network() ) {
 		$options[ 'blogdescription' ] = __( 'Website tagline or description' );
 		$options[ 'permalink_structure' ] = '/%year%/%monthnum%/%day%/%postname%/';
 	}
@@ -937,7 +937,7 @@ function populate_network( $network_id = 1, $domain = '', $email = '', $site_nam
 
 	// Check for network collision.
 	$network_exists = false;
-	if ( is_multisite() ) {
+	if ( is_network() ) {
 		if ( get_network( (int) $network_id ) ) {
 			$errors->add( 'siteid_exists', __( 'The network already exists.' ) );
 		}
@@ -988,7 +988,7 @@ function populate_network( $network_id = 1, $domain = '', $email = '', $site_nam
 
 	wp_cache_delete( 'networks_have_paths', 'site-options' );
 
-	if ( !is_multisite() ) {
+	if ( !is_network() ) {
 		$site_admins = array( $site_user->user_login );
 		$users = get_users( array(
 			'fields' => array( 'user_login' ),
@@ -1053,10 +1053,10 @@ We hope you enjoy your new site. Thanks!
 		// @todo - network admins should have a method of editing the network siteurl (used for cookie hash)
 		'siteurl' => get_option( 'siteurl' ) . '/',
 		'add_new_users' => '0',
-		'upload_space_check_disabled' => is_multisite() ? get_site_option( 'upload_space_check_disabled' ) : '1',
+		'upload_space_check_disabled' => is_network() ? get_site_option( 'upload_space_check_disabled' ) : '1',
 		'subdomain_install' => intval( $subdomain_install ),
 		'global_terms_enabled' => global_terms_enabled() ? '1' : '0',
-		'ms_files_rewriting' => is_multisite() ? get_site_option( 'ms_files_rewriting' ) : '0',
+		'ms_files_rewriting' => is_network() ? get_site_option( 'ms_files_rewriting' ) : '0',
 		'initial_db_version' => get_option( 'initial_db_version' ),
 		'active_sitewide_plugins' => array(),
 		'APP_LANG' => get_locale(),
@@ -1091,7 +1091,7 @@ We hope you enjoy your new site. Thanks!
 	 * these steps since the main site of the new network has not yet been
 	 * created.
 	 */
-	if ( ! is_multisite() ) {
+	if ( ! is_network() ) {
 		$current_site = new stdClass;
 		$current_site->domain = $domain;
 		$current_site->path = $path;

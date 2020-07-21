@@ -50,7 +50,7 @@ function wp_get_themes( $args = array() ) {
 	if ( empty( $theme_directories ) )
 		return array();
 
-	if ( is_multisite() && null !== $args['allowed'] ) {
+	if ( is_network() && null !== $args['allowed'] ) {
 		$allowed = $args['allowed'];
 		if ( 'network' === $allowed )
 			$theme_directories = array_intersect_key( $theme_directories, WP_Theme::get_allowed_on_network() );

@@ -10,7 +10,7 @@
 // Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
-if ( ! is_multisite() ) {
+if ( ! is_network() ) {
 	wp_die( __( 'Multisite support is not enabled.' ) );
 }
 

@@ -5064,7 +5064,7 @@ function wp_delete_attachment( $post_id, $force_delete = false ) {
 	$backup_sizes = get_post_meta( $post->ID, '_wp_attachment_backup_sizes', true );
 	$file = get_attached_file( $post_id );
 
-	if ( is_multisite() )
+	if ( is_network() )
 		delete_transient( 'dirsize_cache' );
 
 	/**

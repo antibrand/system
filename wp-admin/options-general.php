@@ -39,7 +39,7 @@ $help_overview .= sprintf(
 	__( 'Most themes display the site title at the top of every page, in the title bar of the browser, and as the identifying name for syndicated feeds. The tagline is also displayed by many themes.' )
 );
 
-if ( ! is_multisite() ) {
+if ( ! is_network() ) {
 
 	$help_overview .= sprintf(
 		'<p>%1s</p>',
@@ -115,7 +115,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 			</td>
 		</tr>
 
-		<?php if ( ! is_multisite() ) { ?>
+		<?php if ( ! is_network() ) { ?>
 
 		<tr>
 			<th scope="row"><label for="siteurl"><?php _e( 'Application Address (URL)' ) ?></label></th>
@@ -173,7 +173,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 			</td>
 		</tr>
 
-		<?php if ( ! is_multisite() ) { ?>
+		<?php if ( ! is_network() ) { ?>
 
 		<tr>
 			<th scope="row"><?php _e( 'Site Membership' ) ?></th>
@@ -203,7 +203,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 		$languages    = get_available_languages();
 		$translations = wp_get_available_translations();
 
-		if ( ! is_multisite() && defined( 'APP_LANG' ) && '' !== APP_LANG && 'en_US' !== APP_LANG && ! in_array( APP_LANG, $languages ) ) {
+		if ( ! is_network() && defined( 'APP_LANG' ) && '' !== APP_LANG && 'en_US' !== APP_LANG && ! in_array( APP_LANG, $languages ) ) {
 			$languages[] = APP_LANG;
 		}
 
@@ -231,8 +231,8 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 					// Add note about deprecated APP_LANG constant.
 					if ( defined( 'APP_LANG' ) && ( '' !== APP_LANG ) && $locale !== APP_LANG ) {
 
-						if ( is_multisite() && current_user_can( 'manage_network_options' )
-							|| ! is_multisite() && current_user_can( 'manage_options' ) ) {
+						if ( is_network() && current_user_can( 'manage_network_options' )
+							|| ! is_network() && current_user_can( 'manage_options' ) ) {
 							?>
 							<p class="description">
 								<strong><?php _e( 'Note:' ); ?></strong> <?php printf( __( 'The %s constant in your %s file is no longer needed.' ), '<code>APP_LANG</code>', '<code>app-config.php</code>' ); ?>

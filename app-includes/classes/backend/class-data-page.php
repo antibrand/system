@@ -93,7 +93,7 @@ class Data_Page {
 			return;
 		}
 
-		if ( is_multisite() ) {
+		if ( is_network() ) {
 			$start_heading = __( 'Network Data' );
 		} else {
 			$start_heading = __( 'Website Data' );

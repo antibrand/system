@@ -100,7 +100,7 @@ class Plugins_List_Table extends List_Table {
 
 		$screen = $this->screen;
 
-		if ( ! is_multisite() || ( $screen->in_admin( 'network' ) && current_user_can( 'manage_network_plugins' ) ) ) {
+		if ( ! is_network() || ( $screen->in_admin( 'network' ) && current_user_can( 'manage_network_plugins' ) ) ) {
 
 			if ( current_user_can( 'update_plugins' ) ) {
 				$current = get_site_transient( 'update_plugins' );
@@ -171,7 +171,7 @@ class Plugins_List_Table extends List_Table {
 			}
 
 			// Filter into individual sections
-			if ( is_multisite() && ! $screen->in_admin( 'network' ) && is_network_only_plugin( $plugin_file ) && ! is_plugin_active( $plugin_file ) ) {
+			if ( is_network() && ! $screen->in_admin( 'network' ) && is_network_only_plugin( $plugin_file ) && ! is_plugin_active( $plugin_file ) ) {
 				if ( $show_network_active ) {
 					// On the non-network screen, show inactive network-only plugins if allowed
 					$plugins['inactive'][ $plugin_file ] = $plugin_data;
@@ -309,7 +309,7 @@ class Plugins_List_Table extends List_Table {
 			printf( __( 'No plugins found for &#8220;%s&#8221;.' ), $s );
 
 			// We assume that somebody who can install plugins in multisite is experienced enough to not need this helper link.
-			if ( ! is_multisite() && current_user_can( 'install_plugins' ) ) {
+			if ( ! is_network() && current_user_can( 'install_plugins' ) ) {
 				echo ' <a href="' . esc_url( admin_url( 'plugin-install.php?tab=search&s=' . urlencode( $s ) ) ) . '">' . __( 'Search for plugins in the WordPress Plugin Directory.' ) . '</a>';
 			}
 		} elseif ( ! empty( $plugins['all'] ) )
@@ -444,7 +444,7 @@ class Plugins_List_Table extends List_Table {
 			$actions['deactivate-selected'] = $this->screen->in_admin( 'network' ) ? __( 'Network Deactivate' ) : __( 'Deactivate' );
 		}
 
-		if ( ! is_multisite() || $this->screen->in_admin( 'network' ) ) {
+		if ( ! is_network() || $this->screen->in_admin( 'network' ) ) {
 
 			if ( current_user_can( 'update_plugins' ) ) {
 				$actions['update-selected'] = __( 'Update' );
@@ -554,8 +554,8 @@ class Plugins_List_Table extends List_Table {
 			$is_active = is_plugin_active_for_network( $plugin_file );
 		} else {
 			$is_active = is_plugin_active( $plugin_file );
-			$restrict_network_active = ( is_multisite() && is_plugin_active_for_network( $plugin_file ) );
-			$restrict_network_only = ( is_multisite() && is_network_only_plugin( $plugin_file ) && ! $is_active );
+			$restrict_network_active = ( is_network() && is_plugin_active_for_network( $plugin_file ) );
+			$restrict_network_only = ( is_network() && is_network_only_plugin( $plugin_file ) && ! $is_active );
 		}
 
 		if ( $screen->in_admin( 'network' ) ) {
@@ -594,7 +594,7 @@ class Plugins_List_Table extends List_Table {
 					$actions['activate'] = '<a href="' . wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . urlencode( $plugin_file ) . '&amp;plugin_status=' . $context . '&amp;paged=' . $page . '&amp;s=' . $s, 'activate-plugin_' . $plugin_file ) . '" class="edit" aria-label="' . esc_attr( sprintf( _x( 'Activate %s', 'plugin' ), $plugin_data['Name'] ) ) . '">' . __( 'Activate' ) . '</a>';
 				}
 
-				if ( ! is_multisite() && current_user_can( 'delete_plugins' ) ) {
+				if ( ! is_network() && current_user_can( 'delete_plugins' ) ) {
 					/* translators: %s: plugin name */
 					$actions['delete'] = '<a href="' . wp_nonce_url( 'plugins.php?action=delete-selected&amp;checked[]=' . urlencode( $plugin_file ) . '&amp;plugin_status=' . $context . '&amp;paged=' . $page . '&amp;s=' . $s, 'bulk-plugins' ) . '" class="delete" aria-label="' . esc_attr( sprintf( _x( 'Delete %s', 'plugin' ), $plugin_data['Name'] ) ) . '">' . __( 'Delete' ) . '</a>';
 				}

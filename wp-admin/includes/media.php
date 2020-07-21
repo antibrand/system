@@ -1833,7 +1833,7 @@ function media_upload_form( $errors = null ) {
 
 ?></div>
 <?php
-if ( is_multisite() && !is_upload_space_available() ) {
+if ( is_network() && !is_upload_space_available() ) {
 	/**
 	 * Fires when an upload will exceed the defined upload space quota for a network site.
 	 *

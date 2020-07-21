@@ -19,7 +19,7 @@ if ( ! current_user_can( 'setup_network' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to manage options for this site.' ) );
 }
 
-if ( is_multisite() ) {
+if ( is_network() ) {
 
 	if ( ! is_network_admin() ) {
 		wp_redirect( network_admin_url( 'setup.php' ) );
@@ -107,7 +107,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 		} else {
 			network_step2();
 		}
-	} elseif ( is_multisite() || network_domain_check() ) {
+	} elseif ( is_network() || network_domain_check() ) {
 		network_step2();
 	} else {
 		network_step1();

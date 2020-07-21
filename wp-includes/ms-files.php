@@ -11,7 +11,7 @@
 define( 'SHORTINIT', true );
 require_once( dirname( dirname( __FILE__ ) ) . '/app-load.php' );
 
-if ( !is_multisite() )
+if ( !is_network() )
 	die( 'Multisite support not enabled' );
 
 ms_file_constants();

@@ -58,7 +58,7 @@ $submenu['index.php'][1] = [
 	home_url( '/' )
 ];
 
-if ( is_multisite() ) {
+if ( is_network() ) {
 
 	$submenu['index.php'][5] = [
 		__( 'Network' ),
@@ -67,11 +67,11 @@ if ( is_multisite() ) {
 	];
 }
 
-if ( ! is_multisite() || current_user_can( 'update_core' ) ) {
+if ( ! is_network() || current_user_can( 'update_core' ) ) {
 	$update_data = wp_get_update_data();
 }
 
-if ( ! is_multisite() ) {
+if ( ! is_network() ) {
 
 	if ( current_user_can( 'update_core' ) ) {
 		$cap = 'update_core';
@@ -427,7 +427,7 @@ unset( $customize_url );
 unset( $appearance_cap );
 
 // Add 'Editor' to the bottom of the Appearance menu.
-if ( ! is_multisite() ) {
+if ( ! is_network() ) {
 	add_action( 'admin_menu', '_add_themes_utility_last', 101 );
 }
 /**
@@ -450,7 +450,7 @@ function _add_themes_utility_last() {
 
 $count = '';
 
-if ( ! is_multisite() && current_user_can( 'update_plugins' ) ) {
+if ( ! is_network() && current_user_can( 'update_plugins' ) ) {
 
 	if ( ! isset( $update_data ) ) {
 		$update_data = wp_get_update_data();
@@ -479,7 +479,7 @@ $submenu['plugins.php'][5] = [
 	'plugins.php'
 ];
 
-if ( ! is_multisite() ) {
+if ( ! is_network() ) {
 
 	$submenu['plugins.php'][10] = [
 		__( 'Extensions' ),
@@ -546,7 +546,7 @@ if ( current_user_can( 'list_users' ) ) {
 			'create_users',
 			'user-new.php'
 		];
-	} elseif ( is_multisite() ) {
+	} elseif ( is_network() ) {
 		$submenu['users.php'][15] = [
 			_x( 'Add Account', 'user' ),
 			'promote_users',
@@ -570,7 +570,7 @@ if ( current_user_can( 'list_users' ) ) {
 			'user-new.php'
 		];
 
-	} elseif ( is_multisite() ) {
+	} elseif ( is_network() ) {
 		$submenu['profile.php'][10] = [
 			__( 'Add New User' ),
 			'promote_users',
@@ -653,7 +653,7 @@ $submenu['options-general.php'][60] = [
 	'manage-data.php'
 ];
 
-if ( is_multisite() && ! is_main_site() ) {
+if ( is_network() && ! is_main_site() ) {
 	$submenu['options-general.php'][75] = [
 		__( 'Delete Site' ),
 		'delete_site',
@@ -661,7 +661,7 @@ if ( is_multisite() && ! is_main_site() ) {
 	];
 }
 
-if ( ! is_multisite() && defined( 'APP_ALLOW_NETWORK' ) && APP_ALLOW_NETWORK ) {
+if ( ! is_network() && defined( 'APP_ALLOW_NETWORK' ) && APP_ALLOW_NETWORK ) {
 	$submenu['options-general.php'][80] = [
 		__( 'Network Setup' ),
 		'setup_network',

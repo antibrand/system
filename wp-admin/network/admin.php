@@ -13,7 +13,7 @@ define( 'APP_NETWORK_ADMIN', true );
 require_once( dirname( dirname( __FILE__ ) ) . '/admin.php' );
 
 // Do not remove this check. It is required by individual network admin pages.
-if ( ! is_multisite() ) {
+if ( ! is_network() ) {
 	wp_die( __( 'Multisite support is not enabled.' ) );
 }
 
