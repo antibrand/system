@@ -153,7 +153,7 @@ class Installer {
 		$this->strings['fs_unavailable']       = __( 'Could not access filesystem.' );
 		$this->strings['fs_error']             = __( 'Filesystem error.' );
 		$this->strings['fs_no_root_dir']       = __( 'Unable to locate the root directory.' );
-		$this->strings['fs_no_content_dir']    = __( 'Unable to locate the content directory (wp-content).' );
+		$this->strings['fs_no_content_dir']    = __( 'Unable to locate the content directory.' );
 		$this->strings['fs_no_plugins_dir']    = __( 'Unable to locate the plugin directory.' );
 		$this->strings['fs_no_themes_dir']     = __( 'Unable to locate the theme directory.' );
 		$this->strings['fs_no_folder']         = __( 'Unable to locate needed folder (%s).' );

@@ -489,7 +489,6 @@ class Plugins_List_Table extends List_Table {
 
 		} elseif ( 'top' === $which && 'dropins' === $status ) {
 
-			// Translators: %s: wp-content directory name.
 			echo '<p>' . sprintf( __( 'Drop-ins are advanced plugins in the %s directory that replace core functionality when present.' ),
 				'<code>' . str_replace( ABSPATH, '', CONTENT_DIR ) . '</code>'
 			) . '</p>';

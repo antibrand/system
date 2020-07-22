@@ -177,7 +177,6 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 					<td><input name="upload_path" type="text" id="upload_path" value="<?php echo esc_attr(get_option( 'upload_path' )); ?>" class="regular-text code" />
 
 					<p class="description"><?php
-						// Translators: %s: wp-content/uploads.
 						printf( __( 'Default is %s' ), '<code>wp-content/uploads</code>' );
 					?></p>
 					</td>
