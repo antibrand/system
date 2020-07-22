@@ -1202,7 +1202,7 @@ function wp_page_reload_on_back_button_js() {
  * The new site admin address will not become active until confirmed.
  *
  * @since 3.0.0
- * @since 4.9.0 This function was moved from wp-admin/includes/ms.php so it's no longer Multisite specific.
+ * @since 4.9.0 This function was moved from wp-admin/includes/network-functions.php so it's no longer network specific.
  *
  * @param string $old_value The old site admin email address.
  * @param string $value     The proposed new site admin email address.
