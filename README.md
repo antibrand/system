@@ -9,3 +9,5 @@ A generic website management system inspired by a widely used system. The system
 ![cover image](https://raw.githubusercontent.com/antibrand/system/master/cover.jpg)
 
 This README file will be updated when content is written.
+
+Please read the [Disclaimer of Legalities](https://github.com/antibrand/system/blob/master/DISCLAIMER.md) regarding this project.
