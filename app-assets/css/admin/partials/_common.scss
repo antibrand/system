@@ -1860,16 +1860,24 @@ html.wp-toolbar {
   25.0 - Tabbed Admin Screen Interface (Experimental)
 ------------------------------------------------------------------------------*/
 
+.wrap h2.nav-tab-wrapper, /* higher specificity to override .wrap > h2:first-child */
+.nav-tab-wrapper {
+	display: flex;
+	margin: 1em 0 0;
+	line-height: 1;
+	border-bottom: 1px solid $form_border_color;
+}
+
 .nav-tab {
-	float: left;
 	position: relative;
 	top: 1px;
 	border: 1px solid $form_border_color;
 	border-bottom: none;
 	margin-left: 0.5em; /* half the font size so set the font size properly */
-	padding: 0.5em 1em;
+	padding: 0.75em 1em;
 	font-size: $px14;
 	font-weight: 600;
+	line-height: 1;
 	text-decoration: none;
 	color: $text_color;
 	white-space: nowrap;
@@ -1898,23 +1906,6 @@ h3 .nav-tab, /* Back-compat for pre-4.4 */
 .nav-tab-wrapper + form {
 	margin-top: 2rem;
 }
-
-h1.nav-tab-wrapper, /* Back-compat for pre-4.4 */
-.wrap h2.nav-tab-wrapper, /* higher specificity to override .wrap > h2:first-child */
-.nav-tab-wrapper {
-	border-bottom: 1px solid $form_border_color;
-	margin: 1em 0 0;
-	padding-top: 9px;
-	padding-bottom: 0;
-	line-height: inherit;
-}
-
-/* Back-compat for plugins. Deprecated. Use .wp-clearfix instead. */
-.nav-tab-wrapper:not(.wp-clearfix):after {
- 	content: "";
- 	display: table;
- 	clear: both;
- }
 
 /*------------------------------------------------------------------------------
   26.0 - Misc

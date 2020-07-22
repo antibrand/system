@@ -4438,17 +4438,27 @@ html.wp-toolbar {
 /*------------------------------------------------------------------------------
   25.0 - Tabbed Admin Screen Interface (Experimental)
 ------------------------------------------------------------------------------*/
+.wrap h2.nav-tab-wrapper,
+.nav-tab-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 1em 0 0;
+  line-height: 1;
+  border-bottom: 1px solid #888888;
+}
+
 .nav-tab {
-  float: right;
   position: relative;
   top: 1px;
   border: 1px solid #888888;
   border-bottom: none;
   margin-right: 0.5em;
   /* half the font size so set the font size properly */
-  padding: 0.5em 1em;
+  padding: 0.75em 1em;
   font-size: 0.875rem;
   font-weight: 600;
+  line-height: 1;
   text-decoration: none;
   color: #222222;
   white-space: nowrap;
@@ -4481,23 +4491,6 @@ h3 .nav-tab,
 
 .nav-tab-wrapper + form {
   margin-top: 2rem;
-}
-
-h1.nav-tab-wrapper,
-.wrap h2.nav-tab-wrapper,
-.nav-tab-wrapper {
-  border-bottom: 1px solid #888888;
-  margin: 1em 0 0;
-  padding-top: 9px;
-  padding-bottom: 0;
-  line-height: inherit;
-}
-
-/* Back-compat for plugins. Deprecated. Use .wp-clearfix instead. */
-.nav-tab-wrapper:not(.wp-clearfix):after {
-  content: "";
-  display: table;
-  clear: both;
 }
 
 /*------------------------------------------------------------------------------
