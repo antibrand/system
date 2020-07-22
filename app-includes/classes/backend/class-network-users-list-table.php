@@ -430,7 +430,7 @@ class MS_Users_List_Table extends List_Table {
 	 * @param object $user        User being acted upon.
 	 * @param string $column_name Current column name.
 	 * @param string $primary     Primary column name.
-	 * @return string Row actions output for users in Multisite.
+	 * @return string Row actions output for users in network.
 	 */
 	protected function handle_row_actions( $user, $column_name, $primary ) {
 		if ( $primary !== $column_name ) {

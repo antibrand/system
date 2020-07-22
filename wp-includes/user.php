@@ -297,7 +297,7 @@ function wp_authenticate_cookie( $user, $username, $password ) {
 }
 
 /**
- * For Multisite blogs, check if the authenticated user has been marked as a
+ * For network blogs, check if the authenticated user has been marked as a
  * spammer, or if the user's primary blog has been marked as spam.
  *
  * @since 3.7.0
@@ -1029,7 +1029,7 @@ function setup_userdata($for_user_id = '') {
  *     @type string       $name                    Name attribute of select element. Default 'user'.
  *     @type string       $id                      ID attribute of the select element. Default is the value of $name.
  *     @type string       $class                   Class attribute of the select element. Default empty.
- *     @type int          $blog_id                 ID of blog (Multisite only). Default is ID of the current blog.
+ *     @type int          $blog_id                 ID of blog (network only). Default is ID of the current blog.
  *     @type string       $who                     Which type of users to query. Accepts only an empty string or
  *                                                 'authors'. Default empty.
  *     @type string|array $role                    An array or a comma-separated list of role names that users must
@@ -2688,7 +2688,7 @@ All at ###SITENAME###
 		 * ###SITEURL###   The URL to the site.
 		 *
 		 * @since MU (3.0.0)
-		 * @since 4.9.0 This filter is no longer Multisite specific.
+		 * @since 4.9.0 This filter is no longer network specific.
 		 *
 		 * @param string $email_text     Text in the email.
 		 * @param array  $new_user_email {
@@ -2898,7 +2898,7 @@ function _wp_privacy_send_request_confirmation_notification( $request_id ) {
 	/**
 	 * Filters the recipient of the data request confirmation notification.
 	 *
-	 * In a Multisite environment, this will default to the email address of the
+	 * In a network environment, this will default to the email address of the
 	 * network admin because, by default, single site admins do not have the
 	 * capabilities required to process requests. Some networks may wish to
 	 * delegate those capabilities to a single-site admin, or a dedicated person

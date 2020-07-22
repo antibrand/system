@@ -110,7 +110,7 @@ $wp_http_referer = remove_query_arg( [ 'update', 'delete_count', 'user_id' ], $w
 $user_can_edit   = current_user_can( 'edit_posts' ) || current_user_can( 'edit_pages' );
 
 /**
- * Filters whether to allow administrators on Multisite to edit every user.
+ * Filters whether to allow administrators on network to edit every user.
  *
  * Enabling the user editing form via this filter also hinges on the user holding
  * the 'manage_network_users' cap, and the logged-in user not matching the user

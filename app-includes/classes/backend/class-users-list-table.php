@@ -28,7 +28,7 @@ class Users_List_Table extends List_Table {
 	public $site_id;
 
 	/**
-	 * Whether or not the current Users list table is for Multisite.
+	 * Whether or not the current Users list table is for network.
 	 *
 	 * @since 3.1.0
 	 * @var bool
@@ -458,7 +458,7 @@ class Users_List_Table extends List_Table {
 			 *
 			 * @param array   $actions     An array of action links to be displayed.
 			 *                             Default 'Edit', 'Delete' for single site, and
-			 *                             'Edit', 'Remove' for Multisite.
+			 *                             'Edit', 'Remove' for network.
 			 * @param User $user_object User object for the currently-listed user.
 			 */
 			$actions = apply_filters( 'user_row_actions', $actions, $user_object );

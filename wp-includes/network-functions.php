@@ -1,6 +1,6 @@
 <?php
 /**
- * Multisite API
+ * Network API
  *
  * @package App_Package
  * @subpackage Network
@@ -1128,7 +1128,7 @@ function wpmu_activate_signup($key) {
  *
  * This function runs when a user self-registers as well as when
  * a Network Admin creates a new user. Hook to {@see 'wpmu_new_user'} for events
- * that should affect all new users, but only on Multisite (otherwise
+ * that should affect all new users, but only on network (otherwise
  * use {@see'user_register'}).
  *
  * @since MU (3.0.0)
@@ -1861,7 +1861,7 @@ function recurse_dirsize( $directory, $exclude = null ) {
  * The application ships with a set of allowed upload filetypes,
  * which is defined in wp-includes/functions.php in
  * get_allowed_mime_types(). This function is used to filter
- * that list against the filetype whitelist provided by Multisite
+ * that list against the filetype whitelist provided by network
  * Network Admins at wp-admin/network/settings.php.
  *
  * @since MU (3.0.0)
@@ -2554,7 +2554,7 @@ function wp_is_large_network( $using = 'sites', $network_id = null ) {
 }
 
 /**
- * Retrieves a list of reserved site on a sub-directory Multisite installation.
+ * Retrieves a list of reserved site on a sub-directory network installation.
  *
  * @since 4.4.0
  *
@@ -2567,7 +2567,7 @@ function get_subdirectory_reserved_names() {
 	);
 
 	/**
-	 * Filters reserved site names on a sub-directory Multisite installation.
+	 * Filters reserved site names on a sub-directory network installation.
 	 *
 	 * @since 3.0.0
 	 * @since 4.4.0 'wp-admin', 'wp-content', 'wp-includes', 'wp-json', and 'embed' were added

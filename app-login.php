@@ -180,7 +180,7 @@ switch ( $action ) {
 
 		if ( is_network() ) {
 			/**
-			 * Filters the Multisite sign up URL.
+			 * Filters the network sign up URL.
 			 *
 			 * @since Previous 3.0.0
 			 * @param string $sign_up_url The sign up URL.

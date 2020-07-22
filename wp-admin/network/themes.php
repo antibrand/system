@@ -1,6 +1,6 @@
 <?php
 /**
- * Multisite themes administration panel
+ * Network themes administration panel
  *
  * @package App_Package
  * @subpackage Network

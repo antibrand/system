@@ -1,6 +1,6 @@
 <?php
 /**
- * Multisite administration panel.
+ * Network administration panel.
  *
  * @package App_Package
  * @subpackage Network
@@ -19,7 +19,7 @@ if ( ! current_user_can( 'manage_network' ) )
 $title = __( 'Dashboard' );
 $parent_file = 'index.php';
 
-$overview = '<p>' . __( 'Welcome to your Network Admin. This area of the Administration Screens is used for managing all aspects of your Multisite Network.' ) . '</p>';
+$overview = '<p>' . __( 'Welcome to your Network Admin. This area of the Administration Screens is used for managing all aspects of your network.' ) . '</p>';
 $overview .= '<p>' . __( 'From here you can:' ) . '</p>';
 $overview .= '<ul><li>' . __( 'Add and manage sites or users' ) . '</li>';
 $overview .= '<li>' . __( 'Install and activate themes or plugins' ) . '</li>';

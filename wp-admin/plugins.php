@@ -120,7 +120,7 @@ if ( $action ) {
 
 				foreach ( $plugins as $i => $plugin ) {
 
-					// Only activate plugins which are not already active and are not network-only when on Multisite.
+					// Only activate plugins which are not already active and are not network-only when on network.
 					if ( is_plugin_active( $plugin ) || ( is_network() && is_network_only_plugin( $plugin ) ) ) {
 						unset( $plugins[ $i ] );
 					}

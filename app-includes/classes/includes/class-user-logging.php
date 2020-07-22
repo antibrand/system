@@ -145,7 +145,7 @@ class User_Logging {
 			$login_header_title = apply_filters( 'login_headertitle', $login_header_title );
 
 			/*
-			* To match the URL/title set above, Multisite sites have the blog name,
+			* To match the URL/title set above, network sites have the blog name,
 			* while single sites get the header title.
 			*/
 			if ( is_network() ) {

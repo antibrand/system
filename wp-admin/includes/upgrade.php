@@ -2874,7 +2874,7 @@ function pre_schema_upgrade() {
 		$wpdb->query("ALTER TABLE $wpdb->options DROP INDEX option_name");
 	}
 
-	// Multisite schema upgrades.
+	// Network schema upgrades.
 	if ( $wp_current_db_version < 25448 && is_network() && wp_should_upgrade_global_tables() ) {
 
 		// Upgrade versions prior to 3.7

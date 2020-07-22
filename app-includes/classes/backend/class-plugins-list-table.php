@@ -647,7 +647,7 @@ class Plugins_List_Table extends List_Table {
 			 * @since 4.9.0 The 'Edit' link was removed from the list of action links.
 			 *
 			 * @param array  $actions     An array of plugin action links. By default this can include 'activate',
-			 *                            'deactivate', and 'delete'. With Multisite active this can also include
+			 *                            'deactivate', and 'delete'. With network active this can also include
 			 *                            'network_active' and 'network_only' items.
 			 * @param string $plugin_file Path to the plugin file relative to the plugins directory.
 			 * @param array  $plugin_data An array of plugin data. See `get_plugin_data()`.
@@ -666,7 +666,7 @@ class Plugins_List_Table extends List_Table {
 			 * @since 4.9.0 The 'Edit' link was removed from the list of action links.
 			 *
 			 * @param array  $actions     An array of plugin action links. By default this can include 'activate',
-			 *                            'deactivate', and 'delete'. With Multisite active this can also include
+			 *                            'deactivate', and 'delete'. With network active this can also include
 			 *                            'network_active' and 'network_only' items.
 			 * @param string $plugin_file Path to the plugin file relative to the plugins directory.
 			 * @param array  $plugin_data An array of plugin data. See `get_plugin_data()`.

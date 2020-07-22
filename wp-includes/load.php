@@ -535,7 +535,7 @@ function wp_start_object_cache() {
  * Redirect to the installer
  *
  * Redirects if the application is not installed.
- * Dies with an error message when Multisite is enabled.
+ * Dies with an error message when network is enabled.
  *
  * @since  3.0.0
  * @access private

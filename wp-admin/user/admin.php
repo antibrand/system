@@ -19,7 +19,7 @@ if ( ! is_network() ) {
 $redirect_user_admin_request = ( ( $current_blog->domain != $current_site->domain ) || ( $current_blog->path != $current_site->path ) );
 
 /**
- * Filters whether to redirect the request to the User Admin in Multisite.
+ * Filters whether to redirect the request to the user admin in network.
  *
  * @since Previous 3.2.0
  *

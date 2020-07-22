@@ -14,7 +14,7 @@ require_once( dirname( dirname( __FILE__ ) ) . '/admin.php' );
 
 // Do not remove this check. It is required by individual network admin pages.
 if ( ! is_network() ) {
-	wp_die( __( 'Multisite support is not enabled.' ) );
+	wp_die( __( 'Network support is not enabled.' ) );
 }
 
 $redirect_network_admin_request = 0 !== strcasecmp( $current_blog->domain, $current_site->domain ) || 0 !== strcasecmp( $current_blog->path, $current_site->path );

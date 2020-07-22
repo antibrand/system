@@ -326,7 +326,7 @@ wp_enqueue_script( 'wp-ajax-response' );
 wp_enqueue_script( 'user-profile' );
 
 /**
- * Filters whether to enable user auto-complete for non-super admins in Multisite.
+ * Filters whether to enable user auto-complete for non-super admins in network.
  *
  * @since Previous 3.4.0
  * @param bool $enable Whether to enable auto-complete for non-super admins. Default false.
@@ -481,7 +481,7 @@ if ( is_network() && current_user_can( 'promote_users' ) ) {
  * Fires at the end of the new user form.
  *
  * Passes a contextual string to make both types of new user forms
- * uniquely targetable. Contexts are 'add-existing-user' (Multisite),
+ * uniquely targetable. Contexts are 'add-existing-user' (network),
  * and 'add-new-user' (single site and network admin).
  *
  * @since 3.7.0

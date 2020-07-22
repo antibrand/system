@@ -8,7 +8,7 @@
  */
 
 /**
- * Defines Multisite upload constants.
+ * Defines network upload constants.
  *
  * Exists for backward compatibility with legacy file-serving through
  * wp-includes/network-files.php (wp-content/blogs.php in MU).
@@ -40,7 +40,7 @@ function ms_upload_constants() {
 }
 
 /**
- * Defines Multisite cookie constants.
+ * Defines network cookie constants.
  *
  * @since 3.0.0
  */
@@ -82,7 +82,7 @@ function ms_cookie_constants(  ) {
 }
 
 /**
- * Defines Multisite file constants.
+ * Defines network file constants.
  *
  * Exists for backward compatibility with legacy file-serving through
  * wp-includes/network-files.php (wp-content/blogs.php in MU).
@@ -106,7 +106,7 @@ function ms_file_constants() {
 }
 
 /**
- * Defines Multisite subdomain constants and handles warnings and notices.
+ * Defines network subdomain constants and handles warnings and notices.
  *
  * VHOST is deprecated in favor of SUBDOMAIN_INSTALL, which is a bool.
  *

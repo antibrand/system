@@ -115,7 +115,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	 *     @type string $local_package      The value of the $wp_local_package global, when set.
 	 *     @type int    $blogs              Number of sites on this installation.
 	 *     @type int    $users              Number of users on this installation.
-	 *     @type int    $multisite_enabled  Whether this installation uses Multisite.
+	 *     @type int    $multisite_enabled  Whether this installation uses network.
 	 *     @type int    $initial_db_version Database version at time of installation.
 	 * }
 	 */

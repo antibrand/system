@@ -280,7 +280,7 @@ public static function export_wp( $args = array() ) {
 	 * @return string Site URL.
 	 */
 	function wxr_site_url() {
-		// Multisite: the base URL.
+		// network: the base URL.
 		if ( is_network() )
 			return network_home_url();
 		// Single site: the site URL.

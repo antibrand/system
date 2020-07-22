@@ -1,6 +1,6 @@
 <?php
 /**
- * Multisite upgrade administration panel.
+ * Network upgrade administration panel.
  *
  * @package App_Package
  * @subpackage Network
@@ -88,7 +88,7 @@ switch ( $action ) {
 			}
 
 			/**
-			 * Fires after the Multisite DB upgrade for each site is complete.
+			 * Fires after the network DB upgrade for each site is complete.
 			 *
 			 * @since MU (3.0.0)
 			 *

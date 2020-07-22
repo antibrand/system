@@ -1,6 +1,6 @@
 <?php
 /**
- * Multisite Administration hooks
+ * Network Administration hooks
  *
  * @package App_Package
  * @subpackage Administration

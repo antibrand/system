@@ -1,6 +1,6 @@
 <?php
 /**
- * Multisite upload handler.
+ * Network upload handler.
  *
  * @since 3.0.0
  *
@@ -12,7 +12,7 @@ define( 'SHORTINIT', true );
 require_once( dirname( dirname( __FILE__ ) ) . '/app-load.php' );
 
 if ( !is_network() )
-	die( 'Multisite support not enabled' );
+	die( 'Network support not enabled' );
 
 ms_file_constants();
 

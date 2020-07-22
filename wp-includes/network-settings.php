@@ -1,7 +1,7 @@
 <?php
 /**
  * Used to set up and fix common variables and include
- * the Multisite procedural and class library.
+ * the network procedural and class library.
  *
  * Allows for some configuration in app-config.php (see network-default-constants.php)
  *
@@ -37,10 +37,10 @@ require_once( ABSPATH . WPINC . '/class-wp-network.php' );
 /** WP_Site class */
 require_once( ABSPATH . WPINC . '/class-wp-site.php' );
 
-/** Multisite loader */
+/** Network loader */
 require_once( ABSPATH . WPINC . '/network-load.php' );
 
-/** Default Multisite constants */
+/** Default network constants */
 require_once( ABSPATH . WPINC . '/network-default-constants.php' );
 
 if ( defined( 'SUNRISE' ) ) {

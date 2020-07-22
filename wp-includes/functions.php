@@ -4338,7 +4338,7 @@ function wp_suspend_cache_invalidation( $suspend = true ) {
  * @param int $network_id Optional. Network ID of the network to check for.
  *                        Defaults to current network.
  * @return bool True if $site_id is the main site of the network, or if not
- *              running Multisite.
+ *              running network.
  */
 function is_main_site( $site_id = null, $network_id = null ) {
 	if ( ! is_network() ) {
@@ -4377,12 +4377,12 @@ function get_main_site_id( $network_id = null ) {
 }
 
 /**
- * Determine whether a network is the main network of the Multisite installation.
+ * Determine whether a network is the main network of the network installation.
  *
  * @since 3.7.0
  *
  * @param int $network_id Optional. Network ID to test. Defaults to current network.
- * @return bool True if $network_id is the main network, or if not running Multisite.
+ * @return bool True if $network_id is the main network, or if not running network.
  */
 function is_main_network( $network_id = null ) {
 	if ( ! is_network() ) {

@@ -10,7 +10,7 @@
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 if ( !is_network() )
-	wp_die( __( 'Multisite support is not enabled.' ) );
+	wp_die( __( 'Network support is not enabled.' ) );
 
 if ( ! current_user_can( 'delete_site' ) )
 	wp_die(__( 'Sorry, you are not allowed to delete this site.'));
@@ -62,11 +62,11 @@ Thanks for using the site,
 Webmaster
 ###SITE_NAME###" );
 	/**
-	 * Filters the email content sent when a site in a Multisite network is deleted.
+	 * Filters the email content sent when a site in a network is deleted.
 	 *
 	 * @since 3.0.0
 	 *
-	 * @param string $content The email content that will be sent to the user who deleted a site in a Multisite network.
+	 * @param string $content The email content that will be sent to the user who deleted a site in a network.
 	 */
 	$content = apply_filters( 'delete_site_email_content', $content );
 

@@ -263,7 +263,7 @@ class wpdb {
 	var $global_tables = array( 'users', 'usermeta' );
 
 	/**
-	 * List of Multisite global tables
+	 * List of network global tables
 	 *
 	 * @since 3.0.0
 	 * @see wpdb::tables()
@@ -353,7 +353,7 @@ class wpdb {
 	public $termmeta;
 
 	//
-	// Global and Multisite tables
+	// Global and network tables
 	//
 
 	/**
@@ -373,7 +373,7 @@ class wpdb {
 	public $users;
 
 	/**
-	 * Multisite Blogs table
+	 * Network Blogs table
 	 *
 	 * @since 3.0.0
 	 * @var string
@@ -381,7 +381,7 @@ class wpdb {
 	public $blogs;
 
 	/**
-	 * Multisite Blog Versions table
+	 * Network Blog Versions table
 	 *
 	 * @since 3.0.0
 	 * @var string
@@ -389,7 +389,7 @@ class wpdb {
 	public $blog_versions;
 
 	/**
-	 * Multisite Registration Log table
+	 * Network Registration Log table
 	 *
 	 * @since 3.0.0
 	 * @var string
@@ -397,7 +397,7 @@ class wpdb {
 	public $registration_log;
 
 	/**
-	 * Multisite Signups table
+	 * Network Signups table
 	 *
 	 * @since 3.0.0
 	 * @var string
@@ -405,7 +405,7 @@ class wpdb {
 	public $signups;
 
 	/**
-	 * Multisite Sites table
+	 * Network Sites table
 	 *
 	 * @since 3.0.0
 	 * @var string
@@ -413,7 +413,7 @@ class wpdb {
 	public $site;
 
 	/**
-	 * Multisite Sitewide Terms table
+	 * Network Sitewide Terms table
 	 *
 	 * @since 3.0.0
 	 * @var string
@@ -421,7 +421,7 @@ class wpdb {
 	public $sitecategories;
 
 	/**
-	 * Multisite Site Metadata table
+	 * Network Site Metadata table
 	 *
 	 * @since 3.0.0
 	 * @var string

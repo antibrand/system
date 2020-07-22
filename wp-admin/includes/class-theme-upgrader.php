@@ -350,7 +350,7 @@ class Theme_Upgrader extends Includes\Installer {
 		$this->skin->bulk_header();
 
 		// Only start maintenance mode if:
-		// - running Multisite and there are one or more themes specified, OR
+		// - running network and there are one or more themes specified, OR
 		// - a theme with an update available is currently in use.
 		// @TODO: For multisite, maintenance mode should only kick in for individual sites if at all possible.
 		$maintenance = ( is_network() && ! empty( $themes ) );

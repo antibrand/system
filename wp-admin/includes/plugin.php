@@ -30,7 +30,7 @@
  *    		located in.
  *     Network: Optional. Specify "Network: true" to require that a plugin is activated
  *    		across all sites in an installation. This will prevent a plugin from being
- *    		activated on a single site when Multisite is enabled.
+ *    		activated on a single site when network is enabled.
  *      * / # Remove the space to close comment
  *
  * Some users have issues with opening large files and manipulating the contents
@@ -401,7 +401,7 @@ function get_dropins() {
 /**
  * Returns drop-ins
  *
- * Includes Multisite drop-ins only when is_network()
+ * Includes network drop-ins only when is_network()
  *
  * @since 3.0.0
  * @return array Key is file name. The value is an array, with the first value the
@@ -419,7 +419,7 @@ function _get_dropins() {
 	);
 
 	if ( is_network() ) {
-		$dropins['sunrise.php'       ] = array( __( 'Executed before Multisite is loaded.' ), 'SUNRISE' ); // SUNRISE
+		$dropins['sunrise.php'       ] = array( __( 'Executed before network is loaded.' ), 'SUNRISE' ); // SUNRISE
 		$dropins['blog-deleted.php'  ] = array( __( 'Custom site deleted message.'   ), true ); // auto on deleted blog
 		$dropins['blog-inactive.php' ] = array( __( 'Custom site inactive message.'  ), true ); // auto on inactive blog
 		$dropins['blog-suspended.php'] = array( __( 'Custom site suspended message.' ), true ); // auto on archived or spammed blog
@@ -487,7 +487,7 @@ function is_plugin_active_for_network( $plugin ) {
 /**
  * Checks for "Network: true" in the plugin header to see if this should
  * be activated only as a network wide plugin. The plugin would also work
- * when Multisite is not enabled.
+ * when network is not enabled.
  *
  * Checks for "Site Wide Only: true" for backward compatibility.
  *
@@ -526,7 +526,7 @@ function is_network_only_plugin( $plugin ) {
  * @param string $plugin       Path to the main plugin file from plugins directory.
  * @param string $redirect     Optional. URL to redirect to.
  * @param bool   $network_wide Optional. Whether to enable the plugin for all sites in the network
- *                             or just the current site. Multisite only. Default false.
+ *                             or just the current site. Network only. Default false.
  * @param bool   $silent       Optional. Whether to prevent calling activation hooks. Default false.
  * @return WP_Error|null WP_Error on invalid file or null on success.
  */
@@ -565,7 +565,7 @@ function activate_plugin( $plugin, $redirect = '', $network_wide = false, $silen
 			 *
 			 * @param string $plugin       Path to the main plugin file from plugins directory.
 			 * @param bool   $network_wide Whether to enable the plugin for all sites in the network
-			 *                             or just the current site. Multisite only. Default is false.
+			 *                             or just the current site. network only. Default is false.
 			 */
 			do_action( 'activate_plugin', $plugin, $network_wide );
 
@@ -580,7 +580,7 @@ function activate_plugin( $plugin, $redirect = '', $network_wide = false, $silen
 			 * @since 2.0.0
 			 *
 			 * @param bool $network_wide Whether to enable the plugin for all sites in the network
-			 *                           or just the current site. Multisite only. Default is false.
+			 *                           or just the current site. Network only. Default is false.
 			 */
 			do_action( "activate_{$plugin}", $network_wide );
 		}
@@ -607,7 +607,7 @@ function activate_plugin( $plugin, $redirect = '', $network_wide = false, $silen
 			 *
 			 * @param string $plugin       Path to the main plugin file from plugins directory.
 			 * @param bool   $network_wide Whether to enable the plugin for all sites in the network
-			 *                             or just the current site. Multisite only. Default is false.
+			 *                             or just the current site. Network only. Default is false.
 			 */
 			do_action( 'activated_plugin', $plugin, $network_wide );
 		}
@@ -659,7 +659,7 @@ function deactivate_plugins( $plugins, $silent = false, $network_wide = null ) {
 			 *
 			 * @param string $plugin               Path to the main plugin file from plugins directory.
 			 * @param bool   $network_deactivating Whether the plugin is deactivated for all sites in the network
-			 *                                     or just the current site. Multisite only. Default is false.
+			 *                                     or just the current site. Network only. Default is false.
 			 */
 			do_action( 'deactivate_plugin', $plugin, $network_deactivating );
 		}
@@ -693,7 +693,7 @@ function deactivate_plugins( $plugins, $silent = false, $network_wide = null ) {
 			 * @since 2.0.0
 			 *
 			 * @param bool $network_deactivating Whether the plugin is deactivated for all sites in the network
-			 *                                   or just the current site. Multisite only. Default is false.
+			 *                                   or just the current site. Network only. Default is false.
 			 */
 			do_action( "deactivate_{$plugin}", $network_deactivating );
 
@@ -707,7 +707,7 @@ function deactivate_plugins( $plugins, $silent = false, $network_wide = null ) {
 			 *
 			 * @param string $plugin               Path to the main plugin file from plugins directory.
 			 * @param bool   $network_deactivating Whether the plugin is deactivated for all sites in the network.
-			 *                                     or just the current site. Multisite only. Default false.
+			 *                                     or just the current site. Network only. Default false.
 			 */
 			do_action( 'deactivated_plugin', $plugin, $network_deactivating );
 		}

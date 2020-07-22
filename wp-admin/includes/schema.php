@@ -212,7 +212,7 @@ CREATE TABLE $wpdb->posts (
   KEY user_email (user_email)
 ) $charset_collate;\n";
 
-	// Multisite users table
+	// Network users table
 	$users_multi_table = "CREATE TABLE $wpdb->users (
   ID bigint(20) unsigned NOT NULL auto_increment,
   user_login varchar(60) NOT NULL default '',
@@ -249,7 +249,7 @@ CREATE TABLE $wpdb->posts (
 	else
 		$global_tables = $users_single_table . $usermeta_table;
 
-	// Multisite global tables.
+	// Network global tables.
 	$ms_global_tables = "CREATE TABLE $wpdb->blogs (
   blog_id bigint(20) NOT NULL auto_increment,
   site_id bigint(20) NOT NULL default '0',

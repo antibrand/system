@@ -1250,7 +1250,7 @@ All at ###SITENAME###
 	 * ###SITEURL###   The URL to the site.
 	 *
 	 * @since MU (3.0.0)
-	 * @since 4.9.0 This filter is no longer Multisite specific.
+	 * @since 4.9.0 This filter is no longer network specific.
 	 *
 	 * @param string $email_text      Text in the email.
 	 * @param array  $new_admin_email {

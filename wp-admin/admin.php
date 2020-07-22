@@ -66,7 +66,7 @@ if ( get_option( 'db_upgraded' ) ) {
 	 * it will throttle itself to reduce load.
 	 *
 	 * @since Previous 3.0.0
-	 * @param bool $do_mu_upgrade Whether to perform the Multisite upgrade routine. Default true.
+	 * @param bool $do_mu_upgrade Whether to perform the network upgrade routine. Default true.
 	 */
 	} elseif ( apply_filters( 'do_mu_upgrade', true ) ) {
 
@@ -334,7 +334,7 @@ if ( isset( $plugin_page ) ) {
 	/**
 	 * Whether to filter imported data through kses on import.
 	 *
-	 * Multisite uses this hook to filter all data through kses by default,
+	 * Network uses this hook to filter all data through kses by default,
 	 * as a super administrator may be assisting an untrusted user.
 	 *
 	 * @since Previous 3.1.0

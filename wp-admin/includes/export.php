@@ -227,7 +227,7 @@ function export_wp( $args = [] ) {
 	 */
 	function wxr_site_url() {
 
-		// Multisite: the base URL.
+		// Network: the base URL.
 		if ( is_network() ) {
 			return network_home_url();
 

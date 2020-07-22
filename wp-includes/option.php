@@ -843,7 +843,7 @@ function delete_expired_transients( $force_db = false ) {
 	) );
 
 	if ( ! is_network() ) {
-		// non-Multisite stores site transients in the options table.
+		// non-network stores site transients in the options table.
 		$wpdb->query( $wpdb->prepare(
 			"DELETE a, b FROM {$wpdb->options} a, {$wpdb->options} b
 				WHERE a.option_name LIKE %s
@@ -855,7 +855,7 @@ function delete_expired_transients( $force_db = false ) {
 			time()
 		) );
 	} elseif ( is_network() && is_main_site() && is_main_network() ) {
-		// Multisite stores site transients in the sitemeta table.
+		// Network stores site transients in the sitemeta table.
 		$wpdb->query( $wpdb->prepare(
 			"DELETE a, b FROM {$wpdb->sitemeta} a, {$wpdb->sitemeta} b
 				WHERE a.meta_key LIKE %s
@@ -1100,7 +1100,7 @@ function delete_all_user_settings() {
  *
  * @param string $option     Name of option to retrieve. Expected to not be SQL-escaped.
  * @param mixed  $default    Optional value to return if option doesn't exist. Default false.
- * @param bool   $deprecated Whether to use cache. Multisite only. Always set to true.
+ * @param bool   $deprecated Whether to use cache. Network only. Always set to true.
  * @return mixed Value set for the option.
  */
 function get_site_option( $option, $default = false, $deprecated = true ) {

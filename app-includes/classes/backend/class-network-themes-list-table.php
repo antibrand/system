@@ -92,7 +92,7 @@ class MS_Themes_List_Table extends List_Table {
 
 		$themes = array(
 			/**
-			 * Filters the full array of Theme objects to list in the Multisite
+			 * Filters the full array of Theme objects to list in the network
 			 * themes list table.
 			 *
 			 * @since 3.1.0
@@ -463,11 +463,11 @@ class MS_Themes_List_Table extends List_Table {
 			);
 		}
 		/**
-		 * Filters the action links displayed for each theme in the Multisite
+		 * Filters the action links displayed for each theme in the network
 		 * themes list table.
 		 *
 		 * The action links displayed are determined by the theme's status, and
-		 * which Multisite themes list table is being displayed - the Network
+		 * which network themes list table is being displayed - the Network
 		 * themes list table (themes.php), which displays all installed themes,
 		 * or the Site themes list table (site-themes.php), which displays the
 		 * non-network enabled themes when editing a site in the Network admin.
@@ -487,7 +487,7 @@ class MS_Themes_List_Table extends List_Table {
 		$actions = apply_filters( 'theme_action_links', array_filter( $actions ), $theme, $context );
 
 		/**
-		 * Filters the action links of a specific theme in the Multisite themes
+		 * Filters the action links of a specific theme in the network themes
 		 * list table.
 		 *
 		 * The dynamic portion of the hook name, `$stylesheet`, refers to the
@@ -554,7 +554,7 @@ class MS_Themes_List_Table extends List_Table {
 			);
 		}
 		/**
-		 * Filters the array of row meta for each theme in the Multisite themes
+		 * Filters the array of row meta for each theme in the network themes
 		 * list table.
 		 *
 		 * @since 3.1.0
@@ -584,7 +584,7 @@ class MS_Themes_List_Table extends List_Table {
 		$stylesheet = $theme->get_stylesheet();
 
 		/**
-		 * Fires inside each custom column of the Multisite themes list table.
+		 * Fires inside each custom column of the network themes list table.
 		 *
 		 * @since 3.1.0
 		 *
@@ -701,7 +701,7 @@ class MS_Themes_List_Table extends List_Table {
 			remove_action( "after_theme_row_$stylesheet", 'wp_theme_update_row' );
 
 		/**
-		 * Fires after each row in the Multisite themes list table.
+		 * Fires after each row in the network themes list table.
 		 *
 		 * @since 3.1.0
 		 *
@@ -712,7 +712,7 @@ class MS_Themes_List_Table extends List_Table {
 		do_action( 'after_theme_row', $stylesheet, $theme, $status );
 
 		/**
-		 * Fires after each specific row in the Multisite themes list table.
+		 * Fires after each specific row in the network themes list table.
 		 *
 		 * The dynamic portion of the hook name, `$stylesheet`, refers to the
 		 * directory name of the theme, most often synonymous with the template

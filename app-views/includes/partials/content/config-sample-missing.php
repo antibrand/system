@@ -148,7 +148,7 @@ if ( defined( 'WP_LOCAL_DEV' ) && WP_LOCAL_DEV ) {
 // define( 'CONCATENATE_SCRIPTS', true );
 
 /**
- * Multisite network
+ * Network sites
  *
  * This is provided for reference. To begin network
  * activation change `APP_ALLOW_NETWORK` to `true`.

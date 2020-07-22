@@ -20,10 +20,10 @@
  * @param array $args The search arguments. Optional.
  * - errors      mixed  True to return themes with errors, false to return themes without errors, null
  *                      to return all themes. Defaults to false.
- * - allowed     mixed  (Multisite) True to return only allowed themes for a site. False to return only
+ * - allowed     mixed  (network) True to return only allowed themes for a site. False to return only
  *                      disallowed themes for a site. 'site' to return only site-allowed themes. 'network'
  *                      to return only network-allowed themes. Null to return all themes. Defaults to null.
- * - blog_id     int    (Multisite) The blog ID used to calculate which themes are allowed. Defaults to 0,
+ * - blog_id     int    (network) The blog ID used to calculate which themes are allowed. Defaults to 0,
  *                      synonymous for the current blog.
  * @return array Array of WP_Theme objects.
  */

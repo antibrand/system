@@ -2702,7 +2702,7 @@ function media_upload_max_image_resize() {
 }
 
 /**
- * Displays the out of storage quota message in Multisite.
+ * Displays the out of storage quota message in network.
  *
  * @since 3.5.0
  */

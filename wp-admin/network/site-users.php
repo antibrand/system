@@ -235,7 +235,7 @@ $parent_file  = 'sites.php';
 $submenu_file = 'sites.php';
 
 /**
- * Filters whether to show the Add Existing User form on the Multisite Users screen.
+ * Filters whether to show the Add Existing User form on the network users screen.
  *
  * @since Previous 3.1.0
  * @param bool $bool Whether to show the Add Existing User form. Default true.
@@ -284,7 +284,7 @@ jQuery(document).ready( function($) {
 		<div id="add-new-user-form" class="list-table-action-form">
 			<?php
 			/**
-			 * Filters whether to show the Add New User form on the Multisite Users screen.
+			 * Filters whether to show the Add New User form on the network users screen.
 			 *
 			 * @since Previous 3.1.0
 			 * @param bool $bool Whether to show the Add New User form. Default true.
@@ -335,7 +335,7 @@ jQuery(document).ready( function($) {
 		<div id="add-existing-user-form" class="list-table-action-form">
 			<?php
 			/**
-			 * Fires after the list table on the Users screen in the Multisite Network Admin.
+			 * Fires after the list table on the Users screen in the network Admin.
 			 *
 			 * @since Previous 3.1.0
 			 */

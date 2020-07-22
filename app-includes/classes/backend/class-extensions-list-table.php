@@ -113,7 +113,7 @@ class Extensions_List_Table extends List_Table {
 			 * Filters whether to display the advanced plugins list table.
 			 *
 			 * There are two types of advanced plugins - must-use and drop-ins -
-			 * which can be used in a single site or Multisite network.
+			 * which can be used in a single site or network.
 			 *
 			 * The $type parameter allows you to differentiate between the type of advanced
 			 * plugins to filter the display of. Contexts include 'extension' and 'dropins'.

@@ -1,6 +1,6 @@
 <?php
 /**
- * These functions are needed to load Multisite.
+ * These functions are needed to load network.
  *
  * @since 3.0.0
  *

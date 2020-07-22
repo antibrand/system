@@ -74,7 +74,7 @@ function edit_user( $user_id = 0 ) {
 
 		/**
 		 * Don't let anyone with 'edit_users' (admins) edit their own role to something without it.
-		 * Multisite super admins can freely edit their blog roles -- they possess all caps.
+		 * Network super admins can freely edit their blog roles -- they possess all caps.
 		 */
 		if ( ( is_network() && current_user_can( 'manage_sites' ) )
 		|| $user_id != get_current_user_id()

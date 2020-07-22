@@ -1,6 +1,6 @@
 <?php
 /**
- * Action handler for Multisite administration panels.
+ * Action handler for network administration panels.
  *
  * @package App_Package
  * @subpackage Network
@@ -18,7 +18,7 @@ if ( empty( $_GET['action'] ) ) {
 /**
  * Fires just before the action handler in several Network Admin screens.
  *
- * This hook fires on multiple screens in the Multisite Network Admin,
+ * This hook fires on multiple screens in the network Admin,
  * including Users, Network Settings, and Site Settings.
  *
  * @since 3.0.0

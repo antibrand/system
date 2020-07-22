@@ -480,7 +480,7 @@ require( ABSPATH . 'wp-admin/admin-header.php' );
 		</form>
 		<?php endif; ?>
 	<?php endif; ?>
-	<?php } // Multisite. ?>
+	<?php } // network. ?>
 
 	</div><!-- .wrap -->
 
