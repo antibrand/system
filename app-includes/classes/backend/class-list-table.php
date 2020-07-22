@@ -416,42 +416,53 @@ class List_Table {
 			$add_new = sprintf(
 				'<li class="list-table-add-new"><a href="%1s" class="button">%2s</a></li>',
 				esc_url( network_admin_url( 'user-new.php' ) ),
-				esc_html_x( 'Add Existing', 'user' )
+				esc_html__( 'Add Existing' )
 			);
 
 		} elseif ( 'users' == $this->screen->id && is_network() && current_user_can( 'create_users' ) ) {
 			$add_new = sprintf(
 				'<li class="list-table-add-new"><a href="%1s" class="button">%2s</a></li>',
 				esc_url( network_admin_url( 'user-new.php' ) ),
-				esc_html_x( 'Add New', 'user' )
-			);
-
-		} elseif ( 'themes-network' == $this->screen->id && is_network() && current_user_can( 'upload_themes' ) ) {
-			$add_new = sprintf(
-				'<li class="list-table-add-new"><button id="upload-theme-toggle" href="%1s" class="upload-view-toggle button">%2s</button></li>',
-				esc_url( admin_url( $post_new_file ) ),
-				esc_html( 'Upload Theme' )
+				esc_html__( 'Add New' )
 			);
 
 		} elseif ( 'users' == $this->screen->id && current_user_can( 'create_users' ) ) {
 			$add_new = sprintf(
 				'<li class="list-table-add-new"><a href="%1s" class="button">%2s</a></li>',
 				esc_url( admin_url( 'user-new.php' ) ),
-				esc_html_x( 'Add New', 'user' )
+				esc_html__( 'Add New' )
+			);
+
+		} elseif ( 'site-users-network' == $this->screen->id && current_user_can( 'create_users' ) ) {
+			$add_new = sprintf(
+				'<li class="list-table-add-new hide-if-no-js"><button id="add-new-user-toggle" class="button">%1s</button></li>',
+				esc_html__( 'Add New' )
+			);
+
+			$add_new .= sprintf(
+				'<li class="list-table-add-new hide-if-no-js"><button id="add-existing-user-toggle" class="button">%1s</button></li>',
+				esc_html__( 'Add Existing' )
+			);
+
+		} elseif ( 'themes-network' == $this->screen->id && is_network() && current_user_can( 'upload_themes' ) ) {
+			$add_new = sprintf(
+				'<li class="list-table-add-new"><button id="upload-theme-toggle" href="%1s" class="upload-view-toggle button">%2s</button></li>',
+				esc_url( admin_url( $post_new_file ) ),
+				esc_html__( 'Upload Theme' )
 			);
 
 		} elseif ( 'plugins-network' == $this->screen->id && is_network() && current_user_can( 'upload_plugins' ) ) {
 			$add_new = sprintf(
 				'<li class="list-table-add-new"><button id="upload-plugin-toggle" href="%1s" class="upload-view-toggle button">%2s</button></li>',
 				esc_url( admin_url( $post_new_file ) ),
-				esc_html( 'Upload Plugin' )
+				esc_html__( 'Upload Plugin' )
 			);
 
 		} elseif ( 'plugins' == $this->screen->id && current_user_can( 'upload_plugins' ) ) {
 			$add_new = sprintf(
 				'<li class="list-table-add-new"><button id="upload-plugin-toggle" href="%1s" class="upload-view-toggle button">%2s</button></li>',
 				esc_url( admin_url( $post_new_file ) ),
-				esc_html( 'Upload Plugin' )
+				esc_html__( 'Upload Plugin' )
 			);
 
 		} elseif ( $post_type_object && current_user_can( $post_type_object->cap->create_posts ) ) {

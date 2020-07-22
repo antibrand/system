@@ -10,8 +10,9 @@
 // Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
-if ( ! current_user_can('manage_sites') )
+if ( ! current_user_can( 'manage_sites' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to edit this site.' ), 403 );
+}
 
 $wp_list_table = _get_list_table( 'AppNamespace\Backend\Users_List_Table' );
 $wp_list_table->prepare_items();
@@ -19,11 +20,11 @@ $wp_list_table->prepare_items();
 get_current_screen()->add_help_tab( get_site_screen_help_tab_args() );
 get_current_screen()->set_help_sidebar( get_site_screen_help_sidebar_content() );
 
-get_current_screen()->set_screen_reader_content( array(
+get_current_screen()->set_screen_reader_content( [
 	'heading_views'      => __( 'Filter site users list' ),
 	'heading_pagination' => __( 'Site users list navigation' ),
 	'heading_list'       => __( 'Site users list' ),
-) );
+] );
 
 $_SERVER['REQUEST_URI'] = remove_query_arg( 'update', $_SERVER['REQUEST_URI'] );
 $referer = remove_query_arg( 'update', wp_get_referer() );
@@ -34,16 +35,18 @@ if ( ! empty( $_REQUEST['paged'] ) ) {
 
 $id = isset( $_REQUEST['id'] ) ? intval( $_REQUEST['id'] ) : 0;
 
-if ( ! $id )
-	wp_die( __('Invalid site ID.') );
+if ( ! $id ) {
+	wp_die( __( 'Invalid site ID.' ) );
+}
 
 $details = get_site( $id );
 if ( ! $details ) {
 	wp_die( __( 'The requested site does not exist.' ) );
 }
 
-if ( ! can_edit_network( $details->site_id ) )
+if ( ! can_edit_network( $details->site_id ) ) {
 	wp_die( __( 'Sorry, you are not allowed to access this page.' ), 403 );
+}
 
 $is_main_site = is_main_site( $id );
 
@@ -65,7 +68,7 @@ if ( $action ) {
 
 			} else {
 
-				$password = wp_generate_password( 12, false);
+				$password = wp_generate_password( 12, false );
 				$user_id  = wpmu_create_user( esc_html( strtolower( $user['username'] ) ), $password, esc_html( $user['email'] ) );
 
 				if ( false === $user_id ) {
@@ -154,8 +157,10 @@ if ( $action ) {
 		case 'promote' :
 
 			check_admin_referer( 'bulk-users' );
+
 			$editable_roles = get_editable_roles();
-			$role = false;
+			$role           = false;
+
 			if ( ! empty( $_REQUEST['new_role2'] ) ) {
 				$role = $_REQUEST['new_role2'];
 			} elseif ( ! empty( $_REQUEST['new_role'] ) ) {
@@ -167,9 +172,12 @@ if ( $action ) {
 			}
 
 			if ( isset( $_REQUEST['users'] ) ) {
+
 				$userids = $_REQUEST['users'];
-				$update = 'promote';
+				$update  = 'promote';
+
 				foreach ( $userids as $user_id ) {
+
 					$user_id = (int) $user_id;
 
 					// If the user doesn't already belong to the blog, bail.
@@ -184,9 +192,11 @@ if ( $action ) {
 					$user = get_userdata( $user_id );
 					$user->set_role( $role );
 				}
+
 			} else {
 				$update = 'err_promote';
 			}
+
 			break;
 
 		default :
@@ -196,11 +206,12 @@ if ( $action ) {
 			}
 
 			check_admin_referer( 'bulk-users' );
+
 			$userids = $_REQUEST['users'];
 
 			// This action is documented in wp-admin/network/site-themes.php.
 			$referer = apply_filters( 'handle_network_bulk_actions-' . get_current_screen()->id, $referer, $action, $userids, $id );
-			$update = $action;
+			$update  = $action;
 
 			break;
 	}
@@ -239,6 +250,23 @@ require( ABSPATH . 'wp-admin/admin-header.php' ); ?>
 var current_site_id = <?php echo $id; ?>;
 </script>
 
+<script>
+// Toggle the plugin upload interface.
+jQuery(document).ready( function($) {
+	$( '#add-new-user-toggle' ).click( function() {
+		$(this).text( $(this).text() == "<?php _e( 'Add New' ); ?>" ? "<?php _e( 'Close Form' ); ?>" : "<?php _e( 'Add New' ); ?>" );
+		$( '#add-existing-user-toggle' ).text( "<?php _e( 'Add Existing' ); ?>" );
+		$( '#add-existing-user-form' ).removeClass( 'open' );
+		$( '#add-new-user-form' ).toggleClass( 'open' );
+	});
+	$( '#add-existing-user-toggle' ).click( function() {
+		$(this).text( $(this).text() == "<?php _e( 'Add Existing' ); ?>" ? "<?php _e( 'Close Form' ); ?>" : "<?php _e( 'Add Existing' ); ?>" );
+		$( '#add-new-user-toggle' ).text( "<?php _e( 'Add New' ); ?>" );
+		$( '#add-new-user-form' ).removeClass( 'open' );
+		$( '#add-existing-user-form' ).toggleClass( 'open' );
+	});
+});
+</script>
 
 <div class="wrap">
 
@@ -250,6 +278,103 @@ var current_site_id = <?php echo $id; ?>;
 			<li><a href="<?php echo esc_url( get_admin_url( $id ) ); ?>" class="button"><?php _e( 'Dashboard' ); ?></a>
 		</ul>
 	</nav>
+
+	<div class="list-table-action-form-wrap">
+
+		<div id="add-new-user-form" class="list-table-action-form">
+			<?php
+			/**
+			 * Filters whether to show the Add New User form on the Multisite Users screen.
+			 *
+			 * @since Previous 3.1.0
+			 * @param bool $bool Whether to show the Add New User form. Default true.
+			 */
+			if ( current_user_can( 'create_users' ) && apply_filters( 'show_network_site_users_add_new_form', true ) ) :
+
+			?>
+			<h2><?php _e( 'Add New User' ); ?></h2>
+
+			<form action="<?php echo network_admin_url( 'site-users.php?action=newuser' ); ?>" id="newuser" method="post">
+
+				<input type="hidden" name="id" value="<?php echo esc_attr( $id ) ?>" />
+
+				<p>
+					<label for="user_username"><?php _e( 'Username' ) ?></label>
+					<br /><input type="text" class="regular-text" name="user[username]" id="user_username" />
+				</p>
+
+				<p>
+					<label for="user_email"><?php _e( 'Email' ) ?></label>
+					<br /><input type="text" class="regular-text" name="user[email]" id="user_email" />
+				</p>
+
+				<p>
+					<label for="new_role_newuser"><?php _e( 'Role' ); ?></label>
+					<br /><select name="new_role" id="new_role_newuser">
+					<?php
+						switch_to_blog( $id );
+						wp_dropdown_roles( get_option( 'default_role' ) );
+						restore_current_blog();
+					?>
+					</select>
+				</p>
+
+				<p><?php _e( 'A password reset link will be sent to the user via email.' ) ?></p>
+
+				<?php wp_nonce_field( 'add-user', '_wpnonce_add-new-user' ) ?>
+
+				<p><?php submit_button( __( 'Add New User' ), 'primary', 'add-user', true, [ 'id' => 'submit-add-user' ] ); ?></p>
+
+			</form>
+			<?php endif; ?>
+		</div>
+	</div>
+
+	<div class="list-table-action-form-wrap">
+
+		<div id="add-existing-user-form" class="list-table-action-form">
+			<?php
+			/**
+			 * Fires after the list table on the Users screen in the Multisite Network Admin.
+			 *
+			 * @since Previous 3.1.0
+			 */
+			do_action( 'network_site_users_after_list_table' );
+
+			/** This filter is documented in wp-admin/network/site-users.php */
+			if ( current_user_can( 'promote_users' ) && apply_filters( 'show_network_site_users_add_existing_form', true ) ) :
+
+			?>
+			<h2 id="add-existing-user"><?php _e( 'Add Existing User' ); ?></h2>
+
+			<form action="site-users.php?action=adduser" id="adduser" method="post">
+
+				<input type="hidden" name="id" value="<?php echo esc_attr( $id ) ?>" />
+
+				<p>
+					<label for="newuser"><?php _e( 'Username' ); ?></label>
+					<br /><input type="text" class="regular-text wp-suggest-user" name="newuser" id="newuser" />
+				</p>
+
+				<p>
+					<label for="new_role_adduser"><?php _e( 'Role' ); ?></label>
+					<br /><select name="new_role" id="new_role_adduser">
+						<?php
+						switch_to_blog( $id );
+						wp_dropdown_roles( get_option( 'default_role' ) );
+						restore_current_blog();
+						?>
+					</select>
+				</p>
+
+				<?php wp_nonce_field( 'add-user', '_wpnonce_add-user' ) ?>
+
+				<p><?php submit_button( __( 'Add User' ), 'primary', 'add-user', true, [ 'id' => 'submit-add-existing-user' ] ); ?></p>
+
+			</form>
+			<?php endif; ?>
+		</div>
+	</div>
 
 	<?php
 
@@ -327,98 +452,6 @@ var current_site_id = <?php echo $id; ?>;
 
 	</form>
 
-	<?php
-	/**
-	 * Fires after the list table on the Users screen in the Multisite Network Admin.
-	 *
-	 * @since Previous 3.1.0
-	 */
-	do_action( 'network_site_users_after_list_table' );
-
-	/** This filter is documented in wp-admin/network/site-users.php */
-	if ( current_user_can( 'promote_users' ) && apply_filters( 'show_network_site_users_add_existing_form', true ) ) :
-
-	?>
-	<h2 id="add-existing-user"><?php _e( 'Add Existing User' ); ?></h2>
-
-	<form action="site-users.php?action=adduser" id="adduser" method="post">
-
-		<input type="hidden" name="id" value="<?php echo esc_attr( $id ) ?>" />
-
-		<table class="form-table">
-
-			<tr>
-				<th scope="row"><label for="newuser"><?php _e( 'Username' ); ?></label></th>
-				<td><input type="text" class="regular-text wp-suggest-user" name="newuser" id="newuser" /></td>
-			</tr>
-			<tr>
-				<th scope="row"><label for="new_role_adduser"><?php _e( 'Role' ); ?></label></th>
-				<td><select name="new_role" id="new_role_adduser">
-				<?php
-				switch_to_blog( $id );
-				wp_dropdown_roles( get_option( 'default_role' ) );
-				restore_current_blog();
-				?>
-				</select></td>
-			</tr>
-
-		</table>
-
-		<?php wp_nonce_field( 'add-user', '_wpnonce_add-user' ) ?>
-
-		<p><?php submit_button( __( 'Add User' ), 'primary', 'add-user', true, array( 'id' => 'submit-add-existing-user' ) ); ?></p>
-
-	</form>
-	<?php endif; ?>
-
-	<?php
-	/**
-	 * Filters whether to show the Add New User form on the Multisite Users screen.
-	 *
-	 * @since Previous 3.1.0
-	 * @param bool $bool Whether to show the Add New User form. Default true.
-	 */
-	if ( current_user_can( 'create_users' ) && apply_filters( 'show_network_site_users_add_new_form', true ) ) :
-
-	?>
-	<h2 id="add-new-user"><?php _e( 'Add New User' ); ?></h2>
-
-	<form action="<?php echo network_admin_url('site-users.php?action=newuser'); ?>" id="newuser" method="post">
-
-		<input type="hidden" name="id" value="<?php echo esc_attr( $id ) ?>" />
-
-		<table class="form-table">
-
-			<tr>
-				<th scope="row"><label for="user_username"><?php _e( 'Username' ) ?></label></th>
-				<td><input type="text" class="regular-text" name="user[username]" id="user_username" /></td>
-			</tr>
-			<tr>
-				<th scope="row"><label for="user_email"><?php _e( 'Email' ) ?></label></th>
-				<td><input type="text" class="regular-text" name="user[email]" id="user_email" /></td>
-			</tr>
-			<tr>
-				<th scope="row"><label for="new_role_newuser"><?php _e( 'Role' ); ?></label></th>
-				<td><select name="new_role" id="new_role_newuser">
-				<?php
-				switch_to_blog( $id );
-				wp_dropdown_roles( get_option( 'default_role' ) );
-				restore_current_blog();
-				?>
-				</select></td>
-			</tr>
-			<tr class="form-field">
-				<td colspan="2"><?php _e( 'A password reset link will be sent to the user via email.' ) ?></td>
-			</tr>
-
-		</table>
-
-		<?php wp_nonce_field( 'add-user', '_wpnonce_add-new-user' ) ?>
-
-		<p><?php submit_button( __( 'Add New User' ), 'primary', 'add-user', true, array( 'id' => 'submit-add-user' ) ); ?></p>
-
-	</form>
-	<?php endif; ?>
 </div>
 <?php
 
