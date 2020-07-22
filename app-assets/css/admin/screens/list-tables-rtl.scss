@@ -888,7 +888,6 @@ tr:hover .row-actions,
 			-ms-flex-direction: column;
 				flex-direction: column;
 		margin: 0;
-		padding: 50px 0;
 		width: 100%;
 		overflow: hidden;
 		position: relative;
@@ -896,6 +895,7 @@ tr:hover .row-actions,
 
 		&.plugin-upload,
 		&.theme-upload {
+			padding: 3rem 0;
 			-webkit-box-align: center;
 			-moz-box-align: center;
 				-ms-flex-align: center;

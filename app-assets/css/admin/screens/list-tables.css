@@ -882,7 +882,6 @@ tr:hover .row-actions,
   -ms-flex-direction: column;
   flex-direction: column;
   margin: 0;
-  padding: 50px 0;
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -890,6 +889,7 @@ tr:hover .row-actions,
 }
 
 .list-table-action-form-wrap .list-table-action-form.plugin-upload, .list-table-action-form-wrap .list-table-action-form.theme-upload {
+  padding: 3rem 0;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
