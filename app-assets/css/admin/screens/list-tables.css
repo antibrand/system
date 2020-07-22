@@ -873,6 +873,40 @@ tr:hover .row-actions,
   padding: 2px 0 0;
 }
 
+.list-table-action-form-wrap .list-table-action-form {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0;
+  padding: 50px 0;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  top: 10px;
+}
+
+.list-table-action-form-wrap .list-table-action-form.plugin-upload, .list-table-action-form-wrap .list-table-action-form.theme-upload {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.list-table-action-form-wrap .list-table-action-form.open {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.no-js .list-table-action-form-wrap .list-table-action-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 /*------------------------------------------------------------------------------
   10.1 - Inline Editing
 ------------------------------------------------------------------------------*/
