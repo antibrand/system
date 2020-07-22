@@ -251,7 +251,7 @@ function get_site_by_path( $domain, $path, $segments = null ) {
 
 /**
  * Identifies the network and site of a requested domain and path and populates the
- * corresponding network and site global objects as part of the multisite bootstrap process.
+ * corresponding network and site global objects as part of the network bootstrap process.
  *
  * Prior to 4.6.0, this was a procedural block in `network-settings.php`. It was wrapped into
  * a function to facilitate unit tests. It should not be used outside of core.
@@ -507,7 +507,7 @@ function get_current_site_name( $current_site ) {
 }
 
 /**
- * This deprecated function managed much of the site and network loading in multisite.
+ * This deprecated function managed much of the site and network loading in network.
  *
  * The current bootstrap code is now responsible for parsing the site and network load as
  * well as setting the global $current_site object.

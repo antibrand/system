@@ -599,7 +599,7 @@ function allowed_http_request_hosts( $is_external, $host ) {
 }
 
 /**
- * Whitelists any domain in a multisite installation for safe HTTP requests.
+ * Whitelists any domain in a network installation for safe HTTP requests.
  *
  * Attached to the {@see 'http_request_host_is_external'} filter.
  *

@@ -1962,7 +1962,7 @@ function _wp_upload_dir( $time = null ) {
 		$url = trailingslashit( $siteurl ) . UPLOADS;
 	}
 
-	// If multisite (and if not the main site in a post-MU network)
+	// If network (and if not the main site in post-network)
 	if ( is_network() && ! ( is_main_network() && is_main_site() && defined( 'APP_NETWORK' ) ) ) {
 
 		if ( ! get_site_option( 'ms_files_rewriting' ) ) {
@@ -1995,7 +1995,7 @@ function _wp_upload_dir( $time = null ) {
 			 * Rather than UPLOADS, we actually use BLOGUPLOADDIR if it is set, as it is absolute.
 			 * (And it will be set, see ms_upload_constants().) Otherwise, UPLOADS can be used, as
 			 * as it is relative to ABSPATH. For the final piece: when UPLOADS is used with ms-files
-			 * rewriting in multisite, the resulting URL is /files. (#WP22702 for background.)
+			 * rewriting in network, the resulting URL is /files. (#WP22702 for background.)
 			 */
 
 			if ( defined( 'BLOGUPLOADDIR' ) )
@@ -4439,7 +4439,7 @@ function get_main_network_id() {
  *
  * @staticvar bool $global_terms
  *
- * @return bool True if multisite and global terms enabled.
+ * @return bool True if network and global terms enabled.
  */
 function global_terms_enabled() {
 	if ( ! is_network() )

@@ -934,8 +934,8 @@ class wpdb {
 	 *
 	 * 'all' - returns 'all' and 'global' tables. No old tables are returned.
 	 * 'blog' - returns the blog-level tables for the queried blog.
-	 * 'global' - returns the global tables for the installation, returning multisite tables only if running multisite.
-	 * 'ms_global' - returns the multisite global tables, regardless if current installation is multisite.
+	 * 'global' - returns the global tables for the installation, returning network tables only if running network.
+	 * 'ms_global' - returns the network global tables, regardless if current installation is network.
 	 * 'old' - returns tables which are deprecated.
 	 *
 	 * @since 3.0.0

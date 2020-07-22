@@ -50,7 +50,7 @@ function get_locale() {
 		$locale = APP_LANG;
 	}
 
-	// If multisite, check options.
+	// If network, check options.
 	if ( is_network() ) {
 		// Don't check blog option when installing.
 		if ( wp_installing() || ( false === $ms_locale = get_option( 'APP_LANG' ) ) ) {

@@ -1308,7 +1308,7 @@ final class WP_Theme implements ArrayAccess {
 	}
 
 	/**
-	 * Whether the theme is allowed (multisite only).
+	 * Whether the theme is allowed (network only).
 	 *
 	 * @since 3.4.0
 	 *

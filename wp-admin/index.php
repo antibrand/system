@@ -104,7 +104,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 			 * Hidden class
 			 *
 			 * Add `.hidden` class if the user wants to hide the top panel.
-			 * 0 = hide, 1 = toggled to show or single site creator, 2 = multisite site owner.
+			 * 0 = hide, 1 = toggled to show or single site creator, 2 = network site owner.
 			 */
 			$hide = '0' === $option || ( '2' === $option && wp_get_current_user()->user_email != get_option( 'admin_email' ) );
 

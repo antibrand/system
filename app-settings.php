@@ -50,7 +50,7 @@ require( ABSPATH . WPINC . '/version.php' );
 
 /**
  * If not already configured, `$blog_id` will default to 1 in a single site
- * configuration. In multisite, it will be overridden by default in network-settings.php.
+ * configuration. In network, it will be overridden by default in network-settings.php.
  *
  * @global int $blog_id
  * @since Previous 2.0.0
@@ -140,7 +140,7 @@ wp_start_object_cache();
 // Attach the default filters.
 require( ABSPATH . WPINC . '/default-filters.php' );
 
-// Initialize multisite if enabled.
+// Initialize network if enabled.
 if ( is_network() ) {
 	require( ABSPATH . WPINC . '/class-wp-site-query.php' );
 	require( ABSPATH . WPINC . '/class-wp-network-query.php' );
@@ -265,7 +265,7 @@ require( ABSPATH . WPINC . '/rest-api/fields/class-wp-rest-user-meta-fields.php'
 
 $GLOBALS['wp_embed'] = new WP_Embed();
 
-// Load multisite-specific files.
+// Load network-specific files.
 if ( is_network() ) {
 	require( ABSPATH . WPINC . '/network-functions.php' );
 	require( ABSPATH . WPINC . '/network-default-filters.php' );
@@ -302,7 +302,7 @@ if ( is_network() ) {
 	ms_cookie_constants();
 }
 
-// Define constants after multisite is loaded.
+// Define constants after network is loaded.
 wp_cookie_constants();
 
 // Define and enforce our SSL constants.

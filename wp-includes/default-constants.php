@@ -250,7 +250,7 @@ function wp_plugin_directory_constants() {
 /**
  * Defines cookie related constants
  *
- * Defines constants after multisite is loaded.
+ * Defines constants after network is loaded.
  * @since Previous 3.0.0
  */
 function wp_cookie_constants() {

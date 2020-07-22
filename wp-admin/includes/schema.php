@@ -52,7 +52,7 @@ function wp_get_db_schema( $scope = 'all', $blog_id = null ) {
 	if ( $blog_id && $blog_id != $wpdb->blogid )
 		$old_blog_id = $wpdb->set_blog_id( $blog_id );
 
-	// Engage multisite if in the middle of turning it on from network.php.
+	// Engage network if in the middle of turning it on from network.php.
 	$is_network = is_network() || ( defined( 'APP_INSTALLING_NETWORK' ) && APP_INSTALLING_NETWORK );
 
 	/*
@@ -194,7 +194,7 @@ CREATE TABLE $wpdb->posts (
   KEY post_author (post_author)
 ) $charset_collate;\n";
 
-	// Single site users table. The multisite flavor of the users table is handled below.
+	// Single site users table. The network flavor of the users table is handled below.
 	$users_single_table = "CREATE TABLE $wpdb->users (
   ID bigint(20) unsigned NOT NULL auto_increment,
   user_login varchar(60) NOT NULL default '',
@@ -536,7 +536,7 @@ function populate_options() {
 			? $wp_current_db_version : $wp_db_version;
 	}
 
-	// 3.0 multisite
+	// 3.0 network
 	if ( is_network() ) {
 		$options[ 'blogdescription' ] = __( 'Website tagline or description' );
 		$options[ 'permalink_structure' ] = '/%year%/%monthnum%/%day%/%postname%/';
@@ -1085,9 +1085,9 @@ We hope you enjoy your new site. Thanks!
 	$wpdb->query( "INSERT INTO $wpdb->sitemeta ( site_id, meta_key, meta_value ) VALUES " . $insert );
 
 	/*
-	 * When upgrading from single to multisite, assume the current site will
+	 * When upgrading from single to network, assume the current site will
 	 * become the main site of the network. When using populate_network()
-	 * to create another network in an existing multisite environment, skip
+	 * to create another network in an existing network environment, skip
 	 * these steps since the main site of the new network has not yet been
 	 * created.
 	 */

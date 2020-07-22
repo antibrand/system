@@ -55,12 +55,6 @@ The theme and plugin, also not branded, can be found separately at the following
 Theme: [https://github.com/antibrand/theme](https://github.com/antibrand/theme)
 Plugin: [https://github.com/antibrand/plugin](https://github.com/antibrand/plugin)
 
-## Development
-
-This project is simply an experiment and a demonstration. Don't expect it to be expanded. However, dissconection from WordPress will continue.
-
-This has not yet been tested in multisite mode.
-
 ## Distribution
 
 This product, including images, graphical vector markup, documentation, and any works not described here, are released for public consumption ad libitum, ad infinitum. Please read the DISCLAIMER file included in this product's root directory.

@@ -70,12 +70,12 @@ add_filter( 'wp_upload_bits', 'upload_is_file_too_big' );
 add_filter( 'import_upload_size_limit', 'fix_import_form_size' );
 add_filter( 'upload_mimes', 'check_upload_mimes' );
 add_filter( 'upload_size_limit', 'upload_size_limit_filter' );
-add_action( 'upload_ui_over_quota', 'multisite_over_quota_message' );
+add_action( 'upload_ui_over_quota', 'network_over_quota_message' );
 
 // Mail
 add_action( 'phpmailer_init', 'fix_phpmailer_messageid' );
 
-// Disable somethings by default for multisite
+// Disable somethings by default for network
 add_filter( 'enable_update_services_configuration', '__return_false' );
 if ( ! defined('POST_BY_EMAIL') || ! POST_BY_EMAIL ) // back compat constant.
 	add_filter( 'enable_post_by_email_configuration', '__return_false' );
@@ -96,5 +96,5 @@ add_action( 'update_option_home',       'clean_site_details_cache', 10, 0 );
 // If the network upgrade hasn't run yet, assume network-files.php rewriting is used.
 add_filter( 'default_site_option_ms_files_rewriting', '__return_true' );
 
-// Whitelist multisite domains for HTTP requests
+// Whitelist network domains for HTTP requests
 add_filter( 'http_request_host_is_external', 'ms_allowed_http_request_hosts', 20, 2 );

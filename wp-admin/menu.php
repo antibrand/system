@@ -34,7 +34,7 @@ if ( current_user_can( 'manage_privacy_options' ) && WP_Privacy_Policy_Content::
 /**
  * Dashboard & admin index page
  *
- * Items vary if network activated (multisite).
+ * Items vary if network activated (network).
  */
 $menu[2] = [
 	__( 'Dashboard' ),

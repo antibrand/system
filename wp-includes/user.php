@@ -838,7 +838,7 @@ function update_user_meta($user_id, $meta_key, $meta_value, $prev_value = '') {
  *
  * @since 3.0.0
  * @since 4.4.0 The number of users with no role is now included in the `none` element.
- * @since 4.9.0 The `$site_id` parameter was added to support multisite.
+ * @since 4.9.0 The `$site_id` parameter was added to support network.
  *
  * @global wpdb $wpdb Database abstraction object.
  *
@@ -2508,7 +2508,7 @@ function wp_destroy_all_sessions() {
  * Get the user IDs of all users with no role on this site.
  *
  * @since 4.4.0
- * @since 4.9.0 The `$site_id` parameter was added to support multisite.
+ * @since 4.9.0 The `$site_id` parameter was added to support network.
  *
  * @param int|null $site_id Optional. The site ID to get users with no role for. Defaults to the current site.
  * @return array Array of user IDs.

@@ -171,7 +171,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	 * @return array|IXR_Error|false Return value of the callback, false otherwise.
 	 */
 	public function __call( $name, $arguments ) {
-		if ( '_multisite_getUsersBlogs' === $name ) {
+		if ( 'network_getUsersBlogs' === $name ) {
 			return call_user_func_array( array( $this, $name ), $arguments );
 		}
 		return false;
@@ -4412,7 +4412,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		}
 
 		if ( is_network() ) {
-			return $this->_multisite_getUsersBlogs($args);
+			return $this->network_getUsersBlogs($args);
 		}
 
 		$this->escape($args);
@@ -4440,7 +4440,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	}
 
 	/**
-	 * Private function for retrieving a users blogs for multisite setups
+	 * Private function for retrieving a users blogs for network setups
 	 *
 	 * @since 3.0.0
 	 *
@@ -4452,7 +4452,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	 * }
 	 * @return array|IXR_Error
 	 */
-	protected function _multisite_getUsersBlogs( $args ) {
+	protected function network_getUsersBlogs( $args ) {
 		$current_blog = get_site();
 
 		$domain = $current_blog->domain;

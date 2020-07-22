@@ -200,7 +200,7 @@ function insert_with_markers( $filename, $marker, $insertion ) {
  *
  * @global WP_Rewrite $wp_rewrite
  *
- * @return bool|null True on write success, false on failure. Null in multisite.
+ * @return bool|null True on write success, false on failure. Null in network.
  */
 function save_mod_rewrite_rules() {
 	if ( is_network() )
@@ -236,7 +236,7 @@ function save_mod_rewrite_rules() {
  *
  * @global WP_Rewrite $wp_rewrite
  *
- * @return bool|null True on write success, false on failure. Null in multisite.
+ * @return bool|null True on write success, false on failure. Null in network.
  */
 function iis7_save_url_rewrite_rules(){
 	if ( is_network() )

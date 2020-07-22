@@ -331,7 +331,7 @@ class WP_Object_Cache {
 	 * @since 3.5.0
 	 * @var bool
 	 */
-	private $multisite;
+	private $network;
 
 	/**
 	 * Makes private properties readable for backward compatibility.
@@ -404,7 +404,7 @@ class WP_Object_Cache {
 			$group = 'default';
 
 		$id = $key;
-		if ( $this->multisite && ! isset( $this->global_groups[ $group ] ) )
+		if ( $this->network && ! isset( $this->global_groups[ $group ] ) )
 			$id = $this->blog_prefix . $key;
 
 		if ( $this->_exists( $id, $group ) )
@@ -441,7 +441,7 @@ class WP_Object_Cache {
 		if ( empty( $group ) )
 			$group = 'default';
 
-		if ( $this->multisite && ! isset( $this->global_groups[ $group ] ) )
+		if ( $this->network && ! isset( $this->global_groups[ $group ] ) )
 			$key = $this->blog_prefix . $key;
 
 		if ( ! $this->_exists( $key, $group ) )
@@ -476,7 +476,7 @@ class WP_Object_Cache {
 		if ( empty( $group ) )
 			$group = 'default';
 
-		if ( $this->multisite && ! isset( $this->global_groups[ $group ] ) )
+		if ( $this->network && ! isset( $this->global_groups[ $group ] ) )
 			$key = $this->blog_prefix . $key;
 
 		if ( ! $this->_exists( $key, $group ) )
@@ -522,7 +522,7 @@ class WP_Object_Cache {
 		if ( empty( $group ) )
 			$group = 'default';
 
-		if ( $this->multisite && ! isset( $this->global_groups[ $group ] ) )
+		if ( $this->network && ! isset( $this->global_groups[ $group ] ) )
 			$key = $this->blog_prefix . $key;
 
 		if ( $this->_exists( $key, $group ) ) {
@@ -553,7 +553,7 @@ class WP_Object_Cache {
 		if ( empty( $group ) )
 			$group = 'default';
 
-		if ( $this->multisite && ! isset( $this->global_groups[ $group ] ) )
+		if ( $this->network && ! isset( $this->global_groups[ $group ] ) )
 			$key = $this->blog_prefix . $key;
 
 		if ( ! $this->_exists( $key, $group ) )
@@ -590,7 +590,7 @@ class WP_Object_Cache {
 			$group = 'default';
 
 		$id = $key;
-		if ( $this->multisite && ! isset( $this->global_groups[ $group ] ) )
+		if ( $this->network && ! isset( $this->global_groups[ $group ] ) )
 			$id = $this->blog_prefix . $key;
 
 		if ( ! $this->_exists( $id, $group ) )
@@ -641,7 +641,7 @@ class WP_Object_Cache {
 		if ( empty( $group ) )
 			$group = 'default';
 
-		if ( $this->multisite && ! isset( $this->global_groups[ $group ] ) )
+		if ( $this->network && ! isset( $this->global_groups[ $group ] ) )
 			$key = $this->blog_prefix . $key;
 
 		if ( is_object( $data ) )
@@ -682,7 +682,7 @@ class WP_Object_Cache {
 	 */
 	public function switch_to_blog( $blog_id ) {
 		$blog_id = (int) $blog_id;
-		$this->blog_prefix = $this->multisite ? $blog_id . ':' : '';
+		$this->blog_prefix = $this->network ? $blog_id . ':' : '';
 	}
 
 	/**
@@ -704,8 +704,8 @@ class WP_Object_Cache {
 	 * @since 2.0.8
 	 */
 	public function __construct() {
-		$this->multisite = is_network();
-		$this->blog_prefix =  $this->multisite ? get_current_blog_id() . ':' : '';
+		$this->network = is_network();
+		$this->blog_prefix =  $this->network ? get_current_blog_id() . ':' : '';
 
 
 		/**

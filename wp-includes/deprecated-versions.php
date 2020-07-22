@@ -2646,8 +2646,8 @@ function update_usermeta( $user_id, $meta_key, $meta_value ) {
 /**
  * Get users for the site.
  *
- * For setups that use the multisite feature. Can be used outside of the
- * multisite feature.
+ * For setups that use the network feature. Can be used outside of the
+ * network feature.
  *
  * @since Previous 2.2.0
  * @deprecated WP 3.1.0 Use get_users()

@@ -32,7 +32,7 @@ function map_meta_cap( $cap, $user_id ) {
 
 	switch ( $cap ) {
 	case 'remove_user':
-		// In multisite the user must be a super admin to remove themselves.
+		// In network the user must be a super admin to remove themselves.
 		if ( isset( $args[0] ) && $user_id == $args[0] && ! is_super_admin( $user_id ) ) {
 			$caps[] = 'do_not_allow';
 		} else {
@@ -49,7 +49,7 @@ function map_meta_cap( $cap, $user_id ) {
 		if ( 'edit_user' == $cap && isset( $args[0] ) && $user_id == $args[0] )
 			break;
 
-		// In multisite the user must have manage_network_users caps. If editing a super admin, the user must be a super admin.
+		// In network the user must have manage_network_users caps. If editing a super admin, the user must be a super admin.
 		if ( is_network() && ( ( ! is_super_admin( $user_id ) && 'edit_user' === $cap && is_super_admin( $args[0] ) ) || ! user_can( $user_id, 'manage_network_users' ) ) ) {
 			$caps[] = 'do_not_allow';
 		} else {
@@ -457,7 +457,7 @@ function map_meta_cap( $cap, $user_id ) {
 		break;
 	case 'delete_user':
 	case 'delete_users':
-		// If multisite only super admins can delete users.
+		// If network only super admins can delete users.
 		if ( is_network() && ! is_super_admin( $user_id ) )
 			$caps[] = 'do_not_allow';
 		else

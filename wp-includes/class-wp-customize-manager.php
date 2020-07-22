@@ -576,7 +576,7 @@ final class WP_Customize_Manager {
 				$this->wp_die( -1, $this->theme()->errors()->get_error_message() );
 			}
 
-			// If the theme isn't allowed per multisite settings, bail.
+			// If the theme isn't allowed per network settings, bail.
 			if ( ! $this->theme()->is_allowed() ) {
 				$this->wp_die( -1, __( 'The requested theme does not exist.' ) );
 			}

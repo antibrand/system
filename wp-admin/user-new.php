@@ -230,7 +230,7 @@ if ( is_network() ) {
 
 	$help_overview .= sprintf(
 		'<p>%1s</p>',
-		__( 'Because this is a multisite installation, you may add accounts that already exist on the Network by specifying a username or email, and defining a role. For more options, such as specifying a password, you have to be a Network Administrator and use the hover link under an existing user&#8217;s name to Edit the user profile under Network Admin > All Users.' )
+		__( 'Because this is a network installation, you may add accounts that already exist on the Network by specifying a username or email, and defining a role. For more options, such as specifying a password, you have to be a Network Administrator and use the hover link under an existing user&#8217;s name to Edit the user profile under Network Admin > All Users.' )
 	);
 
 	$help_overview .= sprintf(

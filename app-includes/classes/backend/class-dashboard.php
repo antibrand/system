@@ -652,7 +652,7 @@ class Dashboard {
 		</div><!-- .tab-section-wrap -->
 		<?php
 		/*
-			* activity_box_end has a core action, but only prints content when multisite.
+			* activity_box_end has a core action, but only prints content when network.
 			* Using an output buffer is the only way to really check if anything's displayed here.
 			*/
 		ob_start();
@@ -1494,7 +1494,7 @@ class Dashboard {
 	 *
 	 * @since  WP 3.0.0
 	 * @access public
-	 * @return bool|null Returns true if not multisite, user can't upload files, or the space check option is disabled.
+	 * @return bool|null Returns true if not network, user can't upload files, or the space check option is disabled.
 	 * @return mixed Returns the markup of the quota content.
 	 */
 	public function dashboard_quota() {

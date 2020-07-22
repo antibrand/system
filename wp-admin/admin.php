@@ -56,10 +56,10 @@ if ( get_option( 'db_upgraded' ) ) {
 		exit;
 
 	/**
-	 * Filters whether to attempt to perform the multisite DB upgrade routine.
+	 * Filters whether to attempt to perform the network DB upgrade routine.
 	 *
 	 * In single site, the user would be redirected to wp-admin/upgrade.php.
-	 * In multisite, the DB upgrade routine is automatically fired, but only
+	 * In network, the DB upgrade routine is automatically fired, but only
 	 * when this filter returns true.
 	 *
 	 * If the network is 50 sites or less, it will run every time. Otherwise,
@@ -343,7 +343,7 @@ if ( isset( $plugin_page ) ) {
 	 */
 	if ( apply_filters( 'force_filtered_html_on_import', false ) ) {
 
-		// Always filter imported data with kses on multisite.
+		// Always filter imported data with kses on network.
 		kses_init_filters();
 	}
 

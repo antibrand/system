@@ -1,6 +1,6 @@
 <?php
 /**
- * Deprecated functions from MU and the multisite feature. You shouldn't
+ * Deprecated functions from MU and the network feature. You shouldn't
  * use these functions and look for the alternatives instead. The functions will be
  * removed in a later version.
  *
@@ -50,10 +50,10 @@ function generate_random_password( $len = 8 ) {
  * Determine if user is a site admin.
  *
  * Plugins should use is_network() instead of checking if this function exists
- * to determine if multisite is enabled.
+ * to determine if network is enabled.
  *
  * This function must reside in a file included only if is_network() due to
- * legacy function_exists() checks to determine if multisite is enabled.
+ * legacy function_exists() checks to determine if network is enabled.
  *
  * @since MU (3.0.0)
  * @deprecated 3.0.0 Use is_super_admin()

@@ -8,7 +8,7 @@
  */
 
 /**
- * Core class used for interacting with a multisite site.
+ * Core class used for interacting with a network site.
  *
  * This class is used during load to populate the `$current_blog` global and
  * setup the current site.
@@ -206,7 +206,7 @@ final class WP_Site {
 	/**
 	 * Getter.
 	 *
-	 * Allows current multisite naming conventions when getting properties.
+	 * Allows current network naming conventions when getting properties.
 	 * Allows access to extended site properties.
 	 *
 	 * @since 4.6.0
@@ -241,7 +241,7 @@ final class WP_Site {
 	/**
 	 * Isset-er.
 	 *
-	 * Allows current multisite naming conventions when checking for properties.
+	 * Allows current network naming conventions when checking for properties.
 	 * Checks for extended site properties.
 	 *
 	 * @since 4.6.0
@@ -279,7 +279,7 @@ final class WP_Site {
 	/**
 	 * Setter.
 	 *
-	 * Allows current multisite naming conventions while setting properties.
+	 * Allows current network naming conventions while setting properties.
 	 *
 	 * @since 4.6.0
 	 *

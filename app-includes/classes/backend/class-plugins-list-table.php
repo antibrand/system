@@ -308,7 +308,7 @@ class Plugins_List_Table extends List_Table {
 
 			printf( __( 'No plugins found for &#8220;%s&#8221;.' ), $s );
 
-			// We assume that somebody who can install plugins in multisite is experienced enough to not need this helper link.
+			// We assume that somebody who can install plugins in network is experienced enough to not need this helper link.
 			if ( ! is_network() && current_user_can( 'install_plugins' ) ) {
 				echo ' <a href="' . esc_url( admin_url( 'plugin-install.php?tab=search&s=' . urlencode( $s ) ) ) . '">' . __( 'Search for plugins in the WordPress Plugin Directory.' ) . '</a>';
 			}

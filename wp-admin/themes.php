@@ -108,7 +108,7 @@ if ( current_user_can( 'install_themes' ) ) {
 			__( 'Adding Themes' )
 		);
 
-		$help_install .= '<p>' . __( 'Installing themes on a multisite network can only be done from the Network Admin section.' ) . '</p>';
+		$help_install .= '<p>' . __( 'Installing themes on a network network can only be done from the Network Admin section.' ) . '</p>';
 
 		get_current_screen()->add_help_tab( [
 			'id'      => 'adding-themes',

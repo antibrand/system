@@ -8,7 +8,7 @@
  */
 
 /**
- * Core class used for interacting with a multisite network.
+ * Core class used for interacting with a network.
  *
  * This class is used during load to populate the `$current_site` global and
  * setup the current network.
@@ -136,7 +136,7 @@ class WP_Network {
 	/**
 	 * Getter.
 	 *
-	 * Allows current multisite naming conventions when getting properties.
+	 * Allows current network naming conventions when getting properties.
 	 *
 	 * @since 4.6.0
 	 *
@@ -159,7 +159,7 @@ class WP_Network {
 	/**
 	 * Isset-er.
 	 *
-	 * Allows current multisite naming conventions when checking for properties.
+	 * Allows current network naming conventions when checking for properties.
 	 *
 	 * @since 4.6.0
 	 *
@@ -180,7 +180,7 @@ class WP_Network {
 	/**
 	 * Setter.
 	 *
-	 * Allows current multisite naming conventions while setting properties.
+	 * Allows current network naming conventions while setting properties.
 	 *
 	 * @since 4.6.0
 	 *

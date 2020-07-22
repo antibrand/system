@@ -774,7 +774,7 @@ class WP_REST_Attachments_Controller extends WP_REST_Posts_Controller {
 	}
 
 	/**
-	 * Determine if uploaded file exceeds space quota on multisite.
+	 * Determine if uploaded file exceeds space quota on network.
 	 *
 	 * Replicates check_upload_size().
 	 *

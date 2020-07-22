@@ -458,7 +458,7 @@ function network_step2( $errors = false ) {
 ?>
 		<ol>
 			<li><p><?php printf(
-				__( 'Add the following to your %1$s file in %2$s in the multisite network section,' ),
+				__( 'Add the following to your %1$s file in %2$s in the network network section,' ),
 				'<code>app-config.php</code>',
 				'<code>' . $location_of_wp_config . '</code>'
 			); ?></p>

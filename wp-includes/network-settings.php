@@ -116,7 +116,7 @@ ms_upload_constants();
 
 /**
  * Fires after the current site and network have been detected and loaded
- * in multisite's bootstrap.
+ * in network's bootstrap.
  *
  * @since 4.6.0
  */

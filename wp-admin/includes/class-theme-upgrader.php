@@ -352,7 +352,7 @@ class Theme_Upgrader extends Includes\Installer {
 		// Only start maintenance mode if:
 		// - running network and there are one or more themes specified, OR
 		// - a theme with an update available is currently in use.
-		// @TODO: For multisite, maintenance mode should only kick in for individual sites if at all possible.
+		// @TODO: For network, maintenance mode should only kick in for individual sites if at all possible.
 		$maintenance = ( is_network() && ! empty( $themes ) );
 		foreach ( $themes as $theme )
 			$maintenance = $maintenance || $theme == get_stylesheet() || $theme == get_template();

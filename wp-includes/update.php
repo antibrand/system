@@ -76,11 +76,11 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 		$user_count = get_user_count();
 		$num_blogs = get_blog_count();
 		$wp_install = network_site_url();
-		$multisite_enabled = 1;
+		$network_enabled = 1;
 	} else {
 		$user_count = count_users();
 		$user_count = $user_count['total_users'];
-		$multisite_enabled = 0;
+		$network_enabled = 0;
 		$num_blogs = 1;
 		$wp_install = home_url( '/' );
 	}
@@ -93,7 +93,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 		'local_package'      => isset( $wp_local_package ) ? $wp_local_package : '',
 		'blogs'              => $num_blogs,
 		'users'              => $user_count,
-		'multisite_enabled'  => $multisite_enabled,
+		'network_enabled'  => $network_enabled,
 		'initial_db_version' => get_site_option( 'initial_db_version' ),
 	);
 
@@ -115,7 +115,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	 *     @type string $local_package      The value of the $wp_local_package global, when set.
 	 *     @type int    $blogs              Number of sites on this installation.
 	 *     @type int    $users              Number of users on this installation.
-	 *     @type int    $multisite_enabled  Whether this installation uses network.
+	 *     @type int    $network_enabled  Whether this installation uses network.
 	 *     @type int    $initial_db_version Database version at time of installation.
 	 * }
 	 */
