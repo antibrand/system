@@ -3,6 +3,7 @@ app-config.php
 id-config.php
 app-extend/plugins/
 app-extend/extensions/
+app-views/themes/
 wp-content/advanced-cache.php
 wp-content/backup-db/
 wp-content/backups/
