@@ -76,7 +76,7 @@ require_once( ABSPATH . 'wp-admin/includes/deprecated.php' );
 
 // Network support API.
 if ( is_network() ) {
-	require_once( ABSPATH . 'wp-admin/includes/ms-admin-filters.php' );
+	require_once( ABSPATH . 'wp-admin/includes/network-admin-filters.php' );
 	require_once( ABSPATH . 'wp-admin/includes/network-functions.php' );
-	require_once( ABSPATH . 'wp-admin/includes/ms-deprecated.php' );
+	require_once( ABSPATH . 'wp-admin/includes/network-deprecated.php' );
 }

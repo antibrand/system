@@ -11,12 +11,12 @@
  * Defines Multisite upload constants.
  *
  * Exists for backward compatibility with legacy file-serving through
- * wp-includes/ms-files.php (wp-content/blogs.php in MU).
+ * wp-includes/network-files.php (wp-content/blogs.php in MU).
  *
  * @since 3.0.0
  */
 function ms_upload_constants() {
-	// This filter is attached in ms-default-filters.php but that file is not included during SHORTINIT.
+	// This filter is attached in network-default-filters.php but that file is not included during SHORTINIT.
 	add_filter( 'default_site_option_ms_files_rewriting', '__return_true' );
 
 	if ( ! get_site_option( 'ms_files_rewriting' ) )
@@ -85,7 +85,7 @@ function ms_cookie_constants(  ) {
  * Defines Multisite file constants.
  *
  * Exists for backward compatibility with legacy file-serving through
- * wp-includes/ms-files.php (wp-content/blogs.php in MU).
+ * wp-includes/network-files.php (wp-content/blogs.php in MU).
  *
  * @since 3.0.0
  */

@@ -3,7 +3,7 @@
  * Used to set up and fix common variables and include
  * the Multisite procedural and class library.
  *
- * Allows for some configuration in app-config.php (see ms-default-constants.php)
+ * Allows for some configuration in app-config.php (see network-default-constants.php)
  *
  * @package App_Package
  * @subpackage Network
@@ -38,10 +38,10 @@ require_once( ABSPATH . WPINC . '/class-wp-network.php' );
 require_once( ABSPATH . WPINC . '/class-wp-site.php' );
 
 /** Multisite loader */
-require_once( ABSPATH . WPINC . '/ms-load.php' );
+require_once( ABSPATH . WPINC . '/network-load.php' );
 
 /** Default Multisite constants */
-require_once( ABSPATH . WPINC . '/ms-default-constants.php' );
+require_once( ABSPATH . WPINC . '/network-default-constants.php' );
 
 if ( defined( 'SUNRISE' ) ) {
 	include_once( WP_CONTENT_DIR . '/sunrise.php' );

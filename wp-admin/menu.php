@@ -657,7 +657,7 @@ if ( is_network() && ! is_main_site() ) {
 	$submenu['options-general.php'][75] = [
 		__( 'Delete Site' ),
 		'delete_site',
-		'ms-delete-site.php'
+		'network-delete-site.php'
 	];
 }
 
@@ -691,7 +691,7 @@ $_wp_real_parent_file['post-new.php']   = 'edit.php';
 $_wp_real_parent_file['edit-pages.php'] = 'edit.php?post_type=page';
 $_wp_real_parent_file['page-new.php']   = 'edit.php?post_type=page';
 $_wp_real_parent_file['wpmu-admin.php'] = 'tools.php';
-$_wp_real_parent_file['ms-admin.php']   = 'tools.php';
+$_wp_real_parent_file['network-admin.php']   = 'tools.php';
 
 /**
  * Ensure backward compatibility

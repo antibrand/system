@@ -552,7 +552,7 @@ define( 'BLOG_ID_CURRENT_SITE', 1 );
 					$web_config_file .= '
                 <rule name="Rule for Files" stopProcessing="true">
                     <match url="^' . $iis_subdir_match . 'files/(.+)" ignoreCase="false" />
-                    <action type="Rewrite" url="' . $iis_rewrite_base . WPINC . '/ms-files.php?file={R:1}" appendQueryString="false" />
+                    <action type="Rewrite" url="' . $iis_rewrite_base . WPINC . '/network-files.php?file={R:1}" appendQueryString="false" />
                 </rule>';
                 }
                 $web_config_file .= '
@@ -605,7 +605,7 @@ define( 'BLOG_ID_CURRENT_SITE', 1 );
 		$ms_files_rewriting = '';
 		if ( is_network() && get_site_option( 'ms_files_rewriting' ) ) {
 			$ms_files_rewriting = "\n# uploaded files\nRewriteRule ^";
-			$ms_files_rewriting .= $subdir_match . "files/(.+) {$rewrite_base}" . WPINC . "/ms-files.php?file={$subdir_replacement_12} [L]" . "\n";
+			$ms_files_rewriting .= $subdir_match . "files/(.+) {$rewrite_base}" . WPINC . "/network-files.php?file={$subdir_replacement_12} [L]" . "\n";
 		}
 
 		$htaccess_file = <<<EOF

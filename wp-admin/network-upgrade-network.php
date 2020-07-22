@@ -1,6 +1,6 @@
 <?php
 /**
- * Multisite upgrade administration panel.
+ * Network upgrade administration panel.
  *
  * @package App_Package
  * @subpackage Network

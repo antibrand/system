@@ -96,7 +96,7 @@ function wpmu_delete_blog( $blog_id, $drop = false ) {
 
 	} else {
 
-		// This action is documented in wp-includes/ms-blogs.php.
+		// This action is documented in wp-includes/network-blogs.php.
 		do_action_deprecated( 'delete_blog', array( $blog_id, false ), '5.1.0' );
 
 		$users = get_users(
@@ -116,7 +116,7 @@ function wpmu_delete_blog( $blog_id, $drop = false ) {
 
 		update_blog_status( $blog_id, 'deleted', 1 );
 
-		// This action is documented in wp-includes/ms-blogs.php.
+		// This action is documented in wp-includes/network-blogs.php.
 		do_action_deprecated( 'deleted_blog', [ $blog_id, false ], '5.1.0' );
 	}
 

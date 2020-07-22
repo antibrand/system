@@ -50,7 +50,7 @@ require( ABSPATH . WPINC . '/version.php' );
 
 /**
  * If not already configured, `$blog_id` will default to 1 in a single site
- * configuration. In multisite, it will be overridden by default in ms-settings.php.
+ * configuration. In multisite, it will be overridden by default in network-settings.php.
  *
  * @global int $blog_id
  * @since Previous 2.0.0
@@ -144,8 +144,8 @@ require( ABSPATH . WPINC . '/default-filters.php' );
 if ( is_network() ) {
 	require( ABSPATH . WPINC . '/class-wp-site-query.php' );
 	require( ABSPATH . WPINC . '/class-wp-network-query.php' );
-	require( ABSPATH . WPINC . '/ms-blogs.php' );
-	require( ABSPATH . WPINC . '/ms-settings.php' );
+	require( ABSPATH . WPINC . '/network-blogs.php' );
+	require( ABSPATH . WPINC . '/network-settings.php' );
 } elseif ( ! defined( 'APP_NETWORK' ) ) {
 	define( 'APP_NETWORK', false );
 }
@@ -267,9 +267,9 @@ $GLOBALS['wp_embed'] = new WP_Embed();
 
 // Load multisite-specific files.
 if ( is_network() ) {
-	require( ABSPATH . WPINC . '/ms-functions.php' );
-	require( ABSPATH . WPINC . '/ms-default-filters.php' );
-	require( ABSPATH . WPINC . '/ms-deprecated.php' );
+	require( ABSPATH . WPINC . '/network-functions.php' );
+	require( ABSPATH . WPINC . '/network-default-filters.php' );
+	require( ABSPATH . WPINC . '/network-deprecated.php' );
 }
 
 /**

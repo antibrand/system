@@ -1,6 +1,6 @@
 <?php
 /**
- * Action handler for Multisite administration panels.
+ * Network sites administration panel.
  *
  * @package App_Package
  * @subpackage Network
@@ -9,5 +9,5 @@
 
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
-wp_redirect( network_admin_url() );
+wp_redirect( network_admin_url('sites.php') );
 exit;

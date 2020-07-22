@@ -1985,7 +1985,7 @@ function _wp_upload_dir( $time = null ) {
 
 		} elseif ( defined( 'UPLOADS' ) && ! ms_is_switched() ) {
 			/*
-			 * Handle the old-form ms-files.php rewriting if the network still has that enabled.
+			 * Handle the old-form network-files.php rewriting if the network still has that enabled.
 			 * When ms-files rewriting is enabled, then we only listen to UPLOADS when:
 			 * 1) We are not on the main site in a post-MU network, as wp-content/uploads is used
 			 *    there, and

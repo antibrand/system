@@ -1,6 +1,6 @@
 <?php
 /**
- * Multisite delete site panel.
+ * Network delete site panel.
  *
  * @package App_Package
  * @subpackage Network
@@ -40,7 +40,7 @@ if ( isset( $_POST['action'] ) && $_POST['action'] == 'deleteblog' && isset( $_P
 	$hash = wp_generate_password( 20, false );
 	update_option( 'delete_blog_hash', $hash );
 
-	$url_delete = esc_url( admin_url( 'ms-delete-site.php?h=' . $hash ) );
+	$url_delete = esc_url( admin_url( 'network-delete-site.php?h=' . $hash ) );
 
 	$switched_locale = switch_to_locale( get_locale() );
 
