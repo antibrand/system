@@ -1,0 +1,526 @@
+
+/**
+ * Browser reset and starter styles
+ */
+
+// Import general app variables from app-assets/includes.
+@import '../modules/_colors';
+@import '../modules/_typography';
+
+/// Microsoft device viewport
+///
+/// Match the viewport width to the device width.
+///
+@-ms-viewport {
+	width: device-width;
+}
+
+/// HTML wrapper element
+///
+html {
+	height: 100%;
+	-ms-overflow-style: scrollbar;
+	font-size: 100%;
+	cursor: default;
+
+	// Use a 4-space tab width.
+	-moz-tab-size: 4;
+	  -o-tab-size: 4;
+		 tab-size: 4;
+
+	// Remove the grey highlight on links in iOS.
+	-webkit-tap-highlight-color: transparent;
+
+	/// Prevent adjustments of font size after orientation changes in
+	/// IE on Windows Phone and in iOS.
+	-webkit-text-size-adjust: 100%;
+	   -moz-text-size-adjust: 100%;
+	    -ms-text-size-adjust: 100%;
+			text-size-adjust: 100%;
+
+	// Break words to prevent overflow.
+	word-break: break-word;
+
+	// Smooth font rasterization.
+	-webkit-font-smoothing: subpixel-antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-smooth: always;
+}
+
+/// All elements and pseudoelements
+///
+/// Add border box sizing.
+///
+*,
+::before,
+::after {
+	box-sizing: border-box;
+}
+
+/// Pseudoelements
+///
+/// Add style inheritance.
+///
+::before,
+::after {
+	font-size: inherit;
+	text-decoration: inherit;
+	vertical-align: inherit;
+}
+
+/// Reset elements
+///
+/// Remove styles added by browsers.
+///
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, button, input, select, option, textarea, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	background: transparent;
+	vertical-align: baseline;
+}
+
+/// Body element
+///
+/// Inherit font size from the html element.
+/// Reset browser line height.
+///
+body {
+	min-height: 100%;
+	font-size: inherit;
+	line-height: 1;
+}
+
+/// Block-level elements
+///
+/// Add block display to ensure expected layout.
+///
+article,
+aside,
+details,
+div,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+blockquote,
+summary {
+	display: block;
+}
+
+[hidden],
+template {
+	display: none;
+}
+
+/// Media elements
+///
+
+// Display as inline-block for extended style options.
+img,
+svg,
+audio,
+canvas,
+progress,
+video {
+	display: inline-block;
+}
+
+// Align vertically with fellow inline elements.
+img,
+svg,
+audio,
+canvas,
+progress,
+iframe,
+video {
+	vertical-align: middle;
+}
+
+// Allow for responsive sizing.
+img,
+svg,
+object,
+embed,
+video {
+	max-width: 100%;
+}
+
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
+
+// Additional image resets.
+img {
+	height: auto;
+	border: 0;
+}
+
+/// Horizontal rule
+hr {
+	display: block;
+	box-sizing: content-box;
+
+	// Show the overflow in Edge 18- and IE.
+	overflow: visible;
+
+	// Add the correct sizing in Firefox.
+	height: 0;
+
+	// Space above and below the separator.
+	margin: 1em 0;
+	padding: 0;
+
+	// One border for single line separator.
+	border: 0;
+	border-top: 1px solid $pale_gray;
+}
+
+/// Form elements
+///
+/// Reset browser styles and add minimal new styles.
+///
+/// These styles may be overridden in form-specific
+/// stylesheets and color scheme stylesheets.
+///
+button,
+input,
+optgroup,
+select,
+textarea {
+	margin: 0;
+	font: inherit;
+	color: inherit;
+}
+
+// Input field types.
+input {
+	line-height: normal;
+
+	&::-webkit-inner-spin-button {
+		opacity: 1;
+	}
+
+	&::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
+
+	&[type="radio"],
+	&[type="checkbox"] {
+		vertical-align: baseline;
+	}
+
+	&[type="number"] {
+		&::-webkit-inner-spin-button,
+		&::-webkit-outer-spin-button {
+			height: auto;
+		}
+	}
+
+	&[type="search"] {
+		-webkit-appearance: textfield;
+		   -moz-appearance: textfield;
+		        appearance: textfield;
+
+		&::-webkit-search-cancel-button,
+		&::-webkit-search-decoration {
+			-webkit-appearance: none;
+			   -moz-appearance: none;
+			        appearance: none;
+		}
+	}
+
+	&[type="button"],
+	&[type="reset"],
+	&[type="submit"],
+	&[type="image"] {
+		cursor: pointer;
+		-webkit-appearance: none;
+		   -moz-appearance: none;
+				appearance: none;
+	}
+
+	&[disabled] {
+		cursor: default;
+	}
+}
+
+// Give form elements a plain, simple border.
+input,
+textarea,
+select,
+button {
+	border: solid 1px $pale_gray;
+}
+
+// Textarea field.
+textarea {
+	overflow: auto;
+}
+
+// Select field.
+select {
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+	        appearance: none;
+}
+
+/// Hide select field menu control
+///
+/// Non-standard and may not work for every user.
+::-ms-expand {
+	display: none;
+}
+
+// Remove browser button styles.
+button {
+	overflow: visible;
+	cursor: pointer;
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+			appearance: none;
+
+	&[disabled] {
+		cursor: default;
+	}
+
+	&::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
+}
+
+optgroup {
+	font-weight: bold;
+}
+
+/// Table elements
+///
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	font-size: inherit;
+
+	tr {
+		display: table-row;
+	}
+
+	th {
+		display: table-cell;
+		font-weight: bold;
+		vertical-align: middle;
+	}
+
+	td {
+		display: table-cell;
+		font-weight: normal;
+		vertical-align: top;
+
+		img {
+			font-weight: normal;
+			vertical-align: top;
+		}
+	}
+}
+
+/// Links
+///
+a {
+	outline: none;
+	background-color: transparent;
+
+	&:hover,
+	&:focus,
+	&:active {
+		outline: none;
+		background-color: transparent;
+	}
+}
+
+/// Content elements
+///
+b,
+strong {
+	font-weight: bold;
+}
+
+// Reset emphasis font style, typically italic from browsers.
+em {
+	font-style: normal;
+}
+
+// Ordered lists
+ol {
+	list-style-type: decimal;
+
+	ol {
+		list-style-type: lower-alpha;
+	}
+}
+
+small {
+	font-size: 85%;
+}
+
+del {
+	text-decoration: line-through;
+}
+
+// Remove browser quote ornamentation.
+blockquote,
+q {
+	quotes: none;
+
+	& :before,
+	& :after {
+		content: '';
+		content: none;
+	}
+}
+
+// Remove browser italics from inline quotes and citations.
+q,
+cite {
+	font-style: normal;
+}
+
+/// SVG, scalable vector graphics
+///
+svg {
+
+	// Hide the overflow in IE.
+	&:not(:root) {
+		overflow: hidden;
+	}
+
+	/// Change the fill color to match the text color.
+	/// The `:where()` pseudoclass is not available in all browsers.
+	&:where( :not( [fill] ) ) {
+		fill: currentColor;
+	}
+}
+
+/// Informational elements
+///
+abbr[title],
+abbr[data-original-title],
+dfn[title] {
+	cursor: help;
+}
+
+dfn {
+	font-style: italic;
+}
+
+sub,
+sup {
+	position: relative;
+	font-size: 75%;
+	line-height: 0;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+/// Code elements
+///
+pre,
+code,
+kbd,
+samp {
+
+	// Correct the inheritance and scaling of font size in all browsers.
+	font-family: monospace, monospace;
+
+	// Use system default monospace fonts.
+	font-family: $monospace;
+
+	// Correct the odd `em` font sizing in all browsers.
+	font-size: 1em;
+}
+
+/// Preformatted text
+///
+/// 1. Scroll when necessary.
+pre {
+	overflow: auto;
+	-ms-overflow-style: scrollbar;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+/// Mobile-specific
+a,
+area,
+button,
+[role="button"],
+input:not([type="range"]),
+label,
+select,
+summary,
+textarea {
+	touch-action: manipulation;
+}
+
+/// Styles specific to left-to-right languages
+:dir(ltr),
+*[dir=ltr] {
+
+	td:not([align]),
+	th:not([align]) {
+		text-align: left;
+	}
+}
+
+/// Styles specific to right-to-left languages
+:dir(rtl),
+*[dir=rtl] {
+
+	td:not([align]),
+	th:not([align]) {
+		text-align: right;
+	}
+}
+
+/// Input placeholders
+///
+/// These may be overridden in forms and colors partials.
+///
+::-webkit-input-placeholder {
+	color: $light_gray;
+	opacity: 1;
+}
+
+:-ms-input-placeholder {
+	color: $light_gray;
+	opacity: 1;
+}
+
+::-moz-placeholder {
+	color: $light_gray;
+	opacity: 1;
+}
+
+::-ms-input-placeholder {
+	color: $light_gray;
+	opacity: 1;
+}
+
+::placeholder {
+	color: $light_gray;
+	opacity: 1;
+}

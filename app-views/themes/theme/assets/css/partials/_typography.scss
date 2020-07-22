@@ -1,0 +1,112 @@
+@import '../partials/_font-faces';
+@import '../modules/_typography';
+@import '../modules/_colors';
+
+/**
+ * Typography
+ */
+body.frontend {
+	font-family: $sans;
+	line-height: 1.5;
+
+	@supports( font-variation-settings: normal ) {
+		font-family: $variable_sans;
+	}
+
+	.entry-content,
+	.sidebar,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	ul,
+	ol {
+		margin-top: 1em;
+	}
+
+	&.serif {
+		font-family: $serif;
+
+		@supports( font-variation-settings: normal ) {
+			font-family: $variable_serif;
+		}
+	}
+}
+
+.entry-title {
+
+	a {
+		text-decoration: none;
+	}
+}
+
+.entry-subtitle {
+	font-size: 1.2em;
+	font-weight: 700;
+}
+
+.entry-content ul,
+.widget-area ul,
+.entry-content ol,
+.widget-area ol {
+	padding-left: 1em;
+}
+
+pre,
+code,
+kbd,
+samp {
+	font-family: $monospace;
+
+	@supports( font-variation-settings: normal ) {
+		font-family: $variable_mono;
+
+		// Keep scale with Inter.
+		font-size: 0.925em;
+	}
+
+	@supports( font-variation-settings: "wdth" ) {
+		font-variation-settings: "wdth" 110;
+	}
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	-webkit-clip-path: inset(50%);
+	        clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+
+	// Many screen reader and browser combinations announce broken words as they would appear visually.
+	word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+	border-radius: 3px;
+	clip: auto !important;
+	-webkit-clip-path: none;
+	        clip-path: none;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+
+	// Above User toolbar.
+	z-index: 100000;
+}

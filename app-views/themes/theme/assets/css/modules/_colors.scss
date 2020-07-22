@@ -1,0 +1,86 @@
+/**
+ * Colors
+ *
+ * Some variables use colors set by args in the functions file.
+ *
+ * @see functions.php/setup
+ */
+$white: #ffffff;
+$off_white: #eeeeee;
+$pale_gray: #cccccc;
+$light_gray: #888888;
+$medium_gray: #555555;
+$dark_gray: #333333;
+$near_black: #121212;
+$black: #000000;
+$app_green: #44aa11;
+$app_yellow: #ffee00;
+$app_orange: #ee6600;
+$app_red: #dd0000;
+
+// Bring attention to messages and user actions.
+$notify_color: $app_orange;
+$error_color: $app_red;
+$warning_color: $app_yellow;
+$success_color: $app_green;
+$app_highlight_color: $app_yellow;
+
+$body_background: $white;
+$text_color: #222222;
+$link_color: #004499;
+$link_action_color: lighten( $link_color, 12% ); // #005fd6
+
+/// Box colors are used to distinguish sections, such as
+/// meta boxes, and to create content dividers.
+$box_background_color: inherit;
+$box_border_color: $pale_gray;
+$box_text_color: inherit;
+
+// Form color variables.
+$form_background_color: inherit;
+$form_border_color: $light_gray;
+$form_text_color: $text_color;
+$form_action_background_color: $form_background_color;
+$form_action_border_color: $link_action_color;
+$form_action_text_color: $text_color;
+$form_focus: $link_action_color;
+$form_checked: $link_action_color;
+$form_placeholder_color: $light_gray;
+
+// Button color variables.
+$button_background_color: $white;
+$button_border_color: $light_gray;
+$button_text_color: $text_color;
+$button_action_background_color: $app_highlight_color;
+$button_action_border_color: $button_border_color;
+$button_action_text_color: $text_color;
+$button_disabled_background_color: $off_white;
+$button_disabled_border_color: $pale_gray;
+$button_disabled_text_color: $light_gray;
+
+/**
+ * Dark mode
+ */
+$body_background_dark: #222222;
+$text_color_dark: $white;
+$link_color_dark: $white;
+$link_action_color_dark: #3ad4fb;
+
+// Form color variables.
+$form_background_color_dark: lighten( $color: $body_background_dark, $amount: 5% );
+$form_border_color_dark: lighten( $color: $body_background_dark, $amount: 25% );
+$form_text_color_dark: $text_color_dark;
+$form_action_background_color_dark: $form_background_color_dark;
+$form_action_border_color_dark: $link_action_color_dark;
+$form_action_text_color_dark: $text_color_dark;
+$form_focus_dark: $link_action_color_dark;
+$form_checked_dark: $link_action_color_dark;
+$form_placeholder_color_dark: lighten( $color: $form_background_color_dark, $amount: 40% );
+
+// Button color variables.
+$button_background_color_dark: $form_background_color_dark;
+$button_border_color_dark: $form_border_color_dark;
+$button_text_color_dark: $text_color_dark;
+$button_action_background_color_dark: $app_highlight_color;
+$button_action_border_color_dark: $button_border_color_dark;
+$button_action_text_color_dark: $text_color;

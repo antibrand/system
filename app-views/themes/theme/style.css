@@ -1,0 +1,19 @@
+@charset "UTF-8";
+/*
+Theme Name: theme
+Theme URI: https://github.com/antibrand/theme
+Author:
+Author URI:
+Description: A basic starter theme for your website management system.
+Version: 1.0.0
+Text Domain: antibrand
+Tags: theme-options, custom-background, custom-header, flexible-header, custom-logo, custom-menu, featured-images, right-sidebar, full-width-template, threaded-comments, editor-style, translation-ready
+*/
+
+/**
+ * This theme enqueues a minified stylesheet compiled from SASS (.scss) files.
+ *
+ * This stylesheet only contains the above theme header that is necessary for theme activation.
+ *
+ * DO NOT delete this stylesheet!
+ */
