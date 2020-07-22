@@ -1,0 +1,69 @@
+/**
+ * Header
+ */
+.site-identity {
+	width: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+			align-items: center;
+	padding: 2em 0 1em;
+
+	.site-logo {
+		max-width: 90px;
+		margin-right: 1em;
+
+		img {
+			display: block;
+		}
+	}
+
+	.site-title {
+		margin: 0;
+		/* Match <p> tag to <h1> tag on front page */
+		font-size: 2em;
+		font-weight: bold;
+
+		@supports( font-variation-settings: normal ) {
+
+			// Letter spacing for Inter font.
+			letter-spacing: -0.02em;
+		}
+
+		& a {
+			color: inherit;
+			text-decoration: inherit;
+		}
+	}
+
+	.site-description {
+		margin: 0;
+	}
+}
+
+.site-header-image {
+	margin: 1em 0;
+}
+
+.dark-mode {
+	.site-identity {
+		.site-title {
+			a {
+				color: inherit;
+			}
+		}
+	}
+
+}
+
+@media ( prefers-color-scheme: dark ) {
+	.site-identity {
+		.site-title {
+			a {
+				color: inherit;
+			}
+		}
+	}
+}

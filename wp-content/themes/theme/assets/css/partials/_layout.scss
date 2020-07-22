@@ -1,0 +1,171 @@
+body {
+	background: $body_background;
+	color:$text_color;
+
+	&.dark-mode {
+		background: $body_background_dark;
+		color: $text_color_dark;
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		p,
+		ul,
+		ol,
+		li {
+			color: $text_color_dark;
+		}
+
+		a {
+			color: $link_color_dark;
+
+			&:hover,
+			&:focus {
+				color: $link_action_color_dark;
+			}
+		}
+
+		#wpadminbar,
+		#wpadminbar .ab-top-menu > li.hover > .ab-item,
+		#wpadminbar.nojq .quicklinks .ab-top-menu > li > .ab-item:focus,
+		#wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
+		#wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus,
+		#wpadminbar .menupop .ab-sub-wrapper,
+		#wpadminbar .shortlink-input {
+			background: $dark_gray;
+		}
+	}
+}
+
+/**
+ * Links
+ *
+ * Any change to the default link style ought to be applied to button-link too.
+ */
+a {
+	color: $link_color;
+	-webkit-print-color-adjust: exact !important;
+			color-adjust: exact !important;
+
+	&:hover,
+	&:focus {
+		color: $link_action_color;
+	}
+}
+
+.site {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 2em;
+}
+
+main article {
+	clear: both;
+}
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+	outline: 0;
+}
+
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+	clear: both;
+}
+
+@media screen and (min-width: 37.5em) {
+
+}
+
+@media screen and (min-width: 48em) {
+
+	.site-content {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: flex;
+
+		.content-area {
+			width: 100%;
+			padding-right: $px30;
+		}
+
+		.widget-area {
+			width: 100%;
+			max-width: 30%;
+			margin-left: $px30;
+		}
+	}
+}
+
+/**
+ * User prefers a dark color scheme
+ */
+@media ( prefers-color-scheme: dark ) {
+
+	// Dark mode toggle not needed for this preference.
+	.theme-toggle {
+		display: none !important;
+	}
+
+	body {
+		background: $body_background_dark;
+		color: $text_color_dark;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	ul,
+	ol,
+	li {
+		color: $text_color_dark;
+	}
+
+	a {
+		color: $link_color_dark;
+
+		&:hover,
+		&:focus {
+			color: $link_action_color_dark;
+		}
+	}
+
+	#wpadminbar,
+	#wpadminbar .ab-top-menu > li.hover > .ab-item,
+	#wpadminbar.nojq .quicklinks .ab-top-menu > li > .ab-item:focus,
+	#wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
+	#wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus,
+	#wpadminbar .menupop .ab-sub-wrapper,
+	#wpadminbar .shortlink-input {
+		background: $dark_gray;
+	}
+}

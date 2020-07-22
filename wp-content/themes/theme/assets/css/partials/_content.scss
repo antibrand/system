@@ -1,0 +1,35 @@
+/**
+ * Posts and pages
+ */
+ .sticky {
+	display: block;
+}
+
+.post,
+.page {
+	margin: 0 0 1.5em;
+}
+
+.updated:not(.published) {
+	display: none;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+.entry-meta,
+.entry-footer {
+	margin-top: 1em;
+}
+
+.entry-footer span {
+	margin-right: 1em;
+}

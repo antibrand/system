@@ -1,0 +1,758 @@
+/**
+ * General form styles
+ */
+ fieldset {
+	margin-top: 2rem;
+	padding: 1.5em;
+	background-color: $form_background_color;
+	border: solid 1px $form_border_color;
+
+	legend {
+		padding: 0 1em;
+		font-weight: 700;
+
+		@supports ( font-variation-settings: normal ) {
+			font-weight: 600;
+		}
+	}
+
+	&.tabbed-legend {
+
+		// Margin & padding counteract the translate on legend.
+		margin-top: 3em;
+		padding-top: 0;
+
+		legend {
+			padding: 0.5em 1em;
+			border: solid 1px $form_border_color;
+			border-bottom: none;
+			transform: translateY( calc( -50% + 2px ) );
+		}
+
+		& > div {
+			&:first-of-type {
+				p {
+					&:first-of-type {
+						margin-top: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+label {
+	font-weight: 700;
+	cursor: pointer;
+
+	@supports ( font-variation-settings: normal ) {
+		font-weight: 600;
+	}
+}
+
+input[type="text"],
+input[type="password"],
+input[type="checkbox"],
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="search"],
+input[type="radio"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+select,
+textarea {
+	max-width: 100%;
+	background-color: $form_background_color;
+	border: solid 1px $form_border_color;
+	border-radius: 0; /* Reset mobile webkit's default element styling */
+	outline: none;
+	font-size: 1rem;
+	transition: 0.05s border-color ease-in-out;
+
+	&:focus {
+		border-color: $form_action_border_color;
+	}
+}
+
+label + input:not([type="checkbox"]):not([type="radio"]),
+label ~ input:not([type="checkbox"]):not([type="radio"]),
+label + button,
+label ~ button,
+label + textarea,
+label ~ textarea,
+label + select,
+label ~ select {
+	margin-top: 0;
+	display: block;
+}
+
+/// Checkbox input color functions
+///
+/// @function checked_bg_color Function to encode the hashtag in the
+///		variable for checkbox background image checked color in the
+///     SVG fill attributes.
+
+// Checkbox checked background color.
+@function checked_bg_color() {
+	@return '%23' + str-slice( '#{$form_action_border_color}', 2, -1 );
+}
+
+/**
+ * Specific field styles
+ *
+ * Make sure dimensional changes match select.
+ */
+input {
+
+	/* rtl: ignore */
+	&[type="email"],
+	&[type="url"] {
+		direction: ltr;
+	}
+
+	&[type="text"],
+	&[type="url"],
+	&[type="password"],
+	&[type="email"],
+	&[type="search"],
+	&[type="tel"],
+	&[type="number"],
+	&[type="button"],
+	&[type="reset"],
+	&[type="submit"],
+	&[type="image"] {
+		height: 2.5rem;
+		padding: 0 1rem;
+		font-size: $px14;
+		line-height: 1rem;
+	}
+
+	&[type="checkbox"],
+	&[type="radio"] {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		clear: none;
+		width: 1em;
+		height: 1em;
+		margin-right: 0.3125rem;
+		padding: 0;
+		vertical-align: middle;
+		outline: 0;
+		line-height: 1;
+		text-align: center;
+		cursor: pointer;
+		-webkit-appearance: none;
+		transition: .05s border-color ease-in-out;
+
+		&:before {
+			content: '';
+			display: inline-block;
+			vertical-align: middle;
+			font-family: 'dashicons';
+			speak: never;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+
+		&:disabled,
+		&.disabled,
+		&:disabled:checked:before,
+		&.disabled:checked:before {
+			opacity: 0.7;
+		}
+	}
+
+	&[type="radio"] {
+		border-radius: 50%;
+
+		&:checked + label:before {
+			color: $light_gray;
+		}
+
+		&:checked:before {
+			content: "\2022";
+			border-radius: 50%;
+			text-indent: -9999px;
+			width: 0.325em;
+			height: 0.325em;
+			font-size: 1.5rem;
+			line-height: 1;
+			background-color: $form_checked;
+		}
+	}
+
+	&[type="checkbox"] {
+
+		&:before {
+			width: 1.25em;
+			height: 1.25em;
+		}
+
+		&:checked:before {
+			background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 70.975021 61.296299'><path fill='#{ checked_bg_color() }' d='m 14.272702,27.386395 c -2.598572,-3.72522 -17.7285244,7.677268 -13.546388,9.449279 8.166215,3.460104 10.394596,13.253897 14.603394,20.935246 2.598633,3.725281 7.772705,4.647095 11.497925,2.048584 1.059265,-0.738892 1.883179,-1.690186 2.472595,-2.753113 l 0.0067,0.0035 c 0,0 0.01819,-0.04108 0.03296,-0.07416 C 29.527815,56.648991 29.694014,56.29279 29.83,55.925114 32.835005,49.458008 48.748702,16.785099 70.97502,0 c 0,1e-6 -27.988586,3.156012 -48.854187,41.086309 -1.684658,-5.22941 -4.95163,-9.547559 -7.848131,-13.699914 z' /></svg>");
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: 0.05em center;
+		}
+	}
+
+	&[type="search"] {
+		-webkit-appearance: textfield;
+
+		&.search {
+			height: 3em;
+			line-height: 3em;
+		}
+	}
+
+	&[type="search"]::-webkit-search-decoration {
+		display: none;
+	}
+
+	&[type="button"],
+	&[type="reset"],
+	&[type="submit"],
+	&[type="image"] {
+		font-size: $px14;
+		font-weight: bold;
+		font-weight: 700;
+	}
+
+	&[type="file"] {
+		display: inline-block;
+		height: 2.5rem;
+		padding: 0.425em 1em;
+		cursor: pointer;
+
+		& + input[type="submit"] {
+			vertical-align: bottom;
+		}
+
+		&:disabled,
+		&.disabled {
+			background: none;
+			cursor: default;
+		}
+	}
+
+	&[type="range"] {
+
+		&:disabled,
+		&.disabled {
+			background: none;
+			cursor: default;
+		}
+	}
+
+	&.ui-autocomplete-loading,
+	&.ui-autocomplete-loading {
+		background-image: url( ../../images/loading.gif );
+		background-repeat: no-repeat;
+		background-position: right center;
+		visibility: visible;
+	}
+
+	&:disabled,
+	&.disabled {
+		background: rgba($color: $pale_gray, $alpha: 0.325);
+		color: rgba($color: $light_gray, $alpha: 0.85);
+		cursor: not-allowed;
+	}
+
+	// Hide arrows in Webkit number input.
+	&::-webkit-outer-spin-button,
+	&::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	// Hide arrows in Firefox number input.
+	&[type="number"] {
+		-moz-appearance: textfield;
+	}
+}
+
+/// Select form fields
+///
+/// Make sure dimensional changes match various
+/// text and submit type inputs.
+///
+/// @function select_bg_color Function to encode the hashtag in the
+/// 	variable for arrow background image color in the SVG fill attributes.
+///
+/// @function select_action_bg_color Function to encode the hashtag in the
+///		variable for arrow background image focus color in the SVG fill attributes.
+///
+/// Background size affects the size of the arrow down image.
+/// Right padding is the same as the width of the background
+/// size of the right-positioned background image.
+
+// Arrow color.
+@function select_bg_color() {
+	@return '%23' + str-slice( '#{$form_text_color}', 2, -1 );
+}
+
+// Arrow focus color.
+@function select_action_bg_color() {
+	@return '%23' + str-slice( '#{$form_focus}', 2, -1 );
+}
+
+// Select field.
+select {
+	height: 2.5rem;
+	padding: 0 1.5em 0 0.5em;
+	font-size: $px14;
+	line-height: 1em;
+	background-repeat: no-repeat;
+
+	// Position 50% from top plus 50% of svg background height attribute.
+	background-position: right calc(50% + 2px);
+	background-size: 1.5em;
+	border-radius: 0;
+
+	&:not([multiple]):not([size]) {
+		background-image: url( "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{ select_bg_color() }' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E" );
+
+		&:focus {
+			background-image: url( "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{ select_action_bg_color() }' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E" );
+		}
+	}
+
+	option {
+		line-height: 1em;
+	}
+
+	&:disabled,
+	&.disabled {
+		background-color: rgba($color: $pale_gray, $alpha: 0.325);
+		color: rgba($color: $light_gray, $alpha: 0.85);
+		cursor: not-allowed;
+
+		&:not([multiple]):not([size]) {
+			background-image: none;
+		}
+	}
+}
+
+/**
+ * Textarea styles
+ */
+ textarea {
+	overflow: auto;
+	padding: 1rem;
+	line-height: 1.4;
+	resize: vertical;
+
+	&:disabled,
+	&.disabled {
+		background: rgba($color: $pale_gray, $alpha: 0.325);
+		color: rgba($color: $light_gray, $alpha: 0.85);
+	}
+}
+
+@-moz-document url-prefix() {
+	input[type="checkbox"],
+	input[type="radio"],
+	.form-table input.tog {
+		margin-bottom: -1px;
+	}
+}
+
+form button,
+button[type="submit"],
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+input[type="image"] {
+	display: inline-block;
+	vertical-align: baseline;
+	margin: 0;
+	padding: 0.75rem 1rem;
+	background: $button_background_color;
+	border: solid 1px $button_border_color;
+	font-size: $px14;
+	font-weight: bold;
+	font-weight: 700;
+	line-height: 1;
+	text-decoration: none;
+	color: $button_text_color;
+	white-space: nowrap;
+	cursor: pointer;
+	-webkit-appearance: none;
+	transition: all .1s linear;
+
+	svg {
+		width: 24px;
+		height: 24px;
+		vertical-align: middle;
+		fill: currentColor;
+	}
+
+	&:hover,
+	&:focus {
+		background: $button_action_background_color;
+		border-color: $button_action_border_color;
+		color: $button_action_text_color;
+	}
+
+	&.search-submit {
+		height: 3em;
+		border-left: none;
+
+		svg {
+			width: 1em;
+			height: 1em;
+		}
+	}
+
+	&.menu-toggle {
+		background: none;
+		border: none;
+		color: inherit;
+
+		svg {
+			width: 1rem;
+			height: 1rem;
+			fill: currentColor;
+		}
+	}
+
+	&.search-submit {
+		padding: 0.5em 1em;
+	}
+}
+
+*::-webkit-input-placeholder,
+*:-moz-placeholder,
+*::-moz-placeholder,
+*:-ms-input-placeholder,
+*::-webkit-input-placeholder {
+	color: $form_placeholder_color !important;
+}
+
+*::-webkit-input-placeholder,
+*:-moz-placeholder,
+*::-moz-placeholder,
+*:-ms-input-placeholder,
+*::placeholder {
+	color: $form_placeholder_color !important;
+}
+
+/* Search form */
+.search-form {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: nowrap;
+	    flex-wrap: nowrap;
+	margin-top: 1em;
+}
+
+h2 + .search-form {
+	margin-top: 0.5em;
+}
+
+.search-label,
+.search-form input[type="search"],
+.search-form input[type="submit"] {
+	display: inline-block;
+	margin-top: 0;
+}
+
+.search-label {
+	margin-right: 0.3em
+}
+
+.theme-toggle {
+	display: inline-block;
+}
+
+.no-js .theme-toggle {
+	display: none;
+}
+
+// Theme toggle button element.
+.theme-toggle-button {
+	position: relative;
+	margin: 0;
+	font-size: $px16;
+	padding: 0;
+	background: none;
+	border: none;
+	color: $text_color;
+
+	&:hover,
+	&:focus {
+		background: none;
+		border: none;
+		color: $text_color;
+
+		svg {
+			fill: currentColor;
+		}
+	}
+
+	span {
+		display: inline-block;
+
+		&:first-of-type {
+			transform: translateY(0.3em);
+		}
+	}
+
+	svg {
+		display: inline-block;
+		width: 2em;
+		height: 2em;
+		vertical-align: middle;
+		fill: currentColor;
+		border-radius: 50%;
+		background-image: radial-gradient(
+			circle,
+			yellow 0%,
+			transparent 70%
+		);
+	}
+}
+
+/// Checkbox input color functions for dark mode
+///
+/// @function checked_bg_color Function to encode the hashtag in the
+///		variable for checkbox background image checked color in the
+///     SVG fill attributes.
+
+// Checkbox checked background color.
+@function checked_bg_color_dark() {
+	@return '%23' + str-slice( '#{$form_checked_dark}', 2, -1 );
+}
+
+/// Select form fields for dark mode
+///
+/// Make sure dimensional changes match various
+/// text and submit type inputs.
+///
+/// @function select_bg_color Function to encode the hashtag in the
+/// 	variable for arrow background image color in the SVG fill attributes.
+///
+/// @function select_action_bg_color Function to encode the hashtag in the
+///		variable for arrow background image focus color in the SVG fill attributes.
+///
+/// Background size affects the size of the arrow down image.
+/// Right padding is the same as the width of the background
+/// size of the right-positioned background image.
+
+// Arrow color.
+@function select_bg_color_dark() {
+	@return '%23' + str-slice( '#{$form_text_color_dark}', 2, -1 );
+}
+
+// Arrow focus color.
+@function select_action_bg_color_dark() {
+	@return '%23' + str-slice( '#{$form_focus_dark}', 2, -1 );
+}
+
+.dark-mode {
+
+	input,
+	textarea,
+	select,
+	button {
+		background-color: $form_background_color_dark;
+		border-color: $form_border_color_dark;
+
+		&:focus {
+			border-color: $form_action_border_color_dark;
+		}
+	}
+
+	input {
+
+		&[type="radio"] {
+
+			&:checked:before {
+				background-color: $form_checked;
+			}
+		}
+
+		&[type="checkbox"] {
+
+			&:checked:before {
+				background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 70.975021 61.296299'><path fill='#{ checked_bg_color_dark() }' d='m 14.272702,27.386395 c -2.598572,-3.72522 -17.7285244,7.677268 -13.546388,9.449279 8.166215,3.460104 10.394596,13.253897 14.603394,20.935246 2.598633,3.725281 7.772705,4.647095 11.497925,2.048584 1.059265,-0.738892 1.883179,-1.690186 2.472595,-2.753113 l 0.0067,0.0035 c 0,0 0.01819,-0.04108 0.03296,-0.07416 C 29.527815,56.648991 29.694014,56.29279 29.83,55.925114 32.835005,49.458008 48.748702,16.785099 70.97502,0 c 0,1e-6 -27.988586,3.156012 -48.854187,41.086309 -1.684658,-5.22941 -4.95163,-9.547559 -7.848131,-13.699914 z' /></svg>");
+			}
+		}
+	}
+
+	// Select field.
+	select {
+
+		&:not([multiple]):not([size]) {
+			background-image: url( "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{ select_bg_color_dark() }' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E" );
+
+			&:focus {
+				background-image: url( "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{ select_action_bg_color_dark() }' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E" );
+			}
+		}
+
+		&:disabled,
+		&.disabled {
+			background-color: $form_background_color_dark;
+			color: rgba($color: $light_gray, $alpha: 0.85);
+			cursor: not-allowed;
+
+			&:not([multiple]):not([size]) {
+				background-image: none;
+			}
+		}
+	}
+
+	form button,
+	button[type="submit"],
+	input[type="submit"],
+	input[type="button"],
+	input[type="reset"],
+	input[type="image"] {
+		background-color: $button_background_color_dark;
+		border-color: $button_border_color_dark;
+		color: $button_text_color_dark;
+
+		&:hover,
+		&:focus {
+			background-color: $button_action_background_color_dark;
+			border-color: $button_action_border_color_dark;
+			color: $button_action_text_color_dark;
+		}
+	}
+
+	*::-webkit-input-placeholder,
+	*:-moz-placeholder,
+	*::-moz-placeholder,
+	*:-ms-input-placeholder,
+	*::-webkit-input-placeholder {
+		color: $form_placeholder_color_dark !important;
+	}
+
+	*::-webkit-input-placeholder,
+	*:-moz-placeholder,
+	*::-moz-placeholder,
+	*:-ms-input-placeholder,
+	*::placeholder {
+		color: $form_placeholder_color_dark !important;
+	}
+
+	// Theme toggle button element.
+	.theme-toggle-button {
+		background: none;
+		border: none;
+		color: $white;
+
+		&:hover,
+		&:focus {
+			background: none;
+			border: none;
+			color: $white;
+		}
+
+		svg {
+			fill: currentColor;
+			background: none;
+		}
+	}
+}
+
+@media ( prefers-color-scheme: dark ) {
+
+	input,
+	textarea,
+	select,
+	button {
+		background-color: $form_background_color_dark;
+		border-color: $form_border_color_dark;
+
+		&:focus {
+			border-color: $form_action_border_color_dark;
+		}
+	}
+
+	input {
+
+		&[type="radio"] {
+
+			&:checked:before {
+				background-color: $form_checked;
+			}
+		}
+
+		&[type="checkbox"] {
+
+			&:checked:before {
+				background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 70.975021 61.296299'><path fill='#{ checked_bg_color_dark() }' d='m 14.272702,27.386395 c -2.598572,-3.72522 -17.7285244,7.677268 -13.546388,9.449279 8.166215,3.460104 10.394596,13.253897 14.603394,20.935246 2.598633,3.725281 7.772705,4.647095 11.497925,2.048584 1.059265,-0.738892 1.883179,-1.690186 2.472595,-2.753113 l 0.0067,0.0035 c 0,0 0.01819,-0.04108 0.03296,-0.07416 C 29.527815,56.648991 29.694014,56.29279 29.83,55.925114 32.835005,49.458008 48.748702,16.785099 70.97502,0 c 0,1e-6 -27.988586,3.156012 -48.854187,41.086309 -1.684658,-5.22941 -4.95163,-9.547559 -7.848131,-13.699914 z' /></svg>");
+			}
+		}
+	}
+
+	// Select field.
+	select {
+
+		&:not([multiple]):not([size]) {
+			background-image: url( "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{ select_bg_color_dark() }' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E" );
+
+			&:focus {
+				background-image: url( "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{ select_action_bg_color_dark() }' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E" );
+			}
+		}
+
+		&:disabled,
+		&.disabled {
+			background-color: $form_background_color_dark;
+			color: rgba($color: $light_gray, $alpha: 0.85);
+			cursor: not-allowed;
+
+			&:not([multiple]):not([size]) {
+				background-image: none;
+			}
+		}
+	}
+
+	form button,
+	button[type="submit"],
+	input[type="submit"],
+	input[type="button"],
+	input[type="reset"],
+	input[type="image"] {
+		background-color: $button_background_color_dark;
+		border-color: $button_border_color_dark;
+		color: $button_text_color_dark;
+
+		&:hover,
+		&:focus {
+			background-color: $button_action_background_color_dark;
+			border-color: $button_action_border_color_dark;
+			color: $button_action_text_color_dark;
+		}
+	}
+
+	*::-webkit-input-placeholder,
+	*:-moz-placeholder,
+	*::-moz-placeholder,
+	*:-ms-input-placeholder,
+	*::-webkit-input-placeholder {
+		color: $form_placeholder_color_dark !important;
+	}
+
+	*::-webkit-input-placeholder,
+	*:-moz-placeholder,
+	*::-moz-placeholder,
+	*:-ms-input-placeholder,
+	*::placeholder {
+		color: $form_placeholder_color_dark !important;
+	}
+}
