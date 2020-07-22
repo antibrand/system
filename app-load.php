@@ -83,7 +83,7 @@ if ( file_exists( ABSPATH . 'app-config.php' ) ) {
 		exit;
 	}
 
-	define( 'WP_CONTENT_DIR', ABSPATH . 'wp-content' );
+	define( 'WP_CONTENT_DIR', ABSPATH . 'app-views' );
 	require_once( ABSPATH . WPINC . '/version.php' );
 
 	wp_check_php_mysql_versions();
