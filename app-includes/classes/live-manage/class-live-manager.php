@@ -293,31 +293,30 @@ final class WP_Customize_Manager {
 			}
 		}
 
-		require_once( ABSPATH . WPINC . '/class-wp-customize-setting.php' );
-		require_once( ABSPATH . WPINC . '/class-wp-customize-panel.php' );
-		require_once( ABSPATH . WPINC . '/class-wp-customize-section.php' );
-		require_once( ABSPATH . WPINC . '/class-wp-customize-control.php' );
-
-		require_once( ABSPATH . APPINC . '/classes/live-manage/class-wp-customize-color-control.php' );
-		require_once( ABSPATH . APPINC . '/classes/live-manage/class-wp-customize-media-control.php' );
-		require_once( ABSPATH . APPINC . '/classes/live-manage/class-wp-customize-upload-control.php' );
-		require_once( ABSPATH . APPINC . '/classes/live-manage/class-wp-customize-image-control.php' );
-		require_once( ABSPATH . APPINC . '/classes/live-manage/class-wp-customize-background-image-control.php' );
-		require_once( ABSPATH . APPINC . '/classes/live-manage/class-wp-customize-background-position-control.php' );
-		require_once( ABSPATH . APPINC . '/classes/live-manage/class-wp-customize-cropped-image-control.php' );
-		require_once( ABSPATH . APPINC . '/classes/live-manage/class-wp-customize-site-icon-control.php' );
-		require_once( ABSPATH . APPINC . '/classes/live-manage/class-wp-customize-header-image-control.php' );
-		require_once( ABSPATH . APPINC . '/classes/live-manage/class-wp-customize-theme-control.php' );
-		require_once( ABSPATH . APPINC . '/classes/live-manage/class-wp-customize-code-editor-control.php' );
-		require_once( ABSPATH . APPINC . '/classes/live-manage/class-wp-widget-area-customize-control.php' );
-		require_once( ABSPATH . APPINC . '/classes/live-manage/class-wp-widget-form-customize-control.php' );
-		require_once( ABSPATH . APPINC . '/classes/live-manage/class-wp-customize-nav-menu-control.php' );
-		require_once( ABSPATH . APPINC . '/classes/live-manage/class-wp-customize-nav-menu-item-control.php' );
-		require_once( ABSPATH . APPINC . '/classes/live-manage/class-wp-customize-nav-menu-location-control.php' );
-		require_once( ABSPATH . APPINC . '/classes/live-manage/class-wp-customize-nav-menu-name-control.php' );
-		require_once( ABSPATH . APPINC . '/classes/live-manage/class-wp-customize-nav-menu-locations-control.php' );
-		require_once( ABSPATH . APPINC . '/classes/live-manage/class-wp-customize-nav-menu-auto-add-control.php' );
-		require_once( ABSPATH . APPINC . '/classes/live-manage/class-wp-customize-new-menu-control.php' ); // @todo Remove in 5.0. See #42364.
+		require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-setting.php' );
+		require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-panel.php' );
+		require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-section.php' );
+		require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-control.php' );
+		require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-color-control.php' );
+		require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-media-control.php' );
+		require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-upload-control.php' );
+		require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-image-control.php' );
+		require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-background-image-control.php' );
+		require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-background-position-control.php' );
+		require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-cropped-image-control.php' );
+		require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-site-icon-control.php' );
+		require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-header-image-control.php' );
+		require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-theme-control.php' );
+		require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-code-editor-control.php' );
+		require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-widget-area-control.php' );
+		require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-widget-form-control.php' );
+		require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-nav-menu-control.php' );
+		require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-nav-menu-item-control.php' );
+		require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-nav-menu-location-control.php' );
+		require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-nav-menu-name-control.php' );
+		require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-nav-menu-locations-control.php' );
+		require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-nav-menu-auto-add-control.php' );
+		require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-new-menu-control.php' ); // @todo Remove in 5.0. See #42364.
 
 		require_once( ABSPATH . APPINC . '/classes/live-manage/class-wp-customize-nav-menus-panel.php' );
 
@@ -355,12 +354,12 @@ final class WP_Customize_Manager {
 		$this->selective_refresh = new WP_Customize_Selective_Refresh( $this );
 
 		if ( in_array( 'widgets', $components, true ) ) {
-			require_once( ABSPATH . WPINC . '/class-wp-customize-widgets.php' );
+			require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-widgets.php' );
 			$this->widgets = new WP_Customize_Widgets( $this );
 		}
 
 		if ( in_array( 'nav_menus', $components, true ) ) {
-			require_once( ABSPATH . WPINC . '/class-wp-customize-nav-menus.php' );
+			require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-nav-menus.php' );
 			$this->nav_menus = new WP_Customize_Nav_Menus( $this );
 		}
 
@@ -3597,10 +3596,10 @@ final class WP_Customize_Manager {
 		} else {
 			$class = 'WP_Customize_Setting';
 
-			/** This filter is documented in wp-includes/class-wp-customize-manager.php */
+			/** This filter is documented in app-includes/classes/live-manage/class-wp-customize-manager.php */
 			$args = apply_filters( 'customize_dynamic_setting_args', $args, $id );
 
-			/** This filter is documented in wp-includes/class-wp-customize-manager.php */
+			/** This filter is documented in app-includes/classes/live-manage/class-wp-customize-manager.php */
 			$class = apply_filters( 'customize_dynamic_setting_class', $class, $id, $args );
 
 			$setting = new $class( $this, $id, $args );

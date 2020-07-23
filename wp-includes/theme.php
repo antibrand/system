@@ -2804,7 +2804,7 @@ function _wp_customize_include() {
 	);
 	$settings_previewed = ! $is_customize_save_action;
 
-	require_once ABSPATH . WPINC . '/class-wp-customize-manager.php';
+	require_once ABSPATH . APPINC . '/classes/live-manage/class-live-manager.php';
 	$GLOBALS['wp_customize'] = new WP_Customize_Manager( compact( 'changeset_uuid', 'theme', 'messenger_channel', 'settings_previewed', 'autosaved', 'branching' ) );
 }
 
@@ -2836,7 +2836,7 @@ function _wp_customize_publish_changeset( $new_status, $old_status, $changeset_p
 	}
 
 	if ( empty( $wp_customize ) ) {
-		require_once ABSPATH . WPINC . '/class-wp-customize-manager.php';
+		require_once ABSPATH . APPINC . '/classes/live-manage/class-live-manager.php';
 		$wp_customize = new WP_Customize_Manager( array(
 			'changeset_uuid' => $changeset_post->post_name,
 			'settings_previewed' => false,
@@ -2861,7 +2861,7 @@ function _wp_customize_publish_changeset( $new_status, $old_status, $changeset_p
 		remove_action( 'customize_register', array( $wp_customize, 'register_controls' ) );
 		$wp_customize->register_controls();
 
-		/** This filter is documented in /wp-includes/class-wp-customize-manager.php */
+		/** This filter is documented in app-includes/classes/live-manage/class-live-manager.php */
 		do_action( 'customize_register', $wp_customize );
 	}
 	$wp_customize->_publish_changeset_values( $changeset_post->ID ) ;
