@@ -3,11 +3,11 @@
  * List Table API: MS_Sites_List_Table class
  *
  * @package App_Package
- * @subpackage Network\Backend
+ * @subpackage Network
  * @since Previous 3.1.0
  */
 
-namespace AppNamespace\Backend;
+namespace AppNamespace\Network;
 
 /**
  * Core class used to implement displaying sites in a list table for the network admin.
