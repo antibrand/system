@@ -452,7 +452,7 @@ class WP_Widget_Text extends WP_Widget {
 				$default_editor = 'html';
 			}
 
-			/** This filter is documented in wp-includes/class-wp-editor.php */
+			/** This filter is documented in app-includes/classes/includes/class-app-editor.php */
 			$text = apply_filters( 'the_editor_content', $instance['text'], $default_editor );
 
 			// Reset filter addition.

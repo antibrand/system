@@ -123,7 +123,7 @@ require( ABSPATH . WPINC . '/class-wp-list-util.php' );
 require( ABSPATH . APPINC . '/functions.php' );
 require( ABSPATH . WPINC . '/class-wp-matchesmapregex.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-system-app.php' );
-require( ABSPATH . WPINC . '/class-wp-error.php' );
+require( ABSPATH . APPINC . '/classes/includes/class-app-error.php' );
 require( ABSPATH . APPINC . '/pomo/mo.php' );
 
 // Include the wpdb class and, if present, a db.php database drop-in.
@@ -220,7 +220,7 @@ require( ABSPATH . WPINC . '/update.php' );
 require( ABSPATH . APPINC . '/canonical.php' );
 require( ABSPATH . WPINC . '/shortcodes.php' );
 require( ABSPATH . WPINC . '/embed.php' );
-require( ABSPATH . WPINC . '/class-wp-embed.php' );
+require( ABSPATH . APPINC . '/classes/includes/class-app-embed.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-oembed.php' );
 require( ABSPATH . WPINC . '/class-wp-oembed-controller.php' );
 require( ABSPATH . WPINC . '/media.php' );

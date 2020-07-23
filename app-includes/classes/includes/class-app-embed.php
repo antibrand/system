@@ -319,7 +319,6 @@ class WP_Embed {
 
 		// If there was a result, return it.
 		if ( $html ) {
-			/** This filter is documented in wp-includes/class-wp-embed.php */
 			return apply_filters( 'embed_oembed_html', $html, $url, $attr, $post_ID );
 		}
 
