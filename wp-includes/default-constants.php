@@ -21,7 +21,7 @@ function wp_initial_constants() {
 	 * App identity
 	 *
 	 * Define white label names and URLs.
-	 * 
+	 *
 	 * @since 1.0.0
 	 */
 
@@ -113,9 +113,18 @@ function wp_initial_constants() {
 		$blog_id = 1;
 	}
 
-	// No trailing slash, full paths only.
+	/**
+	 * HTML templates & themes directory
+	 *
+	 * Defines the directory of files which print the HTML
+	 * of various page templates and template partials in
+	 * the system back end, and the directory ocontaining
+	 * themes.
+	 *
+	 * @since 1.0.0
+	 */
 	if ( ! defined( 'APP_VIEWS' ) ) {
-		define( 'APP_VIEWS', ABSPATH . 'app-views' );
+		define( 'APP_VIEWS', 'app-views' );
 	}
 
 	// No trailing slash, full paths only - WP_CONTENT_URL is defined further down

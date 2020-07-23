@@ -267,8 +267,8 @@ function network_step1( $errors = false ) {
 <?php
 	endif;
 
-		if ( WP_CONTENT_DIR != ABSPATH . 'wp-content' && ( allow_subdirectory_install() || ! allow_subdomain_install() ) )
-			echo '<div class="error inline"><p><strong>' . __( 'Warning:' ) . '</strong> ' . __( 'Subdirectory networks may not be fully compatible with custom wp-content directories.' ) . '</p></div>';
+		if ( WP_CONTENT_DIR != ABSPATH . 'app-views' && ( allow_subdirectory_install() || ! allow_subdomain_install() ) )
+			echo '<div class="error inline"><p><strong>' . __( 'Warning:' ) . '</strong> ' . __( 'Subdirectory networks may not be fully compatible with custom app-views directories.' ) . '</p></div>';
 
 		$is_www = ( 0 === strpos( $hostname, 'www.' ) );
 		if ( $is_www ) :
@@ -593,7 +593,7 @@ define( 'BLOG_ID_CURRENT_SITE', 1 );
 			'<code>' . $home_path . '</code>'
 		);
 		echo '</p>';
-		if ( ! $subdomain_install && WP_CONTENT_DIR != ABSPATH . 'wp-content' )
+		if ( ! $subdomain_install && WP_CONTENT_DIR != ABSPATH . 'app-views' )
 			echo '<p><strong>' . __( 'Warning:' ) . ' ' . __( 'Subdirectory networks may not be fully compatible with custom wp-content directories.' ) . '</strong></p>';
 		?>
 		<textarea class="code" readonly="readonly" cols="100" rows="20"><?php echo esc_textarea( $web_config_file ); ?>
@@ -619,7 +619,8 @@ RewriteRule ^{$subdir_match}wp-admin$ {$subdir_replacement_01}wp-admin/ [R=301,L
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
-RewriteRule ^{$subdir_match}(wp-(content|admin|includes).*) {$rewrite_base}{$subdir_replacement_12} [L]
+RewriteRule ^{$subdir_match}(app-(views|assets|includes|extend|languages).*) {$rewrite_base}{$subdir_replacement_12} [L]
+RewriteRule ^{$subdir_match}(wp-(admin|includes).*) {$rewrite_base}{$subdir_replacement_12} [L]
 RewriteRule ^{$subdir_match}(.*\.php)$ {$rewrite_base}$subdir_replacement_12 [L]
 RewriteRule . index.php [L]
 
@@ -632,7 +633,7 @@ EOF;
 			'<code>' . $home_path . '</code>'
 		);
 		echo '</p>';
-		if ( ! $subdomain_install && WP_CONTENT_DIR != ABSPATH . 'wp-content' )
+		if ( ! $subdomain_install && WP_CONTENT_DIR != ABSPATH . 'app-views' )
 			echo '<p><strong>' . __( 'Warning:' ) . ' ' . __( 'Subdirectory networks may not be fully compatible with custom wp-content directories.' ) . '</strong></p>';
 		?>
 				<pre class="code network-add-code">

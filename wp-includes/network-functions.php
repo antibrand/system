@@ -2563,14 +2563,14 @@ function wp_is_large_network( $using = 'sites', $network_id = null ) {
 function get_subdirectory_reserved_names() {
 	$names = array(
 		'page', 'comments', 'blog', 'files', 'feed', 'wp-admin',
-		'wp-content', 'wp-includes', 'wp-json', 'embed'
+		'app-views', 'wp-includes', 'wp-json', 'embed'
 	);
 
 	/**
 	 * Filters reserved site names on a sub-directory network installation.
 	 *
 	 * @since 3.0.0
-	 * @since 4.4.0 'wp-admin', 'wp-content', 'wp-includes', 'wp-json', and 'embed' were added
+	 * @since 4.4.0 'wp-admin', 'app-views', 'wp-includes', 'wp-json', and 'embed' were added
 	 *              to the reserved names list.
 	 *
 	 * @param array $subdirectory_reserved_names Array of reserved names.

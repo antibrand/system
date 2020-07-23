@@ -1937,7 +1937,7 @@ function _wp_upload_dir( $time = null ) {
 	$siteurl = get_option( 'siteurl' );
 	$upload_path = trim( get_option( 'upload_path' ) );
 
-	if ( empty( $upload_path ) || 'wp-content/uploads' == $upload_path ) {
+	if ( empty( $upload_path ) || 'app-views/uploads' == $upload_path ) {
 		$dir = WP_CONTENT_DIR . '/uploads';
 	} elseif ( 0 !== strpos( $upload_path, ABSPATH ) ) {
 		// $dir is absolute, $upload_path is (maybe) relative to ABSPATH
@@ -1947,7 +1947,7 @@ function _wp_upload_dir( $time = null ) {
 	}
 
 	if ( !$url = get_option( 'upload_url_path' ) ) {
-		if ( empty($upload_path) || ( 'wp-content/uploads' == $upload_path ) || ( $upload_path == $dir ) )
+		if ( empty($upload_path) || ( 'app-views/uploads' == $upload_path ) || ( $upload_path == $dir ) )
 			$url = WP_CONTENT_URL . '/uploads';
 		else
 			$url = trailingslashit( $siteurl ) . $upload_path;

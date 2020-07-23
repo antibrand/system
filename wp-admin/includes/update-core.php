@@ -941,7 +941,7 @@ function update_core($from, $to) {
 
 	// Don't copy wp-content, we'll deal with that below
 	// We also copy version.php last so failed updates report their old version
-	$skip = array( 'wp-content', 'wp-includes/version.php' );
+	$skip = array( 'app-views', 'wp-includes/version.php' );
 	$check_is_writable = array();
 
 	// Check to see which files don't really need updating - only available for 3.7 and higher
@@ -954,7 +954,7 @@ function update_core($from, $to) {
 			$checksums = $checksums[ $wp_version ]; // Compat code for 3.7-beta2
 		if ( is_array( $checksums ) ) {
 			foreach ( $checksums as $file => $checksum ) {
-				if ( 'wp-content' == substr( $file, 0, 10 ) )
+				if ( 'app-views' == substr( $file, 0, 10 ) )
 					continue;
 				if ( ! file_exists( ABSPATH . $file ) )
 					continue;
@@ -1015,11 +1015,11 @@ function update_core($from, $to) {
 	}
 
 	// Check to make sure everything copied correctly, ignoring the contents of wp-content
-	$skip = array( 'wp-content' );
+	$skip = array( 'app-views' );
 	$failed = array();
 	if ( isset( $checksums ) && is_array( $checksums ) ) {
 		foreach ( $checksums as $file => $checksum ) {
-			if ( 'wp-content' == substr( $file, 0, 10 ) )
+			if ( 'app-views' == substr( $file, 0, 10 ) )
 				continue;
 			if ( ! file_exists( $working_dir_local . $file ) )
 				continue;
