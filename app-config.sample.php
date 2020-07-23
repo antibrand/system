@@ -195,10 +195,12 @@ if ( ! defined( 'COMPAT_VERSION' ) ) {
 }
 
 /**
- * HTML templates directory name
+ * HTML templates directory
  *
  * Defines the directory of files which print the HTML
  * of various page templates and template partials.
+ *
+ * Also contains the themes directory.
  *
  * @since 1.0.0
  */
