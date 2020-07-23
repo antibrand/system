@@ -1000,7 +1000,7 @@ final class _WP_Editors {
 		// Default stylesheets
 		$admin_color = sanitize_html_class( get_user_option( 'admin_color' ), 'default' );
 		$settings['content_css'] =
-			includes_url( "css/dashicons$suffix.css?$version" )
+			app_assets_url( "css/includes/dashicons$suffix.css?$version" )
 			. ','
 			. app_assets_url( "js/includes/tinymce/skins/app-editor/app-editor-content$suffix.css?$version" )
 			. ','
