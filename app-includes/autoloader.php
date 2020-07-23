@@ -49,7 +49,7 @@ const APP_CLASSES = [
 	'AppNamespace\Backend\Dashboard' => __DIR__ . '/classes/backend/class-dashboard.php',
 	'AppNamespace\Backend\Data_Page' => __DIR__ . '/classes/backend/class-data-page.php',
 
-	// List table.
+	// List tables.
 	'AppNamespace\Backend\List_Table'          => __DIR__ . '/classes/backend/class-list-table.php',
 	'AppNamespace\Backend\List_Table_Compat'   => __DIR__ . '/classes/backend/class-list-table-compat.php',
 	'AppNamespace\Backend\Posts_List_Table'    => __DIR__ . '/classes/backend/class-posts-list-table.php',
