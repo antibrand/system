@@ -3,7 +3,7 @@
  * Live manager widgets classes
  *
  * @package App_Package
- * @subpackage Live_Manager
+ * @subpackage Live_Manage
  * @since 3.9.0
  */
 

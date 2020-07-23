@@ -3,7 +3,7 @@
  * Live manager panel classes
  *
  * @package App_Package
- * @subpackage Live_Manager
+ * @subpackage Live_Manage
  * @since 4.0.0
  */
 

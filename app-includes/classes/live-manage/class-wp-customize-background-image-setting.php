@@ -3,7 +3,7 @@
  * Live manager API: WP_Customize_Background_Image_Setting class
  *
  * @package App_Package
- * @subpackage Live_Manager
+ * @subpackage Live_Manage
  * @since 4.4.0
  */
 

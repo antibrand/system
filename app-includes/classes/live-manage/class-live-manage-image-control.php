@@ -3,7 +3,7 @@
  * Live manager API: WP_Customize_Image_Control class
  *
  * @package App_Package
- * @subpackage Live_Manager
+ * @subpackage Live_Manage
  * @since 4.4.0
  */
 

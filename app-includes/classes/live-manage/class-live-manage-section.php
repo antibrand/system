@@ -3,7 +3,7 @@
  * Live manager section classes
  *
  * @package App_Package
- * @subpackage Live_Manager
+ * @subpackage Live_Manage
  * @since 3.4.0
  */
 

@@ -3,7 +3,7 @@
  * Live manager API: WP_Customize_New_Menu_Control class
  *
  * @package App_Package
- * @subpackage Live_Manager
+ * @subpackage Live_Manage
  * @since 4.4.0
  * @deprecated 4.9.0 This file is no longer used as of the menu creation UX introduced in #40104.
  */

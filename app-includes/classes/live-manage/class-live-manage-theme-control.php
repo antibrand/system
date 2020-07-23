@@ -3,7 +3,7 @@
  * Live manager API: WP_Customize_Theme_Control class
  *
  * @package WordPress
- * @subpackage Live_Manager
+ * @subpackage Live_Manage
  * @since 4.4.0
  */
 

@@ -5,7 +5,7 @@
  * This handles validation, sanitization and saving of the value.
  *
  * @package App_Package
- * @subpackage Live_Manager
+ * @subpackage Live_Manage
  * @since 4.7.0
  */
 
