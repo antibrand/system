@@ -104,13 +104,13 @@ class Walker_Category_Checklist extends Includes\Walker {
 				$aria_checked = 'true';
 			}
 
-			/** This filter is documented in app-includes/category-template.php */
+			/** This filter is documented in wp-includes/category-template.php */
 			$output .= "\n" . '<li' . $class . '>' .
 				'<div class="' . $inner_class . '" data-term-id=' . $category->term_id .
 				' tabindex="0" role="checkbox" aria-checked="' . $aria_checked . '">' .
 				esc_html( apply_filters( 'the_category', $category->name, '', '' ) ) . '</div>';
 		} else {
-			/** This filter is documented in app-includes/category-template.php */
+			/** This filter is documented in wp-includes/category-template.php */
 			$output .= "\n<li id='{$taxonomy}-{$category->term_id}'$class>" .
 				'<label class="selectit"><input value="' . $category->term_id . '" type="checkbox" name="'.$name.'[]" id="in-'.$taxonomy.'-' . $category->term_id . '"' .
 				checked( in_array( $category->term_id, $args['selected_cats'] ), true, false ) .

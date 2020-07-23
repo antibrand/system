@@ -511,7 +511,7 @@ function wp_start_object_cache() {
 	}
 
 	if ( ! wp_using_ext_object_cache() ) {
-		require_once ( ABSPATH . APPINC . '/cache.php' );
+		require_once ( ABSPATH . WPINC . '/cache.php' );
 	}
 
 	/*

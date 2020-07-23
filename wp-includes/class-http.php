@@ -8,7 +8,7 @@
  */
 
 if ( ! class_exists( 'Requests' ) ) {
-	require( ABSPATH . APPINC . '/classes/includes/class-requests.php' );
+	require( ABSPATH . WPINC . '/class-requests.php' );
 
 	Requests::register_autoloader();
 	Requests::set_certificate_path( ABSPATH . APPINC . '/certificates/ca-bundle.crt' );
@@ -554,7 +554,7 @@ class WP_Http {
 
 		$response = $transports[$class]->request( $url, $args );
 
-		/** This action is documented in app-includes/class-http.php */
+		/** This action is documented in wp-includes/class-http.php */
 		do_action( 'http_api_debug', $response, 'response', $class, $args, $url );
 
 		if ( is_wp_error( $response ) )

@@ -199,7 +199,7 @@ function get_bookmarks( $args = '' ) {
 		} else {
 			$cache[ $key ] = array();
 			wp_cache_set( 'get_bookmarks', $cache, 'bookmark' );
-			/** This filter is documented in app-includes/bookmark.php */
+			/** This filter is documented in wp-includes/bookmark.php */
 			return apply_filters( 'get_bookmarks', array(), $r );
 		}
 	}
@@ -292,7 +292,7 @@ function get_bookmarks( $args = '' ) {
 		wp_cache_set( 'get_bookmarks', $cache, 'bookmark' );
 	}
 
-	/** This filter is documented in app-includes/bookmark.php */
+	/** This filter is documented in wp-includes/bookmark.php */
 	return apply_filters( 'get_bookmarks', $results, $r );
 }
 

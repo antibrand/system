@@ -17,7 +17,7 @@
  */
 
 // Dependency class.
-require( ABSPATH . APPINC . '/classes/includes/class-app-dependency.php' );
+require( ABSPATH . WPINC . '/class-wp-dependency.php' );
 
 // Dependencies class.
 require( ABSPATH . WPINC . '/class.wp-dependencies.php' );

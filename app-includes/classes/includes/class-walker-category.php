@@ -114,7 +114,7 @@ class Walker_Category extends Walker {
 	 */
 	public function start_el( &$output, $category, $depth = 0, $args = [], $id = 0 ) {
 
-		// This filter is documented in app-includes/category-template.php.
+		// This filter is documented in wp-includes/category-template.php.
 		$cat_name = apply_filters(
 			'list_cats',
 			esc_attr( $category->name ),
