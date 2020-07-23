@@ -21,7 +21,7 @@
  * @deprecated 3.1.0 Use get_site()
  * @see get_site()
  *
- * @return WP_Site Current site object.
+ * @return Network_Site Current site object.
  */
 function get_dashboard_blog() {
     _deprecated_function( __FUNCTION__, '3.1.0', 'get_site()' );

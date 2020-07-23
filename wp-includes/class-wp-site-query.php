@@ -237,7 +237,7 @@ class WP_Site_Query {
 	 * @since  Previous 4.6.0
 	 * @access public
 	 * @param  string|array $query Array or URL query string of parameters.
-	 * @return array|int List of WP_Site objects, a list of site ids when 'fields' is set to 'ids',
+	 * @return array|int List of Network_Site objects, a list of site ids when 'fields' is set to 'ids',
 	 *                   or the number of sites when 'count' is passed as a query var.
 	 */
 	public function query( $query ) {
@@ -252,7 +252,7 @@ class WP_Site_Query {
 	 *
 	 * @since  Previous 4.6.0
 	 * @access public
-	 * @return array|int List of WP_Site objects, a list of site ids when 'fields' is set to 'ids',
+	 * @return array|int List of Network_Site objects, a list of site ids when 'fields' is set to 'ids',
 	 *                   or the number of sites when 'count' is passed as a query var.
 	 */
 	public function get_sites() {
@@ -337,12 +337,12 @@ class WP_Site_Query {
 		 * Filters the site query results.
 		 *
 		 * @since Previous 4.6.0
-		 * @param array $_sites An array of WP_Site objects.
+		 * @param array $_sites An array of Network_Site objects.
 		 * @param WP_Site_Query $this   Current instance of WP_Site_Query (passed by reference).
 		 */
 		$_sites = apply_filters_ref_array( 'the_sites', array( $_sites, &$this ) );
 
-		// Convert to WP_Site instances.
+		// Convert to Network_Site instances.
 		$this->sites = array_map( 'get_site', $_sites );
 
 		return $this->sites;

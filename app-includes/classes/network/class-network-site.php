@@ -23,7 +23,7 @@ namespace AppNamespace\Network;
  * @property int $post_count
  * @property string $home
  */
-final class WP_Site {
+final class Network_Site {
 
 	/**
 	 * Site ID.
@@ -152,7 +152,7 @@ final class WP_Site {
 	 * @global wpdb $wpdb Database abstraction object.
 	 *
 	 * @param int $site_id The ID of the site to retrieve.
-	 * @return WP_Site|false The site's object if found. False if not.
+	 * @return Network_Site|false The site's object if found. False if not.
 	 */
 	public static function get_instance( $site_id ) {
 		global $wpdb;
@@ -174,18 +174,18 @@ final class WP_Site {
 			wp_cache_add( $site_id, $_site, 'sites' );
 		}
 
-		return new WP_Site( $_site );
+		return new Network_Site( $_site );
 	}
 
 	/**
-	 * Creates a new WP_Site object.
+	 * Creates a new Network_Site object.
 	 *
 	 * Will populate object properties from the object provided and assign other
 	 * default properties based on that information.
 	 *
 	 * @since 4.5.0
 	 *
-	 * @param WP_Site|object $site A site object.
+	 * @param Network_Site|object $site A site object.
 	 */
 	public function __construct( $site ) {
 		foreach( get_object_vars( $site ) as $key => $value ) {
@@ -307,7 +307,7 @@ final class WP_Site {
 	 *
 	 * @since 4.6.0
 	 *
-	 * @see WP_Site::__get()
+	 * @see Network_Site::__get()
 	 *
 	 * @return stdClass A raw site object with all details included.
 	 */
@@ -318,7 +318,7 @@ final class WP_Site {
 
 			switch_to_blog( $this->blog_id );
 			// Create a raw copy of the object for backwards compatibility with the filter below.
-			$details = new stdClass();
+			$details = new \stdClass();
 			foreach ( get_object_vars( $this ) as $key => $value ) {
 				$details->$key = $value;
 			}

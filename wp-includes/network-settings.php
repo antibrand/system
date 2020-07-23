@@ -32,10 +32,7 @@
 global $current_site, $current_blog, $domain, $path, $site_id, $public;
 
 /** WP_Network class */
-require_once( ABSPATH . WPINC . '/class-wp-network.php' );
-
-/** WP_Site class */
-require_once( ABSPATH . WPINC . '/class-wp-site.php' );
+// require_once( ABSPATH . WPINC . '/class-wp-network.php' );
 
 /** Network loader */
 require_once( ABSPATH . WPINC . '/network-load.php' );
@@ -107,8 +104,8 @@ if ( ! $current_site instanceof WP_Network ) {
 	$current_site = new WP_Network( $current_site );
 }
 
-if ( ! $current_blog instanceof WP_Site ) {
-	$current_blog = new WP_Site( $current_blog );
+if ( ! $current_blog instanceof AppNamespace\Network\Network_Site ) {
+	$current_blog = new AppNamespace\Network\Network_Site( $current_blog );
 }
 
 // Define upload directory constants

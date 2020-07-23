@@ -115,7 +115,7 @@ function get_id_from_blogname( $slug ) {
  *                                  If not specified the current blog ID is used.
  * @param bool             $get_all Whether to retrieve all details or only the details in the blogs table.
  *                                  Default is true.
- * @return WP_Site|false Blog details on success. False on failure.
+ * @return Network_Site|false Blog details on success. False on failure.
  */
 function get_blog_details( $fields = null, $get_all = true ) {
 	global $wpdb;
@@ -210,7 +210,7 @@ function get_blog_details( $fields = null, $get_all = true ) {
 	}
 
 	if ( empty($details) ) {
-		$details = WP_Site::get_instance( $blog_id );
+		$details = AppNamespace\Network\Network_Site::get_instance( $blog_id );
 		if ( ! $details ) {
 			// Set the full cache.
 			wp_cache_set( $blog_id, -1, 'blog-details' );
@@ -218,8 +218,8 @@ function get_blog_details( $fields = null, $get_all = true ) {
 		}
 	}
 
-	if ( ! $details instanceof WP_Site ) {
-		$details = new WP_Site( $details );
+	if ( ! $details instanceof AppNamespace\Network\Network_Site ) {
+		$details = new AppNamespace\Network\Network_Site( $details );
 	}
 
 	if ( ! $get_all ) {
@@ -422,7 +422,7 @@ function update_blog_details( $blog_id, $details = array() ) {
  *
  * @global bool $_wp_suspend_cache_invalidation
  *
- * @param WP_Site|int $blog The site object or ID to be cleared from cache.
+ * @param Network_Site|int $blog The site object or ID to be cleared from cache.
  */
 function clean_blog_cache( $blog ) {
 	global $_wp_suspend_cache_invalidation;
@@ -442,8 +442,8 @@ function clean_blog_cache( $blog ) {
 			return;
 		}
 
-		// Make sure a WP_Site object exists even when the site has been deleted.
-		$blog = new WP_Site( (object) array(
+		// Make sure a Network_Site object exists even when the site has been deleted.
+		$blog = new AppNamespace\Network\Network_Site( (object) array(
 			'blog_id' => $blog_id,
 			'domain'  => null,
 			'path'    => null,
@@ -468,7 +468,7 @@ function clean_blog_cache( $blog ) {
 	 * @since 4.6.0
 	 *
 	 * @param int     $id              Blog ID.
-	 * @param WP_Site $blog            Site object.
+	 * @param Network_Site $blog            Site object.
 	 * @param string  $domain_path_key md5 hash of domain and path.
 	 */
 	do_action( 'clean_site_cache', $blog_id, $blog, $domain_path_key );
@@ -511,20 +511,20 @@ function clean_site_details_cache( $site_id = 0 ) {
  *
  * @since 4.6.0
  *
- * @param WP_Site|int|null $site Optional. Site to retrieve. Default is the current site.
- * @return WP_Site|null The site object or null if not found.
+ * @param Network_Site|int|null $site Optional. Site to retrieve. Default is the current site.
+ * @return Network_Site|null The site object or null if not found.
  */
 function get_site( $site = null ) {
 	if ( empty( $site ) ) {
 		$site = get_current_blog_id();
 	}
 
-	if ( $site instanceof WP_Site ) {
+	if ( $site instanceof AppNamespace\Network\Network_Site ) {
 		$_site = $site;
 	} elseif ( is_object( $site ) ) {
-		$_site = new WP_Site( $site );
+		$_site = new AppNamespace\Network\Network_Site( $site );
 	} else {
-		$_site = WP_Site::get_instance( $site );
+		$_site = AppNamespace\Network\Network_Site::get_instance( $site );
 	}
 
 	if ( ! $_site ) {
@@ -536,7 +536,7 @@ function get_site( $site = null ) {
 	 *
 	 * @since 4.6.0
 	 *
-	 * @param WP_Site $_site Site data.
+	 * @param Network_Site $_site Site data.
 	 */
 	$_site = apply_filters( 'get_site', $_site );
 
@@ -636,7 +636,7 @@ function update_site_cache( $sites ) {
  *                                           Default empty array.
  *     @type bool         $update_site_cache Whether to prime the cache for found sites. Default true.
  * }
- * @return array|int List of WP_Site objects, a list of site ids when 'fields' is set to 'ids',
+ * @return array|int List of Network_Site objects, a list of site ids when 'fields' is set to 'ids',
  *                   or the number of sites when 'count' is passed as a query var.
  */
 function get_sites( $args = array() ) {

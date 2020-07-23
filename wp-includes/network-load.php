@@ -144,14 +144,14 @@ function get_network_by_path( $domain, $path, $segments = null ) {
  * requested site address
  *
  * @since 3.9.0
- * @since 4.7.0 Updated to always return a `WP_Site` object.
+ * @since 4.7.0 Updated to always return a `Network_Site` object.
  *
  * @global wpdb $wpdb Database abstraction object.
  *
  * @param string   $domain   Domain to check.
  * @param string   $path     Path to check.
  * @param int|null $segments Path segments to use. Defaults to null, or the full path.
- * @return WP_Site|false Site object if successful. False when no site is found.
+ * @return Network_Site|false Site object if successful. False when no site is found.
  */
 function get_site_by_path( $domain, $path, $segments = null ) {
 	$path_segments = array_filter( explode( '/', trim( $path, '/' ) ) );
@@ -194,7 +194,7 @@ function get_site_by_path( $domain, $path, $segments = null ) {
 	 *
 	 * @since 3.9.0
 	 *
-	 * @param null|bool|WP_Site $site     Site value to return by path.
+	 * @param null|bool|Network_Site $site     Site value to return by path.
 	 * @param string            $domain   The requested domain.
 	 * @param string            $path     The requested path, in full.
 	 * @param int|null          $segments The suggested number of paths to consult.
@@ -203,8 +203,8 @@ function get_site_by_path( $domain, $path, $segments = null ) {
 	 */
 	$pre = apply_filters( 'pre_get_site_by_path', null, $domain, $path, $segments, $paths );
 	if ( null !== $pre ) {
-		if ( false !== $pre && ! $pre instanceof WP_Site ) {
-			$pre = new WP_Site( $pre );
+		if ( false !== $pre && ! $pre instanceof AppNamespace\Network\Network_Site ) {
+			$pre = new AppNamespace\Network\Network_Site( $pre );
 		}
 		return $pre;
 	}
@@ -269,7 +269,7 @@ function get_site_by_path( $domain, $path, $segments = null ) {
  * @access private
  *
  * @global WP_Network $current_site The current network.
- * @global WP_Site    $current_blog The current site.
+ * @global Network_Site    $current_blog The current site.
  *
  * @param string $domain    The requested domain.
  * @param string $path      The requested path.
