@@ -166,8 +166,7 @@ require_once( ABSPATH . WPINC . '/class-wp-locale-switcher.php' );
 wp_not_installed();
 
 // Load most of the application.
-// require( ABSPATH . WPINC . '/class-wp-walker.php' );
-require( ABSPATH . WPINC . '/class-wp-ajax-response.php' );
+require( ABSPATH . APPINC . '/classes/includes/class-app-ajax-response.php' );
 require( ABSPATH . WPINC . '/formatting.php' );
 require( ABSPATH . APPINC . '/capabilities.php' );
 require( ABSPATH . WPINC . '/class-wp-roles.php' );
@@ -200,8 +199,8 @@ require( ABSPATH . WPINC . '/post-thumbnail-template.php' );
 require( ABSPATH . APPINC . '/category.php' );
 require( ABSPATH . APPINC . '/category-template.php' );
 require( ABSPATH . WPINC . '/comment.php' );
-require( ABSPATH . WPINC . '/class-wp-comment.php' );
-require( ABSPATH . WPINC . '/class-wp-comment-query.php' );
+require( ABSPATH . APPINC . '/classes/includes/class-app-comment.php' );
+require( ABSPATH . APPINC . '/classes/includes/class-app-comment-query.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-walker-comment.php' );
 require( ABSPATH . WPINC . '/comment-template.php' );
 require( ABSPATH . WPINC . '/rewrite.php' );
