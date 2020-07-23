@@ -545,7 +545,7 @@ class WP_oEmbed {
 	private function _fetch_with_format( $provider_url_with_args, $format ) {
 		$provider_url_with_args = add_query_arg( 'format', $format, $provider_url_with_args );
 
-		/** This filter is documented in wp-includes/class-oembed.php */
+		/** This filter is documented in app-includes/classes/includes/class-oembed.php */
 		$args = apply_filters( 'oembed_remote_get_args', array(), $provider_url_with_args );
 
 		$response = wp_safe_remote_get( $provider_url_with_args, $args );

@@ -1516,8 +1516,8 @@ class PHPMailer
      */
     public function getSMTPInstance()
     {
-        if (!is_object($this->smtp)) {
-			require_once( 'class-smtp.php' );
+        if ( ! is_object($this->smtp)) {
+			require_once( ABSPATH . APPINC . '/classes/includes/class-smtp.php' );
             $this->smtp = new SMTP;
         }
         return $this->smtp;
