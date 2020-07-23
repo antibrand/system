@@ -5476,6 +5476,7 @@ function wp_attachment_is_image( $post = null ) {
  * @return string|false Icon, false otherwise.
  */
 function wp_mime_type_icon( $mime = 0 ) {
+	$icon = '';
 	if ( !is_numeric($mime) )
 		$icon = wp_cache_get("mime_type_icon_$mime");
 
@@ -5511,7 +5512,8 @@ function wp_mime_type_icon( $mime = 0 ) {
 			 *
 			 * @param string $path Icon directory absolute path.
 			 */
-			$icon_dir = apply_filters( 'icon_dir', ABSPATH . WPINC . '/images/media' );
+			// $icon_dir = apply_filters( 'icon_dir', ABSPATH . WPINC . '/images/media' );
+			$icon_dir = apply_filters( 'icon_dir', '' );
 
 			/**
 			 * Filters the icon directory URI.
@@ -5520,7 +5522,8 @@ function wp_mime_type_icon( $mime = 0 ) {
 			 *
 			 * @param string $uri Icon directory URI.
 			 */
-			$icon_dir_uri = apply_filters( 'icon_dir_uri', includes_url( 'images/media' ) );
+			// $icon_dir_uri = apply_filters( 'icon_dir_uri', includes_url( 'images/media' ) );
+			$icon_dir_uri = apply_filters( 'icon_dir_uri', '' );
 
 			/**
 			 * Filters the list of icon directory URIs.

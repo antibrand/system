@@ -152,8 +152,6 @@ $_old_files = array(
 'wp-admin/images/comment-stalk-rtl.gif',
 'wp-admin/images/del.png',
 'wp-admin/images/gear.png',
-'wp-admin/images/media-button-gallery.gif',
-'wp-admin/images/media-buttons.gif',
 'wp-admin/images/postbox-bg.gif',
 'wp-admin/images/tab.png',
 'wp-admin/images/tail.gif',

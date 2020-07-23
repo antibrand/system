@@ -62,7 +62,7 @@ final class WP_Customize_Selective_Refresh {
 	 */
 	public function __construct( WP_Customize_Manager $manager ) {
 		$this->manager = $manager;
-		require_once( ABSPATH . WPINC . '/live-manage/class-wp-customize-partial.php' );
+		require_once( ABSPATH . APPINC . '/classes/live-manage/class-wp-customize-partial.php' );
 
 		add_action( 'customize_preview_init', array( $this, 'init_preview' ) );
 	}
@@ -113,10 +113,10 @@ final class WP_Customize_Selective_Refresh {
 		} else {
 			$class = 'WP_Customize_Partial';
 
-			/** This filter is documented in wp-includes/live-manage/class-wp-customize-selective-refresh.php */
+			/** This filter is documented in app-includes/classes/live-manage/class-wp-customize-selective-refresh.php */
 			$args = apply_filters( 'customize_dynamic_partial_args', $args, $id );
 
-			/** This filter is documented in wp-includes/live-manage/class-wp-customize-selective-refresh.php */
+			/** This filter is documented in app-includes/classes/live-manage/class-wp-customize-selective-refresh.php */
 			$class = apply_filters( 'customize_dynamic_partial_class', $class, $id, $args );
 
 			$partial = new $class( $this, $id, $args );
