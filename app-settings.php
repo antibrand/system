@@ -3,7 +3,7 @@
  * Used to set up and fix common variables and include
  * the procedural and class library.
  *
- * Allows for some configuration in app-config.php (see default-constants.php)
+ * Allows for some configuration in app-config.php (see app-includes/default-constants.php)
  *
  * @package App_Package
  */
@@ -37,7 +37,7 @@ require( ABSPATH . WPINC . '/deprecated-branded.php' );
 
 // Include files required for initialization.
 require( ABSPATH . WPINC . '/load.php' );
-require( ABSPATH . WPINC . '/default-constants.php' );
+require( ABSPATH . APPINC . '/default-constants.php' );
 require_once( ABSPATH . WPINC . '/plugin.php' );
 
 /**

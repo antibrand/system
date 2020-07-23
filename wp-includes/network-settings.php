@@ -3,7 +3,7 @@
  * Used to set up and fix common variables and include
  * the network procedural and class library.
  *
- * Allows for some configuration in app-config.php (see network-default-constants.php)
+ * Allows for some configuration in app-config.php (see app-includes/network-default-constants.php)
  *
  * @package App_Package
  * @subpackage Network
@@ -41,7 +41,7 @@ require_once( ABSPATH . WPINC . '/class-wp-site.php' );
 require_once( ABSPATH . WPINC . '/network-load.php' );
 
 /** Default network constants */
-require_once( ABSPATH . WPINC . '/network-default-constants.php' );
+require_once( ABSPATH . APPINC . '/network-default-constants.php' );
 
 if ( defined( 'SUNRISE' ) ) {
 	include_once( WP_CONTENT_DIR . '/sunrise.php' );
