@@ -46,9 +46,9 @@ function _get_list_table( $class, $args = [] ) {
 		'AppNamespace\Backend\Theme_Install_List_Table'  => [ 'themes', 'theme-install' ],
 
 		// Network Admin
-		'AppNamespace\Backend\MS_Sites_List_Table'  => 'ms-sites',
-		'AppNamespace\Backend\MS_Users_List_Table'  => 'ms-users',
-		'AppNamespace\Backend\MS_Themes_List_Table' => 'ms-themes',
+		'AppNamespace\Network\MS_Sites_List_Table'  => 'ms-sites',
+		'AppNamespace\Network\MS_Users_List_Table'  => 'ms-users',
+		'AppNamespace\Network\MS_Themes_List_Table' => 'ms-themes',
 	];
 
 	if ( isset( $core_classes[ $class ] ) ) {

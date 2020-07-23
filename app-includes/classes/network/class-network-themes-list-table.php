@@ -9,6 +9,8 @@
 
 namespace AppNamespace\Network;
 
+use \AppNamespace\Backend as Backend;
+
 /**
  * Core class used to implement displaying themes in a list table for the network admin.
  *
@@ -17,7 +19,7 @@ namespace AppNamespace\Network;
  *
  * @see List_Table
  */
-class MS_Themes_List_Table extends List_Table {
+class MS_Themes_List_Table extends Backend\List_Table {
 
 	public $site_id;
 	public $is_site_themes;

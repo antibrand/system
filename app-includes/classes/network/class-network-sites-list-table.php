@@ -9,6 +9,8 @@
 
 namespace AppNamespace\Network;
 
+use \AppNamespace\Backend as Backend;
+
 /**
  * Core class used to implement displaying sites in a list table for the network admin.
  *
@@ -17,7 +19,7 @@ namespace AppNamespace\Network;
  * @since  Previous 3.1.0
  * @access private
  */
-class MS_Sites_List_Table extends List_Table {
+class MS_Sites_List_Table extends Backend\List_Table {
 
 	/**
 	 * Site status list
