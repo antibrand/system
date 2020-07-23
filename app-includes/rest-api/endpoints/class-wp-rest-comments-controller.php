@@ -724,7 +724,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 
 		$comment = get_comment( $id );
 
-		/** This action is documented in wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php */
+		/** This action is documented in app-includes/rest-api/endpoints/class-wp-rest-comments-controller.php */
 		do_action( 'rest_insert_comment', $comment, $request, false );
 
 		$schema = $this->get_item_schema();

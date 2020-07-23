@@ -650,7 +650,7 @@ class WP_REST_Users_Controller extends WP_REST_Controller {
 
 		$user = get_user_by( 'id', $user_id );
 
-		/** This action is documented in wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php */
+		/** This action is documented in app-includes/rest-api/endpoints/class-wp-rest-users-controller.php */
 		do_action( 'rest_insert_user', $user, $request, false );
 
 		if ( ! empty( $request['roles'] ) ) {

@@ -676,7 +676,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 
 		$post = get_post( $post_id );
 
-		/** This action is documented in wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php */
+		/** This action is documented in app-includes/rest-api/endpoints/class-wp-rest-posts-controller.php */
 		do_action( "rest_insert_{$this->post_type}", $post, $request, false );
 
 		$schema = $this->get_item_schema();

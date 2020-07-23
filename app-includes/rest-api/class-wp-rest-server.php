@@ -582,7 +582,7 @@ class WP_REST_Server {
 
 				$response = $this->dispatch( $request );
 
-				/** This filter is documented in wp-includes/rest-api/class-wp-rest-server.php */
+				/** This filter is documented in app-includes/rest-api/class-wp-rest-server.php */
 				$response = apply_filters( 'rest_post_dispatch', rest_ensure_response( $response ), $this, $request );
 
 				$embeds[] = $this->response_to_data( $response, false );
