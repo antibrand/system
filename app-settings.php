@@ -32,8 +32,8 @@ define( 'WPINC', 'wp-includes' );
  */
 require( ABSPATH . APPINC . '/autoloader.php' );
 
-require( ABSPATH . WPINC . '/deprecated-versions.php' );
-require( ABSPATH . WPINC . '/deprecated-branded.php' );
+require( ABSPATH . APPINC . '/deprecated-versions.php' );
+require( ABSPATH . APPINC . '/deprecated-branded.php' );
 
 // Include files required for initialization.
 require( ABSPATH . WPINC . '/load.php' );
@@ -211,7 +211,6 @@ require( ABSPATH . WPINC . '/bookmark.php' );
 require( ABSPATH . WPINC . '/bookmark-template.php' );
 require( ABSPATH . WPINC . '/kses.php' );
 require( ABSPATH . WPINC . '/cron.php' );
-require( ABSPATH . WPINC . '/aliased-functions.php' );
 require( ABSPATH . WPINC . '/script-loader.php' );
 require( ABSPATH . WPINC . '/taxonomy.php' );
 require( ABSPATH . WPINC . '/class-wp-taxonomy.php' );
