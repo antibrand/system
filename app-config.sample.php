@@ -254,7 +254,7 @@ if ( ! defined( 'APP_LOGIN' ) ) {
  * Defined in the default constants file if not defined here.
  *
  * @see WP_Theme::get_core_default_theme()
- * @see app-includes/default-constants.php
+ * @see app-includes/constants-default.php
  *
  * @since 1.0.0
  */

@@ -12,7 +12,7 @@
  * If using this system as your own for further development then
  * change the identity defaults in the `id-config.sample.php` file.
  *
- * @see `app-includes/default-constants.php` for fallback definitions.
+ * @see `app-includes/constants-default.php` for fallback definitions.
  *
  * @package App_Package
  */
