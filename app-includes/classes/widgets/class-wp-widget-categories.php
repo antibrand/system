@@ -46,7 +46,7 @@ class WP_Widget_Categories extends WP_Widget {
 
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'Categories' );
 
-		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
+		/** This filter is documented in app-includes/widgets/class-wp-widget-pages.php */
 		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 
 		$c = ! empty( $instance['count'] ) ? '1' : '0';

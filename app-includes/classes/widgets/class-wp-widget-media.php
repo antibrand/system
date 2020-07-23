@@ -224,7 +224,7 @@ abstract class WP_Widget_Media extends WP_Widget {
 
 		echo $args['before_widget'];
 
-		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
+		/** This filter is documented in app-includes/widgets/class-wp-widget-pages.php */
 		$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
 
 		if ( $title ) {

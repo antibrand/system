@@ -30,7 +30,6 @@
     <button>
       <id>0</id>
       <text>Manage Comments</text>
-      <imageUrl>images/wlw/wp-comments.png</imageUrl>
       <clickUrl>
         <![CDATA[
 				{blog-postapi-url}/../wp-admin/edit-comments.php

@@ -87,7 +87,7 @@ class WP_Widget_Media_Gallery extends WP_Widget_Media {
 			),
 		);
 
-		/** This filter is documented in wp-includes/widgets/class-wp-widget-media.php */
+		/** This filter is documented in app-includes/widgets/class-wp-widget-media.php */
 		$schema = apply_filters( "widget_{$this->id_base}_instance_schema", $schema, $this );
 
 		return $schema;

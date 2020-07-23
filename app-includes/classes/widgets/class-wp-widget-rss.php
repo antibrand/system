@@ -72,13 +72,12 @@ class WP_Widget_RSS extends WP_Widget {
 			$title = ! empty( $desc ) ? $desc : __( 'Unknown Feed' );
 		}
 
-		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
+		/** This filter is documented in app-includes/widgets/class-wp-widget-pages.php */
 		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 
-		$url = strip_tags( $url );
-		$icon = includes_url( 'images/rss.png' );
+		$url  = strip_tags( $url );
 		if ( $title )
-			$title = '<a class="rsswidget" href="' . esc_url( $url ) . '"><img class="rss-widget-icon" style="border:0" width="14" height="14" src="' . esc_url( $icon ) . '" alt="RSS" /></a> <a class="rsswidget" href="' . esc_url( $link ) . '">'. esc_html( $title ) . '</a>';
+			$title = '<a class="rsswidget" href="' . esc_url( $url ) . '"></a> <a class="rsswidget" href="' . esc_url( $link ) . '">'. esc_html( $title ) . '</a>';
 
 		echo $args['before_widget'];
 		if ( $title ) {

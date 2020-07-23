@@ -216,7 +216,7 @@ class WP_Widget_Text extends WP_Widget {
 
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
 
-		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
+		/** This filter is documented in app-includes/widgets/class-wp-widget-pages.php */
 		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 
 		$text = ! empty( $instance['text'] ) ? $instance['text'] : '';
