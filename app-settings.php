@@ -122,7 +122,7 @@ require( ABSPATH . APPINC . '/compat.php' );
 require( ABSPATH . WPINC . '/class-wp-list-util.php' );
 require( ABSPATH . APPINC . '/functions.php' );
 require( ABSPATH . WPINC . '/class-wp-matchesmapregex.php' );
-require( ABSPATH . APPINC . '/classes/includes/class-system.php' );
+require( ABSPATH . APPINC . '/classes/includes/class-system-app.php' );
 require( ABSPATH . WPINC . '/class-wp-error.php' );
 require( ABSPATH . APPINC . '/pomo/mo.php' );
 
@@ -391,7 +391,7 @@ $GLOBALS['wp_rewrite'] = new WP_Rewrite();
  * @global WP $wp
  * @since Previous 2.0.0
  */
-$GLOBALS['wp'] = new WP();
+$GLOBALS['wp'] = new System_App();
 
 /**
  * Widget Factory Object

@@ -6,7 +6,7 @@
  * @subpackage Includes
  * @since Previous 2.0.0
  */
-class WP {
+class System_App {
 	/**
 	 * Public query variables.
 	 *
