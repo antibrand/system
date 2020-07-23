@@ -219,7 +219,7 @@ if ( isset( $_GET['action'] ) ) {
 	}
 }
 
-$wp_list_table = _get_list_table( 'AppNamespace\Backend\MS_Users_List_Table' );
+$wp_list_table = _get_list_table( 'AppNamespace\Network\Users_List_Table' );
 $pagenum       = $wp_list_table->get_pagenum();
 
 $wp_list_table->prepare_items();

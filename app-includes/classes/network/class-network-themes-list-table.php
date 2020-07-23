@@ -1,6 +1,6 @@
 <?php
 /**
- * List Table API: MS_Themes_List_Table class
+ * List Table API: Themes_List_Table class
  *
  * @package App_Package
  * @subpackage Network
@@ -19,7 +19,7 @@ use \AppNamespace\Backend as Backend;
  *
  * @see List_Table
  */
-class MS_Themes_List_Table extends Backend\List_Table {
+class Themes_List_Table extends Backend\List_Table {
 
 	public $site_id;
 	public $is_site_themes;

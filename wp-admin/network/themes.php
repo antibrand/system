@@ -15,7 +15,7 @@ if ( ! current_user_can( 'manage_network_themes' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to manage network themes.' ) );
 }
 
-$wp_list_table = _get_list_table( 'AppNamespace\Network\MS_Themes_List_Table' );
+$wp_list_table = _get_list_table( 'AppNamespace\Network\Themes_List_Table' );
 $pagenum       = $wp_list_table->get_pagenum();
 
 $action = $wp_list_table->current_action();

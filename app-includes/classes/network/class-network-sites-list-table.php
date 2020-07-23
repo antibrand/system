@@ -1,6 +1,6 @@
 <?php
 /**
- * List Table API: MS_Sites_List_Table class
+ * List Table API: Sites_List_Table class
  *
  * @package App_Package
  * @subpackage Network
@@ -19,7 +19,7 @@ use \AppNamespace\Backend as Backend;
  * @since  Previous 3.1.0
  * @access private
  */
-class MS_Sites_List_Table extends Backend\List_Table {
+class Sites_List_Table extends Backend\List_Table {
 
 	/**
 	 * Site status list

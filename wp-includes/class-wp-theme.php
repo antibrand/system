@@ -14,7 +14,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @since 4.4.0
 	 * @var bool
 	 *
-	 * @see WP_MS_Themes_List_Table
+	 * @see WP_Themes_List_Table
 	 */
 	public $update = false;
 

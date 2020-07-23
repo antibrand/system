@@ -496,8 +496,8 @@ function wp_theme_update_row( $theme_key, $theme ) {
 		'height'    => 800,
 	), $current->response[ $theme_key ]['url'] );
 
-	/** @var WP_MS_Themes_List_Table $wp_list_table */
-	$wp_list_table = _get_list_table( 'AppNamespace\Backend\MS_Themes_List_Table' );
+	/** @var WP_Themes_List_Table $wp_list_table */
+	$wp_list_table = _get_list_table( 'AppNamespace\Backend\Themes_List_Table' );
 
 	$active = $theme->is_allowed( 'network' ) ? ' active' : '';
 
