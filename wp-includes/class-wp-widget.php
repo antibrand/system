@@ -310,7 +310,7 @@ class WP_Widget {
 	 *
 	 * @since 3.9.0
 	 *
-	 * @global WP_Customize_Manager $wp_customize
+	 * @global Live_Manager $wp_customize
 	 *
 	 * @return bool True if within the live manager preview, false if not.
 	 */

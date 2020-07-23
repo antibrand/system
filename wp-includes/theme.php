@@ -672,7 +672,7 @@ function locale_stylesheet() {
  * @since 2.5.0
  *
  * @global array                $wp_theme_directories
- * @global WP_Customize_Manager $wp_customize
+ * @global Live_Manager $wp_customize
  * @global array                $sidebars_widgets
  *
  * @param string $stylesheet Stylesheet name
@@ -2723,7 +2723,7 @@ function check_theme_switched() {
 }
 
 /**
- * Includes and instantiates the WP_Customize_Manager class.
+ * Includes and instantiates the Live_Manager class.
  *
  * Loads the live manager at plugins_loaded when accessing the customize.php admin
  * page or when any request includes a wp_customize=on param or a customize_changeset
@@ -2733,7 +2733,7 @@ function check_theme_switched() {
  *
  * @since 3.4.0
  *
- * @global WP_Customize_Manager $wp_customize
+ * @global Live_Manager $wp_customize
  */
 function _wp_customize_include() {
 
@@ -2804,8 +2804,7 @@ function _wp_customize_include() {
 	);
 	$settings_previewed = ! $is_customize_save_action;
 
-	require_once ABSPATH . APPINC . '/classes/live-manage/class-live-manager.php';
-	$GLOBALS['wp_customize'] = new WP_Customize_Manager( compact( 'changeset_uuid', 'theme', 'messenger_channel', 'settings_previewed', 'autosaved', 'branching' ) );
+	$GLOBALS['wp_customize'] = new Live_Manager( compact( 'changeset_uuid', 'theme', 'messenger_channel', 'settings_previewed', 'autosaved', 'branching' ) );
 }
 
 /**
@@ -2815,7 +2814,7 @@ function _wp_customize_include() {
  * @access private
  *
  * @global wpdb $wpdb Database abstraction object.
- * @global WP_Customize_Manager $wp_customize Live manager instance.
+ * @global Live_Manager $wp_customize Live manager instance.
  *
  * @param string  $new_status     New post status.
  * @param string  $old_status     Old post status.
@@ -2836,11 +2835,11 @@ function _wp_customize_publish_changeset( $new_status, $old_status, $changeset_p
 	}
 
 	if ( empty( $wp_customize ) ) {
-		require_once ABSPATH . APPINC . '/classes/live-manage/class-live-manager.php';
-		$wp_customize = new WP_Customize_Manager( array(
+
+		$wp_customize = new Live_Manager( [
 			'changeset_uuid' => $changeset_post->post_name,
 			'settings_previewed' => false,
-		) );
+		] );
 	}
 
 	if ( ! did_action( 'customize_register' ) ) {
@@ -3007,14 +3006,14 @@ function wp_customize_support_script() {
  *
  * @since 4.0.0
  *
- * @global WP_Customize_Manager $wp_customize live manager instance.
+ * @global Live_Manager $wp_customize live manager instance.
  *
  * @return bool True if the site is being previewed in the live manager, false otherwise.
  */
 function is_customize_preview() {
 	global $wp_customize;
 
-	return ( $wp_customize instanceof WP_Customize_Manager ) && $wp_customize->is_preview();
+	return ( $wp_customize instanceof Live_Manager ) && $wp_customize->is_preview();
 }
 
 /**

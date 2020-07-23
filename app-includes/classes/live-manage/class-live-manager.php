@@ -20,7 +20,7 @@
  *
  * @since 3.4.0
  */
-final class WP_Customize_Manager {
+final class Live_Manager {
 	/**
 	 * An instance of the theme being previewed.
 	 *
@@ -343,10 +343,10 @@ final class WP_Customize_Manager {
 		 *
 		 * @since 4.4.0
 		 *
-		 * @see WP_Customize_Manager::__construct()
+		 * @see Live_Manager::__construct()
 		 *
 		 * @param array                $components List of core components to load.
-		 * @param WP_Customize_Manager $this       WP_Customize_Manager instance.
+		 * @param Live_Manager $this       Live_Manager instance.
 		 */
 		$components = apply_filters( 'customize_loaded_components', $this->components, $this );
 
@@ -687,7 +687,7 @@ final class WP_Customize_Manager {
 		 *
 		 * @since 3.4.0
 		 *
-		 * @param WP_Customize_Manager $this WP_Customize_Manager instance.
+		 * @param Live_Manager $this Live_Manager instance.
 		 */
 		do_action( 'start_previewing_theme', $this );
 	}
@@ -724,7 +724,7 @@ final class WP_Customize_Manager {
 		 *
 		 * @since 3.4.0
 		 *
-		 * @param WP_Customize_Manager $this WP_Customize_Manager instance.
+		 * @param Live_Manager $this Live_Manager instance.
 		 */
 		do_action( 'stop_previewing_theme', $this );
 	}
@@ -745,7 +745,7 @@ final class WP_Customize_Manager {
 	 * Gets whether data from a changeset's autosaved revision should be loaded if it exists.
 	 *
 	 * @since 4.9.0
-	 * @see WP_Customize_Manager::changeset_data()
+	 * @see Live_Manager::changeset_data()
 	 *
 	 * @return bool Is using autosaved changeset revision.
 	 */
@@ -757,7 +757,7 @@ final class WP_Customize_Manager {
 	 * Whether the changeset branching is allowed.
 	 *
 	 * @since 4.9.0
-	 * @see WP_Customize_Manager::establish_loaded_changeset()
+	 * @see Live_Manager::establish_loaded_changeset()
 	 *
 	 * @return bool Is changeset branching.
 	 */
@@ -786,7 +786,7 @@ final class WP_Customize_Manager {
 		 *
 		 * @param bool                 $allow_branching Whether branching is allowed. If `false`, the default,
 		 *                                              then only one saved changeset exists at a time.
-		 * @param WP_Customize_Manager $wp_customize    Manager instance.
+		 * @param Live_Manager $wp_customize    Manager instance.
 		 */
 		$this->branching = apply_filters( 'customize_changeset_branching', $this->branching, $this );
 
@@ -797,7 +797,7 @@ final class WP_Customize_Manager {
 	 * Get the changeset UUID.
 	 *
 	 * @since 4.7.0
-	 * @see WP_Customize_Manager::establish_loaded_changeset()
+	 * @see Live_Manager::establish_loaded_changeset()
 	 *
 	 * @return string UUID.
 	 */
@@ -918,7 +918,7 @@ final class WP_Customize_Manager {
 		 *
 		 * @since 3.4.0
 		 *
-		 * @param WP_Customize_Manager $this WP_Customize_Manager instance.
+		 * @param Live_Manager $this Live_Manager instance.
 		 */
 		do_action( 'customize_register', $this );
 
@@ -1657,7 +1657,7 @@ final class WP_Customize_Manager {
 	 * 2. The values from the current changeset, if it exists.
 	 * 3. If the user can customize, the values parsed from the incoming
 	 *    `$_POST['customized']` JSON data.
-	 * 4. Any programmatically-set post values via `WP_Customize_Manager::set_post_value()`.
+	 * 4. Any programmatically-set post values via `Live_Manager::set_post_value()`.
 	 *
 	 * The name "unsanitized_post_values" is a carry-over from when the customized
 	 * state was exclusively sourced from `$_POST['customized']`. Nevertheless,
@@ -1786,21 +1786,21 @@ final class WP_Customize_Manager {
 		/**
 		 * Announce when a specific setting's unsanitized post value has been set.
 		 *
-		 * Fires when the WP_Customize_Manager::set_post_value() method is called.
+		 * Fires when the Live_Manager::set_post_value() method is called.
 		 *
 		 * The dynamic portion of the hook name, `$setting_id`, refers to the setting ID.
 		 *
 		 * @since 4.4.0
 		 *
 		 * @param mixed                $value Unsanitized setting post value.
-		 * @param WP_Customize_Manager $this  WP_Customize_Manager instance.
+		 * @param Live_Manager $this  Live_Manager instance.
 		 */
 		do_action( "customize_post_value_set_{$setting_id}", $value, $this );
 
 		/**
 		 * Announce when any setting's unsanitized post value has been set.
 		 *
-		 * Fires when the WP_Customize_Manager::set_post_value() method is called.
+		 * Fires when the Live_Manager::set_post_value() method is called.
 		 *
 		 * This is useful for `WP_Customize_Setting` instances to watch
 		 * in order to update a cached previewed value.
@@ -1809,7 +1809,7 @@ final class WP_Customize_Manager {
 		 *
 		 * @param string               $setting_id Setting ID.
 		 * @param mixed                $value      Unsanitized setting post value.
-		 * @param WP_Customize_Manager $this       WP_Customize_Manager instance.
+		 * @param Live_Manager $this       Live_Manager instance.
 		 */
 		do_action( 'customize_post_value_set', $setting_id, $value, $this );
 	}
@@ -1863,7 +1863,7 @@ final class WP_Customize_Manager {
 		 *
 		 * @since 3.4.0
 		 *
-		 * @param WP_Customize_Manager $this WP_Customize_Manager instance.
+		 * @param Live_Manager $this Live_Manager instance.
 		 */
 		do_action( 'customize_preview_init', $this );
 	}
@@ -1888,7 +1888,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @since 4.7.0
 	 * @see wp_redirect()
-	 * @see WP_Customize_Manager::get_allowed_url()
+	 * @see Live_Manager::get_allowed_url()
 	 *
 	 * @param string $url URL.
 	 * @return string URL.
@@ -2511,7 +2511,7 @@ final class WP_Customize_Manager {
 		 *
 		 * @param array                $response Additional information passed back to the 'saved'
 		 *                                       event on `wp.customize`.
-		 * @param WP_Customize_Manager $this     WP_Customize_Manager instance.
+		 * @param Live_Manager $this     Live_Manager instance.
 		 */
 		$response = apply_filters( 'customize_save_response', $response, $this );
 
@@ -2677,7 +2677,7 @@ final class WP_Customize_Manager {
 		 *
 		 * @since 4.6.0
 		 *
-		 * @param WP_Customize_Manager $this WP_Customize_Manager instance.
+		 * @param Live_Manager $this Live_Manager instance.
 		 */
 		do_action( 'customize_save_validation_before', $this );
 
@@ -2798,7 +2798,7 @@ final class WP_Customize_Manager {
 		 *     @type string               $date_gmt      Requested date for the changeset post in MySQL format and GMT timezone.
 		 *     @type int|false            $post_id       Post ID for the changeset, or false if it doesn't exist yet.
 		 *     @type array                $previous_data Previous data contained in the changeset.
-		 *     @type WP_Customize_Manager $manager       Manager instance.
+		 *     @type Live_Manager $manager       Manager instance.
 		 * }
 		 */
 		$data = apply_filters( 'customize_changeset_save_data', $data, $filter_context );
@@ -2861,7 +2861,7 @@ final class WP_Customize_Manager {
 			kses_remove_filters(); // Prevent KSES from corrupting JSON in post_content.
 		}
 
-		// Note that updating a post with publish status will trigger WP_Customize_Manager::publish_changeset_values().
+		// Note that updating a post with publish status will trigger Live_Manager::publish_changeset_values().
 		if ( $changeset_post_id ) {
 			if ( $args['autosave'] && 'auto-draft' !== get_post_status( $changeset_post_id ) ) {
 				// See _wp_translate_postdata() for why this is required as it will use the edit_post meta capability.
@@ -2891,7 +2891,7 @@ final class WP_Customize_Manager {
 		if ( $has_kses ) {
 			kses_init_filters();
 		}
-		$this->_changeset_data = null; // Reset so WP_Customize_Manager::changeset_data() will re-populate with updated contents.
+		$this->_changeset_data = null; // Reset so Live_Manager::changeset_data() will re-populate with updated contents.
 
 		remove_filter( 'wp_save_post_revision_post_has_changed', array( $this, '_filter_revision_post_has_changed' ) );
 
@@ -3050,7 +3050,7 @@ final class WP_Customize_Manager {
 	 * This should be able to be removed once #40922 is addressed in core.
 	 *
 	 * @since 4.9.0
-	 * @see WP_Customize_Manager::save_changeset_post()
+	 * @see Live_Manager::save_changeset_post()
 	 * @see _wp_translate_postdata()
 	 *
 	 * @param array  $caps    Returns the user's actual capabilities.
@@ -3348,7 +3348,7 @@ final class WP_Customize_Manager {
 		 *
 		 * @since 3.4.0
 		 *
-		 * @param WP_Customize_Manager $manager WP_Customize_Manager instance.
+		 * @param Live_Manager $manager Live_Manager instance.
 		 */
 		do_action( 'customize_save', $this );
 
@@ -3401,7 +3401,7 @@ final class WP_Customize_Manager {
 		 *
 		 * @since 3.6.0
 		 *
-		 * @param WP_Customize_Manager $manager WP_Customize_Manager instance.
+		 * @param Live_Manager $manager Live_Manager instance.
 		 */
 		do_action( 'customize_save_after', $this );
 
@@ -4554,7 +4554,7 @@ final class WP_Customize_Manager {
 		 *
 		 * @param array                $nonces Array of refreshed nonces for save and
 		 *                                     preview actions.
-		 * @param WP_Customize_Manager $this   WP_Customize_Manager instance.
+		 * @param Live_Manager $this   Live_Manager instance.
 		 */
 		$nonces = apply_filters( 'customize_refresh_nonces', $nonces, $this );
 
@@ -4797,7 +4797,7 @@ final class WP_Customize_Manager {
 		 *
 		 * @since 4.5.0
 		 *
-		 * @see WP_Customize_Manager::get_previewable_devices()
+		 * @see Live_Manager::get_previewable_devices()
 		 *
 		 * @param array $devices List of devices with labels and default setting.
 		 */
@@ -5509,11 +5509,11 @@ final class WP_Customize_Manager {
 		 *
 		 * @see wp_prepare_themes_for_js()
 		 * @see themes_api()
-		 * @see WP_Customize_Manager::__construct()
+		 * @see Live_Manager::__construct()
 		 *
 		 * @param array                $themes  Nested array of theme data.
 		 * @param array                $args    List of arguments, such as page, search term, and tags to query for.
-		 * @param WP_Customize_Manager $manager Instance of Customize manager.
+		 * @param Live_Manager $manager Instance of Customize manager.
 		 */
 		$themes = apply_filters( 'customize_load_themes', $themes, $args, $this );
 
@@ -5677,7 +5677,7 @@ final class WP_Customize_Manager {
 	 * argument. When WP no longer supports PHP 5.3, this method can be removed
 	 * in favor of an anonymous function.
 	 *
-	 * @see WP_Customize_Manager::register_controls()
+	 * @see Live_Manager::register_controls()
 	 *
 	 * @since 4.5.0
 	 *

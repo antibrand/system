@@ -22,7 +22,7 @@ if ( ! current_user_can( 'customize' ) ) {
 
 /**
  * @global WP_Scripts           $wp_scripts
- * @global WP_Customize_Manager $wp_customize
+ * @global Live_Manager $wp_customize
  */
 global $wp_scripts, $wp_customize;
 
@@ -47,7 +47,7 @@ if ( $wp_customize->changeset_post_id() ) {
 		/*
 		 * Note that an Ajax request spawns here instead of just calling `wp_publish_post( $changeset_post->ID )`.
 		 *
-		 * Because WP_Customize_Manager is not instantiated for customize.php with the `settings_previewed=false`
+		 * Because Live_Manager is not instantiated for customize.php with the `settings_previewed=false`
 		 * argument, settings cannot be reliably saved. Some logic short-circuits if the current value is the
 		 * same as the value being saved. This is particularly true for options via `update_option()`.
 		 *

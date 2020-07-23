@@ -31,11 +31,11 @@ class WP_Customize_New_Menu_Control extends WP_Customize_Control {
 	 *
 	 * @since 4.9.0
 	 *
-	 * @param WP_Customize_Manager $manager Manager.
+	 * @param Live_Manager $manager Manager.
 	 * @param string               $id      ID.
 	 * @param array                $args    Args.
 	 */
-	public function __construct( WP_Customize_Manager $manager, $id, array $args = array() ) {
+	public function __construct( Live_Manager $manager, $id, array $args = array() ) {
 		_deprecated_file( basename( __FILE__ ), '4.9.0' ); // @todo Move this outside of class in 5.0, and remove its require_once() from class-wp-customize-control.php. See #42364.
 		parent::__construct( $manager, $id, $args );
 	}

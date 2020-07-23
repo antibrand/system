@@ -25,7 +25,7 @@ final class WP_Customize_Selective_Refresh {
 	 * Live manager
 	 *
 	 * @since 4.5.0
-	 * @var WP_Customize_Manager
+	 * @var Live_Manager
 	 */
 	public $manager;
 
@@ -58,9 +58,9 @@ final class WP_Customize_Selective_Refresh {
 	 *
 	 * @since 4.5.0
 	 *
-	 * @param WP_Customize_Manager $manager Manager instance.
+	 * @param Live_Manager $manager Manager instance.
 	 */
-	public function __construct( WP_Customize_Manager $manager ) {
+	public function __construct( Live_Manager $manager ) {
 		$this->manager = $manager;
 		require_once( ABSPATH . APPINC . '/classes/live-manage/class-wp-customize-partial.php' );
 
@@ -216,7 +216,7 @@ final class WP_Customize_Selective_Refresh {
 	 *
 	 * @since 4.5.0
 	 *
-	 * @see WP_Customize_Manager::add_dynamic_settings()
+	 * @see Live_Manager::add_dynamic_settings()
 	 *
 	 * @param array $partial_ids The partial ID to add.
 	 * @return array Added WP_Customize_Partial instances.
@@ -324,7 +324,7 @@ final class WP_Customize_Selective_Refresh {
 		/*
 		 * Note that is_customize_preview() returning true will entail that the
 		 * user passed the 'customize' capability check and the nonce check, since
-		 * WP_Customize_Manager::setup_theme() is where the previewing flag is set.
+		 * Live_Manager::setup_theme() is where the previewing flag is set.
 		 */
 		if ( ! is_customize_preview() ) {
 			wp_send_json_error( 'expected_customize_preview', 403 );

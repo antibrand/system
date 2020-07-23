@@ -1328,7 +1328,7 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 	 *
 	 * @since 3.9.0
 	 *
-	 * @param WP_Customize_Manager $wp_customize Live Manager.
+	 * @param Live_Manager $wp_customize Live Manager.
 	 */
 	public function customize_set_last_used( $wp_customize ) {
 

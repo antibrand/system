@@ -312,7 +312,7 @@ function wp_admin_bar_site_menu( $wp_admin_bar ) {
  *
  * @since  Previous 4.3.0
  * @param  User_Toolbar $wp_admin_bar User_Toolbar instance.
- * @global WP_Customize_Manager $wp_customize
+ * @global Live_Manager $wp_customize
  * @return void
  */
 function wp_admin_bar_customize_menu( $wp_admin_bar ) {

@@ -110,7 +110,7 @@ class WP_Nav_Menu_Widget extends WP_Widget {
 	 * @since 3.0.0
 	 *
 	 * @param array $instance Current settings.
-	 * @global WP_Customize_Manager $wp_customize
+	 * @global Live_Manager $wp_customize
 	 */
 	public function form( $instance ) {
 		global $wp_customize;
@@ -124,7 +124,7 @@ class WP_Nav_Menu_Widget extends WP_Widget {
 		?>
 		<p class="nav-menu-widget-no-menus-message" <?php if ( ! empty( $menus ) ) { echo ' style="display:none" '; } ?>>
 			<?php
-			if ( $wp_customize instanceof WP_Customize_Manager ) {
+			if ( $wp_customize instanceof Live_Manager ) {
 				$url = 'javascript: wp.customize.panel( "nav_menus" ).focus();';
 			} else {
 				$url = admin_url( 'nav-menus.php' );
@@ -148,7 +148,7 @@ class WP_Nav_Menu_Widget extends WP_Widget {
 					<?php endforeach; ?>
 				</select>
 			</p>
-			<?php if ( $wp_customize instanceof WP_Customize_Manager ) : ?>
+			<?php if ( $wp_customize instanceof Live_Manager ) : ?>
 				<p class="edit-selected-nav-menu" style="<?php if ( ! $nav_menu ) { echo 'display: none;'; } ?>">
 					<button type="button" class="button"><?php _e( 'Edit Menu' ) ?></button>
 				</p>

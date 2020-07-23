@@ -14,15 +14,15 @@
  *
  * @since 4.3.0
  *
- * @see WP_Customize_Manager
+ * @see Live_Manager
  */
 final class WP_Customize_Nav_Menus {
 
 	/**
-	 * WP_Customize_Manager instance.
+	 * Live_Manager instance.
 	 *
 	 * @since 4.3.0
-	 * @var WP_Customize_Manager
+	 * @var Live_Manager
 	 */
 	public $manager;
 
@@ -39,7 +39,7 @@ final class WP_Customize_Nav_Menus {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param object $manager An instance of the WP_Customize_Manager class.
+	 * @param object $manager An instance of the Live_Manager class.
 	 */
 	public function __construct( $manager ) {
 		$this->manager = $manager;

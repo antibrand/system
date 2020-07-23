@@ -10,11 +10,11 @@
 /**
  * Live manager panel class
  *
- * A UI container for sections, managed by the WP_Customize_Manager.
+ * A UI container for sections, managed by the Live_Manager.
  *
  * @since 4.0.0
  *
- * @see WP_Customize_Manager
+ * @see Live_Manager
  */
 class WP_Customize_Panel {
 
@@ -39,10 +39,10 @@ class WP_Customize_Panel {
 	public $instance_number;
 
 	/**
-	 * WP_Customize_Manager instance.
+	 * Live_Manager instance.
 	 *
 	 * @since 4.0.0
-	 * @var WP_Customize_Manager
+	 * @var Live_Manager
 	 */
 	public $manager;
 
@@ -139,7 +139,7 @@ class WP_Customize_Panel {
 	 *
 	 * @since 4.0.0
 	 *
-	 * @param WP_Customize_Manager $manager Live manager panel bootstrap instance.
+	 * @param Live_Manager $manager Live manager panel bootstrap instance.
 	 * @param string               $id      An specific ID for the panel.
 	 * @param array                $args    Panel arguments.
 	 */
@@ -304,11 +304,11 @@ class WP_Customize_Panel {
 	 * Render the panel's JS templates.
 	 *
 	 * This function is only run for panel types that have been registered with
-	 * WP_Customize_Manager::register_panel_type().
+	 * Live_Manager::register_panel_type().
 	 *
 	 * @since 4.3.0
 	 *
-	 * @see WP_Customize_Manager::register_panel_type()
+	 * @see Live_Manager::register_panel_type()
 	 */
 	public function print_template() {
 		?>

@@ -125,16 +125,16 @@ class WP_Customize_Nav_Menu_Setting extends WP_Customize_Setting {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param WP_Customize_Manager $manager Bootstrap live manager instance.
+	 * @param Live_Manager $manager Bootstrap live manager instance.
 	 * @param string               $id      An specific ID of the setting. Can be a
 	 *                                      theme mod or option name.
 	 * @param array                $args    Optional. Setting arguments.
 	 *
 	 * @throws Exception If $id is not valid for this setting type.
 	 */
-	public function __construct( WP_Customize_Manager $manager, $id, array $args = array() ) {
+	public function __construct( Live_Manager $manager, $id, array $args = array() ) {
 		if ( empty( $manager->nav_menus ) ) {
-			throw new Exception( 'Expected WP_Customize_Manager::$nav_menus to be set.' );
+			throw new Exception( 'Expected Live_Manager::$nav_menus to be set.' );
 		}
 
 		if ( ! preg_match( self::ID_PATTERN, $id, $matches ) ) {
@@ -197,7 +197,7 @@ class WP_Customize_Nav_Menu_Setting extends WP_Customize_Setting {
 	 * @since 4.3.0
 	 * @since 4.4.0 Added boolean return value
 	 *
-	 * @see WP_Customize_Manager::post_value()
+	 * @see Live_Manager::post_value()
 	 *
 	 * @return bool False if method short-circuited due to no-op.
 	 */

@@ -10,11 +10,11 @@
 /**
  * Live manager section class
  *
- * A UI container for controls, managed by the WP_Customize_Manager class.
+ * A UI container for controls, managed by the Live_Manager class.
  *
  * @since 3.4.0
  *
- * @see WP_Customize_Manager
+ * @see Live_Manager
  */
 class WP_Customize_Section {
 
@@ -39,10 +39,10 @@ class WP_Customize_Section {
 	public $instance_number;
 
 	/**
-	 * WP_Customize_Manager instance.
+	 * Live_Manager instance.
 	 *
 	 * @since 3.4.0
-	 * @var WP_Customize_Manager
+	 * @var Live_Manager
 	 */
 	public $manager;
 
@@ -150,7 +150,7 @@ class WP_Customize_Section {
 	 *
 	 * @since 3.4.0
 	 *
-	 * @param WP_Customize_Manager $manager Live manager bootstrap instance.
+	 * @param Live_Manager $manager Live manager bootstrap instance.
 	 * @param string               $id      An specific ID of the section.
 	 * @param array                $args    Section arguments.
 	 */
@@ -312,11 +312,11 @@ class WP_Customize_Section {
 	 * Render the section's JS template.
 	 *
 	 * This function is only run for section types that have been registered with
-	 * WP_Customize_Manager::register_section_type().
+	 * Live_Manager::register_section_type().
 	 *
 	 * @since 4.3.0
 	 *
-	 * @see WP_Customize_Manager::render_template()
+	 * @see Live_Manager::render_template()
 	 */
 	public function print_template() {
 		?>

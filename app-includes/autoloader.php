@@ -68,6 +68,9 @@ const APP_CLASSES = [
 	'AppNamespace\Network\Themes_List_Table' => __DIR__ . '/classes/network/class-network-themes-list-table.php',
 	'AppNamespace\Network\Users_List_Table'  => __DIR__ . '/classes/network/class-network-users-list-table.php',
 
+	// Live manage.
+	'Live_Manager' => __DIR__ . '/classes/live-manage/class-live-manager.php',
+
 	// Extend.
 	'AppNamespace\Includes\Extend' => __DIR__ . '/classes/includes/class-load-extensions.php'
 

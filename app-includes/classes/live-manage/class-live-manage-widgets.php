@@ -14,15 +14,15 @@
  *
  * @since 3.9.0
  *
- * @see WP_Customize_Manager
+ * @see Live_Manager
  */
 final class WP_Customize_Widgets {
 
 	/**
-	 * WP_Customize_Manager instance.
+	 * Live_Manager instance.
 	 *
 	 * @since 3.9.0
-	 * @var WP_Customize_Manager
+	 * @var Live_Manager
 	 */
 	public $manager;
 
@@ -94,7 +94,7 @@ final class WP_Customize_Widgets {
 	 *
 	 * @since 3.9.0
 	 *
-	 * @param WP_Customize_Manager $manager Customize manager bootstrap instance.
+	 * @param Live_Manager $manager Customize manager bootstrap instance.
 	 */
 	public function __construct( $manager ) {
 		$this->manager = $manager;

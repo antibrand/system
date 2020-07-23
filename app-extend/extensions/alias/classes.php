@@ -65,3 +65,6 @@ use \AppNamespace\Network  as Network;
 \class_alias( Network\Sites_List_Table  :: class, \MS_Sites_List_Table :: class );
 \class_alias( Network\Themes_List_Table :: class, \MS_Themes_List_Table :: class );
 \class_alias( Network\Users_List_Table  :: class, \MS_Users_List_Table :: class );
+
+// Live manager.
+\class_alias( \Live_Manager :: class, \WP_Customize_Manager :: class );
