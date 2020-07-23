@@ -13,7 +13,7 @@
  *
  * @since 2.6.0
  *
- * @see _WP_Dependency
+ * @see App_Dependency
  */
 class WP_Dependencies {
 	/**
@@ -25,7 +25,7 @@ class WP_Dependencies {
 	public $registered = array();
 
 	/**
-	 * An array of queued _WP_Dependency handle objects.
+	 * An array of queued App_Dependency handle objects.
 	 *
 	 * @since 2.6.8
 	 * @var array
@@ -33,7 +33,7 @@ class WP_Dependencies {
 	public $queue = array();
 
 	/**
-	 * An array of _WP_Dependency handle objects to queue.
+	 * An array of App_Dependency handle objects to queue.
 	 *
 	 * @since 2.6.0
 	 * @var array
@@ -41,7 +41,7 @@ class WP_Dependencies {
 	public $to_do = array();
 
 	/**
-	 * An array of _WP_Dependency handle objects already queued.
+	 * An array of App_Dependency handle objects already queued.
 	 *
 	 * @since 2.6.0
 	 * @var array
@@ -206,7 +206,7 @@ class WP_Dependencies {
 	public function add( $handle, $src, $deps = array(), $ver = false, $args = null ) {
 		if ( isset($this->registered[$handle]) )
 			return false;
-		$this->registered[$handle] = new _WP_Dependency( $handle, $src, $deps, $ver, $args );
+		$this->registered[$handle] = new App_Dependency( $handle, $src, $deps, $ver, $args );
 		return true;
 	}
 
@@ -315,7 +315,7 @@ class WP_Dependencies {
 	 *
 	 * @since 4.0.0
 	 *
-	 * @param array  $queue  An array of queued _WP_Dependency handle objects.
+	 * @param array  $queue  An array of queued App_Dependency handle objects.
 	 * @param string $handle Name of the item. Should be unique.
 	 * @return bool Whether the handle is found after recursively searching the dependency tree.
 	 */
@@ -343,7 +343,7 @@ class WP_Dependencies {
 	 *
 	 * @param string $handle Name of the item. Should be unique.
 	 * @param string $list   Property name of list array.
-	 * @return bool|_WP_Dependency Found, or object Item data.
+	 * @return bool|App_Dependency Found, or object Item data.
 	 */
 	public function query( $handle, $list = 'registered' ) {
 		switch ( $list ) {

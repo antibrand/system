@@ -3097,7 +3097,7 @@ function wp_dependencies_unique_hosts() {
 					continue;
 				}
 
-				/* @var _WP_Dependency $dependency */
+				/* @var App_Dependency $dependency */
 				$dependency = $dependencies->registered[ $handle ];
 				$parsed     = wp_parse_url( $dependency->src );
 
