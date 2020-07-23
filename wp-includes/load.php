@@ -889,7 +889,7 @@ function wp_load_translations_early() {
 	require ABSPATH . WPINC . '/version.php';
 
 	// Translation and localization
-	require_once ABSPATH . WPINC . '/pomo/mo.php';
+	require_once ABSPATH . APPINC . '/pomo/mo.php';
 	require_once ABSPATH . WPINC . '/l10n.php';
 	require_once ABSPATH . WPINC . '/class-wp-locale.php';
 	require_once ABSPATH . WPINC . '/class-wp-locale-switcher.php';

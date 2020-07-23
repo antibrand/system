@@ -431,7 +431,7 @@ if ( ! interface_exists( 'JsonSerializable' ) ) {
 
 // random_int was introduced in PHP 7.0
 if ( ! function_exists( 'random_int' ) ) {
-	require ABSPATH . WPINC . '/random_compat/random.php';
+	require ABSPATH . APPINC . '/random_compat/random.php';
 }
 
 if ( ! function_exists( 'array_replace_recursive' ) ) :

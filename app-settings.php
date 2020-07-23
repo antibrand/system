@@ -124,7 +124,7 @@ require( ABSPATH . WPINC . '/functions.php' );
 require( ABSPATH . WPINC . '/class-wp-matchesmapregex.php' );
 require( ABSPATH . WPINC . '/class-wp.php' );
 require( ABSPATH . WPINC . '/class-wp-error.php' );
-require( ABSPATH . WPINC . '/pomo/mo.php' );
+require( ABSPATH . APPINC . '/pomo/mo.php' );
 
 // Include the wpdb class and, if present, a db.php database drop-in.
 global $wpdb;

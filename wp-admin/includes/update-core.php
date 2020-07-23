@@ -702,7 +702,7 @@ $_old_files = array(
 'app-assets/js/includes/tinymce/wp-mce-help.php',
 'app-assets/js/includes/tinymce/plugins/wpfullscreen',
 // 4.5
-'wp-includes/theme-compat/comments-popup.php',
+'app-includes/theme-compat/comments-popup.php',
 // 4.6
 'wp-admin/includes/class-wp-automatic-upgrader.php', // Wrong file name, see #37628.
 // 4.8

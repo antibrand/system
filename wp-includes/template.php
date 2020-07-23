@@ -616,7 +616,7 @@ function get_attachment_template() {
 /**
  * Retrieve the name of the highest priority template file that exists.
  *
- * Searches in the STYLESHEETPATH before TEMPLATEPATH and wp-includes/theme-compat
+ * Searches in the STYLESHEETPATH before TEMPLATEPATH and app-includes/theme-compat
  * so that themes which inherit from a parent theme can just overload one file.
  *
  * @since 2.7.0
@@ -644,8 +644,8 @@ function locate_template( $template_names, $load = false, $require_once = true )
 			$located = TEMPLATEPATH . '/' . $template_name;
 			break;
 
-		} elseif ( file_exists( ABSPATH . WPINC . '/theme-compat/' . $template_name ) ) {
-			$located = ABSPATH . WPINC . '/theme-compat/' . $template_name;
+		} elseif ( file_exists( ABSPATH . APPINC . '/theme-compat/' . $template_name ) ) {
+			$located = ABSPATH . APPINC . '/theme-compat/' . $template_name;
 			break;
 
 		// Look in views directory added by this WordPress fork.
