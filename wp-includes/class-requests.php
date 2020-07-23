@@ -95,7 +95,7 @@ class Requests {
 	 *
 	 * @var array
 	 */
-	protected static $transports = array();
+	protected static $transports = [];
 
 	/**
 	 * Selected transport name
@@ -104,7 +104,7 @@ class Requests {
 	 *
 	 * @var array
 	 */
-	public static $transport = array();
+	public static $transport = [];
 
 	/**
 	 * Default certificate path.
@@ -143,8 +143,8 @@ class Requests {
 		}
 
 		$file = str_replace( '_', '/', $class );
-		if ( file_exists( dirname( __FILE__ ) . '/' . $file . '.php' ) ) {
-			require_once( dirname( __FILE__ ) . '/' . $file . '.php' );
+		if ( file_exists( ABSPATH . APPINC . '/' . $file . '.php' ) ) {
+			require_once( ABSPATH . APPINC . '/' . $file . '.php' );
 		}
 	}
 
@@ -154,7 +154,7 @@ class Requests {
 	 * @codeCoverageIgnore
 	 */
 	public static function register_autoloader() {
-		spl_autoload_register( array( 'Requests', 'autoloader' ) );
+		spl_autoload_register( [ 'Requests', 'autoloader' ] );
 	}
 
 	/**
@@ -172,7 +172,7 @@ class Requests {
 			];
 		}
 
-		self::$transports = array_merge(self::$transports, array( $transport) );
+		self::$transports = array_merge( self::$transports, [ $transport ] );
 	}
 
 	/**
