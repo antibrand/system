@@ -2,19 +2,19 @@
 if ( ! class_exists( 'SimplePie', false ) ) :
 
 // Load classes we will need.
-require ABSPATH . WPINC . '/SimplePie/Misc.php';
-require ABSPATH . WPINC . '/SimplePie/Cache.php';
-require ABSPATH . WPINC . '/SimplePie/File.php';
-require ABSPATH . WPINC . '/SimplePie/Sanitize.php';
-require ABSPATH . WPINC . '/SimplePie/Registry.php';
-require ABSPATH . WPINC . '/SimplePie/IRI.php';
-require ABSPATH . WPINC . '/SimplePie/Locator.php';
-require ABSPATH . WPINC . '/SimplePie/Content/Type/Sniffer.php';
-require ABSPATH . WPINC . '/SimplePie/XML/Declaration/Parser.php';
-require ABSPATH . WPINC . '/SimplePie/Parser.php';
-require ABSPATH . WPINC . '/SimplePie/Item.php';
-require ABSPATH . WPINC . '/SimplePie/Parse/Date.php';
-require ABSPATH . WPINC . '/SimplePie/Author.php';
+require ABSPATH . APPINC . '/SimplePie/Misc.php';
+require ABSPATH . APPINC . '/SimplePie/Cache.php';
+require ABSPATH . APPINC . '/SimplePie/File.php';
+require ABSPATH . APPINC . '/SimplePie/Sanitize.php';
+require ABSPATH . APPINC . '/SimplePie/Registry.php';
+require ABSPATH . APPINC . '/SimplePie/IRI.php';
+require ABSPATH . APPINC . '/SimplePie/Locator.php';
+require ABSPATH . APPINC . '/SimplePie/Content/Type/Sniffer.php';
+require ABSPATH . APPINC . '/SimplePie/XML/Declaration/Parser.php';
+require ABSPATH . APPINC . '/SimplePie/Parser.php';
+require ABSPATH . APPINC . '/SimplePie/Item.php';
+require ABSPATH . APPINC . '/SimplePie/Parse/Date.php';
+require ABSPATH . APPINC . '/SimplePie/Author.php';
 
 /**
  * Autoloader for SimplePie.
