@@ -1859,7 +1859,7 @@ function recurse_dirsize( $directory, $exclude = null ) {
  * Check an array of MIME types against a whitelist.
  *
  * The application ships with a set of allowed upload filetypes,
- * which is defined in wp-includes/functions.php in
+ * which is defined in app-includes/functions.php in
  * get_allowed_mime_types(). This function is used to filter
  * that list against the filetype whitelist provided by network
  * Network Admins at wp-admin/network/settings.php.

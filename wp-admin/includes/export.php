@@ -555,7 +555,7 @@ function export_wp( $args = [] ) {
 
 	// Fetch 20 posts at a time rather than loading the entire table into memory.
 	while ( $next_posts = array_splice( $post_ids, 0, 20 ) ) {
-		
+
 	$where = 'WHERE ID IN (' . join( ',', $next_posts ) . ')';
 	$posts = $wpdb->get_results( "SELECT * FROM {$wpdb->posts} $where" );
 
@@ -567,7 +567,7 @@ function export_wp( $args = [] ) {
 ?>
 	<item>
 		<title><?php
-			/** This filter is documented in wp-includes/feed.php */
+			/** This filter is documented in app-includes/feed.php */
 			echo apply_filters( 'the_title_rss', $post->post_title );
 		?></title>
 		<link><?php the_permalink_rss() ?></link>

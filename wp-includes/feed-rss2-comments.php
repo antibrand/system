@@ -74,7 +74,7 @@ do_action( 'rss_tag_pre', 'rss2-comments' );
 		<title><?php
 			if ( !is_singular() ) {
 				$title = get_the_title($comment_post->ID);
-				/** This filter is documented in wp-includes/feed.php */
+				/** This filter is documented in app-includes/feed.php */
 				$title = apply_filters( 'the_title_rss', $title );
 				/* translators: Individual comment title. 1: Post title, 2: Comment author name */
 				printf(ent2ncr(__('Comment on %1$s by %2$s')), $title, get_comment_author_rss());

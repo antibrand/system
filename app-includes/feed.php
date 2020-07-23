@@ -670,13 +670,13 @@ function feed_content_type( $type = '' ) {
  */
 function fetch_feed( $url ) {
 	if ( ! class_exists( 'SimplePie', false ) ) {
-		require_once( ABSPATH . WPINC . '/class-simplepie.php' );
+		require_once( ABSPATH . APPINC . '/classes/includes/class-simplepie.php' );
 	}
 
-	require_once( ABSPATH . WPINC . '/class-wp-feed-cache.php' );
-	require_once( ABSPATH . WPINC . '/class-wp-feed-cache-transient.php' );
-	require_once( ABSPATH . WPINC . '/class-wp-simplepie-file.php' );
-	require_once( ABSPATH . WPINC . '/class-wp-simplepie-sanitize-kses.php' );
+	require_once( ABSPATH . APPINC . '/classes/includes/class-app-feed-cache.php' );
+	require_once( ABSPATH . APPINC . '/classes/includes/class-app-feed-cache-transient.php' );
+	require_once( ABSPATH . APPINC . '/classes/includes/class-app-simplepie-file.php' );
+	require_once( ABSPATH . APPINC . '/classes/includes/class-app-simplepie-sanitize-kses.php' );
 
 	$feed = new SimplePie();
 

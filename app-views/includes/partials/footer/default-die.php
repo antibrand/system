@@ -5,7 +5,7 @@
  * @package App_Package
  * @subpackage Administration
  *
- * @see wp-includes/functions.php
+ * @see app-includes/functions.php
  */
 
 /**

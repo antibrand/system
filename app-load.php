@@ -64,12 +64,12 @@ if ( file_exists( ABSPATH . 'app-config.php' ) ) {
 	// Standardize $_SERVER variables across setups.
 	wp_fix_server_vars();
 
-	require_once( ABSPATH . WPINC . '/functions.php' );
+	require_once( ABSPATH . APPINC . '/functions.php' );
 
 	/**
 	 * Try to find the configuration template.
 	 *
-	 * @see wp-includes/functions.php
+	 * @see app-includes/functions.php
 	 */
 	$path = wp_guess_url() . '/app-views/includes/config.php';
 

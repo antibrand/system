@@ -591,7 +591,7 @@ public static function export_wp( $args = array() ) {
 ?>
 	<item>
 		<title><?php
-			/** This filter is documented in wp-includes/feed.php */
+			/** This filter is documented in app-includes/feed.php */
 			echo apply_filters( 'the_title_rss', $post->post_title );
 		?></title>
 		<link><?php the_permalink_rss() ?></link>

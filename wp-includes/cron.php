@@ -354,7 +354,7 @@ function spawn_cron( $gmt_time = 0 ) {
 		'args' => array(
 			'timeout'   => 0.01,
 			'blocking'  => false,
-			/** This filter is documented in wp-includes/class-wp-http-streams.php */
+			/** This filter is documented in app-includes/classes/includes/class-app-http-streams.php */
 			'sslverify' => apply_filters( 'https_local_ssl_verify', false )
 		)
 	), $doing_wp_cron );

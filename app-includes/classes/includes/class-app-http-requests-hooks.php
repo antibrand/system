@@ -53,7 +53,7 @@ class WP_HTTP_Requests_Hooks extends Requests_Hooks {
 		// Handle back-compat actions
 		switch ( $hook ) {
 			case 'curl.before_send':
-				/** This action is documented in wp-includes/class-wp-http-curl.php */
+				/** This action is documented in app-includes/classes/includes/class-app-http-curl.php */
 				do_action_ref_array( 'http_api_curl', array( &$parameters[0], $this->request, $this->url ) );
 				break;
 		}

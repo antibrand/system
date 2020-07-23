@@ -2111,7 +2111,7 @@ function wp_unique_filename( $dir, $filename, $unique_filename_callback = null )
 		}
 	}
 
-	/** This filter is documented in wp-includes/functions.php */
+	/** This filter is documented in app-includes/functions.php */
 	return apply_filters( 'wp_unique_filename', $filename, $ext, $dir, $unique_filename_callback );
 }
 
