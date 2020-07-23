@@ -1,11 +1,13 @@
 <?php
 /**
- * Network API: WP_Network class
+ * Network API: Network class
  *
  * @package App_Package
  * @subpackage Network
  * @since 4.4.0
  */
+
+namespace AppNamespace\Network;
 
 /**
  * Core class used for interacting with a network.
@@ -21,7 +23,7 @@
  * @property int $id
  * @property int $site_id
  */
-class WP_Network {
+class Network {
 
 	/**
 	 * Network ID.
@@ -89,7 +91,7 @@ class WP_Network {
 	 * @global wpdb $wpdb Database abstraction object.
 	 *
 	 * @param int $network_id The ID of the network to retrieve.
-	 * @return WP_Network|bool The network's object if found. False if not.
+	 * @return Network|bool The network's object if found. False if not.
 	 */
 	public static function get_instance( $network_id ) {
 		global $wpdb;
@@ -111,18 +113,18 @@ class WP_Network {
 			wp_cache_add( $network_id, $_network, 'networks' );
 		}
 
-		return new WP_Network( $_network );
+		return new Network( $_network );
 	}
 
 	/**
-	 * Create a new WP_Network object.
+	 * Create a new Network object.
 	 *
 	 * Will populate object properties from the object provided and assign other
 	 * default properties based on that information.
 	 *
 	 * @since 4.4.0
 	 *
-	 * @param WP_Network|object $network A network object.
+	 * @param Network|object $network A network object.
 	 */
 	public function __construct( $network ) {
 		foreach( get_object_vars( $network ) as $key => $value ) {
@@ -220,7 +222,7 @@ class WP_Network {
 		 * @since 4.9.0
 		 *
 		 * @param int|null   $main_site_id If a positive integer is returned, it is interpreted as the main site ID.
-		 * @param WP_Network $network      The network object for which the main site was detected.
+		 * @param Network $network      The network object for which the main site was detected.
 		 */
 		$main_site_id = (int) apply_filters( 'pre_get_main_site_id', null, $this );
 		if ( 0 < $main_site_id ) {
@@ -321,7 +323,7 @@ class WP_Network {
 	 * @param string   $domain   Domain to check.
 	 * @param string   $path     Path to check.
 	 * @param int|null $segments Path segments to use. Defaults to null, or the full path.
-	 * @return WP_Network|bool Network object if successful. False when no network is found.
+	 * @return Network|bool Network object if successful. False when no network is found.
 	 */
 	public static function get_by_path( $domain = '', $path = '', $segments = null ) {
 		$domains = array( $domain );

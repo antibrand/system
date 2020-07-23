@@ -3,7 +3,7 @@
  * Used to set up and fix common variables and include
  * the network procedural and class library.
  *
- * Allows for some configuration in app-config.php (see app-includes/network-default-constants.php)
+ * Allows for some configuration in app-config.php (see network-default-constants.php)
  *
  * @package App_Package
  * @subpackage Network
@@ -16,7 +16,7 @@
  * These may be populated through a custom `sunrise.php`. If not, then this
  * file will attempt to populate them based on the current request.
  *
- * @global WP_Network $current_site The current network.
+ * @global Network $current_site The current network.
  * @global object     $current_blog The current site.
  * @global string     $domain       Deprecated. The domain of the site found on load.
  *                                  Use `get_site()->domain` instead.
@@ -30,9 +30,6 @@
  * @since 3.0.0
  */
 global $current_site, $current_blog, $domain, $path, $site_id, $public;
-
-/** WP_Network class */
-// require_once( ABSPATH . WPINC . '/class-wp-network.php' );
 
 /** Network loader */
 require_once( ABSPATH . WPINC . '/network-load.php' );
@@ -100,8 +97,8 @@ $switched = false;
 // need to init cache again after blog_id is set
 wp_start_object_cache();
 
-if ( ! $current_site instanceof WP_Network ) {
-	$current_site = new WP_Network( $current_site );
+if ( ! $current_site instanceof AppNamespace\Network\Network ) {
+	$current_site = new AppNamespace\Network\Network( $current_site );
 }
 
 if ( ! $current_blog instanceof AppNamespace\Network\Network_Site ) {

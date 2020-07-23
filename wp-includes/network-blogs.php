@@ -1116,7 +1116,7 @@ function get_last_updated( $deprecated = '', $start = 0, $quantity = 40 ) {
  *
  * @param string|array $args Optional. Array or string of arguments. See WP_Network_Query::parse_query()
  *                           for information on accepted arguments. Default empty array.
- * @return array|int List of WP_Network objects, a list of network ids when 'fields' is set to 'ids',
+ * @return array|int List of Network objects, a list of network ids when 'fields' is set to 'ids',
  *                   or the number of networks when 'count' is passed as a query var.
  */
 function get_networks( $args = array() ) {
@@ -1133,10 +1133,10 @@ function get_networks( $args = array() ) {
  *
  * @since 4.6.0
  *
- * @global WP_Network $current_site
+ * @global Network $current_site
  *
- * @param WP_Network|int|null $network Optional. Network to retrieve. Default is the current network.
- * @return WP_Network|null The network object or null if not found.
+ * @param Network|int|null $network Optional. Network to retrieve. Default is the current network.
+ * @return Network|null The network object or null if not found.
  */
 function get_network( $network = null ) {
 	global $current_site;
@@ -1144,12 +1144,12 @@ function get_network( $network = null ) {
 		$network = $current_site;
 	}
 
-	if ( $network instanceof WP_Network ) {
+	if ( $network instanceof AppNamespace\Network\Network ) {
 		$_network = $network;
 	} elseif ( is_object( $network ) ) {
-		$_network = new WP_Network( $network );
+		$_network = new AppNamespace\Network\Network( $network );
 	} else {
-		$_network = WP_Network::get_instance( $network );
+		$_network = AppNamespace\Network\Network::get_instance( $network );
 	}
 
 	if ( ! $_network ) {
@@ -1161,7 +1161,7 @@ function get_network( $network = null ) {
 	 *
 	 * @since 4.6.0
 	 *
-	 * @param WP_Network $_network Network data.
+	 * @param Network $_network Network data.
 	 */
 	$_network = apply_filters( 'get_network', $_network );
 

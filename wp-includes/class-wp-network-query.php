@@ -170,7 +170,7 @@ class WP_Network_Query {
 	 * @since 4.6.0
 	 *
 	 * @param string|array $query Array or URL query string of parameters.
-	 * @return array|int List of WP_Network objects, a list of network ids when 'fields' is set to 'ids',
+	 * @return array|int List of Network objects, a list of network ids when 'fields' is set to 'ids',
 	 *                   or the number of networks when 'count' is passed as a query var.
 	 */
 	public function query( $query ) {
@@ -183,7 +183,7 @@ class WP_Network_Query {
 	 *
 	 * @since 4.6.0
 	 *
-	 * @return array|int List of WP_Network objects, a list of network ids when 'fields' is set to 'ids',
+	 * @return array|int List of Network objects, a list of network ids when 'fields' is set to 'ids',
 	 *                   or the number of networks when 'count' is passed as a query var.
 	 */
 	public function get_networks() {
@@ -260,12 +260,12 @@ class WP_Network_Query {
 		 *
 		 * @since 4.6.0
 		 *
-		 * @param array            $_networks An array of WP_Network objects.
+		 * @param array            $_networks An array of Network objects.
 		 * @param WP_Network_Query $this      Current instance of WP_Network_Query (passed by reference).
 		 */
 		$_networks = apply_filters_ref_array( 'the_networks', array( $_networks, &$this ) );
 
-		// Convert to WP_Network instances
+		// Convert to Network instances
 		$this->networks = array_map( 'get_network', $_networks );
 
 		return $this->networks;
