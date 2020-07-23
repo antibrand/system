@@ -3,7 +3,8 @@
  * Environment setup class.
  *
  * @package App_Package
- * @since 2.0.0
+ * @subpackage Includes
+ * @since Previous 2.0.0
  */
 class WP {
 	/**
