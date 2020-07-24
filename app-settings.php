@@ -198,7 +198,7 @@ require( ABSPATH . WPINC . '/post-formats.php' );
 require( ABSPATH . WPINC . '/post-thumbnail-template.php' );
 require( ABSPATH . APPINC . '/category.php' );
 require( ABSPATH . APPINC . '/category-template.php' );
-require( ABSPATH . WPINC . '/comment.php' );
+require( ABSPATH . APPINC . '/comment.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-comment.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-comment-query.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-walker-comment.php' );
