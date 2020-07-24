@@ -17,22 +17,22 @@
  */
 
 // Dependency class.
-require( ABSPATH . WPINC . '/class-app-dependency.php' );
+require( ABSPATH . APPINC . '/classes/includes/class-app-dependency.php' );
 
 // Dependencies class.
-require( ABSPATH . WPINC . '/class.app-dependencies.php' );
+require( ABSPATH . APPINC . '/classes/includes/class.app-dependencies.php' );
 
 // Scripts class.
 require( ABSPATH . APPINC . '/classes/includes/class.app-scripts.php' );
 
 // Scripts functions.
-require( ABSPATH . WPINC . '/functions.wp-scripts.php' );
+require( ABSPATH . APPINC . '/functions.app-scripts.php' );
 
 // Styles class.
 require( ABSPATH . APPINC . '/classes/includes/class.app-styles.php' );
 
 // Styles functions.
-require( ABSPATH . WPINC . '/functions.wp-styles.php' );
+require( ABSPATH . APPINC . '/functions.app-styles.php' );
 
 /**
  * Register all scripts
