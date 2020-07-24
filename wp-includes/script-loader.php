@@ -23,13 +23,13 @@ require( ABSPATH . WPINC . '/class-app-dependency.php' );
 require( ABSPATH . WPINC . '/class.wp-dependencies.php' );
 
 // Scripts class.
-require( ABSPATH . WPINC . '/class.app-scripts.php' );
+require( ABSPATH . APPINC . '/classes/includes/class.app-scripts.php' );
 
 // Scripts functions.
 require( ABSPATH . WPINC . '/functions.wp-scripts.php' );
 
 // Styles class.
-require( ABSPATH . WPINC . '/class.wp-styles.php' );
+require( ABSPATH . APPINC . '/classes/includes/class.app-styles.php' );
 
 // Styles functions.
 require( ABSPATH . WPINC . '/functions.wp-styles.php' );
