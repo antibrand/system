@@ -138,7 +138,7 @@ wp_set_wpdb_vars();
 wp_start_object_cache();
 
 // Attach the default filters.
-require( ABSPATH . WPINC . '/default-filters.php' );
+require( ABSPATH . APPINC . '/default-filters.php' );
 
 // Initialize network if enabled.
 if ( is_network() ) {
@@ -174,7 +174,7 @@ require( ABSPATH . APPINC . '/classes/includes/class-app-role.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-user.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-query.php' );
 require( ABSPATH . WPINC . '/query.php' );
-require( ABSPATH . WPINC . '/date.php' );
+require( ABSPATH . APPINC . '/date.php' );
 require( ABSPATH . WPINC . '/theme.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-theme.php' );
 require( ABSPATH . WPINC . '/template.php' );
@@ -209,7 +209,7 @@ require( ABSPATH . APPINC . '/feed.php' );
 require( ABSPATH . APPINC . '/bookmark.php' );
 require( ABSPATH . APPINC . '/bookmark-template.php' );
 require( ABSPATH . WPINC . '/kses.php' );
-require( ABSPATH . WPINC . '/cron.php' );
+require( ABSPATH . APPINC . '/cron.php' );
 require( ABSPATH . WPINC . '/script-loader.php' );
 require( ABSPATH . WPINC . '/taxonomy.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-taxonomy.php' );
