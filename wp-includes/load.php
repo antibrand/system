@@ -541,7 +541,7 @@ function wp_start_object_cache() {
  * @access private
  * @return void
  */
-function wp_not_installed() {
+function app_not_installed() {
 
 	if ( is_network() ) {
 

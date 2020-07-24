@@ -163,7 +163,7 @@ require_once( ABSPATH . APPINC . '/classes/includes/class-app-locale.php' );
 require_once( ABSPATH . APPINC . '/classes/includes/class-app-locale-switcher.php' );
 
 // Run the installer if the application is not installed.
-wp_not_installed();
+app_not_installed();
 
 // Load most of the application.
 require( ABSPATH . APPINC . '/classes/includes/class-app-ajax-response.php' );

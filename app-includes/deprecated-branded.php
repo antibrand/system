@@ -10,6 +10,13 @@
  * @subpackage Deprecated
  */
 
+// Redirect to the installer.
+if ( ! function_exists( 'wp_not_installed' ) ) {
+	function wp_not_installed() {
+		return app_not_installed();
+	}
+}
+
 // function wp_admin_css() {}
 // function wp_admin_css_uri() {}
 
