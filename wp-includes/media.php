@@ -2958,9 +2958,9 @@ function wp_image_editor_supports( $args = array() ) {
  *                     editor claims to support the request.
  */
 function _wp_image_editor_choose( $args = array() ) {
-	require_once ABSPATH . WPINC . '/class-wp-image-editor.php';
-	require_once ABSPATH . WPINC . '/class-wp-image-editor-gd.php';
-	require_once ABSPATH . WPINC . '/class-wp-image-editor-imagick.php';
+	require_once ABSPATH . APPINC . '/classes/includes/class-app-image-editor.php';
+	require_once ABSPATH . APPINC . '/classes/includes/class-app-image-editor-gd.php';
+	require_once ABSPATH . APPINC . '/classes/includes/class-app-image-editor-imagick.php';
 	/**
 	 * Filters the list of image editing library classes.
 	 *

@@ -637,7 +637,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 		$perms = $stat['mode'] & 0000666; //same permissions as parent folder, strip off the executable bits
 		@ chmod( $filename, $perms );
 
-		/** This filter is documented in wp-includes/class-wp-image-editor-gd.php */
+		/** This filter is documented in app-includes/classes/includes/class-app-image-editor-gd.php */
 		return array(
 			'path'      => $filename,
 			'file'      => wp_basename( apply_filters( 'image_make_intermediate_size', $filename ) ),
