@@ -226,7 +226,7 @@ abstract class WP_Session_Tokens {
 	 * @static
 	 */
 	final public static function destroy_all_for_all_users() {
-		/** This filter is documented in wp-includes/class-wp-session-tokens.php */
+		/** This filter is documented in app-includes/classes/includes/class-app-session-tokens.php */
 		$manager = apply_filters( 'session_token_manager', 'WP_User_Meta_Session_Tokens' );
 		call_user_func( array( $manager, 'drop_sessions' ) );
 	}
