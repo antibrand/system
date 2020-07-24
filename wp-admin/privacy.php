@@ -162,7 +162,7 @@ if ( ! empty( $privacy_policy_page_id ) ) {
 require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
 if ( $is_privacy_guide ) :
-	include_once( ABSPATH . 'wp-admin/partials/content/privacy-policy-guide.php' );
+	include_once( ABSPATH . APP_VIEWS . '/backend/content/privacy-policy-guide.php' );
 else :
 
 /**
