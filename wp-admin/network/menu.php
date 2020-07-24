@@ -165,4 +165,4 @@ $menu[99] = [
 	'wp-menu-separator'
 ];
 
-require_once( ABSPATH . 'wp-admin/includes/menu.php' );
+require_once( ABSPATH . APPINC . '/backend/menu.php' );

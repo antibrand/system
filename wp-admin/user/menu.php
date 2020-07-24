@@ -48,4 +48,4 @@ $_wp_real_parent_file['users.php'] = 'profile.php';
 $compat  = [];
 $submenu = [];
 
-require_once( ABSPATH . 'wp-admin/includes/menu.php' );
+require_once( ABSPATH . APPINC . '/backend/menu.php' );

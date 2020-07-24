@@ -9,16 +9,17 @@
  */
 
 /** Include user installation customization script. */
-if ( file_exists(WP_CONTENT_DIR . '/install.php') )
-	require (WP_CONTENT_DIR . '/install.php');
+if ( file_exists( WP_CONTENT_DIR . '/install.php' ) ) {
+	require ( WP_CONTENT_DIR . '/install.php' );
+}
 
 /** Administration API */
-require_once(ABSPATH . 'wp-admin/includes/admin.php');
+require_once( ABSPATH . 'wp-admin/includes/admin.php' );
 
 /** Schema API */
-require_once(ABSPATH . 'wp-admin/includes/schema.php');
+require_once( ABSPATH .  APPINC . '/backend/schema.php' );
 
-if ( !function_exists('wp_install') ) :
+if ( ! function_exists( 'wp_install' ) ) :
 /**
  * Installs the site.
  *
