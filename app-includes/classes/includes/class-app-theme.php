@@ -1486,7 +1486,7 @@ final class WP_Theme implements ArrayAccess {
 			}
 		}
 
-		/** This filter is documented in wp-includes/class-wp-theme.php */
+		/** This filter is documented in app-includes/classes/includes/class-app-theme.php */
 		return (array) apply_filters( 'site_allowed_themes', $allowed_themes[ $blog_id ], $blog_id );
 	}
 

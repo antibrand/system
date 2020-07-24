@@ -318,7 +318,7 @@ class WP_Scripts extends WP_Dependencies {
 		if ( ! empty( $ver ) )
 			$src = add_query_arg( 'ver', $ver, $src );
 
-		/** This filter is documented in wp-includes/class.wp-scripts.php */
+		/** This filter is documented in app-includes/classes/includes/class.app-scripts.php */
 		$src = esc_url( apply_filters( 'script_loader_src', $src, $handle ) );
 
 		if ( ! $src )

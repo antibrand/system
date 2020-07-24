@@ -1028,7 +1028,7 @@ function wp_convert_widget_settings($base_name, $option_name, $settings) {
  *
  * @global WP_Widget_Factory $wp_widget_factory
  *
- * @param string $widget   The widget's PHP class name (see class-wp-widget.php).
+ * @param string $widget   The widget's PHP class name (see class-app-widget.php).
  * @param array  $instance Optional. The widget's instance settings. Default empty array.
  * @param array  $args {
  *     Optional. Array of arguments to configure the display of the widget.

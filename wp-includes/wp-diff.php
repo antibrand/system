@@ -17,5 +17,5 @@ if ( ! class_exists( 'Text_Diff', false ) ) {
 	require( ABSPATH . APPINC . '/Text/Diff/Renderer/inline.php' );
 }
 
-require( ABSPATH . WPINC . '/class-wp-text-diff-renderer-table.php' );
-require( ABSPATH . WPINC . '/class-wp-text-diff-renderer-inline.php' );
+require( ABSPATH . APPINC . '/classes/includes/class-app-text-diff-renderer-table.php' );
+require( ABSPATH . APPINC . '/classes/includes/class-app-text-diff-renderer-inline.php' );

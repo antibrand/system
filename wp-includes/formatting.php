@@ -5001,9 +5001,9 @@ function _print_emoji_detection_script() {
 
 	if ( SCRIPT_DEBUG ) {
 		$settings['source'] = array(
-			/** This filter is documented in wp-includes/class.wp-scripts.php */
+			/** This filter is documented in app-includes/classes/includes/class.app-scripts.php */
 			'wpemoji' => apply_filters( 'script_loader_src', app_assets_url( "js/includes/wp-emoji.js?$version" ), 'wpemoji' ),
-			/** This filter is documented in wp-includes/class.wp-scripts.php */
+			/** This filter is documented in app-includes/classes/includes/class.app-scripts.php */
 			'twemoji' => apply_filters( 'script_loader_src', app_assets_url( "js/includes/twemoji.js?$version" ), 'twemoji' ),
 		);
 
@@ -5015,7 +5015,7 @@ function _print_emoji_detection_script() {
 		<?php
 	} else {
 		$settings['source'] = array(
-			/** This filter is documented in wp-includes/class.wp-scripts.php */
+			/** This filter is documented in app-includes/classes/includes/class.app-scripts.php */
 			'concatemoji' => apply_filters( 'script_loader_src', app_assets_url( "js/includes/wp-emoji-release.min.js?$version" ), 'concatemoji' ),
 		);
 
