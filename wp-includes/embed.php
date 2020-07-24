@@ -1087,7 +1087,7 @@ function wp_filter_pre_oembed_result( $result, $url, $args ) {
 
 	$post_id = url_to_postid( $url );
 
-	/** This filter is documented in wp-includes/class-wp-oembed-controller.php */
+	/** This filter is documented in app-includes/classes/includes/class-app-oembed-controller.php */
 	$post_id = apply_filters( 'oembed_request_post_id', $post_id, $url );
 
 	if ( ! $post_id ) {
