@@ -298,7 +298,7 @@ function wp_loginout($redirect = '', $echo = true ) {
 
 	} else {
 
-		// This filter is documented in wp-includes/general-template.php.
+		// This filter is documented in app-includes/general-template.php.
 		return apply_filters( 'loginout', $link );
 	}
 }
@@ -2042,7 +2042,7 @@ function get_calendar( $initial = true, $echo = true ) {
 	$cache = wp_cache_get( 'get_calendar', 'calendar' );
 
 	if ( $cache && is_array( $cache ) && isset( $cache[ $key ] ) ) {
-		/** This filter is documented in wp-includes/general-template.php */
+		/** This filter is documented in app-includes/general-template.php */
 		$output = apply_filters( 'get_calendar', $cache[ $key ] );
 
 		if ( $echo ) {
@@ -2245,7 +2245,7 @@ function get_calendar( $initial = true, $echo = true ) {
 		echo apply_filters( 'get_calendar', $calendar_output );
 		return;
 	}
-	/** This filter is documented in wp-includes/general-template.php */
+	/** This filter is documented in app-includes/general-template.php */
 	return apply_filters( 'get_calendar', $calendar_output );
 }
 
@@ -2993,7 +2993,7 @@ function wp_resource_hints() {
 	 * Add DNS prefetch for the Emoji CDN.
 	 * The path is removed in the foreach loop below.
 	 */
-	/** This filter is documented in wp-includes/formatting.php */
+	/** This filter is documented in app-includes/formatting.php */
 	$hints['dns-prefetch'][] = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/11/svg/' );
 
 	foreach ( $hints as $relation_type => $urls ) {
@@ -3902,7 +3902,7 @@ function paginate_links( $args = '' ) {
 					$link = add_query_arg( $add_args, $link );
 				$link .= $args['add_fragment'];
 
-				/** This filter is documented in wp-includes/general-template.php */
+				/** This filter is documented in app-includes/general-template.php */
 				$page_links[] = "<a class='page-numbers' href='" . esc_url( apply_filters( 'paginate_links', $link ) ) . "'>" . $args['before_page_number'] . number_format_i18n( $n ) . $args['after_page_number'] . "</a>";
 				$dots = true;
 			elseif ( $dots && ! $args['show_all'] ) :
@@ -3918,7 +3918,7 @@ function paginate_links( $args = '' ) {
 			$link = add_query_arg( $add_args, $link );
 		$link .= $args['add_fragment'];
 
-		/** This filter is documented in wp-includes/general-template.php */
+		/** This filter is documented in app-includes/general-template.php */
 		$page_links[] = '<a class="next page-numbers" href="' . esc_url( apply_filters( 'paginate_links', $link ) ) . '">' . $args['next_text'] . '</a>';
 	endif;
 	switch ( $args['type'] ) {
@@ -4164,7 +4164,7 @@ function app_assets_css( $file = 'app-assets', $force_echo = false ) {
 	echo apply_filters( 'app_assets_css', "<link rel='stylesheet' href='" . esc_url( app_assets_url( $file ) ) . "' type='text/css' />\n", $file );
 
 	if ( function_exists( 'is_rtl' ) && is_rtl() ) {
-		/** This filter is documented in wp-includes/general-template.php */
+		/** This filter is documented in app-includes/general-template.php */
 		echo apply_filters( 'app_assets_css', "<link rel='stylesheet' href='" . esc_url( app_assets_url( "$file-rtl" ) ) . "' type='text/css' />\n", "$file-rtl" );
 	}
 }
@@ -4243,7 +4243,7 @@ function wp_admin_css( $file = 'wp-admin', $force_echo = false ) {
 	echo apply_filters( 'wp_admin_css', "<link rel='stylesheet' href='" . esc_url( wp_admin_css_uri( $file ) ) . "' type='text/css' />\n", $file );
 
 	if ( function_exists( 'is_rtl' ) && is_rtl() ) {
-		/** This filter is documented in wp-includes/general-template.php */
+		/** This filter is documented in app-includes/general-template.php */
 		echo apply_filters( 'wp_admin_css', "<link rel='stylesheet' href='" . esc_url( wp_admin_css_uri( "$file-rtl" ) ) . "' type='text/css' />\n", "$file-rtl" );
 	}
 }

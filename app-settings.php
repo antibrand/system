@@ -167,7 +167,7 @@ app_not_installed();
 
 // Load most of the application.
 require( ABSPATH . APPINC . '/classes/includes/class-app-ajax-response.php' );
-require( ABSPATH . WPINC . '/formatting.php' );
+require( ABSPATH . APPINC . '/formatting.php' );
 require( ABSPATH . APPINC . '/capabilities.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-roles.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-role.php' );
@@ -185,7 +185,7 @@ require( ABSPATH . APPINC . '/classes/includes/class-app-user-meta-session-token
 require( ABSPATH . WPINC . '/meta.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-meta-query.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-metadata-lazyloader.php' );
-require( ABSPATH . WPINC . '/general-template.php' );
+require( ABSPATH . APPINC . '/general-template.php' );
 require( ABSPATH . WPINC . '/link-template.php' );
 require( ABSPATH . APPINC . '/author-template.php' );
 require( ABSPATH . WPINC . '/post.php' );
@@ -219,7 +219,7 @@ require( ABSPATH . APPINC . '/classes/includes/class-app-tax-query.php' );
 require( ABSPATH . WPINC . '/update.php' );
 require( ABSPATH . APPINC . '/canonical.php' );
 require( ABSPATH . WPINC . '/shortcodes.php' );
-require( ABSPATH . WPINC . '/embed.php' );
+require( ABSPATH . APPINC . '/embed.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-embed.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-oembed.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-oembed-controller.php' );

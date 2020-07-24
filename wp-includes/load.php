@@ -558,7 +558,7 @@ function app_not_installed() {
 
 		require( ABSPATH . WPINC . '/kses.php' );
 		require( ABSPATH . WPINC . '/pluggable.php' );
-		require( ABSPATH . WPINC . '/formatting.php' );
+		require( ABSPATH . APPINC . '/formatting.php' );
 
 		$link = wp_guess_url() . '/app-views/includes/install.php';
 

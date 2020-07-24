@@ -5,7 +5,7 @@
  * @package App_Package
  * @since 3.3.0
  *
- * Private, not included by default. See wp_editor() in wp-includes/general-template.php.
+ * Private, not included by default. See wp_editor() in app-includes/general-template.php.
  */
 
 final class _WP_Editors {

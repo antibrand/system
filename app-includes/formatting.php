@@ -1841,7 +1841,7 @@ function sanitize_file_name( $filename ) {
 		}
 	}
 	$filename .= '.' . $extension;
-	/** This filter is documented in wp-includes/formatting.php */
+	/** This filter is documented in app-includes/formatting.php */
 	return apply_filters('sanitize_file_name', $filename, $filename_raw);
 }
 
@@ -2907,7 +2907,7 @@ function is_email( $email, $deprecated = false ) {
 
 	// Test for an @ character after the first position
 	if ( strpos( $email, '@', 1 ) === false ) {
-		/** This filter is documented in wp-includes/formatting.php */
+		/** This filter is documented in app-includes/formatting.php */
 		return apply_filters( 'is_email', false, $email, 'email_no_at' );
 	}
 
@@ -2917,20 +2917,20 @@ function is_email( $email, $deprecated = false ) {
 	// LOCAL PART
 	// Test for invalid characters
 	if ( !preg_match( '/^[a-zA-Z0-9!#$%&\'*+\/=?^_`{|}~\.-]+$/', $local ) ) {
-		/** This filter is documented in wp-includes/formatting.php */
+		/** This filter is documented in app-includes/formatting.php */
 		return apply_filters( 'is_email', false, $email, 'local_invalid_chars' );
 	}
 
 	// DOMAIN PART
 	// Test for sequences of periods
 	if ( preg_match( '/\.{2,}/', $domain ) ) {
-		/** This filter is documented in wp-includes/formatting.php */
+		/** This filter is documented in app-includes/formatting.php */
 		return apply_filters( 'is_email', false, $email, 'domain_period_sequence' );
 	}
 
 	// Test for leading and trailing periods and whitespace
 	if ( trim( $domain, " \t\n\r\0\x0B." ) !== $domain ) {
-		/** This filter is documented in wp-includes/formatting.php */
+		/** This filter is documented in app-includes/formatting.php */
 		return apply_filters( 'is_email', false, $email, 'domain_period_limits' );
 	}
 
@@ -2939,7 +2939,7 @@ function is_email( $email, $deprecated = false ) {
 
 	// Assume the domain will have at least two subs
 	if ( 2 > count( $subs ) ) {
-		/** This filter is documented in wp-includes/formatting.php */
+		/** This filter is documented in app-includes/formatting.php */
 		return apply_filters( 'is_email', false, $email, 'domain_no_periods' );
 	}
 
@@ -2947,19 +2947,19 @@ function is_email( $email, $deprecated = false ) {
 	foreach ( $subs as $sub ) {
 		// Test for leading and trailing hyphens and whitespace
 		if ( trim( $sub, " \t\n\r\0\x0B-" ) !== $sub ) {
-			/** This filter is documented in wp-includes/formatting.php */
+			/** This filter is documented in app-includes/formatting.php */
 			return apply_filters( 'is_email', false, $email, 'sub_hyphen_limits' );
 		}
 
 		// Test for invalid characters
 		if ( !preg_match('/^[a-z0-9-]+$/i', $sub ) ) {
-			/** This filter is documented in wp-includes/formatting.php */
+			/** This filter is documented in app-includes/formatting.php */
 			return apply_filters( 'is_email', false, $email, 'sub_invalid_chars' );
 		}
 	}
 
 	// Congratulations your email made it!
-	/** This filter is documented in wp-includes/formatting.php */
+	/** This filter is documented in app-includes/formatting.php */
 	return apply_filters( 'is_email', $email, $email, null );
 }
 
@@ -3144,7 +3144,7 @@ function sanitize_email( $email ) {
 
 	// Test for an @ character after the first position
 	if ( strpos( $email, '@', 1 ) === false ) {
-		/** This filter is documented in wp-includes/formatting.php */
+		/** This filter is documented in app-includes/formatting.php */
 		return apply_filters( 'sanitize_email', '', $email, 'email_no_at' );
 	}
 
@@ -3155,7 +3155,7 @@ function sanitize_email( $email ) {
 	// Test for invalid characters
 	$local = preg_replace( '/[^a-zA-Z0-9!#$%&\'*+\/=?^_`{|}~\.-]/', '', $local );
 	if ( '' === $local ) {
-		/** This filter is documented in wp-includes/formatting.php */
+		/** This filter is documented in app-includes/formatting.php */
 		return apply_filters( 'sanitize_email', '', $email, 'local_invalid_chars' );
 	}
 
@@ -3163,14 +3163,14 @@ function sanitize_email( $email ) {
 	// Test for sequences of periods
 	$domain = preg_replace( '/\.{2,}/', '', $domain );
 	if ( '' === $domain ) {
-		/** This filter is documented in wp-includes/formatting.php */
+		/** This filter is documented in app-includes/formatting.php */
 		return apply_filters( 'sanitize_email', '', $email, 'domain_period_sequence' );
 	}
 
 	// Test for leading and trailing periods and whitespace
 	$domain = trim( $domain, " \t\n\r\0\x0B." );
 	if ( '' === $domain ) {
-		/** This filter is documented in wp-includes/formatting.php */
+		/** This filter is documented in app-includes/formatting.php */
 		return apply_filters( 'sanitize_email', '', $email, 'domain_period_limits' );
 	}
 
@@ -3179,7 +3179,7 @@ function sanitize_email( $email ) {
 
 	// Assume the domain will have at least two subs
 	if ( 2 > count( $subs ) ) {
-		/** This filter is documented in wp-includes/formatting.php */
+		/** This filter is documented in app-includes/formatting.php */
 		return apply_filters( 'sanitize_email', '', $email, 'domain_no_periods' );
 	}
 
@@ -3202,7 +3202,7 @@ function sanitize_email( $email ) {
 
 	// If there aren't 2 or more valid subs
 	if ( 2 > count( $new_subs ) ) {
-		/** This filter is documented in wp-includes/formatting.php */
+		/** This filter is documented in app-includes/formatting.php */
 		return apply_filters( 'sanitize_email', '', $email, 'domain_no_valid_subs' );
 	}
 
@@ -3213,7 +3213,7 @@ function sanitize_email( $email ) {
 	$email = $local . '@' . $domain;
 
 	// Congratulations your email made it!
-	/** This filter is documented in wp-includes/formatting.php */
+	/** This filter is documented in app-includes/formatting.php */
 	return apply_filters( 'sanitize_email', $email, $email, null );
 }
 
@@ -5106,10 +5106,10 @@ function wp_staticize_emoji( $text ) {
 		return $text;
 	}
 
-	/** This filter is documented in wp-includes/formatting.php */
+	/** This filter is documented in app-includes/formatting.php */
 	$cdn_url = apply_filters( 'emoji_url', 'https://s.w.org/images/core/emoji/11/72x72/' );
 
-	/** This filter is documented in wp-includes/formatting.php */
+	/** This filter is documented in app-includes/formatting.php */
 	$ext = apply_filters( 'emoji_ext', '.png' );
 
 	$output = '';
