@@ -620,7 +620,7 @@ RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 RewriteRule ^{$subdir_match}(app-(views|assets|includes|extend|languages).*) {$rewrite_base}{$subdir_replacement_12} [L]
-RewriteRule ^{$subdir_match}(wp-(admin|includes).*) {$rewrite_base}{$subdir_replacement_12} [L]
+RewriteRule ^{$subdir_match}(wp-(admin).*) {$rewrite_base}{$subdir_replacement_12} [L]
 RewriteRule ^{$subdir_match}(.*\.php)$ {$rewrite_base}$subdir_replacement_12 [L]
 RewriteRule . index.php [L]
 
