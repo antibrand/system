@@ -8,7 +8,7 @@
 header('Content-Type: ' . feed_content_type('atom') . '; charset=' . get_option('blog_charset'), true);
 echo '<?xml version="1.0" encoding="' . get_option('blog_charset') . '" ?' . '>';
 
-/** This action is documented in wp-includes/feed-rss2.php */
+/** This action is documented in app-includes/feed-rss2.php */
 do_action( 'rss_tag_pre', 'atom-comments' );
 ?>
 <feed
@@ -16,7 +16,7 @@ do_action( 'rss_tag_pre', 'atom-comments' );
 	xml:lang="<?php bloginfo_rss( 'language' ); ?>"
 	xmlns:thr="http://purl.org/syndication/thread/1.0"
 	<?php
-		/** This action is documented in wp-includes/feed-atom.php */
+		/** This action is documented in app-includes/feed-atom.php */
 		do_action( 'atom_ns' );
 
 		/**

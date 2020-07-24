@@ -566,7 +566,7 @@ public static function export_wp( $args = array() ) {
 <?php if ( 'all' == $args['content'] ) wxr_nav_menu_terms(); ?>
 
 	<?php
-	/** This action is documented in wp-includes/feed-rss2.php */
+	/** This action is documented in app-includes/feed-rss2.php */
 	do_action( 'rss2_head' );
 	?>
 

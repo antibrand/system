@@ -10,7 +10,7 @@ $more = 1;
 
 echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>';
 
-/** This action is documented in wp-includes/feed-rss2.php */
+/** This action is documented in app-includes/feed-rss2.php */
 do_action( 'rss_tag_pre', 'rdf' );
 ?>
 <rdf:RDF
@@ -38,11 +38,11 @@ do_action( 'rss_tag_pre', 'rdf' );
 		echo $date ? mysql2date( 'Y-m-d\TH:i:s\Z', $date ) : date( 'Y-m-d\TH:i:s\Z' );
 	?></dc:date>
 	<sy:updatePeriod><?php
-		/** This filter is documented in wp-includes/feed-rss2.php */
+		/** This filter is documented in app-includes/feed-rss2.php */
 		echo apply_filters( 'rss_update_period', 'hourly' );
 	?></sy:updatePeriod>
 	<sy:updateFrequency><?php
-		/** This filter is documented in wp-includes/feed-rss2.php */
+		/** This filter is documented in app-includes/feed-rss2.php */
 		echo apply_filters( 'rss_update_frequency', '1' );
 	?></sy:updateFrequency>
 	<sy:updateBase>2000-01-01T12:00+00:00</sy:updateBase>

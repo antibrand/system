@@ -1250,7 +1250,7 @@ function do_feed() {
  * @see load_template()
  */
 function do_feed_rdf() {
-	load_template( ABSPATH . WPINC . '/feed-rdf.php' );
+	load_template( ABSPATH . APPINC . '/feed-rdf.php' );
 }
 
 /**
@@ -1261,7 +1261,7 @@ function do_feed_rdf() {
  * @see load_template()
  */
 function do_feed_rss() {
-	load_template( ABSPATH . WPINC . '/feed-rss.php' );
+	load_template( ABSPATH . APPINC . '/feed-rss.php' );
 }
 
 /**
@@ -1275,9 +1275,9 @@ function do_feed_rss() {
  */
 function do_feed_rss2( $for_comments ) {
 	if ( $for_comments )
-		load_template( ABSPATH . WPINC . '/feed-rss2-comments.php' );
+		load_template( ABSPATH . APPINC . '/feed-rss2-comments.php' );
 	else
-		load_template( ABSPATH . WPINC . '/feed-rss2.php' );
+		load_template( ABSPATH . APPINC . '/feed-rss2.php' );
 }
 
 /**
@@ -1291,9 +1291,9 @@ function do_feed_rss2( $for_comments ) {
  */
 function do_feed_atom( $for_comments ) {
 	if ($for_comments)
-		load_template( ABSPATH . WPINC . '/feed-atom-comments.php');
+		load_template( ABSPATH . APPINC . '/feed-atom-comments.php');
 	else
-		load_template( ABSPATH . WPINC . '/feed-atom.php' );
+		load_template( ABSPATH . APPINC . '/feed-atom.php' );
 }
 
 /**
