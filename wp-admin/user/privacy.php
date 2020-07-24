@@ -4,7 +4,7 @@
  *
  * @package App_Package
  * @subpackage Administration
- * @since 4.9.0
+ * @since Previous 4.9.0
  */
 
 // Load the website management system.

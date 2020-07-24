@@ -22,7 +22,6 @@ $redirect_user_admin_request = ( ( $current_blog->domain != $current_site->domai
  * Filters whether to redirect the request to the user admin in network.
  *
  * @since Previous 3.2.0
- *
  * @param bool $redirect_user_admin_request Whether the request should be redirected.
  */
 $redirect_user_admin_request = apply_filters( 'redirect_user_admin_request', $redirect_user_admin_request );

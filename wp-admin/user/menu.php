@@ -4,19 +4,48 @@
  *
  * @package App_Package
  * @subpackage Administration
- * @since 3.1.0
+ * @since Previous 3.1.0
  */
 
-$menu[2] = array(__('Dashboard'), 'exist', 'index.php', '', 'menu-top menu-top-first menu-icon-dashboard', 'menu-dashboard', 'dashicons-dashboard');
+$menu[2] = [
+	__( 'Dashboard '),
+	'exist',
+	'index.php',
+	'',
+	'menu-top menu-top-first menu-icon-dashboard',
+	'menu-dashboard',
+	'dashicons-dashboard'
+];
 
-$menu[4] = array( '', 'exist', 'separator1', '', 'wp-menu-separator' );
+$menu[4] = [
+	'',
+	'exist',
+	'separator1',
+	'',
+	'wp-menu-separator'
+];
 
-$menu[70] = array( __('Profile'), 'exist', 'profile.php', '', 'menu-top menu-icon-users', 'menu-users', 'dashicons-admin-users' );
+$menu[70] = [
+	__( 'Profile' ),
+	'exist',
+	'profile.php',
+	'',
+	'menu-top menu-icon-users',
+	'menu-users',
+	'dashicons-admin-users'
+];
 
-$menu[99] = array( '', 'exist', 'separator-last', '', 'wp-menu-separator' );
+$menu[99] = [
+	'',
+	'exist',
+	'separator-last',
+	'',
+	'wp-menu-separator'
+];
 
 $_wp_real_parent_file['users.php'] = 'profile.php';
-$compat = array();
-$submenu = array();
 
-require_once(ABSPATH . 'wp-admin/includes/menu.php');
+$compat  = [];
+$submenu = [];
+
+require_once( ABSPATH . 'wp-admin/includes/menu.php' );
