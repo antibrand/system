@@ -707,7 +707,7 @@ class Comments_List_Table extends List_Table {
 
 		if ( $this->user_can ) {
 			if ( ! empty( $comment->comment_author_email ) ) {
-				/** This filter is documented in wp-includes/comment-template.php */
+				/** This filter is documented in app-includes/comment-template.php */
 				$email = apply_filters( 'comment_email', $comment->comment_author_email, $comment );
 
 				if ( ! empty( $email ) && '@' !== $email ) {

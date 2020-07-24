@@ -202,7 +202,7 @@ require( ABSPATH . WPINC . '/comment.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-comment.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-comment-query.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-walker-comment.php' );
-require( ABSPATH . WPINC . '/comment-template.php' );
+require( ABSPATH . APPINC . '/comment-template.php' );
 require( ABSPATH . WPINC . '/rewrite.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-rewrite.php' );
 require( ABSPATH . APPINC . '/feed.php' );

@@ -42,7 +42,7 @@ function check_comment($author, $email, $url, $comment, $user_ip, $user_agent, $
 	if ( 1 == get_option('comment_moderation') )
 		return false;
 
-	/** This filter is documented in wp-includes/comment-template.php */
+	/** This filter is documented in app-includes/comment-template.php */
 	$comment = apply_filters( 'comment_text', $comment, null, array() );
 
 	// Check for the number of external links if a max allowed number is set.
@@ -1339,7 +1339,7 @@ function wp_delete_comment($comment_id, $force_delete = false) {
 
 	clean_comment_cache( $comment->comment_ID );
 
-	/** This action is documented in wp-includes/comment.php */
+	/** This action is documented in app-includes/comment.php */
 	do_action( 'wp_set_comment_status', $comment->comment_ID, 'delete' );
 
 	wp_transition_comment_status('delete', $comment->comment_approved, $comment);
@@ -1825,7 +1825,7 @@ function wp_filter_comment($commentdata) {
 		 */
 		$commentdata['user_id'] = apply_filters( 'pre_user_id', $commentdata['user_ID'] );
 	} elseif ( isset( $commentdata['user_id'] ) ) {
-		/** This filter is documented in wp-includes/comment.php */
+		/** This filter is documented in app-includes/comment.php */
 		$commentdata['user_id'] = apply_filters( 'pre_user_id', $commentdata['user_id'] );
 	}
 
@@ -1837,7 +1837,7 @@ function wp_filter_comment($commentdata) {
 	 * @param string $comment_agent The comment author's browser user agent.
 	 */
 	$commentdata['comment_agent'] = apply_filters( 'pre_comment_user_agent', ( isset( $commentdata['comment_agent'] ) ? $commentdata['comment_agent'] : '' ) );
-	/** This filter is documented in wp-includes/comment.php */
+	/** This filter is documented in app-includes/comment.php */
 	$commentdata['comment_author'] = apply_filters( 'pre_comment_author_name', $commentdata['comment_author'] );
 	/**
 	 * Filters the comment content before it is set.
@@ -1855,9 +1855,9 @@ function wp_filter_comment($commentdata) {
 	 * @param string $comment_author_ip The comment author's IP address.
 	 */
 	$commentdata['comment_author_IP'] = apply_filters( 'pre_comment_user_ip', $commentdata['comment_author_IP'] );
-	/** This filter is documented in wp-includes/comment.php */
+	/** This filter is documented in app-includes/comment.php */
 	$commentdata['comment_author_url'] = apply_filters( 'pre_comment_author_url', $commentdata['comment_author_url'] );
-	/** This filter is documented in wp-includes/comment.php */
+	/** This filter is documented in app-includes/comment.php */
 	$commentdata['comment_author_email'] = apply_filters( 'pre_comment_author_email', $commentdata['comment_author_email'] );
 	$commentdata['filtered'] = true;
 	return $commentdata;
@@ -2029,7 +2029,7 @@ function wp_new_comment_notify_moderator( $comment_ID ) {
 	// Only send notifications for pending comments.
 	$maybe_notify = ( '0' == $comment->comment_approved );
 
-	/** This filter is documented in wp-includes/comment.php */
+	/** This filter is documented in app-includes/comment.php */
 	$maybe_notify = apply_filters( 'notify_moderator', $maybe_notify, $comment_ID );
 
 	if ( ! $maybe_notify ) {
@@ -2534,7 +2534,7 @@ function _close_comments_for_old_post( $open, $post_id ) {
 
 	$post = get_post($post_id);
 
-	/** This filter is documented in wp-includes/comment.php */
+	/** This filter is documented in app-includes/comment.php */
 	$post_types = apply_filters( 'close_comments_for_post_types', array( 'post' ) );
 	if ( ! in_array( $post->post_type, $post_types ) )
 		return $open;
