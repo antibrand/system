@@ -3097,6 +3097,19 @@ function admin_url( $path = '', $scheme = 'admin' ) {
 }
 
 /**
+ * Retrieves the URL to the admin area for the current site.
+ *
+ * @since 1.0.0
+ * @param string $path Optional path relative to the admin URL.
+ * @param string $scheme The scheme to use. Default is 'admin', which obeys force_ssl_admin() and is_ssl().
+ *                       'http' or 'https' can be passed to force those schemes.
+ * @return string Admin URL link with optional path appended.
+ */
+function wp_admin_url( $path = '', $scheme = 'admin' ) {
+	return get_admin_url( null, $path, $scheme );
+}
+
+/**
  * Retrieves the URL to the admin area for a given site.
  *
  * @since 3.0.0
@@ -3109,6 +3122,35 @@ function admin_url( $path = '', $scheme = 'admin' ) {
  * @return string Admin URL link with optional path appended.
  */
 function get_admin_url( $blog_id = null, $path = '', $scheme = 'admin' ) {
+	$url = get_site_url($blog_id, 'wp-admin/', $scheme);
+
+	if ( $path && is_string( $path ) )
+		$url .= ltrim( $path, '/' );
+
+	/**
+	 * Filters the admin area URL.
+	 *
+	 * @since 2.8.0
+	 *
+	 * @param string   $url     The complete admin area URL including scheme and path.
+	 * @param string   $path    Path relative to the admin area URL. Blank string if no path is specified.
+	 * @param int|null $blog_id Site ID, or null for the current site.
+	 */
+	return apply_filters( 'admin_url', $url, $path, $blog_id );
+}
+
+/**
+ * Retrieves the URL to the admin area for a given site.
+ *
+ * @since 1.0.0
+ * @param int $blog_id Optional. Site ID. Default null (current site).
+ * @param string $path Optional. Path relative to the admin URL. Default empty.
+ * @param string $scheme Optional. The scheme to use. Accepts 'http' or 'https',
+ *                       to force those schemes. Default 'admin', which obeys
+ *                       force_ssl_admin() and is_ssl().
+ * @return string Admin URL link with optional path appended.
+ */
+function get_wp_admin_url( $blog_id = null, $path = '', $scheme = 'admin' ) {
 	$url = get_site_url($blog_id, 'wp-admin/', $scheme);
 
 	if ( $path && is_string( $path ) )

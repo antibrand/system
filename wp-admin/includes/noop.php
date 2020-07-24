@@ -85,6 +85,11 @@ function admin_url() {}
 /**
  * @ignore
  */
+function wp_admin_url() {}
+
+/**
+ * @ignore
+ */
 function home_url() {}
 
 /**
