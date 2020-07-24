@@ -854,7 +854,7 @@ function switch_to_blog( $new_blog, $deprecated = null ) {
 		}
 	}
 
-	/** This filter is documented in wp-includes/network-blogs.php */
+	/** This filter is documented in app-includes/network-blogs.php */
 	do_action( 'switch_blog', $new_blog, $prev_blog_id );
 	$GLOBALS['switched'] = true;
 
@@ -887,7 +887,7 @@ function restore_current_blog() {
 	$blog_id = get_current_blog_id();
 
 	if ( $blog_id == $blog ) {
-		/** This filter is documented in wp-includes/network-blogs.php */
+		/** This filter is documented in app-includes/network-blogs.php */
 		do_action( 'switch_blog', $blog, $blog );
 		// If we still have items in the switched stack, consider ourselves still 'switched'
 		$GLOBALS['switched'] = ! empty( $GLOBALS['_wp_switched_stack'] );
@@ -922,7 +922,7 @@ function restore_current_blog() {
 		}
 	}
 
-	/** This filter is documented in wp-includes/network-blogs.php */
+	/** This filter is documented in app-includes/network-blogs.php */
 	do_action( 'switch_blog', $blog, $prev_blog_id );
 
 	// If we still have items in the switched stack, consider ourselves still 'switched'
@@ -1022,34 +1022,34 @@ function update_blog_status( $blog_id, $pref, $value, $deprecated = null ) {
 
 	if ( 'spam' == $pref ) {
 		if ( $value == 1 ) {
-			/** This filter is documented in wp-includes/network-blogs.php */
+			/** This filter is documented in app-includes/network-blogs.php */
 			do_action( 'make_spam_blog', $blog_id );
 		} else {
-			/** This filter is documented in wp-includes/network-blogs.php */
+			/** This filter is documented in app-includes/network-blogs.php */
 			do_action( 'make_ham_blog', $blog_id );
 		}
 	} elseif ( 'mature' == $pref ) {
 		if ( $value == 1 ) {
-			/** This filter is documented in wp-includes/network-blogs.php */
+			/** This filter is documented in app-includes/network-blogs.php */
 			do_action( 'mature_blog', $blog_id );
 		} else {
-			/** This filter is documented in wp-includes/network-blogs.php */
+			/** This filter is documented in app-includes/network-blogs.php */
 			do_action( 'unmature_blog', $blog_id );
 		}
 	} elseif ( 'archived' == $pref ) {
 		if ( $value == 1 ) {
-			/** This filter is documented in wp-includes/network-blogs.php */
+			/** This filter is documented in app-includes/network-blogs.php */
 			do_action( 'archive_blog', $blog_id );
 		} else {
-			/** This filter is documented in wp-includes/network-blogs.php */
+			/** This filter is documented in app-includes/network-blogs.php */
 			do_action( 'unarchive_blog', $blog_id );
 		}
 	} elseif ( 'deleted' == $pref ) {
 		if ( $value == 1 ) {
-			/** This filter is documented in wp-includes/network-blogs.php */
+			/** This filter is documented in app-includes/network-blogs.php */
 			do_action( 'make_delete_blog', $blog_id );
 		} else {
-			/** This filter is documented in wp-includes/network-blogs.php */
+			/** This filter is documented in app-includes/network-blogs.php */
 			do_action( 'make_undelete_blog', $blog_id );
 		}
 	} elseif ( 'public' == $pref ) {

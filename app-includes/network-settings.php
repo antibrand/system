@@ -32,7 +32,7 @@
 global $current_site, $current_blog, $domain, $path, $site_id, $public;
 
 /** Network loader */
-require_once( ABSPATH . WPINC . '/network-load.php' );
+require_once( ABSPATH . APPINC . '/network-load.php' );
 
 /** Default network constants */
 require_once( ABSPATH . APPINC . '/constants-default-network.php' );

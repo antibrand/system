@@ -2361,7 +2361,7 @@ function wp_maybe_update_network_site_counts( $network_id = null ) {
 function wp_maybe_update_network_user_counts( $network_id = null ) {
 	$is_small_network = ! wp_is_large_network( 'users', $network_id );
 
-	/** This filter is documented in wp-includes/network-functions.php */
+	/** This filter is documented in app-includes/network-functions.php */
 	if ( ! apply_filters( 'enable_live_network_counts', $is_small_network, 'users' ) )
 		return;
 
@@ -2549,7 +2549,7 @@ function wp_is_large_network( $using = 'sites', $network_id = null ) {
 	}
 
 	$count = get_blog_count( $network_id );
-	/** This filter is documented in wp-includes/network-functions.php */
+	/** This filter is documented in app-includes/network-functions.php */
 	return apply_filters( 'wp_is_large_network', $count > 10000, 'sites', $count, $network_id );
 }
 

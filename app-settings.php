@@ -144,8 +144,8 @@ require( ABSPATH . APPINC . '/default-filters.php' );
 if ( is_network() ) {
 	require( ABSPATH . APPINC . '/classes/includes/class-app-site-query.php' );
 	require( ABSPATH . APPINC . '/classes/includes/class-app-network-query.php' );
-	require( ABSPATH . WPINC . '/network-blogs.php' );
-	require( ABSPATH . WPINC . '/network-settings.php' );
+	require( ABSPATH . APPINC . '/network-blogs.php' );
+	require( ABSPATH . APPINC . '/network-settings.php' );
 } elseif ( ! defined( 'APP_NETWORK' ) ) {
 	define( 'APP_NETWORK', false );
 }
@@ -182,7 +182,7 @@ require( ABSPATH . WPINC . '/user.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-user-query.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-session-tokens.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-user-meta-session-tokens.php' );
-require( ABSPATH . WPINC . '/meta.php' );
+require( ABSPATH . APPINC . '/meta.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-meta-query.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-metadata-lazyloader.php' );
 require( ABSPATH . APPINC . '/general-template.php' );
@@ -237,8 +237,8 @@ require( ABSPATH . APPINC . '/classes/includes/class-app-http-requests-hooks.php
 require( ABSPATH . WPINC . '/widgets.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-widget.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-widget-factory.php' );
-require( ABSPATH . WPINC . '/nav-menu.php' );
-require( ABSPATH . WPINC . '/nav-menu-template.php' );
+require( ABSPATH . APPINC . '/nav-menu.php' );
+require( ABSPATH . APPINC . '/nav-menu-template.php' );
 require( APP_VIEWS_PATH . '/includes/user-toolbar.php' );
 require( ABSPATH . APPINC . '/rest-api.php' );
 require( ABSPATH . APPINC . '/rest-api/class-wp-rest-server.php' );
@@ -265,9 +265,9 @@ $GLOBALS['wp_embed'] = new WP_Embed();
 
 // Load network-specific files.
 if ( is_network() ) {
-	require( ABSPATH . WPINC . '/network-functions.php' );
-	require( ABSPATH . WPINC . '/network-default-filters.php' );
-	require( ABSPATH . WPINC . '/network-deprecated.php' );
+	require( ABSPATH . APPINC . '/network-functions.php' );
+	require( ABSPATH . APPINC . '/network-default-filters.php' );
+	require( ABSPATH . APPINC . '/network-deprecated.php' );
 }
 
 /**

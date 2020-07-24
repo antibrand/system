@@ -11,7 +11,7 @@
  * Defines network upload constants.
  *
  * Exists for backward compatibility with legacy file-serving through
- * wp-includes/network-files.php (wp-content/blogs.php in MU).
+ * app-includes/network-files.php (wp-content/blogs.php in MU).
  *
  * @since 3.0.0
  */
@@ -85,7 +85,7 @@ function ms_cookie_constants(  ) {
  * Defines network file constants.
  *
  * Exists for backward compatibility with legacy file-serving through
- * wp-includes/network-files.php (wp-content/blogs.php in MU).
+ * app-includes/network-files.php (wp-content/blogs.php in MU).
  *
  * @since 3.0.0
  */

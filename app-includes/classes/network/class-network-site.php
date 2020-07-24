@@ -331,7 +331,7 @@ final class Network_Site {
 			wp_cache_set( $this->blog_id, $details, 'site-details' );
 		}
 
-		/** This filter is documented in wp-includes/network-blogs.php */
+		/** This filter is documented in app-includes/network-blogs.php */
 		$details = apply_filters_deprecated( 'blog_details', array( $details ), '4.7.0', 'site_details' );
 
 		/**
