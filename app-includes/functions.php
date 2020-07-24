@@ -1405,11 +1405,7 @@ function is_blog_installed() {
 		wp_load_translations_early();
 
 		// Die with a DB error.
-		$wpdb->error = sprintf(
-			/* translators: %s: database repair URL */
-			__( 'One or more database tables are unavailable. The database may need to be <a href="%s">repaired</a>.' ),
-			'maint/repair.php?referrer=is_blog_installed'
-		);
+		$wpdb->error = esc_html__( 'One or more database tables are unavailable. The database may need to be repaired.' );
 
 		dead_db();
 	}
