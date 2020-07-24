@@ -2106,13 +2106,13 @@ function comment_form( $args = array(), $post_id = null ) {
 	$defaults = array(
 		'fields'               => $fields,
 		'comment_field'        => '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p>',
-		/** This filter is documented in wp-includes/link-template.php */
+		/** This filter is documented in app-includes/link-template.php */
 		'must_log_in'          => '<p class="must-log-in">' . sprintf(
 		                              /* translators: %s: login URL */
 		                              __( 'You must be <a href="%s">logged in</a> to post a comment.' ),
 		                              wp_login_url( apply_filters( 'the_permalink', get_permalink( $post_id ), $post_id ) )
 		                          ) . '</p>',
-		/** This filter is documented in wp-includes/link-template.php */
+		/** This filter is documented in app-includes/link-template.php */
 		'logged_in_as'         => '<p class="logged-in-as">' . sprintf(
 		                              /* translators: 1: edit user link, 2: accessibility text, 3: user name, 4: logout URL */
 		                              __( '<a href="%1$s" aria-label="%2$s">Logged in as %3$s</a>. <a href="%4$s">Log out?</a>' ),

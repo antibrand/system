@@ -158,7 +158,7 @@ if ( SHORTINIT ) {
 }
 
 // Load the L10n library.
-require_once( ABSPATH . WPINC . '/l10n.php' );
+require_once( ABSPATH . APPINC . '/l10n.php' );
 require_once( ABSPATH . APPINC . '/classes/includes/class-app-locale.php' );
 require_once( ABSPATH . APPINC . '/classes/includes/class-app-locale-switcher.php' );
 
@@ -186,7 +186,7 @@ require( ABSPATH . WPINC . '/meta.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-meta-query.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-metadata-lazyloader.php' );
 require( ABSPATH . APPINC . '/general-template.php' );
-require( ABSPATH . WPINC . '/link-template.php' );
+require( ABSPATH . APPINC . '/link-template.php' );
 require( ABSPATH . APPINC . '/author-template.php' );
 require( ABSPATH . WPINC . '/post.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-walker-page-dropdown.php' );
@@ -208,7 +208,7 @@ require( ABSPATH . APPINC . '/classes/includes/class-app-rewrite.php' );
 require( ABSPATH . APPINC . '/feed.php' );
 require( ABSPATH . APPINC . '/bookmark.php' );
 require( ABSPATH . APPINC . '/bookmark-template.php' );
-require( ABSPATH . WPINC . '/kses.php' );
+require( ABSPATH . APPINC . '/kses.php' );
 require( ABSPATH . APPINC . '/cron.php' );
 require( ABSPATH . WPINC . '/script-loader.php' );
 require( ABSPATH . WPINC . '/taxonomy.php' );
@@ -223,9 +223,9 @@ require( ABSPATH . APPINC . '/embed.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-embed.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-oembed.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-oembed-controller.php' );
-require( ABSPATH . WPINC . '/media.php' );
-require( ABSPATH . WPINC . '/http.php' );
-require( ABSPATH . APPINC . '/class-http.php' );
+require( ABSPATH . APPINC . '/media.php' );
+require( ABSPATH . APPINC . '/http.php' );
+require( ABSPATH . APPINC . '/classes/includes/class-http.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-http-streams.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-http-curl.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-http-proxy.php' );

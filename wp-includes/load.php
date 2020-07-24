@@ -556,7 +556,7 @@ function app_not_installed() {
 
 		nocache_headers();
 
-		require( ABSPATH . WPINC . '/kses.php' );
+		require( ABSPATH . APPINC . '/kses.php' );
 		require( ABSPATH . WPINC . '/pluggable.php' );
 		require( ABSPATH . APPINC . '/formatting.php' );
 
@@ -890,7 +890,7 @@ function wp_load_translations_early() {
 
 	// Translation and localization
 	require_once ABSPATH . APPINC . '/pomo/mo.php';
-	require_once ABSPATH . WPINC . '/l10n.php';
+	require_once ABSPATH . APPINC . '/l10n.php';
 	require_once ABSPATH . APPINC . '/classes/includes/class-app-locale.php';
 	require_once ABSPATH . APPINC . '/classes/includes/class-app-locale-switcher.php';
 
