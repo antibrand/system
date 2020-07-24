@@ -22,10 +22,11 @@ require ABSPATH . APPINC . '/SimplePie/Author.php';
  * @since 3.5.0
  */
 function wp_simplepie_autoload( $class ) {
+
 	if ( 0 !== strpos( $class, 'SimplePie_' ) )
 		return;
 
-	$file = ABSPATH . WPINC . '/' . str_replace( '_', '/', $class ) . '.php';
+	$file = ABSPATH . APPINC . '/' . str_replace( '_', '/', $class ) . '.php';
 	include( $file );
 }
 

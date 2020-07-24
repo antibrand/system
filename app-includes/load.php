@@ -346,7 +346,7 @@ function app_debug_mode() {
  *
  * If the language directory exists within `WP_CONTENT_DIR`, it
  * is used. Otherwise the language directory is assumed to live
- * in `WPINC`.
+ * in `APPINC`.
  *
  * @since 3.0.0
  * @access private
@@ -355,7 +355,7 @@ function wp_set_lang_dir() {
 
 	if ( ! defined( 'APP_LANG_DIR' ) ) {
 
-		if ( file_exists( ABSPATH . 'app-languages' ) && @is_dir( ABSPATH . 'app-languages' ) || !@is_dir( ABSPATH . WPINC . '/languages' ) ) {
+		if ( file_exists( ABSPATH . 'app-languages' ) && @is_dir( ABSPATH . 'app-languages' ) || !@is_dir( ABSPATH . APPINC . '/languages' ) ) {
 
 			/**
 			 * Server path of the language directory.
@@ -381,12 +381,12 @@ function wp_set_lang_dir() {
 			 *
 			 * @since 2.1.0
 			 */
-			define( 'APP_LANG_DIR', ABSPATH . WPINC . '/languages' );
+			define( 'APP_LANG_DIR', ABSPATH . APPINC . '/languages' );
 
 			if ( ! defined( 'LANGDIR' ) ) {
 
 				// Old relative path maintained for backward compatibility.
-				define( 'LANGDIR', WPINC . '/languages' );
+				define( 'LANGDIR', APPINC . '/languages' );
 			}
 		}
 	}
@@ -921,8 +921,8 @@ function wp_load_translations_early() {
 		if ( @is_dir( ABSPATH . 'app-languages' ) )
 			$locations[] = ABSPATH . 'app-languages';
 
-		if ( @is_dir( ABSPATH . WPINC . '/languages' ) )
-			$locations[] = ABSPATH . WPINC . '/languages';
+		if ( @is_dir( ABSPATH . APPINC . '/languages' ) )
+			$locations[] = ABSPATH . APPINC . '/languages';
 
 		if ( ! $locations )
 			break;

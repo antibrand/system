@@ -3756,7 +3756,7 @@ function rich_edit_exists() {
 	_deprecated_function( __FUNCTION__, '3.9.0' );
 
 	if ( ! isset( $wp_rich_edit_exists ) ) {
-		$wp_rich_edit_exists = file_exists( ABSPATH . WPINC . '/js/tinymce/tinymce.js' );
+		$wp_rich_edit_exists = file_exists( app_assets_url( '/js/includes/tinymce/tinymce.js' ) );
 	}
 
 	return $wp_rich_edit_exists;

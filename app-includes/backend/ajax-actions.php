@@ -1545,7 +1545,7 @@ function wp_ajax_wp_link_ajax() {
 	$args['pagenum'] = ! empty( $_POST['page'] ) ? absint( $_POST['page'] ) : 1;
 
 	if ( ! class_exists( '_WP_Editors', false ) ) {
-		require( ABSPATH . WPINC . '/class-app-editor.php' );
+		require( ABSPATH . APPINC . '/classes/includes/class-app-editor.php' );
 	}
 
 	$results = _WP_Editors::wp_link_query( $args );

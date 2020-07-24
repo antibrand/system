@@ -531,7 +531,7 @@ class WP_Scripts extends WP_Dependencies {
 			return true;
 		}
 
-		if ( 0 === strpos( $src, '/' . WPINC . '/js/l10n' ) ) {
+		if ( 0 === strpos( $src, '/' . APPASSETS . '/js/includes/l10n' ) ) {
 			return false;
 		}
 

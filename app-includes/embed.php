@@ -437,7 +437,7 @@ function get_post_embed_html( $width, $height, $post = null ) {
 	$output .= "<script type='text/javascript'>\n";
 	$output .= "<!--//--><![CDATA[//><!--\n";
 	if ( SCRIPT_DEBUG ) {
-		$output .= file_get_contents( ABSPATH . WPINC . '/js/wp-embed.js' );
+		$output .= file_get_contents( app_assets_url( '/js/includes/wp-embed.js' ) );
 	} else {
 		/*
 		 * If you're looking at a src version of this file, you'll see an "include"
@@ -892,7 +892,7 @@ function print_embed_scripts() {
 	<script type="text/javascript">
 	<?php
 		if ( SCRIPT_DEBUG ) {
-			readfile( ABSPATH . WPINC . "/js/wp-embed-template.js" );
+			readfile( app_assets_url( '/js/wp-embed-template.js' ) );
 		} else {
 			/*
 			 * If you're looking at a src version of this file, you'll see an "include"

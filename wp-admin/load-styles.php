@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', dirname( dirname( __FILE__ ) ) . '/' );
 }
 
-define( 'WPINC', 'wp-includes' );
+define( 'APPINC', 'app-includes' );
 
 require( ABSPATH . APPINC . '/backend/noop.php' );
 require( ABSPATH . APPINC . '/script-loader.php' );
@@ -63,10 +63,10 @@ foreach ( $load as $handle ) {
 
 	$content = get_file( $path ) . "\n";
 
-	if ( strpos( $style->src, '/' . WPINC . '/css/' ) === 0 ) {
-		$content = str_replace( '../images/', '../' . WPINC . '/images/', $content );
-		$content = str_replace( '../js/tinymce/', '../' . WPINC . '/js/tinymce/', $content );
-		$content = str_replace( '../fonts/', '../' . WPINC . '/fonts/', $content );
+	if ( strpos( $style->src, '/' . APPASSETS . '/includes/css/' ) === 0 ) {
+		$content = str_replace( '../images/', '../' . APPASSETS . '/includes/images/', $content );
+		$content = str_replace( '../js/tinymce/', '../' . APPASSETS . '/includes/js/tinymce/', $content );
+		$content = str_replace( '../fonts/', '../' . APPASSETS . '/includes/fonts/', $content );
 		$out .= $content;
 	} else {
 		$out .= str_replace( '../images/', 'images/', $content );
@@ -79,4 +79,5 @@ header('Expires: ' . gmdate( "D, d M Y H:i:s", time() + $expires_offset ) . ' GM
 header("Cache-Control: public, max-age=$expires_offset");
 
 echo $out;
+
 exit;

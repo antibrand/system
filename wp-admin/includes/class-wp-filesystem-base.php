@@ -55,7 +55,7 @@ class WP_Filesystem_Base {
 	public function abspath() {
 		$folder = $this->find_folder(ABSPATH);
 		// Perhaps the FTP folder is rooted at the install, Check for wp-includes folder in root, Could have some false positives, but rare.
-		if ( ! $folder && $this->is_dir( '/' . WPINC ) )
+		if ( ! $folder && $this->is_dir( '/' . APPINC ) )
 			$folder = '/';
 		return $folder;
 	}
