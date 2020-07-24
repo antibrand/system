@@ -13,7 +13,7 @@ if ( ! defined( 'IFRAME_REQUEST' ) && isset( $_GET['action'] ) && in_array( $_GE
 // Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
-include_once( ABSPATH . 'wp-admin/includes/class-wp-upgrader.php' );
+include_once( ABSPATH . 'app-includes/classes/backend/class-wp-upgrader.php' );
 
 if ( isset( $_GET['action'] ) ) {
 
@@ -256,7 +256,7 @@ if ( isset( $_GET['action'] ) ) {
 		}
 
 		// For themes_api.
-		include_once( ABSPATH . 'wp-admin/includes/class-wp-upgrader.php' );
+		include_once( ABSPATH . 'app-includes/classes/backend/class-wp-upgrader.php' );
 
 		check_admin_referer( 'install-theme_' . $theme );
 
