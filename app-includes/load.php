@@ -557,7 +557,7 @@ function app_not_installed() {
 		nocache_headers();
 
 		require( ABSPATH . APPINC . '/kses.php' );
-		require( ABSPATH . WPINC . '/pluggable.php' );
+		require( ABSPATH . APPINC . '/pluggable.php' );
 		require( ABSPATH . APPINC . '/formatting.php' );
 
 		$link = wp_guess_url() . '/app-views/includes/install.php';
@@ -895,7 +895,7 @@ function wp_load_translations_early() {
 	require_once ABSPATH . APPINC . '/classes/includes/class-app-locale-switcher.php';
 
 	// General libraries
-	require_once ABSPATH . WPINC . '/plugin.php';
+	require_once ABSPATH . APPINC . '/plugin.php';
 
 	$locales = $locations = array();
 

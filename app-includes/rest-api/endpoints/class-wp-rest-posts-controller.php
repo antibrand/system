@@ -1421,7 +1421,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 
 		if ( in_array( 'guid', $fields, true ) ) {
 			$data['guid'] = array(
-				/** This filter is documented in wp-includes/post-template.php */
+				/** This filter is documented in app-includes/post-template.php */
 				'rendered' => apply_filters( 'get_the_guid', $post->guid, $post->ID ),
 				'raw'      => $post->guid,
 			);
@@ -1487,14 +1487,14 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 		if ( in_array( 'content', $fields, true ) ) {
 			$data['content'] = array(
 				'raw'       => $post->post_content,
-				/** This filter is documented in wp-includes/post-template.php */
+				/** This filter is documented in app-includes/post-template.php */
 				'rendered'  => post_password_required( $post ) ? '' : apply_filters( 'the_content', $post->post_content ),
 				'protected' => (bool) $post->post_password,
 			);
 		}
 
 		if ( in_array( 'excerpt', $fields, true ) ) {
-			/** This filter is documented in wp-includes/post-template.php */
+			/** This filter is documented in app-includes/post-template.php */
 			$excerpt = apply_filters( 'the_excerpt', apply_filters( 'get_the_excerpt', $post->post_excerpt, $post ) );
 			$data['excerpt'] = array(
 				'raw'       => $post->post_excerpt,

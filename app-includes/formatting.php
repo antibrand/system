@@ -3309,7 +3309,7 @@ function wp_trim_excerpt( $text = '' ) {
 
 		$text = strip_shortcodes( $text );
 
-		/** This filter is documented in wp-includes/post-template.php */
+		/** This filter is documented in app-includes/post-template.php */
 		$text = apply_filters( 'the_content', $text );
 		$text = str_replace(']]>', ']]&gt;', $text);
 
@@ -5221,7 +5221,7 @@ function wp_staticize_emoji_for_email( $mail ) {
 		$content_type = 'text/plain';
 	}
 
-	/** This filter is documented in wp-includes/pluggable.php */
+	/** This filter is documented in app-includes/pluggable.php */
 	$content_type = apply_filters( 'wp_mail_content_type', $content_type );
 
 	if ( 'text/html' === $content_type ) {

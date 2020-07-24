@@ -382,7 +382,7 @@ function sanitize_bookmark_field( $field, $value, $bookmark_id, $context ) {
 		return $value;
 
 	if ( 'edit' == $context ) {
-		/** This filter is documented in wp-includes/post.php */
+		/** This filter is documented in app-includes/post.php */
 		$value = apply_filters( "edit_{$field}", $value, $bookmark_id );
 
 		if ( 'link_notes' == $field ) {
@@ -391,10 +391,10 @@ function sanitize_bookmark_field( $field, $value, $bookmark_id, $context ) {
 			$value = esc_attr($value);
 		}
 	} elseif ( 'db' == $context ) {
-		/** This filter is documented in wp-includes/post.php */
+		/** This filter is documented in app-includes/post.php */
 		$value = apply_filters( "pre_{$field}", $value );
 	} else {
-		/** This filter is documented in wp-includes/post.php */
+		/** This filter is documented in app-includes/post.php */
 		$value = apply_filters( "{$field}", $value, $bookmark_id, $context );
 
 		if ( 'attribute' == $context ) {

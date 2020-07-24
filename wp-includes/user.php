@@ -1187,7 +1187,7 @@ function sanitize_user_field($field, $value, $user_id, $context) {
 	if ( 'edit' == $context ) {
 		if ( $prefixed ) {
 
-			/** This filter is documented in wp-includes/post.php */
+			/** This filter is documented in app-includes/post.php */
 			$value = apply_filters( "edit_{$field}", $value, $user_id );
 		} else {
 
@@ -1211,7 +1211,7 @@ function sanitize_user_field($field, $value, $user_id, $context) {
 			$value = esc_attr($value);
 	} elseif ( 'db' == $context ) {
 		if ( $prefixed ) {
-			/** This filter is documented in wp-includes/post.php */
+			/** This filter is documented in app-includes/post.php */
 			$value = apply_filters( "pre_{$field}", $value );
 		} else {
 
@@ -1231,7 +1231,7 @@ function sanitize_user_field($field, $value, $user_id, $context) {
 		// Use display filters by default.
 		if ( $prefixed ) {
 
-			/** This filter is documented in wp-includes/post.php */
+			/** This filter is documented in app-includes/post.php */
 			$value = apply_filters( "{$field}", $value, $user_id, $context );
 		} else {
 
@@ -2002,7 +2002,7 @@ All at ###SITENAME###
 			// Here we calculate the expiration length of the current auth cookie and compare it to the default expiration.
 			// If it's greater than this, then we know the user checked 'Remember Me' when they logged in.
 			$logged_in_cookie    = wp_parse_auth_cookie( '', 'logged_in' );
-			/** This filter is documented in wp-includes/pluggable.php */
+			/** This filter is documented in app-includes/pluggable.php */
 			$default_cookie_life = apply_filters( 'auth_cookie_expiration', ( 2 * DAY_IN_SECONDS ), $ID, false );
 			$remember            = ( ( $logged_in_cookie['expiration'] - time() ) > $default_cookie_life );
 

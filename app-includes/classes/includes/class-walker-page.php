@@ -214,7 +214,7 @@ class Walker_Page extends Walker {
 			$css_classes,
 			$attributes,
 			$args['link_before'],
-			// This filter is documented in wp-includes/post-template.php.
+			// This filter is documented in app-includes/post-template.php.
 			apply_filters( 'the_title', $page->post_title, $page->ID ),
 			$args['link_after']
 		);

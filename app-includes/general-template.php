@@ -1986,7 +1986,7 @@ function wp_get_archives( $args = '' ) {
 				if ( $result->post_date != '0000-00-00 00:00:00' ) {
 					$url = get_permalink( $result );
 					if ( $result->post_title ) {
-						/** This filter is documented in wp-includes/post-template.php */
+						/** This filter is documented in app-includes/post-template.php */
 						$text = strip_tags( apply_filters( 'the_title', $result->post_title, $result->ID ) );
 					} else {
 						$text = $result->ID;

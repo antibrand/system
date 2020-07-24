@@ -773,7 +773,7 @@ function wp_setup_nav_menu_item( $menu_item ) {
 				$menu_item->url = get_permalink( $menu_item->object_id );
 
 				$original_object = get_post( $menu_item->object_id );
-				/** This filter is documented in wp-includes/post-template.php */
+				/** This filter is documented in app-includes/post-template.php */
 				$original_title = apply_filters( 'the_title', $original_object->post_title, $original_object->ID );
 
 				if ( '' === $original_title ) {

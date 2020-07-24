@@ -368,7 +368,7 @@ class WP_REST_Revisions_Controller extends WP_REST_Controller {
 
 		if ( in_array( 'guid', $fields, true ) ) {
 			$data['guid'] = array(
-				/** This filter is documented in wp-includes/post-template.php */
+				/** This filter is documented in app-includes/post-template.php */
 				'rendered' => apply_filters( 'get_the_guid', $post->guid, $post->ID ),
 				'raw'      => $post->guid,
 			);
@@ -385,7 +385,7 @@ class WP_REST_Revisions_Controller extends WP_REST_Controller {
 
 			$data['content'] = array(
 				'raw'      => $post->post_content,
-				/** This filter is documented in wp-includes/post-template.php */
+				/** This filter is documented in app-includes/post-template.php */
 				'rendered' => apply_filters( 'the_content', $post->post_content ),
 			);
 		}
@@ -553,7 +553,7 @@ class WP_REST_Revisions_Controller extends WP_REST_Controller {
 	 */
 	protected function prepare_excerpt_response( $excerpt, $post ) {
 
-		/** This filter is documented in wp-includes/post-template.php */
+		/** This filter is documented in app-includes/post-template.php */
 		$excerpt = apply_filters( 'the_excerpt', $excerpt, $post );
 
 		if ( empty( $excerpt ) ) {

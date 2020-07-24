@@ -655,7 +655,7 @@
 			/*
 			 * The body will support custom backgrounds if either the color or image are set.
 			 *
-			 * See get_body_class() in /wp-includes/post-template.php
+			 * See get_body_class() in /app-includes/post-template.php
 			 */
 			$( document.body ).toggleClass( 'custom-background', !! ( settings.color() || settings.image() ) );
 

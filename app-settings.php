@@ -36,9 +36,9 @@ require( ABSPATH . APPINC . '/deprecated-versions.php' );
 require( ABSPATH . APPINC . '/deprecated-branded.php' );
 
 // Include files required for initialization.
-require( ABSPATH . WPINC . '/load.php' );
+require( ABSPATH . APPINC . '/load.php' );
 require( ABSPATH . APPINC . '/constants-default.php' );
-require_once( ABSPATH . WPINC . '/plugin.php' );
+require_once( ABSPATH . APPINC . '/plugin.php' );
 
 /**
  * These can't be directly globalized in version.php. When updating,
@@ -173,7 +173,7 @@ require( ABSPATH . APPINC . '/classes/includes/class-app-roles.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-role.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-user.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-query.php' );
-require( ABSPATH . WPINC . '/query.php' );
+require( ABSPATH . APPINC . '/query.php' );
 require( ABSPATH . APPINC . '/date.php' );
 require( ABSPATH . WPINC . '/theme.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-theme.php' );
@@ -188,14 +188,14 @@ require( ABSPATH . APPINC . '/classes/includes/class-app-metadata-lazyloader.php
 require( ABSPATH . APPINC . '/general-template.php' );
 require( ABSPATH . APPINC . '/link-template.php' );
 require( ABSPATH . APPINC . '/author-template.php' );
-require( ABSPATH . WPINC . '/post.php' );
+require( ABSPATH . APPINC . '/post.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-walker-page-dropdown.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-post-type.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-post.php' );
-require( ABSPATH . WPINC . '/post-template.php' );
-require( ABSPATH . WPINC . '/revision.php' );
-require( ABSPATH . WPINC . '/post-formats.php' );
-require( ABSPATH . WPINC . '/post-thumbnail-template.php' );
+require( ABSPATH . APPINC . '/post-template.php' );
+require( ABSPATH . APPINC . '/revision.php' );
+require( ABSPATH . APPINC . '/post-formats.php' );
+require( ABSPATH . APPINC . '/post-thumbnail-template.php' );
 require( ABSPATH . APPINC . '/category.php' );
 require( ABSPATH . APPINC . '/category-template.php' );
 require( ABSPATH . APPINC . '/comment.php' );
@@ -330,8 +330,8 @@ foreach ( wp_get_active_and_valid_plugins() as $plugin ) {
 unset( $plugin );
 
 // Load pluggable functions.
-require( ABSPATH . WPINC . '/pluggable.php' );
-require( ABSPATH . WPINC . '/pluggable-deprecated.php' );
+require( ABSPATH . APPINC . '/pluggable.php' );
+require( ABSPATH . APPINC . '/pluggable-deprecated.php' );
 
 // Set internal encoding.
 wp_set_internal_encoding();

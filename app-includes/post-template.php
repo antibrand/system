@@ -850,12 +850,12 @@ function post_password_required( $post = null ) {
 	$post = get_post($post);
 
 	if ( empty( $post->post_password ) ) {
-		/** This filter is documented in wp-includes/post-template.php */
+		/** This filter is documented in app-includes/post-template.php */
 		return apply_filters( 'post_password_required', false, $post );
 	}
 
 	if ( ! isset( $_COOKIE[ 'wp-postpass_' . COOKIEHASH ] ) ) {
-		/** This filter is documented in wp-includes/post-template.php */
+		/** This filter is documented in app-includes/post-template.php */
 		return apply_filters( 'post_password_required', true, $post );
 	}
 
@@ -975,7 +975,7 @@ function wp_link_pages( $args = '' ) {
 			if ( $prev > 0 ) {
 				$link = _wp_link_page( $prev ) . $r['link_before'] . $r['previouspagelink'] . $r['link_after'] . '</a>';
 
-				/** This filter is documented in wp-includes/post-template.php */
+				/** This filter is documented in app-includes/post-template.php */
 				$output .= apply_filters( 'wp_link_pages_link', $link, $prev );
 			}
 			$next = $page + 1;
@@ -985,7 +985,7 @@ function wp_link_pages( $args = '' ) {
 				}
 				$link = _wp_link_page( $next ) . $r['link_before'] . $r['nextpagelink'] . $r['link_after'] . '</a>';
 
-				/** This filter is documented in wp-includes/post-template.php */
+				/** This filter is documented in app-includes/post-template.php */
 				$output .= apply_filters( 'wp_link_pages_link', $link, $next );
 			}
 			$output .= $r['after'];

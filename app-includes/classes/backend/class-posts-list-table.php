@@ -946,7 +946,7 @@ class Posts_List_Table extends List_Table {
 					$find_main_page = (int) $parent->post_parent;
 
 					if ( ! isset( $parent_name ) ) {
-						/** This filter is documented in wp-includes/post-template.php */
+						/** This filter is documented in app-includes/post-template.php */
 						$parent_name = apply_filters( 'the_title', $parent->post_title, $parent->ID );
 					}
 				}

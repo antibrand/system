@@ -59,7 +59,7 @@ if ( file_exists( ABSPATH . 'app-config.php' ) ) {
 } else {
 
 	define( 'WPINC', 'wp-includes' );
-	require_once( ABSPATH . WPINC . '/load.php' );
+	require_once( ABSPATH . APPINC . '/load.php' );
 
 	// Standardize $_SERVER variables across setups.
 	wp_fix_server_vars();
