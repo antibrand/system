@@ -2616,7 +2616,7 @@ function _wp_get_current_user() {
  * Send a confirmation request email when a change of user email address is attempted.
  *
  * @since 3.0.0
- * @since 4.9.0 This function was moved from wp-admin/includes/network-functions.php so it's no longer network specific.
+ * @since 4.9.0 This function was moved so it's no longer network specific.
  *
  * @global WP_Error $errors WP_Error object.
  * @global wpdb $wpdb Database object.
@@ -2717,7 +2717,7 @@ All at ###SITENAME###
  * after email address change.
  *
  * @since 3.0.0
- * @since 4.9.0 This function was moved from wp-admin/includes/network-functions.php so it's no longer network specific.
+ * @since 4.9.0 This function was moved so it's no longer network specific.
  *
  * @global string $pagenow
  */
