@@ -440,7 +440,7 @@ function themes_api( $action, $args = array() ) {
 
 	if ( ! $res ) {
 		// include an unmodified $wp_version
-		include( ABSPATH . WPINC . '/version.php' );
+		include( ABSPATH . APPINC . '/version.php' );
 
 		$url = $http_url = '';
 		if ( $ssl = wp_http_supports( array( 'ssl' ) ) )

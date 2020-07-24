@@ -11,7 +11,7 @@
  * Singleton that registers and instantiates WP_Widget classes.
  *
  * @since 2.8.0
- * @since 4.4.0 Moved to its own file from wp-includes/widgets.php
+ * @since 4.4.0 Moved to its own file from app-includes/widgets.php
  */
 class WP_Widget_Factory {
 

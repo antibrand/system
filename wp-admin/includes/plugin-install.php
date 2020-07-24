@@ -138,7 +138,7 @@ function plugins_api( $action, $args = [] ) {
 	if ( false === $res ) {
 
 		// Include an unmodified $wp_version.
-		include( ABSPATH . WPINC . '/version.php' );
+		include( ABSPATH . APPINC . '/version.php' );
 
 		/**
 		 * Disable plugins API URL

@@ -17,7 +17,7 @@
  * @return object|WP_Error On success an object of translations, WP_Error on failure.
  */
 function translations_api( $type, $args = null ) {
-	include( ABSPATH . WPINC . '/version.php' ); // include an unmodified $wp_version
+	include( ABSPATH . APPINC . '/version.php' ); // include an unmodified $wp_version
 
 	if ( ! in_array( $type, array( 'plugins', 'themes', 'core' ) ) ) {
 		return	new WP_Error( 'invalid_type', __( 'Invalid translation type.' ) );
@@ -127,7 +127,7 @@ function wp_get_available_translations() {
 		return $translations;
 	}
 
-	include( ABSPATH . WPINC . '/version.php' ); // include an unmodified $wp_version
+	include( ABSPATH . APPINC . '/version.php' ); // include an unmodified $wp_version
 
 	$api = translations_api( 'core', array( 'version' => $wp_version ) );
 

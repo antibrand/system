@@ -94,7 +94,7 @@ window.wp = window.wp || {};
 		// ### Generate a RegExp to identify a shortcode
 		//
 		// The base regex is functionally equivalent to the one found in
-		// `get_shortcode_regex()` in `wp-includes/shortcodes.php`.
+		// `get_shortcode_regex()` in `app-includes/shortcodes.php`.
 		//
 		// Capture groups:
 		//
@@ -127,7 +127,7 @@ window.wp = window.wp || {};
 				pattern, match;
 
 			// This regular expression is reused from `shortcode_parse_atts()`
-			// in `wp-includes/shortcodes.php`.
+			// in `app-includes/shortcodes.php`.
 			//
 			// Capture groups:
 			//

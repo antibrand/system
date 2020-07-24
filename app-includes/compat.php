@@ -492,7 +492,7 @@ endif;
  * autoloader is included only if necessary.
  */
 if ( ! function_exists( 'spl_autoload_register' ) ) {
-	require_once ABSPATH . WPINC . '/spl-autoload-compat.php';
+	require_once ABSPATH . APPINC . '/spl-autoload-compat.php';
 }
 
 if ( ! function_exists( 'is_countable' ) ) {

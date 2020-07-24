@@ -9,7 +9,7 @@
  * @package App_Package
  * @subpackage Administration
  *
- * @see wp-includes/wp-db.php
+ * @see app-includes/app-db.php
  */
 
 ?>

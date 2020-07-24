@@ -48,7 +48,7 @@ require( ABSPATH . APPINC . '/functions.app-styles.php' );
 function wp_default_scripts( &$scripts ) {
 
 	// Include an unmodified $app_version'
-	include( ABSPATH . WPINC . '/version.php' );
+	include( ABSPATH . APPINC . '/version.php' );
 
 	$develop_src = false !== strpos( $app_version, '-src' );
 
@@ -893,7 +893,7 @@ function wp_default_scripts( &$scripts ) {
 function wp_default_styles( &$styles ) {
 
 	// Include an unmodified $app_version.
-	include( ABSPATH . WPINC . '/version.php' );
+	include( ABSPATH . APPINC . '/version.php' );
 
 	if ( ! defined( 'SCRIPT_DEBUG' ) ) {
 		define( 'SCRIPT_DEBUG', false !== strpos( $app_version, '-src' ) );

@@ -873,7 +873,7 @@ function get_theme_mod( $name, $default = false ) {
 	if ( is_string( $default ) )
 		$default = sprintf( $default, get_template_directory_uri(), get_stylesheet_directory_uri() );
 
-	/** This filter is documented in wp-includes/theme.php */
+	/** This filter is documented in app-includes/theme.php */
 	return apply_filters( "theme_mod_{$name}", $default );
 }
 
@@ -2713,7 +2713,7 @@ function check_theme_switched() {
 			 */
 			do_action( 'after_switch_theme', $old_theme->get( 'Name' ), $old_theme );
 		} else {
-			/** This action is documented in wp-includes/theme.php */
+			/** This action is documented in app-includes/theme.php */
 			do_action( 'after_switch_theme', $stylesheet, $old_theme );
 		}
 		flush_rewrite_rules();

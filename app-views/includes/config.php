@@ -275,7 +275,7 @@ switch( $step ) :
 	 * The `wpdb` constructor bails when `WP_SETUP_CONFIG` is set so this must
 	 * fire manually. Fail here if the values are no good.
 	 *
-	 * @see wp-includes/wp-db.php
+	 * @see app-includes/app-db.php
 	 */
 	$wpdb->db_connect();
 

@@ -25,8 +25,8 @@ if ( empty($load) )
 	exit;
 
 require( ABSPATH . 'wp-admin/includes/noop.php' );
-require( ABSPATH . WPINC . '/script-loader.php' );
-require( ABSPATH . WPINC . '/version.php' );
+require( ABSPATH . APPINC . '/script-loader.php' );
+require( ABSPATH . APPINC . '/version.php' );
 
 $expires_offset = 31536000; // 1 year
 $out = '';

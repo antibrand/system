@@ -46,7 +46,7 @@ require_once( ABSPATH . APPINC . '/plugin.php' );
  * these values to be overridden if already set.
  */
 global $app_version, $wp_version, $wp_db_version, $tinymce_version, $required_php_version, $required_mysql_version, $wp_local_package;
-require( ABSPATH . WPINC . '/version.php' );
+require( ABSPATH . APPINC . '/version.php' );
 
 /**
  * If not already configured, `$blog_id` will default to 1 in a single site
@@ -175,10 +175,10 @@ require( ABSPATH . APPINC . '/classes/includes/class-app-user.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-query.php' );
 require( ABSPATH . APPINC . '/query.php' );
 require( ABSPATH . APPINC . '/date.php' );
-require( ABSPATH . WPINC . '/theme.php' );
+require( ABSPATH . APPINC . '/theme.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-theme.php' );
-require( ABSPATH . WPINC . '/template.php' );
-require( ABSPATH . WPINC . '/user.php' );
+require( ABSPATH . APPINC . '/template.php' );
+require( ABSPATH . APPINC . '/user.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-user-query.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-session-tokens.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-user-meta-session-tokens.php' );
@@ -203,22 +203,22 @@ require( ABSPATH . APPINC . '/classes/includes/class-app-comment.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-comment-query.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-walker-comment.php' );
 require( ABSPATH . APPINC . '/comment-template.php' );
-require( ABSPATH . WPINC . '/rewrite.php' );
+require( ABSPATH . APPINC . '/rewrite.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-rewrite.php' );
 require( ABSPATH . APPINC . '/feed.php' );
 require( ABSPATH . APPINC . '/bookmark.php' );
 require( ABSPATH . APPINC . '/bookmark-template.php' );
 require( ABSPATH . APPINC . '/kses.php' );
 require( ABSPATH . APPINC . '/cron.php' );
-require( ABSPATH . WPINC . '/script-loader.php' );
-require( ABSPATH . WPINC . '/taxonomy.php' );
+require( ABSPATH . APPINC . '/script-loader.php' );
+require( ABSPATH . APPINC . '/taxonomy.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-taxonomy.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-term.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-term-query.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-tax-query.php' );
-require( ABSPATH . WPINC . '/update.php' );
+require( ABSPATH . APPINC . '/update.php' );
 require( ABSPATH . APPINC . '/canonical.php' );
-require( ABSPATH . WPINC . '/shortcodes.php' );
+require( ABSPATH . APPINC . '/shortcodes.php' );
 require( ABSPATH . APPINC . '/embed.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-embed.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-oembed.php' );
@@ -234,7 +234,7 @@ require( ABSPATH . APPINC . '/classes/includes/class-app-http-encoding.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-http-response.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-http-requests-response.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-http-requests-hooks.php' );
-require( ABSPATH . WPINC . '/widgets.php' );
+require( ABSPATH . APPINC . '/widgets.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-widget.php' );
 require( ABSPATH . APPINC . '/classes/includes/class-app-widget-factory.php' );
 require( ABSPATH . APPINC . '/nav-menu.php' );
@@ -307,7 +307,7 @@ wp_cookie_constants();
 wp_ssl_constants();
 
 // Create common globals.
-require( ABSPATH . WPINC . '/vars.php' );
+require( ABSPATH . APPINC . '/vars.php' );
 
 /**
  * Make taxonomies and posts available to plugins and themes.

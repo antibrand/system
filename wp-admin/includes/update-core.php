@@ -882,7 +882,7 @@ function update_core($from, $to) {
 	$distro = '';
 	$roots = array( '/wordpress/', '/wordpress-mu/' );
 	foreach ( $roots as $root ) {
-		if ( $wp_filesystem->exists( $from . $root . 'readme.html' ) && $wp_filesystem->exists( $from . $root . 'wp-includes/version.php' ) ) {
+		if ( $wp_filesystem->exists( $from . $root . 'readme.html' ) && $wp_filesystem->exists( $from . $root . 'app-includes/version.php' ) ) {
 			$distro = $root;
 			break;
 		}
@@ -900,9 +900,9 @@ function update_core($from, $to) {
 	 * BC Note: $wp_filesystem->wp_content_dir() returned unslashed pre-2.8
 	 */
 	$versions_file = trailingslashit( $wp_filesystem->wp_content_dir() ) . 'upgrade/version-current.php';
-	if ( ! $wp_filesystem->copy( $from . $distro . 'wp-includes/version.php', $versions_file ) ) {
+	if ( ! $wp_filesystem->copy( $from . $distro . 'app-includes/version.php', $versions_file ) ) {
 		$wp_filesystem->delete( $from, true );
-		return new WP_Error( 'copy_failed_for_version_file', __( 'The update cannot be installed because we will be unable to copy some files. This is usually due to inconsistent file permissions.' ), 'wp-includes/version.php' );
+		return new WP_Error( 'copy_failed_for_version_file', __( 'The update cannot be installed because we will be unable to copy some files. This is usually due to inconsistent file permissions.' ), 'app-includes/version.php' );
 	}
 
 	$wp_filesystem->chmod( $versions_file, FS_CHMOD_FILE );
@@ -934,7 +934,7 @@ function update_core($from, $to) {
 
 	// Don't copy wp-content, we'll deal with that below
 	// We also copy version.php last so failed updates report their old version
-	$skip = array( 'app-views', 'wp-includes/version.php' );
+	$skip = array( 'app-views', 'app-includes/version.php' );
 	$check_is_writable = array();
 
 	// Check to see which files don't really need updating - only available for 3.7 and higher
@@ -1000,11 +1000,11 @@ function update_core($from, $to) {
 
 	// Since we know the core files have copied over, we can now copy the version file
 	if ( ! is_wp_error( $result ) ) {
-		if ( ! $wp_filesystem->copy( $from . $distro . 'wp-includes/version.php', $to . 'wp-includes/version.php', true /* overwrite */ ) ) {
+		if ( ! $wp_filesystem->copy( $from . $distro . 'app-includes/version.php', $to . 'app-includes/version.php', true /* overwrite */ ) ) {
 			$wp_filesystem->delete( $from, true );
-			$result = new WP_Error( 'copy_failed_for_version_file', __( 'The update cannot be installed because we will be unable to copy some files. This is usually due to inconsistent file permissions.' ), 'wp-includes/version.php' );
+			$result = new WP_Error( 'copy_failed_for_version_file', __( 'The update cannot be installed because we will be unable to copy some files. This is usually due to inconsistent file permissions.' ), 'app-includes/version.php' );
 		}
-		$wp_filesystem->chmod( $to . 'wp-includes/version.php', FS_CHMOD_FILE );
+		$wp_filesystem->chmod( $to . 'app-includes/version.php', FS_CHMOD_FILE );
 	}
 
 	// Check to make sure everything copied correctly, ignoring the contents of wp-content
