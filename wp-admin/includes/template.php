@@ -20,7 +20,7 @@ use \AppNamespace\Backend  as Backend;
 use \AppNamespace\Includes as Includes;
 
 /** WP_Internal_Pointers class */
-require_once( ABSPATH . APPINC . '/classes/backend/class-wp-internal-pointers.php' );
+require_once( ABSPATH . 'wp-admin/includes/class-wp-internal-pointers.php' );
 
 //
 // Category Checklists

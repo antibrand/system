@@ -1219,7 +1219,7 @@ function _unzip_file_pclzip($file, $to, $needed_dirs = array()) {
 
 	mbstring_binary_safe_encoding();
 
-	require_once( ABSPATH . APPINC . '/classes/backend/class-pclzip.php' );
+	require_once(ABSPATH . 'wp-admin/includes/class-pclzip.php');
 
 	$archive = new PclZip($file);
 
@@ -1373,7 +1373,7 @@ function copy_dir($from, $to, $skip_list = array() ) {
 function WP_Filesystem( $args = false, $context = false, $allow_relaxed_file_ownership = false ) {
 	global $wp_filesystem;
 
-	require_once( ABSPATH . APPINC . '/classes/backend/class-wp-filesystem-base.php' );
+	require_once(ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php');
 
 	$method = get_filesystem_method( $args, $context, $allow_relaxed_file_ownership );
 

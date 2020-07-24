@@ -24,7 +24,7 @@ use \AppNamespace\Includes as Includes;
  * or uploaded zip file.
  *
  * @since 2.8.0
- * @since 4.6.0 Moved to its own file from app-includes/classes/backend/class-wp-upgrader.php.
+ * @since 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader.php.
  *
  * @see Installer
  */
@@ -403,7 +403,7 @@ class Theme_Upgrader extends Includes\Installer {
 		// Refresh the Theme Update information
 		wp_clean_themes_cache( $parsed_args['clear_update_cache'] );
 
-		/** This action is documented in app-includes/classes/backend/class-wp-upgrader.php */
+		/** This action is documented in wp-admin/includes/class-wp-upgrader.php */
 		do_action( 'upgrader_process_complete', $this, array(
 			'action' => 'update',
 			'type' => 'theme',
