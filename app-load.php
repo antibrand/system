@@ -58,7 +58,7 @@ if ( file_exists( ABSPATH . 'app-config.php' ) ) {
 // If a config file doesn't exist.
 } else {
 
-	define( 'WPINC', 'wp-includes' );
+	define( 'APPINC', 'app-includes' );
 	require_once( ABSPATH . APPINC . '/load.php' );
 
 	// Standardize $_SERVER variables across setups.

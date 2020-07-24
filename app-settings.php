@@ -21,8 +21,6 @@ if ( ! defined( 'APP_VIEWS_PATH' ) ) {
 	define( 'APP_VIEWS_PATH', ABSPATH . APP_VIEWS . '/' );
 }
 
-define( 'WPINC', 'wp-includes' );
-
 /**
  * Class autoloader
  *
