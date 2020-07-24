@@ -31,7 +31,7 @@ if ( empty( $_REQUEST['action'] ) )
 require_once( ABSPATH . 'wp-admin/includes/admin.php' );
 
 // Load Ajax Handlers for Core.
-require_once( ABSPATH . 'wp-admin/includes/ajax-actions.php' );
+require_once( ABSPATH . APPINC . '/backend/ajax-actions.php' );
 
 @header( 'Content-Type: text/html; charset=' . get_option( 'blog_charset' ) );
 @header( 'X-Robots-Tag: noindex' );

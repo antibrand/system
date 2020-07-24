@@ -2016,9 +2016,9 @@ function wp_ajax_delete_inactive_widgets() {
 	}
 
 	unset( $_POST['removeinactivewidgets'], $_POST['action'] );
-	/** This action is documented in wp-admin/includes/ajax-actions.php */
+	/** This action is documented in app-includes/backend/ajax-actions.php */
 	do_action( 'load-widgets.php' );
-	/** This action is documented in wp-admin/includes/ajax-actions.php */
+	/** This action is documented in app-includes/backend/ajax-actions.php */
 	do_action( 'widgets.php' );
 	/** This action is documented in wp-admin/widgets.php */
 	do_action( 'sidebar_admin_setup' );

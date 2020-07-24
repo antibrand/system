@@ -967,7 +967,7 @@ function wp_privacy_process_personal_data_erasure_page( $response, $eraser_index
 		wp_send_json_error( __( 'Invalid request ID when processing eraser data.' ) );
 	}
 
-	// This filter is documented in wp-admin/includes/ajax-actions.php.
+	// This filter is documented in app-includes/backend/ajax-actions.php.
 	$erasers        = apply_filters( 'wp_privacy_personal_data_erasers', [] );
 	$is_last_eraser = count( $erasers ) === $eraser_index;
 	$eraser_done    = $response['done'];
@@ -1632,7 +1632,7 @@ class WP_Privacy_Data_Export_Requests_Table extends WP_Privacy_Requests_Table {
 	 */
 	public function column_email( $item ) {
 
-		/** This filter is documented in wp-admin/includes/ajax-actions.php */
+		/** This filter is documented in app-includes/backend/ajax-actions.php */
 		$exporters       = apply_filters( 'wp_privacy_personal_data_exporters', [] );
 		$exporters_count = count( $exporters );
 		$request_id      = $item->ID;
@@ -1676,7 +1676,7 @@ class WP_Privacy_Data_Export_Requests_Table extends WP_Privacy_Requests_Table {
 				break;
 
 			case 'request-confirmed':
-				/** This filter is documented in wp-admin/includes/ajax-actions.php */
+				/** This filter is documented in app-includes/backend/ajax-actions.php */
 				$exporters       = apply_filters( 'wp_privacy_personal_data_exporters', [] );
 				$exporters_count = count( $exporters );
 				$request_id      = $item->ID;
@@ -1757,7 +1757,7 @@ class WP_Privacy_Data_Removal_Requests_Table extends WP_Privacy_Requests_Table {
 
 		if ( 'request-confirmed' !== $status ) {
 
-			// This filter is documented in wp-admin/includes/ajax-actions.php.
+			// This filter is documented in app-includes/backend/ajax-actions.php.
 			$erasers       = apply_filters( 'wp_privacy_personal_data_erasers', [] );
 			$erasers_count = count( $erasers );
 			$request_id    = $item->ID;
@@ -1802,7 +1802,7 @@ class WP_Privacy_Data_Removal_Requests_Table extends WP_Privacy_Requests_Table {
 
 			case 'request-confirmed':
 
-				// This filter is documented in wp-admin/includes/ajax-actions.php
+				// This filter is documented in app-includes/backend/ajax-actions.php
 				$erasers       = apply_filters( 'wp_privacy_personal_data_erasers', array() );
 				$erasers_count = count( $erasers );
 				$request_id    = $item->ID;

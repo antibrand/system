@@ -24,7 +24,7 @@ $load = array_unique( explode( ',', $load ) );
 if ( empty($load) )
 	exit;
 
-require( ABSPATH . 'wp-admin/includes/noop.php' );
+require( ABSPATH . APPINC . '/backend/noop.php' );
 require( ABSPATH . APPINC . '/script-loader.php' );
 require( ABSPATH . APPINC . '/version.php' );
 

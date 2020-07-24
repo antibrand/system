@@ -21,10 +21,10 @@ if ( ! defined( 'WP_ADMIN' ) ) {
 require_once( ABSPATH . APPINC . '/backend/admin-filters.php' );
 
 // Bookmark Administration API.
-require_once( ABSPATH . 'wp-admin/includes/bookmark.php' );
+require_once( ABSPATH . APPINC . '/backend/bookmark.php' );
 
 // Comment Administration API.
-require_once( ABSPATH . 'wp-admin/includes/comment.php' );
+require_once( ABSPATH . APPINC . '/backend/comment.php' );
 
 // Administration File API.
 require_once( ABSPATH . 'wp-admin/includes/file.php' );
@@ -72,7 +72,7 @@ require_once( ABSPATH . 'wp-admin/includes/user.php' );
 require_once( ABSPATH . 'wp-admin/includes/update.php' );
 
 // Deprecated Administration API.
-require_once( ABSPATH . 'wp-admin/includes/deprecated.php' );
+require_once( ABSPATH . APPINC . '/backend/deprecated.php' );
 
 // Network support API.
 if ( is_network() ) {

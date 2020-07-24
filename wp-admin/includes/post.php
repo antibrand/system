@@ -1499,7 +1499,7 @@ function wp_check_post_lock( $post_id ) {
 		return false;
 	}
 
-	/** This filter is documented in wp-admin/includes/ajax-actions.php */
+	/** This filter is documented in app-includes/backend/ajax-actions.php */
 	$time_window = apply_filters( 'wp_check_post_lock_window', 150 );
 
 	if ( $time && $time > time() - $time_window && $user != get_current_user_id() ) {

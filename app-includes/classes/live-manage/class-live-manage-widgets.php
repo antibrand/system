@@ -332,10 +332,10 @@ final class WP_Customize_Widgets {
 	 * @since 3.9.0
 	 */
 	public function customize_controls_init() {
-		/** This action is documented in wp-admin/includes/ajax-actions.php */
+		/** This action is documented in app-includes/backend/ajax-actions.php */
 		do_action( 'load-widgets.php' );
 
-		/** This action is documented in wp-admin/includes/ajax-actions.php */
+		/** This action is documented in app-includes/backend/ajax-actions.php */
 		do_action( 'widgets.php' );
 
 		/** This action is documented in wp-admin/widgets.php */
@@ -1498,10 +1498,10 @@ final class WP_Customize_Widgets {
 			wp_send_json_error( 'missing_widget-id' );
 		}
 
-		/** This action is documented in wp-admin/includes/ajax-actions.php */
+		/** This action is documented in app-includes/backend/ajax-actions.php */
 		do_action( 'load-widgets.php' );
 
-		/** This action is documented in wp-admin/includes/ajax-actions.php */
+		/** This action is documented in app-includes/backend/ajax-actions.php */
 		do_action( 'widgets.php' );
 
 		/** This action is documented in wp-admin/widgets.php */
