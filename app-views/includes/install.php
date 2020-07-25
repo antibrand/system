@@ -278,11 +278,7 @@ switch( $step ) {
 
 		if ( $error === false ) {
 			$wpdb->show_errors();
-<<<<<<< HEAD
 			$result = wp_install( $website_title, $website_description, $user_name, $admin_email, $public, '', wp_slash( $admin_password ), $loaded_language );
-=======
-			$result = wp_install( $website_title, $user_name, $admin_email, $public, '', wp_slash( $admin_password ), $loaded_language );
->>>>>>> 278ae5dae127437ce2d97593debd36e2ba94a439
 
 			// Get the successful installation message content.
 			include_once( APP_VIEWS_PATH . 'includes/partials/content/install-success.php' );
