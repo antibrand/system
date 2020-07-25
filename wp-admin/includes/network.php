@@ -429,7 +429,9 @@ function network_step2( $errors = false ) {
 	if ( $_POST || ! is_network() ) {
 ?>
 		<h3><?php esc_html_e( 'Enabling the Network' ); ?></h3>
+
 		<p><?php _e( 'Complete the following steps to enable the features for creating a network of sites.' ); ?></p>
+
 		<div class="updated inline"><p><?php
 			if ( file_exists( $home_path . '.htaccess' ) ) {
 				echo '<strong>' . __( 'Caution:' ) . '</strong> ';
@@ -588,10 +590,9 @@ define( 'BLOG_ID_CURRENT_SITE', 1 );
 
 		echo '<li><p>';
 		printf(
-			__( 'Add the following to the %1$s file in %2$s, replacing other rewrite rules (between the %3$s brackets):' ),
-			'<code>app-config.php</code>',
-			'<code>' . $home_path . '</code>',
-			'<code>&lt;IfModule&gt;</code>'
+			__( 'Add the following to the %1$s file in %2$s, replacing other rules:' ),
+			'<code>web.config</code>',
+			'<code>' . $home_path . '</code>'
 		);
 		echo '</p>';
 		if ( ! $subdomain_install && WP_CONTENT_DIR != ABSPATH . 'app-views' )
@@ -629,9 +630,10 @@ EOF;
 
 		echo '<li><p>';
 		printf(
-			__( 'Add the following to your %1$s file in %2$s, <strong>replacing</strong> other rules:' ),
+			__( 'Add the following to the %1$s file in %2$s, replacing other rewrite rules (between the %3$s brackets):' ),
 			'<code>.htaccess</code>',
-			'<code>' . $home_path . '</code>'
+			'<code>' . $home_path . '</code>',
+			'<code>&lt;IfModule&gt;</code>'
 		);
 		echo '</p>';
 		if ( ! $subdomain_install && WP_CONTENT_DIR != ABSPATH . 'app-views' )
@@ -646,7 +648,9 @@ EOF;
 	<?php endif; // end IIS/Apache code branches.
 
 	if ( ! is_network() ) { ?>
-		<p><?php _e( 'Once you complete these steps, your network is enabled and configured. You will have to log in again.' ); ?> <a href="<?php echo esc_url( wp_login_url() ); ?>"><?php _e( 'Log In' ); ?></a></p>
+		<p><?php _e( 'Once you complete these steps, your network is enabled and configured. You will have to log in again.' ); ?></p>
+
+		<p><a href="<?php echo esc_url( wp_login_url() ); ?>" class="button button-large"><?php _e( 'Log In' ); ?></a></p>
 <?php
 	}
 }
