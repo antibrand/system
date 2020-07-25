@@ -81,7 +81,7 @@ header( 'Content-Type: text/html; charset=utf-8' );
 
 ?>
 <!doctype html>
-<html <?php language_attributes(); ?> class="no-js">
+<html <?php language_attributes(); ?> class="no-js"<?php if ( is_rtl() ) echo ' dir="rtl"'; ?>>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 	<meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo( 'charset' ); ?>" />
