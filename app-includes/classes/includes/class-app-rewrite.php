@@ -1489,9 +1489,6 @@ class WP_Rewrite {
 	 * @return string
 	 */
 	public function mod_rewrite_rules() {
-		if ( ! $this->using_permalinks() ) {
-			return '';
-		}
 
 		$site_root = parse_url( site_url() );
 		if ( isset( $site_root['path'] ) ) {
@@ -1549,16 +1546,25 @@ class WP_Rewrite {
 		/**
 		 * Filters the list of rewrite rules formatted for output to an .htaccess file.
 		 *
-		 * @since 1.5.0
+		 * @since Previous 1.5.0
 		 *
 		 * @param string $rules mod_rewrite Rewrite rules formatted for .htaccess.
 		 */
 		$rules = apply_filters( 'mod_rewrite_rules', $rules );
 
 		/**
+		 * Use rules if nothing set
+		 *
+		 * @since This system 1.0.0
+		 */
+		if ( ! $this->using_permalinks() ) {
+			return $rules;
+		}
+
+		/**
 		 * Filters the list of rewrite rules formatted for output to an .htaccess file.
 		 *
-		 * @since 1.5.0
+		 * @since Previous 1.5.0
 		 * @deprecated 1.5.0 Use the {@see 'mod_rewrite_rules'} filter instead.
 		 *
 		 * @param string $rules mod_rewrite Rewrite rules formatted for .htaccess.
