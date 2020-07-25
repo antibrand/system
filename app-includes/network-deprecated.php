@@ -384,11 +384,11 @@ function get_blogaddress_by_domain( $domain, $path ) {
  *
  * @param string $domain       The new blog's domain.
  * @param string $path         The new blog's path.
- * @param string $weblog_title The new blog's title.
+ * @param string $website_title The new blog's title.
  * @param int    $site_id      Optional. Defaults to 1.
  * @return string|int The ID of the newly created blog
  */
-function create_empty_blog( $domain, $path, $weblog_title, $site_id = 1 ) {
+function create_empty_blog( $domain, $path, $website_title, $site_id = 1 ) {
 	_deprecated_function( __FUNCTION__, '4.4.0' );
 
 	if ( empty($path) )

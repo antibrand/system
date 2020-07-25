@@ -239,7 +239,7 @@ switch( $step ) {
 		include_once( APP_VIEWS_PATH . 'includes/partials/header/config-install.php' );
 
 		// Fill in the data we gathered.
-		$weblog_title         = isset( $_POST['weblog_title'] ) ? trim( wp_unslash( $_POST['weblog_title'] ) ) : '';
+		$website_title         = isset( $_POST['website_title'] ) ? trim( wp_unslash( $_POST['website_title'] ) ) : '';
 		$user_name            = isset( $_POST['user_name'] ) ? trim( wp_unslash( $_POST['user_name'] ) ) : '';
 		$admin_password       = isset( $_POST['admin_password'] ) ? wp_unslash( $_POST['admin_password'] ) : '';
 		$admin_password_check = isset( $_POST['admin_password2'] ) ? wp_unslash( $_POST['admin_password2'] ) : '';
@@ -277,7 +277,7 @@ switch( $step ) {
 
 		if ( $error === false ) {
 			$wpdb->show_errors();
-			$result = wp_install( $weblog_title, $user_name, $admin_email, $public, '', wp_slash( $admin_password ), $loaded_language );
+			$result = wp_install( $website_title, $user_name, $admin_email, $public, '', wp_slash( $admin_password ), $loaded_language );
 
 			// Get the successful installation message content.
 			include_once( APP_VIEWS_PATH . 'includes/partials/content/install-success.php' );
@@ -289,7 +289,7 @@ switch( $step ) {
 
 if ( ! wp_is_mobile() ) {
 	?>
-<script type="text/javascript">var t = document.getElementById( 'weblog_title' ); if (t){ t.focus(); }</script>
+<script type="text/javascript">var t = document.getElementById( 'website_title' ); if (t){ t.focus(); }</script>
 	<?php
 }
 

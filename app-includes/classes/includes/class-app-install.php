@@ -45,11 +45,11 @@ final class App_Install {
 		// Ensure that Blogs appear in search engines by default.
 		$blog_public = 1;
 
-		if ( isset( $_POST['weblog_title'] ) ) {
+		if ( isset( $_POST['website_title'] ) ) {
 			$blog_public = isset( $_POST['blog_public'] );
 		}
 
-		$weblog_title = isset( $_POST['weblog_title'] ) ? trim( wp_unslash( $_POST['weblog_title'] ) ) : '';
+		$website_title = isset( $_POST['website_title'] ) ? trim( wp_unslash( $_POST['website_title'] ) ) : '';
 		$user_name    = isset( $_POST['user_name'] ) ? trim( wp_unslash( $_POST['user_name'] ) ) : '';
 		$admin_email  = isset( $_POST['admin_email']  ) ? trim( wp_unslash( $_POST['admin_email'] ) ) : '';
 
@@ -68,8 +68,8 @@ final class App_Install {
 		<form id="setup" method="post" action="install.php?step=2" novalidate="novalidate">
 			<table class="form-table">
 				<tr>
-					<th scope="row"><label for="weblog_title"><?php _e( 'Site Title' ); ?></label></th>
-					<td><input name="weblog_title" type="text" id="weblog_title" size="25" value="<?php echo esc_attr( $weblog_title ); ?>" /></td>
+					<th scope="row"><label for="website_title"><?php _e( 'Site Title' ); ?></label></th>
+					<td><input name="website_title" type="text" id="website_title" size="25" value="<?php echo esc_attr( $website_title ); ?>" /></td>
 				</tr>
 				<tr>
 					<th scope="row"><label for="user_login"><?php _e( 'Username' ); ?></label></th>
