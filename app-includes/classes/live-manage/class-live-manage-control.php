@@ -695,77 +695,77 @@ class WP_Customize_Control {
 /**
  * WP_Customize_Color_Control class.
  */
-require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-color-control.php' );
+require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-color-control.php' );
 
 /**
  * WP_Customize_Media_Control class.
  */
-require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-media-control.php' );
+require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-media-control.php' );
 
 /**
  * WP_Customize_Upload_Control class.
  */
-require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-upload-control.php' );
+require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-upload-control.php' );
 
 /**
  * WP_Customize_Image_Control class.
  */
-require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-image-control.php' );
+require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-image-control.php' );
 
 /**
  * WP_Customize_Background_Image_Control class.
  */
-require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-background-image-control.php' );
+require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-background-image-control.php' );
 
 /**
  * WP_Customize_Background_Position_Control class.
  */
-require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-background-position-control.php' );
+require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-background-position-control.php' );
 
 /**
  * WP_Customize_Cropped_Image_Control class.
  */
-require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-cropped-image-control.php' );
+require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-cropped-image-control.php' );
 
 /**
  * WP_Customize_Site_Icon_Control class.
  */
-require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-site-icon-control.php' );
+require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-site-icon-control.php' );
 
 /**
  * WP_Customize_Header_Image_Control class.
  */
-require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-header-image-control.php' );
+require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-header-image-control.php' );
 
 /**
  * WP_Customize_Theme_Control class.
  */
-require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-theme-control.php' );
+require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-theme-control.php' );
 
 /**
  * WP_Widget_Area_Customize_Control class.
  */
-require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-widget-area-control.php' );
+require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-widget-area-control.php' );
 
 /**
  * WP_Widget_Form_Customize_Control class.
  */
-require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-widget-form-control.php' );
+require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-widget-form-control.php' );
 
 /**
  * WP_Customize_Nav_Menu_Control class.
  */
-require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-nav-menu-control.php' );
+require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-nav-menu-control.php' );
 
 /**
  * WP_Customize_Nav_Menu_Item_Control class.
  */
-require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-nav-menu-item-control.php' );
+require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-nav-menu-item-control.php' );
 
 /**
  * WP_Customize_Nav_Menu_Location_Control class.
  */
-require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-nav-menu-location-control.php' );
+require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-nav-menu-location-control.php' );
 
 /**
  * WP_Customize_Nav_Menu_Name_Control class.
@@ -776,19 +776,19 @@ require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-nav-men
  *
  * @deprecated 4.9.0 This file is no longer used due to new menu creation UX.
  */
-require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-nav-menu-name-control.php' );
+require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-nav-menu-name-control.php' );
 
 /**
  * WP_Customize_Nav_Menu_Locations_Control class.
  */
-require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-nav-menu-locations-control.php' );
+require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-nav-menu-locations-control.php' );
 
 /**
  * WP_Customize_Nav_Menu_Auto_Add_Control class.
  */
-require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-nav-menu-auto-add-control.php' );
+require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-nav-menu-auto-add-control.php' );
 
 /**
  * WP_Customize_Date_Time_Control class.
  */
-require_once( ABSPATH . APPINC . '/classes/live-manage/class-live-manage-date-time-control.php' );
+require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-date-time-control.php' );

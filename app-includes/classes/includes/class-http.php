@@ -8,10 +8,10 @@
  */
 
 if ( ! class_exists( 'Requests' ) ) {
-	require( ABSPATH . APPINC . '/classes/includes/class-requests.php' );
+	require( ABSPATH . APP_INC . '/classes/includes/class-requests.php' );
 
 	Requests::register_autoloader();
-	Requests::set_certificate_path( ABSPATH . APPINC . '/certificates/ca-bundle.crt' );
+	Requests::set_certificate_path( ABSPATH . APP_INC . '/certificates/ca-bundle.crt' );
 }
 
 /**
@@ -132,7 +132,7 @@ class WP_Http {
 	 *                                             need to be separately decompressed. Default true.
 	 *     @type bool         $sslverify           Whether to verify SSL for the request. Default true.
 	 *     @type string       sslcertificates      Absolute path to an SSL certificate .crt file.
-	 *                                             Default ABSPATH . APPINC . '/certificates/ca-bundle.crt'.
+	 *                                             Default ABSPATH . APP_INC . '/certificates/ca-bundle.crt'.
 	 *     @type bool         $stream              Whether to stream to a file. If set to true and no filename was
 	 *                                             given, it will be droped it in the WP temp dir and its name will
 	 *                                             be set using the basename of the URL. Default false.
@@ -197,7 +197,7 @@ class WP_Http {
 			'compress' => false,
 			'decompress' => true,
 			'sslverify' => true,
-			'sslcertificates' => ABSPATH . APPINC . '/certificates/ca-bundle.crt',
+			'sslcertificates' => ABSPATH . APP_INC . '/certificates/ca-bundle.crt',
 			'stream' => false,
 			'filename' => null,
 			'limit_response_size' => null,

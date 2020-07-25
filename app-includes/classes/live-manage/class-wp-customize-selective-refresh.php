@@ -62,7 +62,7 @@ final class WP_Customize_Selective_Refresh {
 	 */
 	public function __construct( Live_Manager $manager ) {
 		$this->manager = $manager;
-		require_once( ABSPATH . APPINC . '/classes/live-manage/class-wp-customize-partial.php' );
+		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-wp-customize-partial.php' );
 
 		add_action( 'customize_preview_init', array( $this, 'init_preview' ) );
 	}

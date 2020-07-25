@@ -13,7 +13,7 @@
 require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader-skin.php';
 
 /** Plugin_Upgrader_Skin class */
-require_once ABSPATH . APPINC . '/classes/backend/class-plugin-upgrader-skin.php';
+require_once ABSPATH . APP_INC . '/classes/backend/class-plugin-upgrader-skin.php';
 
 /** Theme_Upgrader_Skin class */
 require_once ABSPATH . 'wp-admin/includes/class-theme-upgrader-skin.php';
@@ -22,13 +22,13 @@ require_once ABSPATH . 'wp-admin/includes/class-theme-upgrader-skin.php';
 require_once ABSPATH . 'wp-admin/includes/class-bulk-upgrader-skin.php';
 
 /** Bulk_Plugin_Upgrader_Skin class */
-require_once ABSPATH . APPINC . '/classes/backend/class-bulk-plugin-upgrader-skin.php';
+require_once ABSPATH . APP_INC . '/classes/backend/class-bulk-plugin-upgrader-skin.php';
 
 /** Bulk_Theme_Upgrader_Skin class */
 require_once ABSPATH . 'wp-admin/includes/class-bulk-theme-upgrader-skin.php';
 
 /** Plugin_Installer_Skin class */
-require_once ABSPATH . APPINC . '/classes/backend/class-plugin-installer-skin.php';
+require_once ABSPATH . APP_INC . '/classes/backend/class-plugin-installer-skin.php';
 
 /** Theme_Installer_Skin class */
 require_once ABSPATH . 'wp-admin/includes/class-theme-installer-skin.php';
@@ -43,7 +43,7 @@ require_once ABSPATH . 'wp-admin/includes/class-automatic-upgrader-skin.php';
 require_once ABSPATH . 'wp-admin/includes/class-wp-ajax-upgrader-skin.php';
 
 /** Plugin_Upgrader class */
-require_once ABSPATH . APPINC . '/classes/backend/class-plugin-upgrader.php';
+require_once ABSPATH . APP_INC . '/classes/backend/class-plugin-upgrader.php';
 
 /** Theme_Upgrader class */
 require_once ABSPATH . 'wp-admin/includes/class-theme-upgrader.php';
@@ -52,7 +52,7 @@ require_once ABSPATH . 'wp-admin/includes/class-theme-upgrader.php';
 require_once ABSPATH . 'wp-admin/includes/class-language-pack-upgrader.php';
 
 /** Core_Upgrader class */
-require_once ABSPATH . APPINC . '/classes/backend/class-core-upgrader.php';
+require_once ABSPATH . APP_INC . '/classes/backend/class-core-upgrader.php';
 
 /** File_Upload_Upgrader class */
 require_once ABSPATH . 'wp-admin/includes/class-file-upload-upgrader.php';

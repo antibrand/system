@@ -3179,7 +3179,7 @@ function get_wp_admin_url( $blog_id = null, $path = '', $scheme = 'admin' ) {
  * @return string Includes URL link with optional path appended.
  */
 function includes_url( $path = '', $scheme = null ) {
-	$url = site_url( '/' . APPINC . '/', $scheme );
+	$url = site_url( '/' . APP_INC . '/', $scheme );
 
 	if ( $path && is_string( $path ) ) {
 		$url .= ltrim( $path, '/' );

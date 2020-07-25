@@ -571,7 +571,7 @@ function wp_theme_update_row( $theme_key, $theme ) {
  * @return false|void
  */
 function maintenance_nag() {
-	include( ABSPATH . APPINC . '/version.php' ); // include an unmodified $wp_version
+	include( ABSPATH . APP_INC . '/version.php' ); // include an unmodified $wp_version
 	global $upgrading;
 	$nag = isset( $upgrading );
 	if ( ! $nag ) {

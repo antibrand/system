@@ -17,22 +17,22 @@
  */
 
 // Dependency class.
-require( ABSPATH . APPINC . '/classes/includes/class-app-dependency.php' );
+require( ABSPATH . APP_INC . '/classes/includes/class-app-dependency.php' );
 
 // Dependencies class.
-require( ABSPATH . APPINC . '/classes/includes/class.app-dependencies.php' );
+require( ABSPATH . APP_INC . '/classes/includes/class.app-dependencies.php' );
 
 // Scripts class.
-require( ABSPATH . APPINC . '/classes/includes/class.app-scripts.php' );
+require( ABSPATH . APP_INC . '/classes/includes/class.app-scripts.php' );
 
 // Scripts functions.
-require( ABSPATH . APPINC . '/functions.app-scripts.php' );
+require( ABSPATH . APP_INC . '/functions.app-scripts.php' );
 
 // Styles class.
-require( ABSPATH . APPINC . '/classes/includes/class.app-styles.php' );
+require( ABSPATH . APP_INC . '/classes/includes/class.app-styles.php' );
 
 // Styles functions.
-require( ABSPATH . APPINC . '/functions.app-styles.php' );
+require( ABSPATH . APP_INC . '/functions.app-styles.php' );
 
 /**
  * Register all scripts
@@ -48,7 +48,7 @@ require( ABSPATH . APPINC . '/functions.app-styles.php' );
 function wp_default_scripts( &$scripts ) {
 
 	// Include an unmodified $app_version'
-	include( ABSPATH . APPINC . '/version.php' );
+	include( ABSPATH . APP_INC . '/version.php' );
 
 	$develop_src = false !== strpos( $app_version, '-src' );
 
@@ -893,7 +893,7 @@ function wp_default_scripts( &$scripts ) {
 function wp_default_styles( &$styles ) {
 
 	// Include an unmodified $app_version.
-	include( ABSPATH . APPINC . '/version.php' );
+	include( ABSPATH . APP_INC . '/version.php' );
 
 	if ( ! defined( 'SCRIPT_DEBUG' ) ) {
 		define( 'SCRIPT_DEBUG', false !== strpos( $app_version, '-src' ) );

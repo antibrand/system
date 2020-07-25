@@ -30,9 +30,9 @@ if ( ! defined( 'APP_VIEWS_PATH' ) ) {
 	define( 'APP_VIEWS_PATH',  ABSPATH . APP_VIEWS . '/' );
 }
 
-// Define APPASSETS for assets directory.
-if ( ! defined( 'APPASSETS' ) ) {
-	define( 'APPASSETS', ABSPATH . 'app-assets/' );
+// Define APP_ASSETS for assets directory.
+if ( ! defined( 'APP_ASSETS' ) ) {
+	define( 'APP_ASSETS', ABSPATH . 'app-assets/' );
 }
 
 error_reporting( E_CORE_ERROR | E_CORE_WARNING | E_COMPILE_ERROR | E_ERROR | E_WARNING | E_PARSE | E_USER_ERROR | E_USER_WARNING | E_RECOVERABLE_ERROR );
@@ -58,13 +58,13 @@ if ( file_exists( ABSPATH . 'app-config.php' ) ) {
 // If a config file doesn't exist.
 } else {
 
-	define( 'APPINC', 'app-includes' );
-	require_once( ABSPATH . APPINC . '/load.php' );
+	define( 'APP_INC', 'app-includes' );
+	require_once( ABSPATH . APP_INC . '/load.php' );
 
 	// Standardize $_SERVER variables across setups.
 	wp_fix_server_vars();
 
-	require_once( ABSPATH . APPINC . '/functions.php' );
+	require_once( ABSPATH . APP_INC . '/functions.php' );
 
 	/**
 	 * Try to find the configuration template.
@@ -84,7 +84,7 @@ if ( file_exists( ABSPATH . 'app-config.php' ) ) {
 	}
 
 	define( 'WP_CONTENT_DIR', ABSPATH . 'app-views' );
-	require_once( ABSPATH . APPINC . '/version.php' );
+	require_once( ABSPATH . APP_INC . '/version.php' );
 
 	wp_check_php_mysql_versions();
 	wp_load_translations_early();

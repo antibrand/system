@@ -32,10 +32,10 @@
 global $current_site, $current_blog, $domain, $path, $site_id, $public;
 
 /** Network loader */
-require_once( ABSPATH . APPINC . '/network-load.php' );
+require_once( ABSPATH . APP_INC . '/network-load.php' );
 
 /** Default network constants */
-require_once( ABSPATH . APPINC . '/constants-default-network.php' );
+require_once( ABSPATH . APP_INC . '/constants-default-network.php' );
 
 if ( defined( 'SUNRISE' ) ) {
 	include_once( WP_CONTENT_DIR . '/sunrise.php' );

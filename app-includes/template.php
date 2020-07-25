@@ -644,13 +644,13 @@ function locate_template( $template_names, $load = false, $require_once = true )
 			$located = TEMPLATEPATH . '/' . $template_name;
 			break;
 
-		} elseif ( file_exists( ABSPATH . APPINC . '/theme-compat/' . $template_name ) ) {
-			$located = ABSPATH . APPINC . '/theme-compat/' . $template_name;
+		} elseif ( file_exists( ABSPATH . APP_INC . '/theme-compat/' . $template_name ) ) {
+			$located = ABSPATH . APP_INC . '/theme-compat/' . $template_name;
 			break;
 
-		// Look in views directory added by this WordPress fork.
-		} elseif ( file_exists( VIEWSPATH . $template_name ) ) {
-			$located = VIEWSPATH . $template_name;
+		// Look in views directory.
+		} elseif ( file_exists( APP_VIEWS . $template_name ) ) {
+			$located = APP_VIEWS . $template_name;
 			break;
 		}
 	}

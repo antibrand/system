@@ -2,19 +2,19 @@
 if ( ! class_exists( 'SimplePie', false ) ) :
 
 // Load classes we will need.
-require ABSPATH . APPINC . '/SimplePie/Misc.php';
-require ABSPATH . APPINC . '/SimplePie/Cache.php';
-require ABSPATH . APPINC . '/SimplePie/File.php';
-require ABSPATH . APPINC . '/SimplePie/Sanitize.php';
-require ABSPATH . APPINC . '/SimplePie/Registry.php';
-require ABSPATH . APPINC . '/SimplePie/IRI.php';
-require ABSPATH . APPINC . '/SimplePie/Locator.php';
-require ABSPATH . APPINC . '/SimplePie/Content/Type/Sniffer.php';
-require ABSPATH . APPINC . '/SimplePie/XML/Declaration/Parser.php';
-require ABSPATH . APPINC . '/SimplePie/Parser.php';
-require ABSPATH . APPINC . '/SimplePie/Item.php';
-require ABSPATH . APPINC . '/SimplePie/Parse/Date.php';
-require ABSPATH . APPINC . '/SimplePie/Author.php';
+require ABSPATH . APP_INC . '/SimplePie/Misc.php';
+require ABSPATH . APP_INC . '/SimplePie/Cache.php';
+require ABSPATH . APP_INC . '/SimplePie/File.php';
+require ABSPATH . APP_INC . '/SimplePie/Sanitize.php';
+require ABSPATH . APP_INC . '/SimplePie/Registry.php';
+require ABSPATH . APP_INC . '/SimplePie/IRI.php';
+require ABSPATH . APP_INC . '/SimplePie/Locator.php';
+require ABSPATH . APP_INC . '/SimplePie/Content/Type/Sniffer.php';
+require ABSPATH . APP_INC . '/SimplePie/XML/Declaration/Parser.php';
+require ABSPATH . APP_INC . '/SimplePie/Parser.php';
+require ABSPATH . APP_INC . '/SimplePie/Item.php';
+require ABSPATH . APP_INC . '/SimplePie/Parse/Date.php';
+require ABSPATH . APP_INC . '/SimplePie/Author.php';
 
 /**
  * Autoloader for SimplePie.
@@ -26,7 +26,7 @@ function wp_simplepie_autoload( $class ) {
 	if ( 0 !== strpos( $class, 'SimplePie_' ) )
 		return;
 
-	$file = ABSPATH . APPINC . '/' . str_replace( '_', '/', $class ) . '.php';
+	$file = ABSPATH . APP_INC . '/' . str_replace( '_', '/', $class ) . '.php';
 	include( $file );
 }
 

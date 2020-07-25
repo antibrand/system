@@ -35,6 +35,11 @@ if ( ! defined( 'APP_VIEWS_PATH' ) ) {
 	define( 'APP_VIEWS_PATH', ABSPATH . APP_VIEWS . '/' );
 }
 
+// Path to assets directory.
+if ( ! defined( 'APP_ASSETS' ) ) {
+	define( 'APP_ASSETS', ABSPATH . 'app-assets' );
+}
+
 // Load dependency files.
 require( ABSPATH . 'app-settings.php' );
 require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -42,6 +47,9 @@ require_once( ABSPATH . 'wp-admin/includes/translation-install.php' );
 
 // Get the identity image or white label logo.
 $app_get_logo = dirname( dirname( dirname( $_SERVER['PHP_SELF'] ) ) ) . '/app-assets/images/app-icon.png';
+
+// Path to the directory to upload the system icon.
+$app_icon_dir = apply_filters( 'app_icon_upload_directory', APP_ASSETS . '/images/white-label/' );
 
 /**
  * Set the headers to prevent caching

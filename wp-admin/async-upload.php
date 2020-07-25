@@ -25,7 +25,7 @@ require_once( ABSPATH . 'wp-admin/admin.php' );
 header( 'Content-Type: text/html; charset=' . get_option( 'blog_charset' ) );
 
 if ( isset( $_REQUEST['action'] ) && 'upload-attachment' === $_REQUEST['action'] ) {
-	include( ABSPATH . APPINC . '/backend/ajax-actions.php' );
+	include( ABSPATH . APP_INC . '/backend/ajax-actions.php' );
 
 	send_nosniff_header();
 	nocache_headers();

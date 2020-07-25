@@ -12,11 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', dirname( dirname( __FILE__ ) ) . '/' );
 }
 
-define( 'APPINC', 'app-includes' );
+define( 'APP_INC', 'app-includes' );
 
-require( ABSPATH . APPINC . '/backend/noop.php' );
-require( ABSPATH . APPINC . '/script-loader.php' );
-require( ABSPATH . APPINC . '/version.php' );
+require( ABSPATH . APP_INC . '/backend/noop.php' );
+require( ABSPATH . APP_INC . '/script-loader.php' );
+require( ABSPATH . APP_INC . '/version.php' );
 
 $load = $_GET['load'];
 if ( is_array( $load ) ) {
@@ -63,10 +63,10 @@ foreach ( $load as $handle ) {
 
 	$content = get_file( $path ) . "\n";
 
-	if ( strpos( $style->src, '/' . APPASSETS . '/includes/css/' ) === 0 ) {
-		$content = str_replace( '../images/', '../' . APPASSETS . '/includes/images/', $content );
-		$content = str_replace( '../js/tinymce/', '../' . APPASSETS . '/includes/js/tinymce/', $content );
-		$content = str_replace( '../fonts/', '../' . APPASSETS . '/includes/fonts/', $content );
+	if ( strpos( $style->src, '/' . APP_ASSETS . '/includes/css/' ) === 0 ) {
+		$content = str_replace( '../images/', '../' . APP_ASSETS . '/includes/images/', $content );
+		$content = str_replace( '../js/tinymce/', '../' . APP_ASSETS . '/includes/js/tinymce/', $content );
+		$content = str_replace( '../fonts/', '../' . APP_ASSETS . '/includes/fonts/', $content );
 		$out .= $content;
 	} else {
 		$out .= str_replace( '../images/', 'images/', $content );

@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', dirname( dirname( __FILE__ ) ) . '/' );
 }
 
-define( 'APPINC', 'app-includes' );
+define( 'APP_INC', 'app-includes' );
 
 $load = $_GET['load'];
 if ( is_array( $load ) )
@@ -24,9 +24,9 @@ $load = array_unique( explode( ',', $load ) );
 if ( empty($load) )
 	exit;
 
-require( ABSPATH . APPINC . '/backend/noop.php' );
-require( ABSPATH . APPINC . '/script-loader.php' );
-require( ABSPATH . APPINC . '/version.php' );
+require( ABSPATH . APP_INC . '/backend/noop.php' );
+require( ABSPATH . APP_INC . '/script-loader.php' );
+require( ABSPATH . APP_INC . '/version.php' );
 
 $expires_offset = 31536000; // 1 year
 $out = '';

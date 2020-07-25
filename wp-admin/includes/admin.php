@@ -18,13 +18,13 @@ if ( ! defined( 'WP_ADMIN' ) ) {
 }
 
 // Administration Hooks.
-require_once( ABSPATH . APPINC . '/backend/admin-filters.php' );
+require_once( ABSPATH . APP_INC . '/backend/admin-filters.php' );
 
 // Bookmark Administration API.
-require_once( ABSPATH . APPINC . '/backend/bookmark.php' );
+require_once( ABSPATH . APP_INC . '/backend/bookmark.php' );
 
 // Comment Administration API.
-require_once( ABSPATH . APPINC . '/backend/comment.php' );
+require_once( ABSPATH . APP_INC . '/backend/comment.php' );
 
 // Administration File API.
 require_once( ABSPATH . 'wp-admin/includes/file.php' );
@@ -72,11 +72,11 @@ require_once( ABSPATH . 'wp-admin/includes/user.php' );
 require_once( ABSPATH . 'wp-admin/includes/update.php' );
 
 // Deprecated Administration API.
-require_once( ABSPATH . APPINC . '/backend/deprecated.php' );
+require_once( ABSPATH . APP_INC . '/backend/deprecated.php' );
 
 // Network support API.
 if ( is_network() ) {
-	require_once( ABSPATH . APPINC . '/backend/network-admin-filters.php' );
+	require_once( ABSPATH . APP_INC . '/backend/network-admin-filters.php' );
 	require_once( ABSPATH . 'wp-admin/includes/network-functions.php' );
 	require_once( ABSPATH . 'wp-admin/includes/network-deprecated.php' );
 }

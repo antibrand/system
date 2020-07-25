@@ -143,8 +143,8 @@ class Requests {
 		}
 
 		$file = str_replace( '_', '/', $class );
-		if ( file_exists( ABSPATH . APPINC . '/' . $file . '.php' ) ) {
-			require_once( ABSPATH . APPINC . '/' . $file . '.php' );
+		if ( file_exists( ABSPATH . APP_INC . '/' . $file . '.php' ) ) {
+			require_once( ABSPATH . APP_INC . '/' . $file . '.php' );
 		}
 	}
 

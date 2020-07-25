@@ -330,7 +330,7 @@ if ( 'category' == $taxonomy || 'link_category' == $taxonomy || 'post_tag' == $t
 require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
 // Also used by the Edit Tag  form.
-require_once( ABSPATH . APPINC . '/backend/edit-tag-messages.php' );
+require_once( ABSPATH . APP_INC . '/backend/edit-tag-messages.php' );
 
 if ( isset( $_REQUEST['error'] ) ) {
 	$class = 'error';

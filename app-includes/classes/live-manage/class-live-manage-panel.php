@@ -379,4 +379,4 @@ class WP_Customize_Panel {
 }
 
 /** WP_Customize_Nav_Menus_Panel class */
-require_once( ABSPATH . APPINC . '/classes/live-manage/class-wp-customize-nav-menus-panel.php' );
+require_once( ABSPATH . APP_INC . '/classes/live-manage/class-wp-customize-nav-menus-panel.php' );

@@ -10,12 +10,12 @@
 
 if ( ! class_exists( 'Text_Diff', false ) ) {
 	/** Text_Diff class */
-	require( ABSPATH . APPINC . '/Text/Diff.php' );
+	require( ABSPATH . APP_INC . '/Text/Diff.php' );
 	/** Text_Diff_Renderer class */
-	require( ABSPATH . APPINC . '/Text/Diff/Renderer.php' );
+	require( ABSPATH . APP_INC . '/Text/Diff/Renderer.php' );
 	/** Text_Diff_Renderer_inline class */
-	require( ABSPATH . APPINC . '/Text/Diff/Renderer/inline.php' );
+	require( ABSPATH . APP_INC . '/Text/Diff/Renderer/inline.php' );
 }
 
-require( ABSPATH . APPINC . '/classes/includes/class-app-text-diff-renderer-table.php' );
-require( ABSPATH . APPINC . '/classes/includes/class-app-text-diff-renderer-inline.php' );
+require( ABSPATH . APP_INC . '/classes/includes/class-app-text-diff-renderer-table.php' );
+require( ABSPATH . APP_INC . '/classes/includes/class-app-text-diff-renderer-inline.php' );

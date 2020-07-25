@@ -1050,7 +1050,7 @@ function update_core($from, $to) {
 	// Custom Content Directory needs updating now.
 	// Copy Languages
 	if ( !is_wp_error($result) && $wp_filesystem->is_dir($from . $distro . 'app-languages' ) ) {
-		if ( APP_LANG_DIR != ABSPATH . APPINC . '/languages' || @is_dir( APP_LANG_DIR ) )
+		if ( APP_LANG_DIR != ABSPATH . APP_INC . '/languages' || @is_dir( APP_LANG_DIR ) )
 			$lang_dir = APP_LANG_DIR;
 		else
 			$lang_dir = WP_CONTENT_DIR . '/languages';

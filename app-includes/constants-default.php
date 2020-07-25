@@ -427,12 +427,6 @@ function wp_functionality_constants() {
 function wp_templating_constants() {
 
 	/**
-	 * Filesystem path to the views directory
-	 * @since 1.0.0
-	 */
-	define( 'VIEWSPATH', ABSPATH . 'app-views/' );
-
-	/**
 	 * Filesystem path to the current active template directory
 	 * @since Previous 1.5.0
 	 */
