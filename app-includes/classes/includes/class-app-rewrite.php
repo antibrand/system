@@ -1543,6 +1543,9 @@ class WP_Rewrite {
 
 		$rules .= "</IfModule>\n";
 
+		$rules .= "AddType x-font/woff2 woff2\n";
+		$rules .= "AddType x-font/woff woff\n";
+
 		/**
 		 * Filters the list of rewrite rules formatted for output to an .htaccess file.
 		 *
