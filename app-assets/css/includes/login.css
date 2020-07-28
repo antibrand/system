@@ -401,43 +401,43 @@ textarea {
 /**
  * Sans-serif font
  *
- * The website management system uses Inter variable as a sans-serif font.
+ * The website management system uses "sans" variable as a sans-serif font.
  *
- * @link https://github.com/rsms/inter
+ * @link https://github.com/antibrand/sans
  */
 @font-face {
-  font-family: 'Inter';
+  font-family: 'sans';
   font-weight: 100 900;
   font-style: normal;
-  src: url(../../fonts/inter/inter-upright-var.woff2) format("woff2");
+  src: url(../../fonts/sans/sans.woff2) format("woff2");
 }
 
 @font-face {
-  font-family: 'Inter';
+  font-family: 'sans';
   font-weight: 100 900;
   font-style: italic;
-  src: url(../../fonts/inter/inter-italic-var.woff2) format("woff2");
+  src: url(../../fonts/sans/sans-italic.woff2) format("woff2");
 }
 
 /**
  * Serif font
  *
- * The website management system uses Crimson Pro variable as a serif font.
+ * The website management system uses "serif" variable as a serif font.
  *
- * @link https://github.com/Fonthausen/CrimsonPro
+ * @link https://github.com/antibrand/serif
  */
 @font-face {
-  font-family: 'Crimson Pro';
+  font-family: 'serif';
   font-weight: 100 900;
   font-style: normal;
-  src: url(../../fonts/crimson/crimson-pro-roman.woff) format("woff");
+  src: url(../../fonts/serif/serif.woff) format("woff");
 }
 
 @font-face {
-  font-family: 'Crimson Pro';
+  font-family: 'serif';
   font-weight: 100 900;
   font-style: italic;
-  src: url(../../fonts/crimson/crimson-pro-italic.woff) format("woff");
+  src: url(../../fonts/serif/serif-italic.woff) format("woff");
 }
 
 /**
@@ -455,15 +455,15 @@ textarea {
 /**
  * Monospace font
  *
- * The website management system uses League Mono variable as a serif font.
+ * The website management system uses "mono" variable as a serif font.
  *
- * @link https://github.com/sursly/leaguemono
+ * @link https://github.com/antibrand/mono
  */
 @font-face {
-  font-family: 'League Mono';
+  font-family: 'mono';
   font-weight: 100 900;
   font-style: normal;
-  src: url(../../fonts/league-mono/LeagueMonoVariable.woff2) format("woff2");
+  src: url(../../fonts/mono/mono.woff2) format("woff2");
 }
 
 /**
@@ -480,7 +480,7 @@ body {
 
 @supports (font-variation-settings: normal) {
   body {
-    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: "sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 }
 
@@ -581,7 +581,7 @@ samp {
   code,
   kbd,
   samp {
-    font-family: "League Mono", SFMono-Regular, "Menlo", "Consolas", "Roboto Mono", "Ubuntu Monospace", "Noto Mono", "Oxygen Mono", "Liberation Mono", "Courier New", Courier, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: "mono", SFMono-Regular, "Menlo", "Consolas", "Roboto Mono", "Ubuntu Monospace", "Noto Mono", "Oxygen Mono", "Liberation Mono", "Courier New", Courier, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 0.925em;
   }
 }
