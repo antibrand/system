@@ -412,6 +412,7 @@ textarea {
   font-family: 'sans';
   font-weight: 100 900;
   font-style: normal;
+  font-named-instance: 'normal';
   src: url(../../fonts/sans/sans.woff2) format("woff2");
 }
 
@@ -419,6 +420,7 @@ textarea {
   font-family: 'sans';
   font-weight: 100 900;
   font-style: italic;
+  font-named-instance: 'italic';
   src: url(../../fonts/sans/sans-italic.woff2) format("woff2");
 }
 
@@ -433,6 +435,7 @@ textarea {
   font-family: 'serif';
   font-weight: 100 900;
   font-style: normal;
+  font-named-instance: 'normal';
   src: url(../../fonts/serif/serif.woff) format("woff");
 }
 
@@ -440,6 +443,7 @@ textarea {
   font-family: 'serif';
   font-weight: 100 900;
   font-style: italic;
+  font-named-instance: 'italic';
   src: url(../../fonts/serif/serif-italic.woff) format("woff");
 }
 
@@ -466,6 +470,7 @@ textarea {
   font-family: 'mono';
   font-weight: 100 900;
   font-style: normal;
+  font-named-instance: 'normal';
   src: url(../../fonts/mono/mono.woff2) format("woff2");
 }
 
