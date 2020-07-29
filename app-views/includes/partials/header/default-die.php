@@ -89,6 +89,12 @@ header( 'Content-Type: text/html; charset=utf-8' );
 
 	<title><?php _e( 'System Error' ); ?></title>
 
+	<link rel="preload" href="<?php echo site_url( 'app-assets/fonts/sans/variable/sans.woff2' ); ?>" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="<?php echo site_url( 'app-assets/fonts/sans/variable/sans-italic.woff2' ); ?>" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="<?php echo site_url( 'app-assets/fonts/serif/variable/serif.woff' ); ?>" as="font" type="font/woff" crossorigin>
+	<link rel="preload" href="<?php echo site_url( 'app-assets/fonts/serif/variable/serif.woff' ); ?>" as="font" type="font/woff" crossorigin>
+	<link rel="preload" href="<?php echo site_url( 'app-assets/fonts/mono/variable/mono.woff2' ); ?>" as="font" type="font/woff2" crossorigin>
+
 	<link rel="icon" href="<?php echo esc_attr( $app_get_logo ); ?>" />
 
 	<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
