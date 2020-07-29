@@ -48,9 +48,6 @@ require_once( ABSPATH . 'wp-admin/includes/translation-install.php' );
 // Get the identity image or white label logo.
 $app_get_logo = dirname( dirname( dirname( $_SERVER['PHP_SELF'] ) ) ) . '/app-assets/images/app-icon.png';
 
-// Path to the directory to upload the system icon.
-$app_icon_dir = apply_filters( 'app_icon_upload_directory', APP_ASSETS . '/images/white-label/' );
-
 /**
  * Set the headers to prevent caching
  *
@@ -190,7 +187,7 @@ switch( $step ) :
 
 		<main class="config-content">
 
-			<form class="config-form" method="post" action="config.php?step=ready">
+			<form enctype="multipart/form-data" class="config-form" method="post" action="config.php?step=ready">
 
 				<?php
 				include_once( ABSPATH . 'app-views/includes/partials/content/config-intro.php' );

@@ -33,6 +33,9 @@ if ( defined( 'APP_WEBSITE' ) && APP_WEBSITE ) {
 	$app_website = '';
 }
 
+// Path to the directory to upload the system icon.
+$app_icon_dir = apply_filters( 'app_icon_upload_directory', ABSPATH . APP_ASSETS . '/images/white-label/' );
+
 ?>
 <section id="config-identity" class="form-step">
 
@@ -74,7 +77,17 @@ if ( defined( 'APP_WEBSITE' ) && APP_WEBSITE ) {
 
 	<?php if ( isset( $_GET['noapi'] ) ) : ?>
 	<input name="noapi" type="hidden" value="1" />
-	<?php endif; ?>
+	<?php endif;
+
+	$app_icon_dir = $app_icon_dir . basename( $_FILES['app_icon']['name'] );
+
+	if(move_uploaded_file($_FILES['app_icon']['tmp_name'], $target_path)) {
+		echo "The file ".  basename( $_FILES['app_icon']['name']). 
+		" has been uploaded";
+	} else{
+		echo "There was an error uploading the file, please try again!";
+	}
+	?>
 
 	<input type="hidden" name="language" value="<?php echo esc_attr( $language ); ?>" />
 

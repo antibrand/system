@@ -10,7 +10,7 @@
 	font-weight: 100 900;
 	font-style: normal;
 	font-named-instance: 'normal';
-	src: url( ../../fonts/sans/sans.woff2 ) format( 'woff2' );
+	src: url( ../../fonts/sans/variable/sans.woff2 ) format( 'woff2' );
 }
 
 @font-face {
@@ -18,7 +18,7 @@
 	font-weight: 100 900;
 	font-style: italic;
 	font-named-instance: 'italic';
-	src: url( ../../fonts/sans/sans-italic.woff2 ) format( 'woff2' );
+	src: url( ../../fonts/sans/variable/sans-italic.woff2 ) format( 'woff2' );
 }
 
 /**
@@ -33,7 +33,7 @@
 	font-weight: 100 900;
 	font-style: normal;
 	font-named-instance: 'normal';
-	src: url( ../../fonts/serif/serif.woff ) format( 'woff' );
+	src: url( ../../fonts/serif/variable/serif.woff ) format( 'woff' );
 }
 
 @font-face {
@@ -41,7 +41,7 @@
 	font-weight: 100 900;
 	font-style: italic;
 	font-named-instance: 'italic';
-	src: url( ../../fonts/serif/serif-italic.woff ) format( 'woff' );
+	src: url( ../../fonts/serif/variable/serif-italic.woff ) format( 'woff' );
 }
 
 /**
@@ -68,5 +68,5 @@
 	font-weight: 100 900;
 	font-style: normal;
 	font-named-instance: 'normal';
-	src: url( ../../fonts/mono/mono.woff2 ) format( 'woff2' );
+	src: url( ../../fonts/mono/variable/mono.woff2 ) format( 'woff2' );
 }
