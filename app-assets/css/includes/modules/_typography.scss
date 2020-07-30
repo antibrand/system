@@ -123,7 +123,7 @@ $system_sans :
 // Default serif stack.
 $serif :
 	'serif',
-	NonBreakingSpaceOverride,
+	HoeflerFix,
 	'Hoefler Text',
 	Garamond,
 	'Lucida Bright',
@@ -144,7 +144,7 @@ $serif :
 // Variable serif stack.
 $variable_serif :
 	'serif var',
-	NonBreakingSpaceOverride,
+	HoeflerFix,
 	'Hoefler Text',
 	Garamond,
 	'Lucida Bright',
@@ -164,7 +164,7 @@ $variable_serif :
 
 // System sans stack.
 $system_serif :
-	NonBreakingSpaceOverride,
+	HoeflerFix,
 	'Hoefler Text',
 	Garamond,
 	'Lucida Bright',
