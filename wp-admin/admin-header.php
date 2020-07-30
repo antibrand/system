@@ -67,11 +67,11 @@ _wp_admin_html_begin();
 ?>
 <title><?php echo $admin_title; ?></title>
 
-<link rel="preload" href="<?php echo site_url( 'app-assets/fonts/sans/variable/sans.woff2' ); ?>" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="<?php echo site_url( 'app-assets/fonts/sans/variable/sans-italic.woff2' ); ?>" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="<?php echo site_url( 'app-assets/fonts/serif/variable/serif.woff' ); ?>" as="font" type="font/woff" crossorigin>
-<link rel="preload" href="<?php echo site_url( 'app-assets/fonts/serif/variable/serif.woff' ); ?>" as="font" type="font/woff" crossorigin>
-<link rel="preload" href="<?php echo site_url( 'app-assets/fonts/mono/variable/mono.woff2' ); ?>" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="<?php echo app_assets_url( '/fonts/sans/variable/sans.woff2' ); ?>" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="<?php echo app_assets_url( '/fonts/sans/variable/sans-italic.woff2' ); ?>" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="<?php echo app_assets_url( '/fonts/serif/variable/serif.woff' ); ?>" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="<?php echo app_assets_url( '/fonts/serif/variable/serif-italic.woff' ); ?>" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="<?php echo app_assets_url( '/fonts/mono/variable/mono.woff2' ); ?>" as="font" type="font/woff2" crossorigin>
 <?php
 
 wp_enqueue_style( 'colors' );
