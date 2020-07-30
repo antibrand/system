@@ -1,6 +1,6 @@
 <?php
 /**
- * App dashboard class
+ * Dashboard class
  *
  * @package App_Package
  * @subpackage Administration
