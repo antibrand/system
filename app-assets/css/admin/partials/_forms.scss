@@ -49,12 +49,27 @@ fieldset {
 	}
 }
 
-label {
+// Applied to ul & ol elements.
+.form-field-list {
+	list-style: none;
+	margin-top: 1em;
+
+	li {
+		margin-top: 0.5em;
+	}
+}
+
+label,
+.form-label {
+	font-size: 1em;
 	font-weight: 700;
-	cursor: pointer;
 
 	@supports ( font-variation-settings: normal ) {
 		font-weight: 600;
+	}
+
+	&.check-label {
+		cursor: pointer;
 	}
 }
 
