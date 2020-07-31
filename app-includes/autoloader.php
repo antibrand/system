@@ -45,9 +45,11 @@ const APP_CLASSES = [
 	'AppNamespace\Includes\Site_Icon' => __DIR__ . '/classes/includes/class-site-icon.php',
 
 	// Screens.
-	'AppNamespace\Backend\Screen'    => __DIR__ . '/classes/backend/class-screen.php',
-	'AppNamespace\Backend\Dashboard' => __DIR__ . '/classes/backend/class-dashboard.php',
-	'AppNamespace\Backend\Data_Page' => __DIR__ . '/classes/backend/class-data-page.php',
+	'AppNamespace\Backend\Screen'           => __DIR__ . '/classes/backend/class-screen.php',
+	'AppNamespace\Backend\Dashboard'        => __DIR__ . '/classes/backend/class-dashboard.php',
+	'AppNamespace\Backend\Settings_Screen'  => __DIR__ . '/classes/backend/class-settings-screen.php',
+	'AppNamespace\Backend\Settings_General' => __DIR__ . '/classes/backend/class-settings-general.php',
+	'AppNamespace\Backend\Data_Page'        => __DIR__ . '/classes/backend/class-data-page.php',
 
 	// List tables.
 	'AppNamespace\Backend\List_Table'          => __DIR__ . '/classes/backend/class-list-table.php',
