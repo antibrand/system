@@ -813,8 +813,7 @@ final class Screen {
 	}
 
 	/**
-	 * Add a sidebar to the contextual help for the screen.
-	 * Call this in template files after admin.php is loaded and before admin-header.php is loaded to add a sidebar to the contextual help.
+	 * Sets the content tab attributes.
 	 *
 	 * @since 1.0.0
 	 * @param array
