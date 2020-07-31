@@ -181,7 +181,7 @@ class Settings_General extends Settings_Screen {
 	/**
 	 * Tabbed content
 	 *
-	 * Add content to the tabbed section of the dashboard page.
+	 * Add content to the tabbed section of the page.
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -647,7 +647,7 @@ class Settings_General extends Settings_Screen {
 	/**
 	 * Help content
 	 *
-	 * Add content to the help section of the dashboard page.
+	 * Add content to the help section of the page.
 	 *
 	 * @since 1.0.0
 	 * @access public
@@ -717,7 +717,7 @@ class Settings_General extends Settings_Screen {
 			__( 'You must click the Save Changes button at the bottom of the screen for new settings to take effect.' )
 		);
 
-		$help = apply_filters( 'help_options_general_overview', $help );
+		$help = apply_filters( 'help_settings_general_overview', $help );
 
 		echo $help;
 

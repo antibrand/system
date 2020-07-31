@@ -95,7 +95,7 @@ class Settings_Screen {
 	/**
 	 * Tabbed content
 	 *
-	 * Add content to the tabbed section of the dashboard page.
+	 * Add content to the tabbed section of the page.
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -153,7 +153,7 @@ class Settings_Screen {
 	/**
 	 * Help content
 	 *
-	 * Add content to the help section of the dashboard page.
+	 * Add content to the help section of the page.
 	 *
 	 * @since 1.0.0
 	 * @access public
