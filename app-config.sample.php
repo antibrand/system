@@ -114,12 +114,6 @@ define( 'WP_DEBUG_LOG', false );
 define( 'WP_DEBUG_DISPLAY', true );
 define( 'WP_LOCAL_DEV', false );
 
-// Use local URL if WP_LOCAL_DEV is true.
-if ( defined( 'WP_LOCAL_DEV' ) && WP_LOCAL_DEV ) {
-	// update_option( 'siteurl', 'https://local.example.dev' );
-	// update_option( 'home', 'https://local.example.dev' );
-}
-
 // Set false to load scripts & styles separately.
 // define( 'CONCATENATE_SCRIPTS', true );
 
