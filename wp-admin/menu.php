@@ -629,6 +629,12 @@ $submenu['options-general.php'][10] = [
 	'options-general.php'
 ];
 
+$submenu['options-general.php'][12] = [
+	__( 'Content' ),
+	'manage_options',
+	'options-content.php'
+];
+
 $submenu['options-general.php'][15] = [
 	__( 'Writing' ),
 	'manage_options',
