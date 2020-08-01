@@ -353,76 +353,76 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 
 	<form name="form" action="options.php" method="post" id="all-options">
 
-	<?php wp_nonce_field( 'options-options' ) ?>
+		<?php wp_nonce_field( 'options-options' ) ?>
 
-	<input type="hidden" name="action" value="update" />
-	<input type="hidden" name="option_page" value="options" />
+		<input type="hidden" name="action" value="update" />
+		<input type="hidden" name="option_page" value="options" />
 
-	<table class="form-table">
-	<?php
-	$options = $wpdb->get_results( "SELECT * FROM $wpdb->options ORDER BY option_name" );
+		<table class="form-table">
+		<?php
+		$options = $wpdb->get_results( "SELECT * FROM $wpdb->options ORDER BY option_name" );
 
-	foreach ( (array) $options as $option ) :
+		foreach ( (array) $options as $option ) :
 
-		$disabled = false;
+			$disabled = false;
 
-		if ( $option->option_name == '' ) {
-			continue;
-		}
+			if ( $option->option_name == '' ) {
+				continue;
+			}
 
-		if ( is_serialized( $option->option_value ) ) {
+			if ( is_serialized( $option->option_value ) ) {
 
-			if ( is_serialized_string( $option->option_value ) ) {
+				if ( is_serialized_string( $option->option_value ) ) {
 
-				// This is a serialized string, so we should display it.
-				$value = maybe_unserialize( $option->option_value );
+					// This is a serialized string, so we should display it.
+					$value = maybe_unserialize( $option->option_value );
 
-				$options_to_update[] = $option->option_name;
+					$options_to_update[] = $option->option_name;
 
-				$class = 'all-options';
+					$class = 'all-options';
+
+				} else {
+
+					$value    = 'SERIALIZED DATA';
+					$disabled = true;
+					$class    = 'all-options disabled';
+				}
 
 			} else {
 
-				$value    = 'SERIALIZED DATA';
-				$disabled = true;
-				$class    = 'all-options disabled';
+				$value = $option->option_value;
+				$options_to_update[] = $option->option_name;
+				$class = 'all-options';
 			}
 
-		} else {
+			$name = esc_attr( $option->option_name );
 
-			$value = $option->option_value;
-			$options_to_update[] = $option->option_name;
-			$class = 'all-options';
-		}
+			?>
+			<tr>
+				<th scope="row"><label for="<?php echo $name ?>"><?php echo esc_html( $option->option_name ); ?></label></th>
+			<td>
+			<?php if ( strpos( $value, "\n" ) !== false ) : ?>
 
-		$name = esc_attr( $option->option_name );
+				<textarea class="<?php echo $class ?>" name="<?php echo $name ?>" id="<?php echo $name ?>" cols="30" rows="5"><?php
+					echo esc_textarea( $value );
+				?></textarea>
 
-		?>
-		<tr>
-			<th scope="row"><label for="<?php echo $name ?>"><?php echo esc_html( $option->option_name ); ?></label></th>
-		<td>
-		<?php if ( strpos( $value, "\n" ) !== false ) : ?>
+				<?php else: ?>
 
-			<textarea class="<?php echo $class ?>" name="<?php echo $name ?>" id="<?php echo $name ?>" cols="30" rows="5"><?php
-				echo esc_textarea( $value );
-			?></textarea>
+					<input class="regular-text <?php echo $class ?>" type="text" name="<?php echo $name ?>" id="<?php echo $name ?>" value="<?php echo esc_attr( $value ) ?>"<?php disabled( $disabled, true ) ?> />
 
-			<?php else: ?>
+				<?php endif ?></td>
+			</tr>
 
-				<input class="regular-text <?php echo $class ?>" type="text" name="<?php echo $name ?>" id="<?php echo $name ?>" value="<?php echo esc_attr( $value ) ?>"<?php disabled( $disabled, true ) ?> />
+			<?php endforeach; ?>
 
-			<?php endif ?></td>
-		</tr>
+		</table>
 
-		<?php endforeach; ?>
+		<input type="hidden" name="page_options" value="<?php echo esc_attr( implode( ',', $options_to_update ) ); ?>" />
 
-	</table>
+		<?php submit_button( __( 'Save Changes' ), 'primary', 'Update' ); ?>
 
-<input type="hidden" name="page_options" value="<?php echo esc_attr( implode( ',', $options_to_update ) ); ?>" />
-
-<?php submit_button( __( 'Save Changes' ), 'primary', 'Update' ); ?>
-
-  </form>
+	</form>
 </div>
 
 <?php
