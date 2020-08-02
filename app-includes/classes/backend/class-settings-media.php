@@ -194,76 +194,82 @@ class Settings_Media extends Settings_Screen {
 
 			<p><?php _e( 'The sizes listed below determine the maximum dimensions in pixels to use when adding an image to the Media Library. The active theme may override the size settings as require for its layout.' ); ?></p>
 
-			<table class="form-table">
-				<tr>
-					<th scope="row"><?php _e( 'Thumbnail size' ) ?></th>
+			<fieldset form="<?php echo $this->fields . '-settings'; ?>" class="form-tab-fieldset">
 
-					<td>
-						<fieldset>
-							<legend class="screen-reader-text"><span><?php _e( 'Thumbnail size' ); ?></span></legend>
+				<legend class="screen-reader-text"><span><?php _e( 'Thumbnail Size Settings' ); ?></span></legend>
 
-							<label for="thumbnail_size_w"><?php _e( 'Width' ); ?></label>
-							<input name="thumbnail_size_w" type="number" step="1" min="0" id="thumbnail_size_w" value="<?php form_option( 'thumbnail_size_w' ); ?>" class="small-text" />
+				<h3><?php _e( 'Thumbnail Size' ); ?></h3>
 
-							<br />
+				<ul class="form-field-list">
+					<li>
+						<label for="thumbnail_size_w"><?php _e( 'Width' ); ?></label>
+						<input name="thumbnail_size_w" type="number" step="1" min="0" id="thumbnail_size_w" value="<?php form_option( 'thumbnail_size_w' ); ?>" class="small-text" />
+					</li>
+					<li>
+						<label for="thumbnail_size_h"><?php _e( 'Height' ); ?></label>
+						<input name="thumbnail_size_h" type="number" step="1" min="0" id="thumbnail_size_h" value="<?php form_option( 'thumbnail_size_h' ); ?>" class="small-text" />
+					</li>
+				</ul>
 
-							<label for="thumbnail_size_h"><?php _e( 'Height' ); ?></label>
-							<input name="thumbnail_size_h" type="number" step="1" min="0" id="thumbnail_size_h" value="<?php form_option( 'thumbnail_size_h' ); ?>" class="small-text" />
-						</fieldset>
-
+				<p>
+					<label for="thumbnail_crop">
 						<input name="thumbnail_crop" type="checkbox" id="thumbnail_crop" value="1" <?php checked( '1', get_option( 'thumbnail_crop' ) ); ?>/>
+						<?php _e( 'Crop to exact dimensions' ); ?>
+					</label>
+				</p>
+			</fieldset>
 
-						<label for="thumbnail_crop"><?php _e( 'Crop to exact dimensions' ); ?></label>
-					</td>
-				</tr>
+			<fieldset form="<?php echo $this->fields . '-settings'; ?>" class="form-tab-fieldset">
 
-				<tr>
-					<th scope="row"><?php _e( 'Medium size' ) ?></th>
+				<legend class="screen-reader-text"><span><?php _e( 'Medium Size Settings' ); ?></span></legend>
 
-					<td>
-						<fieldset>
-							<legend class="screen-reader-text"><span><?php _e( 'Medium size' ); ?></span></legend>
+				<h3><?php _e( 'Medium Size' ); ?></h3>
 
-							<label for="medium_size_w"><?php _e( 'Max Width' ); ?></label>
-							<input name="medium_size_w" type="number" step="1" min="0" id="medium_size_w" value="<?php form_option( 'medium_size_w' ); ?>" class="small-text" />
+				<ul class="form-field-list">
+					<li>
+						<label for="medium_size_w"><?php _e( 'Max Width' ); ?></label>
+						<input name="medium_size_w" type="number" step="1" min="0" id="medium_size_w" value="<?php form_option( 'medium_size_w' ); ?>" class="small-text" />
+					</li>
+					<li>
+						<label for="medium_size_h"><?php _e( 'Max Height' ); ?></label>
+						<input name="medium_size_h" type="number" step="1" min="0" id="medium_size_h" value="<?php form_option( 'medium_size_h' ); ?>" class="small-text" />
+					</li>
+				</ul>
 
-							<br />
-
-							<label for="medium_size_h"><?php _e( 'Max Height' ); ?></label>
-							<input name="medium_size_h" type="number" step="1" min="0" id="medium_size_h" value="<?php form_option( 'medium_size_h' ); ?>" class="small-text" />
-
-						</fieldset>
-
+				<p>
+					<label for="medium_crop">
 						<input name="medium_crop" type="checkbox" id="medium_crop" value="1" <?php checked( '1', get_option( 'medium_crop' ) ); ?>/>
+						<?php _e( 'Crop to exact dimensions' ); ?>
+					</label>
+				</p>
 
-						<label for="medium_crop"><?php _e( 'Crop to exact dimensions' ); ?></label>
-					</td>
-				</tr>
+			</fieldset>
 
-				<tr>
-					<th scope="row"><?php _e( 'Large size' ) ?></th>
+			<fieldset form="<?php echo $this->fields . '-settings'; ?>" class="form-tab-fieldset">
 
-					<td>
-						<fieldset>
-							<legend class="screen-reader-text"><span><?php _e( 'Large size' ); ?></span></legend>
+				<legend class="screen-reader-text"><span><?php _e( 'Large Size Settings' ); ?></span></legend>
 
-							<label for="large_size_w"><?php _e( 'Max Width' ); ?></label>
-							<input name="large_size_w" type="number" step="1" min="0" id="large_size_w" value="<?php form_option( 'large_size_w' ); ?>" class="small-text" />
+				<h3><?php _e( 'Large Size' ); ?></h3>
 
-							<br />
+				<ul class="form-field-list">
+					<li>
+						<label for="large_size_w"><?php _e( 'Max Width' ); ?></label>
+						<input name="large_size_w" type="number" step="1" min="0" id="large_size_w" value="<?php form_option( 'large_size_w' ); ?>" class="small-text" />
+					</li>
+					<li>
+						<label for="large_size_h"><?php _e( 'Max Height' ); ?></label>
+						<input name="large_size_h" type="number" step="1" min="0" id="large_size_h" value="<?php form_option( 'large_size_h' ); ?>" class="small-text" />
+					</li>
+				</ul>
 
-							<label for="large_size_h"><?php _e( 'Max Height' ); ?></label>
-							<input name="large_size_h" type="number" step="1" min="0" id="large_size_h" value="<?php form_option( 'large_size_h' ); ?>" class="small-text" />
-
-						</fieldset>
-
+				<p>
+					<label for="large_crop">
 						<input name="large_crop" type="checkbox" id="large_crop" value="1" <?php checked( '1', get_option( 'large_crop' ) ); ?>/>
+						<?php _e( 'Crop to exact dimensions' ); ?>
+					</label>
+				</p>
 
-						<label for="large_crop"><?php _e( 'Crop to exact dimensions' ); ?></label>
-					</td>
-				</tr>
-
-			</table>
+			</fieldset>
 		</div>
 		<?php
 	}
@@ -294,92 +300,65 @@ class Settings_Media extends Settings_Screen {
 
 		?>
 		<div class="tab-section-wrap tab-section-wrap__library">
+
+		<?php if ( isset( $GLOBALS['wp_settings']['media']['embeds'] ) ) : ?>
+
+			<h3><?php _e( 'Embeds' ) ?></h3>
+
+			<?php do_settings_fields( 'media', 'embeds' ); ?>
+
+		<?php endif; ?>
+
+		<?php if ( ! is_network() ) : ?>
+
+			<h3><?php _e( 'File Uploads' ); ?></h3>
+
 			<?php
-
 			/**
-			 * @global array $wp_settings
+			 * If upload_url_path is not the default (empty) and upload_path
+			 * is not the default ( 'app-views/uploads' or empty).
 			 */
-			if ( isset( $GLOBALS['wp_settings']['media']['embeds'] ) ) :
+			if ( get_option( 'upload_url_path' ) || ( get_option( 'upload_path' ) != 'app-views/uploads' && get_option( 'upload_path' ) ) ) :
 
 			?>
-			<h2 class="title"><?php _e( 'Embeds' ) ?></h2>
+			<p>
+				<label for="upload_path"><?php _e( 'Store uploads in this folder' ); ?></label>
+				<br /><input name="upload_path" type="text" id="upload_path" value="<?php echo esc_attr( get_option( 'upload_path' ) ); ?>" class="regular-text code" />
+			</p>
+			<p class="description"><?php
+				printf( __( 'Default is %s' ), '<code>app-views/uploads</code>' );
+			?></p>
 
-			<table class="form-table">
-				<?php do_settings_fields( 'media', 'embeds' ); ?>
-			</table>
-			<?php endif; ?>
+			<p>
+				<label for="upload_url_path"><?php _e( 'Full URL path to files' ); ?></label>
+				<br /><input name="upload_url_path" type="text" id="upload_url_path" value="<?php echo esc_attr( get_option( 'upload_url_path' ) ); ?>" class="regular-text code" />
+			</p>
+			<p class="description"><?php _e( 'Configuring this is optional. By default, it should be blank.' ); ?></p>
 
-			<?php if ( ! is_network() ) :
+			<?php else : ?>
 
-			?>
-			<h2 class="title"><?php _e( 'Uploading Files' ); ?></h2>
+			<p>
+				<label for="uploads_use_yearmonth_folders">
+					<input name="uploads_use_yearmonth_folders" type="checkbox" id="uploads_use_yearmonth_folders" value="1"<?php checked( '1', get_option( 'uploads_use_yearmonth_folders' ) ); ?> />
+				<?php _e( 'Organize my uploads into month- and year-based folders' ); ?>
+				</label>
+			</p>
 
-			<table class="form-table">
-				<?php
+			<?php endif; // get_option( 'upload_url_path' ) ?>
 
-				// If upload_url_path is not the default (empty), and upload_path is not the default ( 'wp-content/uploads' or empty)
-				if ( get_option( 'upload_url_path' ) || ( get_option( 'upload_path' ) != 'wp-content/uploads' && get_option( 'upload_path' ) ) ) :
-				?>
-				<tr>
-					<th scope="row"><label for="upload_path"><?php _e( 'Store uploads in this folder' ); ?></label></th>
-
-					<td><input name="upload_path" type="text" id="upload_path" value="<?php echo esc_attr(get_option( 'upload_path' )); ?>" class="regular-text code" />
-
-					<p class="description"><?php
-						printf( __( 'Default is %s' ), '<code>wp-content/uploads</code>' );
-					?></p>
-					</td>
-				</tr>
-
-				<tr>
-					<th scope="row"><label for="upload_url_path"><?php _e( 'Full URL path to files' ); ?></label></th>
-
-					<td><input name="upload_url_path" type="text" id="upload_url_path" value="<?php echo esc_attr( get_option( 'upload_url_path' )); ?>" class="regular-text code" />
-
-					<p class="description"><?php _e( 'Configuring this is optional. By default, it should be blank.' ); ?></p>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2" class="td-full">
-						<?php else : ?>
-						<tr>
-						<td class="td-full">
-						<?php endif; ?>
-
-						<label for="uploads_use_yearmonth_folders">
-						<input name="uploads_use_yearmonth_folders" type="checkbox" id="uploads_use_yearmonth_folders" value="1"<?php checked( '1', get_option( 'uploads_use_yearmonth_folders' )); ?> />
-
-						<?php _e( 'Organize my uploads into month- and year-based folders' ); ?>
-
-						</label>
-					</td>
-				</tr>
-
-				<?php do_settings_fields( 'media', 'uploads' ); ?>
-
-			</table>
+			<?php do_settings_fields( 'media', 'uploads' ); ?>
 
 			<?php if ( current_user_can( 'manage_options' ) ) : ?>
 
-			<h2 class="title"><?php _e( 'Deleting Files' ); ?></h2>
+			<h3><?php _e( 'Deleting Files' ); ?></h3>
 
-			<table class="form-table">
+			<p>
+				<label for="media_allow_trash">
+					<input name="media_allow_trash" type="checkbox" id="media_allow_trash" value="1"<?php checked( '1', get_option( 'media_allow_trash' ) ); ?> />
+					<?php _e( 'Allow trash for media library items' ); ?>
+				</label>
+			</p>
 
-				<tr>
-					<td colspan="2" class="td-full">
-
-						<label for="media_allow_trash">
-						<input name="media_allow_trash" type="checkbox" id="media_allow_trash" value="1"<?php checked( '1', get_option( 'media_allow_trash' ) ); ?> />
-
-						<?php _e( 'Allow trash for media library items' ); ?>
-
-						</label>
-					</td>
-				</tr>
-
-				<?php do_settings_fields( 'media', 'delete' ); ?>
-
-			</table>
 		</div>
 		<?php endif;
 	endif;
@@ -426,7 +405,7 @@ class Settings_Media extends Settings_Screen {
 			__( 'You can set maximum sizes for images inserted into your written content; you can also insert an image as Full Size.' )
 		);
 
-		if ( ! is_network() && ( get_option( 'upload_url_path' ) || ( get_option( 'upload_path' ) != 'wp-content/uploads' && get_option( 'upload_path' ) ) ) ) {
+		if ( ! is_network() && ( get_option( 'upload_url_path' ) || ( get_option( 'upload_path' ) != 'app-views/uploads' && get_option( 'upload_path' ) ) ) ) {
 
 			$help .= sprintf(
 				'<p>%1s</p>',
