@@ -149,7 +149,7 @@ class Settings_Content extends Settings_Screen {
 				<tr>
 				<th scope="row"><?php _e( 'Formatting' ); ?></th>
 				<td>
-					<fieldset>
+					<fieldset form="<?php echo $this->fields . '-settings'; ?>">
 						<legend class="screen-reader-text"><span><?php _e( 'Formatting' ); ?></span></legend>
 						<label for="use_smilies">
 						<input name="use_smilies" type="checkbox" id="use_smilies" value="1" <?php checked( '1', get_option( 'use_smilies' ) ); ?> />
@@ -274,7 +274,7 @@ class Settings_Content extends Settings_Screen {
 					<th scope="row"><?php _e( 'Your homepage displays' ); ?></th>
 
 					<td id="front-static-pages">
-						<fieldset>
+						<fieldset form="<?php echo $this->fields . '-settings'; ?>">
 							<legend class="screen-reader-text"><span><?php _e( 'Your homepage displays' ); ?></span></legend>
 
 							<p>
@@ -326,7 +326,7 @@ class Settings_Content extends Settings_Screen {
 					<th scope="row"><?php _e( 'For each article in a feed, show' ); ?> </th>
 
 					<td>
-						<fieldset>
+						<fieldset form="<?php echo $this->fields . '-settings'; ?>">
 							<legend class="screen-reader-text"><span><?php _e( 'For each article in a feed, show' ); ?> </span></legend>
 
 							<p>
@@ -344,7 +344,7 @@ class Settings_Content extends Settings_Screen {
 					<th scope="row"><?php has_action( 'blog_privacy_selector' ) ? _e( 'Site Visibility' ) : _e( 'Search Engine Visibility' ); ?> </th>
 
 					<td>
-						<fieldset>
+						<fieldset form="<?php echo $this->fields . '-settings'; ?>">
 							<legend class="screen-reader-text"><span><?php has_action( 'blog_privacy_selector' ) ? _e( 'Site Visibility' ) : _e( 'Search Engine Visibility' ); ?> </span></legend>
 
 						<?php

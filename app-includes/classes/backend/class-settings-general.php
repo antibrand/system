@@ -390,7 +390,7 @@ class Settings_General extends Settings_Screen {
 
 			<h3 class="form-label"><?php _e( 'Date Format' ) ?></h3>
 
-			<fieldset>
+			<fieldset form="<?php echo $this->fields . '-settings'; ?>">
 
 				<legend class="screen-reader-text"><span><?php _e( 'Date Format' ) ?></span></legend>
 
@@ -455,7 +455,7 @@ class Settings_General extends Settings_Screen {
 
 			<h3 class="form-label"><?php _e( 'Time Format' ) ?></h3>
 
-			<fieldset>
+			<fieldset form="<?php echo $this->fields . '-settings'; ?>">
 
 				<legend class="screen-reader-text"><span><?php _e( 'Time Format' ) ?></span></legend>
 
