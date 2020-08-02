@@ -49,7 +49,9 @@ const APP_CLASSES = [
 	'AppNamespace\Backend\Dashboard'        => __DIR__ . '/classes/backend/class-dashboard.php',
 	'AppNamespace\Backend\Settings_Screen'  => __DIR__ . '/classes/backend/class-settings-screen.php',
 	'AppNamespace\Backend\Settings_General' => __DIR__ . '/classes/backend/class-settings-general.php',
+	'AppNamespace\Backend\Settings_Media'   => __DIR__ . '/classes/backend/class-settings-media.php',
 	'AppNamespace\Backend\Settings_Content' => __DIR__ . '/classes/backend/class-settings-content.php',
+	'AppNamespace\Backend\Settings_Discussion' => __DIR__ . '/classes/backend/class-settings-discussion.php',
 	'AppNamespace\Backend\Data_Page'        => __DIR__ . '/classes/backend/class-data-page.php',
 
 	// List tables.

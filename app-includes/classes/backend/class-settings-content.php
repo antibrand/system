@@ -31,6 +31,24 @@ class Settings_Content extends Settings_Screen {
 	public $parent = 'options-general.php';
 
 	/**
+	 * Page title
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @var string
+	 */
+	public $title = 'Content Settings';
+
+	/**
+	 * Page description
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @var string
+	 */
+	public $description = 'Post authoring and content display settings.';
+
+	/**
 	 * Form fields
 	 *
 	 * @since 1.0.0
@@ -62,37 +80,6 @@ class Settings_Content extends Settings_Screen {
 	protected function __construct() {
 
 		parent :: __construct();
-	}
-
-	/**
-	 * Page title
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return string Returns the translated title.
-	 */
-	public function title() {
-
-		$this->title = __( 'Content Settings' );
-
-		return apply_filters( 'settings_content_page_title', $this->title );
-	}
-
-	/**
-	 * Page description
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return string Returns the description markup.
-	 */
-	public function description() {
-
-		$this->description = sprintf(
-			'<p class="description">%1s</p>',
-			__( 'Post authoring and content display settingse.' )
-		);
-
-		return apply_filters( 'settings_content_page_description', $this->description );
 	}
 
 	/**
@@ -867,15 +854,7 @@ class Settings_Content extends Settings_Screen {
 			__( 'You must click the Save Changes button at the bottom of the screen for new settings to take effect.' )
 		);
 
-		$help = apply_filters( 'help_options_writing_overview', $help );
-
-		get_current_screen()->add_help_tab( [
-			'id'      => 'overview',
-			'title'   => __( 'Overview' ),
-			'content' => $help
-		] );
-
-		$help = apply_filters( 'help_settings_writing_overview', $help );
+		$help = apply_filters( 'help_settings_content_overview', $help );
 
 		echo $help;
 	}
@@ -899,7 +878,7 @@ class Settings_Content extends Settings_Screen {
 			__( 'Post via email settings allow you to send your installation an email with the content of your post. You must set up a secret email account with POP3 access to use this, and any mail received at this address will be posted, so it&#8217;s a good idea to keep this address very secret.' )
 		);
 
-		$help = apply_filters( 'help_settings_writing_post_email', $help );
+		$help = apply_filters( 'help_settings_content_post_email', $help );
 
 		echo $help;
 	}
@@ -923,7 +902,7 @@ class Settings_Content extends Settings_Screen {
 			__( 'Will automatically alert various services of your new posts.' )
 		);
 
-		$help = apply_filters( 'help_settings_writing_services', $help );
+		$help = apply_filters( 'help_settings_content_services', $help );
 
 		echo $help;
 	}
