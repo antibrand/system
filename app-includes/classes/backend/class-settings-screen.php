@@ -223,7 +223,7 @@ class Settings_Screen {
 			'id'       => $screen->id . '-overview',
 			'title'    => __( 'Overview' ),
 			'content'  => '',
-			'callback' => null,
+			'callback' => null
 		] );
 	}
 
