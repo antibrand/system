@@ -197,9 +197,9 @@ class Settings_Screen {
 
 		settings_fields( $this->fields );
 
-		do_action( 'settings_screen_add_fields_before' );
+		do_action( 'settings_screen_tabs_before' );
 		do_action( 'render_tabs_settings_screen' );
-		do_action( 'settings_screen_add_fields_after' );
+		do_action( 'settings_screen_tabs_after' );
 
 		echo get_submit_button( esc_html__( $this->submit ) );
 
