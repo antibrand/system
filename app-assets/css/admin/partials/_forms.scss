@@ -49,6 +49,16 @@ fieldset {
 	}
 }
 
+.tab-section-wrap {
+
+	fieldset {
+		& + fieldset {
+			margin-top: 2rem;
+			border-top: solid 1px $box_border_color;
+		}
+	}
+}
+
 // Applied to ul & ol elements.
 .form-field-list {
 	list-style: none;

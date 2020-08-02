@@ -869,6 +869,11 @@ fieldset.tabbed-legend > div:first-of-type p:first-of-type {
   margin-top: 0;
 }
 
+.tab-section-wrap fieldset + fieldset {
+  margin-top: 2rem;
+  border-top: solid 1px #cccccc;
+}
+
 .form-field-list {
   list-style: none;
   margin-top: 1em;
