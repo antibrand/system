@@ -1281,21 +1281,19 @@ function add_settings_section($id, $title, $callback, $page) {
  * html input tags for this setting field. Use get_option() to retrieve existing
  * values to show.
  *
- * @since 2.7.0
- * @since 4.2.0 The `$class` argument was added.
- *
- * @global $wp_settings_fields Storage array of settings fields and info about their pages/sections
- *
- * @param string   $id       Slug-name to identify the field. Used in the 'id' attribute of tags.
- * @param string   $title    Formatted title of the field. Shown as the label for the field
+ * @since  Previous 2.7.0
+ * @since  Previous 4.2.0 The `$class` argument was added.
+ * @global $wp_settings_fields Storage array of settings fields and info about their pages/sections.
+ * @param  string $id       Slug-name to identify the field. Used in the 'id' attribute of tags.
+ * @param  string $title    Formatted title of the field. Shown as the label for the field
  *                           during output.
- * @param callable $callback Function that fills the field with the desired form inputs. The
+ * @param  callable $callback Function that fills the field with the desired form inputs. The
  *                           function should echo its output.
- * @param string   $page     The slug-name of the settings page on which to show the section
+ * @param  string $page     The slug-name of the settings page on which to show the section
  *                           (general, reading, writing, ...).
- * @param string   $section  Optional. The slug-name of the section of the settings page
+ * @param  string $section  Optional. The slug-name of the section of the settings page
  *                           in which to show the box. Default 'default'.
- * @param array    $args {
+ * @param  array $args {
  *     Optional. Extra arguments used when outputting the field.
  *
  *     @type string $label_for When supplied, the setting title will be wrapped
@@ -1304,13 +1302,15 @@ function add_settings_section($id, $title, $callback, $page) {
  *     @type string $class     CSS Class to be added to the `<tr>` element when the
  *                             field is output.
  * }
+ * @return void
  */
-function add_settings_field($id, $title, $callback, $page, $section = 'default', $args = array()) {
+function add_settings_field( $id, $title, $callback, $page, $section = 'default', $args = [] ) {
+
+	// Access global variables.
 	global $wp_settings_fields;
 
 	if ( 'misc' == $page ) {
 		_deprecated_argument( __FUNCTION__, '3.0.0',
-			/* translators: %s: misc */
 			sprintf( __( 'The "%s" options group has been removed. Use another settings group.' ),
 				'misc'
 			)
@@ -1320,7 +1320,6 @@ function add_settings_field($id, $title, $callback, $page, $section = 'default',
 
 	if ( 'privacy' == $page ) {
 		_deprecated_argument( __FUNCTION__, '3.5.0',
-			/* translators: %s: privacy */
 			sprintf( __( 'The "%s" options group has been removed. Use another settings group.' ),
 				'privacy'
 			)
@@ -1328,7 +1327,13 @@ function add_settings_field($id, $title, $callback, $page, $section = 'default',
 		$page = 'reading';
 	}
 
-	$wp_settings_fields[$page][$section][$id] = array('id' => $id, 'title' => $title, 'callback' => $callback, 'args' => $args);
+	$wp_settings_fields[$page][$section][$id] = [
+		'id'       => $id,
+		'class'    => $class,
+		'title'    => $title,
+		'callback' => $callback,
+		'args'     => $args
+	];
 }
 
 /**
@@ -1338,30 +1343,41 @@ function add_settings_field($id, $title, $callback, $page, $section = 'default',
  * to output all the sections and fields that were added to that $page with
  * add_settings_section() and add_settings_field()
  *
- * @global $wp_settings_sections Storage array of all settings sections added to admin pages
- * @global $wp_settings_fields Storage array of settings fields and info about their pages/sections
- * @since 2.7.0
- *
- * @param string $page The slug name of the page whose settings sections you want to output
+ * @since  Previous 2.7.0
+ * @global $wp_settings_sections Storage array of all settings sections added to admin pages.
+ * @global $wp_settings_fields Storage array of settings fields and info about their pages/sections.
+ * @param  string $page The slug name of the page whose settings sections you want to output.
+ * @return string Returns the markup of the sections.
  */
 function do_settings_sections( $page ) {
+
 	global $wp_settings_sections, $wp_settings_fields;
 
-	if ( ! isset( $wp_settings_sections[$page] ) )
+	if ( ! isset( $wp_settings_sections[$page] ) ) {
 		return;
+	}
 
-	foreach ( (array) $wp_settings_sections[$page] as $section ) {
-		if ( $section['title'] )
+	foreach ( ( array ) $wp_settings_sections[$page] as $section ) {
+
+		if ( $section['title'] ) {
 			echo "<h2>{$section['title']}</h2>\n";
+		}
 
-		if ( $section['callback'] )
+		if ( $section['callback'] ) {
 			call_user_func( $section['callback'], $section );
+		}
 
-		if ( ! isset( $wp_settings_fields ) || !isset( $wp_settings_fields[$page] ) || !isset( $wp_settings_fields[$page][$section['id']] ) )
+		if ( ! isset( $wp_settings_fields ) || ! isset( $wp_settings_fields[$page] ) || ! isset( $wp_settings_fields[$page][$section['id']] ) ) {
 			continue;
-		echo '<table class="form-table">';
+		}
+
+		$before  = '<fieldset id="' . $section['id'] . '" class="' . $section['class'] . '">';
+		$before .= '<legend class="screen-reader-text">' . $section['title'] . '</legend>';
+		$after   = '</fieldset>';
+
+		echo apply_filters( 'do_settings_sections_before', $before );
 		do_settings_fields( $page, $section['id'] );
-		echo '</table>';
+		echo apply_filters( 'do_settings_sections_after', $after );
 	}
 }
 
@@ -1372,38 +1388,37 @@ function do_settings_sections( $page ) {
  * a specific section. Should normally be called by do_settings_sections()
  * rather than directly.
  *
- * @global $wp_settings_fields Storage array of settings fields and their pages/sections
- *
- * @since 2.7.0
- *
- * @param string $page Slug title of the admin page who's settings fields you want to show.
- * @param string $section Slug title of the settings section who's fields you want to show.
+ * @since  Previous 2.7.0
+ * @global $wp_settings_fields Storage array of settings fields and their pages/sections.
+ * @param  string $page Slug title of the admin page who's settings fields you want to show.
+ * @param  string $section Slug title of the settings section who's fields you want to show.
+ * @return string Returns the markup of the fields.
  */
-function do_settings_fields($page, $section) {
+function do_settings_fields( $page, $section ) {
+
 	global $wp_settings_fields;
 
-	if ( ! isset( $wp_settings_fields[$page][$section] ) )
+	if ( ! isset( $wp_settings_fields[$page][$section] ) ) {
 		return;
+	}
 
-	foreach ( (array) $wp_settings_fields[$page][$section] as $field ) {
+	foreach ( (array ) $wp_settings_fields[$page][$section] as $field ) {
+
 		$class = '';
 
 		if ( ! empty( $field['args']['class'] ) ) {
 			$class = ' class="' . esc_attr( $field['args']['class'] ) . '"';
 		}
 
-		echo "<tr{$class}>";
-
 		if ( ! empty( $field['args']['label_for'] ) ) {
-			echo '<th scope="row"><label for="' . esc_attr( $field['args']['label_for'] ) . '">' . $field['title'] . '</label></th>';
+			echo '<p><label for="' . esc_attr( $field['args']['label_for'] ) . '">' . $field['title'] . '</label>';
 		} else {
-			echo '<th scope="row">' . $field['title'] . '</th>';
+			echo '<p><span class="label">' . $field['title'] . '</span>';
 		}
 
-		echo '<td>';
-		call_user_func($field['callback'], $field['args']);
-		echo '</td>';
-		echo '</tr>';
+		echo '<br />';
+		call_user_func( $field['callback'], $field['args'] );
+		echo '</p>';
 	}
 }
 
@@ -1420,26 +1435,26 @@ function do_settings_fields($page, $section) {
  * Additional calls to settings_errors() can be used to show errors even when the settings
  * page is first accessed.
  *
- * @since 3.0.0
- *
- * @global array $wp_settings_errors Storage array of errors registered during this pageload
- *
- * @param string $setting Slug title of the setting to which this error applies
- * @param string $code    Slug-name to identify the error. Used as part of 'id' attribute in HTML output.
- * @param string $message The formatted message text to display to the user (will be shown inside styled
+ * @since  Previous 3.0.0
+ * @global array $wp_settings_errors Storage array of errors registered during this pageload.
+ * @param  string $setting Slug title of the setting to which this error applies
+ * @param  string $code    Slug-name to identify the error. Used as part of 'id' attribute in HTML output.
+ * @param  string $message The formatted message text to display to the user (will be shown inside styled
  *                        `<div>` and `<p>` tags).
- * @param string $type    Optional. Message type, controls HTML class. Accepts 'error' or 'updated'.
+ * @param  string $type    Optional. Message type, controls HTML class. Accepts 'error' or 'updated'.
  *                        Default 'error'.
+ * @return array
  */
 function add_settings_error( $setting, $code, $message, $type = 'error' ) {
+
 	global $wp_settings_errors;
 
-	$wp_settings_errors[] = array(
+	$wp_settings_errors[] = [
 		'setting' => $setting,
 		'code'    => $code,
 		'message' => $message,
 		'type'    => $type
-	);
+	];
 }
 
 /**
