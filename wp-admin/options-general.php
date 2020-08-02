@@ -33,7 +33,19 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 	<h1><?php echo esc_html( $title ); ?></h1>
 	<?php echo $description; ?>
 
-	<?php $class->render_form(); ?>
+	<?php
+
+	$class->render_form();
+
+	/**
+	 * The following hooks are not being used.
+	 *
+	 * @todo Create a new tab when plugins register
+	 * new settings.
+	 */
+	// do_settings_fields( 'general', 'default' );
+	// do_settings_sections( 'general' );
+	?>
 
 </div>
 <?php

@@ -25,8 +25,23 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Settings_General extends Settings_Screen {
 
-	// The screen's parent file.
+	/**
+	 * Page parent file
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @var string The parent file of the settings screen.
+	 */
 	public $parent = 'options-general.php';
+
+	/**
+	 * Form fields
+	 *
+	 * @since 1.0.0
+	 * @access protected
+	 * @var string The name of the registered fields to be executed.
+	 */
+	protected $fields = 'general';
 
 	/**
 	 * Instance of the class
@@ -84,11 +99,14 @@ class Settings_General extends Settings_Screen {
 			__( 'Configuration settings for the website.' )
 		);
 
-		return apply_filters( 'options_general_page_description', $this->description );
+		return apply_filters( 'settings_general_page_description', $this->description );
 	}
 
 	/**
 	 * Print page scripts to head
+	 *
+	 * Default script listens for input changes and
+	 * updates text accordingly.
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -98,10 +116,12 @@ class Settings_General extends Settings_Screen {
 
 		/**
 		 * Print unminified script if in development mode
-		 * or in debug mode.
+		 * or in debug mode or compression is off.
 		 */
-		if ( ( !defined( 'APP_DEV_MODE' ) && APP_DEV_MODE )
-			|| ( defined( 'APP_DEBUG' ) && APP_DEBUG ) ) :
+		if ( ( defined( 'APP_DEV_MODE' ) && APP_DEV_MODE )
+			|| ( defined( 'APP_DEBUG' ) && APP_DEBUG )
+			|| ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG )
+			|| ( defined( 'COMPRESS_SCRIPTS' ) && ! COMPRESS_SCRIPTS ) ) :
 
 	?>
 	<script type="text/javascript">

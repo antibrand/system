@@ -1,27 +1,42 @@
 <?php
 /**
- * About This Version administration panel.
+ * Writing settings administration panel.
  *
  * @package App_Package
  * @subpackage Administration
  */
 
+use \AppNamespace\Backend as Backend;
+
 // Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
-$title = __( 'Content Options' );
+// Stop here if the current user is not allowed.
+if ( ! current_user_can( 'manage_options' ) ) {
+	wp_die( __( 'Sorry, you are not allowed to manage settings for this site.' ) );
+}
 
+// Instance of the general settings class.
+$class = Backend\Settings_Content :: instance();
+
+// Page identification.
+$parent_file = $class->parent;
+$title       = $class->title();
+$description = $class->description();
+
+// Get page header.
 include( ABSPATH . 'wp-admin/admin-header.php' );
 
 ?>
 <div class="wrap">
 
-	<h1><?php _e( 'Content Options' ); ?></h1>
-	<p class="description"><?php printf( __( 'Content types, taxonomies, and author management.' ) ); ?></p>
+	<h1><?php echo esc_html( $title ); ?></h1>
+	<?php echo $description; ?>
 
-	<p><?php _e( 'This page and submenu pages may not be used. This is a placholder while content options are explored.' ); ?></p>
+	<?php $class->render_form(); ?>
 
 </div>
 <?php
 
+// Get page footer.
 include( ABSPATH . 'wp-admin/admin-footer.php' );

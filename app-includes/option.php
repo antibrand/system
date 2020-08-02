@@ -1893,26 +1893,26 @@ function register_initial_settings() {
 		'default'      => 'en_US',
 	) );
 
-	register_setting( 'writing', 'use_smilies', array(
+	register_setting( 'content', 'use_smilies', array(
 		'show_in_rest' => true,
 		'type'         => 'boolean',
 		'description'  => __( 'Convert emoticons like :-) and :-P to graphics on display.' ),
 		'default'      => true,
 	) );
 
-	register_setting( 'writing', 'default_category', array(
+	register_setting( 'content', 'default_category', array(
 		'show_in_rest' => true,
 		'type'         => 'integer',
 		'description'  => __( 'Default post category.' ),
 	) );
 
-	register_setting( 'writing', 'default_post_format', array(
+	register_setting( 'content', 'default_post_format', array(
 		'show_in_rest' => true,
 		'type'         => 'string',
 		'description'  => __( 'Default post format.' ),
 	) );
 
-	register_setting( 'reading', 'posts_per_page', array(
+	register_setting( 'content', 'posts_per_page', array(
 		'show_in_rest' => true,
 		'type'         => 'integer',
 		'description'  => __( 'Blog pages show at most.' ),

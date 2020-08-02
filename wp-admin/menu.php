@@ -623,31 +623,19 @@ $menu[80] = [
 	'dashicons-admin-tools'
 ];
 
-$submenu['options-general.php'][10] = [
-	_x( 'Settings', 'settings screen' ),
+$submenu['options-general.php'][5] = [
+	__( 'Settings' ),
 	'manage_options',
 	'options-general.php'
 ];
 
-$submenu['options-general.php'][12] = [
+$submenu['options-general.php'][10] = [
 	__( 'Content' ),
 	'manage_options',
 	'options-content.php'
 ];
 
 $submenu['options-general.php'][15] = [
-	__( 'Writing' ),
-	'manage_options',
-	'options-writing.php'
-];
-
-$submenu['options-general.php'][20] = [
-	__( 'Reading' ),
-	'manage_options',
-	'options-reading.php'
-];
-
-$submenu['options-general.php'][40] = [
 	__( 'Permalinks' ),
 	'manage_options',
 	'options-permalink.php'

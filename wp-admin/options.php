@@ -139,7 +139,7 @@ $whitelist_options = [
 		'image_default_link_type',
 		'media_allow_trash'
 	],
-	'reading' => [
+	'content' => [
 		'posts_per_page',
 		'posts_per_rss',
 		'rss_use_excerpt',
@@ -147,13 +147,14 @@ $whitelist_options = [
 		'page_on_front',
 		'page_for_posts',
 		'blog_public',
-	],
-	'writing' => [
 		'default_category',
 		'default_email_category',
 		'default_link_category',
 		'default_post_format',
 	],
+	// Deprecated.
+	'writing' => [],
+	'reading' => []
 ];
 
 $whitelist_options['misc'] = $whitelist_options['options'] = $whitelist_options['privacy'] = [];
@@ -161,12 +162,12 @@ $whitelist_options['misc'] = $whitelist_options['options'] = $whitelist_options[
 $mail_options = [ 'mailserver_url', 'mailserver_port', 'mailserver_login', 'mailserver_pass' ];
 
 if ( ! in_array( get_option( 'blog_charset' ), [ 'utf8', 'utf-8', 'UTF8', 'UTF-8' ] ) ) {
-	$whitelist_options['reading'][] = 'blog_charset';
+	$whitelist_options['content'][] = 'blog_charset';
 }
 
 if ( get_site_option( 'initial_db_version' ) < 32453 ) {
-	$whitelist_options['writing'][] = 'use_smilies';
-	$whitelist_options['writing'][] = 'use_balanceTags';
+	$whitelist_options['content'][] = 'use_smilies';
+	$whitelist_options['content'][] = 'use_balanceTags';
 }
 
 if ( ! is_network() ) {
@@ -181,7 +182,7 @@ if ( ! is_network() ) {
 
 	$whitelist_options['general'][] = 'users_can_register';
 	$whitelist_options['general'][] = 'default_role';
-	$whitelist_options['writing']   = array_merge( $whitelist_options['writing'], $mail_options );
+	$whitelist_options['content']   = array_merge( $whitelist_options['content'], $mail_options );
 	$whitelist_options['media'][]   = 'uploads_use_yearmonth_folders';
 
 	// If upload_url_path and upload_path are both default values, they're locked.
@@ -199,7 +200,7 @@ if ( ! is_network() ) {
 	 * @param bool $enabled Whether post-by-email configuration is enabled. Default true.
 	 */
 	if ( apply_filters( 'enable_post_by_email_configuration', true ) ) {
-		$whitelist_options['writing'] = array_merge( $whitelist_options['writing'], $mail_options );
+		$whitelist_options['content'] = array_merge( $whitelist_options['content'], $mail_options );
 	}
 }
 

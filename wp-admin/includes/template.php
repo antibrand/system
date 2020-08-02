@@ -1264,7 +1264,7 @@ function add_settings_section($id, $title, $callback, $page) {
 				'privacy'
 			)
 		);
-		$page = 'reading';
+		$page = 'content';
 	}
 
 	$wp_settings_sections[$page][$id] = array('id' => $id, 'title' => $title, 'callback' => $callback);
@@ -1324,7 +1324,7 @@ function add_settings_field( $id, $title, $callback, $page, $section = 'default'
 				'privacy'
 			)
 		);
-		$page = 'reading';
+		$page = 'content';
 	}
 
 	$wp_settings_fields[$page][$section][$id] = [

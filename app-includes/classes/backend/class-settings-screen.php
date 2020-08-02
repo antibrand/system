@@ -21,14 +21,62 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Settings_Screen {
 
-	// The screen's parent file.
+	/**
+	 * Page parent file
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @var string The parent file of the settings screen.
+	 *             For instance, if the page is registered as a submenu
+	 *             item of options-general.php then that is the parent.
+	 */
 	public $parent = '';
 
-	// Page title.
+	/**
+	 * Page title
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @var string
+	 */
 	public $title = '';
 
-	// Page description.
+	/**
+	 * Page description
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @var string
+	 */
 	public $description = '';
+
+	/**
+	 * Form action
+	 *
+	 * @since 1.0.0
+	 * @access protected
+	 * @var string This will most likely be options.php.
+	 */
+	protected $action = 'options.php';
+
+	/**
+	 * Form fields
+	 *
+	 * @since 1.0.0
+	 * @access protected
+	 * @var string The name of the registered fields to be executed.
+	 *             Defaults are 'general', 'writing', 'reading', permalinks'.
+	 */
+	protected $fields = '';
+
+	/**
+	 * Submit button
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @var string The thext of the form submit button.
+	 */
+	public $submit = 'Save Settings';
 
 	/**
 	 * Constructor method
@@ -65,7 +113,10 @@ class Settings_Screen {
 	 * @return string Returns the translated title.
 	 */
 	public function title() {
-		return $this->title;
+
+		$title = esc_html__( $this->title );
+
+		return $title;
 	}
 
 	/**
@@ -76,7 +127,13 @@ class Settings_Screen {
 	 * @return string Returns the description markup.
 	 */
 	public function description() {
-		return $this->description;
+
+		$description = sprintf(
+			'<p class="description">%1s</p>',
+			esc_html__( $this->description )
+		);
+
+		return $description;
 	}
 
 	/**
@@ -136,16 +193,15 @@ class Settings_Screen {
 	 */
 	public function render_form() {
 
-		echo '<form method="post" action="options.php">';
+		echo "<form id='$this->fields-settings' method='post' action='$this->action'>";
+
+		settings_fields( $this->fields );
 
 		do_action( 'settings_screen_add_fields_before' );
 		do_action( 'render_tabs_settings_screen' );
 		do_action( 'settings_screen_add_fields_after' );
 
-		echo sprintf(
-			'<p>%1s</p>',
-			get_submit_button( __( 'Save Settings' ) )
-		);
+		echo get_submit_button( esc_html__( $this->submit ) );
 
 		echo '</form>';
 	}
