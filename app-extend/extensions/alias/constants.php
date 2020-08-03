@@ -34,6 +34,20 @@ if ( ! defined( 'WP_INSTALLING' ) && defined( 'APP_INSTALLING' ) ) {
 }
 
 /**
+ * Includes directory
+ *
+ * Check for definition with a value.
+ *
+ * @since 1.0.0
+ * @var   string Returns the path to the includes directory.
+ */
+if ( ! defined( 'WPINC' ) && ( defined( 'APP_INC' ) && APP_INC ) ) {
+	define( 'WPINC', APP_INC );
+} else {
+	define( 'WPINC', ABSPATH . 'app-includes' );
+}
+
+/**
  * Plugins directory
  *
  * Check for definition with a value.
