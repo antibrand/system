@@ -35,7 +35,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 
 	<?php $class->render_form(); ?>
 
-</div>
+</div><!-- .wrap -->
 <?php
 
 // Get page footer.
