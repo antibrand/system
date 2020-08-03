@@ -30,7 +30,7 @@ class Settings_Screen {
 	 *             For instance, if the page is registered as a submenu
 	 *             item of options-general.php then that is the parent.
 	 */
-	public $parent = '';
+	public $parent = 'options-general.php';
 
 	/**
 	 * Page title
@@ -87,7 +87,11 @@ class Settings_Screen {
 	 */
 	protected function __construct() {
 
-		add_action( 'admin_enqueue_scripts', [ $this, 'scripts' ] );
+		// Enqueue page scripts.
+		add_action( 'admin_enqueue_scripts', [ $this, 'parent_enqueue_scripts' ] );
+
+		// Print page scripts to head.
+		add_action( 'admin_head', [ $this, 'parent_print_scripts' ] );
 
 		// Allow hashtags for content tabs.
 		add_filter( 'app_tabs_hashtags','__return_true' );
@@ -143,11 +147,20 @@ class Settings_Screen {
 	 * @access public
 	 * @return void
 	 */
-	public function scripts() {
+	public function parent_enqueue_scripts() {
 
 		// Script for tabbed content.
 		wp_enqueue_script( 'app-tabs' );
 	}
+
+	/**
+	 * Print scripts
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string
+	 */
+	public function parent_print_scripts() {}
 
 	/**
 	 * Tabbed content

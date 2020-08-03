@@ -26,15 +26,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Settings_General extends Settings_Screen {
 
 	/**
-	 * Page parent file
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @var string The parent file of the settings screen.
-	 */
-	public $parent = 'options-general.php';
-
-	/**
 	 * Form fields
 	 *
 	 * @since 1.0.0
@@ -68,7 +59,7 @@ class Settings_General extends Settings_Screen {
 		parent :: __construct();
 
 		// Print page scripts to head.
-		add_action( 'admin_head', [ $this, 'print_scripts' ] );
+		add_action( 'admin_head', [ $this, 'child_print_scripts' ] );
 	}
 
 	/**
@@ -112,7 +103,7 @@ class Settings_General extends Settings_Screen {
 	 * @access public
 	 * @return string Returns the script markup.
 	 */
-	function print_scripts() {
+	function child_print_scripts() {
 
 		/**
 		 * Print unminified script if in development mode
@@ -124,7 +115,7 @@ class Settings_General extends Settings_Screen {
 			|| ( defined( 'COMPRESS_SCRIPTS' ) && ! COMPRESS_SCRIPTS ) ) :
 
 	?>
-	<script type="text/javascript">
+	<script>
 		jQuery( document ).ready( function($) {
 
 			$( '.novalidate' ).attr( 'novalidate', 'novalidate' );

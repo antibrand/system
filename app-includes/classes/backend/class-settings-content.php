@@ -22,15 +22,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Settings_Content extends Settings_Screen {
 
 	/**
-	 * Page parent file
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @var string The parent file of the settings screen.
-	 */
-	public $parent = 'options-general.php';
-
-	/**
 	 * Page title
 	 *
 	 * @since 1.0.0
@@ -80,6 +71,49 @@ class Settings_Content extends Settings_Screen {
 	protected function __construct() {
 
 		parent :: __construct();
+
+		// Print page scripts to head.
+		add_action( 'admin_head', [ $this, 'child_print_scripts' ] );
+	}
+
+	/**
+	 * Print page scripts to head
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the script markup.
+	 */
+	function child_print_scripts() {
+
+		/**
+		 * Print unminified script if in development mode
+		 * or in debug mode or compression is off.
+		 */
+		if ( ( defined( 'APP_DEV_MODE' ) && APP_DEV_MODE )
+			|| ( defined( 'APP_DEBUG' ) && APP_DEBUG )
+			|| ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG )
+			|| ( defined( 'COMPRESS_SCRIPTS' ) && ! COMPRESS_SCRIPTS ) ) :
+	?>
+	<script>
+		jQuery( document ).ready(function($) {
+			var section    = $( '#front-static-pages' ),
+				staticPage = section.find( 'input:radio[value="page"]' ),
+				selects    = section.find( 'select' ),
+				check_disabled = function() {
+					selects.prop( 'disabled', ! staticPage.prop( 'checked' ) );
+				};
+			check_disabled();
+			section.find( 'input:radio' ).change( check_disabled );
+		});
+	</script>
+	<?php
+		// If not in dev or debug mode.
+		else :
+	?>
+	<script>jQuery(document).ready(function(e){function n(){d.prop('disabled',!a.prop('checked'))}var i=e('#front-static-pages'),a=i.find('input:radio[value="page"]'),d=i.find('select');n(),i.find('input:radio').change(n)});</script>
+	<?php
+		// End if dev or debug mode.
+		endif;
 	}
 
 	/**
@@ -249,12 +283,14 @@ class Settings_Content extends Settings_Screen {
 		?>
 		<div class="tab-section-wrap tab-section-wrap__display">
 
-		<?php
-			if ( ! in_array( get_option( 'blog_charset' ), [ 'utf8', 'utf-8', 'UTF8', 'UTF-8' ] ) ) {
-				add_settings_field( 'blog_charset', __( 'Encoding for pages and feeds' ), 'options_reading_blog_charset', 'content', 'default', [ 'label_for' => 'blog_charset' ] );
-			}
+			<?php
+			if ( ! in_array( get_option( 'blog_charset' ), [ 'utf8', 'utf-8', 'UTF8', 'UTF-8' ] ) ) { ?>
+				<label for="site_charset"><?php _e( 'Encoding for pages and feeds' ); ?></label>
+				<br /><input name="site_charset" type="text" id="site_charset" value="<?php echo esc_attr( get_option( 'blog_charset' ) ); ?>" class="regular-text" />
+				<p class="description"><?php _e( 'The character encoding of your site (UTF-8 is recommended)' ); ?></p>
+			<?php }
 
-			if ( ! get_pages() ) { ?>
+			if ( ! get_pages() ) {  ?>
 			<input name="show_on_front" type="hidden" value="posts" />
 
 			<table class="form-table">
