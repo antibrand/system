@@ -255,6 +255,10 @@ class Settings_General extends Settings_Screen {
 		?>
 		<div class="tab-section-wrap tab-section-wrap__identity">
 
+			<?php if ( current_user_can( 'customize' ) && has_action( 'plugins_loaded', 'live_manager_include' ) ) : ?>
+			<p><?php _e( 'Some of these settings can be edited with a' ) ?> <a href="<?php echo esc_url( wp_customize_url() . '?url=' . site_url() . '&autofocus[section]=title_tagline' ); ?>"><?php _e( 'live preview.' ) ?></a></p>
+			<?php endif; ?>
+
 			<p>
 				<label for="blogname"><?php _e( 'Site Name' ) ?></label>
 				<br /><input name="blogname" type="text" id="blogname" value="<?php form_option( 'blogname' ); ?>" class="regular-text" />
