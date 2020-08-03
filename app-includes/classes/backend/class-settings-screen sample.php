@@ -1,6 +1,9 @@
 <?php
 /**
- * Settings screen class
+ * Sample settings screen class
+ *
+ * Use this to add a new settings page.
+ * Remove what is unnecessary, add what is needed.
  *
  * @package App_Package
  * @subpackage Administration/Backend
@@ -14,12 +17,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Settings screen class
+ * Sample settings screen class
  *
  * @since  1.0.0
  * @access private
  */
-class Settings_Screen {
+class Settings_Sample extends Settings_Screen {
 
 	/**
 	 * Page parent file
@@ -39,7 +42,7 @@ class Settings_Screen {
 	 * @access public
 	 * @var string
 	 */
-	public $title = '';
+	public $title = 'Sample Settings';
 
 	/**
 	 * Page description
@@ -48,7 +51,7 @@ class Settings_Screen {
 	 * @access public
 	 * @var string
 	 */
-	public $description = '';
+	public $description = 'Use this to add a new settings page. Remove what is unnecessary, add what is needed.';
 
 	/**
 	 * Form action
@@ -65,9 +68,8 @@ class Settings_Screen {
 	 * @since 1.0.0
 	 * @access protected
 	 * @var string The name of the registered fields to be executed.
-	 *             Defaults are 'general', 'writing', 'reading', permalinks'.
 	 */
-	protected $fields = '';
+	protected $fields = 'sample';
 
 	/**
 	 * Submit button
@@ -79,6 +81,19 @@ class Settings_Screen {
 	public $submit = 'Save Settings';
 
 	/**
+	 * Instance of the class
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return object Returns the instance.
+	 */
+	public static function instance() {
+
+		// Return the instance.
+		return new self;
+	}
+
+	/**
 	 * Constructor method
 	 *
 	 * @since  1.0.0
@@ -87,57 +102,13 @@ class Settings_Screen {
 	 */
 	protected function __construct() {
 
+		parent :: __construct();
+
 		// Enqueue page scripts.
-		add_action( 'admin_enqueue_scripts', [ $this, 'parent_enqueue_scripts' ] );
+		add_action( 'admin_enqueue_scripts', [ $this, 'child_enqueue_scripts' ] );
 
 		// Print page scripts to head.
-		add_action( 'admin_head', [ $this, 'parent_print_scripts' ] );
-
-		// Allow hashtags for content tabs.
-		add_filter( 'app_tabs_hashtags','__return_true' );
-
-		// Render tabbed content.
-		add_action( 'render_tabs_settings_screen', [ $this, 'render_tabs' ] );
-
-		// Set the tabbed content.
-		$this->tabs();
-
-		// Set the help content.
-		$this->help();
-
-		// Set the help sidebar
-		$this->set_help_sidebar();
-	}
-
-	/**
-	 * Page title
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return string Returns the translated title.
-	 */
-	public function title() {
-
-		$title = esc_html__( $this->title );
-
-		return $title;
-	}
-
-	/**
-	 * Page description
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return string Returns the description markup.
-	 */
-	public function description() {
-
-		$description = sprintf(
-			'<p class="description">%1s</p>',
-			esc_html__( $this->description )
-		);
-
-		return $description;
+		add_action( 'admin_head', [ $this, 'child_print_scripts' ] );
 	}
 
 	/**
@@ -147,10 +118,9 @@ class Settings_Screen {
 	 * @access public
 	 * @return void
 	 */
-	public function parent_enqueue_scripts() {
+	public function child_enqueue_scripts() {
 
-		// Script for tabbed content.
-		wp_enqueue_script( 'app-tabs' );
+		// Enqueue scripts
 	}
 
 	/**
@@ -160,7 +130,7 @@ class Settings_Screen {
 	 * @access public
 	 * @return string
 	 */
-	public function parent_print_scripts() {
+	public function child_print_scripts() {
 
 		// Print scripts
 	}
@@ -181,48 +151,28 @@ class Settings_Screen {
 		$screen->add_content_tab( [
 			'id'         => $screen->id . '-page',
 			'capability' => 'manage_options',
-			'tab'        => '',
+			'tab'        => __( 'Sample' ),
 			'icon'       => '',
-			'heading'    => '',
-			'content'    => '',
-			'callback'   => null
+			'heading'    => __( 'Sample Tab' ),
+			'content'    => __( 'This content is not from a callback method.' ),
+			'callback'   => [ $this, 'sample' ]
 		] );
 	}
 
 	/**
-	 * Render tabbed content
+	 * Sample tab
 	 *
-	 * @since  1.0.0
+	 * @since 1.0.0
 	 * @access public
-	 * @return void
+	 * @return mixed Returns the markup of the tab content.
 	 */
-	public function render_tabs() {
-		echo get_current_screen()->render_content_tabs();
-	}
+	public function sample() {
 
-	/**
-	 * Render settings form
-	 *
-	 * Compiles the markup (fields, labels, descriptions, etc.)
-	 * from registered tabs and prints them inside a form element.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void
-	 */
-	public function render_form() {
-
-		echo "<form id='$this->fields-settings' method='post' action='$this->action'>";
-
-		settings_fields( $this->fields );
-
-		do_action( 'settings_screen_tabs_before' );
-		do_action( 'render_tabs_settings_screen' );
-		do_action( 'settings_screen_tabs_after' );
-
-		echo get_submit_button( esc_html__( $this->submit ) );
-
-		echo '</form>';
+		?>
+		<div class="tab-section-wrap">
+			<p><?php _e( 'This content is from a callback method.' ); ?></p>
+		</div>
+		<?php
 	}
 
 	/**
@@ -242,8 +192,32 @@ class Settings_Screen {
 			'id'       => $screen->id . '-overview',
 			'title'    => __( 'Overview' ),
 			'content'  => '',
-			'callback' => null
+			'callback' => [ $this, 'help_overview' ]
 		] );
+	}
+
+	/**
+	 * Overview help content
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @return mixed Returns the markup of the help content.
+	 */
+	public function help_overview() {
+
+		$help = sprintf(
+			'<h3>%1s</h3>',
+			__( 'Overview' )
+		);
+
+		$help .= sprintf(
+			'<p>%1s</p>',
+			__( 'This is sample help content.' )
+		);
+
+		$help = apply_filters( 'help_settings_sample_overview', $help );
+
+		echo $help;
 	}
 
 	/**
@@ -276,6 +250,6 @@ class Settings_Screen {
 	 * @return void Applies a filter for the markup of the help sidebar content.
 	 */
 	public function help_sidebar() {
-		return apply_filters( 'help_settings_page_sidebar', '' );
+		return apply_filters( 'help_settings_sample_sidebar', '' );
 	}
 }

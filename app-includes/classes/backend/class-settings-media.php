@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Settings screen class
+ * Media settings screen class
  *
  * @since  1.0.0
  * @access private
