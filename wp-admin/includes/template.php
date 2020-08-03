@@ -1299,8 +1299,6 @@ function add_settings_section($id, $title, $callback, $page) {
  *     @type string $label_for When supplied, the setting title will be wrapped
  *                             in a `<label>` element, its `for` attribute populated
  *                             with this value.
- *     @type string $class     CSS Class to be added to the `<tr>` element when the
- *                             field is output.
  * }
  * @return void
  */
@@ -1329,7 +1327,6 @@ function add_settings_field( $id, $title, $callback, $page, $section = 'default'
 
 	$wp_settings_fields[$page][$section][$id] = [
 		'id'       => $id,
-		'class'    => $class,
 		'title'    => $title,
 		'callback' => $callback,
 		'args'     => $args
@@ -1403,12 +1400,6 @@ function do_settings_fields( $page, $section ) {
 	}
 
 	foreach ( (array ) $wp_settings_fields[$page][$section] as $field ) {
-
-		$class = '';
-
-		if ( ! empty( $field['args']['class'] ) ) {
-			$class = ' class="' . esc_attr( $field['args']['class'] ) . '"';
-		}
 
 		if ( ! empty( $field['args']['label_for'] ) ) {
 			echo '<p><label for="' . esc_attr( $field['args']['label_for'] ) . '">' . $field['title'] . '</label>';
