@@ -620,7 +620,7 @@ class Settings_General extends Settings_Screen {
 			$languages    = get_available_languages();
 			$translations = wp_get_available_translations();
 
-			if ( ! is_network() && defined( 'APP_LANG' ) && '' !== APP_LANG && 'en' !== APP_LANG && ! in_array( APP_LANG, $languages ) ) {
+			if ( ! is_network() && defined( 'APP_LANG' ) && '' !== APP_LANG && 'en_US' !== APP_LANG && ! in_array( APP_LANG, $languages ) ) {
 				$languages[] = APP_LANG;
 			}
 
