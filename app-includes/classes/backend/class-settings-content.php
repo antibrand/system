@@ -178,20 +178,27 @@ class Settings_Content extends Settings_Screen {
 		?>
 		<div class="tab-section-wrap tab-section-wrap__publish">
 
-			<table class="form-table">
 			<?php if ( get_site_option( 'initial_db_version' ) < 32453 ) : ?>
-				<tr>
-				<th scope="row"><?php _e( 'Formatting' ); ?></th>
-				<td>
-					<fieldset form="<?php echo $this->fields . '-settings'; ?>">
-						<legend class="screen-reader-text"><span><?php _e( 'Formatting' ); ?></span></legend>
+				<fieldset form="<?php echo $this->fields . '-settings'; ?>">
+
+					<legend class="screen-reader-text"><?php _e( 'Formatting' ); ?></legend>
+
+					<h3><?php _e( 'Formatting' ); ?></h3>
+
+					<p>
 						<label for="use_smilies">
-						<input name="use_smilies" type="checkbox" id="use_smilies" value="1" <?php checked( '1', get_option( 'use_smilies' ) ); ?> />
-						<?php _e( 'Convert emoticons like <code>:-)</code> and <code>:-P</code> to graphics on display' ); ?></label><br />
-						<label for="use_balanceTags"><input name="use_balanceTags" type="checkbox" id="use_balanceTags" value="1" <?php checked( '1', get_option( 'use_balanceTags' ) ); ?> /> <?php _e( 'Should correct invalidly nested XHTML automatically' ); ?></label>
-					</fieldset>
-				</td>
-				</tr>
+							<input name="use_smilies" type="checkbox" id="use_smilies" value="1" <?php checked( '1', get_option( 'use_smilies' ) ); ?> />
+							<?php _e( 'Convert emoticons like <code>:-)</code> and <code>:-P</code> to graphics on display' ); ?>
+						</label>
+					</p>
+
+					<p>
+						<label for="use_balanceTags">
+							<input name="use_balanceTags" type="checkbox" id="use_balanceTags" value="1" <?php checked( '1', get_option( 'use_balanceTags' ) ); ?> /> <?php _e( 'Should correct invalidly nested XHTML automatically' ); ?>
+						</label>
+					</p>
+
+				</fieldset>
 			<?php endif; ?>
 				<tr>
 					<th scope="row"><label for="default_category"><?php _e( 'Default Post Category' ); ?></label></th>
@@ -218,8 +225,6 @@ class Settings_Content extends Settings_Screen {
 				</tr>
 
 			<?php // do_settings_fields( 'writing', 'default' ); ?>
-
-			</table>
 
 			<?php if ( apply_filters( 'enable_post_by_email_configuration', true ) ) : ?>
 
@@ -285,15 +290,17 @@ class Settings_Content extends Settings_Screen {
 
 			<?php
 			if ( ! in_array( get_option( 'blog_charset' ), [ 'utf8', 'utf-8', 'UTF8', 'UTF-8' ] ) ) { ?>
-				<label for="site_charset"><?php _e( 'Encoding for pages and feeds' ); ?></label>
-				<br /><input name="site_charset" type="text" id="site_charset" value="<?php echo esc_attr( get_option( 'blog_charset' ) ); ?>" class="regular-text" />
+				<p>
+					<label for="site_charset"><?php _e( 'Encoding for pages and feeds' ); ?></label>
+					<br /><input name="site_charset" type="text" id="site_charset" value="<?php echo esc_attr( get_option( 'blog_charset' ) ); ?>" class="regular-text" />
+				</p>
+
 				<p class="description"><?php _e( 'The character encoding of your site (UTF-8 is recommended)' ); ?></p>
 			<?php }
 
 			if ( ! get_pages() ) {  ?>
 			<input name="show_on_front" type="hidden" value="posts" />
 
-			<table class="form-table">
 			<?php
 				if ( 'posts' != get_option( 'show_on_front' ) ) {
 					update_option( 'show_on_front', 'posts' );
@@ -304,123 +311,151 @@ class Settings_Content extends Settings_Screen {
 					update_option( 'show_on_front', 'posts' );
 				}
 			?>
-			<table class="form-table">
+			<fieldset id="front-static-pages" form="<?php echo $this->fields . '-settings'; ?>">
 
-				<tr>
-					<th scope="row"><?php _e( 'Your homepage displays' ); ?></th>
+				<legend class="screen-reader-text"><?php _e( 'Front Page' ); ?></legend>
 
-					<td id="front-static-pages">
-						<fieldset form="<?php echo $this->fields . '-settings'; ?>">
-							<legend class="screen-reader-text"><span><?php _e( 'Your homepage displays' ); ?></span></legend>
+				<h3><?php _e( 'Front Page' ); ?></h3>
 
-							<p>
-								<label>
-									<input name="show_on_front" type="radio" value="posts" class="tog" <?php checked( 'posts', get_option( 'show_on_front' ) ); ?> />
-									<?php _e( 'Your latest posts' ); ?>
-								</label>
-							</p>
+				<ul class="form-field-list">
+					<li>
+						<label>
+							<input name="show_on_front" type="radio" value="posts" class="tog" <?php checked( 'posts', get_option( 'show_on_front' ) ); ?> />
+							<?php _e( 'Your latest posts' ); ?>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input name="show_on_front" type="radio" value="page" class="tog" <?php checked( 'page', get_option( 'show_on_front' ) ); ?> />
+							<?php printf( __( 'A <a href="%s">static page</a> (select below)' ), 'edit.php?post_type=page' ); ?>
+						</label>
+					</li>
+				</ul>
 
-							<p>
-								<label>
-									<input name="show_on_front" type="radio" value="page" class="tog" <?php checked( 'page', get_option( 'show_on_front' ) ); ?> />
-									<?php printf( __( 'A <a href="%s">static page</a> (select below)' ), 'edit.php?post_type=page' ); ?>
-								</label>
-							</p>
+				<ul class="form-field-list">
+					<li>
+						<label for="page_on_front"><?php printf( __( 'Homepage: %s' ), wp_dropdown_pages( array( 'name' => 'page_on_front', 'echo' => 0, 'show_option_none' => __( '&mdash; Select &mdash;' ), 'option_none_value' => '0', 'selected' => get_option( 'page_on_front' ) ) ) ); ?></label>
+					</li>
+					<li>
+						<label for="page_for_posts"><?php printf( __( 'Posts page: %s' ), wp_dropdown_pages( array( 'name' => 'page_for_posts', 'echo' => 0, 'show_option_none' => __( '&mdash; Select &mdash;' ), 'option_none_value' => '0', 'selected' => get_option( 'page_for_posts' ) ) ) ); ?></label>
+					</li>
+				</ul>
 
-							<ul>
-								<li><label for="page_on_front"><?php printf( __( 'Homepage: %s' ), wp_dropdown_pages( array( 'name' => 'page_on_front', 'echo' => 0, 'show_option_none' => __( '&mdash; Select &mdash;' ), 'option_none_value' => '0', 'selected' => get_option( 'page_on_front' ) ) ) ); ?></label></li>
-								<li><label for="page_for_posts"><?php printf( __( 'Posts page: %s' ), wp_dropdown_pages( array( 'name' => 'page_for_posts', 'echo' => 0, 'show_option_none' => __( '&mdash; Select &mdash;' ), 'option_none_value' => '0', 'selected' => get_option( 'page_for_posts' ) ) ) ); ?></label></li>
-							</ul>
+			<?php if ( 'page' == get_option( 'show_on_front' ) && get_option( 'page_for_posts' ) == get_option( 'page_on_front' ) ) :
 
-						<?php if ( 'page' == get_option( 'show_on_front' ) && get_option( 'page_for_posts' ) == get_option( 'page_on_front' ) ) : ?>
-							<div id="front-page-warning" class="error inline">
-								<p><?php _e( '<strong>Warning:</strong> these pages should not be the same!' ); ?></p>
-							</div>
-						<?php endif; ?>
+			?>
+				<div id="front-page-warning" class="error inline">
+					<p><?php _e( '<strong>Warning:</strong> these pages should not be the same!' ); ?></p>
+				</div>
+			<?php endif; ?>
 
-						</fieldset>
-					</td>
-				</tr>
+			</fieldset>
+
+			<fieldset form="<?php echo $this->fields . '-settings'; ?>">
+
+				<legend class="screen-reader-text"><?php _e( 'Pagination' ); ?></legend>
+
+				<h3><?php _e( 'Pagination' ); ?></h3>
+
 				<?php
 				} ?>
 
-				<tr>
-					<th scope="row"><label for="posts_per_page"><?php _e( 'Blog pages show at most' ); ?></label></th>
+				<p>
+					<label for="posts_per_page"><?php _e( 'Blog pages show at most' ); ?></label>
+					<br /><input name="posts_per_page" type="number" step="1" min="1" id="posts_per_page" value="<?php form_option( 'posts_per_page' ); ?>" class="small-text" /> <?php _e( 'posts' ); ?>
+				</p>
 
-					<td>
-						<input name="posts_per_page" type="number" step="1" min="1" id="posts_per_page" value="<?php form_option( 'posts_per_page' ); ?>" class="small-text" /> <?php _e( 'posts' ); ?>
-					</td>
-				</tr>
+				<p>
+					<label for="posts_per_rss"><?php _e( 'Syndication feeds show the most recent' ); ?></label>
+					<br /><input name="posts_per_rss" type="number" step="1" min="1" id="posts_per_rss" value="<?php form_option( 'posts_per_rss' ); ?>" class="small-text" /> <?php _e( 'items' ); ?>
+				</p>
 
-				<tr>
-					<th scope="row"><label for="posts_per_rss"><?php _e( 'Syndication feeds show the most recent' ); ?></label></th>
+			</fieldset>
 
-					<td><input name="posts_per_rss" type="number" step="1" min="1" id="posts_per_rss" value="<?php form_option( 'posts_per_rss' ); ?>" class="small-text" /> <?php _e( 'items' ); ?></td>
-				</tr>
+			<fieldset form="<?php echo $this->fields . '-settings'; ?>">
 
-				<tr>
-					<th scope="row"><?php _e( 'For each article in a feed, show' ); ?> </th>
+				<legend class="screen-reader-text"><?php _e( 'RSS Feed' ); ?></legend>
 
-					<td>
-						<fieldset form="<?php echo $this->fields . '-settings'; ?>">
-							<legend class="screen-reader-text"><span><?php _e( 'For each article in a feed, show' ); ?> </span></legend>
+				<h3><?php _e( 'RSS Feed' ); ?></h3>
 
-							<p>
-								<label><input name="rss_use_excerpt" type="radio" value="0" <?php checked( 0, get_option( 'rss_use_excerpt' ) ); ?>	/> <?php _e( 'Full text' ); ?></label>
+				<p class="description"><?php _e( 'Articles in the RSS feeds can display the full content of each article or an automatic summary.' ); ?></p>
 
-								<br />
+				<ul class="form-field-list">
+					<li>
+						<label>
+							<input name="rss_use_excerpt" type="radio" value="0" <?php checked( 0, get_option( 'rss_use_excerpt' ) ); ?>	/>
+							<?php _e( 'Full text' ); ?>
+						</label>
+					</li>
+					<li>
+						<label>
+							<input name="rss_use_excerpt" type="radio" value="1" <?php checked( 1, get_option( 'rss_use_excerpt' ) ); ?> />
+							<?php _e( 'Summary' ); ?>
+						</label>
+					</li>
+				</ul>
 
-								<label><input name="rss_use_excerpt" type="radio" value="1" <?php checked( 1, get_option( 'rss_use_excerpt' ) ); ?> /> <?php _e( 'Summary' ); ?></label>
-							</p>
-						</fieldset>
-					</td>
-				</tr>
+			</fieldset>
 
-				<tr class="option-site-visibility">
-					<th scope="row"><?php has_action( 'blog_privacy_selector' ) ? _e( 'Site Visibility' ) : _e( 'Search Engine Visibility' ); ?> </th>
+			<fieldset form="<?php echo $this->fields . '-settings'; ?>">
 
-					<td>
-						<fieldset form="<?php echo $this->fields . '-settings'; ?>">
-							<legend class="screen-reader-text"><span><?php has_action( 'blog_privacy_selector' ) ? _e( 'Site Visibility' ) : _e( 'Search Engine Visibility' ); ?> </span></legend>
+				<legend class="screen-reader-text"><?php has_action( 'blog_privacy_selector' ) ? _e( 'Site Visibility' ) : _e( 'Search Engine Visibility' ); ?></legend>
 
-						<?php
-						if ( has_action( 'blog_privacy_selector' ) ) : ?>
-							<input id="blog-public" type="radio" name="blog_public" value="1" <?php checked( '1', get_option( 'blog_public' ) ); ?> />
-							<label for="blog-public"><?php _e( 'Allow search engines to index this site' );?></label>
+				<h3><?php has_action( 'blog_privacy_selector' ) ? _e( 'Site Visibility' ) : _e( 'Search Engine Visibility' ); ?></h3>
 
-							<br/>
+			<?php
 
-							<input id="blog-norobots" type="radio" name="blog_public" value="0" <?php checked( '0', get_option( 'blog_public' ) ); ?> />
-							<label for="blog-norobots"><?php _e( 'Discourage search engines from indexing this site' ); ?></label>
+			if ( has_action( 'blog_privacy_selector' ) ) :
 
-							<p class="description"><?php _e( 'Note: Neither of these options blocks access to your site &mdash; it is up to search engines to honor your request.' ); ?></p>
-							<?php
-							/**
-							 * Enable the legacy 'Site Visibility' privacy options.
-							 *
-							 * By default the privacy options form displays a single checkbox to 'discourage' search
-							 * engines from indexing the site. Hooking to this action serves a dual purpose:
-							 * 1. Disable the single checkbox in favor of a multiple-choice list of radio buttons.
-							 * 2. Open the door to adding additional radio button choices to the list.
-							 *
-							 * Hooking to this action also converts the 'Search Engine Visibility' heading to the more
-							 * open-ended 'Site Visibility' heading.
-							 *
-							 * @since Previous 2.1.0
-							 */
-							do_action( 'blog_privacy_selector' );
+			?>
+				<p>
+					<label for="blog-public">
+						<input id="blog-public" type="radio" name="blog_public" value="1" <?php checked( '1', get_option( 'blog_public' ) ); ?> />
+						<?php _e( 'Allow search engines to index this site' );?>
+					</label>
+				</p>
 
-						else : ?>
-							<label for="blog_public"><input name="blog_public" type="checkbox" id="blog_public" value="0" <?php checked( '0', get_option( 'blog_public' ) ); ?> />
+				<p>
+					<label for="blog-norobots">
+						<input id="blog-norobots" type="radio" name="blog_public" value="0" <?php checked( '0', get_option( 'blog_public' ) ); ?> />
+						<?php _e( 'Discourage search engines from indexing this site' ); ?>
+					</label>
+				</p>
 
-							<?php _e( 'Discourage search engines from indexing this site' ); ?></label>
-							<p class="description"><?php _e( 'It is up to search engines to honor this request.' ); ?></p>
-						<?php
-						endif; ?>
-						</fieldset>
-					</td>
-				</tr>
-			</table>
+				<p class="description"><?php _e( 'Note: Neither of these options blocks access to your site &mdash; it is up to search engines to honor your request.' ); ?></p>
+				<?php
+				/**
+				 * Enable the legacy 'Site Visibility' privacy options.
+				 *
+				 * By default the privacy options form displays a single checkbox to 'discourage' search
+				 * engines from indexing the site. Hooking to this action serves a dual purpose:
+				 * 1. Disable the single checkbox in favor of a multiple-choice list of radio buttons.
+				 * 2. Open the door to adding additional radio button choices to the list.
+				 *
+				 * Hooking to this action also converts the 'Search Engine Visibility' heading to the more
+				 * open-ended 'Site Visibility' heading.
+				 *
+				 * @since Previous 2.1.0
+				 */
+				do_action( 'blog_privacy_selector' );
+
+			else :
+
+			?>
+				<p>
+					<label for="blog_public">
+						<input name="blog_public" type="checkbox" id="blog_public" value="0" <?php checked( '0', get_option( 'blog_public' ) ); ?> />
+						<?php _e( 'Discourage search engines from indexing this site' ); ?>
+					</label>
+				</p>
+
+				<p class="description"><?php _e( 'It is up to search engines to honor this request.' ); ?></p>
+			<?php
+
+			endif;
+
+			?>
+			</fieldset>
 		</div>
 		<?php
 	}
