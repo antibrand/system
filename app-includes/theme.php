@@ -2735,7 +2735,7 @@ function check_theme_switched() {
  *
  * @global Live_Manager $wp_customize
  */
-function _wp_customize_include() {
+function live_manager_include() {
 
 	$is_customize_admin_page = ( is_admin() && 'customize.php' == basename( $_SERVER['PHP_SELF'] ) );
 	$should_include = (
