@@ -237,7 +237,7 @@ class Settings_General extends Settings_Screen {
 			'capability' => 'manage_options',
 			'tab'        => __( 'Language' ),
 			'icon'       => '',
-			'heading'    => __( 'Default Language' ),
+			'heading'    => __( 'Language Settings' ),
 			'content'    => '',
 			'callback'   => [ $this, 'language' ]
 		] );
@@ -300,48 +300,61 @@ class Settings_General extends Settings_Screen {
 	public function accounts() {
 
 		?>
-		<div class="tab-section-wrap tab-section-wrap__time-date">
+		<div class="tab-section-wrap tab-section-wrap__accounts">
 
-			<p>
-				<label for="new_admin_email"><?php _e( 'Administrative Email' ); ?></label>
-				<br /><input name="new_admin_email" type="email" id="new_admin_email" aria-describedby="new-admin-email-description" value="<?php form_option( 'admin_email' ); ?>" class="regular-text ltr" />
-				<br /><span class="description" id="new-admin-email-description"><?php _e( 'This address is used for admin purposes.' ); ?></span>
-			</p>
-			<p id="new-admin-email-description"><?php _e( 'If you change the administrative email the system will send you an email at your new address to confirm it. The new address will not become active until confirmed.' ); ?></p>
+			<fieldset form="<?php echo $this->fields . '-settings'; ?>">
 
-			<?php
-			$new_admin_email = get_option( 'new_admin_email' );
+				<legend class="screen-reader-text"><?php _e( 'Site Administration' ) ?></legend>
 
-			if ( $new_admin_email && $new_admin_email != get_option( 'admin_email' ) ) :
+				<h3><?php _e( 'Site Administration' ) ?></h3>
 
-			?>
-			<div class="updated inline">
-				<p><?php
-					printf(
-						// Translators: %s: new admin email.
-						__( 'There is a pending change of the admin email to %s.' ),
-						'<code>' . esc_html( $new_admin_email ) . '</code>'
-					);
-					printf(
-						' <a href="%1$s">%2$s</a>',
-						esc_url( wp_nonce_url( admin_url( 'options.php?dismiss=new_admin_email' ), 'dismiss-' . get_current_blog_id() . '-new_admin_email' ) ),
-						__( 'Cancel' )
-					);
-				?></p>
-			</div>
-			<?php endif; ?>
+				<p>
+					<label for="new_admin_email"><?php _e( 'Administrative Email' ); ?></label>
+					<br /><input name="new_admin_email" type="email" id="new_admin_email" aria-describedby="new-admin-email-description" value="<?php form_option( 'admin_email' ); ?>" class="regular-text ltr" />
+					<br /><span class="description" id="new-admin-email-description"><?php _e( 'This address is used for admin purposes.' ); ?></span>
+				</p>
+				<p id="new-admin-email-description"><?php _e( 'If you change the administrative email the system will send you an email at your new address to confirm it. The new address will not become active until confirmed.' ); ?></p>
+
+				<?php
+				$new_admin_email = get_option( 'new_admin_email' );
+
+				if ( $new_admin_email && $new_admin_email != get_option( 'admin_email' ) ) :
+
+				?>
+				<div class="updated inline">
+					<p><?php
+						printf(
+							// Translators: %s: new admin email.
+							__( 'There is a pending change of the admin email to %s.' ),
+							'<code>' . esc_html( $new_admin_email ) . '</code>'
+						);
+						printf(
+							' <a href="%1$s">%2$s</a>',
+							esc_url( wp_nonce_url( admin_url( 'options.php?dismiss=new_admin_email' ), 'dismiss-' . get_current_blog_id() . '-new_admin_email' ) ),
+							__( 'Cancel' )
+						);
+					?></p>
+				</div>
+				<?php endif; ?>
+			</fieldset>
 
 			<?php if ( ! is_network() ) { ?>
-			<hr />
 
-			<p>
-				<label for="users_can_register"><?php _e( 'Site Membership' ) ?></label>
-				<br /><input name="users_can_register" type="checkbox" id="users_can_register" value="1" <?php checked( '1', get_option( 'users_can_register' ) ); ?> /> <span class="description"><?php _e( 'Anyone can register' ) ?></span>
-			</p>
-			<p>
-				<label for="default_role"><?php _e( 'New User Default Role' ) ?></label>
-				<br /><select name="default_role" id="default_role"><?php wp_dropdown_roles( get_option( 'default_role' ) ); ?></select>
-			</p>
+			<fieldset form="<?php echo $this->fields . '-settings'; ?>">
+
+				<legend class="screen-reader-text"><?php _e( 'User Registration' ) ?></legend>
+
+				<h3><?php _e( 'User Registration' ) ?></h3>
+
+				<p>
+					<label for="users_can_register"><?php _e( 'Site Membership' ) ?></label>
+					<br /><input name="users_can_register" type="checkbox" id="users_can_register" value="1" <?php checked( '1', get_option( 'users_can_register' ) ); ?> /> <span class="description"><?php _e( 'Anyone can register' ) ?></span>
+				</p>
+				<p>
+					<label for="default_role"><?php _e( 'New User Default Role' ) ?></label>
+					<br /><select name="default_role" id="default_role"><?php wp_dropdown_roles( get_option( 'default_role' ) ); ?></select>
+				</p>
+			</fieldset>
 			<?php } // ! is_network() ?>
 		</div>
 		<?php
@@ -383,11 +396,13 @@ class Settings_General extends Settings_Screen {
 		?>
 		<div class="tab-section-wrap tab-section-wrap__time-date">
 
-			<h3 class="form-label"><?php _e( 'Date Format' ) ?></h3>
+			<p><a href="<?php echo esc_url( 'https://www.php.net/manual/en/datetime.format.php' ); ?>" target="_blank" rel="noindex, nofollow"><?php _e( 'Documentation on date and time formatting.' ); ?></a></p>
 
 			<fieldset form="<?php echo $this->fields . '-settings'; ?>">
 
-				<legend class="screen-reader-text"><span><?php _e( 'Date Format' ) ?></span></legend>
+				<legend class="screen-reader-text"><?php _e( 'Date Format' ) ?></legend>
+
+				<h3 class="form-label"><?php _e( 'Date Format' ) ?></h3>
 
 				<ul class="form-field-list">
 					<?php
@@ -446,13 +461,11 @@ class Settings_General extends Settings_Screen {
 				</select>
 			</p>
 
-			<hr />
-
-			<h3 class="form-label"><?php _e( 'Time Format' ) ?></h3>
-
 			<fieldset form="<?php echo $this->fields . '-settings'; ?>">
 
-				<legend class="screen-reader-text"><span><?php _e( 'Time Format' ) ?></span></legend>
+				<legend class="screen-reader-text"><?php _e( 'Time Format' ) ?></legend>
+
+				<h3 class="form-label"><?php _e( 'Time Format' ) ?></h3>
 
 				<ul class="form-field-list">
 				<?php
@@ -490,8 +503,6 @@ class Settings_General extends Settings_Screen {
 					"<span class='spinner'></span></li>" . '</p>';
 				?>
 				</ul>
-
-				<p class="date-time-doc"><a href="<?php echo esc_url( 'http://php.net/date' ); ?>" target="_blank" rel="noindex, nofollow"><?php _e( 'Documentation on date and time formatting.' ); ?></a></p>
 
 			</fieldset>
 
@@ -609,17 +620,36 @@ class Settings_General extends Settings_Screen {
 			$languages    = get_available_languages();
 			$translations = wp_get_available_translations();
 
-			if ( ! is_network() && defined( 'APP_LANG' ) && '' !== APP_LANG && 'en_US' !== APP_LANG && ! in_array( APP_LANG, $languages ) ) {
+			if ( ! is_network() && defined( 'APP_LANG' ) && '' !== APP_LANG && 'en' !== APP_LANG && ! in_array( APP_LANG, $languages ) ) {
 				$languages[] = APP_LANG;
 			}
 
-			if ( ! empty( $languages ) || ! empty( $translations ) ) {
-				?>
-			<table class="form-table">
-				<tr>
-					<th scope="row"><label for="APP_LANG"><?php _e( 'Site Language' ); ?></label></th>
+			/**
+			 * Print if the external languages API is available
+			 *
+			 * This is a vestige so the condition is replaced with
+			 * a dummy condition until the local languages API
+			 * is restored.
+			 *
+			 * @todo Replace or remove this condition when local
+			 *       languages are available.
+			 *
+			 * if ( ! empty( $languages ) || ! empty( $translations ) ) {
+			 */
+			if ( ! empty( 'something_fake' ) ) {
 
-					<td>
+			?>
+				<fieldset form="<?php echo $this->fields . '-settings'; ?>">
+
+					<legend class="screen-reader-text"><?php _e( 'Default Languages' ); ?></legend>
+
+					<h3><?php _e( 'Default Language' ); ?></h3>
+
+					<p><?php _e( 'The following is under development. English is currently the only language available.' ); ?></p>
+
+					<p>
+						<label for="APP_LANG"><?php _e( 'Site Languages' ); ?></label>
+						<br />
 						<?php
 						$locale = get_locale();
 						if ( ! in_array( $locale, $languages ) ) {
@@ -634,24 +664,10 @@ class Settings_General extends Settings_Screen {
 							'translations' => $translations,
 							'show_available_translations' => current_user_can( 'install_languages' ) && wp_can_install_language_pack(),
 						] );
-
-						// Add note about deprecated APP_LANG constant.
-						if ( defined( 'APP_LANG' ) && ( '' !== APP_LANG ) && $locale !== APP_LANG ) {
-
-							if ( is_network() && current_user_can( 'manage_network_options' )
-								|| ! is_network() && current_user_can( 'manage_options' ) ) {
-								?>
-								<p class="description">
-									<strong><?php _e( 'Note:' ); ?></strong> <?php printf( __( 'The %s constant in your %s file is no longer needed.' ), '<code>APP_LANG</code>', '<code>app-config.php</code>' ); ?>
-								</p>
-								<?php
-							}
-							_deprecated_argument( 'define()', '4.0.0', sprintf( __( 'The %s constant in your %s file is no longer needed.' ), 'APP_LANG', 'app-config.php' ) );
-						}
 						?>
-					</td>
-				</tr>
-			</table>
+					</p>
+
+				</fieldset>
 			<?php } else { ?>
 				<p><?php _e( 'No language settings are available.' ); ?></p>
 			<?php } ?>
