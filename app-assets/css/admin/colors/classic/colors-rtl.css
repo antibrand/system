@@ -657,6 +657,11 @@ ul#adminmenu > li.current > a.current:after {
   color: #444444;
 }
 
+.app-tabs .app-tabs-list .app-tab:not(.active) a:hover, .app-tabs .app-tabs-list .app-tab:not(.active) a:focus, .app-tabs .app-tabs-list .app-tab:not(.active) a:active {
+  background-color: #0073aa;
+  color: #ffffff;
+}
+
 /**
  * Dashboard
  */

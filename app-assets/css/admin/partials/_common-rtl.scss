@@ -3080,6 +3080,26 @@ img {
 	content: "\f142";
 }
 
+/**
+ * App tabs
+ */
+ .app-tabs {
+	.app-tabs-list {
+		.app-tab {
+			&:not( .active ) {
+				a {
+					&:hover,
+					&:focus,
+					&:active {
+						background-color: $button_action_background_color;
+						color: $button_action_text_color;
+					}
+				}
+			}
+		}
+	}
+}
+
 /*!
  * jQuery UI Draggable/Sortable 1.11.4
  * http://jqueryui.com

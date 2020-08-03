@@ -394,6 +394,11 @@ optgroup {
   color: #ffffff;
 }
 
+.app-tabs .app-tabs-list .app-tab:not(.active) a:hover, .app-tabs .app-tabs-list .app-tab:not(.active) a:focus, .app-tabs .app-tabs-list .app-tab:not(.active) a:active {
+  background-color: #ffee00;
+  color: #222222;
+}
+
 h1.nav-tab-wrapper,
 .wrap h2.nav-tab-wrapper,
 .nav-tab-wrapper {

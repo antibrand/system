@@ -315,6 +315,17 @@ optgroup {
 					color: $text_color;
 				}
 			}
+
+			&:not( .active ) {
+				a {
+					&:hover,
+					&:focus,
+					&:active {
+						background-color: $button_action_background_color;
+						color: $button_action_text_color;
+					}
+				}
+			}
 		}
 	}
 }

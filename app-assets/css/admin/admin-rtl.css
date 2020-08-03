@@ -5825,6 +5825,14 @@ img {
   content: "\f142";
 }
 
+/**
+ * App tabs
+ */
+.app-tabs .app-tabs-list .app-tab:not(.active) a:hover, .app-tabs .app-tabs-list .app-tab:not(.active) a:focus, .app-tabs .app-tabs-list .app-tab:not(.active) a:active {
+  background-color: #ffee00;
+  color: #222222;
+}
+
 /*!
  * jQuery UI Draggable/Sortable 1.11.4
  * http://jqueryui.com
