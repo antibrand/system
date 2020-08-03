@@ -41,9 +41,6 @@ require_once( ABSPATH . 'wp-admin/includes/import.php' );
 // Misc Administration API.
 require_once( ABSPATH . 'wp-admin/includes/misc.php' );
 
-// Options Administration API.
-require_once( ABSPATH . 'wp-admin/includes/options.php' );
-
 // Plugin Administration API.
 require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
