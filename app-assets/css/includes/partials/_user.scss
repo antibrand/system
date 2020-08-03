@@ -1,0 +1,7 @@
+// Import general app variables from app-assets/includes.
+@import '../modules/_typography';
+@import '../modules/_colors';
+
+.avatar-generic {
+	background-color: $app_highlight_color;
+}

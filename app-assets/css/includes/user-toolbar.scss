@@ -5,6 +5,7 @@
 // Import general app variables from app-assets/includes.
 @import 'modules/_colors';
 @import 'modules/_typography';
+@import 'partials/_user';
 
 #app-toolbar {
 	font-family: $sans;
@@ -449,16 +450,21 @@
 
 #app-toolbar #wp-admin-bar-my-account.with-avatar > .ab-empty-item img,
 #app-toolbar #wp-admin-bar-my-account.with-avatar > a img {
+	display: block;
 	width: auto;
 	height: 16px;
 	padding: 0;
-	border: 1px solid #82878c;
-	background: #eee;
+	border: 1px solid $box_border_color;
+	background: inherit;
 	line-height: 24px;
 	vertical-align: middle;
 	margin: -4px 0 0 6px;
 	float: none;
 	display: inline;
+
+	&.avatar-generic {
+		background-color: $app_highlight_color;
+	}
 }
 
 /*

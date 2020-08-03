@@ -2675,6 +2675,10 @@ table.form-table td .updated p {
   display: block;
 }
 
+.avatar-generic {
+  background-color: #ffee00;
+}
+
 /**
  * Styles common to all administration screens
  */

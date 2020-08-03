@@ -5,6 +5,7 @@
 // Import general app variables from app-assets/includes.
 @import 'modules/_colors';
 @import 'modules/_typography';
+@import 'partials/_user';
 
 #app-toolbar {
 	font-family: $sans;
@@ -452,13 +453,17 @@
 	width: auto;
 	height: 16px;
 	padding: 0;
-	border: 1px solid #82878c;
-	background: #eee;
+	border: 1px solid $box_border_color;
+	background: inherit;
 	line-height: 24px;
 	vertical-align: middle;
 	margin: -4px 6px 0 0;
 	float: none;
 	display: inline;
+
+	&.avatar-generic {
+		background-color: $app_highlight_color;
+	}
 }
 
 /*

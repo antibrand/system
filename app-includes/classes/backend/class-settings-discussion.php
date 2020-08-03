@@ -453,7 +453,7 @@ class Settings_Discussion extends Settings_Screen {
 				<?php
 				$avatar_defaults = [
 					'mystery' => __( 'Mystery Person' ),
-					'blank'   => __( 'Generic' )
+					'generic'   => __( 'Generic' )
 				];
 
 				/**

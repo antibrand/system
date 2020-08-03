@@ -2407,6 +2407,7 @@ if ( !function_exists( 'get_avatar' ) ) :
  * @return false|string `<img>` tag for the user's avatar. False on failure.
  */
 function get_avatar( $id_or_email, $size = 96, $default = '', $alt = '', $args = null ) {
+
 	$defaults = array(
 		// get_avatar_data() args.
 		'size'          => 96,
@@ -2481,6 +2482,10 @@ function get_avatar( $id_or_email, $size = 96, $default = '', $alt = '', $args =
 
 	if ( ! $args['found_avatar'] || $args['force_default'] ) {
 		$class[] = 'avatar-default';
+	}
+
+	if ( 'generic' == get_option( 'avatar_default' ) ) {
+		$class[] .= ' avatar-generic';
 	}
 
 	if ( $args['class'] ) {
