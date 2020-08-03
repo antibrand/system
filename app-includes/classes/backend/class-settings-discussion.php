@@ -475,6 +475,7 @@ class Settings_Discussion extends Settings_Screen {
 				foreach ( $avatar_defaults as $default_key => $default_name ) {
 
 					$selected     = ( $default == $default_key) ? 'checked="checked" ' : '';
+					$avatar_list .= '<li>';
 					$avatar_list .= "\n\t<label><input type='radio' name='avatar_default' id='avatar_{$default_key}' value='" . esc_attr( $default_key) . "' {$selected}/> ";
 					$avatar_list .= get_avatar( $user_email, 32, $default_key, '', array( 'force_default' => true ) );
 					$avatar_list .= ' ' . $default_name . '</label>';
@@ -483,8 +484,6 @@ class Settings_Discussion extends Settings_Screen {
 
 				remove_filter( 'pre_option_show_avatars', '__return_true', 100 );
 
-				echo '<li>';
-
 				/**
 				 * Filters the HTML output of the default avatar list.
 				 *
@@ -492,8 +491,6 @@ class Settings_Discussion extends Settings_Screen {
 				 * @param string $avatar_list HTML markup of the avatar list.
 				 */
 				echo apply_filters( 'default_avatar_select', $avatar_list );
-
-				echo '</li>';
 				?>
 				</ul>
 

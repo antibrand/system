@@ -448,23 +448,21 @@
 	font-size: 11px;
 }
 
+.avatar-wrap {
+	margin-left: 0.5em !important;
+	vertical-align: middle;
+}
+
 #app-toolbar #wp-admin-bar-my-account.with-avatar > .ab-empty-item img,
 #app-toolbar #wp-admin-bar-my-account.with-avatar > a img {
 	display: block;
+	float: none;
 	width: auto;
 	height: 16px;
 	padding: 0;
 	border: 1px solid $box_border_color;
 	background: inherit;
 	line-height: 24px;
-	vertical-align: middle;
-	margin: -4px 0 0 6px;
-	float: none;
-	display: inline;
-
-	&.avatar-generic {
-		background-color: $app_highlight_color;
-	}
 }
 
 /*

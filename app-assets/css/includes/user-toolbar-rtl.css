@@ -1,8 +1,14 @@
 /**
  * User toolbar styles
  */
-.avatar-generic {
+.avatar-wrap {
+  display: inline-block;
+  border-radius: 50%;
   background-color: #ffee00;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("data:image/svg+xml,%3Csvg  fill='%23000000' %20width%3D%22100%25%22%20height%3D%22100%25%22%20viewBox%3D%220%200%20512%20512%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20id%3D%22path3000%22%20d%3D%22M64.538%2C506.904c0%2C-10.978%206.981%2C-44.246%2013.148%2C-62.659c19.893%2C-59.393%2056.945%2C-102.844%20108.628%2C-127.388l16.112%2C-7.652l-7.87%2C-4.749c-23.221%2C-14.015%20-45.516%2C-47.157%20-50.686%2C-75.347c-5.051%2C-27.546%201.128%2C-57.809%2016.851%2C-82.533c37.474%2C-58.925%20120.423%2C-69.696%20172.664%2C-22.421c53.343%2C48.273%2048.055%2C137.468%20-10.507%2C177.2c-5.959%2C4.043%20-10.787%2C7.835%20-10.73%2C8.427c0.058%2C0.591%209.956%2C5.896%2021.995%2C11.789c19.43%2C9.509%2024.453%2C13.256%2044.694%2C33.344c24.278%2C24.095%2036.865%2C42.661%2049.499%2C73.008c8.064%2C19.37%2015.988%2C49.848%2018.083%2C69.556l1.544%2C14.521l-191.712%2C0l-191.713%2C0l0%2C-5.096Z%22%2F%3E%3C%2Fsvg%3E");
 }
 
 #app-toolbar {
@@ -456,23 +462,21 @@
   font-size: 11px;
 }
 
+.avatar-wrap {
+  margin-right: 0.5em !important;
+  vertical-align: middle;
+}
+
 #app-toolbar #wp-admin-bar-my-account.with-avatar > .ab-empty-item img,
 #app-toolbar #wp-admin-bar-my-account.with-avatar > a img {
+  display: block;
+  float: none;
   width: auto;
   height: 16px;
   padding: 0;
   border: 1px solid #cccccc;
   background: inherit;
   line-height: 24px;
-  vertical-align: middle;
-  margin: -4px 6px 0 0;
-  float: none;
-  display: inline;
-}
-
-#app-toolbar #wp-admin-bar-my-account.with-avatar > .ab-empty-item img.avatar-generic,
-#app-toolbar #wp-admin-bar-my-account.with-avatar > a img.avatar-generic {
-  background-color: #ffee00;
 }
 
 /*

@@ -2459,8 +2459,7 @@ function get_avatar( $id_or_email, $size = 96, $default = '', $alt = '', $args =
 	 */
 	$avatar = apply_filters( 'pre_get_avatar', null, $id_or_email, $args );
 
-	if ( ! is_null( $avatar ) ) {
-		/** This filter is documented in app-includes/pluggable.php */
+	if ( ! is_null( $avatar ) ) {		/** This filter is documented in app-includes/pluggable.php */
 		return apply_filters( 'get_avatar', $avatar, $id_or_email, $args['size'], $args['default'], $args['alt'], $args );
 	}
 
@@ -2469,23 +2468,17 @@ function get_avatar( $id_or_email, $size = 96, $default = '', $alt = '', $args =
 	}
 
 	$url2x = get_avatar_url( $id_or_email, array_merge( $args, array( 'size' => $args['size'] * 2 ) ) );
-
-	$args = get_avatar_data( $id_or_email, $args );
-
-	$url = $args['url'];
+	$args  = get_avatar_data( $id_or_email, $args );
+	$url   = $args['url'];
 
 	if ( ! $url || is_wp_error( $url ) ) {
 		return false;
 	}
 
-	$class = array( 'avatar', 'avatar-' . (int) $args['size'], 'photo' );
+	$class = [ 'avatar', 'avatar-' . (int) $args['size'], 'photo' ];
 
 	if ( ! $args['found_avatar'] || $args['force_default'] ) {
 		$class[] = 'avatar-default';
-	}
-
-	if ( 'generic' == get_option( 'avatar_default' ) ) {
-		$class[] .= ' avatar-generic';
 	}
 
 	if ( $args['class'] ) {
@@ -2497,7 +2490,7 @@ function get_avatar( $id_or_email, $size = 96, $default = '', $alt = '', $args =
 	}
 
 	$avatar = sprintf(
-		"<img alt='%s' src='%s' srcset='%s' class='%s' height='%d' width='%d' %s/>",
+		'<figure class="avatar-wrap"><img alt="%s" src="%s" srcset="%s" class="%s" height="%d" width="%d" %s/></figure>',
 		esc_attr( $args['alt'] ),
 		esc_url( $url ),
 		esc_url( $url2x ) . ' 2x',
