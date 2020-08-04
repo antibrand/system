@@ -1368,13 +1368,13 @@ function do_settings_sections( $page ) {
 			continue;
 		}
 
-		$before  = '<fieldset id="' . $section['id'] . '" class="' . $section['class'] . '">';
+		$before  = '<fieldset id="' . $section['id'] . '">';
 		$before .= '<legend class="screen-reader-text">' . $section['title'] . '</legend>';
 		$after   = '</fieldset>';
 
-		echo apply_filters( 'do_settings_sections_before', $before );
+		echo apply_filters( 'do_settings_fields_before', $before );
 		do_settings_fields( $page, $section['id'] );
-		echo apply_filters( 'do_settings_sections_after', $after );
+		echo apply_filters( 'do_settings_fields_after', $after );
 	}
 }
 
