@@ -4864,7 +4864,7 @@ final class Live_Manager {
 		) );
 
 		$this->add_control( 'blogname', array(
-			'label'      => __( 'Site Title' ),
+			'label'      => __( 'Site Name' ),
 			'section'    => 'title_tagline',
 		) );
 
@@ -4875,7 +4875,7 @@ final class Live_Manager {
 		) );
 
 		$this->add_control( 'blogdescription', array(
-			'label'      => __( 'Tagline' ),
+			'label'      => __( 'Site Description' ),
 			'section'    => 'title_tagline',
 		) );
 
@@ -4888,7 +4888,7 @@ final class Live_Manager {
 			) );
 
 			$this->add_control( 'header_text', array(
-				'label'    => __( 'Display Site Title and Tagline' ),
+				'label'    => __( 'Display Site Name and Description' ),
 				'section'  => 'title_tagline',
 				'settings' => 'header_text',
 				'type'     => 'checkbox',
@@ -4966,7 +4966,7 @@ final class Live_Manager {
 		// With custom value
 		$this->add_control( 'display_header_text', array(
 			'settings' => 'header_textcolor',
-			'label'    => __( 'Display Site Title and Tagline' ),
+			'label'    => __( 'Display Site Name and Description' ),
 			'section'  => 'title_tagline',
 			'type'     => 'checkbox',
 			'priority' => 40,

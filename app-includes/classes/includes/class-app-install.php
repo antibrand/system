@@ -73,7 +73,7 @@ final class App_Install {
 					<td><input name="website_title" type="text" id="website_title" size="25" value="<?php echo esc_attr( $website_title ); ?>" /></td>
 				</tr>
 				<tr>
-					<th scope="row"><label for="website_description"><?php _e( 'Website Tagline or Description' ); ?></label></th>
+					<th scope="row"><label for="website_description"><?php _e( 'Website Description' ); ?></label></th>
 					<td><input name="website_description" type="text" id="website_description" size="25" value="<?php echo esc_attr( $website_description ); ?>" /></td>
 				</tr>
 				<tr>

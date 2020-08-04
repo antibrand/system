@@ -55,7 +55,7 @@ $app_icon_dir = apply_filters( 'app_icon_upload_directory', ABSPATH . APP_ASSETS
 				<br /><span class="description config-field-description"><?php _e( 'Enter the name to use for your website management system.' ); ?></span>
 			</p>
 			<p class="config-field config-app-tagline">
-				<label for="app_tagline"><?php _e( 'Application Tagline/Description' ); ?></label>
+				<label for="app_tagline"><?php _e( 'Application Description' ); ?></label>
 				<br /><input name="app_tagline" id="app_tagline" type="text" size="55" value="<?php echo esc_html( $app_tagline ); ?>" placeholder="<?php echo htmlspecialchars( _x( 'Your tagline or description', 'example tagline for the website management system' ), ENT_QUOTES ); ?>" />
 				<br /><span class="description config-field-description"><?php _e( 'Used in documentation, system status features, etc.' ); ?></span>
 			</p>
