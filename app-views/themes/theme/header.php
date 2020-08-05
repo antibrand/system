@@ -21,9 +21,6 @@ if ( is_home() && ! is_front_page() ) {
     $canonical = get_permalink();
 }
 
-?>
-<!doctype html>
-<?php
 /**
  * Before HTML methods
  *
