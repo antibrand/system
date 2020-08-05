@@ -680,12 +680,13 @@ $menu[99] = [
  *
  * @todo Remove this.
  */
-$_wp_real_parent_file['post.php']       = 'edit.php';
-$_wp_real_parent_file['post-new.php']   = 'edit.php';
-$_wp_real_parent_file['edit-pages.php'] = 'edit.php?post_type=page';
-$_wp_real_parent_file['page-new.php']   = 'edit.php?post_type=page';
-$_wp_real_parent_file['wpmu-admin.php'] = 'tools.php';
-$_wp_real_parent_file['network-admin.php']   = 'tools.php';
+$_wp_real_parent_file['post.php']          = 'edit.php';
+$_wp_real_parent_file['post-new.php']      = 'edit.php';
+$_wp_real_parent_file['edit-pages.php']    = 'edit.php?post_type=page';
+$_wp_real_parent_file['page-new.php']      = 'edit.php?post_type=page';
+$_wp_real_parent_file['tools.php']         = 'options-general.php';
+$_wp_real_parent_file['wpmu-admin.php']    = 'options-general.php';
+$_wp_real_parent_file['network-admin.php'] = 'options-general.php';
 
 /**
  * Ensure backward compatibility
