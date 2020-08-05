@@ -575,7 +575,8 @@ final class Screen {
 	/**
 	 * Gets the content tabs registered for the screen.
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
+	 * @access public
 	 * @return array Content tabs with arguments.
 	 */
 	public function get_content_tabs() {
@@ -608,10 +609,13 @@ final class Screen {
 	}
 
 	/**
+	 * Get content tab
+	 *
 	 * Gets the arguments for a content tab.
 	 *
-	 * @since 1.0.0
-	 * @param string $id Content Tab ID.
+	 * @since  1.0.0
+	 * @access public
+	 * @param  string $id Content Tab ID.
 	 * @return array Content tab arguments.
 	 */
 	public function get_content_tab( $id ) {
@@ -624,13 +628,31 @@ final class Screen {
 	}
 
 	/**
+	 * Has content tab
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param  string $id Content Tab ID.
+	 * @return boolean Returns true if the tab ID is set.
+	 */
+	public function has_content_tab( $id ) {
+
+		if ( ! isset( $this->content_tabs[ $id ] ) ) {
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
 	 * Add content tab
 	 *
 	 * Adds a content tab to the tabbed content for the screen.
 	 * Call this on the load-$pagenow hook for the relevant screen.
 	 *
-	 * @since 1.0.0
-	 * @param array $args {
+	 * @since  1.0.0
+	 * @access public
+	 * @param  array $args {
 	 *     Array of arguments used to display the content tab.
 	 *
 	 *     @type string $id Tab ID. Must be HTML-safe. Default null.
@@ -643,6 +665,7 @@ final class Screen {
 	 *     @type string $callback Optional. A callback to generate the tab content. Default null.
 	 *     @type int $priority Optional. The priority of the tab, used for ordering. Default 10.
 	 * }
+	 * @return void
 	 */
 	public function add_content_tab( $args ) {
 
