@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Settings screen class
  *
  * @since  1.0.0
- * @access private
+ * @access public
  */
 class Settings_Screen {
 

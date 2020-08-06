@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Sample settings screen class
  *
  * @since  1.0.0
- * @access private
+ * @access public
  */
 class Settings_Sample extends Settings_Screen {
 
@@ -57,19 +57,19 @@ class Settings_Sample extends Settings_Screen {
 	 * Form action
 	 *
 	 * @since 1.0.0
-	 * @access protected
+	 * @access public
 	 * @var string This will most likely be options.php.
 	 */
-	protected $action = 'options.php';
+	public $action = 'options.php';
 
 	/**
 	 * Form fields
 	 *
 	 * @since 1.0.0
-	 * @access protected
+	 * @access public
 	 * @var string The name of the registered fields to be executed.
 	 */
-	protected $fields = 'sample';
+	public $fields = 'sample';
 
 	/**
 	 * Submit button

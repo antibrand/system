@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Content settings screen class
  *
  * @since  1.0.0
- * @access private
+ * @access public
  */
 class Settings_Content extends Settings_Screen {
 
@@ -28,7 +28,7 @@ class Settings_Content extends Settings_Screen {
 	 * @access public
 	 * @var string
 	 */
-	public $title = 'Content Settings';
+	public $title = 'Content Options';
 
 	/**
 	 * Page description
@@ -43,10 +43,10 @@ class Settings_Content extends Settings_Screen {
 	 * Form fields
 	 *
 	 * @since 1.0.0
-	 * @access protected
+	 * @access public
 	 * @var string The name of the registered fields to be executed.
 	 */
-	protected $fields = 'content';
+	public $fields = 'content';
 
 	/**
 	 * Instance of the class

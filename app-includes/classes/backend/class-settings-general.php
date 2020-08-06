@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @see class-settings.screen.php
  *
  * @since  1.0.0
- * @access private
+ * @access public
  */
 class Settings_General extends Settings_Screen {
 
@@ -29,10 +29,10 @@ class Settings_General extends Settings_Screen {
 	 * Form fields
 	 *
 	 * @since 1.0.0
-	 * @access protected
+	 * @access public
 	 * @var string The name of the registered fields to be executed.
 	 */
-	protected $fields = 'general';
+	public $fields = 'general';
 
 	/**
 	 * Instance of the class
@@ -71,7 +71,7 @@ class Settings_General extends Settings_Screen {
 	 */
 	public function title() {
 
-		$this->title = __( 'General Settings' );
+		$this->title = __( 'Website Settings' );
 
 		return apply_filters( 'settings_general_page_title', $this->title );
 	}

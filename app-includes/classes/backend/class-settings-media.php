@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Media settings screen class
  *
  * @since  1.0.0
- * @access private
+ * @access public
  */
 class Settings_Media extends Settings_Screen {
 
@@ -52,20 +52,20 @@ class Settings_Media extends Settings_Screen {
 	 * Form action
 	 *
 	 * @since 1.0.0
-	 * @access protected
+	 * @access public
 	 * @var string This will most likely be options.php.
 	 */
-	protected $action = 'options.php';
+	public $action = 'options.php';
 
 	/**
 	 * Form fields
 	 *
 	 * @since 1.0.0
-	 * @access protected
+	 * @access public
 	 * @var string The name of the registered fields to be executed.
 	 *             Defaults are 'general', 'writing', 'reading', permalinks'.
 	 */
-	protected $fields = 'media';
+	public $fields = 'media';
 
 	/**
 	 * Instance of the class
