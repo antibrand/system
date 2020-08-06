@@ -120,7 +120,7 @@ class Settings_Sample extends Settings_Screen {
 	 */
 	public function child_enqueue_scripts() {
 
-		// Enqueue scripts
+		// Enqueue scripts.
 	}
 
 	/**
@@ -132,7 +132,7 @@ class Settings_Sample extends Settings_Screen {
 	 */
 	public function child_print_scripts() {
 
-		// Print scripts
+		// Print scripts.
 	}
 
 	/**
