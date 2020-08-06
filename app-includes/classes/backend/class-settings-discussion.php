@@ -52,10 +52,10 @@ class Settings_Discussion extends Settings_Screen {
 	 * Form fields
 	 *
 	 * @since 1.0.0
-	 * @access protected
+	 * @access public
 	 * @var string The name of the registered fields to be executed.
 	 */
-	protected $fields = 'discussion';
+	public $fields = 'discussion';
 
 	/**
 	 * Instance of the class
@@ -92,7 +92,7 @@ class Settings_Discussion extends Settings_Screen {
 	 * @access public
 	 * @return string Returns the script markup.
 	 */
-	function child_print_scripts() {
+	public function child_print_scripts() {
 		?>
 			<script>
 			(function($){
