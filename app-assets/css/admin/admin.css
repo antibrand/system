@@ -6445,7 +6445,6 @@ img {
 
 #adminmenu li.menu-top {
   border: none;
-  min-height: 34px;
   position: relative;
 }
 
@@ -6590,7 +6589,7 @@ img {
   font-weight: bold;
   font-weight: 700;
   line-height: 1.2;
-  padding: 0;
+  padding: 0.5em 0;
 }
 
 #adminmenu .wp-submenu-head {
@@ -6618,13 +6617,8 @@ img {
   filter: alpha(opacity=60);
 }
 
-#adminmenu div.wp-menu-name {
-  padding: 0.625rem 0;
-}
-
 #adminmenu div.wp-menu-image {
   width: 36px;
-  height: 34px;
   margin: 0;
   text-align: center;
 }
@@ -6637,7 +6631,7 @@ img {
 
 div.wp-menu-image:before {
   color: #bfbfbf;
-  padding: 7px 0;
+  padding: 0;
 }
 
 #adminmenu div.wp-menu-image:before {
