@@ -671,6 +671,8 @@ final class Screen {
 
 		$defaults = [
 			'id'             => null,
+			'id_before'      => 'tab-',
+			'id_after'       => null,
 			'url'            => null,
 			'capability'     => 'read',
 			'tab'            => null,
@@ -736,7 +738,7 @@ final class Screen {
 
 				if ( current_user_can( $tab['capability'] ) ) :
 
-					$content_id  = "tab-content-{$tab['id']}";
+					$content_id  = $tab['id_before'] . $tab['id'] . $tab['id_after'];
 					$content_url = $tab['url'];
 
 					if ( ! empty( $tab['url'] ) ) {
@@ -772,7 +774,7 @@ final class Screen {
 
 				if ( current_user_can( $tab['capability'] ) ) :
 
-					$content_id = "tab-content-{$tab['id']}";
+					$content_id = $tab['id_before'] . $tab['id'] . $tab['id_after'];
 
 					if ( ! empty( $tab['heading'] ) ) {
 						$heading_before = $tab['heading_before'];
@@ -783,15 +785,24 @@ final class Screen {
 					}
 				?>
 				<div id="<?php echo esc_attr( $content_id ); ?>" class="<?php echo $content_class; ?>">
+
 					<?php echo $tab['heading_before'] . $tab['heading'] . $tab['heading_after']; ?>
 					<?php
-					// Print tab content.
-					echo $tab['content'];
+
+					// Development hook.
+					do_action( "content_{$tab['id']}_tab_before" );
+
+					// Print tab content, apply development filter.
+					echo apply_filters( "content_{$tab['id']}_tab", $tab['content'] );
 
 					// If it exists, fire tab callback.
 					if ( ! empty( $tab['callback'] ) ) {
 						call_user_func_array( $tab['callback'], [ $this, $tab ] );
 					}
+
+					// Development hook.
+					do_action( "content_{$tab['id']}_tab_after" );
+
 					?>
 				</div>
 				<?php

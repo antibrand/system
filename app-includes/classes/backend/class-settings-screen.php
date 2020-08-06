@@ -54,20 +54,20 @@ class Settings_Screen {
 	 * Form action
 	 *
 	 * @since 1.0.0
-	 * @access protected
+	 * @access public
 	 * @var string This will most likely be options.php.
 	 */
-	protected $action = 'options.php';
+	public $action = 'options.php';
 
 	/**
 	 * Form fields
 	 *
 	 * @since 1.0.0
-	 * @access protected
+	 * @access public
 	 * @var string The name of the registered fields to be executed.
 	 *             Defaults are 'general', 'writing', 'reading', permalinks'.
 	 */
-	protected $fields = '';
+	public $fields = '';
 
 	/**
 	 * Submit button
@@ -216,9 +216,9 @@ class Settings_Screen {
 
 		settings_fields( $this->fields );
 
-		do_action( 'settings_screen_tabs_before' );
+		do_action( "settings_screen_{$this->fields}_tabs_before" );
 		do_action( 'render_tabs_settings_screen' );
-		do_action( 'settings_screen_tabs_after' );
+		do_action( "settings_screen-{$this->fields}-tabs_after" );
 
 		echo get_submit_button( esc_html__( $this->submit ) );
 
