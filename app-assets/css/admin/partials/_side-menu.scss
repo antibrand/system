@@ -372,7 +372,6 @@
 div.wp-menu-image:before {
 	color: $menu_icon_color;
 	padding: 7px 0;
-	transition: all .1s ease-in-out;
 }
 
 #adminmenu div.wp-menu-image:before {
@@ -544,12 +543,10 @@ ul#adminmenu a.wp-has-current-submenu {
 /* rtl:ignore */
 .folded #collapse-button .collapse-button-icon:after,
 .rtl #collapse-button .collapse-button-icon:after {
-	-webkit-transform: rotate(180deg);
 	transform: rotate(180deg);
 }
 
 .rtl.folded #collapse-button .collapse-button-icon:after {
-	-webkit-transform: none;
 	transform: none;
 }
 
@@ -672,12 +669,10 @@ li#wp-admin-bar-menu-toggle {
 
 	/* rtl:ignore */
 	.auto-fold #collapse-button .collapse-button-icon:after {
-		-webkit-transform: rotate(180deg);
 		transform: rotate(180deg);
 	}
 
 	.rtl.auto-fold #collapse-button .collapse-button-icon:after {
-		-webkit-transform: none;
 		transform: none;
 	}
 
