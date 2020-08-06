@@ -624,19 +624,19 @@ $menu[80] = [
 ];
 
 $submenu['options-general.php'][5] = [
-	__( 'Settings' ),
+	__( 'Website Settings' ),
 	'manage_options',
 	'options-general.php'
 ];
 
 $submenu['options-general.php'][10] = [
-	__( 'Content' ),
+	__( 'Content Options' ),
 	'manage_options',
 	'options-content.php'
 ];
 
 $submenu['options-general.php'][15] = [
-	__( 'URL & Meta Data' ),
+	__( 'Permalinks & Meta' ),
 	'manage_options',
 	'options-permalink.php'
 ];
