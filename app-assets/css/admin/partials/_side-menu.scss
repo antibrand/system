@@ -181,6 +181,11 @@
 	li.menu-top {
 		border: none;
 		position: relative;
+		margin: 0.3rem 0;
+
+		&:first-of-type {
+			margin-top: 0;
+		}
 	}
 
 	.wp-submenu {

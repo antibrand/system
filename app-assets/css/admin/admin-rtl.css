@@ -6459,6 +6459,11 @@ img {
 #adminmenu li.menu-top {
   border: none;
   position: relative;
+  margin: 0.3rem 0;
+}
+
+#adminmenu li.menu-top:first-of-type {
+  margin-top: 0;
 }
 
 #adminmenu .wp-submenu {
