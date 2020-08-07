@@ -180,7 +180,7 @@ class Settings_Discussion extends Settings_Screen {
 
 				<p>
 					<label for="default_comment_status">
-						<input name="default_comment_status" type="checkbox" id="default_comment_status" value="open" <?php checked( 'open', get_option( 'default_comment_status' )); ?> />
+						<input name="default_comment_status" type="checkbox" id="default_comment_status" value="open" <?php checked( 'open', get_option( 'default_comment_status' ) ); ?> />
 						<?php _e( 'Allow people to post comments on new articles' ); ?>
 					</label>
 				</p>
@@ -203,15 +203,15 @@ class Settings_Discussion extends Settings_Screen {
 
 				<p>
 					<label for="comment_registration">
-						<input name="comment_registration" type="checkbox" id="comment_registration" value="1" <?php checked( '1', get_option( 'comment_registration' )); ?> />
+						<input name="comment_registration" type="checkbox" id="comment_registration" value="1" <?php checked( '1', get_option( 'comment_registration' ) ); ?> />
 						<?php _e( 'Users must be registered and logged in to comment' ); ?>
-						<?php if ( !get_option( 'users_can_register' ) && is_network() ) echo ' ' . __( '(Signup has been disabled. Only members of this site can comment.)' ); ?>
+						<?php if ( ! get_option( 'users_can_register' ) && is_network() ) echo ' ' . __( '(Signup has been disabled. Only members of this site can comment.)' ); ?>
 					</label>
 				</p>
 
 				<p>
 					<label for="close_comments_for_old_posts">
-						<input name="close_comments_for_old_posts" type="checkbox" id="close_comments_for_old_posts" value="1" <?php checked( '1', get_option( 'close_comments_for_old_posts' )); ?> />
+						<input name="close_comments_for_old_posts" type="checkbox" id="close_comments_for_old_posts" value="1" <?php checked( '1', get_option( 'close_comments_for_old_posts' ) ); ?> />
 						<?php printf(
 							__( 'Automatically close comments on articles older than %s days' ),
 							'</label> <label for="close_comments_days_old"><input name="close_comments_days_old" type="number" min="0" step="1" id="close_comments_days_old" value="' . esc_attr( get_option( 'close_comments_days_old' ) ) . '" class="small-text" />'
@@ -228,7 +228,7 @@ class Settings_Discussion extends Settings_Screen {
 
 				<p>
 					<label for="thread_comments">
-						<input name="thread_comments" type="checkbox" id="thread_comments" value="1" <?php checked( '1', get_option( 'thread_comments' )); ?> />
+						<input name="thread_comments" type="checkbox" id="thread_comments" value="1" <?php checked( '1', get_option( 'thread_comments' ) ); ?> />
 						<?php
 						/**
 						 * Filters the maximum depth of threaded/nested comments.
@@ -311,14 +311,14 @@ class Settings_Discussion extends Settings_Screen {
 
 				<p>
 					<label for="comment_moderation">
-						<input name="comment_moderation" type="checkbox" id="comment_moderation" value="1" <?php checked( '1', get_option( 'comment_moderation' )); ?> />
+						<input name="comment_moderation" type="checkbox" id="comment_moderation" value="1" <?php checked( '1', get_option( 'comment_moderation' ) ); ?> />
 						<?php _e( 'Comment must be manually approved' ); ?>
 					</label>
 				</p>
 
 				<p>
 					<label for="comment_whitelist">
-						<input type="checkbox" name="comment_whitelist" id="comment_whitelist" value="1" <?php checked( '1', get_option( 'comment_whitelist' )); ?> /> <?php _e( 'Comment author must have a previously approved comment' ); ?>
+						<input type="checkbox" name="comment_whitelist" id="comment_whitelist" value="1" <?php checked( '1', get_option( 'comment_whitelist' ) ); ?> /> <?php _e( 'Comment author must have a previously approved comment' ); ?>
 					</label>
 				</p>
 
@@ -387,14 +387,14 @@ class Settings_Discussion extends Settings_Screen {
 
 				<p>
 					<label for="comments_notify">
-						<input name="comments_notify" type="checkbox" id="comments_notify" value="1" <?php checked( '1', get_option( 'comments_notify' )); ?> />
+						<input name="comments_notify" type="checkbox" id="comments_notify" value="1" <?php checked( '1', get_option( 'comments_notify' ) ); ?> />
 						<?php _e( 'Anyone posts a comment' ); ?>
 					</label>
 				</p>
 
 				<p>
 					<label for="moderation_notify">
-						<input name="moderation_notify" type="checkbox" id="moderation_notify" value="1" <?php checked( '1', get_option( 'moderation_notify' )); ?> />
+						<input name="moderation_notify" type="checkbox" id="moderation_notify" value="1" <?php checked( '1', get_option( 'moderation_notify' ) ); ?> />
 						<?php _e( 'A comment is held for moderation' ); ?>
 					</label>
 				</p>
@@ -446,14 +446,14 @@ class Settings_Discussion extends Settings_Screen {
 
 				<h3><?php _e( 'Default Avatar' ); ?></h3>
 
-				<p><?php _e( 'For users without a custom avatar of their own a generic logo can be displayed.' ); ?></p>
+				<p><?php _e( 'For users without a custom avatar of their own a default icon can be displayed.' ); ?></p>
 
 				<ul class="form-field-list">
 
 				<?php
 				$avatar_defaults = [
-					'mystery' => __( 'Mystery Person' ),
-					'generic'   => __( 'Generic' )
+					'mystery' => __( 'Mystery' ),
+					'generic' => __( 'Generic' )
 				];
 
 				/**
@@ -474,9 +474,9 @@ class Settings_Discussion extends Settings_Screen {
 
 				foreach ( $avatar_defaults as $default_key => $default_name ) {
 
-					$selected     = ( $default == $default_key) ? 'checked="checked" ' : '';
+					$selected     = ( $default == $default_key ) ? 'checked="checked" ' : '';
 					$avatar_list .= '<li>';
-					$avatar_list .= "\n\t<label><input type='radio' name='avatar_default' id='avatar_{$default_key}' value='" . esc_attr( $default_key) . "' {$selected}/> ";
+					$avatar_list .= "\n\t<label><input type='radio' name='avatar_default' id='avatar_{$default_key}' value='" . esc_attr( $default_key ) . "' {$selected}/> ";
 					$avatar_list .= get_avatar( $user_email, 32, $default_key, '', array( 'force_default' => true ) );
 					$avatar_list .= ' ' . $default_name . '</label>';
 					$avatar_list .= '<br />';
