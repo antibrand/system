@@ -235,14 +235,14 @@ class WP_REST_Taxonomies_Controller extends WP_REST_Controller {
 		// Wrap the data in a response object.
 		$response = rest_ensure_response( $data );
 
-		$response->add_links( array(
-			'collection'                => array(
-				'href'                  => rest_url( sprintf( '%s/%s', $this->namespace, $this->rest_base ) ),
-			),
-			'https://api.w.org/items'   => array(
-				'href'                  => rest_url( sprintf( 'wp/v2/%s', $base ) ),
-			),
-		) );
+		$response->add_links( [
+			'collection' => [
+				'href'   => rest_url( sprintf( '%s/%s', $this->namespace, $this->rest_base ) ),
+			],
+			APP_API_URI . '/items' => [
+				'href' => rest_url( sprintf( 'wp/v2/%s', $base ) ),
+			],
+		] );
 
 		/**
 		 * Filters a taxonomy returned from the REST API.

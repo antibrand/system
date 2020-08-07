@@ -708,7 +708,7 @@ function rest_output_link_wp_head() {
 		return;
 	}
 
-	echo "<link rel='https://api.w.org/' href='" . esc_url( $api_root ) . "' />\n";
+	echo "<link rel='" . APP_API_URI . "/' href='" . esc_url( $api_root ) . "' />\n";
 }
 
 /**
@@ -727,7 +727,7 @@ function rest_output_link_header() {
 		return;
 	}
 
-	header( 'Link: <' . esc_url_raw( $api_root ) . '>; rel="https://api.w.org/"', false );
+	header( 'Link: <' . esc_url_raw( $api_root ) . '>; rel="' . APP_API_URI . '/"', false );
 }
 
 /**

@@ -801,7 +801,7 @@ class WP_REST_Terms_Controller extends WP_REST_Controller {
 		}
 
 		if ( ! empty( $post_type_links ) ) {
-			$links['https://api.w.org/post_type'] = $post_type_links;
+			$links[ APP_API_URI . '/post_type' ] = $post_type_links;
 		}
 
 		return $links;

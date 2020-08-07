@@ -251,13 +251,13 @@ class WP_REST_Response extends WP_HTTP_Response {
 	 * @return array Compact URIs.
 	 */
 	public function get_curies() {
-		$curies = array(
-			array(
-				'name' => 'wp',
-				'href' => 'https://api.w.org/{rel}',
+		$curies = [
+			[
+				'name'      => 'app',
+				'href'      => APP_API_URI . '/{rel}',
 				'templated' => true,
-			),
-		);
+			],
+		];
 
 		/**
 		 * Filters extra CURIEs available on API responses.

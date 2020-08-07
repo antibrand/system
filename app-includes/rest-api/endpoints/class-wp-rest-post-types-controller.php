@@ -205,9 +205,9 @@ class WP_REST_Post_Types_Controller extends WP_REST_Controller {
 			'collection' => array(
 				'href'   => rest_url( sprintf( '%s/%s', $this->namespace, $this->rest_base ) ),
 			),
-			'https://api.w.org/items' => array(
+			APP_API_URI . '/items' => [
 				'href' => rest_url( sprintf( 'wp/v2/%s', $base ) ),
-			),
+			],
 		) );
 
 		/**

@@ -114,6 +114,17 @@ function wp_initial_constants() {
 	}
 
 	/**
+	 * System API
+	 *
+	 * URL constant to change the location of the API files.
+	 */
+	if ( ! defined( 'APP_API_URI' ) ) {
+
+		// This is a dummy URI.
+		define( 'APP_API_URI', 'https://api.antibrand.dev' );
+	}
+
+	/**
 	 * HTML templates & themes directory
 	 *
 	 * Defines the directory of files which print the HTML
