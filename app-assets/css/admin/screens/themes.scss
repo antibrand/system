@@ -5,6 +5,7 @@
 // Import general app variables from app-assets/includes.
 @import '../../includes/modules/_typography';
 @import '../../includes/modules/_colors';
+@import '../modules/_common';
 
 body.js .theme-browser.search-loading {
 	display: none;
@@ -70,7 +71,7 @@ body.js .theme-browser.search-loading {
 				position: static;
 				max-width: 1280px;
 				padding: 2rem;
-				border: solid 1px $box_border_color;
+				border: solid $box_border_width $box_border_color;
 			}
 
 			.theme-overlay .theme-about {

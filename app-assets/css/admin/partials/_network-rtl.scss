@@ -11,7 +11,7 @@
 	margin-top: 1em;
 	padding: 1em;
 	background-color: darken( $body_background, 6.25% );
-	border: solid 1px $box_border_color;
+	border: solid $box_border_width $box_border_color;
 }
 
 .network-site-settings-nav {

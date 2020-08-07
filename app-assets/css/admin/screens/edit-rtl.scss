@@ -1,6 +1,7 @@
 // Import general app variables from app-assets/includes.
 @import '../../includes/modules/_typography';
 @import '../../includes/modules/_colors';
+@import '../modules/_common';
 
 #poststuff {
 	min-width: 763px;
@@ -65,7 +66,7 @@
 	height: auto;
 	margin-top: 1em;
 	padding: 0 10px;
-	border: solid 1px transparent;
+	border: solid $box_border_width transparent;
 	font-size: 2.325em;
 	font-weight: 700;
 	letter-spacing: -0.02em;
@@ -95,7 +96,7 @@
 	height: auto;
 	margin-top: 1em;
 	padding: 0 10px;
-	border: solid 1px transparent;
+	border: solid $box_border_width transparent;
 	font-size: 2.325em;
 	font-weight: 700;
 	letter-spacing: -0.02em;
@@ -201,7 +202,7 @@ body.post-new-php .submitbox .submitdelete {
 .edit-php .postbox {
 	position: relative;
 	min-width: 255px;
-	border: solid 1px $box_border_color;
+	border: solid $box_border_width $box_border_color;
 }
 
 #trackback_url {

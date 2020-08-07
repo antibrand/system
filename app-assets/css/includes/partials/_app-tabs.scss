@@ -20,22 +20,26 @@
  *
  * .app-tabs is the container class.
  */
+
+// Tab variables.
+$tab_border_width: 1px;
+
 .app-tabs {
 
 	.app-tabs-list {
 		list-style: none;
 		margin: 2em 0 0;
 		padding: 0 0 0 0.5em;
-		border-bottom: solid 1px $form_border_color;
+		border-bottom: solid $tab_border_width $form_border_color;
 
 		.app-tab {
 			display: inline-block;
 			position: relative;
 
 			// Top offset same as the border-bottom width of .app-tabs-list.
-			top: 1px;
+			top: $tab_border_width;
 			margin: 0 0.15em;
-			border: solid 1px $form_border_color;
+			border: solid $tab_border_width $form_border_color;
 			font-size: $px15;
 			font-weight: 700;
 

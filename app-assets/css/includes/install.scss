@@ -2,6 +2,7 @@
 @import 'partials/_font-faces-variable';
 @import 'partials/_font-faces-static';
 @import '../admin/partials/_typography';
+@import '../admin/modules/_common';
 @import '../admin/partials/_forms';
 @import 'partials/_buttons';
 
@@ -232,7 +233,7 @@ fieldset {
 	margin-top: 1em;
 	padding: 1rem;
 	background-color: $off_white;
-	border: solid 1px $box_border_color;
+	border: solid $box_border_width $box_border_color;
 	cursor: text;
 }
 

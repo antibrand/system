@@ -1,6 +1,7 @@
 // Import general app variables from app-assets/includes.
 @import '../../includes/modules/_typography';
 @import '../../includes/modules/_colors';
+@import '../modules/_common';
 
 .app-content #dashboard-widgets.columns-1 .postbox-container {
 	width: 100%;
@@ -187,7 +188,7 @@
 
 		&:not(:first-of-type) {
 			padding-top: 0.75em;
-			border-top: solid 1px $box_border_color;
+			border-top: solid $box_border_width $box_border_color;
 		}
 	}
 

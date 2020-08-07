@@ -1,5 +1,6 @@
 @import 'modules/_typography';
 @import 'modules/_colors';
+@import '../admin/modules/_common';
 
 .media-modal input,
 .media-modal select,
@@ -494,7 +495,7 @@
 	margin-left: 0.25em;
 	padding: 0.75rem 1rem;
 	background: $button_background_color;
-	border: solid 1px $button_border_color;
+	border: solid $box_border_width $button_border_color;
 	font-size: $px14;
 	font-weight: bold;
 	font-weight: 700;
@@ -720,7 +721,7 @@
 	position: relative;
 	width: 100%;
 	margin: 0;
-	border: solid 1px $form_border_color;
+	border: solid $box_border_width $form_border_color;
 	cursor: pointer;
 	text-align: center;
 	-webkit-user-select: none;
@@ -843,7 +844,7 @@
 	height: 24px;
 	width: 24px;
 	padding: 0;
-	border: solid 1px $form_border_color;
+	border: solid $box_border_width $form_border_color;
 	position: absolute;
 	z-index: 10;
 	top: 0;

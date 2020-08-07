@@ -5,6 +5,7 @@
 // Import general app variables from app-assets/includes.
 @import '../../includes/modules/_typography';
 @import '../../includes/modules/_colors';
+@import '../modules/_common';
 
 body {
 	background-color: $body_background;
@@ -301,7 +302,7 @@ p.description,
 h1 ~ p.description {
 	margin: 0.5em 0 1em;
 	padding-bottom: 1em;
-	border-bottom: solid 1px $box_border_color;
+	border-bottom: solid $box_border_width $box_border_color;
 	font-size: 1rem;
 }
 
