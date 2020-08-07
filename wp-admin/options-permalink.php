@@ -317,7 +317,17 @@ require( ABSPATH . 'wp-admin/admin-header.php' );
 
 				<h2><?php _e( 'Meta Data Settings' ); ?></h2>
 
-				<p><?php _e( 'This section is under development.' ); ?></p>
+				<p>
+				<?php _e( 'This section is under development.' ); ?></p>
+
+				<p>
+					<label for="app_meta_generator">
+						<input name="app_meta_generator" id="app_meta_generator" type="checkbox" value="1" <?php checked( '1', get_option( 'app_meta_generator' ) ); ?> />
+						<?php _e( 'Add the generator meta tag.' ); ?>
+					</label>
+				</p>
+
+				<?php do_settings_fields( 'permalink', 'meta' ); ?>
 			</div>
 
 		</div><!-- .app-tabs -->

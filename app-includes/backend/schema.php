@@ -523,7 +523,8 @@ function populate_options() {
 	'show_comments_cookies_opt_in'    => 0,
 
 	// This 1.0.0
-	'media_allow_trash' => 1,
+	'media_allow_trash'  => 1,
+	'app_meta_generator' => 0,
 	);
 
 	// 3.3

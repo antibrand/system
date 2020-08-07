@@ -4268,19 +4268,16 @@ function add_thickbox() {
 /**
  * Displays the XHTML generator that is generated on the wp_head hook.
  *
- * See {@see 'wp_head'}.
- *
  * @since Previous 2.5.0
  */
-function wp_generator() {
+function app_generator() {
 	/**
 	 * Filters the output of the XHTML generator tag.
 	 *
 	 * @since Previous 2.5.0
-	 *
 	 * @param string $generator_type The XHTML generator.
 	 */
-	the_generator( apply_filters( 'wp_generator_type', 'xhtml' ) );
+	the_generator( apply_filters( 'app_generator_type', 'xhtml' ) );
 }
 
 /**
@@ -4290,7 +4287,6 @@ function wp_generator() {
  * for a plugin to filter generators overall the {@see 'the_generator'} filter.
  *
  * @since Previous 2.5.0
- *
  * @param string $type The type of generator to output - (html|xhtml|atom|rss2|rdf|comment|export).
  */
 function the_generator( $type ) {
@@ -4303,7 +4299,7 @@ function the_generator( $type ) {
 	 * @param string $type           The type of generator to output. Accepts 'html',
 	 *                               'xhtml', 'atom', 'rss2', 'rdf', 'comment', 'export'.
 	 */
-	echo apply_filters( 'the_generator', get_the_generator($type ), $type ) . "\n";
+	echo apply_filters( 'the_generator', get_the_generator( $type ), $type ) . "\n";
 }
 
 /**
@@ -4319,6 +4315,8 @@ function the_generator( $type ) {
  * @return string|void The HTML content for the generator.
  */
 function get_the_generator( $type = '' ) {
+
+	global $app_version;
 
 	if ( defined( 'APP_NAME' ) ) {
 		$app_name = APP_NAME;
@@ -4354,10 +4352,10 @@ function get_the_generator( $type = '' ) {
 
 	switch ( $type ) {
 		case 'html':
-			$gen = '<meta name="generator" content="' . esc_attr( $app_name . ' ' . get_bloginfo( 'version' ) ) . '" />';
+			$gen = '<meta name="generator" content="' . esc_attr( $app_name . ' ' . $app_version ) . '" />';
 			break;
 		case 'xhtml':
-			$gen = '<meta name="generator" content="' . esc_attr( $app_name . ' ' . get_bloginfo( 'version' ) ) . '" />';
+			$gen = '<meta name="generator" content="' . esc_attr( $app_name . ' ' . $app_version ) . '" />';
 			break;
 		case 'atom':
 			$gen = '<generator uri="" version="' . esc_attr( get_bloginfo_rss( 'version' ) ) . '">' . $app_name . '</generator>';
@@ -4369,7 +4367,7 @@ function get_the_generator( $type = '' ) {
 			$gen = '<admin:generatorAgent rdf:resource="" />';
 			break;
 		case 'comment':
-			$gen = '<!-- generator="' . esc_attr( get_bloginfo( 'version' ) ) . '" -->';
+			$gen = '<!-- generator="' . esc_attr( $app_version ) . '" -->';
 			break;
 		case 'export':
 			$gen = '<!-- generator="' . esc_attr( get_bloginfo_rss( 'version' ) ) . '" created="' . date( 'Y-m-d H:i' ) . '" -->';
