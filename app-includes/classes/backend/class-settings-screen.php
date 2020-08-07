@@ -94,7 +94,7 @@ class Settings_Screen {
 		add_action( 'admin_head', [ $this, 'parent_print_scripts' ] );
 
 		// Allow hashtags for content tabs.
-		add_filter( 'app_tabs_hashtags','__return_true' );
+		add_filter( 'app_tabs_hashtags', '__return_true' );
 
 		// Render tabbed content.
 		add_action( 'render_tabs_settings_screen', [ $this, 'render_tabs' ] );
