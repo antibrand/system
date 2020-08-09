@@ -42,6 +42,16 @@
   color: #eee;
 }
 
+#app-toolbar .ab-empty-item:hover, #app-toolbar .ab-empty-item:focus,
+#app-toolbar a.ab-item:hover,
+#app-toolbar a.ab-item:focus,
+#app-toolbar > #wp-toolbar span.ab-label:hover,
+#app-toolbar > #wp-toolbar span.ab-label:focus,
+#app-toolbar > #wp-toolbar span.noticon:hover,
+#app-toolbar > #wp-toolbar span.noticon:focus {
+  color: #ffffff;
+}
+
 #app-toolbar #wp-admin-bar-site-name a.ab-item,
 #app-toolbar #wp-admin-bar-my-sites a.ab-item {
   white-space: nowrap;
@@ -225,13 +235,13 @@
 #app-toolbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
 #app-toolbar .ab-top-menu > li.hover > .ab-item {
   background: #333;
-  color: #00b9eb;
+  color: #ffffff;
 }
 
 #app-toolbar:not(.mobile) > #wp-toolbar li:hover span.ab-label,
 #app-toolbar > #wp-toolbar li.hover span.ab-label,
 #app-toolbar:not(.mobile) > #wp-toolbar a:focus span.ab-label {
-  color: #00b9eb;
+  color: #ffffff;
 }
 
 #app-toolbar > #wp-toolbar > #wp-admin-bar-root-default .ab-icon,
@@ -301,17 +311,17 @@
 #app-toolbar li.hover .ab-item:before,
 #app-toolbar li:hover #adminbarsearch:before,
 #app-toolbar li #adminbarsearch.adminbar-focused:before {
-  color: #00b9eb;
+  color: #ffffff;
 }
 
 #app-toolbar.mobile .quicklinks .ab-icon:before,
 #app-toolbar.mobile .quicklinks .ab-item:before {
-  color: #b4b9be;
+  color: #ffffff;
 }
 
 #app-toolbar.mobile .quicklinks .hover .ab-icon:before,
 #app-toolbar.mobile .quicklinks .hover .ab-item:before {
-  color: #00b9eb;
+  color: #ffffff;
 }
 
 #app-toolbar .menupop .menupop > .ab-item:before,
