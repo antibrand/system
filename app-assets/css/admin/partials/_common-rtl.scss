@@ -1580,8 +1580,8 @@ form.upgrade .hint {
 }
 
 .contextual-help-tabs {
-	float: right;
 	min-width: 160px;
+	max-width: 240px;
 	margin: 0;
 	padding-bottom: 1em;
 
@@ -1610,6 +1610,7 @@ form.upgrade .hint {
 }
 
 .contextual-help-tabs-wrap {
+	width: 100%;
 	padding: 0 20px;
 	overflow: auto;
 }
@@ -1639,7 +1640,7 @@ form.upgrade .hint {
 
 .contextual-help-sidebar {
 	min-width: 160px;
-	float: left;
+	max-width: 240px;
 	padding: 0 0 1em 0.75em;
 	overflow: auto;
 
