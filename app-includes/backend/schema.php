@@ -566,7 +566,6 @@ function populate_options() {
 
 		// @since This 1.0.0
 		'media_allow_trash'  => 1,
-		'app_meta_generator' => 0,
 	];
 
 	// @since Previous 3.3

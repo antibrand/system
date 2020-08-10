@@ -152,15 +152,12 @@ $whitelist_options = [
 		'default_link_category',
 		'default_post_format',
 	],
-	'permalink' => [
-		'app_meta_generator'
-	],
+
 	// Deprecated.
 	'writing' => [],
 	'reading' => []
 ];
 
-$whitelist_options['permalink'][] = 'app_meta_generator';
 $whitelist_options['misc'] = $whitelist_options['options'] = $whitelist_options['privacy'] = [];
 
 $mail_options = [ 'mailserver_url', 'mailserver_port', 'mailserver_login', 'mailserver_pass' ];

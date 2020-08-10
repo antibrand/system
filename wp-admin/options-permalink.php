@@ -23,9 +23,6 @@ $parent_file = $class->parent;
 $title       = $class->title();
 $description = $class->description();
 
-// Script for tabbed content.
-wp_enqueue_script( 'app-tabs' );
-
 $home_path           = get_home_path();
 $iis7_permalinks     = iis7_supports_permalinks();
 $permalink_structure = get_option( 'permalink_structure' );
@@ -166,9 +163,9 @@ require( ABSPATH . 'wp-admin/admin-header.php' );
 		<div class="app-tabs" data-tabbed="tabbed" data-tabevent="click" data-tabdeeplinking="true">
 
 			<ul class='app-tabs-list app-tabs-horizontal hide-if-no-js'>
-				<li class="app-tab active"><a href="#general"><?php _e( 'General' ); ?></a>
-				<li class="app-tab"><a href="#optional"><?php _e( 'Optional' ); ?></a>
-				<li class="app-tab"><a href="#meta"><?php _e( 'Meta' ); ?></a>
+				<!-- Avoid whitespace by not closing the `<li>` tags. -->
+				<li class="app-tab"><a href="#general"><?php _e( 'General' ); ?></a>
+				<li class="app-tab"><a href="#taxonomy"><?php _e( 'Taxonomy' ); ?></a>
 			</ul>
 
 			<?php wp_nonce_field( 'update-permalink' ); ?>
@@ -287,11 +284,13 @@ require( ABSPATH . 'wp-admin/admin-header.php' );
 						</td>
 					</tr>
 				</table>
+
+				<?php do_settings_sections( 'permalink' ); ?>
 			</div>
 
-			<div id="optional" class="app-tab-content">
+			<div id="taxonomy" class="app-tab-content">
 
-				<h2><?php _e( 'Optional Settings' ); ?></h2>
+				<h2><?php _e( 'Taxonomy Settings' ); ?></h2>
 
 				<p>
 				<?php
@@ -309,31 +308,16 @@ require( ABSPATH . 'wp-admin/admin-header.php' );
 					<br /><?php echo $blog_prefix; ?> <input name="tag_base" id="tag_base" type="text" value="<?php echo esc_attr( $tag_base ); ?>" class="regular-text code" />
 				</p>
 
-				<?php do_settings_fields( 'permalink', 'optional' ); ?>
+				<?php
+				do_settings_fields( 'permalink', 'taxonomy' );
+				do_settings_fields( 'permalink', 'optional' );
+				?>
 
-			</div>
-
-			<div id="meta" class="app-tab-content">
-
-				<h2><?php _e( 'Meta Data Settings' ); ?></h2>
-
-				<p>
-				<?php _e( 'This section is under development.' ); ?></p>
-
-				<p>
-					<label for="app_meta_generator">
-						<input name="app_meta_generator" id="app_meta_generator" type="checkbox" value="1" <?php checked( '1', get_option( 'app_meta_generator' ) ); ?> />
-						<?php _e( 'Add the generator meta tag.' ); ?>
-					</label>
-				</p>
-
-				<?php do_settings_fields( 'permalink', 'meta' ); ?>
 			</div>
 
 		</div><!-- .app-tabs -->
 
-		<?php do_settings_sections( 'permalink' ); ?>
-		<?php submit_button(); ?>
+		<?php submit_button( $class->submit ); ?>
 
 	</form>
 
@@ -354,7 +338,9 @@ require( ABSPATH . 'wp-admin/admin-header.php' );
 	</p>
 
 	<form action="options-permalink.php" method="post">
-	<?php wp_nonce_field( 'update-permalink' ); ?>
+
+		<?php wp_nonce_field( 'update-permalink' ); ?>
+
 		<p>
 			<textarea rows="9" class="large-text readonly" name="rules" id="rules" readonly="readonly">
 				<?php echo esc_textarea( $wp_rewrite->iis7_url_rewrite_rules() ); ?>
@@ -429,7 +415,7 @@ require( ABSPATH . 'wp-admin/admin-header.php' );
 
 	<?php endif; ?>
 <?php endif; ?>
-<?php } // network. ?>
+<?php } // is_network. ?>
 
 </div><!-- .wrap -->
 

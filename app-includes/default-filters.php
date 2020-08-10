@@ -258,9 +258,6 @@ add_action( 'wp_head',             'noindex',                          1    );
 add_action( 'wp_head',             'print_emoji_detection_script',     7    );
 add_action( 'wp_head',             'wp_print_styles',                  8    );
 add_action( 'wp_head',             'wp_print_head_scripts',            9    );
-if ( get_option( 'app_meta_generator' ) ) {
-	add_action( 'wp_head', 'app_generator' );
-}
 add_action( 'wp_head',             'rel_canonical'                          );
 add_action( 'wp_head',             'wp_shortlink_wp_head',            10, 0 );
 add_action( 'wp_head',             'wp_custom_css_cb',                101   );

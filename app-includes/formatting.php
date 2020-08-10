@@ -4147,15 +4147,6 @@ function sanitize_option( $option, $value ) {
 				$value = intval( $value );
 			break;
 
-		case 'app_meta_generator' :
-			if ( null === $value ) {
-				$value = 0;
-			} else {
-				$value = intval( $value );
-			}
-
-			break;
-
 		case 'date_format':
 		case 'time_format':
 		case 'mailserver_url':

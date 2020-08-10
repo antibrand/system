@@ -636,7 +636,7 @@ $submenu['options-general.php'][10] = [
 ];
 
 $submenu['options-general.php'][15] = [
-	__( 'Permalinks & Meta' ),
+	__( 'URL Permalinks' ),
 	'manage_options',
 	'options-permalink.php'
 ];

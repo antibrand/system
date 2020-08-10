@@ -1,12 +1,14 @@
 <?php
 /**
- * Sample settings screen class
+ * Permalink settings screen class
  *
- * This class is current being used only to use identifier
+ * This class is currently being used only to use identifier
  * functions and to add contextual help tabs.
  *
  * The tabbed content is added in the page template using
  * the `app-tabs` wrapper and data attributes.
+ *
+ * @todo Remove the help tabs added here if they cannot be used.
  *
  * @package App_Package
  * @subpackage Administration/Backend
@@ -20,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Sample settings screen class
+ * Permalink settings screen class
  *
  * @since  1.0.0
  * @access public
@@ -37,24 +39,6 @@ class Settings_Permalinks extends Settings_Screen {
 	 *             item of options-general.php then that is the parent.
 	 */
 	public $parent = 'options-general.php';
-
-	/**
-	 * Page title
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @var string
-	 */
-	public $title = 'Permalinks & Meta Data';
-
-	/**
-	 * Page description
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @var string
-	 */
-	public $description = 'Create a custom URL structure for your permalinks and archives.';
 
 	/**
 	 * Form action
@@ -108,7 +92,7 @@ class Settings_Permalinks extends Settings_Screen {
 	 */
 	public function title() {
 
-		$this->title = __( 'Permalinks & Meta Data' );
+		$this->title = __( 'URL Permalink Settings' );
 
 		return apply_filters( 'settings_permalinks_page_title', $this->title );
 	}
@@ -155,25 +139,14 @@ class Settings_Permalinks extends Settings_Screen {
 		] );
 
 		$screen->add_content_tab( [
-			'id'         => 'optional',
+			'id'         => 'taxonomy',
 			'id_before'  => null,
 			'capability' => 'manage_options',
-			'tab'        => __( 'Optional' ),
+			'tab'        => __( 'Taxonomy' ),
 			'icon'       => '',
-			'heading'    => __( 'Optional Settings' ),
+			'heading'    => __( 'Taxonomy Settings' ),
 			'content'    => __( '' ),
-			'callback'   => [ $this, 'optional_settings' ]
-		] );
-
-		$screen->add_content_tab( [
-			'id'         => 'metadata',
-			'id_before'  => null,
-			'capability' => 'manage_options',
-			'tab'        => __( 'Meta' ),
-			'icon'       => '',
-			'heading'    => __( 'Meta Data Settings' ),
-			'content'    => __( '' ),
-			'callback'   => [ $this, 'metadata_settings' ]
+			'callback'   => [ $this, 'taxonomy_settings' ]
 		] );
 	}
 
@@ -193,28 +166,13 @@ class Settings_Permalinks extends Settings_Screen {
 	}
 
 	/**
-	 * Optional Settings tab
+	 * Taxonomy Settings tab
 	 *
 	 * @since 1.0.0
 	 * @access public
 	 * @return mixed Returns the markup of the tab content.
 	 */
-	public function optional_settings() {
-
-		?>
-		<div class="tab-section-wrap">
-		</div>
-		<?php
-	}
-
-	/**
-	 * Meta Data Settings tab
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @return mixed Returns the markup of the tab content.
-	 */
-	public function metadata_settings() {
+	public function taxonomy_settings() {
 
 		?>
 		<div class="tab-section-wrap">
@@ -244,16 +202,16 @@ class Settings_Permalinks extends Settings_Screen {
 
 		$screen->add_help_tab( [
 			'id'       => $screen->id . '-settings',
-			'title'    => __( 'Permalink Settings' ),
+			'title'    => __( 'General' ),
 			'content'  => '',
 			'callback' => [ $this, 'help_settings' ]
 		] );
 
 		$screen->add_help_tab( [
 			'id'      => $screen->id . '-custom-structures',
-			'title'   => __( 'Custom Structures' ),
+			'title'   => __( 'Taxonomy' ),
 			'content' => '',
-			'callback' => [ $this, 'help_structures' ]
+			'callback' => [ $this, 'help_taxonomy' ]
 		] );
 	}
 
@@ -283,7 +241,7 @@ class Settings_Permalinks extends Settings_Screen {
 
 		$help .= sprintf(
 			'<p>%1s</p>',
-			__( 'You must click the Save Changes button at the bottom of the screen for new settings to take effect.' )
+			__( 'You must click the ' . $this->submit . ' button at the bottom of the screen for new settings to take effect.' )
 		);
 
 		$help = apply_filters( 'help_settings_permalinks_overview', $help );
@@ -302,7 +260,7 @@ class Settings_Permalinks extends Settings_Screen {
 
 		$help = sprintf(
 			'<h3>%1s</h3>',
-			__( 'Permalink Settings' )
+			__( 'General Settings' )
 		);
 
 		$help .= sprintf(
@@ -331,17 +289,17 @@ class Settings_Permalinks extends Settings_Screen {
 	}
 
 	/**
-	 * Custom Structures help content
+	 * Taxonomy Settings help content
 	 *
 	 * @since 1.0.0
 	 * @access public
 	 * @return mixed Returns the markup of the help content.
 	 */
-	public function help_structures() {
+	public function help_taxonomy() {
 
 		$help = sprintf(
 			'<h3>%1s</h3>',
-			__( 'Custom Structures' )
+			__( 'Taxonomy Settings' )
 		);
 
 		$help .= sprintf(
