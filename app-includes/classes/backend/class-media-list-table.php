@@ -264,7 +264,7 @@ class Media_List_Table extends List_Table {
 		</select>
 		<?php $this->extra_tablenav( 'bar' );
 
-		/** This filter is documented in wp-admin/inclues/class-wp-list-table.php */
+		/** This filter is documented in wp-admin/inclues/class-app-list-table.php */
 		$views = apply_filters( "views_{$this->screen->id}", [] );
 
 		// Back compat for pre-4.0 view links.

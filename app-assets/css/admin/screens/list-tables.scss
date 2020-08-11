@@ -387,12 +387,12 @@ table.media .column-title .filename {
 	margin-bottom: 0.2em;
 }
 
-.wp-list-table {
+.app-list-table {
 	margin-top: 0.5rem;
 }
 
 /* @todo: pick a consistent list table selector */
-.wp-list-table a {
+.app-list-table a {
 	transition: none;
 }
 
@@ -500,7 +500,7 @@ th.asc a:focus span.sorting-indicator:before {
 	content: "\f140";
 }
 
-.wp-list-table .toggle-row {
+.app-list-table .toggle-row {
 	position: absolute;
 	right: 8px;
 	top: 10px;
@@ -513,21 +513,21 @@ th.asc a:focus span.sorting-indicator:before {
 	background: transparent;
 }
 
-.wp-list-table .toggle-row:hover {
+.app-list-table .toggle-row:hover {
 	cursor: pointer;
 }
 
-.wp-list-table .toggle-row:focus:before {
+.app-list-table .toggle-row:focus:before {
     box-shadow:
     	0 0 0 1px #5b9dd9,
 		0 0 2px 1px rgba(30, 140, 190, .8);
 }
 
-.wp-list-table .toggle-row:active {
+.app-list-table .toggle-row:active {
 	box-shadow: none;
 }
 
-.wp-list-table .toggle-row:before {
+.app-list-table .toggle-row:before {
 	position: absolute;
 	top: -5px;
 	left: 10px;
@@ -543,7 +543,7 @@ th.asc a:focus span.sorting-indicator:before {
 	speak: none;
 }
 
-.wp-list-table .is-expanded .toggle-row:before {
+.app-list-table .is-expanded .toggle-row:before {
 	content: "\f142";
 }
 
@@ -1324,8 +1324,8 @@ tr.extensions-item + tr.extensions-item {
 	box-shadow: none;
 }
 
-.wp-list-table.plugins .plugin-title,
-.wp-list-table.plugins .theme-title {
+.app-list-table.plugins .plugin-title,
+.app-list-table.plugins .theme-title {
 	padding-right: 12px;
 	white-space: nowrap;
 }
@@ -1626,20 +1626,20 @@ div.action-links,
 
 /* ms */
 /* Background Color for Site Status */
-.wp-list-table .site-deleted,
-.wp-list-table tr.site-deleted {
+.app-list-table .site-deleted,
+.app-list-table tr.site-deleted {
 	background: #ff8573;
 }
-.wp-list-table .site-spammed,
-.wp-list-table tr.site-spammed {
+.app-list-table .site-spammed,
+.app-list-table tr.site-spammed {
 	background: #faafaa;
 }
-.wp-list-table .site-archived,
-.wp-list-table tr.site-archived {
+.app-list-table .site-archived,
+.app-list-table tr.site-archived {
 	background: #ffebe8;
 }
-.wp-list-table .site-mature,
-.wp-list-table tr.site-mature {
+.app-list-table .site-mature,
+.app-list-table tr.site-mature {
 	background: #fecac2;
 }
 
@@ -1786,41 +1786,41 @@ div.action-links,
 		font-size: 14px;
 	}
 
-	.wp-list-table th.column-primary ~ th,
-	.wp-list-table tr:not(.inline-edit-row):not(.no-items) td.column-primary ~ td:not(.check-column) {
+	.app-list-table th.column-primary ~ th,
+	.app-list-table tr:not(.inline-edit-row):not(.no-items) td.column-primary ~ td:not(.check-column) {
 		display: none;
 	}
 
-	.wp-list-table thead th.column-primary {
+	.app-list-table thead th.column-primary {
 		width: 100%;
 	}
 
 	/* Checkboxes need to show */
-	.wp-list-table tr th.check-column {
+	.app-list-table tr th.check-column {
 		display: table-cell;
 		width: 35px;
 	}
 
-	.wp-list-table .column-primary .toggle-row {
+	.app-list-table .column-primary .toggle-row {
 		display: block;
 	}
 
-	.wp-list-table tr:not(.inline-edit-row):not(.no-items) td:not(.check-column) {
+	.app-list-table tr:not(.inline-edit-row):not(.no-items) td:not(.check-column) {
 		position: relative;
 		clear: both;
 		display: block;
 		width: auto !important; /* needs to override some columns that are more specifically targeted */
 	}
 
-	.wp-list-table td.column-primary {
+	.app-list-table td.column-primary {
 		padding-right: 50px; /* space for toggle button */
 	}
 
-	.wp-list-table tr:not(.inline-edit-row):not(.no-items) td.column-primary ~ td:not(.check-column) {
+	.app-list-table tr:not(.inline-edit-row):not(.no-items) td.column-primary ~ td:not(.check-column) {
 		padding: 3px 8px 3px 35%;
 	}
 
-	.wp-list-table tr:not(.inline-edit-row):not(.no-items) td:not(.column-primary)::before {
+	.app-list-table tr:not(.inline-edit-row):not(.no-items) td:not(.column-primary)::before {
 		position: absolute;
 		left: 10px; /* match padding of regular table cell */
 		display: block;
@@ -1831,7 +1831,7 @@ div.action-links,
 		text-overflow: ellipsis;
 	}
 
-	.wp-list-table .is-expanded td:not(.hidden) {
+	.app-list-table .is-expanded td:not(.hidden) {
 		display: block !important;
 		overflow: hidden; /* clearfix */
 	}
@@ -2027,29 +2027,29 @@ div.action-links,
 
 	/* List tables that don't toggle rows */
 	.comments-box .toggle-row,
-	.wp-list-table.plugins .toggle-row {
+	.app-list-table.plugins .toggle-row {
 		display: none;
 	}
 
 	/* Plugin/Theme Management */
-	.app-content .wp-list-table.plugins td {
+	.app-content .app-list-table.plugins td {
 		display: block;
 		width: auto;
 		padding: 10px 9px; /* reset from other list tables that have a label at this width */
 	}
 
-	.app-content .wp-list-table.plugins .column-description {
+	.app-content .app-list-table.plugins .column-description {
 		padding-top: 2px;
 	}
 
-	.app-content .wp-list-table.plugins .plugin-title,
-	.app-content .wp-list-table.plugins .theme-title {
+	.app-content .app-list-table.plugins .plugin-title,
+	.app-content .app-list-table.plugins .theme-title {
 		padding-right: 12px;
 		white-space: normal;
 	}
 
-	.wp-list-table.plugins .plugin-title,
-	.wp-list-table.plugins .theme-title {
+	.app-list-table.plugins .plugin-title,
+	.app-list-table.plugins .theme-title {
 		padding-top: 13px;
 		padding-bottom: 4px;
 	}
@@ -2057,7 +2057,7 @@ div.action-links,
 	.plugins #the-list tr > td:not(:last-child),
 	.plugins #the-list .update th,
 	.plugins #the-list .update td,
-	.wp-list-table.plugins #the-list .theme-title {
+	.app-list-table.plugins #the-list .theme-title {
 		box-shadow: none;
 		border-top: none;
 	}
@@ -2109,8 +2109,8 @@ div.action-links,
 		margin-left: 0;
 	}
 
-	.wp-list-table.plugins .plugin-title strong,
-	.wp-list-table.plugins .theme-title strong {
+	.app-list-table.plugins .plugin-title strong,
+	.app-list-table.plugins .theme-title strong {
 		font-size: 1.4em;
 		line-height: 1.5;
 	}

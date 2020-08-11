@@ -41,7 +41,7 @@ class Post_Comments_List_Table extends Comments_List_Table {
 	 */
 	protected function get_table_classes() {
 		$classes = parent::get_table_classes();
-		$classes[] = 'wp-list-table';
+		$classes[] = 'app-list-table';
 		$classes[] = 'comments-box';
 		return $classes;
 	}

@@ -1539,7 +1539,7 @@ final class Screen {
 
 		} else {
 
-			// This filter is documented in wp-admin/includes/class-wp-list-table.php.
+			// This filter is documented in wp-admin/includes/class-app-list-table.php.
 			$per_page = apply_filters( "{$option}", $per_page );
 		}
 

@@ -460,7 +460,7 @@ class Comments_List_Table extends List_Table {
 		$this->screen->render_screen_reader_content( 'heading_list' );
 
 ?>
-<table class="wp-list-table <?php echo implode( ' ', $this->get_table_classes() ); ?>">
+<table class="app-list-table <?php echo implode( ' ', $this->get_table_classes() ); ?>">
 	<thead>
 	<tr>
 		<?php $this->print_column_headers(); ?>
