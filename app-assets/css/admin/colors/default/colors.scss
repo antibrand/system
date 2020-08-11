@@ -223,13 +223,12 @@ optgroup {
 	&.button-hightlight,
 	&.button-hero {
 		background-color: $app_highlight_color;
-		border-color: $app_highlight_color;
 		color: $app_secondary_color;
 
 		&:hover,
 		&:focus {
-			background-color: $link_color;
-			border-color: $link_color;
+			background-color: $app_secondary_color;
+			border-color: $app_secondary_color;
 			color: $white;
 		}
 	}

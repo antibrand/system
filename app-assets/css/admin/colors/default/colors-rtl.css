@@ -191,7 +191,6 @@ optgroup {
 .button-secondary.button-hightlight,
 .button-secondary.button-hero {
   background-color: #ffee00;
-  border-color: #ffee00;
   color: #222222;
 }
 
@@ -204,8 +203,8 @@ optgroup {
 .button-secondary.button-hightlight:focus,
 .button-secondary.button-hero:hover,
 .button-secondary.button-hero:focus {
-  background-color: #004499;
-  border-color: #004499;
+  background-color: #222222;
+  border-color: #222222;
   color: #ffffff;
 }
 
