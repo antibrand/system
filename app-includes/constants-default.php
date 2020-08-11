@@ -268,7 +268,7 @@ function wp_plugin_directory_constants() {
 	if ( ! defined( 'APP_EXTEND_URL' ) ) {
 
 		// Full url, no trailing slash.
-		define( 'APP_EXTEND_URL', ABSPATH . 'app-extend/extensions' );
+		define( 'APP_EXTEND_URL', get_option( 'siteurl' ) . '/app-extend/extensions' );
 	}
 }
 

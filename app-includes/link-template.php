@@ -3239,26 +3239,30 @@ function content_url( $path = '' ) {
  */
 function plugins_url( $path = '', $plugin = '' ) {
 
-	$path = wp_normalize_path( $path );
-	$plugin = wp_normalize_path( $plugin );
+	$path          = wp_normalize_path( $path );
+	$plugin        = wp_normalize_path( $plugin );
 	$mu_plugin_dir = wp_normalize_path( APP_EXTEND_DIR );
 
-	if ( !empty( $plugin) && 0 === strpos( $plugin, $mu_plugin_dir) )
+	if ( ! empty( $plugin ) && 0 === strpos( $plugin, $mu_plugin_dir ) ) {
 		$url = APP_EXTEND_URL;
-	else
+	} else {
 		$url = APP_PLUGIN_URL;
+	}
 
 
 	$url = set_url_scheme( $url );
 
-	if ( !empty( $plugin) && is_string( $plugin) ) {
-		$folder = dirname(plugin_basename( $plugin));
+	if ( ! empty( $plugin ) && is_string( $plugin ) ) {
+
+		$folder = dirname( plugin_basename( $plugin ) );
+
 		if ( '.' != $folder )
 			$url .= '/' . ltrim( $folder, '/' );
 	}
 
-	if ( $path && is_string( $path ) )
+	if ( $path && is_string( $path ) ) {
 		$url .= '/' . ltrim( $path, '/' );
+	}
 
 	/**
 	 * Filters the URL to the plugins directory.
