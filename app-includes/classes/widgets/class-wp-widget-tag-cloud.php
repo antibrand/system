@@ -124,7 +124,7 @@ class WP_Widget_Tag_Cloud extends WP_Widget {
 		$instance['title'] = ! empty( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
 
 		echo '<p><label for="' . $title_id .'">' . __( 'Title:' ) . '</label>
-			<input type="text" class="widefat" id="' . $title_id .'" name="' . $this->get_field_name( 'title' ) .'" value="' . $instance['title'] .'" />
+			<input type="text" id="' . $title_id .'" name="' . $this->get_field_name( 'title' ) .'" value="' . $instance['title'] .'" />
 		</p>';
 
 		$taxonomies = get_taxonomies( array( 'show_tagcloud' => true ), 'object' );
@@ -160,7 +160,7 @@ class WP_Widget_Tag_Cloud extends WP_Widget {
 		default:
 			printf(
 				'<p><label for="%1$s">%2$s</label>' .
-				'<select class="widefat" id="%1$s" name="%3$s">',
+				'<select id="%1$s" name="%3$s">',
 				$id,
 				__( 'Taxonomy:' ),
 				$name

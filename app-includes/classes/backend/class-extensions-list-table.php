@@ -55,7 +55,6 @@ class Extensions_List_Table extends List_Table {
 
 		// Array of table classes.
 		$classes = [
-			'widefat',
 			'extensions'
 		];
 

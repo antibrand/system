@@ -273,12 +273,12 @@ class WP_Widget_Custom_HTML extends WP_Widget {
 			<# var elementIdPrefix = 'el' + String( Math.random() ).replace( /\D/g, '' ) + '_' #>
 			<p>
 				<label for="{{ elementIdPrefix }}title"><?php esc_html_e( 'Title:' ); ?></label>
-				<input id="{{ elementIdPrefix }}title" type="text" class="widefat title">
+				<input id="{{ elementIdPrefix }}title" type="text" class="title">
 			</p>
 
 			<p>
 				<label for="{{ elementIdPrefix }}content" id="{{ elementIdPrefix }}content-label"><?php esc_html_e( 'Content:' ); ?></label>
-				<textarea id="{{ elementIdPrefix }}content" class="widefat code content" rows="16" cols="20"></textarea>
+				<textarea id="{{ elementIdPrefix }}content" class="code content" rows="16" cols="20"></textarea>
 			</p>
 
 			<?php if ( ! current_user_can( 'unfiltered_html' ) ) : ?>

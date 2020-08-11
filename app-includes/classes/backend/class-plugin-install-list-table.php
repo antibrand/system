@@ -478,7 +478,7 @@ class Plugin_Install_List_Table extends List_Table {
 	 * @return array
 	 */
 	protected function get_table_classes() {
-		return [ 'widefat', $this->_args['plural'] ];
+		return [ $this->_args['plural'] ];
 	}
 
 	/**

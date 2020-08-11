@@ -348,7 +348,7 @@ function list_plugin_updates() {
 
 		<p><input id="upgrade-plugins" class="button" type="submit" value="<?php esc_attr_e('Update Plugins'); ?>" name="upgrade" /></p>
 
-		<table class="widefat updates-table" id="update-plugins-table">
+		<table class="updates-table" id="update-plugins-table">
 			<thead>
 			<tr>
 				<td class="manage-column check-column"><input type="checkbox" id="plugins-select-all" /></td>
@@ -505,7 +505,7 @@ function list_theme_updates() {
 
 		<p><input id="upgrade-themes" class="button" type="submit" value="<?php esc_attr_e('Update Themes'); ?>" name="upgrade" /></p>
 
-		<table class="widefat updates-table" id="update-themes-table">
+		<table class="updates-table" id="update-themes-table">
 			<thead>
 			<tr>
 				<td class="manage-column check-column"><input type="checkbox" id="themes-select-all" /></td>

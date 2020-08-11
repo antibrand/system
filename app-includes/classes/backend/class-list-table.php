@@ -1233,7 +1233,7 @@ class List_Table {
 	 * @return array List of CSS classes for the table tag.
 	 */
 	protected function get_table_classes() {
-		return array( 'widefat', 'fixed', 'striped', $this->_args['plural'] );
+		return [ 'fixed', 'striped', $this->_args['plural'] ];
 	}
 
 	/**

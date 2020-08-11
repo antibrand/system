@@ -105,7 +105,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
 		uasort( $importers, '_usort_by_first_member' );
 	?>
-	<table class="widefat importers striped">
+	<table class="importers striped">
 
 		<?php
 		foreach ( $importers as $importer_id => $data ) {

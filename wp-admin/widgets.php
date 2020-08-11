@@ -387,7 +387,7 @@ if ( isset( $_GET['editwidget'] ) && $_GET['editwidget'] ) {
 
 				<div class="widget-position">
 
-					<table class="widefat">
+					<table>
 						<thead>
 							<tr>
 								<th><?php _e( 'Sidebar' ); ?></th>

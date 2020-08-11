@@ -403,7 +403,7 @@ abstract class WP_Widget_Media extends WP_Widget {
 			<# var elementIdPrefix = 'el' + String( Math.random() ) + '_' #>
 			<p>
 				<label for="{{ elementIdPrefix }}title"><?php esc_html_e( 'Title:' ); ?></label>
-				<input id="{{ elementIdPrefix }}title" type="text" class="widefat title">
+				<input id="{{ elementIdPrefix }}title" type="text" class="title">
 			</p>
 			<div class="media-widget-preview <?php echo esc_attr( $this->id_base ); ?>">
 				<div class="attachment-media-view">

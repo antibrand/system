@@ -84,14 +84,14 @@ class WP_Customize_Nav_Menu_Item_Control extends WP_Customize_Control {
 			<p class="field-url description description-thin">
 				<label for="edit-menu-item-url-{{ data.menu_item_id }}">
 					<?php _e( 'URL' ); ?><br />
-					<input class="widefat code edit-menu-item-url" type="text" id="edit-menu-item-url-{{ data.menu_item_id }}" name="menu-item-url" />
+					<input class="code edit-menu-item-url" type="text" id="edit-menu-item-url-{{ data.menu_item_id }}" name="menu-item-url" />
 				</label>
 			</p>
 		<# } #>
 			<p class="description description-thin">
 				<label for="edit-menu-item-title-{{ data.menu_item_id }}">
 					<?php _e( 'Navigation Label' ); ?><br />
-					<input type="text" id="edit-menu-item-title-{{ data.menu_item_id }}" placeholder="{{ data.original_title }}" class="widefat edit-menu-item-title" name="menu-item-title" />
+					<input type="text" id="edit-menu-item-title-{{ data.menu_item_id }}" placeholder="{{ data.original_title }}" class="edit-menu-item-title" name="menu-item-title" />
 				</label>
 			</p>
 			<p class="field-link-target description description-thin">
@@ -103,25 +103,25 @@ class WP_Customize_Nav_Menu_Item_Control extends WP_Customize_Control {
 			<p class="field-title-attribute field-attr-title description description-thin">
 				<label for="edit-menu-item-attr-title-{{ data.menu_item_id }}">
 					<?php _e( 'Title Attribute' ); ?><br />
-					<input type="text" id="edit-menu-item-attr-title-{{ data.menu_item_id }}" class="widefat edit-menu-item-attr-title" name="menu-item-attr-title" />
+					<input type="text" id="edit-menu-item-attr-title-{{ data.menu_item_id }}" class="edit-menu-item-attr-title" name="menu-item-attr-title" />
 				</label>
 			</p>
 			<p class="field-css-classes description description-thin">
 				<label for="edit-menu-item-classes-{{ data.menu_item_id }}">
 					<?php _e( 'CSS Classes' ); ?><br />
-					<input type="text" id="edit-menu-item-classes-{{ data.menu_item_id }}" class="widefat code edit-menu-item-classes" name="menu-item-classes" />
+					<input type="text" id="edit-menu-item-classes-{{ data.menu_item_id }}" class="code edit-menu-item-classes" name="menu-item-classes" />
 				</label>
 			</p>
 			<p class="field-xfn description description-thin">
 				<label for="edit-menu-item-xfn-{{ data.menu_item_id }}">
 					<?php _e( 'Link Relationship (XFN)' ); ?><br />
-					<input type="text" id="edit-menu-item-xfn-{{ data.menu_item_id }}" class="widefat code edit-menu-item-xfn" name="menu-item-xfn" />
+					<input type="text" id="edit-menu-item-xfn-{{ data.menu_item_id }}" class="code edit-menu-item-xfn" name="menu-item-xfn" />
 				</label>
 			</p>
 			<p class="field-description description description-thin">
 				<label for="edit-menu-item-description-{{ data.menu_item_id }}">
 					<?php _e( 'Description' ); ?><br />
-					<textarea id="edit-menu-item-description-{{ data.menu_item_id }}" class="widefat edit-menu-item-description" rows="3" cols="20" name="menu-item-description">{{ data.description }}</textarea>
+					<textarea id="edit-menu-item-description-{{ data.menu_item_id }}" class="edit-menu-item-description" rows="3" cols="20" name="menu-item-description">{{ data.description }}</textarea>
 					<span class="description"><?php _e( 'The description will be displayed in the menu if the current theme supports it.' ); ?></span>
 				</label>
 			</p>

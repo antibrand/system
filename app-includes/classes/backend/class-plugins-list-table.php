@@ -53,7 +53,7 @@ class Plugins_List_Table extends List_Table {
 	 * @return array
 	 */
 	protected function get_table_classes() {
-		return array( 'widefat', $this->_args['plural'] );
+		return [ $this->_args['plural'] ];
 	}
 
 	/**

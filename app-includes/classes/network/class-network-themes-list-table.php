@@ -64,7 +64,7 @@ class Themes_List_Table extends Backend\List_Table {
 	 */
 	protected function get_table_classes() {
 		// todo: remove and add CSS for .themes
-		return array( 'widefat', 'plugins' );
+		return [ 'plugins' ];
 	}
 
 	/**
