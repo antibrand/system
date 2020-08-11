@@ -1,0 +1,985 @@
+/**
+ * Default color scheme
+ */
+
+// Import theme variables.
+@import '_variables';
+
+body {
+	background-color: $body_background;
+	color: $text_color;
+}
+
+ a {
+	color: $link_color;
+
+	&:hover,
+	&:focus {
+		color: $link_action_color;
+	}
+}
+
+h1 ~ p.description {
+	border-color: $box_border_color;
+}
+
+.postbox {
+	background-color: $box_background_color;
+	border-color: $box_border_color;
+	color: $text_color;
+
+	.hndle {
+		border-color: $box_border_color;
+	}
+}
+
+.striped > tbody > :nth-child(odd),
+ul.striped > :nth-child(odd),
+.alternate {
+	background-color: lighten( $color: $body_background, $amount: 3% );
+}
+
+.activity-block,
+#dashboard_activity .subsubsub,
+.metabox-holder .postbox-container .empty-container,
+#screen-meta,
+#contextual-help-back {
+	border-color: $box_border_color;
+}
+
+.view-switch a {
+	&:hover,
+	&:focus,
+	&:active,
+	&.current {
+		outline: none;
+		box-shadow: none;
+
+		&:before {
+			color: $app_tertiary_color
+		}
+	}
+}
+
+/**
+ * Forms
+ *
+ * Overrides default styles compiled from
+ * ../../admin/partials/forms.scss
+ */
+ fieldset {
+	background-color: $body_background;
+	border-color: $box_border_color;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="checkbox"],
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="search"],
+input[type="radio"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+select,
+textarea {
+	background-color: $form_background_color;
+	border-color: $form_border_color;
+
+	&:focus {
+		border-color: $form_action_border_color;
+	}
+}
+
+/// Checkbox input color functions
+///
+/// @function checked_bg_color Function to encode the hashtag in the
+///		variable for checkbox background image checked color in the
+///     SVG fill attributes.
+
+// Checkbox checked background color.
+@function checked_bg_color() {
+	@return '%23' + str-slice( '#{$app_tertiary_color}', 2, -1 );
+}
+
+input {
+
+	&[type="radio"] {
+
+		&:checked + label:before {
+			color: $light_gray;
+		}
+
+		&:checked:before {
+			background-color: $form_checked;
+		}
+	}
+
+	&[type="checkbox"] {
+
+		&:checked:before {
+			background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 70.975021 61.296299'><path fill='#{ checked_bg_color() }' d='m 14.272702,27.386395 c -2.598572,-3.72522 -17.7285244,7.677268 -13.546388,9.449279 8.166215,3.460104 10.394596,13.253897 14.603394,20.935246 2.598633,3.725281 7.772705,4.647095 11.497925,2.048584 1.059265,-0.738892 1.883179,-1.690186 2.472595,-2.753113 l 0.0067,0.0035 c 0,0 0.01819,-0.04108 0.03296,-0.07416 C 29.527815,56.648991 29.694014,56.29279 29.83,55.925114 32.835005,49.458008 48.748702,16.785099 70.97502,0 c 0,1e-6 -27.988586,3.156012 -48.854187,41.086309 -1.684658,-5.22941 -4.95163,-9.547559 -7.848131,-13.699914 z' /></svg>");
+		}
+	}
+
+	&:disabled,
+	&.disabled {
+		background: darken( $color: $form_background_color, $amount: 3.5% );
+		color: darken( $color: $form_text_color, $amount: 60% );
+	}
+}
+
+/// Select form fields
+///
+/// @function select-bg-color Function to encode the hashtag in the
+/// 	variable for arrow background image color in the SVG fill attributes.
+///
+/// @function select-action-bg-color Function to encode the hashtag in the
+///		variable for arrow background image focus color in the SVG fill attributes.
+
+// Arrow color.
+@function select-bg-color() {
+	@return '%23' + str-slice( '#{$form_text_color}', 2, -1 );
+}
+
+// Arrow focus color.
+@function select-action-bg-color() {
+	@return '%23' + str-slice( '#{$link_color}', 2, -1 );
+}
+
+// Select element.
+select {
+
+	&:not([multiple]):not([size]) {
+		background-image: url( "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{ select-bg-color() }' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E" );
+
+		&:focus {
+			background-image: url( "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{ select-action-bg-color() }' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E" );
+		}
+	}
+
+	&:disabled,
+	&.disabled {
+		background: darken( $color: $form_background_color, $amount: 3.5% );
+		color: darken( $color: $form_text_color, $amount: 60% );
+	}
+}
+
+optgroup {
+	background-color: $body_background;
+}
+
+::-webkit-input-placeholder {
+	color: $form_placeholder_color !important;
+}
+
+::-moz-placeholder {
+	color: $form_placeholder_color !important;
+}
+
+:-ms-input-placeholder {
+	color: $form_placeholder_color !important;
+}
+
+::-ms-input-placeholder {
+	color: $form_placeholder_color !important;
+}
+
+::placeholder {
+	color: $form_placeholder_color !important;
+}
+
+/**
+ * Buttons
+ *
+ * Overrides default styles compiled from
+ * ../../../includes/partials/buttons.scss
+ */
+.button,
+.button-primary,
+.button-secondary {
+	background: $button_background_color;
+	border-color: $button_border_color;
+	color: $button_text_color;
+
+	#post-body .misc-pub-post-status,
+	#post-body #visibility,
+	.curtime #timestamp,
+	#post-body .misc-pub-revisions,
+	span.wp-media-buttons-icon {
+
+		&:before {
+			color: darken( $text_color, 25% );
+		}
+	}
+
+	&.button-hightlight,
+	&.button-hero {
+		background-color: $app_highlight_color;
+		border-color: $app_highlight_color;
+		color: $app_secondary_color;
+
+		&:hover,
+		&:focus {
+			background-color: $link_color;
+			border-color: $link_color;
+			color: $white;
+		}
+	}
+
+	&.hover,
+	&:hover,
+	&.focus,
+	&:focus,
+	&.active,
+	&:active,
+	&.current {
+		background: $button_action_background_color;
+		color: $button_action_text_color;
+
+		#post-body .misc-pub-post-status,
+		#post-body #visibility,
+		.curtime #timestamp,
+		#post-body .misc-pub-revisions,
+		span.wp-media-buttons-icon {
+
+			&:before {
+				color: $button_action_text_color;
+			}
+		}
+	}
+
+	&[disabled],
+	&:disabled,
+	&.disabled,
+	&.button-disabled {
+		background: lighten( $color: $body_background, $amount: 10% );
+		color: darken( $color: $text_color, $amount: 60% ) ;
+	}
+}
+
+.button-link {
+	color: $link_color;
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $link_action_color;
+	}
+}
+
+/**
+ * Common
+ */
+#screen-options-wrap, #contextual-help-wrap {
+	background-color: $box_background_color;
+
+	fieldset {
+		background-color: $box_background_color;
+	}
+}
+
+#screen-meta-links .show-settings {
+	border-color: $box_border_color;
+	border-top-color: $box_background_color;
+}
+
+/**
+ * Tabbed content
+ */
+.app-tabs {
+	.app-tabs-list {
+		.app-tab {
+			a {
+				background-color: $form_background_color;
+				color: darken( $text_color, 30% );
+
+				&:hover,
+				&:focus {
+					color: $text_color;
+				}
+			}
+
+			&.active {
+				border-bottom-color: $body_background;
+
+				a {
+					background-color: $body_background;
+					color: $text_color;
+				}
+			}
+
+			&:not( .active ) {
+				a {
+					&:hover,
+					&:focus,
+					&:active {
+						background-color: $button_action_background_color;
+						color: $button_action_text_color;
+					}
+				}
+			}
+		}
+	}
+}
+
+h1.nav-tab-wrapper,
+.wrap h2.nav-tab-wrapper,
+.nav-tab-wrapper {
+	border-color: $form_border_color;
+}
+
+.nav-tab {
+	border-color: $form_border_color;
+	color: $text_color;
+
+	&.nav-tab-active {
+		background-color: $body_background;
+		color: $link_color;
+
+		&:hover,
+		&:focus,
+		&:focus:active {
+			background-color: $body_background;
+			color: $link_color;
+		}
+	}
+}
+
+/**
+ * Dashboard
+ */
+#dashboard_right_now .main h3:not(:first-of-type),
+.js #dashboard_quick_press .drafts {
+	border-color: $box_border_color;
+}
+
+/**
+ * List views
+ */
+.widefat thead,
+.widefat tfoot {
+	border-color: $box_border_color;
+}
+
+/**
+ * Editor
+ *
+ * Typically needs !important to override native
+ * TinyMCE sking colors.
+ */
+#titlediv #title {
+
+	&:hover,
+	&:focus {
+		border-color: $form_action_border_color;
+	}
+}
+
+.wp-editor-container,
+.wp-switch-editor,
+.mce-panel.mce-menu,
+div.mce-toolbar-grp,
+#post-status-info,
+div.mce-statusbar,
+.quicktags-toolbar,
+.wp-editor-expand div.mce-toolbar-grp {
+	background-color: $box_background_color !important;
+	border-color: $form_border_color !important;
+}
+
+.mce-menu .mce-menu-item:hover,
+.mce-menu .mce-menu-item.mce-selected,
+.mce-menu .mce-menu-item:focus,
+.mce-menu .mce-menu-item-normal.mce-active,
+.mce-menu .mce-menu-item-preview.mce-active {
+	background: $button_action_background_color;
+	color: $button_text_color;
+}
+
+.wp-editor-expand #wp-content-editor-tools {
+	background-color: $body_background;
+	border-color: $form_border_color !important;
+}
+
+.wp-switch-editor,
+.tmce-active .switch-tmce,
+.html-active .switch-html {
+	background-color: $button_background_color !important;
+	color: $link_color !important;
+
+	&:hover,
+	&:focus {
+		background-color: $button_action_background_color !important;
+		border-color: $button_action_border_color !important;
+		color: $button_action_text_color !important;
+	}
+}
+
+.tmce-active .switch-tmce,
+.html-active .switch-html {
+	border-bottom-color: $body_background !important;
+	color: $text_color !important;
+
+	&:hover,
+	&:focus {
+		background-color: $button_background_color !important;
+		border-bottom-color: $body_background !important;
+		color: $text_color !important;
+	}
+}
+
+.mce-toolbar .mce-btn-group .mce-btn.mce-listbox {
+	background-color: $form_background_color !important;
+	color: $text_color !important;
+}
+
+.mce-menubtn.mce-fixed-width span {
+	color: $form_placeholder_color !important;
+}
+
+.mce-btn button,
+.mce-toolbar .mce-ico {
+	color: $editor_button_text_color !important;
+}
+
+.mce-toolbar .mce-btn-group .mce-first,
+.mce-toolbar .mce-btn-group .mce-last {
+	background-color: $form_background_color !important;
+}
+
+.mce-toolbar .mce-btn-group .mce-btn:hover,
+.mce-toolbar .mce-btn-group .mce-btn:focus,
+.qt-dfw:hover, .qt-dfw:focus {
+	background-color: $form_background_color !important;
+	border-color: $form_action_border_color !important;
+}
+
+.mce-toolbar .mce-btn-group .mce-btn.mce-active,
+.mce-toolbar .mce-btn-group .mce-btn:active,
+.qt-dfw.active {
+	background-color: $form_background_color !important;
+	border-color: $form_action_border_color !important;
+}
+
+.submitbox .submitdelete {
+	color: $white;
+
+	&:hover,
+	&:focus {
+		color: $white;
+	}
+}
+
+/**
+ * Media
+ */
+.media-modal,
+.media-modal-content,
+.media-frame-content {
+	background: $body_background;
+	border-color: $box_border_color;
+}
+
+.media-upload-form .media-item,
+.media-upload-form .media-item .error {
+	-webkit-box-shadow: 0 1px 0 $box_border_color;
+	box-shadow: 0 1px 0 $box_border_color;
+}
+
+.app-core-ui .attachment
+.media-frame-toolbar .media-toolbar,
+.media-sidebar,
+.media-menu .separator,
+.media-router .active,
+.media-router > a.active:last-child,
+.media-frame.hide-router .media-frame-title,
+.media-selection .button-link,
+.attachment-info,
+.edit-attachment-frame .attachment-info,
+.edit-attachment-frame .attachment-info .details,
+.edit-attachment-frame .attachment-info .settings,
+.media-modal .imgedit-wrap .imgedit-settings,
+.media-modal .imgedit-group,
+.upload-php .media-modal-close,
+.edit-attachment-frame .edit-media-header .left,
+.edit-attachment-frame .edit-media-header .right,
+.image-details .column-settings,
+.image-details .column-settings h3, /* Back-compat for pre-4.4 */
+.image-details .column-settings h2,
+.drag-drop #drag-drop-area,
+.widget-top,
+.menu-item-handle,
+.widget-inside,
+#menu-settings-column .accordion-container,
+#menu-management .menu-edit,
+.manage-menus,
+table.widefat,
+.stuffbox,
+p.popular-tags,
+.widgets-holder-wrap,
+.wp-editor-container,
+.popular-tags,
+.feature-filter,
+.imgedit-group,
+.comment-ays {
+	border-color: $box_border_color;
+}
+
+.edit-attachment-frame .edit-media-header .left.disabled,
+.edit-attachment-frame .edit-media-header .right.disabled,
+.edit-attachment-frame .edit-media-header .left.disabled:hover,
+.edit-attachment-frame .edit-media-header .right.disabled:hover {
+	color: darken( $color: $form_text_color, $amount: 60% );
+}
+
+ul.category-tabs li.tabs,
+ul.add-menu-item-tabs li.tabs,
+.wp-tab-active,
+div.mce-inline-toolbar-grp {
+	background-color: $box_background_color;
+	border-color: $form_border_color;
+}
+
+.wp-tab-panel,
+.categorydiv div.tabs-panel,
+.customlinkdiv div.tabs-panel,
+.posttypediv div.tabs-panel,
+.taxonomydiv div.tabs-panel {
+	border-color: $form_border_color;
+}
+
+ul.category-tabs li.tabs,
+ul.add-menu-item-tabs li.tabs,
+.wp-tab-active {
+	border-bottom-color: $box_background_color;
+}
+
+#side-sortables .category-tabs .tabs a,
+#side-sortables .add-menu-item-tabs .tabs a,
+.wp-tab-bar .wp-tab-active a,
+#post-body ul.category-tabs li.tabs a,
+#post-body ul.add-menu-item-tabs li.tabs a {
+	color: $text_color;
+}
+
+.media-menu > a {
+	color: $link_color;
+
+	&:hover,
+	&:focus {
+		color: $link_action_color;
+	}
+}
+
+.media-frame a:hover,
+.media-frame a:active,
+.media-router .active,
+.media-router .active:hover {
+	color: $text_color;
+}
+
+.media-frame-toolbar .media-toolbar {
+	background-color: $form_background_color;
+	border-color: $box_border_color;
+}
+
+.app-core-ui .attachment:hover,
+.app-core-ui .attachment.details {
+	border-color: $app_highlight_color;
+}
+
+/**
+ * Themes
+ */
+.theme-overlay .theme-wrap,
+.theme-browser .themes.single-theme .theme-overlay .theme-wrap {
+	background-color: $box_background_color;
+	border-color: $box_border_color;
+}
+
+.theme-browser .theme,
+.theme-id-container {
+	border-color: $form_border_color;
+}
+
+.theme-overlay .theme-actions .theme-action-buttons .delete-theme {
+
+	&:hover,
+	&:focus {
+		background: $app_red;
+	}
+}
+
+.theme-browser .theme .theme-cover-image.blank,
+.theme-overlay .screenshot.blank {
+	&:before {
+		color: $box_border_color;
+	}
+}
+
+// Add new theme from WordPress.
+.theme-browser .theme.add-new-theme a:hover span:after,
+.theme-browser .theme.add-new-theme a:focus span:after {
+	background: $white;
+	color: $app_highlight_color;
+}
+
+.theme-browser .theme.add-new-theme a:hover:after,
+.theme-browser .theme.add-new-theme a:focus:after {
+	background: $app_highlight_color;
+}
+
+/**
+ * Plugins
+ */
+.upload-plugin-wrap .upload-plugin .wp-upload-form {
+	border-color: $form_border_color;
+}
+
+#pluginzip,
+.plugins tr.active.plugin-update-tr + tr.inactive th,
+.plugins tr.active.plugin-update-tr + tr.inactive td,
+.plugins tr.active + tr.inactive th,
+.plugins tr.active + tr.inactive td {
+	border-color: $box_border_color;
+}
+
+/**
+ * Live Manager
+ */
+.wp-full-overlay-sidebar {
+	background-color: $body_background !important;
+	border-color: $box_border_color !important;
+	color: $text_color !important;
+}
+
+.wp-full-overlay.in-themes-panel,
+#available-widgets,
+#available-menu-items,
+#available-widgets .widget-tpl,
+#available-menu-items .item-tpl {
+	background-color: $body_background !important;
+}
+
+#customize-theme-controls .control-panel-themes > .accordion-section-title:hover,
+#customize-theme-controls .control-panel-themes > .accordion-section-title,
+#customize-theme-controls .accordion-section-title,
+#customize-outer-theme-controls .accordion-section-title,
+#customize-theme-controls .control-section:last-of-type.open,
+#customize-theme-controls .control-section:last-of-type > .accordion-section-title,
+.customize-section-title,
+.expanded .wp-full-overlay-footer,
+.customize-preview-header.themes-filter-bar,
+.control-panel-themes #accordion-section-installed_themes,
+.control-panel-themes .customize-themes-section-title,
+#customize-theme-controls .control-section.open,
+#customize-theme-controls .control-panel-content:not(.control-panel-nav_menus) .control-section:nth-child(2),
+#customize-theme-controls .control-panel-nav_menus .control-section-nav_menu,
+#customize-theme-controls .control-section-nav_menu_locations .accordion-section-title,
+#available-widgets .widget-tpl,
+#available-menu-items .item-tpl,
+#available-widgets-list,
+#customize-controls .customize-info .customize-panel-description,
+#customize-controls .customize-info .customize-section-description,
+#customize-outer-theme-controls .customize-info .customize-section-description,
+#customize-controls .no-widget-areas-rendered-notice {
+	border-color: $box_border_color !important;
+}
+
+#available-widgets .widget-tpl:hover,
+#available-widgets .widget-tpl.selected {
+	border-bottom-color: $box_border_color !important;
+}
+
+.wp-full-overlay-footer .devices button:before {
+	color: $text_color !important;
+}
+
+.wp-full-overlay-footer .devices button.active:before {
+	color: $link_color !important;
+}
+
+.wp-full-overlay-footer .devices button:focus,
+.wp-full-overlay-footer .devices button.active:hover,
+.wp-full-overlay-footer .devices button:hover:before,
+.wp-full-overlay-footer .devices button:focus:before {
+	color: $link_action_color !important;
+}
+
+.theme-browser .theme:hover {
+	border-color: $form_action_border_color !important;
+}
+
+/**
+ * Editor pages
+ *
+ * Theme and plugin code editor screens.
+ */
+.CodeMirror-scrollbar-filler,
+.CodeMirror-gutter-filler,
+#templateside {
+	background-color: $body_background;
+}
+
+#template textarea,
+#template .CodeMirror,
+#templateside > ul {
+	border-color: $box_border_color;
+}
+
+#templateside {
+
+	a {
+		color: $text_color;
+
+		&:hover,
+		&:focus {
+			color: $link_color;
+		}
+	}
+}
+
+/**
+ * Network screen styles
+ */
+.network-add-code {
+	background-color: $box_background_color;
+}
+
+/**
+ * Unique styles
+ *
+ * The styles are unique to the color scheme and do not
+ * override any default styles.
+ */
+fieldset {
+
+	&.scheme-list {
+		border: none;
+	}
+}
+
+.color-palette li {
+	border: solid 1px $form_border_color;
+}
+
+/**
+ * Third-party styles
+ */
+.app-admin {
+
+	.acf-admin-navigation {
+		background-color: $box_background_color !important;
+		border-color: $box_border_color !important;
+
+		.acf-tab {
+			color: $link_color !important;
+
+			&:hover,
+			&:focus {
+				color: $link_action_color !important;
+			}
+
+			&.is-active {
+				&:hover,
+				&:focus {
+					color: $link_color !important;
+				}
+			}
+		}
+	}
+
+	.acf-field-list-wrap *,
+	#acf-field-group-fields .acf-field-list-wrap,
+	.acf-fields > .acf-field {
+		border-color: $box_border_color !important;
+	}
+
+	#acf-field-group-fields .acf-field-list,
+	#acf-field-group-fields .acf-field-list .no-fields-message,
+	.acf-table > tbody > tr > th,
+	.acf-table > tbody > tr > td,
+	.acf-table > thead > tr > th,
+	.acf-table > thead > tr > td {
+		background-color: $body_background !important;
+	}
+
+	.acf-tfoot,
+	.acf-fields.-left > .acf-field:before {
+		background-color: $box_background_color !important;
+		border-color: $box_border_color !important;
+	}
+
+	.acf-switch {
+		background-color: $form_background_color !important;
+		border-color: $form_border_color !important;
+		color: $text_color !important;
+
+		&:hover,
+		&:focus,
+		.-focus {
+
+			.acf-switch-slider {
+				border-color: $form_border_color !important;
+			}
+		}
+
+		.acf-switch-slider {
+			background-color: $app_red !important;
+			border-color: $app_red !important;
+		}
+
+		&.-on {
+			background-color: $app_green !important;
+			border-color: $app_green !important;
+
+			.acf-switch-slider {
+				background-color: $text_color !important;
+				border-color: $app_green !important;
+			}
+		}
+
+		.acf-switch-on {
+			text-shadow: none !important;
+		}
+	}
+
+	.acf-field-object,
+	.acf-field-object.open > .handle {
+		border-color: $box_border_color !important;
+	}
+
+	.acf-field-object.open > .handle {
+
+		a {
+			color: $link_color !important;
+
+			&:hover,
+			&:focus {
+				color: $link_action_color !important;
+				text-decoration: none !important;
+			}
+
+			&.button {
+				color: $button_text_color !important;
+
+				&:hover,
+				&:focus {
+					color: $button_action_text_color !important;
+					text-decoration: none !important;
+				}
+			}
+
+			&.delete-field {
+				color: $app_red !important;
+
+				&:hover,
+				&:focus {
+					color: $app_red !important;
+				}
+			}
+		}
+	}
+
+	.acf-box,
+	.acf-meta-box-wrap .acf-fields {
+		background-color: $box_background_color !important;
+		border-color: $box_border_color !important;
+	}
+
+	.acf-box .title,
+	.acf-box .footer {
+		border-color: $box_border_color !important;
+	}
+}
+
+///
+/// Deprecated styles
+///
+/// The following style rules are not in use by
+/// this website management system but may be
+/// referenced by plugins and themes.
+///
+/// These styles may have been modified since being
+/// deprecated to be consistent with styles in use,
+/// and may not be what plugin & theme authors were
+/// expecting the styles were applied.
+
+
+/// Page title actions
+///
+/// This is typically used for an "Add New" button
+/// following a page title on list view screens.
+///
+/// Styles applied here are the same or similar to
+/// global button styles.
+.page-title-action {
+	background: $button_background_color;
+	border-color: $button_border_color;
+	color: $text_color;
+
+	&.hover,
+	&:hover,
+	&.focus,
+	&:focus,
+	&.active,
+	&:active,
+	&.current {
+		background: $button_action_background_color;
+		color: $button_action_text_color;
+	}
+
+	&[disabled],
+	&:disabled,
+	&.disabled,
+	&.button-disabled {
+		background: $button_disabled_background_color;
+		color: $button_disabled_text_color;
+	}
+}
+
+/// List table views
+///
+/// This is typically used for links to switch between
+/// post type statuses on list view screens.
+///
+/// Styles applied here are the same or similar to
+/// global button styles.
+.list-table-views {
+	li {
+		a {
+			&:not( .button ) {
+				background: $button_background_color;
+				border-color: $button_border_color;
+				color: $text_color;
+
+				&.hover,
+				&:hover,
+				&.focus,
+				&:focus,
+				&.active,
+				&:active,
+				&.current {
+					background: $button_action_background_color;
+					color: $button_action_text_color;
+				}
+
+				&[disabled],
+				&:disabled,
+				&.disabled,
+				&.button-disabled {
+					background: $button_disabled_background_color;
+					color: $button_disabled_text_color;
+				}
+			}
+		}
+	}
+}

@@ -3990,7 +3990,7 @@ function register_admin_color_schemes() {
 	$suffix .= SCRIPT_DEBUG ? '' : '.min';
 
 	wp_admin_css_color( 'default', _x( 'Default', 'admin color scheme' ),
-		false,
+		app_assets_url( "css/admin/colors/default/colors$suffix.css" ),
 		[ '#222222', '#363636', '#ffee00', '#004499' ],
 		[ 'base' => '#888888', 'focus' => '#005fd6', 'current' => '#ffffff' ]
 	);
