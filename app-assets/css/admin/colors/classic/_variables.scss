@@ -1,6 +1,8 @@
-/**
- * Classic (Fresh) color scheme
- */
+///
+/// Classic color scheme
+///
+/// This loosely replicates a familiar color scheme.
+///
 
 // Import general app variables.
 @import '../../../includes/modules/_colors';
@@ -9,20 +11,27 @@
 $app_primary_color: #0073aa;
 $app_secondary_color: #23282d;
 $app_tertiary_color: #00a0d2;
-$app_highlight_color: #0073aa;
+$app_highlight_color: $app_primary_color;
 
+// Primary body colors.
 $body_background: #f1f1f1;
 $text_color: #444444;
+
+/// Box colors are used to distinguish sections, such as
+/// meta boxes, <hr> tags, and to create content dividers.
 $box_background_color: lighten( $color: $pale_gray, $amount: 20% );
 $box_border_color: $light_gray;
-$box_text_color: inherit !default;
-$link_color: $app_primary_color;
-$link_action_color: lighten( $link_color, 10% );
+$box_text_color: inherit;
 
-$notify_color: $app_orange;
-$error_color: $app_red;
-$warning_color: $app_yellow;
-$success_color: $app_green;
+// Standard links.
+$link_color: $app_primary_color;
+$link_action_color: $app_tertiary_color;
+
+// Messages and user actions.
+$notify_color: #d54e21;
+$error_color: #dc3232;
+$warning_color: #ffb900;
+$success_color: #46b450;
 
 // Form color variables.
 $form_background_color: $body_background;
@@ -81,6 +90,7 @@ $menu_customizer_text: mix( $menu_base_color, $menu_text_color, 40% );
 $adminbar_avatar_frame: lighten( $menu_background, 7% );
 $adminbar_input_background: lighten( $menu_background, 7% );
 
+// Content editor.
 $editor_button_background_color: $form_background_color;
 $editor_button_border_color: $form_border_color;
 $editor_button_text_color: darken( $text_color, 25% );

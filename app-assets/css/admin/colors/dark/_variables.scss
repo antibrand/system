@@ -9,15 +9,27 @@
 $app_primary_color: $app_yellow;
 $app_secondary_color: #222222;
 $app_tertiary_color: #3ad4fb;
-$app_highlight_color: $app_yellow;
+$app_highlight_color: $app_primary_color;
 
+// Primary body colors.
 $body_background: #222222;
 $text_color: $white;
+
+/// Box colors are used to distinguish sections, such as
+/// meta boxes, <hr> tags, and to create content dividers.
 $box_background_color: lighten( $color: $app_secondary_color, $amount: 2.5% );
 $box_border_color: lighten( $color: $app_secondary_color, $amount: 12% );
-$box_text_color: inherit !default;
+$box_text_color: inherit;
+
+// Standard links.
 $link_color: $app_tertiary_color;
 $link_action_color: $text_color;
+
+// Messages and user actions.
+$notify_color: $app_orange;
+$error_color: $app_red;
+$warning_color: $app_yellow;
+$success_color: $app_green;
 
 // Form color variables.
 $form_background_color: lighten( $color: $app_secondary_color, $amount: 5% );
@@ -76,6 +88,7 @@ $menu_customizer_text: mix( $menu_base_color, $menu_text_color, 40% );
 $adminbar_avatar_frame: lighten( $menu_background, 7% );
 $adminbar_input_background: lighten( $menu_background, 7% );
 
+// Content editor.
 $editor_button_background_color: $form_background_color;
 $editor_button_border_color: $form_border_color;
 $editor_button_text_color: darken( $text_color, 25% );

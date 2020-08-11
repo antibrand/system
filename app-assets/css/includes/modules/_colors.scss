@@ -4,6 +4,9 @@
 /// These styles are primarily used in administration pages,
 /// but also common features such as the user toolbar. For this
 /// reason the file is not kept in the css/admin directory.
+///
+/// These colors are used in the absence of a user color scheme,
+/// including the disabling of the default user color scheme.
 
 // Color name variables.
 $white: #ffffff;
@@ -20,16 +23,17 @@ $app_orange: #ee6600 !default;
 $app_red: #dd0000 !default;
 
 // Global app color variables.
-$app_primary_color: $app_yellow !default;
+$app_primary_color: #ffee00 !default;
 $app_secondary_color: #222222 !default;
 $app_tertiary_color: #004499 !default;
-$app_highlight_color: $app_yellow !default;
+$app_highlight_color: $app_primary_color !default;
 
+// Primary body colors.
 $body_background: $white !default;
 $text_color: $app_secondary_color !default;
 
 /// Box colors are used to distinguish sections, such as
-/// meta boxes, and to create content dividers.
+/// meta boxes, <hr> tags, and to create content dividers.
 $box_background_color: inherit !default;
 $box_border_color: $pale_gray !default;
 $box_text_color: inherit !default;
@@ -38,7 +42,7 @@ $box_text_color: inherit !default;
 $link_color: $app_tertiary_color !default;
 $link_action_color: lighten( $link_color, 12% ) !default;
 
-// Bring attention to messages and user actions.
+// Messages and user actions.
 $notify_color: $app_orange !default;
 $error_color: $app_red !default;
 $warning_color: $app_yellow !default;
