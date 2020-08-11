@@ -560,12 +560,12 @@ tr.locked-info, tr.wp-locked .locked-info {
 	margin-top: 3px;
 }
 
-#menu-locations-wrap .widefat {
+#menu-locations-wrap table {
 	width: 60%;
 }
 
-.widefat th.sortable,
-.widefat th.sorted {
+table th.sortable,
+table th.sorted {
 	padding: 0;
 }
 
@@ -1803,7 +1803,7 @@ div.action-links,
 	}
 
 	/* Special cases */
-	.widefat .num,
+	table .num,
 	.column-posts {
 		text-align: right;
 	}
@@ -1885,12 +1885,12 @@ div.action-links,
 		color: $app_red;
 	}
 
-	.widefat thead td.check-column,
-	.widefat tfoot td.check-column {
+	table thead td.check-column,
+	table tfoot td.check-column {
 		padding-top: 10px;
 	}
 
-	.widefat * {
+	table * {
 		word-wrap: normal;
 	}
 

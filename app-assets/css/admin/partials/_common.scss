@@ -16,18 +16,22 @@ body {
 }
 
 // Utility classes.
+.align-left,
 .alignleft {
 	float: left;
 }
 
+.align-right,
 .alignright {
 	float: right;
 }
 
+.text-left,
 .textleft {
 	text-align: left;
 }
 
+.text-right,
 .textright {
 	text-align: right;
 }
@@ -104,7 +108,7 @@ body {
 #menu-settings-column .accordion-container,
 #menu-management .menu-edit,
 .manage-menus,
-table.widefat,
+table,
 .stuffbox,
 p.popular-tags,
 .widgets-holder-wrap,
@@ -226,91 +230,95 @@ code {
 	unicode-bidi: embed;
 }
 
-/* .widefat - main style for tables */
-.widefat {
+///
+/// Table styles
+///
+/// These are general and presume that a table should
+/// cover the available width. If smaller tables are
+/// desired then more specificity out to be applied to
+/// that table instance.
+table {
 	border-spacing: 0;
 	width: 100%;
 	clear: both;
 	margin: 0;
-}
 
-.widefat * {
-	word-wrap: break-word;
-}
+	* {
+		word-wrap: break-word;
+	}
 
-.widefat thead{
-	border-bottom: 1px solid $box_border_color;
-}
+	thead{
+		border-bottom: 1px solid $box_border_color;
+	}
 
-.widefat tfoot {
-	border-top: 1px solid $box_border_color;
-	border-bottom: none;
-}
+	tfoot {
+		border-top: 1px solid $box_border_color;
+		border-bottom: none;
+	}
 
-.widefat a,
-.widefat button.button-link {
-	text-decoration: none;
-}
+	a,
+	button.button-link {
+		text-decoration: none;
+	}
 
-.widefat td,
-.widefat th {
-	padding: 8px 10px;
-}
+	td,
+	th {
+		padding: 8px 10px;
+	}
 
-.widefat .no-items td {
-	border-bottom-width: 0;
-}
+	.no-items td {
+		border-bottom-width: 0;
+	}
 
-.widefat td {
-	vertical-align: top;
-}
+	td {
+		vertical-align: top;
+	}
 
-.widefat td,
-.widefat td p,
-.widefat td ol,
-.widefat td ul {
-	font-size: 13px;
-	line-height: 1.5em;
-}
+	td,
+	td p,
+	td ol,
+	td ul {
+		font-size: 13px;
+		line-height: 1.5em;
+	}
 
-.widefat th,
-.widefat thead td,
-.widefat tfoot td {
-	text-align: left;
-	line-height: 1.3em;
-	font-size: 14px;
-}
+	th,
+	thead td,
+	tfoot td {
+		text-align: left;
+		line-height: 1.3em;
+		font-size: 14px;
+	}
 
-.widefat th input,
-.updates-table td input,
-.widefat thead td input,
-.widefat tfoot td input {
-	margin: 0 0 0 8px;
-	padding: 0;
-	vertical-align: text-top;
-}
+	th input,
+	thead td input,
+	tfoot td input {
+		margin: 0 0 0 8px;
+		padding: 0;
+		vertical-align: text-top;
+	}
 
-.widefat .check-column {
-	width: 2.2em;
-	padding: 6px 0 25px;
-	vertical-align: top;
-}
+	.check-column {
+		width: 2.2em;
+		padding: 6px 0 25px;
+		vertical-align: top;
+	}
 
-.widefat tbody th.check-column {
-	padding: 9px 0 22px;
-}
+	tbody th.check-column {
+		padding: 9px 0 22px;
+	}
 
-.widefat thead td.check-column,
-.widefat tbody th.check-column,
-.updates-table tbody td.check-column,
-.widefat tfoot td.check-column {
-	padding: 11px 0 0 3px;
-}
+	thead td.check-column,
+	tbody th.check-column,
+	tfoot td.check-column {
+		padding: 11px 0 0 3px;
+	}
 
-.widefat thead td.check-column,
-.widefat tfoot td.check-column {
-	padding-top: 4px;
-	vertical-align: middle;
+	thead td.check-column,
+	tfoot td.check-column {
+		padding-top: 4px;
+		vertical-align: middle;
+	}
 }
 
 .update-php div.updated,
@@ -318,12 +326,12 @@ code {
 	margin-left: 0;
 }
 
-.no-js .widefat thead .check-column input,
-.no-js .widefat tfoot .check-column input {
+.no-js table thead .check-column input,
+.no-js table tfoot .check-column input {
 	display: none;
 }
 
-.widefat .num,
+table .num,
 .column-comments,
 .column-links,
 .column-posts {
@@ -353,7 +361,7 @@ code {
 	}
 }
 
-.widefat th#comments {
+table th#comments {
 	vertical-align: middle;
 }
 
@@ -452,10 +460,10 @@ img.emoji {
 .checkbox,
 .side-info,
 #your-profile #rich_editing,
-.widefat thead th,
-.widefat thead td,
-.widefat tfoot th,
-.widefat tfoot td {
+table thead th,
+table thead td,
+table tfoot th,
+table tfoot td {
 	line-height: 1.4em;
 }
 
@@ -1580,20 +1588,20 @@ html.wp-toolbar {
 	box-sizing: border-box;
 }
 
-.widefat thead td,
-.widefat tfoot td {
+table thead td,
+table tfoot td {
 	font-weight: 400;
 }
 
-.widefat td p {
+table td p {
 	margin: 2px 0 0.8em;
 }
 
-.widefat .column-comment p {
+table .column-comment p {
 	margin: 0.6em 0;
 }
 
-.widefat .column-comment ul {
+table .column-comment ul {
 	list-style: initial;
 	margin-left: 2em;
 }
@@ -1740,7 +1748,7 @@ html.wp-toolbar {
 	margin-bottom: 0;
 }
 
-.postbox table.widefat {
+.postbox table {
 	box-shadow: none;
 }
 

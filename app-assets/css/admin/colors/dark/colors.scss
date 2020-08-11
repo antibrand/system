@@ -364,8 +364,8 @@ h1.nav-tab-wrapper,
 /**
  * List views
  */
-.widefat thead,
-.widefat tfoot {
+table thead,
+table tfoot {
 	border-color: $box_border_color;
 }
 
@@ -521,7 +521,7 @@ div.mce-statusbar,
 #menu-settings-column .accordion-container,
 #menu-management .menu-edit,
 .manage-menus,
-table.widefat,
+table,
 .stuffbox,
 p.popular-tags,
 .widgets-holder-wrap,

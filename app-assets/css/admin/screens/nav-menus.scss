@@ -229,7 +229,7 @@
 	margin-top: -2px;
 }
 
-.widefat .menu-locations .menu-location-title {
+table .menu-locations .menu-location-title {
 	padding: 13px 10px 0;
 }
 
@@ -896,14 +896,14 @@ body.menu-max-depth-11 { min-width: 1280px !important; }
 		margin: 0.5em 0;
 	}
 
-	.widefat .menu-locations .menu-location-title {
+	table .menu-locations .menu-location-title {
 		padding-top: 16px;
 	}
 }
 
 @media only screen and (max-width: 768px) {
 	/* menu locations */
-	#menu-locations-wrap .widefat {
+	#menu-locations-wrap table {
 		width: 100%;
 	}
 }

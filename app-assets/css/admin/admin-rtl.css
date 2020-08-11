@@ -2119,8 +2119,8 @@ table.form-table td .updated p {
   .app-list-table.privacy_requests tr:not(.inline-edit-row):not(.no-items) td.column-primary:not(.check-column) {
     display: table-cell;
   }
-  .app-list-table.privacy_requests.widefat th input,
-  .app-list-table.privacy_requests.widefat thead td input {
+  .app-list-table.privacy_requests th input,
+  .app-list-table.privacy_requests thead td input {
     margin-right: 5px;
   }
 }
@@ -2783,7 +2783,7 @@ body {
 #menu-settings-column .accordion-container,
 #menu-management .menu-edit,
 .manage-menus,
-table.widefat,
+table,
 .stuffbox,
 p.popular-tags,
 .widgets-holder-wrap,
@@ -2980,89 +2980,88 @@ span.description,
   font-style: italic;
 }
 
-/* .widefat - main style for tables */
-.widefat {
+table {
   border-spacing: 0;
   width: 100%;
   clear: both;
   margin: 0;
 }
 
-.widefat * {
+table * {
   word-wrap: break-word;
 }
 
-.widefat thead {
+table thead {
   border-bottom: 1px solid #cccccc;
 }
 
-.widefat tfoot {
+table tfoot {
   border-top: 1px solid #cccccc;
   border-bottom: none;
 }
 
-.widefat a,
-.widefat button.button-link {
+table a,
+table button.button-link {
   text-decoration: none;
 }
 
-.widefat td,
-.widefat th {
+table td,
+table th {
   padding: 8px 10px;
 }
 
-.widefat .no-items td {
+table .no-items td {
   border-bottom-width: 0;
 }
 
-.widefat td {
+table td {
   vertical-align: top;
 }
 
-.widefat td,
-.widefat td p,
-.widefat td ol,
-.widefat td ul {
+table td,
+table td p,
+table td ol,
+table td ul {
   font-size: 13px;
   line-height: 1.5em;
 }
 
-.widefat th,
-.widefat thead td,
-.widefat tfoot td {
+table th,
+table thead td,
+table tfoot td {
   text-align: right;
   line-height: 1.3em;
   font-size: 14px;
 }
 
-.widefat th input,
+table th input,
 .updates-table td input,
-.widefat thead td input,
-.widefat tfoot td input {
+table thead td input,
+table tfoot td input {
   margin: 0 8px 0 0;
   padding: 0;
   vertical-align: text-top;
 }
 
-.widefat .check-column {
+table .check-column {
   width: 2.2em;
   padding: 6px 0 25px;
   vertical-align: top;
 }
 
-.widefat tbody th.check-column {
+table tbody th.check-column {
   padding: 9px 0 22px;
 }
 
-.widefat thead td.check-column,
-.widefat tbody th.check-column,
+table thead td.check-column,
+table tbody th.check-column,
 .updates-table tbody td.check-column,
-.widefat tfoot td.check-column {
+table tfoot td.check-column {
   padding: 11px 3px 0 0;
 }
 
-.widefat thead td.check-column,
-.widefat tfoot td.check-column {
+table thead td.check-column,
+table tfoot td.check-column {
   padding-top: 4px;
   vertical-align: middle;
 }
@@ -3072,12 +3071,12 @@ span.description,
   margin-right: 0;
 }
 
-.no-js .widefat thead .check-column input,
-.no-js .widefat tfoot .check-column input {
+.no-js table thead .check-column input,
+.no-js table tfoot .check-column input {
   display: none;
 }
 
-.widefat .num,
+table .num,
 .column-comments,
 .column-links,
 .column-posts {
@@ -3112,7 +3111,7 @@ span.description,
   padding: 0 0 0 6px;
 }
 
-.widefat th#comments {
+table th#comments {
   vertical-align: middle;
 }
 
@@ -3232,10 +3231,10 @@ img.emoji {
 .checkbox,
 .side-info,
 #your-profile #rich_editing,
-.widefat thead th,
-.widefat thead td,
-.widefat tfoot th,
-.widefat tfoot td {
+table thead th,
+table thead td,
+table tfoot th,
+table tfoot td {
   line-height: 1.4em;
 }
 
@@ -4398,20 +4397,20 @@ html.wp-toolbar {
           box-sizing: border-box;
 }
 
-.widefat thead td,
-.widefat tfoot td {
+table thead td,
+table tfoot td {
   font-weight: 400;
 }
 
-.widefat td p {
+table td p {
   margin: 2px 0 0.8em;
 }
 
-.widefat .column-comment p {
+table .column-comment p {
   margin: 0.6em 0;
 }
 
-.widefat .column-comment ul {
+table .column-comment ul {
   list-style: initial;
   margin-right: 2em;
 }
@@ -4561,7 +4560,7 @@ html.wp-toolbar {
   margin-bottom: 0;
 }
 
-.postbox table.widefat {
+.postbox table {
   -webkit-box-shadow: none;
           box-shadow: none;
 }

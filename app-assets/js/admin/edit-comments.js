@@ -835,7 +835,7 @@ commentReply = {
 
 		id = $(id);
 		t.addEvents(id);
-		bg = id.hasClass('unapproved') ? '#FFFFE0' : id.closest('.widefat, .postbox').css('backgroundColor');
+		bg = id.hasClass('unapproved') ? '#FFFFE0' : id.closest('table, .postbox').css('backgroundColor');
 
 		id.animate( { 'backgroundColor':'#CCEEBB' }, 300 )
 			.animate( { 'backgroundColor': bg }, 300, function() {
@@ -931,7 +931,7 @@ $(document).ready(function(){
 		};
 
 		$.table_hotkeys(
-			$('table.widefat'),
+			$('table.app-list-table'),
 			[
 				'a', 'u', 's', 'd', 'r', 'q', 'z',
 				['e', edit_comment],

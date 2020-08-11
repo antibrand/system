@@ -41,7 +41,7 @@ var inlineEditPost;
 	init : function(){
 		var t = this, qeRow = $('#inline-edit'), bulkRow = $('#bulk-edit');
 
-		t.type = $('table.widefat').hasClass('pages') ? 'page' : 'post';
+		t.type = $('table').hasClass('pages') ? 'page' : 'post';
 		// Post id prefix.
 		t.what = '#post-';
 
@@ -178,10 +178,10 @@ var inlineEditPost;
 		var te = '', type = this.type, c = true;
 		this.revert();
 
-		$( '#bulk-edit td' ).attr( 'colspan', $( 'th:visible, td:visible', '.widefat:first thead' ).length );
+		$( '#bulk-edit td' ).attr( 'colspan', $( 'th:visible, td:visible', 'table:first thead' ).length );
 
 		// Insert the editor at the top of the table with an empty row above to maintain zebra striping.
-		$('table.widefat tbody').prepend( $('#bulk-edit') ).prepend('<tr class="hidden"></tr>');
+		$('table tbody').prepend( $('#bulk-edit') ).prepend('<tr class="hidden"></tr>');
 		$('#bulk-edit').addClass('inline-editor').show();
 
 		/**
@@ -216,7 +216,7 @@ var inlineEditPost;
 		$('#bulk-titles a').click(function(){
 			var id = $(this).attr('id').substr(1);
 
-			$('table.widefat input[value="' + id + '"]').prop('checked', false);
+			$('table input[value="' + id + '"]').prop('checked', false);
 			$('#ttle'+id).remove();
 		});
 
@@ -265,7 +265,7 @@ var inlineEditPost;
 
 		// Add the new edit row with an extra blank row underneath to maintain zebra striping.
 		editRow = $('#inline-edit').clone(true);
-		$( 'td', editRow ).attr( 'colspan', $( 'th:visible, td:visible', '.widefat:first thead' ).length );
+		$( 'td', editRow ).attr( 'colspan', $( 'th:visible, td:visible', 'table:first thead' ).length );
 
 		$(t.what+id).removeClass('is-expanded').hide().after(editRow).after('<tr class="hidden"></tr>');
 
@@ -397,7 +397,7 @@ var inlineEditPost;
 			id = this.getId(id);
 		}
 
-		$( 'table.widefat .spinner' ).addClass( 'is-active' );
+		$( 'table .spinner' ).addClass( 'is-active' );
 
 		params = {
 			action: 'inline-save',
@@ -416,7 +416,7 @@ var inlineEditPost;
 				var $errorNotice = $( '#edit-' + id + ' .inline-edit-save .notice-error' ),
 					$error = $errorNotice.find( '.error' );
 
-				$( 'table.widefat .spinner' ).removeClass( 'is-active' );
+				$( 'table .spinner' ).removeClass( 'is-active' );
 				$( '.ac_results' ).hide();
 
 				if (r) {
@@ -455,17 +455,17 @@ var inlineEditPost;
 	 * @returns {boolean} Always returns false.
 	 */
 	revert : function(){
-		var $tableWideFat = $( '.widefat' ),
-			id = $( '.inline-editor', $tableWideFat ).attr( 'id' );
+		var $appListTable = $( '.app-list-table' ),
+			id = $( '.inline-editor', $appListTable ).attr( 'id' );
 
 		if ( id ) {
-			$( '.spinner', $tableWideFat ).removeClass( 'is-active' );
+			$( '.spinner', $appListTable ).removeClass( 'is-active' );
 			$( '.ac_results' ).hide();
 
 			if ( 'bulk-edit' === id ) {
 
 				// Hide the bulk editor.
-				$( '#bulk-edit', $tableWideFat ).removeClass( 'inline-editor' ).hide().siblings( '.hidden' ).remove();
+				$( '#bulk-edit', $appListTable ).removeClass( 'inline-editor' ).hide().siblings( '.hidden' ).remove();
 				$('#bulk-titles').empty();
 
 				// Store the empty bulk editor in a hidden element.

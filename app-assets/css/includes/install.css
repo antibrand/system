@@ -2021,8 +2021,8 @@ table.form-table td .updated p {
   .app-list-table.privacy_requests tr:not(.inline-edit-row):not(.no-items) td.column-primary:not(.check-column) {
     display: table-cell;
   }
-  .app-list-table.privacy_requests.widefat th input,
-  .app-list-table.privacy_requests.widefat thead td input {
+  .app-list-table.privacy_requests th input,
+  .app-list-table.privacy_requests thead td input {
     margin-left: 5px;
   }
 }
