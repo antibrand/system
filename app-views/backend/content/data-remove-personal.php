@@ -78,7 +78,7 @@ $page_tabs = [
 		<p class="description"><?php _e( '' ); ?></p>
 	</header>
 
-	<nav class="nav-tab-wrapper wp-clearfix">
+	<nav class="nav-tab-wrapper app-clearfix">
 		<ul>
 			<?php echo implode( $page_tabs ); ?>
 		</ul>
@@ -107,7 +107,7 @@ $page_tabs = [
 		<?php $requests_table->views(); ?>
 	</div>
 
-	<form class="search-form wp-clearfix">
+	<form class="search-form app-clearfix">
 		<?php $requests_table->search_box( __( 'Search Requests' ), 'requests' ); ?>
 		<input type="hidden" name="page" value="remove_personal_data" />
 		<input type="hidden" name="filter-status" value="<?php echo isset( $_REQUEST['filter-status'] ) ? esc_attr( sanitize_text_field( $_REQUEST['filter-status'] ) ) : ''; ?>" />

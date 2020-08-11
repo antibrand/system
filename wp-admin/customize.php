@@ -207,7 +207,7 @@ do_action( 'customize_controls_print_scripts' );
 				</div>
 			</div>
 
-			<div id="widgets-right" class="wp-clearfix"><!-- For widget manager, many widgets try to look for instances under div#widgets-right, so we have to add that ID to a container div in the live manager for compat -->
+			<div id="widgets-right" class="app-clearfix"><!-- For widget manager, many widgets try to look for instances under div#widgets-right, so we have to add that ID to a container div in the live manager for compat -->
 				<div id="customize-notifications-area" class="customize-control-notifications-container">
 					<ul></ul>
 				</div>

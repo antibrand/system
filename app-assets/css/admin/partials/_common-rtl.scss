@@ -11,25 +11,6 @@ body {
 	background-color: $body_background;
 }
 
-/* 2 columns main area */
-#taxonomy-form {
-	float: right;
-	width: 35%;
-
-	.col-wrap {
-		padding: 0 0 0 6px;
-	}
-}
-
-#taxonomy-list {
-	float: left;
-	width: 65%;
-
-	.col-wrap {
-		padding: 0 6px 0 0;
-	}
-}
-
 /* utility classes */
 .alignleft {
 	float: right;
@@ -56,7 +37,7 @@ body {
 }
 
 /* modern clearfix */
-.wp-clearfix:after {
+.app-clearfix:after {
 	content: "";
 	display: table;
 	clear: both;
@@ -416,6 +397,28 @@ span.description,
 .column-links,
 .column-posts {
 	text-align: center;
+}
+
+#taxonomy-container {
+	display: flex;
+	flex-direction: column;
+
+	@media screen and (min-width: 800px) {
+		flex-direction: row;
+	}
+}
+
+/* 2 columns main area */
+#taxonomy-form {
+	.col-wrap {
+		padding: 0 6px 0 0;
+	}
+}
+
+#taxonomy-list {
+	.col-wrap {
+		padding: 0 0 0 6px;
+	}
 }
 
 .widefat th#comments {

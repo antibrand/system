@@ -363,7 +363,7 @@ if ( is_plugin_active( 'wpcat2tag-importer/wpcat2tag-importer.php' ) ) {
 
 		<div id="ajax-response"></div>
 
-		<form class="search-form wp-clearfix" method="get">
+		<form class="search-form app-clearfix" method="get">
 
 			<input type="hidden" name="taxonomy" value="<?php echo esc_attr( $taxonomy ); ?>" />
 			<input type="hidden" name="post_type" value="<?php echo esc_attr( $post_type ); ?>" />
@@ -372,7 +372,7 @@ if ( is_plugin_active( 'wpcat2tag-importer/wpcat2tag-importer.php' ) ) {
 
 		</form>
 
-		<div id="col-container" class="wp-clearfix">
+		<div id="taxonomy-container" class="app-clearfix">
 			<div id="taxonomy-form">
 				<div class="col-wrap">
 					<?php
@@ -655,7 +655,7 @@ if ( is_plugin_active( 'wpcat2tag-importer/wpcat2tag-importer.php' ) ) {
 			</div>
 		</div><!-- taxonomy-list -->
 
-		</div><!-- col-container -->
+		</div><!-- taxonomy-container -->
 </div><!-- wrap -->
 
 <?php if ( ! wp_is_mobile() ) : ?>

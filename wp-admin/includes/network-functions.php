@@ -1161,7 +1161,7 @@ function network_edit_site_nav( $args = [] ) {
 	}
 
 	// All done!
-	echo '<nav class="nav-tab-wrapper wp-clearfix" aria-label="' . esc_attr__( 'Secondary menu' ) . '">';
+	echo '<nav class="nav-tab-wrapper app-clearfix" aria-label="' . esc_attr__( 'Secondary menu' ) . '">';
 	echo implode( '', $screen_links );
 	echo '</nav>';
 }

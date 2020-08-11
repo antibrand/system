@@ -1,7 +1,4 @@
 /**
- * Styles for administration screens
- */
-/**
  * Browser reset and starter styles
  */
 @-ms-viewport {
@@ -2670,30 +2667,14 @@ table.form-table td .updated p {
 /**
  * Styles common to all administration screens
  */
+.ltr {
+  direction: ltr;
+}
+
 body {
   background-color: #ffffff;
 }
 
-/* 2 columns main area */
-#taxonomy-form {
-  float: left;
-  width: 35%;
-}
-
-#taxonomy-form .col-wrap {
-  padding: 0 6px 0 0;
-}
-
-#taxonomy-list {
-  float: right;
-  width: 65%;
-}
-
-#taxonomy-list .col-wrap {
-  padding: 0 0 0 6px;
-}
-
-/* utility classes */
 .alignleft {
   float: left;
 }
@@ -2718,14 +2699,12 @@ body {
   border-radius: 50%;
 }
 
-/* modern clearfix */
-.wp-clearfix:after {
-  content: "";
+.app-clearfix:after {
+  content: '';
   display: table;
   clear: both;
 }
 
-/* Hide visually but not from screen readers */
 .screen-reader-text,
 .screen-reader-text span,
 .ui-helper-hidden-accessible {
@@ -2740,7 +2719,6 @@ body {
   position: absolute;
   width: 1px;
   word-wrap: normal !important;
-  /* many screen reader and browser combinations announce broken words as they would appear visually */
 }
 
 .screen-reader-shortcut {
@@ -2761,8 +2739,6 @@ body {
   color: #ffee00;
   z-index: 100000;
   line-height: normal;
-  -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-          box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
   text-decoration: none;
   outline: none;
 }
@@ -2777,7 +2753,6 @@ body {
   color: #000000;
 }
 
-/* @todo: Take a second look. Large chunks of shared color, from the colors.css merge */
 .widget-top,
 .menu-item-handle,
 .widget-inside,
@@ -2793,29 +2768,9 @@ p.popular-tags,
 .feature-filter,
 .imgedit-group,
 .comment-ays {
-  border: 1px solid #cccccc;
+  border: solid 1px #cccccc;
 }
 
-/* general */
-iframe,
-img {
-  border: 0;
-}
-
-td {
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-}
-
-/**
- * Links
- *
- * Any change to the default link style ought to be applied to button-link too.
- *
- * @see ../../includes/partials/buttons.scss
- */
 a {
   color: #004499;
   -webkit-print-color-adjust: exact !important;
@@ -2826,11 +2781,16 @@ a:hover, a:focus {
   color: #005fd6;
 }
 
-#adminmenu a:focus,
-.screen-reader-text:focus {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  outline: none;
+iframe,
+img {
+  border: 0;
+}
+
+td {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
 }
 
 blockquote,
@@ -2850,12 +2810,6 @@ blockquote {
   margin: 1em;
 }
 
-.update-core-php h2 {
-  margin-top: 2em;
-}
-
-.update-php h2,
-.update-messages h2,
 h4 {
   font-size: 1em;
   margin: 1.33em 0;
@@ -2880,37 +2834,36 @@ ul {
   list-style: none;
 }
 
+ul.ul-disc {
+  list-style: disc outside;
+  margin-left: 1.8em;
+}
+
+ul.ul-disc > li {
+  margin: 0 0 0.5em;
+}
+
+ul.ul-square {
+  list-style: square outside;
+  margin-left: 1.8em;
+}
+
+ul.ul-square > li {
+  margin: 0 0 0.5em;
+}
+
 ol {
   list-style-type: decimal;
   margin-left: 2em;
 }
 
-ul.ul-disc {
-  list-style: disc outside;
-}
-
-ul.ul-square {
-  list-style: square outside;
-}
-
 ol.ol-decimal {
   list-style: decimal outside;
-}
-
-ul.ul-disc,
-ul.ul-square,
-ol.ol-decimal {
   margin-left: 1.8em;
 }
 
-ul.ul-disc > li,
-ul.ul-square > li,
 ol.ol-decimal > li {
   margin: 0 0 0.5em;
-}
-
-.ltr {
-  direction: ltr;
 }
 
 .code,
@@ -3089,6 +3042,41 @@ span.description,
 .column-links,
 .column-posts {
   text-align: center;
+}
+
+#taxonomy-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media screen and (min-width: 800px) {
+  #taxonomy-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+#taxonomy-container #taxonomy-form {
+  width: 100%;
+}
+
+@media screen and (min-width: 800px) {
+  #taxonomy-container #taxonomy-form {
+    width: 40%;
+    min-width: 320px;
+    margin-right: 1em;
+  }
+}
+
+#taxonomy-container #taxonomy-list {
+  width: 100%;
 }
 
 .widefat th#comments {

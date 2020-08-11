@@ -181,7 +181,7 @@ class Walker_Nav_Menu_Edit extends Includes\Walker_Nav_Menu {
 				</div>
 			</div>
 
-			<div class="menu-item-settings wp-clearfix" id="menu-item-settings-<?php echo $item_id; ?>">
+			<div class="menu-item-settings app-clearfix" id="menu-item-settings-<?php echo $item_id; ?>">
 				<?php if ( 'custom' == $item->type ) : ?>
 					<p class="field-url description description-wide">
 						<label for="edit-menu-item-url-<?php echo $item_id; ?>">

@@ -28,7 +28,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 	</h1>
 	<p class="description not-using__about-text"><?php printf( __( 'Tell folks about the privacy of your website management system.' ) ); ?></p>
 
-	<h2 class="nav-tab-wrapper wp-clearfix">
+	<h2 class="nav-tab-wrapper app-clearfix">
 		<a href="about.php" class="nav-tab"><?php _e( 'Features' ); ?></a>
 		<a href="privacy-notice.php" class="nav-tab nav-tab-active"><?php _e( 'Privacy' ); ?></a>
 	</h2>

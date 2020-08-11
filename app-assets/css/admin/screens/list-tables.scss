@@ -3,6 +3,42 @@
 @import '../../includes/modules/_colors';
 @import '../modules/_common';
 
+.list-table-views,
+.subsubsub {
+	list-style: none;
+	padding: 0;
+	font-size: 1rem;
+
+	li {
+		display: inline-block;
+		margin: 5px 0 0;
+		margin-right: 5px;
+		padding: 0;
+		white-space: nowrap;
+	}
+
+	a {
+		.count,
+		&.current .count {
+			font-weight: 400;
+		}
+	}
+}
+
+.list-table-top {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 2em;
+
+	.list-table-views {
+		margin: 0 0 0.5em 0;
+	}
+
+	.search-box {
+		float: none;
+	}
+}
+
 .response-links {
 	display: block;
 	margin-bottom: 1em;

@@ -203,7 +203,7 @@ $page_tabs = [
 
 	<hr class="wp-header-end" />
 
-	<nav class="nav-tab-wrapper wp-clearfix">
+	<nav class="nav-tab-wrapper app-clearfix">
 		<ul>
 			<?php echo implode( $page_tabs ); ?>
 		</ul>

@@ -444,7 +444,7 @@ class Dashboard {
 	 */
 	protected function dashboard_control_callback( $dashboard, $meta_box ) {
 
-		echo '<form method="post" class="dashboard-widget-control-form wp-clearfix">';
+		echo '<form method="post" class="dashboard-widget-control-form app-clearfix">';
 
 		wp_dashboard_trigger_widget_control( $meta_box['id'] );
 

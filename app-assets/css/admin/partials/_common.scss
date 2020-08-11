@@ -7,30 +7,15 @@
 @import '../../includes/modules/_colors';
 @import '../modules/_common';
 
+.ltr {
+	direction: ltr;
+}
+
 body {
 	background-color: $body_background;
 }
 
-/* 2 columns main area */
-#taxonomy-form {
-	float: left;
-	width: 35%;
-
-	.col-wrap {
-		padding: 0 6px 0 0;
-	}
-}
-
-#taxonomy-list {
-	float: right;
-	width: 65%;
-
-	.col-wrap {
-		padding: 0 0 0 6px;
-	}
-}
-
-/* utility classes */
+// Utility classes.
 .alignleft {
 	float: left;
 }
@@ -55,14 +40,13 @@ body {
 	border-radius: 50%;
 }
 
-/* modern clearfix */
-.wp-clearfix:after {
-	content: "";
+.app-clearfix:after {
+	content: '';
 	display: table;
 	clear: both;
 }
 
-/* Hide visually but not from screen readers */
+// Hide visually but not from screen readers.
 .screen-reader-text,
 .screen-reader-text span,
 .ui-helper-hidden-accessible {
@@ -76,7 +60,10 @@ body {
 	padding: 0;
 	position: absolute;
 	width: 1px;
-	word-wrap: normal !important; /* many screen reader and browser combinations announce broken words as they would appear visually */
+
+	// Many screen reader and browser combinations announce
+	// broken words as they would appear visually.
+	word-wrap: normal !important;
 }
 
 .screen-reader-shortcut {
@@ -97,7 +84,6 @@ body {
 	color: #ffee00;
 	z-index: 100000;
 	line-height: normal;
-	box-shadow: 0 0 2px 2px rgba(0,0,0,.6);
 	text-decoration: none;
 	outline: none;
 }
@@ -112,7 +98,6 @@ body {
 	color: $black;
 }
 
-/* @todo: Take a second look. Large chunks of shared color, from the colors.css merge */
 .widget-top,
 .menu-item-handle,
 .widget-inside,
@@ -128,10 +113,43 @@ p.popular-tags,
 .feature-filter,
 .imgedit-group,
 .comment-ays {
-	border: 1px solid $box_border_color;
+	border: $box_border_style $box_border_width $box_border_color;
 }
 
-/* general */
+///
+/// Links
+///
+/// Any change to the default link style ought to be applied to button-link too.
+///
+/// @see ../../includes/partials/buttons.scss
+///
+a {
+	color: $link_color;
+	-webkit-print-color-adjust: exact !important;
+	        color-adjust: exact !important;
+
+	&:hover,
+	&:focus {
+		color: $link_action_color;
+	}
+}
+
+/// General
+h1 ~ p.description {
+	margin: 0.5em 0 1em;
+	padding-bottom: 1em;
+	border-bottom: $box_border_style $box_border_width $box_border_color;
+	font-size: 1rem;
+}
+
+p.help,
+p.description,
+span.description,
+.form-wrap p {
+	font-size: $px13;
+	font-style: italic;
+}
+
 iframe,
 img {
 	border: 0;
@@ -144,30 +162,6 @@ td {
 	line-height: inherit;
 }
 
-/**
- * Links
- *
- * Any change to the default link style ought to be applied to button-link too.
- *
- * @see ../../includes/partials/buttons.scss
- */
-a {
-	color: $link_color;
-	-webkit-print-color-adjust: exact !important;
-	        color-adjust: exact !important;
-
-	&:hover,
-	&:focus {
-		color: $link_action_color;
-	}
-}
-
-#adminmenu a:focus,
-.screen-reader-text:focus {
-	box-shadow: none;
-	outline: none;
-}
-
 blockquote,
 q {
 	quotes: none;
@@ -177,33 +171,12 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-	content: "";
+	content: '';
 	content: none;
 }
 
 blockquote {
 	margin: 1em;
-}
-
-.update-core-php h2 {
-	margin-top: 2em;
-}
-
-.update-php h2,
-.update-messages h2,
-h4 {
-	font-size: 1em;
-	margin: 1.33em 0;
-}
-
-h5 {
-	font-size: 0.83em;
-	margin: 1.67em 0;
-}
-
-h6 {
-	font-size: 0.67em;
-	margin: 2.33em 0;
 }
 
 ul,
@@ -213,111 +186,44 @@ ol {
 
 ul {
 	list-style: none;
+
+	&.ul-disc {
+		list-style: disc outside;
+		margin-left: 1.8em;
+
+		> li {
+			margin: 0 0 0.5em;
+		}
+	}
+
+	&.ul-square {
+		list-style: square outside;
+		margin-left: 1.8em;
+
+		> li {
+			margin: 0 0 0.5em;
+		}
+	}
 }
 
 ol {
 	list-style-type: decimal;
 	margin-left: 2em;
-}
 
-ul.ul-disc {
-	list-style: disc outside;
-}
+	&.ol-decimal {
+		list-style: decimal outside;
+		margin-left: 1.8em;
 
-ul.ul-square {
-	list-style: square outside;
-}
-
-ol.ol-decimal {
-	list-style: decimal outside;
-}
-
-ul.ul-disc,
-ul.ul-square,
-ol.ol-decimal {
-	margin-left: 1.8em;
-}
-
-ul.ul-disc > li,
-ul.ul-square > li,
-ol.ol-decimal > li {
-	margin: 0 0 0.5em;
-}
-
-.ltr {
-	direction: ltr;
+		> li {
+			margin: 0 0 0.5em;
+		}
+	}
 }
 
 .code,
 code {
 	direction: ltr;
 	unicode-bidi: embed;
-}
-
-.list-table-views,
-.subsubsub {
-	list-style: none;
-	padding: 0;
-	font-size: 1rem;
-
-	li {
-		display: inline-block;
-		margin: 5px 0 0;
-		margin-right: 5px;
-		padding: 0;
-		white-space: nowrap;
-
-		&.list-table-add-new {
-
-			&:after {
-				// content: '|';
-				display: inline-block;
-				margin-left: 0.35em;
-				font-weight: normal;
-			}
-		}
-	}
-
-	a {
-		.count,
-		&.current .count {
-			font-weight: 400;
-		}
-	}
-}
-
-.list-table-top {
-	display: flex;
-	justify-content: space-between;
-	margin-top: 2em;
-
-	.list-table-views {
-		margin: 0 0 0.5em 0;
-	}
-
-	.search-box {
-		float: none;
-	}
-}
-
-p.description,
-.form-wrap p {
-	margin: 2px 0 5px;
-}
-
-h1 ~ p.description {
-	margin: 0.5em 0 1em;
-	padding-bottom: 1em;
-	border-bottom: solid $box_border_width $box_border_color;
-	font-size: 1rem;
-}
-
-p.help,
-p.description,
-span.description,
-.form-wrap p {
-	font-size: $px13;
-	font-style: italic;
 }
 
 /* .widefat - main style for tables */
@@ -422,6 +328,29 @@ span.description,
 .column-links,
 .column-posts {
 	text-align: center;
+}
+
+#taxonomy-container {
+	display: flex;
+	flex-direction: column;
+
+	@media screen and (min-width: 800px) {
+		flex-direction: row;
+	}
+
+	#taxonomy-form {
+		width: 100%;
+
+		@media screen and (min-width: 800px) {
+			width: 40%;
+			min-width: 320px;
+			margin-right: 1em;
+		}
+	}
+
+	#taxonomy-list {
+		width: 100%;
+	}
 }
 
 .widefat th#comments {

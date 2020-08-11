@@ -575,7 +575,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' ); ?>
 
 		?>
 		<div class="widget-liquid-right">
-			<div id="widgets-right" class="wp-clearfix<?php echo $single_sidebar_class; ?>">
+			<div id="widgets-right" class="app-clearfix<?php echo $single_sidebar_class; ?>">
 				<div class="sidebars-column-1">
 					<?php
 
