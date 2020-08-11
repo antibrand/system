@@ -31,3 +31,14 @@ require( 'classes.php' );
  * @since 1.0.0
  */
 require( 'constants.php' );
+
+if ( ! function_exists( 'app_alias_styles' ) ) :
+
+	function app_alias_styles() {
+		wp_enqueue_style( 'app-alias', plugins_url( '/assets/css/styles.min.css', __FILE__ ), [], null, 'all' );
+	}
+
+	add_action( 'admin_enqueue_scripts', 'app_alias_styles' );
+	add_action( 'wp_enqueue_scripts', 'app_alias_styles' );
+
+endif;
