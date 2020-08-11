@@ -646,7 +646,19 @@ h1 {
 
 h2,
 h3 {
-  font-size: 1.3em;
+  font-size: 1.3125rem;
+}
+
+h4 {
+  font-size: 1.125rem;
+}
+
+h5 {
+  font-size: 1.0625rem;
+}
+
+h6 {
+  font-size: 1rem;
 }
 
 em {
@@ -2781,6 +2793,21 @@ a:hover, a:focus {
   color: #005fd6;
 }
 
+h1 ~ p.description {
+  margin: 0.5em 0 1em;
+  padding-bottom: 1em;
+  border-bottom: solid 1px #cccccc;
+  font-size: 1rem;
+}
+
+p.help,
+p.description,
+span.description,
+.form-wrap p {
+  font-size: 0.8125rem;
+  font-style: italic;
+}
+
 iframe,
 img {
   border: 0;
@@ -2802,27 +2829,12 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 
 blockquote {
   margin: 1em;
-}
-
-h4 {
-  font-size: 1em;
-  margin: 1.33em 0;
-}
-
-h5 {
-  font-size: 0.83em;
-  margin: 1.67em 0;
-}
-
-h6 {
-  font-size: 0.67em;
-  margin: 2.33em 0;
 }
 
 ul,
@@ -2870,74 +2882,6 @@ ol.ol-decimal > li {
 code {
   direction: ltr;
   unicode-bidi: embed;
-}
-
-.list-table-views,
-.subsubsub {
-  list-style: none;
-  padding: 0;
-  font-size: 1rem;
-}
-
-.list-table-views li,
-.subsubsub li {
-  display: inline-block;
-  margin: 5px 0 0;
-  margin-right: 5px;
-  padding: 0;
-  white-space: nowrap;
-}
-
-.list-table-views li.list-table-add-new:after,
-.subsubsub li.list-table-add-new:after {
-  display: inline-block;
-  margin-left: 0.35em;
-  font-weight: normal;
-}
-
-.list-table-views a .count,
-.list-table-views a.current .count,
-.subsubsub a .count,
-.subsubsub a.current .count {
-  font-weight: 400;
-}
-
-.list-table-top {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin-top: 2em;
-}
-
-.list-table-top .list-table-views {
-  margin: 0 0 0.5em 0;
-}
-
-.list-table-top .search-box {
-  float: none;
-}
-
-p.description,
-.form-wrap p {
-  margin: 2px 0 5px;
-}
-
-h1 ~ p.description {
-  margin: 0.5em 0 1em;
-  padding-bottom: 1em;
-  border-bottom: solid 1px #cccccc;
-  font-size: 1rem;
-}
-
-p.help,
-p.description,
-span.description,
-.form-wrap p {
-  font-size: 0.8125rem;
-  font-style: italic;
 }
 
 /* .widefat - main style for tables */

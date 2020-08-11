@@ -1,3 +1,44 @@
+.list-table-views,
+.subsubsub {
+  list-style: none;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.list-table-views li,
+.subsubsub li {
+  display: inline-block;
+  margin: 5px 0 0;
+  margin-right: 5px;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.list-table-views a .count,
+.list-table-views a.current .count,
+.subsubsub a .count,
+.subsubsub a.current .count {
+  font-weight: 400;
+}
+
+.list-table-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 2em;
+}
+
+.list-table-top .list-table-views {
+  margin: 0 0 0.5em 0;
+}
+
+.list-table-top .search-box {
+  float: none;
+}
+
 .response-links {
   display: block;
   margin-bottom: 1em;

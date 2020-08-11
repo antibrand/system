@@ -646,7 +646,19 @@ h1 {
 
 h2,
 h3 {
-  font-size: 1.3em;
+  font-size: 1.3125rem;
+}
+
+h4 {
+  font-size: 1.125rem;
+}
+
+h5 {
+  font-size: 1.0625rem;
+}
+
+h6 {
+  font-size: 1rem;
 }
 
 em {
