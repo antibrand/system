@@ -32,7 +32,7 @@ if ( ! defined( 'WP_DEBUG' ) && defined( 'APP_DEBUG' ) ) {
 if ( ! defined( 'WP_DEBUG_DISPLAY' ) && defined( 'APP_DEBUG_DISPLAY' ) ) {
 	define( 'WP_DEBUG_DISPLAY', APP_DEBUG_DISPLAY );
 } else {
-	define( 'WP_DEBUG_DISPLAY', false );
+	define( 'WP_DEBUG_DISPLAY', true );
 }
 
 /**
@@ -48,6 +48,18 @@ if ( ! defined( 'WP_DEBUG_LOG' ) && defined( 'APP_DEBUG_LOG' ) ) {
 }
 
 /**
+ * Caching
+ *
+ * @since 1.0.0
+ * @var   boolean
+ */
+if ( ! defined( 'WP_CACHE' ) && defined( 'APP_CACHE' ) ) {
+	define( 'WP_CACHE', APP_CACHE );
+} else {
+	define( 'WP_CACHE', false );
+}
+
+/**
  * Installing
  *
  * @since 1.0.0
@@ -55,6 +67,8 @@ if ( ! defined( 'WP_DEBUG_LOG' ) && defined( 'APP_DEBUG_LOG' ) ) {
  */
 if ( ! defined( 'WP_INSTALLING' ) && defined( 'APP_INSTALLING' ) ) {
 	define( 'WP_INSTALLING', APP_INSTALLING );
+} else {
+	define( 'WP_INSTALLING', false );
 }
 
 /**
@@ -65,6 +79,8 @@ if ( ! defined( 'WP_INSTALLING' ) && defined( 'APP_INSTALLING' ) ) {
  */
 if ( ! defined( 'WP_MEMORY_LIMIT' ) && defined( 'APP_MEMORY_LIMIT' ) ) {
 	define( 'WP_MEMORY_LIMIT', APP_MEMORY_LIMIT );
+} else {
+	define( 'WP_MEMORY_LIMIT', '40M' );
 }
 
 /**
@@ -75,6 +91,8 @@ if ( ! defined( 'WP_MEMORY_LIMIT' ) && defined( 'APP_MEMORY_LIMIT' ) ) {
  */
 if ( ! defined( 'WP_MAX_MEMORY_LIMIT' ) && defined( 'APP_MAX_MEMORY_LIMIT' ) ) {
 	define( 'WP_MAX_MEMORY_LIMIT', APP_MAX_MEMORY_LIMIT );
+} else {
+	define( 'WP_MAX_MEMORY_LIMIT', '256' );
 }
 
 /**

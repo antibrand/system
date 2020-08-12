@@ -176,8 +176,8 @@ function wp_initial_constants() {
 	}
 
 	// Define caching.
-	if ( ! defined( 'WP_CACHE' ) ) {
-		define( 'WP_CACHE', false );
+	if ( ! defined( 'APP_CACHE' ) ) {
+		define( 'APP_CACHE', false );
 	}
 
 	/**

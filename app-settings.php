@@ -55,7 +55,7 @@ require( ABSPATH . APP_INC . '/version.php' );
  */
 global $blog_id;
 
-// Set initial default constants including APP_MEMORY_LIMIT, APP_MAX_MEMORY_LIMIT, APP_DEBUG, SCRIPT_DEBUG, WP_CONTENT_DIR and WP_CACHE.
+// Set initial default constants including APP_MEMORY_LIMIT, APP_MAX_MEMORY_LIMIT, APP_DEBUG, SCRIPT_DEBUG, WP_CONTENT_DIR and APP_CACHE.
 wp_initial_constants();
 
 // Check for the required PHP version and for the MySQL extension or a database drop-in.
@@ -97,7 +97,7 @@ app_debug_mode();
  * @param bool $enable_advanced_cache Whether to enable loading advanced-cache.php (if present).
  *                                    Default true.
  */
-if ( WP_CACHE && apply_filters( 'enable_loading_advanced_cache_dropin', true ) ) {
+if ( APP_CACHE && apply_filters( 'enable_loading_advanced_cache_dropin', true ) ) {
 
 	// For an advanced caching plugin to use. Uses a static drop-in because you would only want one.
 	if ( APP_DEV_MODE || APP_DEBUG ) {
@@ -335,7 +335,7 @@ require( ABSPATH . APP_INC . '/pluggable-deprecated.php' );
 wp_set_internal_encoding();
 
 // Run wp_cache_postload() if object cache is enabled and the function exists.
-if ( WP_CACHE && function_exists( 'wp_cache_postload' ) ) {
+if ( APP_CACHE && function_exists( 'wp_cache_postload' ) ) {
 	wp_cache_postload();
 }
 
