@@ -24,6 +24,30 @@ if ( ! defined( 'WP_DEBUG' ) && defined( 'APP_DEBUG' ) ) {
 }
 
 /**
+ * Debug display
+ *
+ * @since 1.0.0
+ * @var   boolean
+ */
+if ( ! defined( 'WP_DEBUG_DISPLAY' ) && defined( 'APP_DEBUG_DISPLAY' ) ) {
+	define( 'WP_DEBUG_DISPLAY', APP_DEBUG_DISPLAY );
+} else {
+	define( 'WP_DEBUG_DISPLAY', false );
+}
+
+/**
+ * Debug log
+ *
+ * @since 1.0.0
+ * @var   boolean
+ */
+if ( ! defined( 'WP_DEBUG_LOG' ) && defined( 'APP_DEBUG_LOG' ) ) {
+	define( 'WP_DEBUG_LOG', APP_DEBUG_LOG );
+} else {
+	define( 'WP_DEBUG_LOG', false );
+}
+
+/**
  * Installing
  *
  * @since 1.0.0

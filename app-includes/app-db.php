@@ -50,7 +50,7 @@ class wpdb {
 	/**
 	 * Whether to show SQL/DB errors.
 	 *
-	 * Default behavior is to show errors if both APP_DEBUG and WP_DEBUG_DISPLAY
+	 * Default behavior is to show errors if both APP_DEBUG and APP_DEBUG_DISPLAY
 	 * evaluated to true.
 	 *
 	 * @since 0.71
@@ -561,7 +561,7 @@ class wpdb {
 	public function __construct( $dbuser, $dbpassword, $dbname, $dbhost ) {
 		register_shutdown_function( array( $this, '__destruct' ) );
 
-		if ( ( APP_DEV_MODE || APP_DEBUG ) && WP_DEBUG_DISPLAY )
+		if ( ( APP_DEV_MODE || APP_DEBUG ) && APP_DEBUG_DISPLAY )
 			$this->show_errors();
 
 		// Use ext/mysqli if it exists unless WP_USE_EXT_MYSQL is defined as true

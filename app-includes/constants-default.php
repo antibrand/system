@@ -160,23 +160,30 @@ function wp_initial_constants() {
 		define( 'APP_DEBUG', false );
 	}
 
-	// Add define( 'WP_DEBUG_DISPLAY', null); to app-config.php use the globally configured setting for
-	// display_errors and not force errors to be displayed. Use false to force display_errors off.
-	if ( ! defined( 'WP_DEBUG_DISPLAY' ) ) {
-		define( 'WP_DEBUG_DISPLAY', true );
+	/**
+	 * Add define( 'APP_DEBUG_DISPLAY', null); to app-config.php to
+	 * use the globally configured setting for display_errors and
+	 * not force errors to be displayed. Use false to force
+	 * display_errors off.
+	 */
+	if ( ! defined( 'APP_DEBUG_DISPLAY' ) ) {
+		define( 'APP_DEBUG_DISPLAY', true );
 	}
 
-	// Add define( 'WP_DEBUG_LOG', true ); to enable error logging to wp-content/debug.log.
-	if ( ! defined( 'WP_DEBUG_LOG' ) ) {
-		define( 'WP_DEBUG_LOG', false );
+	// Add define( 'APP_DEBUG_LOG', true ); to enable error logging to wp-content/debug.log.
+	if ( ! defined( 'APP_DEBUG_LOG' ) ) {
+		define( 'APP_DEBUG_LOG', false );
 	}
 
+	// Define caching.
 	if ( ! defined( 'WP_CACHE' ) ) {
 		define( 'WP_CACHE', false );
 	}
 
-	// Add define( 'SCRIPT_DEBUG', true ); to app-config.php to enable loading of non-minified,
-	// non-concatenated scripts and stylesheets.
+	/**
+	 * Add define( 'SCRIPT_DEBUG', true ); to app-config.php to enable
+	 * loading of non-minified, non-concatenated scripts and stylesheets.
+	 */
 	if ( ! defined( 'SCRIPT_DEBUG' ) ) {
 
 		if ( ! empty( $GLOBALS['wp_version'] ) ) {
@@ -210,7 +217,8 @@ function wp_initial_constants() {
 	 * For example, MONTH_IN_SECONDS wrongly assumes every month has 30 days and
 	 * YEAR_IN_SECONDS does not take leap years into account.
 	 *
-	 * If you need more accuracy please consider using the DateTime class (https://secure.php.net/manual/en/class.datetime.php).
+	 * If you need more accuracy consider using the DateTime class.
+	 * @link https://secure.php.net/manual/en/class.datetime.php
 	 *
 	 * @since Previous 3.5.0
 	 * @since Previous 4.4.0 Introduced `MONTH_IN_SECONDS`.

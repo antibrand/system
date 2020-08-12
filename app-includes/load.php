@@ -272,9 +272,9 @@ function timer_stop( $display = 0, $precision = 3 ) {
 /**
  * Set PHP error reporting based on debug settings.
  *
- * Uses three constants: `APP_DEBUG`, `WP_DEBUG_DISPLAY`, and `WP_DEBUG_LOG`.
+ * Uses three constants: `APP_DEBUG`, `APP_DEBUG_DISPLAY`, and `APP_DEBUG_LOG`.
  * All three can be defined in app-config.php. By default, `APP_DEBUG` and
- * `WP_DEBUG_LOG` are set to false, and `WP_DEBUG_DISPLAY` is set to true.
+ * `APP_DEBUG_LOG` are set to false, and `APP_DEBUG_DISPLAY` is set to true.
  *
  * When `APP_DEBUG` is true, all PHP notices are reported. The application will also
  * display internal notices: when a deprecated function, function
@@ -284,15 +284,15 @@ function timer_stop( $display = 0, $precision = 3 ) {
  * It is strongly recommended that plugin and theme developers use `APP_DEBUG`
  * in their development environments.
  *
- * `WP_DEBUG_DISPLAY` and `WP_DEBUG_LOG` perform no function unless `APP_DEBUG`
+ * `APP_DEBUG_DISPLAY` and `APP_DEBUG_LOG` perform no function unless `APP_DEBUG`
  * is true.
  *
- * When `WP_DEBUG_DISPLAY` is true, the application will force errors to be displayed.
- * `WP_DEBUG_DISPLAY` defaults to true. Defining it as null prevents the application
- * from changing the global configuration setting. Defining `WP_DEBUG_DISPLAY`
+ * When `APP_DEBUG_DISPLAY` is true, the application will force errors to be displayed.
+ * `APP_DEBUG_DISPLAY` defaults to true. Defining it as null prevents the application
+ * from changing the global configuration setting. Defining `APP_DEBUG_DISPLAY`
  * as false will force errors to be hidden.
  *
- * When `WP_DEBUG_LOG` is true, errors will be logged to debug.log in the content
+ * When `APP_DEBUG_LOG` is true, errors will be logged to debug.log in the content
  * directory.
  *
  * Errors are never displayed for XML-RPC, REST, and Ajax requests.
@@ -320,12 +320,12 @@ function app_debug_mode() {
 	if ( APP_DEV_MODE || APP_DEBUG ) {
 		error_reporting( E_ALL );
 
-		if ( WP_DEBUG_DISPLAY )
+		if ( APP_DEBUG_DISPLAY )
 			ini_set( 'display_errors', 1 );
-		elseif ( null !== WP_DEBUG_DISPLAY )
+		elseif ( null !== APP_DEBUG_DISPLAY )
 			ini_set( 'display_errors', 0 );
 
-		if ( WP_DEBUG_LOG ) {
+		if ( APP_DEBUG_LOG ) {
 			ini_set( 'log_errors', 1 );
 			ini_set( 'error_log', WP_CONTENT_DIR . '/debug.log' );
 		}

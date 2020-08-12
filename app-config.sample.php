@@ -110,8 +110,8 @@ define( 'wp_auto_update_core', false );
  */
 define( 'APP_DEV_MODE', false );
 define( 'APP_DEBUG', false );
-define( 'WP_DEBUG_LOG', false );
-define( 'WP_DEBUG_DISPLAY', true );
+define( 'APP_DEBUG_LOG', false );
+define( 'APP_DEBUG_DISPLAY', true );
 define( 'WP_LOCAL_DEV', false );
 
 // Set false to load scripts & styles separately.
