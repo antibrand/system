@@ -31,7 +31,6 @@ if ( ! defined( 'APP_VIEWS_PATH' ) ) {
 require( ABSPATH . APP_INC . '/autoloader.php' );
 
 require( ABSPATH . APP_INC . '/deprecated-versions.php' );
-require( ABSPATH . APP_INC . '/deprecated-branded.php' );
 
 // Include files required for initialization.
 require( ABSPATH . APP_INC . '/load.php' );

@@ -32,6 +32,13 @@ require( 'classes.php' );
  */
 require( 'constants.php' );
 
+/**
+ * Alias functions
+ *
+ * @since 1.0.0
+ */
+require( 'functions.php' );
+
 if ( ! function_exists( 'app_alias_styles' ) ) :
 
 	function app_alias_styles() {
