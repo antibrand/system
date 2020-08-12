@@ -94,7 +94,7 @@ function app_initial_constants() {
 	// Define memory limits.
 	if ( ! defined( 'APP_MEMORY_LIMIT' ) ) {
 
-		if ( false === wp_is_ini_value_changeable( 'memory_limit' ) ) {
+		if ( false === app_is_ini_value_changeable( 'memory_limit' ) ) {
 			define( 'APP_MEMORY_LIMIT', $current_limit );
 		} elseif ( is_network() ) {
 			define( 'APP_MEMORY_LIMIT', '64M' );
@@ -105,7 +105,7 @@ function app_initial_constants() {
 
 	if ( ! defined( 'APP_MAX_MEMORY_LIMIT' ) ) {
 
-		if ( false === wp_is_ini_value_changeable( 'memory_limit' ) ) {
+		if ( false === app_is_ini_value_changeable( 'memory_limit' ) ) {
 			define( 'APP_MAX_MEMORY_LIMIT', $current_limit );
 		} elseif ( -1 === $current_limit_int || $current_limit_int > 268435456 /* = 256M */ ) {
 			define( 'APP_MAX_MEMORY_LIMIT', $current_limit );

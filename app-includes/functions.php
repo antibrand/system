@@ -5515,7 +5515,7 @@ function mysql_to_rfc3339( $date_string ) {
  */
 function wp_raise_memory_limit( $context = 'admin' ) {
 	// Exit early if the limit cannot be changed.
-	if ( false === wp_is_ini_value_changeable( 'memory_limit' ) ) {
+	if ( false === app_is_ini_value_changeable( 'memory_limit' ) ) {
 		return false;
 	}
 

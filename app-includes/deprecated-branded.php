@@ -1,7 +1,7 @@
 <?php
 /**
- * Deprecated functions from WordPress version 4.9.8 that have been
- * renamed because of the WordPress-branded prefix.
+ * Deprecated functions from UUP version 4.9.8 that have been
+ * renamed because of the branded prefix.
  *
  * These functions may be removed. Remove from your system if desired.
  * @see app-settings.php
@@ -14,6 +14,13 @@
 if ( ! function_exists( 'wp_not_installed' ) ) {
 	function wp_not_installed() {
 		return app_not_installed();
+	}
+}
+
+// PHP ini value is changeable.
+if ( ! function_exists( 'wp_is_ini_value_changeable' ) ) {
+	function wp_is_ini_value_changeable() {
+		return app_is_ini_value_changeable();
 	}
 }
 

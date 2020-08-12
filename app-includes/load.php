@@ -1040,7 +1040,7 @@ function app_convert_hr_to_bytes( $value ) {
  * @param string $setting The name of the ini setting to check.
  * @return bool True if the value is changeable at runtime. False otherwise.
  */
-function wp_is_ini_value_changeable( $setting ) {
+function app_is_ini_value_changeable( $setting ) {
 	static $ini_all;
 
 	if ( ! isset( $ini_all ) ) {
