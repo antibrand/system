@@ -1012,7 +1012,7 @@ function is_ssl() {
  * @param string $value A (PHP ini) byte value, either shorthand or ordinary.
  * @return int An integer byte value.
  */
-function wp_convert_hr_to_bytes( $value ) {
+function app_convert_hr_to_bytes( $value ) {
 	$value = strtolower( trim( $value ) );
 	$bytes = (int) $value;
 

@@ -56,7 +56,7 @@ require( ABSPATH . APP_INC . '/version.php' );
 global $blog_id;
 
 // Set initial default constants including APP_MEMORY_LIMIT, APP_MAX_MEMORY_LIMIT, APP_DEBUG, SCRIPT_DEBUG, APP_CONTENT_DIR and APP_CACHE.
-wp_initial_constants();
+app_initial_constants();
 
 // Check for the required PHP version and for the MySQL extension or a database drop-in.
 wp_check_php_mysql_versions();
@@ -272,7 +272,7 @@ if ( is_network() ) {
  * Define constants that rely on the API to obtain the default value.
  * Define must-use plugin directory constants, which may be overridden in the sunrise.php drop-in.
  */
-wp_plugin_directory_constants();
+app_plugin_directory_constants();
 
 $GLOBALS['wp_plugin_paths'] = [];
 
@@ -299,10 +299,10 @@ if ( is_network() ) {
 }
 
 // Define constants after network is loaded.
-wp_cookie_constants();
+app_cookie_constants();
 
 // Define and enforce our SSL constants.
-wp_ssl_constants();
+app_ssl_constants();
 
 // Create common globals.
 require( ABSPATH . APP_INC . '/vars.php' );
@@ -349,7 +349,7 @@ if ( APP_CACHE && function_exists( 'wp_cache_postload' ) ) {
 do_action( 'plugins_loaded' );
 
 // Define constants which affect functionality if not already defined.
-wp_functionality_constants();
+app_functionality_constants();
 
 // Add magic quotes and set up $_REQUEST ( $_GET + $_POST )
 wp_magic_quotes();
@@ -412,7 +412,7 @@ $GLOBALS['wp_roles'] = new WP_Roles();
 do_action( 'setup_theme' );
 
 // Define the template related constants.
-wp_templating_constants(  );
+app_templating_constants(  );
 
 // Load the default text localization domain.
 load_default_textdomain();

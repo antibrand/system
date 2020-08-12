@@ -5520,14 +5520,14 @@ function wp_raise_memory_limit( $context = 'admin' ) {
 	}
 
 	$current_limit     = @ini_get( 'memory_limit' );
-	$current_limit_int = wp_convert_hr_to_bytes( $current_limit );
+	$current_limit_int = app_convert_hr_to_bytes( $current_limit );
 
 	if ( -1 === $current_limit_int ) {
 		return false;
 	}
 
 	$wp_max_limit     = APP_MAX_MEMORY_LIMIT;
-	$wp_max_limit_int = wp_convert_hr_to_bytes( $wp_max_limit );
+	$wp_max_limit_int = app_convert_hr_to_bytes( $wp_max_limit );
 	$filtered_limit   = $wp_max_limit;
 
 	switch ( $context ) {
@@ -5588,7 +5588,7 @@ function wp_raise_memory_limit( $context = 'admin' ) {
 			break;
 	}
 
-	$filtered_limit_int = wp_convert_hr_to_bytes( $filtered_limit );
+	$filtered_limit_int = app_convert_hr_to_bytes( $filtered_limit );
 
 	if ( -1 === $filtered_limit_int || ( $filtered_limit_int > $wp_max_limit_int && $filtered_limit_int > $current_limit_int ) ) {
 		if ( false !== @ini_set( 'memory_limit', $filtered_limit ) ) {

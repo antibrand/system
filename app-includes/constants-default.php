@@ -13,7 +13,7 @@
  * @since Previous 3.0.0
  * @global int    $blog_id The current site ID.
  */
-function wp_initial_constants() {
+function app_initial_constants() {
 
 	global $blog_id;
 
@@ -89,7 +89,7 @@ function wp_initial_constants() {
 	/**#@-*/
 
 	$current_limit     = @ini_get( 'memory_limit' );
-	$current_limit_int = wp_convert_hr_to_bytes( $current_limit );
+	$current_limit_int = app_convert_hr_to_bytes( $current_limit );
 
 	// Define memory limits.
 	if ( ! defined( 'APP_MEMORY_LIMIT' ) ) {
@@ -115,9 +115,9 @@ function wp_initial_constants() {
 	}
 
 	// Set memory limits.
-	$wp_limit_int = wp_convert_hr_to_bytes( APP_MEMORY_LIMIT );
+	$app_limit_int = app_convert_hr_to_bytes( APP_MEMORY_LIMIT );
 
-	if ( -1 !== $current_limit_int && ( -1 === $wp_limit_int || $wp_limit_int > $current_limit_int ) ) {
+	if ( -1 !== $current_limit_int && ( -1 === $app_limit_int || $app_limit_int > $current_limit_int ) ) {
 		@ini_set( 'memory_limit', APP_MEMORY_LIMIT );
 	}
 
@@ -170,7 +170,7 @@ function wp_initial_constants() {
 		define( 'APP_DEBUG_DISPLAY', true );
 	}
 
-	// Add define( 'APP_DEBUG_LOG', true ); to enable error logging to wp-content/debug.log.
+	// Add define( 'APP_DEBUG_LOG', true ); to enable error logging to app-views/debug.log.
 	if ( ! defined( 'APP_DEBUG_LOG' ) ) {
 		define( 'APP_DEBUG_LOG', false );
 	}
@@ -239,7 +239,7 @@ function wp_initial_constants() {
  *
  * @since Previous 3.0.0
  */
-function wp_plugin_directory_constants() {
+function app_plugin_directory_constants() {
 
 	if ( ! defined( 'APP_CONTENT_URL' ) ) {
 
@@ -298,7 +298,7 @@ function wp_plugin_directory_constants() {
  * Defines constants after network is loaded.
  * @since Previous 3.0.0
  */
-function wp_cookie_constants() {
+function app_cookie_constants() {
 
 	/**
 	 * Used to guarantee unique hash cookies
@@ -399,7 +399,7 @@ function wp_cookie_constants() {
  *
  * @since Previous 3.0.0
  */
-function wp_ssl_constants() {
+function app_ssl_constants() {
 
 	/**
 	 * @since Previous 2.6.0
@@ -421,7 +421,7 @@ function wp_ssl_constants() {
  *
  * @since Previous 3.0.0
  */
-function wp_functionality_constants() {
+function app_functionality_constants() {
 
 	/**
 	 * Autosave
@@ -471,7 +471,7 @@ function wp_functionality_constants() {
  *
  * @since Previous 3.0.0
  */
-function wp_templating_constants() {
+function app_templating_constants() {
 
 	/**
 	 * Filesystem path to the current active template directory
