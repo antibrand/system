@@ -62,6 +62,20 @@ if ( ! defined( 'WP_PLUGIN_DIR' ) && ( defined( 'APP_PLUGIN_DIR' ) && APP_PLUGIN
 }
 
 /**
+ * Plugins URL
+ *
+ * Check for definition with a value.
+ *
+ * @since 1.0.0
+ * @var   string Returns the URL to the plugins directory.
+ */
+if ( ! defined( 'WP_PLUGIN_URL' ) && ( defined( 'APP_PLUGIN_URL' ) && APP_PLUGIN_URL ) ) {
+	define( 'WP_PLUGIN_URL', APP_PLUGIN_URL );
+} else {
+	define( 'WP_PLUGIN_URL', ABSPATH . 'app-extend/plugins' );
+}
+
+/**
  * Languages directory
  *
  * Check for definition with a value.
