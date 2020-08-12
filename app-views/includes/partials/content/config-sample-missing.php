@@ -119,10 +119,10 @@ define( 'automatic_updater_disabled', true );
 define( 'wp_auto_update_core', false );
 
 // PHP memory limit for this site.
-// define( 'WP_MEMORY_LIMIT', '256M' );
+// define( 'APP_MEMORY_LIMIT', '256M' );
 
 // Increase admin-side memory limit.
-// define( 'WP_MAX_MEMORY_LIMIT', '256M' );
+// define( 'APP_MAX_MEMORY_LIMIT', '256M' );
 
 /**
  * Site development

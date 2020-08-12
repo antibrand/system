@@ -34,6 +34,26 @@ if ( ! defined( 'WP_INSTALLING' ) && defined( 'APP_INSTALLING' ) ) {
 }
 
 /**
+ * Memory limit
+ *
+ * @since 1.0.0
+ * @var   string Returns the memory limit in megabytes.
+ */
+if ( ! defined( 'WP_MEMORY_LIMIT' ) && defined( 'APP_MEMORY_LIMIT' ) ) {
+	define( 'WP_MEMORY_LIMIT', APP_MEMORY_LIMIT );
+}
+
+/**
+ * Maximum memory limit
+ *
+ * @since 1.0.0
+ * @var   string Returns the memory limit in megabytes.
+ */
+if ( ! defined( 'WP_MAX_MEMORY_LIMIT' ) && defined( 'APP_MAX_MEMORY_LIMIT' ) ) {
+	define( 'WP_MAX_MEMORY_LIMIT', APP_MAX_MEMORY_LIMIT );
+}
+
+/**
  * Includes directory
  *
  * Check for definition with a value.

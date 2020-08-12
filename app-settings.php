@@ -55,7 +55,7 @@ require( ABSPATH . APP_INC . '/version.php' );
  */
 global $blog_id;
 
-// Set initial default constants including WP_MEMORY_LIMIT, WP_MAX_MEMORY_LIMIT, APP_DEBUG, SCRIPT_DEBUG, WP_CONTENT_DIR and WP_CACHE.
+// Set initial default constants including APP_MEMORY_LIMIT, APP_MAX_MEMORY_LIMIT, APP_DEBUG, SCRIPT_DEBUG, WP_CONTENT_DIR and WP_CACHE.
 wp_initial_constants();
 
 // Check for the required PHP version and for the MySQL extension or a database drop-in.
