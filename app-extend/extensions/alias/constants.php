@@ -12,6 +12,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * The compatability version checked by plugins & themes
+ *
+ * This is may be defined in the app-config.php file.
+ * Fallback is the version from whence this was derived.
+ *
+ * @global string $wp_version
+ */
+if ( defined( 'COMPAT_VERSION' ) && COMPAT_VERSION ) {
+	$wp_version = COMPAT_VERSION;
+} else {
+	$wp_version = '4.9.8';
+}
+
+/**
  * Debug mode
  *
  * @since 1.0.0

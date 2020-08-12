@@ -7,20 +7,6 @@
 $app_version = '1.0.0';
 
 /**
- * The compatability version checked by plugins & themes
- *
- * This is may be defined in the app-config.php file.
- * Fallback is the version from whence this was derived.
- *
- * @global string $wp_version
- */
-if ( defined( 'COMPAT_VERSION' ) && COMPAT_VERSION ) {
-	$wp_version = COMPAT_VERSION;
-} else {
-	$wp_version = '4.9.8';
-}
-
-/**
  * Holds the DB revision, increments when changes are made to the DB schema.
  *
  * @global int $wp_db_version

@@ -186,8 +186,8 @@ function wp_initial_constants() {
 	 */
 	if ( ! defined( 'SCRIPT_DEBUG' ) ) {
 
-		if ( ! empty( $GLOBALS['wp_version'] ) ) {
-			$develop_src = false !== strpos( $GLOBALS['wp_version'], '-src' );
+		if ( ! empty( $GLOBALS['app_version'] ) ) {
+			$develop_src = false !== strpos( $GLOBALS['app_version'], '-src' );
 		} else {
 			$develop_src = false;
 		}
