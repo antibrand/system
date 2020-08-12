@@ -17,6 +17,11 @@ function wp_initial_constants() {
 
 	global $blog_id;
 
+	// Define the location of the config file.
+	if ( ! defined( 'APP_CONFIG' ) && defined( 'ABSPATH' ) ) {
+		define( 'APP_CONFIG', ABSPATH . 'app-config.php' );
+	}
+
 	/**
 	 * App identity
 	 *
