@@ -88,7 +88,7 @@ if ( file_exists( APP_CONFIG ) ) {
 		exit;
 	}
 
-	define( 'WP_CONTENT_DIR', ABSPATH . 'app-views' );
+	define( 'APP_CONTENT_DIR', ABSPATH . 'app-views' );
 	require_once( ABSPATH . APP_INC . '/version.php' );
 
 	wp_check_php_mysql_versions();

@@ -38,7 +38,7 @@ require_once( ABSPATH . APP_INC . '/network-load.php' );
 require_once( ABSPATH . APP_INC . '/constants-default-network.php' );
 
 if ( defined( 'SUNRISE' ) ) {
-	include_once( WP_CONTENT_DIR . '/sunrise.php' );
+	include_once( APP_CONTENT_DIR . '/sunrise.php' );
 }
 
 /** Check for and define SUBDOMAIN_INSTALL and the deprecated VHOST constant. */

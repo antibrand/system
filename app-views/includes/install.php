@@ -102,7 +102,7 @@ global $app_version, $wp_version, $required_php_version, $required_mysql_version
 $php_version   = phpversion();
 $mysql_version = $wpdb->db_version();
 $php_compat    = version_compare( $php_version, $required_php_version, '>=' );
-$mysql_compat  = version_compare( $mysql_version, $required_mysql_version, '>=' ) || file_exists( WP_CONTENT_DIR . '/db.php' );
+$mysql_compat  = version_compare( $mysql_version, $required_mysql_version, '>=' ) || file_exists( APP_CONTENT_DIR . '/db.php' );
 
 if ( ! $mysql_compat && !$php_compat ) {
 

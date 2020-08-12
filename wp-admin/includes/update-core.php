@@ -820,7 +820,7 @@ $_new_bundled_files = array(
  *   3. Copy new application directory over old files.
  *   4. Upgrade to new version.
  *     4.1. Copy all files/folders other than wp-content
- *     4.2. Copy any language files to APP_LANG_DIR (which may differ from WP_CONTENT_DIR
+ *     4.2. Copy any language files to APP_LANG_DIR (which may differ from APP_CONTENT_DIR
  *     4.3. Copy any new bundled themes/plugins to their respective locations
  *   5. Delete new application directory path.
  *   6. Delete .maintenance file.
@@ -906,7 +906,7 @@ function update_core($from, $to) {
 	}
 
 	$wp_filesystem->chmod( $versions_file, FS_CHMOD_FILE );
-	require( WP_CONTENT_DIR . '/upgrade/version-current.php' );
+	require( APP_CONTENT_DIR . '/upgrade/version-current.php' );
 	$wp_filesystem->delete( $versions_file );
 
 	$php_version    = phpversion();
@@ -914,7 +914,7 @@ function update_core($from, $to) {
 	$old_wp_version = $GLOBALS['wp_version']; // The version we're updating from.
 	$development_build = ( false !== strpos( $old_wp_version . $wp_version, '-' )  ); // A dash in the version indicates a Development. release
 	$php_compat     = version_compare( $php_version, $required_php_version, '>=' );
-	if ( file_exists( WP_CONTENT_DIR . '/db.php' ) && empty( $wpdb->is_mysql ) )
+	if ( file_exists( APP_CONTENT_DIR . '/db.php' ) && empty( $wpdb->is_mysql ) )
 		$mysql_compat = true;
 	else
 		$mysql_compat = version_compare( $mysql_version, $required_mysql_version, '>=' );
@@ -940,7 +940,7 @@ function update_core($from, $to) {
 	// Check to see which files don't really need updating - only available for 3.7 and higher
 	if ( function_exists( 'get_core_checksums' ) ) {
 		// Find the local version of the working directory
-		$working_dir_local = WP_CONTENT_DIR . '/upgrade/' . basename( $from ) . $distro;
+		$working_dir_local = APP_CONTENT_DIR . '/upgrade/' . basename( $from ) . $distro;
 
 		$checksums = get_core_checksums( $wp_version, isset( $wp_local_package ) ? $wp_local_package : 'en_US' );
 		if ( is_array( $checksums ) && isset( $checksums[ $wp_version ] ) )
@@ -1053,7 +1053,7 @@ function update_core($from, $to) {
 		if ( APP_LANG_DIR != ABSPATH . APP_INC . '/languages' || @is_dir( APP_LANG_DIR ) )
 			$lang_dir = APP_LANG_DIR;
 		else
-			$lang_dir = WP_CONTENT_DIR . '/languages';
+			$lang_dir = APP_CONTENT_DIR . '/languages';
 
 		if ( !@is_dir($lang_dir) && 0 === strpos($lang_dir, ABSPATH) ) { // Check the language directory exists first
 			$wp_filesystem->mkdir($to . str_replace(ABSPATH, '', $lang_dir), FS_CHMOD_DIR); // If it's within the ABSPATH we can handle it here, otherwise they're out of luck.

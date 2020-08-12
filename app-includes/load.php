@@ -132,7 +132,7 @@ function wp_check_php_mysql_versions() {
 		die( sprintf( __( 'Your server is running PHP version %1$s but the application %2$s requires at least %3$s.' ), $php_version, $app_version, $required_php_version ) );
 	}
 
-	if ( ! extension_loaded( 'mysql' ) && ! extension_loaded( 'mysqli' ) && ! extension_loaded( 'mysqlnd' ) && ! file_exists( WP_CONTENT_DIR . '/db.php' ) ) {
+	if ( ! extension_loaded( 'mysql' ) && ! extension_loaded( 'mysqli' ) && ! extension_loaded( 'mysqlnd' ) && ! file_exists( APP_CONTENT_DIR . '/db.php' ) ) {
 		wp_load_translations_early();
 
 		$protocol = wp_get_server_protocol();
@@ -200,8 +200,8 @@ function wp_maintenance() {
 		return;
 	}
 
-	if ( file_exists( WP_CONTENT_DIR . '/maintenance.php' ) ) {
-		require_once( WP_CONTENT_DIR . '/maintenance.php' );
+	if ( file_exists( APP_CONTENT_DIR . '/maintenance.php' ) ) {
+		require_once( APP_CONTENT_DIR . '/maintenance.php' );
 		die();
 	}
 
@@ -327,7 +327,7 @@ function app_debug_mode() {
 
 		if ( APP_DEBUG_LOG ) {
 			ini_set( 'log_errors', 1 );
-			ini_set( 'error_log', WP_CONTENT_DIR . '/debug.log' );
+			ini_set( 'error_log', APP_CONTENT_DIR . '/debug.log' );
 		}
 	} else {
 		error_reporting( E_CORE_ERROR | E_CORE_WARNING | E_COMPILE_ERROR | E_ERROR | E_WARNING | E_PARSE | E_USER_ERROR | E_USER_WARNING | E_RECOVERABLE_ERROR );
@@ -344,7 +344,7 @@ function app_debug_mode() {
  * To set directory manually, define the `APP_LANG_DIR` constant
  * in app-config.php.
  *
- * If the language directory exists within `WP_CONTENT_DIR`, it
+ * If the language directory exists within `APP_CONTENT_DIR`, it
  * is used. Otherwise the language directory is assumed to live
  * in `APP_INC`.
  *
@@ -403,8 +403,8 @@ function require_wp_db() {
 	global $wpdb;
 
 	require_once( ABSPATH . APP_INC . '/app-db.php' );
-	if ( file_exists( WP_CONTENT_DIR . '/db.php' ) )
-		require_once( WP_CONTENT_DIR . '/db.php' );
+	if ( file_exists( APP_CONTENT_DIR . '/db.php' ) )
+		require_once( APP_CONTENT_DIR . '/db.php' );
 
 	if ( isset( $wpdb ) ) {
 		return;
@@ -487,8 +487,8 @@ function wp_start_object_cache() {
 
 	$first_init = false;
  	if ( ! function_exists( 'wp_cache_init' ) ) {
-		if ( file_exists( WP_CONTENT_DIR . '/object-cache.php' ) ) {
-			require_once ( WP_CONTENT_DIR . '/object-cache.php' );
+		if ( file_exists( APP_CONTENT_DIR . '/object-cache.php' ) ) {
+			require_once ( APP_CONTENT_DIR . '/object-cache.php' );
 			if ( function_exists( 'wp_cache_init' ) ) {
 				wp_using_ext_object_cache( true );
 			}
@@ -500,7 +500,7 @@ function wp_start_object_cache() {
 		}
 
 		$first_init = true;
-	} elseif ( ! wp_using_ext_object_cache() && file_exists( WP_CONTENT_DIR . '/object-cache.php' ) ) {
+	} elseif ( ! wp_using_ext_object_cache() && file_exists( APP_CONTENT_DIR . '/object-cache.php' ) ) {
 		/*
 		 * Sometimes advanced-cache.php can load object-cache.php before
 		 * it is loaded here. This breaks the function_exists check above
@@ -915,8 +915,8 @@ function wp_load_translations_early() {
 		if ( defined( 'APP_LANG_DIR' ) && @is_dir( APP_LANG_DIR ) )
 			$locations[] = APP_LANG_DIR;
 
-		if ( defined( 'WP_CONTENT_DIR' ) && @is_dir( WP_CONTENT_DIR . '/languages' ) )
-			$locations[] = WP_CONTENT_DIR . '/languages';
+		if ( defined( 'APP_CONTENT_DIR' ) && @is_dir( APP_CONTENT_DIR . '/languages' ) )
+			$locations[] = APP_CONTENT_DIR . '/languages';
 
 		if ( @is_dir( ABSPATH . 'app-languages' ) )
 			$locations[] = ABSPATH . 'app-languages';

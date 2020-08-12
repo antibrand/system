@@ -472,7 +472,7 @@ final class _WP_Editors {
 							// Try to load langs/[locale].js and langs/[locale]_dlg.js
 							if ( ! in_array( $name, $loaded_langs, true ) ) {
 								$path = str_replace( content_url(), '', $plugurl );
-								$path = WP_CONTENT_DIR . $path . '/langs/';
+								$path = APP_CONTENT_DIR . $path . '/langs/';
 
 								if ( function_exists('realpath') )
 									$path = trailingslashit( realpath($path) );

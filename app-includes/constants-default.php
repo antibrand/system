@@ -150,9 +150,9 @@ function wp_initial_constants() {
 		define( 'APP_VIEWS', 'app-views' );
 	}
 
-	// No trailing slash, full paths only - WP_CONTENT_URL is defined further down
-	if ( ! defined( 'WP_CONTENT_DIR' ) ) {
-		define( 'WP_CONTENT_DIR', ABSPATH . 'app-views' );
+	// No trailing slash, full paths only - APP_CONTENT_URL is defined further down
+	if ( ! defined( 'APP_CONTENT_DIR' ) ) {
+		define( 'APP_CONTENT_DIR', ABSPATH . 'app-views' );
 	}
 
 	// Add define( 'APP_DEBUG', true ); to app-config.php to enable display of notices during development.
@@ -241,10 +241,10 @@ function wp_initial_constants() {
  */
 function wp_plugin_directory_constants() {
 
-	if ( ! defined( 'WP_CONTENT_URL' ) ) {
+	if ( ! defined( 'APP_CONTENT_URL' ) ) {
 
-		// Full url - WP_CONTENT_DIR is defined further up.
-		define( 'WP_CONTENT_URL', get_option( 'siteurl' ) . '/app-views' );
+		// Full url - APP_CONTENT_DIR is defined further up.
+		define( 'APP_CONTENT_URL', get_option( 'siteurl' ) . '/app-views' );
 	}
 
 	/**

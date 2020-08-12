@@ -721,7 +721,7 @@ class RSSCache {
 	 * PHP5 constructor.
 	 */
 	function __construct( $base = '', $age = '' ) {
-		$this->BASE_CACHE = WP_CONTENT_DIR . '/cache';
+		$this->BASE_CACHE = APP_CONTENT_DIR . '/cache';
 		if ( $base ) {
 			$this->BASE_CACHE = $base;
 		}

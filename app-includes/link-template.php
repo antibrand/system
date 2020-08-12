@@ -3206,7 +3206,7 @@ function includes_url( $path = '', $scheme = null ) {
  * @return string Content URL link with optional path appended.
  */
 function content_url( $path = '' ) {
-	$url = set_url_scheme( WP_CONTENT_URL );
+	$url = set_url_scheme( APP_CONTENT_URL );
 
 	if ( $path && is_string( $path ) )
 		$url .= '/' . ltrim( $path, '/' );

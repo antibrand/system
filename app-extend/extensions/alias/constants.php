@@ -110,6 +110,34 @@ if ( ! defined( 'WPINC' ) && ( defined( 'APP_INC' ) && APP_INC ) ) {
 }
 
 /**
+ * Content directory
+ *
+ * Check for definition with a value.
+ *
+ * @since 1.0.0
+ * @var   string Returns the path to the content directory.
+ */
+if ( ! defined( 'WP_CONTENT_DIR' ) && ( defined( 'APP_CONTENT_DIR' ) && APP_CONTENT_DIR ) ) {
+	define( 'WP_CONTENT_DIR', APP_CONTENT_DIR );
+} else {
+	define( 'WP_CONTENT_DIR', ABSPATH . 'app-views' );
+}
+
+/**
+ * Content URL
+ *
+ * Check for definition with a value.
+ *
+ * @since 1.0.0
+ * @var   string Returns the URL to the content directory.
+ */
+if ( ! defined( 'WP_CONTENT_URL' ) && ( defined( 'APP_CONTENT_URL' ) && APP_CONTENT_URL ) ) {
+	define( 'WP_CONTENT_URL', APP_CONTENT_URL );
+} else {
+	define( 'WP_CONTENT_URL', get_option( 'siteurl' ) . '/app-views' );
+}
+
+/**
  * Plugins directory
  *
  * Check for definition with a value.

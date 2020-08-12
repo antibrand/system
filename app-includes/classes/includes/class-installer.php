@@ -221,7 +221,7 @@ class Installer {
 
 					break;
 
-				case WP_CONTENT_DIR :
+				case APP_CONTENT_DIR :
 
 					if ( ! $wp_filesystem->wp_content_dir() ) {
 						return new \WP_Error( 'fs_no_content_dir', $this->strings['fs_no_content_dir'] );
@@ -558,7 +558,7 @@ class Installer {
 		 * to copy the directory into the directory, whilst they pass the source
 		 * as the actual files to copy.
 		 */
-		$protected_directories = array( ABSPATH, WP_CONTENT_DIR, APP_PLUGIN_DIR, WP_CONTENT_DIR . '/themes' );
+		$protected_directories = array( ABSPATH, APP_CONTENT_DIR, APP_PLUGIN_DIR, APP_CONTENT_DIR . '/themes' );
 
 		if ( is_array( $wp_theme_directories ) ) {
 			$protected_directories = array_merge( $protected_directories, $wp_theme_directories );
@@ -744,7 +744,7 @@ class Installer {
 		}
 
 		// Connect to the Filesystem first.
-		$res = $this->fs_connect( [ WP_CONTENT_DIR, $options['destination'] ] );
+		$res = $this->fs_connect( [ APP_CONTENT_DIR, $options['destination'] ] );
 
 		// Mainly for non-connected filesystem.
 		if ( ! $res ) {

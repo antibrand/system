@@ -195,7 +195,7 @@ class WP_Automatic_Updater {
 			global $wpdb;
 
 			$php_compat = version_compare( phpversion(), $item->php_version, '>=' );
-			if ( file_exists( WP_CONTENT_DIR . '/db.php' ) && empty( $wpdb->is_mysql ) )
+			if ( file_exists( APP_CONTENT_DIR . '/db.php' ) && empty( $wpdb->is_mysql ) )
 				$mysql_compat = true;
 			else
 				$mysql_compat = version_compare( $wpdb->db_version(), $item->mysql_version, '>=' );
@@ -280,7 +280,7 @@ class WP_Automatic_Updater {
 				break;
 			case 'translation':
 				$upgrader = new Language_Pack_Upgrader( $skin );
-				$context  = WP_CONTENT_DIR; // APP_LANG_DIR;
+				$context  = APP_CONTENT_DIR; // APP_LANG_DIR;
 				break;
 		}
 
