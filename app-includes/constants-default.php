@@ -206,8 +206,8 @@ function wp_initial_constants() {
 		define( 'SHORTINIT', false );
 	}
 
-	// Constants for features added to WP that should short-circuit their plugin implementations.
-	define( 'WP_FEATURE_BETTER_PASSWORDS', true );
+	// Constants for features added that should short-circuit their plugin implementations.
+	define( 'APP_FEATURE_BETTER_PASSWORDS', true );
 
 	/**#@+
 	 * Constants for expressing human-readable intervals
@@ -424,29 +424,45 @@ function wp_ssl_constants() {
 function wp_functionality_constants() {
 
 	/**
+	 * Autosave
+	 *
 	 * @since Previous 2.5.0
+	 * @var   integer
 	 */
 	if ( ! defined( 'AUTOSAVE_INTERVAL' ) ) {
 		define( 'AUTOSAVE_INTERVAL', 60 );
 	}
 
 	/**
+	 * Empty trash
+	 *
 	 * @since Previous 2.9.0
+	 * @var   integer
 	 */
 	if ( ! defined( 'EMPTY_TRASH_DAYS' ) ) {
 		define( 'EMPTY_TRASH_DAYS', 30 );
 	}
 
-	if ( ! defined( 'WP_POST_REVISIONS' ) ) {
-		define( 'WP_POST_REVISIONS', true );
+	/**
+	 * Post revisions
+	 *
+	 * @since 1.0.0
+	 * @var   boolean
+	 */
+	if ( ! defined( 'APP_POST_REVISIONS' ) ) {
+		define( 'APP_POST_REVISIONS', true );
 	}
 
 	/**
+	 * Chron lock time out
+	 *
+	 * Define in seconds.
+	 *
 	 * @since Previous 3.3.0
+	 * @var   integer
 	 */
-	if ( ! defined( 'WP_CRON_LOCK_TIMEOUT' ) ) {
-		// In seconds.
-		define( 'WP_CRON_LOCK_TIMEOUT', 60 );
+	if ( ! defined( 'APP_CRON_LOCK_TIMEOUT' ) ) {
+		define( 'APP_CRON_LOCK_TIMEOUT', 60 );
 	}
 }
 

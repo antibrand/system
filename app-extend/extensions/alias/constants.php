@@ -194,6 +194,32 @@ if ( ! defined( 'WP_LANG_DIR' ) && ( defined( 'APP_LANG_DIR' ) && APP_LANG_DIR )
 }
 
 /**
+ * Post revisions
+ *
+ * @since 1.0.0
+ * @var   boolean Returns whether to allow revisions.
+ */
+if ( ! defined( 'WP_POST_REVISIONS' ) && defined( 'APP_POST_REVISIONS' ) ) {
+	define( 'WP_POST_REVISIONS', APP_POST_REVISIONS );
+} else {
+	define( 'WP_POST_REVISIONS', false );
+}
+
+/**
+ * Chron lock time out
+ *
+ * Define in seconds.
+ *
+ * @since Previous 3.3.0
+ * @var   integer
+ */
+if ( ! defined( 'WP_CRON_LOCK_TIMEOUT' ) && defined( 'APP_CRON_LOCK_TIMEOUT' ) ) {
+	define( 'WP_CRON_LOCK_TIMEOUT', APP_CRON_LOCK_TIMEOUT );
+} else {
+	define( 'WP_CRON_LOCK_TIMEOUT', 60 );
+}
+
+/**
  * Allow network
  *
  * @since 1.0.0
@@ -227,4 +253,16 @@ if ( ! defined( 'WP_NETWORK_ADMIN' ) && defined( 'APP_NETWORK_ADMIN' ) ) {
 	define( 'WP_NETWORK_ADMIN', APP_NETWORK_ADMIN );
 } else {
 	define( 'WP_NETWORK_ADMIN', false );
+}
+
+/**
+ * Better passwords
+ *
+ * @since 1.0.0
+ * @var   boolean
+ */
+if ( ! defined( 'WP_FEATURE_BETTER_PASSWORDS' ) && defined( 'APP_FEATURE_BETTER_PASSWORDS' ) ) {
+	define( 'WP_FEATURE_BETTER_PASSWORDS', APP_FEATURE_BETTER_PASSWORDS );
+} else {
+	define( 'WP_FEATURE_BETTER_PASSWORDS', true );
 }

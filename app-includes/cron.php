@@ -291,7 +291,7 @@ function spawn_cron( $gmt_time = 0 ) {
 		$lock = 0;
 
 	// don't run if another process is currently running it or more than once every 60 sec.
-	if ( $lock + WP_CRON_LOCK_TIMEOUT > $gmt_time )
+	if ( $lock + APP_CRON_LOCK_TIMEOUT > $gmt_time )
 		return;
 
 	//sanity check
