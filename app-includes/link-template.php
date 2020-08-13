@@ -3110,19 +3110,22 @@ function wp_admin_url( $path = '', $scheme = 'admin' ) {
 }
 
 /**
+ * Get admin URL
+ *
  * Retrieves the URL to the admin area for a given site.
  *
- * @since 3.0.0
- *
- * @param int    $blog_id Optional. Site ID. Default null (current site ).
- * @param string $path    Optional. Path relative to the admin URL. Default empty.
- * @param string $scheme  Optional. The scheme to use. Accepts 'http' or 'https',
- *                        to force those schemes. Default 'admin', which obeys
- *                        force_ssl_admin() and is_ssl().
+ * @since Previous 3.0.0
+ * @since This 1.0.0 Using the constant to define the admin directory.
+ * @param int  $blog_id Optional. Site ID. Default null (current site ).
+ * @param string $path Optional. Path relative to the admin URL. Default empty.
+ * @param string $scheme Optional. The scheme to use. Accepts 'http' or 'https',
+ *                       to force those schemes. Default 'admin', which obeys
+ *                       force_ssl_admin() and is_ssl().
  * @return string Admin URL link with optional path appended.
  */
 function get_admin_url( $blog_id = null, $path = '', $scheme = 'admin' ) {
-	$url = get_site_url( $blog_id, 'wp-admin/', $scheme );
+
+	$url = get_site_url( $blog_id, APP_ADMIN_DIR . '/', $scheme );
 
 	if ( $path && is_string( $path ) )
 		$url .= ltrim( $path, '/' );
@@ -3130,10 +3133,9 @@ function get_admin_url( $blog_id = null, $path = '', $scheme = 'admin' ) {
 	/**
 	 * Filters the admin area URL.
 	 *
-	 * @since 2.8.0
-	 *
-	 * @param string   $url     The complete admin area URL including scheme and path.
-	 * @param string   $path    Path relative to the admin area URL. Blank string if no path is specified.
+	 * @since Previous 2.8.0
+	 * @param string $url The complete admin area URL including scheme and path.
+	 * @param string $path Path relative to the admin area URL. Blank string if no path is specified.
 	 * @param int|null $blog_id Site ID, or null for the current site.
 	 */
 	return apply_filters( 'admin_url', $url, $path, $blog_id );
@@ -3151,7 +3153,8 @@ function get_admin_url( $blog_id = null, $path = '', $scheme = 'admin' ) {
  * @return string Admin URL link with optional path appended.
  */
 function get_wp_admin_url( $blog_id = null, $path = '', $scheme = 'admin' ) {
-	$url = get_site_url( $blog_id, 'wp-admin/', $scheme );
+
+	$url = get_site_url( $blog_id, APP_ADMIN_DIR . '/', $scheme );
 
 	if ( $path && is_string( $path ) )
 		$url .= ltrim( $path, '/' );

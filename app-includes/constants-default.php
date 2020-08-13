@@ -160,6 +160,11 @@ function app_initial_constants() {
 		define( 'APP_DEBUG', false );
 	}
 
+	// Define the administration pages directory.
+	if ( ! defined( 'APP_ADMIN_DIR' ) ) {
+		define( 'APP_ADMIN_DIR', 'wp-admin' );
+	}
+
 	/**
 	 * Add define( 'APP_DEBUG_DISPLAY', null); to app-config.php to
 	 * use the globally configured setting for display_errors and
