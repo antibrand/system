@@ -764,7 +764,7 @@ div.mce-statusbar,
 }
 
 .submitbox .submitdelete {
-  color: #ffffff;
+  color: #dd0000;
 }
 
 .submitbox .submitdelete:hover, .submitbox .submitdelete:focus {
