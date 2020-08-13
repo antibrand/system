@@ -86,6 +86,18 @@ if ( ! defined( 'WP_INSTALLING' ) && defined( 'APP_INSTALLING' ) ) {
 }
 
 /**
+ * Site admin
+ *
+ * @since 1.0.0
+ * @var   boolean
+ */
+if ( ! defined( 'WP_ADMIN' ) && defined( 'APP_ADMIN' ) ) {
+	define( 'WP_ADMIN', APP_ADMIN );
+} else {
+	define( 'WP_ADMIN', false );
+}
+
+/**
  * Memory limit
  *
  * @since 1.0.0

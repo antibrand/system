@@ -727,8 +727,8 @@ function wp_clone( $object ) {
 function is_admin() {
 	if ( isset( $GLOBALS['current_screen'] ) )
 		return $GLOBALS['current_screen']->in_admin();
-	elseif ( defined( 'WP_ADMIN' ) )
-		return WP_ADMIN;
+	elseif ( defined( 'APP_ADMIN' ) )
+		return APP_ADMIN;
 
 	return false;
 }
