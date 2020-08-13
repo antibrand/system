@@ -192,6 +192,30 @@ if ( ! defined( 'WP_PLUGIN_URL' ) && ( defined( 'APP_PLUGIN_URL' ) && APP_PLUGIN
 }
 
 /**
+ * Extensions/must-use plugins directory
+ *
+ * @since 1.0.0
+ * @var   string
+ */
+if ( ! defined( 'WPMU_PLUGIN_DIR' ) && defined( 'APP_EXTEND_DIR' ) ) {
+	define( 'WPMU_PLUGIN_DIR', APP_EXTEND_DIR );
+} else {
+	define( 'WPMU_PLUGIN_DIR', ABSPATH . 'app-extend/extensions' );
+}
+
+/**
+ * Extensions/must-use plugins URL
+ *
+ * @since 1.0.0
+ * @var   string
+ */
+if ( ! defined( 'WPMU_PLUGIN_URL' ) && defined( 'APP_EXTEND_URL' ) ) {
+	define( 'WPMU_PLUGIN_URL', APP_EXTEND_URL );
+} else {
+	define( 'WPMU_PLUGIN_URL', get_option( 'siteurl' ) . '/app-extend/extensions' );
+}
+
+/**
  * Languages directory
  *
  * Check for definition with a value.
