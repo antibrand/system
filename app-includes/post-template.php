@@ -8,6 +8,8 @@
  * @subpackage Template
  */
 
+use \AppNamespace\Includes as Includes;
+
 /**
  * Display the ID of the current item in the Loop.
  *
