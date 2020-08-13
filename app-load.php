@@ -30,7 +30,7 @@ if ( ! defined( 'APP_VIEWS' ) ) {
 	define( 'APP_VIEWS', 'app-views' );
 }
 
-// Define APP_VIEWS_PATH for page markup directory.
+// Define themes & admin page markup directory.
 if ( ! defined( 'APP_VIEWS_PATH' ) ) {
 	define( 'APP_VIEWS_PATH',  ABSPATH . APP_VIEWS . '/' );
 }
