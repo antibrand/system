@@ -94,7 +94,7 @@ if ( ! defined( 'WP_INSTALLING' ) && defined( 'APP_INSTALLING' ) ) {
 if ( ! defined( 'WP_ADMIN' ) && defined( 'APP_ADMIN' ) ) {
 	define( 'WP_ADMIN', APP_ADMIN );
 } else {
-	define( 'WP_ADMIN', false );
+	define( 'WP_ADMIN', true );
 }
 
 /**
