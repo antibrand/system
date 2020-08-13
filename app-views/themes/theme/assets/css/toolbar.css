@@ -139,8 +139,22 @@ body.frontend.serif {
   }
 }
 
+body.frontend .title-label + h1 {
+  margin-top: 0;
+}
+
 .entry-title a {
   text-decoration: none;
+}
+
+.title-label {
+  font-weight: 700;
+}
+
+@supports (font-variation-settings: normal) {
+  .title-label {
+    font-weight: 600;
+  }
 }
 
 .entry-subtitle {
