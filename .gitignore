@@ -2,17 +2,9 @@
 app-config.php
 id-config.php
 app-extend/plugins/
-# app-extend/extensions/
+app-extend/extensions/
 app-views/themes/
 app-views/uploads/
-wp-content/advanced-cache.php
-wp-content/backup-db/
-wp-content/backups/
-wp-content/blogs.dir/
-wp-content/cache/
-wp-content/upgrade/
-wp-content/uploads/
-wp-content/themes/
 
 /.htaccess
 /sitemap.xml
