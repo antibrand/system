@@ -35,7 +35,8 @@ body.frontend {
 		}
 	}
 
-	.title-label + h1 {
+	.title-label + h1,
+	.title-label + h2 {
 		margin-top: 0;
 	}
 }

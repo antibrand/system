@@ -124,7 +124,8 @@ body.frontend.serif {
   }
 }
 
-body.frontend .title-label + h1 {
+body.frontend .title-label + h1,
+body.frontend .title-label + h2 {
   margin-top: 0;
 }
 
