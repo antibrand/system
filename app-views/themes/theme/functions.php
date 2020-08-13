@@ -32,7 +32,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  *           }
  *          ```
  */
-include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+if ( defined( 'APP_ADMIN_DIR' ) && file_exists( ABSPATH . APP_ADMIN_DIR . '/includes/plugin.php' ) ) {
+	include_once( ABSPATH . APP_ADMIN_DIR . '/includes/plugin.php' );
+} elseif ( file_exists( ABSPATH . 'wp-admin/includes/plugin.php' ) ) {
+	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+}
 
 /**
  * Theme functions class
