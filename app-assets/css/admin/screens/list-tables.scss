@@ -270,6 +270,32 @@
     border-top: 1px solid rgba(0, 0, 0, 0.03);
 }
 
+#the-comment-list td.comment p.comment-author {
+	margin-top: 0;
+	margin-left: 0;
+}
+
+#the-comment-list p.comment-author img {
+	float: left;
+	margin-right: 8px;
+}
+
+#the-comment-list p.comment-author strong a {
+	border: none;
+}
+
+#the-comment-list td {
+	vertical-align: top;
+}
+
+#the-comment-list td.comment {
+	word-wrap: break-word;
+}
+
+#the-comment-list td.comment img {
+	max-width: 100%;
+}
+
 /* table vim shortcuts */
 .vim-current,
 .vim-current th,
