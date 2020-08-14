@@ -50,11 +50,43 @@ class Dashboard {
 	 */
 	public function __construct() {
 
+		// Enqueue scripts & styles.
+		add_action( 'admin_enqueue_scripts', [ $this, 'scripts_styles' ] );
+
 		// Add content to the tabbed section of the dashboard page.
 		// add_action( 'dashboard_top_panel', [ $this, 'tabs' ] );
 
 		// Add dashboard quota to the activity box.
 		add_action( 'activity_box_end', [ $this, 'dashboard_quota' ] );
+	}
+
+	/**
+	 * Enqueue scripts & styles
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function scripts_styles() {
+
+		// Load RTL stylesheets if direction is set.
+		if ( is_rtl() ) {
+			$direction = '-rtl';
+		} else {
+			$direction = '';
+		}
+
+		// Load minified stylesheets unless SCRIPT_DEBUG is true.
+		if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
+			$minify = '';
+		} else {
+			$minify = '.min';
+		}
+
+		// Combine variables.
+		$file = $direction . $minify;
+
+		wp_enqueue_style( 'dashboard', app_assets_url( "/css/admin/screens/dashboard$file.css" ), [ 'admin' ], null, 'all' );
 	}
 
 	/**
@@ -945,7 +977,7 @@ class Dashboard {
 
 				<p class="description"><?php _e( 'Save a thought or a note as a standard post to be completed & published at a later time.' ); ?></p>
 
-				<form name="post" action="<?php echo esc_url( admin_url( 'post.php' ) ); ?>" method="post" id="quick-press" class="initial-form">
+				<form name="post" action="<?php echo esc_url( admin_url( 'post.php' ) ); ?>" method="post" id="quick-draft" class="initial-form">
 
 					<?php if ( $error_msg ) : ?>
 					<div class="error dashboard-quick-draft-error"><?php echo $error_msg; ?></div>

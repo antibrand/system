@@ -31,16 +31,6 @@ if ( wp_is_mobile() ) {
 	wp_enqueue_script( 'jquery-touch-punch' );
 }
 
-/**
- * Not using this.
- *
- * @todo Remove when added to "WP Plugins" plugin.
- */
-if ( current_user_can( 'install_plugins' ) ) {
-	// wp_enqueue_script( 'plugin-install' );
-	// wp_enqueue_script( 'updates' );
-}
-
 // Parent file for indication in the menu.
 $parent_file = 'index.php';
 

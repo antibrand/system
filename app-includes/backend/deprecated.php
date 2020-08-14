@@ -734,7 +734,7 @@ function get_others_pending($user_id) {
 }
 
 /**
- * Output the QuickPress dashboard widget.
+ * Output the quick draft dashboard widget.
  *
  * @since 3.0.0
  * @deprecated 3.2.0 Use wp_dashboard_quick_draft()
