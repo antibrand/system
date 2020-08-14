@@ -418,7 +418,7 @@ class Dashboard {
 			}
 		}
 
-		$side_widgets = [ 'dashboard_quick_press', 'dashboard_primary' ];
+		$side_widgets = [ 'dashboard_quick_draft', 'dashboard_primary' ];
 		$location     = 'normal';
 
 		if ( in_array( $widget_id, $side_widgets ) ) {
@@ -902,7 +902,7 @@ class Dashboard {
 		 *
 		 * Get the last post_ID.
 		 */
-		$last_post_id = (int) get_user_option( 'dashboard_quick_press_last_post_id' );
+		$last_post_id = (int) get_user_option( 'dashboard_quick_draft_last_post_id' );
 
 		if ( $last_post_id ) {
 
@@ -914,7 +914,7 @@ class Dashboard {
 				$post = get_default_post_to_edit( 'post', true );
 
 				// Save post_ID.
-				update_user_option( get_current_user_id(), 'dashboard_quick_press_last_post_id', (int) $post->ID );
+				update_user_option( get_current_user_id(), 'dashboard_quick_draft_last_post_id', (int) $post->ID );
 
 			} else {
 
@@ -931,7 +931,7 @@ class Dashboard {
 			if ( in_array( get_current_blog_id(), array_keys( get_blogs_of_user( $user_id ) ) ) ) {
 
 				// Save post_ID.
-				update_user_option( $user_id, 'dashboard_quick_press_last_post_id', (int) $post->ID );
+				update_user_option( $user_id, 'dashboard_quick_draft_last_post_id', (int) $post->ID );
 			}
 		}
 

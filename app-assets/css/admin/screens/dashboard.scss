@@ -329,27 +329,27 @@
 }
 
 // Quick draft.
-#dashboard_quick_press .inside {
+#dashboard_quick_draft .inside {
 	margin: 0;
 	padding: 1em;
 }
 
-#dashboard_quick_press div.updated {
+#dashboard_quick_draft div.updated {
 	margin-bottom: 10px;
 	border: 1px solid #eee;
 	border-width: 1px 1px 1px 0;
 }
 
-#dashboard_quick_press form {
+#dashboard_quick_draft form {
 	margin-top: 1em;
 }
 
-#dashboard_quick_press p.description {
+#dashboard_quick_draft p.description {
 	margin: 0;
 }
 
-#dashboard_quick_press .drafts,
-#dashboard_quick_press .easy-blogging {
+#dashboard_quick_draft .drafts,
+#dashboard_quick_draft .easy-blogging {
 	margin-top: 1em;
 	padding: 10px 0 0;
 }
@@ -390,13 +390,13 @@ form.initial-form.quickpress-open {
 	}
 }
 
-#dashboard_quick_press input,
-#dashboard_quick_press textarea {
+#dashboard_quick_draft input,
+#dashboard_quick_draft textarea {
 	box-sizing: border-box;
 	margin: 0;
 }
 
-#dashboard_quick_press textarea {
+#dashboard_quick_draft textarea {
 	resize: vertical;
 }
 
@@ -435,15 +435,15 @@ form.initial-form.quickpress-open {
 
 /* Dashboard Quick Draft - Drafts list */
 
-.js #dashboard_quick_press .drafts {
+.js #dashboard_quick_draft .drafts {
 	border-top: 1px solid #eee;
 }
 
-#dashboard_quick_press .drafts abbr {
+#dashboard_quick_draft .drafts abbr {
 	border: none;
 }
 
-#dashboard_quick_press .drafts .view-all {
+#dashboard_quick_draft .drafts .view-all {
 	float: right;
 	margin: 0 12px 0 0;
 }
@@ -452,7 +452,7 @@ form.initial-form.quickpress-open {
 	font-weight: 400;
 }
 
-#dashboard_quick_press .drafts ul {
+#dashboard_quick_draft .drafts ul {
 	margin: 1em 0 0;
 }
 
@@ -465,7 +465,7 @@ form.initial-form.quickpress-open {
 	word-wrap: break-word;
 }
 
-#dashboard_quick_press .drafts a {
+#dashboard_quick_draft .drafts a {
 	font-weight: 700;
 
 	@supports( font-variation-settings: normal ) {
@@ -473,16 +473,16 @@ form.initial-form.quickpress-open {
 	}
 }
 
-#dashboard_quick_press .draft-title {
+#dashboard_quick_draft .draft-title {
 	word-wrap: break-word;
 }
 
-#dashboard_quick_press .draft-title a,
-#dashboard_quick_press .draft-title time {
+#dashboard_quick_draft .draft-title a,
+#dashboard_quick_draft .draft-title time {
 	margin: 0 5px 0 0;
 }
 
-#dashboard_quick_press .drafts h2 {
+#dashboard_quick_draft .drafts h2 {
 	line-height: inherit;
 }
 

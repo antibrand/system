@@ -72,7 +72,7 @@ jQuery(document).ready( function($) {
 
 		t = $('#quick-press').submit( function( e ) {
 			e.preventDefault();
-			$('#dashboard_quick_press #publishing-action .spinner').show();
+			$('#dashboard_quick_draft #publishing-action .spinner').show();
 			$('#quick-press .submit input[type="submit"], #quick-press .submit input[type="reset"]').prop('disabled', true);
 
 			$.post( t.attr( 'action' ), t.serializeArray(), function( data ) {
