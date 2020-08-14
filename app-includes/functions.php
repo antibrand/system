@@ -2782,7 +2782,7 @@ function _default_wp_die_handler( $message, $title = '', $args = [] ) {
 		}
 ?>
 
-<?php include_once( ABSPATH . 'app-views/includes/partials/header/default-die.php' );
+<?php include_once( APP_VIEWS_DIR . '/includes/partials/header/default-die.php' );
 
 endif; // ! did_action( 'admin_head' )
 
@@ -2793,7 +2793,7 @@ endif; // ! did_action( 'admin_head' )
 			<?php echo $message; ?>
 		</main>
 	</div>
-<?php include_once( ABSPATH . 'app-views/includes/partials/footer/default-die.php' );
+<?php include_once( APP_VIEWS_DIR . '/includes/partials/footer/default-die.php' );
 
 	die();
 }
@@ -4217,8 +4217,8 @@ function force_ssl_admin( $force = null ) {
 function wp_guess_url() {
 
 	// HTML templates directory name.
-	if ( defined( 'APP_VIEWS' ) ) {
-		$views = APP_VIEWS;
+	if ( defined( 'APP_VIEWS_DIR' ) ) {
+		$views = APP_VIEWS_DIR;
 	} else {
 		$views = 'app-views';
 	}

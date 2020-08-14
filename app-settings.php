@@ -11,14 +11,9 @@
 // Store the locations of functions, classes, and core content.
 define( 'APP_INC', 'app-includes' );
 
-// HTML templates directory name.
-if ( ! defined( 'APP_VIEWS' ) ) {
-	define( 'APP_VIEWS', 'app-views' );
-}
-
-// Path to HTML templates.
-if ( ! defined( 'APP_VIEWS_PATH' ) ) {
-	define( 'APP_VIEWS_PATH', ABSPATH . APP_VIEWS . '/' );
+// Define themes & admin page markup directory.
+if ( ! defined( 'APP_VIEWS_DIR' ) ) {
+	define( 'APP_VIEWS_DIR',  ABSPATH . 'app-views' );
 }
 
 /**
@@ -236,7 +231,7 @@ require( ABSPATH . APP_INC . '/classes/includes/class-app-widget.php' );
 require( ABSPATH . APP_INC . '/classes/includes/class-app-widget-factory.php' );
 require( ABSPATH . APP_INC . '/nav-menu.php' );
 require( ABSPATH . APP_INC . '/nav-menu-template.php' );
-require( APP_VIEWS_PATH . '/includes/user-toolbar.php' );
+require( APP_VIEWS_DIR . '/includes/user-toolbar.php' );
 require( ABSPATH . APP_INC . '/rest-api.php' );
 require( ABSPATH . APP_INC . '/rest-api/class-wp-rest-server.php' );
 require( ABSPATH . APP_INC . '/rest-api/class-wp-rest-response.php' );
@@ -271,6 +266,7 @@ if ( is_network() ) {
  * Define constants that rely on the API to obtain the default value.
  * Define must-use plugin directory constants, which may be overridden in the sunrise.php drop-in.
  */
+app_assets_directory_constants();
 app_plugin_directory_constants();
 
 $GLOBALS['wp_plugin_paths'] = [];
@@ -283,10 +279,13 @@ unset( $mu_plugin );
 
 // Load network activated plugins.
 if ( is_network() ) {
+
 	foreach ( wp_get_active_network_plugins() as $network_plugin ) {
+
 		wp_register_plugin_realpath( $network_plugin );
 		include_once( $network_plugin );
 	}
+
 	unset( $network_plugin );
 }
 

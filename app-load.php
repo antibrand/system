@@ -25,19 +25,14 @@ if ( ! defined( 'APP_CONFIG' ) && defined( 'ABSPATH' ) ) {
 	define( 'APP_CONFIG', ABSPATH . 'app-config.php' );
 }
 
-// HTML templates directory name.
-if ( ! defined( 'APP_VIEWS' ) ) {
-	define( 'APP_VIEWS', 'app-views' );
-}
-
 // Define themes & admin page markup directory.
-if ( ! defined( 'APP_VIEWS_PATH' ) ) {
-	define( 'APP_VIEWS_PATH',  ABSPATH . APP_VIEWS . '/' );
+if ( ! defined( 'APP_VIEWS_DIR' ) ) {
+	define( 'APP_VIEWS_DIR',  ABSPATH . 'app-views' );
 }
 
-// Define APP_ASSETS for assets directory.
-if ( ! defined( 'APP_ASSETS' ) ) {
-	define( 'APP_ASSETS', ABSPATH . 'app-assets/' );
+// Define the app assets directory.
+if ( ! defined( 'APP_ASSETS_DIR' ) ) {
+	define( 'APP_ASSETS_DIR', ABSPATH . 'app-assets' );
 }
 
 error_reporting( E_CORE_ERROR | E_CORE_WARNING | E_COMPILE_ERROR | E_ERROR | E_WARNING | E_PARSE | E_USER_ERROR | E_USER_WARNING | E_RECOVERABLE_ERROR );

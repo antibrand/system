@@ -899,7 +899,7 @@ function _wp_personal_data_cleanup_requests() {
  * @access private
  */
 function _wp_personal_data_export_page() {
-	require_once( ABSPATH . APP_VIEWS . '/backend/content/data-export-personal.php' );
+	require_once( APP_VIEWS_DIR . '/backend/content/data-export-personal.php' );
 }
 
 /**
@@ -909,7 +909,7 @@ function _wp_personal_data_export_page() {
  * @access private
  */
 function _wp_personal_data_removal_page() {
-	require_once( ABSPATH . APP_VIEWS . '/backend/content/data-remove-personal.php' );
+	require_once( APP_VIEWS_DIR . '/backend/content/data-remove-personal.php' );
 }
 
 /**
@@ -1068,7 +1068,7 @@ function help_export_personal_data() {
  */
 function help_export_personal_data_overview() {
 
-	$html = require_once( ABSPATH . APP_VIEWS . '/backend/help/export-personal-data-overview.php' );
+	$html = require_once( APP_VIEWS_DIR . '/backend/help/export-personal-data-overview.php' );
 
 	return apply_filters( 'help_export_personal_data_overview', $html );
 }
@@ -1080,7 +1080,7 @@ function help_export_personal_data_overview() {
  */
 function help_export_personal_data_usage() {
 
-	$html = require_once( ABSPATH . APP_VIEWS . '/backend/help/export-personal-data-usage.php' );
+	$html = require_once( APP_VIEWS_DIR . '/backend/help/export-personal-data-usage.php' );
 
 	return apply_filters( 'help_export_personal_data_usage', $html );
 }
@@ -1092,7 +1092,7 @@ function help_export_personal_data_usage() {
  */
 function help_export_personal_data_download() {
 
-	$html = require_once( ABSPATH . APP_VIEWS . '/backend/help/export-personal-data-download.php' );
+	$html = require_once( APP_VIEWS_DIR . '/backend/help/export-personal-data-download.php' );
 
 	return apply_filters( 'help_export_personal_data_download', $html );
 }
@@ -1148,7 +1148,7 @@ function help_remove_personal_data() {
  */
 function help_remove_personal_data_overview() {
 
-	$html = require_once( ABSPATH . APP_VIEWS . '/backend/help/remove-personal-data-overview.php' );
+	$html = require_once( APP_VIEWS_DIR . '/backend/help/remove-personal-data-overview.php' );
 
 	return apply_filters( 'help_remove_personal_data_overview', $html );
 }

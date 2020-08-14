@@ -34,7 +34,7 @@ if ( defined( 'APP_WEBSITE' ) && APP_WEBSITE ) {
 }
 
 // Path to the directory to upload the system icon.
-$app_icon_dir = apply_filters( 'app_icon_upload_directory', ABSPATH . APP_ASSETS . '/images/white-label/' );
+$app_icon_dir = apply_filters( 'app_icon_upload_directory', ABSPATH . APP_ASSETS_DIR . '/images/white-label/' );
 
 ?>
 <section id="config-identity" class="form-step">

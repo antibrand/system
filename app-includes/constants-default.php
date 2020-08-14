@@ -147,12 +147,16 @@ function app_initial_constants() {
 	 * @since 1.0.0
 	 */
 	if ( ! defined( 'APP_VIEWS' ) ) {
-		define( 'APP_VIEWS', 'app-views' );
+		define( 'APP_VIEWS',  'app-views' );
+	}
+
+	if ( ! defined( 'APP_VIEWS_DIR' ) ) {
+		define( 'APP_VIEWS_DIR',  ABSPATH . APP_VIEWS );
 	}
 
 	// No trailing slash, full paths only - APP_CONTENT_URL is defined further down
 	if ( ! defined( 'APP_CONTENT_DIR' ) ) {
-		define( 'APP_CONTENT_DIR', ABSPATH . 'app-views' );
+		define( 'APP_CONTENT_DIR', APP_VIEWS_DIR );
 	}
 
 	// Add define( 'APP_DEBUG', true ); to app-config.php to enable display of notices during development.
@@ -235,6 +239,25 @@ function app_initial_constants() {
 	define( 'MONTH_IN_SECONDS', 30 * DAY_IN_SECONDS );
 	define( 'YEAR_IN_SECONDS', 365 * DAY_IN_SECONDS );
 	/**#@-*/
+}
+
+/**
+ * Defines assets directory constants
+ *
+ * The directory for CSS stylesheets, JavaScriptf
+ * files, images, fonts, etc.
+ *
+ * @since This 1.0.0
+ */
+function app_assets_directory_constants() {
+
+	if ( ! defined( 'APP_ASSETS_DIR' ) ) {
+		define( 'APP_ASSETS_DIR', ABSPATH . 'app-assets' );
+	}
+
+	if ( ! defined( 'APP_ASSETS_URL' ) ) {
+		define( 'APP_ASSETS_URL', get_option( 'siteurl' ) . '/' . APP_ASSETS_DIR );
+	}
 }
 
 /**
