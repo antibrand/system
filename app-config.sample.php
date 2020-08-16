@@ -219,8 +219,8 @@ if ( ! defined( 'APP_VIEWS' ) ) {
  *
  * @since 1.0.0
  */
-if ( ! defined( 'APP_VIEWS_DIR' ) ) {
-	define( 'APP_VIEWS_DIR',  ABSPATH . 'app-views' );
+if ( ! defined( 'APP_VIEWS_PATH' ) ) {
+	define( 'APP_VIEWS_PATH', ABSPATH . APP_VIEWS . '/' );
 }
 
 /**

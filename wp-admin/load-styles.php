@@ -63,10 +63,10 @@ foreach ( $load as $handle ) {
 
 	$content = get_file( $path ) . "\n";
 
-	if ( strpos( $style->src, '/' . APP_ASSETS_DIR . '/includes/css/' ) === 0 ) {
-		$content = str_replace( '../images/', '../' . APP_ASSETS_DIR . '/includes/images/', $content );
-		$content = str_replace( '../js/tinymce/', '../' . APP_ASSETS_DIR . '/includes/js/tinymce/', $content );
-		$content = str_replace( '../fonts/', '../' . APP_ASSETS_DIR . '/includes/fonts/', $content );
+	if ( strpos( $style->src, '/' . APP_ASSETS . '/includes/css/' ) === 0 ) {
+		$content = str_replace( '../images/', '../' . APP_ASSETS . '/includes/images/', $content );
+		$content = str_replace( '../js/tinymce/', '../' . APP_ASSETS . '/includes/js/tinymce/', $content );
+		$content = str_replace( '../fonts/', '../' . APP_ASSETS . '/includes/fonts/', $content );
 		$out .= $content;
 	} else {
 		$out .= str_replace( '../images/', 'images/', $content );

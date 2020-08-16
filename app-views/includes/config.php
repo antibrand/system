@@ -25,14 +25,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', dirname( dirname( dirname( __FILE__ ) ) ) . '/' );
 }
 
-// Define themes & admin page markup directory.
-if ( ! defined( 'APP_VIEWS_DIR' ) ) {
-	define( 'APP_VIEWS_DIR',  ABSPATH . 'app-views' );
+// HTML templates directory name.
+if ( ! defined( 'APP_VIEWS' ) ) {
+	define( 'APP_VIEWS', 'app-views' );
 }
 
-// Define the app assets directory.
-if ( ! defined( 'APP_ASSETS_DIR' ) ) {
-	define( 'APP_ASSETS_DIR', ABSPATH . 'app-assets' );
+// Path to HTML templates.
+if ( ! defined( 'APP_VIEWS_PATH' ) ) {
+	define( 'APP_VIEWS_PATH', ABSPATH . APP_VIEWS . '/' );
+}
+
+// Path to assets directory.
+if ( ! defined( 'APP_ASSETS' ) ) {
+	define( 'APP_ASSETS', ABSPATH . 'app-assets' );
 }
 
 // Load dependency files.
@@ -69,13 +74,13 @@ elseif ( file_exists( dirname( ABSPATH ) . '/app-config.sample.php' ) ) :
 else :
 
 // Get the page header.
-include( APP_VIEWS_DIR . '/includes/partials/header/config-install.php' );
+include( APP_VIEWS_PATH . 'includes/partials/header/config-install.php' );
 
 // Get the message content.
-include_once( APP_VIEWS_DIR . '/includes/partials/content/config-sample-missing.php' );
+include_once( APP_VIEWS_PATH . 'includes/partials/content/config-sample-missing.php' );
 
 // Get the page footer.
-include( APP_VIEWS_DIR . '/includes/partials/footer/config-install.php' );
+include( APP_VIEWS_PATH . 'includes/partials/footer/config-install.php' );
 
 // Stop the configuration process.
 return;
@@ -89,13 +94,13 @@ endif;
 if ( file_exists( ABSPATH . 'app-config.php' ) ) :
 
 // Get the page header.
-include( APP_VIEWS_DIR . '/includes/partials/header/config-install.php' );
+include( APP_VIEWS_PATH . 'includes/partials/header/config-install.php' );
 
 // Get the message content.
-include_once( APP_VIEWS_DIR . '/includes/partials/content/config-exists.php' );
+include_once( APP_VIEWS_PATH . 'includes/partials/content/config-exists.php' );
 
 // Get the page footer.
-include( APP_VIEWS_DIR . '/includes/partials/footer/config-install.php' );
+include( APP_VIEWS_PATH . 'includes/partials/footer/config-install.php' );
 
 // Stop the configuration process.
 return;
@@ -110,13 +115,13 @@ endif;
 if ( @file_exists( ABSPATH . '../app-config.php' ) && ! @file_exists( ABSPATH . '../app-settings.php' ) ) :
 
 // Get the page header.
-include( APP_VIEWS_DIR . '/includes/partials/header/config-install.php' );
+include( APP_VIEWS_PATH . 'includes/partials/header/config-install.php' );
 
 // Get the message content.
-include_once( APP_VIEWS_DIR . '/includes/partials/content/config-exists-above.php' );
+include_once( APP_VIEWS_PATH . 'includes/partials/content/config-exists-above.php' );
 
 // Get the page footer.
-include( APP_VIEWS_DIR . '/includes/partials/footer/config-install.php' );
+include( APP_VIEWS_PATH . 'includes/partials/footer/config-install.php' );
 
 // Stop the configuration process.
 return;
@@ -155,7 +160,7 @@ if ( ! empty( $_REQUEST['language'] ) ) {
 }
 
 // Get the page header.
-include( APP_VIEWS_DIR . '/includes/partials/header/config-install.php' );
+include( APP_VIEWS_PATH . 'includes/partials/header/config-install.php' );
 
 /**
  * Begin the paginated setup & config pages markup
@@ -185,11 +190,11 @@ switch( $step ) :
 			<form enctype="multipart/form-data" class="config-form" method="post" action="config.php?step=ready">
 
 				<?php
-				include_once( APP_VIEWS_DIR . '/includes/partials/content/config-intro.php' );
-				include_once( APP_VIEWS_DIR . '/includes/partials/content/config-info-database.php' );
-				include_once( APP_VIEWS_DIR . '/includes/partials/content/config-info-identity.php' );
-				include_once( APP_VIEWS_DIR . 'includes/partials/content/config-database.php' );
-				include_once( APP_VIEWS_DIR . '/includes/partials/content/config-identity.php' );
+				include_once( ABSPATH . 'app-views/includes/partials/content/config-intro.php' );
+				include_once( ABSPATH . 'app-views/includes/partials/content/config-info-database.php' );
+				include_once( ABSPATH . 'app-views/includes/partials/content/config-info-identity.php' );
+				include_once( ABSPATH . 'app-views/includes/partials/content/config-database.php' );
+				include_once( ABSPATH . 'app-views/includes/partials/content/config-identity.php' );
 				?>
 			</form>
 		</main>
@@ -431,7 +436,7 @@ switch( $step ) :
 	 * the necessary permissions to write the new configuration files.
 	 */
 	if ( ! is_writable( ABSPATH ) ) :
-		include_once( APP_VIEWS_DIR . '/includes/partials/content/config-not-writable.php' );
+		include_once( APP_VIEWS_PATH . 'includes/partials/content/config-not-writable.php' );
 
 	/**
 	 * Files can be written
@@ -483,7 +488,7 @@ switch( $step ) :
 		fclose( $id_handle );
 		chmod( $path_to_id_config, 0666 );
 
-		include_once( APP_VIEWS_DIR . '/includes/partials/content/config-database-success.php' );
+		include_once( APP_VIEWS_PATH . 'includes/partials/content/config-database-success.php' );
 
 	endif;
 
@@ -494,7 +499,7 @@ switch( $step ) :
 endswitch;
 
 // Get the page footer.
-include( APP_VIEWS_DIR . '/includes/partials/footer/config-install.php' );
+include( APP_VIEWS_PATH . 'includes/partials/footer/config-install.php' );
 
 wp_print_scripts( 'language-chooser' );
 
