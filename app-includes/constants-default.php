@@ -20,15 +20,30 @@ function app_initial_constants() {
 	global $blog_id;
 
 	/**
-	 * App config
+	 * Configuration file name
+	 *
+	 * Separate constant from the path for renaming the
+	 * file without redefining the path to the file.
+	 *
+	 * @since 1.0.0
+ 	 * @var   string Returns the name of the file.
+	 */
+	if ( ! defined( 'APP_CONFIG_FILE' ) ) {
+		define( 'APP_CONFIG_FILE', 'app-config.php' );
+	}
+
+	/**
+	 * Configuration file path
 	 *
 	 * Define the location of the configuration file.
 	 *
+	 * @see `APP_CONFIG_FILE` above.
+	 *
 	 * @since 1.0.0
- 	 * @var   string Returns the path to the config file.
+ 	 * @var   string Returns the path to the configuration file.
 	 */
-	if ( ! defined( 'APP_CONFIG' ) && defined( 'ABSPATH' ) ) {
-		define( 'APP_CONFIG', ABSPATH . 'app-config.php' );
+	if ( ! defined( 'APP_CONFIG_PATH' ) && defined( 'ABSPATH' ) ) {
+		define( 'APP_CONFIG_PATH', ABSPATH . APP_CONFIG_FILE );
 	}
 
 	/**
@@ -39,7 +54,7 @@ function app_initial_constants() {
 	 * @since 1.0.0
 	 */
 
-	// Check for an identity config file.
+	// Check for an identity configuration file.
 	if ( file_exists( ABSPATH . 'id-config.php' ) ) {
 		require( ABSPATH . 'id-config.php' );
 

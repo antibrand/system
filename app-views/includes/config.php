@@ -91,7 +91,7 @@ endif;
  * Stop the configuration process and display a message if the
  * configuration file has been created.
  */
-if ( file_exists( ABSPATH . 'app-config.php' ) ) :
+if ( file_exists( APP_CONFIG_PATH ) ) :
 
 // Get the page header.
 include( APP_VIEWS_PATH . 'includes/partials/header/config-install.php' );
@@ -454,7 +454,7 @@ switch( $step ) :
 		 * file one level up, which is for development installations.
 		 */
 		if ( file_exists( ABSPATH . 'app-config.sample.php' ) ) {
-			$path_to_app_config = ABSPATH . 'app-config.php';
+			$path_to_app_config = APP_CONFIG_PATH;
 		} else {
 			$path_to_app_config = dirname( ABSPATH ) . '/app-config.php';
 		}

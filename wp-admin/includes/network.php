@@ -386,7 +386,7 @@ function network_step2( $errors = false ) {
 
 	$location_of_wp_config = $abspath_fix;
 
-	if ( ! file_exists( ABSPATH . 'app-config.php' ) && file_exists( dirname( ABSPATH ) . '/app-config.php' ) ) {
+	if ( ! file_exists( APP_CONFIG_PATH ) && file_exists( dirname( ABSPATH ) . '/app-config.php' ) ) {
 		$location_of_wp_config = dirname( $abspath_fix );
 	}
 

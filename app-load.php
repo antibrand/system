@@ -20,9 +20,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
 }
 
-// Define the location of the config file.
-if ( ! defined( 'APP_CONFIG' ) && defined( 'ABSPATH' ) ) {
-	define( 'APP_CONFIG', ABSPATH . 'app-config.php' );
+/**
+ * Configuration file name
+ *
+ * Separate constant from the path for renaming the
+ * file without redefining the path to the file.
+ *
+ * @since 1.0.0
+ * @var   string Returns the name of the file.
+	*/
+if ( ! defined( 'APP_CONFIG_FILE' ) ) {
+	define( 'APP_CONFIG_FILE', 'app-config.php' );
+}
+
+/**
+ * Configuration file path
+ *
+ * Define the location of the configuration file.
+ *
+ * @see `APP_CONFIG_FILE` above.
+ *
+ * @since 1.0.0
+ * @var   string Returns the path to the configuration file.
+	*/
+if ( ! defined( 'APP_CONFIG_PATH' ) && defined( 'ABSPATH' ) ) {
+	define( 'APP_CONFIG_PATH', ABSPATH . APP_CONFIG_FILE );
 }
 
 // HTML templates directory name.
@@ -50,10 +72,10 @@ error_reporting( E_CORE_ERROR | E_CORE_WARNING | E_COMPILE_ERROR | E_ERROR | E_W
  * If neither set of conditions is true, initiate loading the setup process.
  */
 
-if ( file_exists( APP_CONFIG ) ) {
+if ( file_exists( APP_CONFIG_PATH ) ) {
 
 	// The config file resides in ABSPATH.
-	require_once( APP_CONFIG );
+	require_once( APP_CONFIG_PATH );
 
 } elseif ( @file_exists( dirname( ABSPATH ) . '/app-config.php' ) && ! @file_exists( dirname( ABSPATH ) . '/app-settings.php' ) ) {
 
