@@ -2,9 +2,14 @@
 /**
  * Base configuration for the website management system
  *
- * The app-config.php creation script uses this file during the
- * installation. You don't have to use the web site, you can
- * copy this file to "app-config.php" and fill in the values.
+ * The form script that creates a configuration file uses
+ * a sample file during the installation. That sample may
+ * be this file that you are reading, if the file name
+ * is prepended by `sample.` (e.g. sample.app-config.php).
+ *
+ * You don't have to use the configuration creation form,
+ * you can copy the sample file, remove the `sample.`,
+ * and fill in the definition values.
  *
  * This file contains the following configurations:
  *
