@@ -754,11 +754,16 @@ class Plugin_Install_List_Table extends List_Table {
 
 				<div class="column-compatibility">
 					<?php
-					$wp_version = get_bloginfo( 'version' );
 
-					if ( ! empty( $plugin['tested'] ) && version_compare( substr( $wp_version, 0, strlen( $plugin['tested'] ) ), $plugin['tested'], '>' ) ) {
+					if ( is_defined( 'COMPAT_VERSION' ) ) {
+						$version = COMPAT_VERSION;
+					} else {
+						$version = get_bloginfo( 'app_version' );
+					}
+
+					if ( ! empty( $plugin['tested'] ) && version_compare( substr( $version, 0, strlen( $plugin['tested'] ) ), $plugin['tested'], '>' ) ) {
 						echo '<span class="compatibility-untested">' . __( 'Untested with your version' ) . '</span>';
-					} elseif ( ! empty( $plugin['requires'] ) && version_compare( substr( $wp_version, 0, strlen( $plugin['requires'] ) ), $plugin['requires'], '<' ) ) {
+					} elseif ( ! empty( $plugin['requires'] ) && version_compare( substr( $version, 0, strlen( $plugin['requires'] ) ), $plugin['requires'], '<' ) ) {
 						echo '<span class="compatibility-incompatible">' . __( '<strong>Incompatible</strong> with your version' ) . '</span>';
 					} else {
 						echo '<span class="compatibility-compatible">' . __( '<strong>Compatible</strong> with your version' ) . '</span>';

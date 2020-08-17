@@ -92,12 +92,12 @@ if ( is_blog_installed() ) {
 
 /**
  * @global string $app_version
- * @global string $wp_version
+ * @global string $app_version
  * @global string $required_php_version
  * @global string $required_mysql_version
  * @global wpdb   $wpdb
  */
-global $app_version, $wp_version, $required_php_version, $required_mysql_version;
+global $app_version, $app_version, $required_php_version, $required_mysql_version;
 
 $php_version   = phpversion();
 $mysql_version = $wpdb->db_version();

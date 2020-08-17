@@ -846,7 +846,7 @@ $_new_bundled_files = array(
  * @global array              $_old_files
  * @global array              $_new_bundled_files
  * @global wpdb               $wpdb
- * @global string             $wp_version
+ * @global string             $app_version
  * @global string             $required_php_version
  * @global string             $required_mysql_version
  *
@@ -894,7 +894,7 @@ function update_core($from, $to) {
 
 
 	/*
-	 * Import $wp_version, $required_php_version, and $required_mysql_version from the new version.
+	 * Import $app_version, $required_php_version, and $required_mysql_version from the new version.
 	 * DO NOT globalise any variables imported from `version-current.php` in this function.
 	 *
 	 * BC Note: $wp_filesystem->wp_content_dir() returned unslashed pre-2.8
@@ -912,7 +912,7 @@ function update_core($from, $to) {
 	$php_version    = phpversion();
 	$mysql_version  = $wpdb->db_version();
 	$old_wp_version = $GLOBALS['wp_version']; // The version we're updating from.
-	$development_build = ( false !== strpos( $old_wp_version . $wp_version, '-' )  ); // A dash in the version indicates a Development. release
+	$development_build = ( false !== strpos( $old_wp_version . $app_version, '-' )  ); // A dash in the version indicates a Development. release
 	$php_compat     = version_compare( $php_version, $required_php_version, '>=' );
 	if ( file_exists( APP_CONTENT_DIR . '/db.php' ) && empty( $wpdb->is_mysql ) )
 		$mysql_compat = true;
@@ -923,11 +923,11 @@ function update_core($from, $to) {
 		$wp_filesystem->delete($from, true);
 
 	if ( !$mysql_compat && !$php_compat )
-		return new WP_Error( 'php_mysql_not_compatible', sprintf( __('The update cannot be installed because the application %1$s requires PHP version %2$s or higher and MySQL version %3$s or higher. You are running PHP version %4$s and MySQL version %5$s.'), $wp_version, $required_php_version, $required_mysql_version, $php_version, $mysql_version ) );
+		return new WP_Error( 'php_mysql_not_compatible', sprintf( __('The update cannot be installed because the application %1$s requires PHP version %2$s or higher and MySQL version %3$s or higher. You are running PHP version %4$s and MySQL version %5$s.'), $app_version, $required_php_version, $required_mysql_version, $php_version, $mysql_version ) );
 	elseif ( !$php_compat )
-		return new WP_Error( 'php_not_compatible', sprintf( __('The update cannot be installed because the application %1$s requires PHP version %2$s or higher. You are running version %3$s.'), $wp_version, $required_php_version, $php_version ) );
+		return new WP_Error( 'php_not_compatible', sprintf( __('The update cannot be installed because the application %1$s requires PHP version %2$s or higher. You are running version %3$s.'), $app_version, $required_php_version, $php_version ) );
 	elseif ( !$mysql_compat )
-		return new WP_Error( 'mysql_not_compatible', sprintf( __('The update cannot be installed because the application %1$s requires MySQL version %2$s or higher. You are running version %3$s.'), $wp_version, $required_mysql_version, $mysql_version ) );
+		return new WP_Error( 'mysql_not_compatible', sprintf( __('The update cannot be installed because the application %1$s requires MySQL version %2$s or higher. You are running version %3$s.'), $app_version, $required_mysql_version, $mysql_version ) );
 
 	/** This filter is documented in wp-admin/includes/update-core.php */
 	apply_filters( 'update_feedback', __( 'Preparing to install the latest version&#8230;' ) );
@@ -942,9 +942,9 @@ function update_core($from, $to) {
 		// Find the local version of the working directory
 		$working_dir_local = APP_CONTENT_DIR . '/upgrade/' . basename( $from ) . $distro;
 
-		$checksums = get_core_checksums( $wp_version, isset( $wp_local_package ) ? $wp_local_package : 'en_US' );
-		if ( is_array( $checksums ) && isset( $checksums[ $wp_version ] ) )
-			$checksums = $checksums[ $wp_version ]; // Compat code for 3.7-beta2
+		$checksums = get_core_checksums( $app_version, isset( $wp_local_package ) ? $wp_local_package : 'en_US' );
+		if ( is_array( $checksums ) && isset( $checksums[ $app_version ] ) )
+			$checksums = $checksums[ $app_version ]; // Compat code for 3.7-beta2
 		if ( is_array( $checksums ) ) {
 			foreach ( $checksums as $file => $checksum ) {
 				if ( 'app-views' == substr( $file, 0, 10 ) )
@@ -1169,15 +1169,15 @@ function update_core($from, $to) {
 	 *
 	 * @since 3.3.0
 	 *
-	 * @param string $wp_version The current version.
+	 * @param string $app_version The current version.
 	 */
-	do_action( '_core_updated_successfully', $wp_version );
+	do_action( '_core_updated_successfully', $app_version );
 
 	// Clear the option that blocks auto updates after failures, now that we've been successful.
 	if ( function_exists( 'delete_site_option' ) )
 		delete_site_option( 'auto_core_update_failed' );
 
-	return $wp_version;
+	return $app_version;
 }
 
 /**
@@ -1249,16 +1249,16 @@ function _copy_dir($from, $to, $skip_list = array() ) {
  *
  * @since 3.3.0
  *
- * @global string $wp_version
+ * @global string $app_version
  * @global string $pagenow
  * @global string $action
  *
  * @param string $new_version
  */
 function _redirect_to_about_wordpress( $new_version ) {
-	global $wp_version, $pagenow, $action;
+	global $app_version, $pagenow, $action;
 
-	if ( version_compare( $wp_version, '3.4-RC1', '>=' ) )
+	if ( version_compare( $app_version, '3.4-RC1', '>=' ) )
 		return;
 
 	// Ensure we only run this on the update-core.php page. The Core_Upgrader may be used in other contexts.

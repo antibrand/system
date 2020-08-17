@@ -137,9 +137,6 @@ function plugins_api( $action, $args = [] ) {
 
 	if ( false === $res ) {
 
-		// Include an unmodified $wp_version.
-		include( ABSPATH . APP_INC . '/version.php' );
-
 		/**
 		 * Disable plugins API URL
 		 *
@@ -153,9 +150,15 @@ function plugins_api( $action, $args = [] ) {
 			$url = set_url_scheme( $url, 'https' );
 		}
 
+		if ( is_defined( 'COMPAT_VERSION' ) ) {
+			$version = COMPAT_VERSION;
+		} else {
+			$version = get_bloginfo( 'app_version' );
+		}
+
 		$http_args = [
 			'timeout'    => 15,
-			'user-agent' => 'WordPress/' . $wp_version . '; ' . home_url( '/' ),
+			'user-agent' => 'WordPress/' . $version . '; ' . home_url( '/' ),
 			'body' => [
 				'action'  => $action,
 				'request' => serialize( $args )
@@ -796,11 +799,15 @@ function install_plugin_information() {
 
 	<div id="section-holder" class="wrap">
 	<?php
-	$wp_version = get_bloginfo( 'version' );
+	if ( is_defined( 'COMPAT_VERSION' ) ) {
+		$version = COMPAT_VERSION;
+	} else {
+		$version = get_bloginfo( 'app_version' );
+	}
 
-	if ( ! empty( $api->tested ) && version_compare( substr( $wp_version, 0, strlen( $api->tested ) ), $api->tested, '>' ) ) {
+	if ( ! empty( $api->tested ) && version_compare( substr( $version, 0, strlen( $api->tested ) ), $api->tested, '>' ) ) {
 		echo '<div class="notice notice-warning notice-alt"><p>' . __( '<strong>Warning:</strong> This plugin has <strong>not been tested</strong> with your current version of WordPress.' ) . '</p></div>';
-	} elseif ( ! empty( $api->requires ) && version_compare( substr( $wp_version, 0, strlen( $api->requires ) ), $api->requires, '<' ) ) {
+	} elseif ( ! empty( $api->requires ) && version_compare( substr( $version, 0, strlen( $api->requires ) ), $api->requires, '<' ) ) {
 		echo '<div class="notice notice-warning notice-alt"><p>' . __( '<strong>Warning:</strong> This plugin has <strong>not been marked as compatible</strong> with your version of WordPress.' ) . '</p></div>';
 	}
 

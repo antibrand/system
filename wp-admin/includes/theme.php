@@ -439,15 +439,19 @@ function themes_api( $action, $args = array() ) {
 	$res = apply_filters( 'themes_api', false, $action, $args );
 
 	if ( ! $res ) {
-		// include an unmodified $wp_version
-		include( ABSPATH . APP_INC . '/version.php' );
 
 		$url = $http_url = '';
 		if ( $ssl = wp_http_supports( array( 'ssl' ) ) )
 			$url = set_url_scheme( $url, 'https' );
 
+		if ( is_defined( 'COMPAT_VERSION' ) ) {
+			$version = COMPAT_VERSION;
+		} else {
+			$version = get_bloginfo( 'app_version' );
+		}
+
 		$http_args = array(
-			'user-agent' => 'WordPress/' . $wp_version . '; ' . home_url( '/' ),
+			'user-agent' => 'WordPress/' . $version . '; ' . home_url( '/' ),
 			'body' => array(
 				'action' => $action,
 				'request' => serialize( $args )

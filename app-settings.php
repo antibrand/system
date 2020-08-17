@@ -43,7 +43,7 @@ require_once( ABSPATH . APP_INC . '/plugin.php' );
  * we're including version.php from another installation and don't want
  * these values to be overridden if already set.
  */
-global $app_version, $wp_version, $wp_db_version, $tinymce_version, $required_php_version, $required_mysql_version, $wp_local_package;
+global $app_version, $app_version, $wp_db_version, $tinymce_version, $required_php_version, $required_mysql_version, $wp_local_package;
 require( ABSPATH . APP_INC . '/version.php' );
 
 /**

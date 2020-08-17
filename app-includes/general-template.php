@@ -745,16 +745,9 @@ function bloginfo( $show = '' ) {
  * @return string Mostly string values, might be empty.
  */
 function get_bloginfo( $show = '', $filter = 'raw' ) {
+
 	switch( $show ) {
-		case 'home' : // DEPRECATED
-		case 'siteurl' : // DEPRECATED
-			_deprecated_argument( __FUNCTION__, '2.2.0', sprintf(
-				/* translators: 1: 'siteurl'/'home' argument, 2: bloginfo() function name, 3: 'url' argument */
-				__( 'The %1$s option is deprecated for the family of %2$s functions. Use the %3$s option instead.' ),
-				'<code>' . $show . '</code>',
-				'<code>bloginfo()</code>',
-				'<code>url</code>'
-			) );
+
 		case 'url' :
 			$output = home_url();
 			break;
@@ -802,9 +795,34 @@ function get_bloginfo( $show = '', $filter = 'raw' ) {
 		case 'html_type' :
 			$output = get_option( 'html_type' );
 			break;
+
+		/**
+		 * App version
+		 *
+		 * The version of this system which may differ from
+		 * the compatibility version.
+		 */
+		case 'app_version':
+
+			global $app_version;
+
+			$output = $app_version;
+
+			break;
+
+		/**
+		 * Compatibility version
+		 *
+		 * Version is deprecated in this system but is maintained for
+		 * compatibility with plugins & themes which require it.
+		 *
+		 * The compatability version is defined in the app constants
+		 * file and may be overridden in the app config file.
+		 */
 		case 'version':
-			global $wp_version;
-			$output = $wp_version;
+
+			$output = COMPAT_VERSION;
+
 			break;
 		case 'language':
 			/* translators: Translate this to the correct language tag for your locale,
@@ -817,20 +835,7 @@ function get_bloginfo( $show = '', $filter = 'raw' ) {
 				$output = str_replace( '_', '-', $output );
 			}
 			break;
-		case 'text_direction':
-			_deprecated_argument( __FUNCTION__, '2.2.0', sprintf(
-				/* translators: 1: 'text_direction' argument, 2: bloginfo() function name, 3: is_rtl() function name */
-				__( 'The %1$s option is deprecated for the family of %2$s functions. Use the %3$s function instead.' ),
-				'<code>' . $show . '</code>',
-				'<code>bloginfo()</code>',
-				'<code>is_rtl()</code>'
-			) );
-			if ( function_exists( 'is_rtl' ) ) {
-				$output = is_rtl() ? 'rtl' : 'ltr';
-			} else {
-				$output = 'ltr';
-			}
-			break;
+
 		case 'name':
 		default:
 			$output = get_option( 'blogname' );

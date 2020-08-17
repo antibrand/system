@@ -72,7 +72,7 @@ class Core_Upgrader extends Includes\Installer {
 	public function upgrade( $current, $args = array() ) {
 		global $wp_filesystem;
 
-		include( ABSPATH . APP_INC . '/version.php' ); // $wp_version;
+		include( ABSPATH . APP_INC . '/version.php' );
 
 		$start_time = time();
 
@@ -112,9 +112,9 @@ class Core_Upgrader extends Includes\Installer {
 		 */
 		if ( $parsed_args['do_rollback'] && $current->packages->rollback )
 			$to_download = 'rollback';
-		elseif ( $current->packages->partial && 'reinstall' != $current->response && $wp_version == $current->partial_version && $partial )
+		elseif ( $current->packages->partial && 'reinstall' != $current->response && $app_version == $current->partial_version && $partial )
 			$to_download = 'partial';
-		elseif ( $current->packages->new_bundled && version_compare( $wp_version, $current->new_bundled, '<' )
+		elseif ( $current->packages->new_bundled && version_compare( $app_version, $current->new_bundled, '<' )
 			&& ( ! defined( 'CORE_UPGRADE_SKIP_NEW_BUNDLED' ) || ! CORE_UPGRADE_SKIP_NEW_BUNDLED ) )
 			$to_download = 'new_bundled';
 		elseif ( $current->packages->no_content )
@@ -203,7 +203,7 @@ class Core_Upgrader extends Includes\Installer {
 				'fs_method_forced' => defined( 'FS_METHOD' ) || has_filter( 'filesystem_method' ),
 				'fs_method_direct' => !empty( $GLOBALS['_wp_filesystem_direct_method'] ) ? $GLOBALS['_wp_filesystem_direct_method'] : '',
 				'time_taken'       => time() - $start_time,
-				'reported'         => $wp_version,
+				'reported'         => $app_version,
 				'attempted'        => $current->version,
 			);
 
@@ -244,11 +244,11 @@ class Core_Upgrader extends Includes\Installer {
 	 * @return bool True if we should update to the offered version, otherwise false.
 	 */
 	public static function should_update_to_version( $offered_ver ) {
-		include( ABSPATH . APP_INC . '/version.php' ); // $wp_version; // x.y.z
+		include( ABSPATH . APP_INC . '/version.php' ); // $app_version; // x.y.z
 
-		$current_branch = implode( '.', array_slice( preg_split( '/[.-]/', $wp_version  ), 0, 2 ) ); // x.y
+		$current_branch = implode( '.', array_slice( preg_split( '/[.-]/', $app_version  ), 0, 2 ) ); // x.y
 		$new_branch     = implode( '.', array_slice( preg_split( '/[.-]/', $offered_ver ), 0, 2 ) ); // x.y
-		$current_is_development_version = (bool) strpos( $wp_version, '-' );
+		$current_is_development_version = (bool) strpos( $app_version, '-' );
 
 		// Defaults:
 		$upgrade_dev   = true;
@@ -271,11 +271,11 @@ class Core_Upgrader extends Includes\Installer {
 		}
 
 		// 1: If we're already on that version, not much point in updating?
-		if ( $offered_ver == $wp_version )
+		if ( $offered_ver == $app_version )
 			return false;
 
 		// 2: If we're running a newer version, that's a nope
-		if ( version_compare( $wp_version, $offered_ver, '>' ) )
+		if ( version_compare( $app_version, $offered_ver, '>' ) )
 			return false;
 
 		$failure_data = get_site_option( 'auto_core_update_failed' );
@@ -285,13 +285,13 @@ class Core_Upgrader extends Includes\Installer {
 				return false;
 
 			// Don't claim we can update on update-core.php if we have a non-critical failure logged.
-			if ( $wp_version == $failure_data['current'] && false !== strpos( $offered_ver, '.1.next.minor' ) )
+			if ( $app_version == $failure_data['current'] && false !== strpos( $offered_ver, '.1.next.minor' ) )
 				return false;
 
 			// Cannot update if we're retrying the same A to B update that caused a non-critical failure.
 			// Some non-critical failures do allow retries, like download_failed.
 			// 3.7.1 => 3.7.2 resulted in files_not_writable, if we are still on 3.7.1 and still trying to update to 3.7.2.
-			if ( empty( $failure_data['retry'] ) && $wp_version == $failure_data['current'] && $offered_ver == $failure_data['attempted'] )
+			if ( empty( $failure_data['retry'] ) && $app_version == $failure_data['current'] && $offered_ver == $failure_data['attempted'] )
 				return false;
 		}
 
@@ -346,15 +346,15 @@ class Core_Upgrader extends Includes\Installer {
 	 *
 	 * @since 3.7.0
 	 *
-	 * @global string $wp_version
+	 * @global string $app_version
 	 * @global string $wp_local_package
 	 *
 	 * @return bool True if the checksums match, otherwise false.
 	 */
 	public function check_files() {
-		global $wp_version, $wp_local_package;
+		global $app_version, $wp_local_package;
 
-		$checksums = get_core_checksums( $wp_version, isset( $wp_local_package ) ? $wp_local_package : 'en_US' );
+		$checksums = get_core_checksums( $app_version, isset( $wp_local_package ) ? $wp_local_package : 'en_US' );
 
 		if ( ! is_array( $checksums ) )
 			return false;
