@@ -3,7 +3,7 @@
  * Class autoloader
  *
  * @package App_Package
- * @subpackage Administration
+ * @subpackage Includes
  */
 
 namespace AppNamespace;
