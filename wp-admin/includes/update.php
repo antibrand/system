@@ -571,7 +571,7 @@ function wp_theme_update_row( $theme_key, $theme ) {
  * @return false|void
  */
 function maintenance_nag() {
-	include( ABSPATH . APP_INC . '/version.php' ); // include an unmodified $wp_version
+	include( ABSPATH . APP_INC . '/version.php' ); // include an unmodified $app_version
 	global $upgrading;
 	$nag = isset( $upgrading );
 	if ( ! $nag ) {
@@ -587,7 +587,7 @@ function maintenance_nag() {
 		 * This flag is cleared whenever a successful update occurs using Core_Upgrader.
 		 */
 		$comparison = ! empty( $failed['critical'] ) ? '>=' : '>';
-		if ( version_compare( $failed['attempted'], $wp_version, $comparison ) )
+		if ( is_array( $failed ) && version_compare( $failed['attempted'], $app_version, $comparison ) )
 			$nag = true;
 	}
 
