@@ -942,7 +942,6 @@ function wp_default_styles( &$styles ) {
 	$styles->add( 'code-editor', "/app-assets/css/admin/screens/code-editor$minify.css", [ 'app-codemirror', 'code-theme' ] );
 
 	$styles->add( 'app-admin', false, [
-		'dashicons',
 		'admin',
 		'list-tables',
 		'edit',
@@ -956,12 +955,12 @@ function wp_default_styles( &$styles ) {
 		'site-icon'
 	] );
 
-	$styles->add( 'customize-controls',  "/app-assets/css/admin/screens/customize-controls$minify.css", [ 'app-admin', 'colors', 'code-theme', 'imgareaselect' ] );
-	$styles->add( 'customize-widgets',   "/app-assets/css/admin/screens/customize-widgets$minify.css", [ 'app-admin', 'colors' ] );
-	$styles->add( 'customize-nav-menus', "/app-assets/css/admin/screens/customize-nav-menus$minify.css", [ 'app-admin', 'colors' ] );
+	$styles->add( 'customize-controls',  "/app-assets/css/admin/screens/customize-controls$minify.css", [ 'admin', 'colors', 'code-theme', 'imgareaselect' ] );
+	$styles->add( 'customize-widgets',   "/app-assets/css/admin/screens/customize-widgets$minify.css", [ 'admin', 'colors' ] );
+	$styles->add( 'customize-nav-menus', "/app-assets/css/admin/screens/customize-nav-menus$minify.css", [ 'admin', 'colors' ] );
 
 	// Common stylesheets.
-	$styles->add( 'dashicons', "/app-assets/css/includes/dashicons$minify.css" );
+	$styles->add( 'dashicons', "/app-assets/css/includes/dashicons$minify.css", [ 'admin' ] );
 
 	// Includes stylesheets.
 	$styles->add( 'utility',               "/app-assets/css/includes/utility$minify.css" );

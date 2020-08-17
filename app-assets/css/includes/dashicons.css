@@ -6,17 +6,16 @@
 }
 
 .dashicons,
+.dashicons:before,
 .dashicons-before:before {
   display: inline-block;
-  width: 20px;
-  height: 20px;
-  font-size: 20px;
+  font-size: 1.25em;
   line-height: 1;
   font-family: dashicons;
   text-decoration: inherit;
   font-weight: normal;
   font-style: normal;
-  vertical-align: top;
+  vertical-align: text-top;
   text-align: center;
   -webkit-transition: color .1s ease-in 0;
   transition: color .1s ease-in 0;

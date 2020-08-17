@@ -660,7 +660,7 @@ ul#adminmenu > li.current > a.current:after {
  * Dashboard
  */
 #dashboard_right_now .main h3:not(:first-of-type),
-.js #dashboard_quick_press .drafts {
+.js #dashboard_quick_draft .drafts {
   border-color: #888888;
 }
 
