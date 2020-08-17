@@ -29,7 +29,7 @@ if ( ! defined( 'APP_VIEWS_PATH' ) ) {
  *
  * @since 1.0.0
  */
-require( ABSPATH . APP_INC . '/autoloader.php' );
+require( ABSPATH . APP_INC . '/app-autoloader.php' );
 
 require( ABSPATH . APP_INC . '/deprecated-versions.php' );
 
