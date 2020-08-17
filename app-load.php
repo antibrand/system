@@ -15,10 +15,8 @@
  * @package App_Package
  */
 
-// Define ABSPATH as this file's directory.
-if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
-}
+// Get the default system constants.
+require_once( dirname( __FILE__ ) . '/app-constants.php' );
 
 /**
  * Configuration file name
