@@ -20,8 +20,8 @@
 	<p><?php _e( 'If you don&#8217;t have this information then you will need to contact your web host.' ); ?></p>
 	<p><?php
 		printf( __( 'This information is needed to create a configuration file. If for any reason this automatic file creation doesn&#8217;t work then find the %1$s file in the root directory, open it in a text editor, fill in your information, and save it as %2$s in the same directory.' ),
-			'<code>app-config.sample.php</code>',
-			'<code>app-config.php</code>'
+			'<code>' . APP_CONFIG_SAMPLE . '</code>',
+			'<code>' . APP_CONFIG_FILE . '</code>'
 		);
 	?></p>
 

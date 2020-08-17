@@ -16,14 +16,14 @@
 		<?php echo sprintf(
 			'<p>%1s <code>%2s</code> %3s</p>',
 			__( 'The' ),
-			'app-config.sample.php',
+			APP_CONFIG_SAMPLE,
 			__( 'file is needed for the configuration process to write a new configuration file. Upload this file to the root directory of the website management system.' )
 		); ?>
 
 		<?php echo sprintf(
 			'<p>%1s <code>%2s</code> %3s</p>',
 			__( 'The code below is recommended for the' ),
-			'app-config.sample.php',
+			APP_CONFIG_SAMPLE,
 			__( 'file. If you cannot find the sample file that came with the website management system then try the following.' )
 		); ?>
 

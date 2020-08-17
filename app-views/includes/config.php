@@ -58,20 +58,19 @@ $app_get_logo = dirname( dirname( dirname( $_SERVER['PHP_SELF'] ) ) ) . '/app-as
 nocache_headers();
 
 /**
- * Look for the `app-config.sample.php` file,
+ * Look for the sample configuration file,
  * including one level up from the app root.
  */
-if ( file_exists( ABSPATH . 'app-config.sample.php' ) ) :
-	$app_config_file = file( ABSPATH . 'app-config.sample.php' );
-
-elseif ( file_exists( dirname( ABSPATH ) . '/app-config.sample.php' ) ) :
-	$app_config_file = file( dirname( ABSPATH ) . '/app-config.sample.php' );
+if ( file_exists( ABSPATH . APP_CONFIG_SAMPLE ) ) {
+	$app_config_file = file( ABSPATH . APP_CONFIG_SAMPLE );
+} elseif ( file_exists( dirname( ABSPATH ) . APP_CONFIG_SAMPLE ) ) {
+	$app_config_file = file( dirname( ABSPATH ) . APP_CONFIG_SAMPLE );
 
 /**
  * Stop the configuration process and display a message if the sample
  * configuration file is not found in the root directory.
  */
-else :
+} else {
 
 // Get the page header.
 include( APP_VIEWS_PATH . 'includes/partials/header/config-install.php' );
@@ -85,7 +84,7 @@ include( APP_VIEWS_PATH . 'includes/partials/footer/config-install.php' );
 // Stop the configuration process.
 return;
 
-endif;
+}
 
 /**
  * Stop the configuration process and display a message if the
@@ -450,13 +449,13 @@ switch( $step ) :
 	 */
 	else :
 		/*
-		 * If the configuration file doesn't exist then use the `app-config.sample.php`
+		 * If the configuration file doesn't exist then use the sample configuration
 		 * file one level up, which is for development installations.
 		 */
-		if ( file_exists( ABSPATH . 'app-config.sample.php' ) ) {
+		if ( file_exists( ABSPATH . APP_CONFIG_SAMPLE ) ) {
 			$path_to_app_config = APP_CONFIG_PATH;
 		} else {
-			$path_to_app_config = dirname( ABSPATH ) . '/app-config.php';
+			$path_to_app_config = dirname( ABSPATH ) . '/' . APP_CONFIG_SAMPLE;
 		}
 
 		// Write the new configuration file file.

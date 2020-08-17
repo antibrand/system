@@ -33,6 +33,20 @@ function app_initial_constants() {
 	}
 
 	/**
+	 * Sample configuration file name
+	 *
+	 * Uses the same path as the configuration file.
+	 *
+	 * @see `APP_CONFIG_PATH` below.
+	 *
+	 * @since 1.0.0
+ 	 * @var   string Returns the name of the file.
+	 */
+	if ( ! defined( 'APP_CONFIG_SAMPLE' ) ) {
+		define( 'APP_CONFIG_SAMPLE', 'app-config.sample.php' );
+	}
+
+	/**
 	 * Configuration file path
 	 *
 	 * Define the location of the configuration file.
