@@ -3,7 +3,7 @@
  * Retrieve or create the configuration file
  *
  * The permissions for the base directory must allow for writing files in order
- * for the `app-config.php` file to be created using this page.
+ * for the configuration file to be created using this page.
  *
  * @package App_Package
  * @subpackage Administration
@@ -450,7 +450,7 @@ switch( $step ) :
 	 */
 	else :
 		/*
-		 * If the `app-config.php` file doesn't exist then use the `app-config.sample.php`
+		 * If the configuration file doesn't exist then use the `app-config.sample.php`
 		 * file one level up, which is for development installations.
 		 */
 		if ( file_exists( ABSPATH . 'app-config.sample.php' ) ) {
@@ -459,7 +459,7 @@ switch( $step ) :
 			$path_to_app_config = dirname( ABSPATH ) . '/app-config.php';
 		}
 
-		// Write the new `app-config.php` file.
+		// Write the new configuration file file.
 		$app_handle = fopen( $path_to_app_config, 'w' );
 
 		foreach ( $app_config_file as $line ) {

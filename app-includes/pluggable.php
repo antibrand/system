@@ -2025,13 +2025,13 @@ if ( !function_exists('wp_salt') ) :
  * Get salt to add to hashes.
  *
  * Salts are created using secret keys. Secret keys are located in two places:
- * in the database and in the app-config.php file. The secret key in the database
- * is randomly generated and will be appended to the secret keys in app-config.php.
+ * in the database and in the configuration file file. The secret key in the database
+ * is randomly generated and will be appended to the secret keys in the configuration file.
  *
- * The secret keys in app-config.php should be updated to strong, random keys to maximize
+ * The secret keys in the configuration file should be updated to strong, random keys to maximize
  * security. Below is an example of how the secret key constants are defined.
- * Do not paste this example directly into app-config.php. Instead, have asecret key created just
- * for you.
+ * Do not paste this example directly into the configuration file. Instead,
+ * have asecret key created just for you.
  *
  *     define('AUTH_KEY',         ' Xakm<o xQy rw4EMsLKM-?!T+,PFF})H4lzcW57AF0U@N@< >M%G4Yt>f`z]MON');
  *     define('SECURE_AUTH_KEY',  'LzJ}op]mr|6+![P}Ak:uNdJCJZd>(Hx.-Mh#Tz)pCIU#uGEnfFz|f ;;eU%/U^O~');

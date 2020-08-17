@@ -3,7 +3,8 @@
  * Used to set up and fix common variables and include
  * the network procedural and class library.
  *
- * Allows for some configuration in app-config.php (see constants-default-network.php)
+ * Allows for some configuration in the configuration file.
+ * @see constants-default-network.php
  *
  * @package App_Package
  * @subpackage Network

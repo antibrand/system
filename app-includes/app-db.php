@@ -578,7 +578,7 @@ class wpdb {
 		$this->dbname = $dbname;
 		$this->dbhost = $dbhost;
 
-		// app-config.php creation will manually connect when ready.
+		// The configuration file creation will manually connect when ready.
 		if ( defined( 'WP_SETUP_CONFIG' ) ) {
 			return;
 		}
@@ -1556,7 +1556,6 @@ class wpdb {
 			$message = '<h1>' . __( 'Error establishing a database connection' ) . "</h1>\n";
 
 			$message .= '<p>' . sprintf(
-				/* translators: 1: app-config.php. 2: database host */
 				__( 'This either means that the username and password information in your %1$s file is incorrect or we can&#8217;t contact the database server at %2$s. This could mean your host&#8217;s database server is down.' ),
 				'<code>app-config.php</code>',
 				'<code>' . htmlspecialchars( $this->dbhost, ENT_QUOTES ) . '</code>'

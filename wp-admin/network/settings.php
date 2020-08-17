@@ -170,7 +170,7 @@ if ( isset( $_GET['updated'] ) ) {
 					<label><input name="registration" type="radio" id="registration4" value="all"<?php checked( $reg, 'all') ?> /> <?php _e( 'Both sites and user accounts can be registered' ); ?></label>
 					<?php if ( is_subdomain_install() ) {
 						echo '<p class="description">';
-						/* translators: 1: NOBLOGREDIRECT 2: app-config.php */
+
 						printf( __( 'If registration is disabled, please set %1$s in %2$s to a URL you will redirect visitors to if they visit a non-existent site.' ),
 							'<code>NOBLOGREDIRECT</code>',
 							'<code>app-config.php</code>'

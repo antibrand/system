@@ -1,8 +1,10 @@
 <?php
 /**
- * Defines constants and global variables that can be overridden, generally in app-config.php.
+ * Defines constants and global variables that can be overridden,
+ * typically in system configuration file.
  *
  * @package App_Package
+ * @subpackage Includes
  */
 
 /**
@@ -20,7 +22,7 @@ function app_initial_constants() {
 	/**
 	 * App config
 	 *
-	 * Define the location of the config file.
+	 * Define the location of the configuration file.
 	 *
 	 * @since 1.0.0
  	 * @var   string Returns the path to the config file.

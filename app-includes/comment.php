@@ -1890,7 +1890,7 @@ function wp_throttle_comment_flood($block, $time_lastcomment, $time_newcomment) 
  * filter for processing the comment data before the function handles it.
  *
  * We use `REMOTE_ADDR` here directly. If you are behind a proxy, you should ensure
- * that it is properly set, such as in app-config.php, for your environment.
+ * that it is properly set, such as in the configuration file, for your environment.
  *
  * @since 1.5.0
  * @since 4.3.0 'comment_agent' and 'comment_author_IP' can be set via `$commentdata`.

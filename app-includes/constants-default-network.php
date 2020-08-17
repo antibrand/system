@@ -1,10 +1,11 @@
 <?php
 /**
- * Defines constants and global variables that can be overridden, generally in app-config.php.
+ * Defines constants and global variables that can be overridden,
+ * typically in the configuration file.
  *
  * @package App_Package
  * @subpackage Network
- * @since 3.0.0
+ * @since Previous 3.0.0
  */
 
 /**
@@ -13,7 +14,7 @@
  * Exists for backward compatibility with legacy file-serving through
  * app-includes/network-files.php (wp-content/blogs.php in MU).
  *
- * @since 3.0.0
+ * @since Previous 3.0.0
  */
 function ms_upload_constants() {
 	// This filter is attached in network-default-filters.php but that file is not included during SHORTINIT.
@@ -42,25 +43,25 @@ function ms_upload_constants() {
 /**
  * Defines network cookie constants.
  *
- * @since 3.0.0
+ * @since Previous 3.0.0
  */
 function ms_cookie_constants(  ) {
 	$current_network = get_network();
 
 	/**
-	 * @since 1.2.0
+	 * @since Previous 1.2.0
 	 */
 	if ( !defined( 'COOKIEPATH' ) )
 		define( 'COOKIEPATH', $current_network->path );
 
 	/**
-	 * @since 1.5.0
+	 * @since Previous 1.5.0
 	 */
 	if ( !defined( 'SITECOOKIEPATH' ) )
 		define( 'SITECOOKIEPATH', $current_network->path );
 
 	/**
-	 * @since 2.6.0
+	 * @since Previous 2.6.0
 	 */
 	if ( !defined( 'ADMIN_COOKIE_PATH' ) ) {
 		if ( ! is_subdomain_install() || trim( parse_url( get_option( 'siteurl' ), PHP_URL_PATH ), '/' ) ) {
@@ -71,7 +72,7 @@ function ms_cookie_constants(  ) {
 	}
 
 	/**
-	 * @since 2.0.0
+	 * @since Previous 2.0.0
 	 */
 	if ( !defined('COOKIE_DOMAIN') && is_subdomain_install() ) {
 		if ( !empty( $current_network->cookie_domain ) )
@@ -87,19 +88,19 @@ function ms_cookie_constants(  ) {
  * Exists for backward compatibility with legacy file-serving through
  * app-includes/network-files.php (wp-content/blogs.php in MU).
  *
- * @since 3.0.0
+ * @since Previous 3.0.0
  */
 function ms_file_constants() {
 	/**
 	 * Optional support for X-Sendfile header
-	 * @since 3.0.0
+	 * @since Previous 3.0.0
 	 */
 	if ( !defined( 'WPMU_SENDFILE' ) )
 		define( 'WPMU_SENDFILE', false );
 
 	/**
 	 * Optional support for X-Accel-Redirect header
-	 * @since 3.0.0
+	 * @since Previous 3.0.0
 	 */
 	if ( !defined( 'WPMU_ACCEL_REDIRECT' ) )
 		define( 'WPMU_ACCEL_REDIRECT', false );
@@ -113,7 +114,7 @@ function ms_file_constants() {
  * On first call, the constants are checked and defined. On second call,
  * we will have translations loaded and can trigger warnings easily.
  *
- * @since 3.0.0
+ * @since Previous 3.0.0
  *
  * @staticvar bool $subdomain_error
  * @staticvar bool $subdomain_error_warn
@@ -128,7 +129,6 @@ function ms_subdomain_constants() {
 
 	if ( $subdomain_error ) {
 		$vhost_deprecated = sprintf(
-			/* translators: 1: VHOST, 2: SUBDOMAIN_INSTALL, 3: app-config.php, 4: is_subdomain_install() */
 			__( 'The constant %1$s <strong>is deprecated</strong>. Use the boolean constant %2$s in %3$s to enable a subdomain configuration. Use %4$s to check whether a subdomain configuration is enabled.' ),
 			'<code>VHOST</code>',
 			'<code>SUBDOMAIN_INSTALL</code>',

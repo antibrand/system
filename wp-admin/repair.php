@@ -164,7 +164,7 @@ if ( ! defined( 'WP_ALLOW_REPAIR' ) ) {
 		echo '<p><textarea name="errors" id="errors" rows="20" cols="60">' . esc_textarea( $problem_output ) . '</textarea></p>';
 
 	} else {
-		echo '<p>' . __( 'Repairs complete. Please remove the following line from app-config.php to prevent this page from being used by unauthorized users.' ) . "</p><p><code>define( 'WP_ALLOW_REPAIR', true);</code></p>";
+		echo '<p>' . __( 'Repairs complete. Please remove the following line from the configuration file to prevent this page from being used by unauthorized users.' ) . "</p><p><code>define( 'WP_ALLOW_REPAIR', true);</code></p>";
 	}
 
 } else {

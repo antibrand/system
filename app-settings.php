@@ -3,7 +3,8 @@
  * Used to set up and fix common variables and include
  * the procedural and class library.
  *
- * Allows for some configuration in app-config.php (see app-includes/constants-default.php)
+ * Allows for some configuration in the configuration file
+ * @see app-includes/constants-default.php
  *
  * @package App_Package
  */

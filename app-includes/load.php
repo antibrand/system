@@ -273,8 +273,9 @@ function timer_stop( $display = 0, $precision = 3 ) {
  * Set PHP error reporting based on debug settings.
  *
  * Uses three constants: `APP_DEBUG`, `APP_DEBUG_DISPLAY`, and `APP_DEBUG_LOG`.
- * All three can be defined in app-config.php. By default, `APP_DEBUG` and
- * `APP_DEBUG_LOG` are set to false, and `APP_DEBUG_DISPLAY` is set to true.
+ * All three can be defined in the configuration file. By default,
+ * `APP_DEBUG` and `APP_DEBUG_LOG` are set to false, and
+ * `APP_DEBUG_DISPLAY` is set to true.
  *
  * When `APP_DEBUG` is true, all PHP notices are reported. The application will also
  * display internal notices: when a deprecated function, function
@@ -342,7 +343,7 @@ function app_debug_mode() {
  * Set the location of the language directory.
  *
  * To set directory manually, define the `APP_LANG_DIR` constant
- * in app-config.php.
+ * in the configuration file.
  *
  * If the language directory exists within `APP_CONTENT_DIR`, it
  * is used. Otherwise the language directory is assumed to live
@@ -443,7 +444,6 @@ function wp_set_wpdb_vars() {
 	if ( is_wp_error( $prefix ) ) {
 		wp_load_translations_early();
 		wp_die(
-			/* translators: 1: $table_prefix 2: app-config.php */
 			sprintf( __( '<strong>ERROR</strong>: %1$s in %2$s can only contain numbers, letters, and underscores.' ),
 				'<code>$table_prefix</code>',
 				'<code>app-config.php</code>'
@@ -573,7 +573,7 @@ function app_not_installed() {
  *
  * The default directory is wp-content/mu-plugins. To change the default
  * directory manually, define `APP_EXTEND_DIR` and `APP_EXTEND_URL`
- * in app-config.php.
+ * in the configuration file.
  *
  * @since 3.0.0
  * @access private
@@ -603,7 +603,7 @@ function wp_get_mu_plugins() {
  *
  * The default directory is wp-content/plugins. To change the default
  * directory manually, define `APP_PLUGIN_DIR` and `APP_PLUGIN_URL`
- * in app-config.php.
+ * in the configuration file.
  *
  * @since 3.0.0
  * @access private
