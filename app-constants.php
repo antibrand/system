@@ -48,6 +48,79 @@ define( 'APP_CONFIG_SAMPLE', 'app-config.sample.php' );
 define( 'APP_INC', 'app-includes' );
 
 /**
+ * Configuration file path
+ *
+ * Define the location of the configuration file.
+ *
+ * @see `APP_CONFIG_FILE` above.
+ *
+ * @since 1.0.0
+ * @var   string Returns the path to the configuration file.
+	*/
+if ( ! defined( 'APP_CONFIG_PATH' ) && defined( 'ABSPATH' ) ) {
+	define( 'APP_CONFIG_PATH', ABSPATH . APP_CONFIG_FILE );
+}
+
+/**
+ * App identity
+ *
+ * Define white label names and URLs.
+ *
+ * @since 1.0.0
+ */
+
+// Check for an identity configuration file.
+if ( file_exists( ABSPATH . 'id-config.php' ) ) {
+	require( ABSPATH . 'id-config.php' );
+
+// Check one level above root for an identity config file.
+} elseif ( file_exists( dirname( ABSPATH ) . 'id-config.php' ) ) {
+	require( dirname( ABSPATH ) . 'id-config.php' );
+
+// Check for a sample identity config file.
+} elseif ( file_exists( ABSPATH . 'id-config.sample.php' ) ) {
+	require( ABSPATH . 'id-config.sample.php' );
+
+// Check one level above root for a sample identity config file.
+} elseif ( file_exists( dirname( ABSPATH ) . 'id-config.sample.php' ) ) {
+	require( dirname( ABSPATH ) . 'id-config.sample.php' );
+
+// Fallback definitions.
+} else {
+
+	// Define a name of the website management system.
+	if ( ! defined( 'APP_NAME' ) ) {
+		define( 'APP_NAME', 'system' );
+	}
+
+	// Define a tagline of the website management system.
+	if ( ! defined( 'APP_TAGLINE' ) ) {
+		define( 'APP_TAGLINE', '' );
+	}
+
+	// Define a URL for the website management system.
+	if ( ! defined( 'APP_WEBSITE' ) ) {
+		define( 'APP_WEBSITE', '' );
+	}
+
+	// Define a logo path for the website management system.
+	if ( ! defined( 'APP_IMAGE' ) ) {
+		define( 'APP_IMAGE', '' );
+	}
+}
+
+/**
+ * System API
+ *
+ * URL constant to change the location of the API files.
+ */
+if ( ! defined( 'APP_API_URI' ) ) {
+
+	// This is a dummy URI.
+	define( 'APP_API_URI', 'https://api.antibrand.dev' );
+}
+
+/**
  * HTML templates & themes directory
  *
  * Defines the directory of files which print the HTML

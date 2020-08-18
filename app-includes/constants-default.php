@@ -19,95 +19,6 @@ function app_initial_constants() {
 
 	global $blog_id;
 
-	/**
-	 * Configuration file name
-	 *
-	 * Separate constant from the path for renaming the
-	 * file without redefining the path to the file.
-	 *
-	 * @since 1.0.0
- 	 * @var   string Returns the name of the file.
-	 */
-	if ( ! defined( 'APP_CONFIG_FILE' ) ) {
-		define( 'APP_CONFIG_FILE', 'app-config.php' );
-	}
-
-	/**
-	 * Sample configuration file name
-	 *
-	 * Uses the same path as the configuration file.
-	 *
-	 * @see `APP_CONFIG_PATH` below.
-	 *
-	 * @since 1.0.0
- 	 * @var   string Returns the name of the file.
-	 */
-	if ( ! defined( 'APP_CONFIG_SAMPLE' ) ) {
-		define( 'APP_CONFIG_SAMPLE', 'app-config.sample.php' );
-	}
-
-	/**
-	 * Configuration file path
-	 *
-	 * Define the location of the configuration file.
-	 *
-	 * @see `APP_CONFIG_FILE` above.
-	 *
-	 * @since 1.0.0
- 	 * @var   string Returns the path to the configuration file.
-	 */
-	if ( ! defined( 'APP_CONFIG_PATH' ) && defined( 'ABSPATH' ) ) {
-		define( 'APP_CONFIG_PATH', ABSPATH . APP_CONFIG_FILE );
-	}
-
-	/**
-	 * App identity
-	 *
-	 * Define white label names and URLs.
-	 *
-	 * @since 1.0.0
-	 */
-
-	// Check for an identity configuration file.
-	if ( file_exists( ABSPATH . 'id-config.php' ) ) {
-		require( ABSPATH . 'id-config.php' );
-
-	// Check one level above root for an identity config file.
-	} elseif ( file_exists( dirname( ABSPATH ) . 'id-config.php' ) ) {
-		require( dirname( ABSPATH ) . 'id-config.php' );
-
-	// Check for a sample identity config file.
-	} elseif ( file_exists( ABSPATH . 'id-config.sample.php' ) ) {
-		require( ABSPATH . 'id-config.sample.php' );
-
-	// Check one level above root for a sample identity config file.
-	} elseif ( file_exists( dirname( ABSPATH ) . 'id-config.sample.php' ) ) {
-		require( dirname( ABSPATH ) . 'id-config.sample.php' );
-
-	// Fallback definitions.
-	} else {
-
-		// Define a name of the website management system.
-		if ( ! defined( 'APP_NAME' ) ) {
-			define( 'APP_NAME', 'system' );
-		}
-
-		// Define a tagline of the website management system.
-		if ( ! defined( 'APP_TAGLINE' ) ) {
-			define( 'APP_TAGLINE', '' );
-		}
-
-		// Define a URL for the website management system.
-		if ( ! defined( 'APP_WEBSITE' ) ) {
-			define( 'APP_WEBSITE', '' );
-		}
-
-		// Define a logo path for the website management system.
-		if ( ! defined( 'APP_IMAGE' ) ) {
-			define( 'APP_IMAGE', '' );
-		}
-	}
-
 	/**#@+
 	 * Constants for expressing human-readable data sizes in their respective number of bytes.
 	 *
@@ -156,51 +67,9 @@ function app_initial_constants() {
 		$blog_id = 1;
 	}
 
-	/**
-	 * System API
-	 *
-	 * URL constant to change the location of the API files.
-	 */
-	if ( ! defined( 'APP_API_URI' ) ) {
-
-		// This is a dummy URI.
-		define( 'APP_API_URI', 'https://api.antibrand.dev' );
-	}
-
-	/**
-	 * HTML templates & themes directory
-	 *
-	 * Defines the directory of files which print the HTML
-	 * of various page templates and template partials in
-	 * the system back end, and the directory ocontaining
-	 * themes.
-	 *
-	 * @since 1.0.0
-	 */
-
-	// Add define( 'APP_DEBUG', true ); to app-config.php to enable display of notices during development.
-	if ( ! defined( 'APP_DEBUG' ) ) {
-		define( 'APP_DEBUG', false );
-	}
-
 	// Define the administration pages directory.
 	if ( ! defined( 'APP_ADMIN_DIR' ) ) {
 		define( 'APP_ADMIN_DIR', 'wp-admin' );
-	}
-
-	/**
-	 * Add define( 'APP_DEBUG_DISPLAY', null); to app-config.php to
-	 * use the globally configured setting for display_errors and
-	 * not force errors to be displayed. Use false to force
-	 * display_errors off.
-	 */
-	if ( ! defined( 'APP_DEBUG_DISPLAY' ) ) {
-		define( 'APP_DEBUG_DISPLAY', true );
-	}
-
-	// Add define( 'APP_DEBUG_LOG', true ); to enable error logging to app-views/debug.log.
-	if ( ! defined( 'APP_DEBUG_LOG' ) ) {
-		define( 'APP_DEBUG_LOG', false );
 	}
 
 	// Define caching.

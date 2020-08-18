@@ -18,20 +18,6 @@
 // Get the default system constants.
 require_once( dirname( __FILE__ ) . '/app-constants.php' );
 
-/**
- * Configuration file path
- *
- * Define the location of the configuration file.
- *
- * @see `APP_CONFIG_FILE` above.
- *
- * @since 1.0.0
- * @var   string Returns the path to the configuration file.
-	*/
-if ( ! defined( 'APP_CONFIG_PATH' ) && defined( 'ABSPATH' ) ) {
-	define( 'APP_CONFIG_PATH', ABSPATH . APP_CONFIG_FILE );
-}
-
 // Define APP_ASSETS for assets directory.
 if ( ! defined( 'APP_ASSETS' ) ) {
 	define( 'APP_ASSETS', ABSPATH . 'app-assets/' );
@@ -71,7 +57,7 @@ if ( file_exists( APP_CONFIG_PATH ) ) {
 	 *
 	 * @see app-includes/functions.php
 	 */
-	$path = wp_guess_url() . '/app-views/includes/config.php';
+	$path = wp_guess_url() . '/' . APP_VIEWS . '/includes/config.php';
 
 	/**
 	 * We're going to redirect to config.php. While this shouldn't result
@@ -83,7 +69,6 @@ if ( file_exists( APP_CONFIG_PATH ) ) {
 		exit;
 	}
 
-	define( 'APP_CONTENT_DIR', ABSPATH . 'app-views' );
 	require_once( ABSPATH . APP_INC . '/version.php' );
 
 	wp_check_php_mysql_versions();
