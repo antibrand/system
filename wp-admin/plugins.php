@@ -660,9 +660,11 @@ if ( ! empty( $invalid ) ) {
 			// Upload form variables.
 			var href   = window.location.href,
 				link   = $( 'a[href*="#upload-plugin"]' ),
+				clean  = $( '#bulk-action-form, .list-table-views li:not( .list-table-add-new ), .search-plugins' );
 				upload = $( '#upload-plugin' ),
 				button = $( '#upload-plugin-toggle' ),
-				scroll = '300';
+				scroll = '300',
+				noHash = window.location.href.replace( /#.*$/, '' );
 
 			/**
 			 * Upload button
@@ -671,10 +673,12 @@ if ( ! empty( $invalid ) ) {
 			 * change menu item classes, and scroll to the form.
 			 */
 			$( button ).click( function() {
-				$(this).blur().text( $(this).text() == "<?php _e( 'Upload Plugin' ); ?>" ? "<?php _e( 'Close Upload' ); ?>" : "<?php _e( 'Upload Plugin' ); ?>" );
-				$( upload ).toggleClass( 'upload-plugin-open' );
 				$( link ).parent().toggleClass( 'current' ).prev().toggleClass( 'current' );
+				$( clean ).toggleClass( 'screen-reader-text' );
+				$( upload ).toggleClass( 'upload-plugin-open' );
+				$(this).blur().text( $(this).text() == "<?php _e( 'Upload Plugin' ); ?>" ? "<?php _e( 'Close Upload' ); ?>" : "<?php _e( 'Upload Plugin' ); ?>" );
 				$( 'html, body' ).stop().animate( { scrollTop: $( upload ).offset().top }, scroll );
+				window.history.replaceState( '', document.title, noHash );
 			});
 
 			/**
@@ -685,15 +689,17 @@ if ( ! empty( $invalid ) ) {
 			 * This most likely comes from the "Upload Plugin" link in the menu.
 			 */
 			if ( href.indexOf( 'upload-plugin' ) != -1 ) {
+				$( link ).parent().toggleClass( 'current' ).prev().toggleClass( 'current' );
+				$( clean ).toggleClass( 'screen-reader-text' );
 				$( upload ).toggleClass( 'upload-plugin-open' );
 				$( button ).text( "<?php _e( 'Close Upload' ); ?>" );
-				$( link ).parent().toggleClass( 'current' ).prev().toggleClass( 'current' );
 				$( 'html, body' ).stop().animate( { scrollTop: $( upload ).offset().top }, scroll );
 			}
 
 			// This function is outside the scope of the URL hash.
 			$( link ).click( function() {
 				$(this).parent().addClass( 'current' ).prev().removeClass( 'current' );
+				$( clean ).toggleClass( 'screen-reader-text' );
 				$( button ).text( "<?php _e( 'Close Upload' ); ?>" );
 				$( upload ).addClass( 'upload-plugin-open' );
 				$( 'html, body' ).stop().animate( { scrollTop: $( upload ).offset().top }, scroll );
