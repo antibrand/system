@@ -20,20 +20,8 @@ define( 'WP_SETUP_CONFIG', true );
  */
 error_reporting( 0 );
 
-// Absolute path to the app's root directory, two levels up from here.
-if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', dirname( dirname( dirname( __FILE__ ) ) ) . '/' );
-}
-
-// HTML templates directory name.
-if ( ! defined( 'APP_VIEWS' ) ) {
-	define( 'APP_VIEWS', 'app-views' );
-}
-
-// Path to HTML templates.
-if ( ! defined( 'APP_VIEWS_PATH' ) ) {
-	define( 'APP_VIEWS_PATH', ABSPATH . APP_VIEWS . '/' );
-}
+// Get the default system constants from the root directory.
+require_once( dirname( dirname( dirname( __FILE__ ) ) ) . '/app-constants.php' );
 
 // Path to assets directory.
 if ( ! defined( 'APP_ASSETS' ) ) {

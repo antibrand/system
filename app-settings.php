@@ -9,18 +9,8 @@
  * @package App_Package
  */
 
-// Store the locations of functions, classes, and core content.
-define( 'APP_INC', 'app-includes' );
-
-// HTML templates directory name.
-if ( ! defined( 'APP_VIEWS' ) ) {
-	define( 'APP_VIEWS', 'app-views' );
-}
-
-// Path to HTML templates.
-if ( ! defined( 'APP_VIEWS_PATH' ) ) {
-	define( 'APP_VIEWS_PATH', ABSPATH . APP_VIEWS . '/' );
-}
+// Get the default system constants.
+require_once( dirname( __FILE__ ) . '/app-constants.php' );
 
 /**
  * Class autoloader
@@ -237,7 +227,7 @@ require( ABSPATH . APP_INC . '/classes/includes/class-app-widget.php' );
 require( ABSPATH . APP_INC . '/classes/includes/class-app-widget-factory.php' );
 require( ABSPATH . APP_INC . '/nav-menu.php' );
 require( ABSPATH . APP_INC . '/nav-menu-template.php' );
-require( APP_VIEWS_PATH . '/includes/user-toolbar.php' );
+require( APP_VIEWS_PATH . 'includes/user-toolbar.php' );
 require( ABSPATH . APP_INC . '/rest-api.php' );
 require( ABSPATH . APP_INC . '/rest-api/class-wp-rest-server.php' );
 require( ABSPATH . APP_INC . '/rest-api/class-wp-rest-response.php' );

@@ -8,7 +8,7 @@
  */
 
 /**
- * Absolute path to the app directory
+ * Absolute path to the system directory
  *
  * Do not edit this lightly. The `ABSPATH` constant is
  * used extensively throughout the website management
@@ -44,6 +44,9 @@ define( 'APP_CONFIG_FILE', 'app-config.php' );
  */
 define( 'APP_CONFIG_SAMPLE', 'app-config.sample.php' );
 
+// Store the locations of functions, classes, and core content.
+define( 'APP_INC', 'app-includes' );
+
 /**
  * HTML templates & themes directory
  *
@@ -56,5 +59,10 @@ define( 'APP_CONFIG_SAMPLE', 'app-config.sample.php' );
  */
 define( 'APP_VIEWS', 'app-views' );
 
+// Path to HTML templates.
+if ( ! defined( 'APP_VIEWS_PATH' ) ) {
+	define( 'APP_VIEWS_PATH', ABSPATH . APP_VIEWS . '/' );
+}
+
 // No trailing slash, full paths only - APP_CONTENT_URL is defined further down
-define( 'APP_CONTENT_DIR', ABSPATH . 'app-views' );
+define( 'APP_CONTENT_DIR', ABSPATH . APP_VIEWS );

@@ -169,63 +169,12 @@ define( 'WP_LOCAL_DEV', false );
 // define( 'ENFORCE_GZIP', false );
 
 /**
- * Absolute path to the app directory
- *
- * Do not edit this lightly. The `ABSPATH` constant is
- * used extensively throughout the website management
- * system.
- *
- * The trailing slash is included when the constant is
- * redefined elsewhere.
- *
- * @since 1.0.0
- */
-if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
-}
-
-/**
  * Compatability version
  *
  * Sets a version which may be required by plugins & themes.
  */
 if ( ! defined( 'COMPAT_VERSION' ) ) {
 	define( 'COMPAT_VERSION', '5.0' );
-}
-
-/**
- * HTML templates directory
- *
- * Defines the directory of files which print the HTML
- * of various page templates and template partials.
- *
- * Also contains the themes directory.
- *
- * @since 1.0.0
- */
-if ( ! defined( 'APP_VIEWS' ) ) {
-	define( 'APP_VIEWS', 'app-views' );
-}
-
-/**
- * Path to HTML templates
- *
- * Defines the path to the directory of files which
- * print the HTML of various page templates and
- * template partials.
- *
- * The trailing slash is included when the constant is
- * redefined elsewhere.
- *
- * Also defined in…
- * @see app-load.php
- * @see app-settings.php
- * @see app-views/includes/config.php
- *
- * @since 1.0.0
- */
-if ( ! defined( 'APP_VIEWS_PATH' ) ) {
-	define( 'APP_VIEWS_PATH', ABSPATH . APP_VIEWS . '/' );
 }
 
 /**

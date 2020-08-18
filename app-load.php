@@ -19,19 +19,6 @@
 require_once( dirname( __FILE__ ) . '/app-constants.php' );
 
 /**
- * Configuration file name
- *
- * Separate constant from the path for renaming the
- * file without redefining the path to the file.
- *
- * @since 1.0.0
- * @var   string Returns the name of the file.
-	*/
-if ( ! defined( 'APP_CONFIG_FILE' ) ) {
-	define( 'APP_CONFIG_FILE', 'app-config.php' );
-}
-
-/**
  * Configuration file path
  *
  * Define the location of the configuration file.
@@ -43,16 +30,6 @@ if ( ! defined( 'APP_CONFIG_FILE' ) ) {
 	*/
 if ( ! defined( 'APP_CONFIG_PATH' ) && defined( 'ABSPATH' ) ) {
 	define( 'APP_CONFIG_PATH', ABSPATH . APP_CONFIG_FILE );
-}
-
-// HTML templates directory name.
-if ( ! defined( 'APP_VIEWS' ) ) {
-	define( 'APP_VIEWS', 'app-views' );
-}
-
-// Define themes & admin page markup directory.
-if ( ! defined( 'APP_VIEWS_PATH' ) ) {
-	define( 'APP_VIEWS_PATH',  ABSPATH . APP_VIEWS . '/' );
 }
 
 // Define APP_ASSETS for assets directory.
@@ -83,7 +60,6 @@ if ( file_exists( APP_CONFIG_PATH ) ) {
 // If a config file doesn't exist.
 } else {
 
-	define( 'APP_INC', 'app-includes' );
 	require_once( ABSPATH . APP_INC . '/load.php' );
 
 	// Standardize $_SERVER variables across setups.

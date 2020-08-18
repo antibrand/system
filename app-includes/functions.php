@@ -4217,11 +4217,7 @@ function force_ssl_admin( $force = null ) {
 function wp_guess_url() {
 
 	// HTML templates directory name.
-	if ( defined( 'APP_VIEWS' ) ) {
-		$views = APP_VIEWS;
-	} else {
-		$views = 'app-views';
-	}
+	$views = APP_VIEWS;
 
 	// The URL of the system.
 	if ( defined( 'APP_SITEURL' ) && '' != APP_SITEURL ) {

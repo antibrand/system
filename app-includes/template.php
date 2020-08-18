@@ -649,8 +649,8 @@ function locate_template( $template_names, $load = false, $require_once = true )
 			break;
 
 		// Look in views directory.
-		} elseif ( file_exists( ABSPATH . APP_VIEWS . '/' . $template_name ) ) {
-			$located = ABSPATH . APP_VIEWS . '/' . $template_name;
+		} elseif ( file_exists( APP_VIEWS_PATH . $template_name ) ) {
+			$located = APP_VIEWS_PATH . $template_name;
 			break;
 		}
 	}
