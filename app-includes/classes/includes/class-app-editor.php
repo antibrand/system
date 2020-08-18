@@ -721,12 +721,12 @@ final class _WP_Editors {
 
 		foreach ( $init as $key => $value ) {
 			if ( is_bool( $value ) ) {
-				$val = $value ? 'true' : 'false';
+				$val      = $value ? 'true' : 'false';
 				$options .= $key . ':' . $val . ',';
 				continue;
 			} elseif ( ! empty( $value ) && is_string( $value ) && (
-				( '{' == $value{0} && '}' == $value{strlen( $value ) - 1} ) ||
-				( '[' == $value{0} && ']' == $value{strlen( $value ) - 1} ) ||
+				( '{' === $value[0] && '}' === $value[ strlen( $value ) - 1 ] ) ||
+				( '[' === $value[0] && ']' === $value[ strlen( $value ) - 1 ] ) ||
 				preg_match( '/^\(?function ?\(/', $value ) ) ) {
 
 				$options .= $key . ':' . $value . ',';
@@ -741,7 +741,7 @@ final class _WP_Editors {
 	/**
 	 *
 	 * @static
-	 * 
+	 *
 	 * @param bool $default_scripts Optional. Whether default scripts should be enqueued. Default false.
 	 */
 	public static function enqueue_scripts( $default_scripts = false ) {
