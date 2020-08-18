@@ -72,11 +72,6 @@ function app_initial_constants() {
 		define( 'APP_ADMIN_DIR', 'wp-admin' );
 	}
 
-	// Define caching.
-	if ( ! defined( 'APP_CACHE' ) ) {
-		define( 'APP_CACHE', false );
-	}
-
 	/**
 	 * Add define( 'SCRIPT_DEBUG', true ); to app-config.php to enable
 	 * loading of non-minified, non-concatenated scripts and stylesheets.
@@ -91,20 +86,6 @@ function app_initial_constants() {
 
 		define( 'SCRIPT_DEBUG', $develop_src );
 	}
-
-	/**
-	 * Private
-	 */
-	if ( ! defined( 'MEDIA_TRASH' ) ) {
-		define( 'MEDIA_TRASH', false );
-	}
-
-	if ( ! defined( 'SHORTINIT' ) ) {
-		define( 'SHORTINIT', false );
-	}
-
-	// Constants for features added that should short-circuit their plugin implementations.
-	define( 'APP_FEATURE_BETTER_PASSWORDS', true );
 
 	/**#@+
 	 * Constants for expressing human-readable intervals
@@ -141,7 +122,7 @@ function app_extend_constants() {
 	if ( ! defined( 'APP_CONTENT_URL' ) ) {
 
 		// Full url - APP_CONTENT_DIR is defined further up.
-		define( 'APP_CONTENT_URL', get_option( 'siteurl' ) . '/app-views' );
+		define( 'APP_CONTENT_URL', get_option( 'siteurl' ) . '/' . APP_VIEWS );
 	}
 
 	/**

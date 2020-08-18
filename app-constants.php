@@ -114,11 +114,9 @@ if ( file_exists( ABSPATH . 'id-config.php' ) ) {
  *
  * URL constant to change the location of the API files.
  */
-if ( ! defined( 'APP_API_URI' ) ) {
 
-	// This is a dummy URI.
-	define( 'APP_API_URI', 'https://api.antibrand.dev' );
-}
+// This is a dummy URI.
+define( 'APP_API_URI', 'https://api.antibrand.dev' );
 
 /**
  * HTML templates & themes directory
@@ -139,3 +137,23 @@ if ( ! defined( 'APP_VIEWS_PATH' ) ) {
 
 // No trailing slash, full paths only - APP_CONTENT_URL is defined further down
 define( 'APP_CONTENT_DIR', ABSPATH . APP_VIEWS );
+
+// Define caching.
+if ( ! defined( 'APP_CACHE' ) ) {
+	define( 'APP_CACHE', false );
+}
+
+// Allow the trash status for the 'attachment' post type.
+if ( ! defined( 'MEDIA_TRASH' ) ) {
+	define( 'MEDIA_TRASH', false );
+}
+
+/**
+ * Disable most of the system
+ *
+ * Useful for fast responses for custom integrations.
+ */
+define( 'SHORTINIT', false );
+
+// Allow better passwords feature.
+define( 'APP_FEATURE_BETTER_PASSWORDS', true );
