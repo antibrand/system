@@ -9,9 +9,6 @@
  * @package App_Package
  */
 
-// Get the default system constants.
-require_once( dirname( __FILE__ ) . '/app-constants.php' );
-
 /**
  * Class autoloader
  *
