@@ -1351,7 +1351,7 @@ function _print_scripts() {
 		$concat = str_split( $concat, 128 );
 		$concat = 'load%5B%5D=' . implode( '&load%5B%5D=', $concat );
 
-		$src = $wp_scripts->base_url . "/wp-admin/load-scripts.php?c={$zip}&" . $concat . '&ver=' . $wp_scripts->default_version;
+		$src = $wp_scripts->base_url . '/' . APP_INC . "/load-scripts.php?c={$zip}&" . $concat . '&ver=' . $wp_scripts->default_version;
 		echo "<script type='text/javascript' src='" . esc_attr( $src) . "'></script>\n";
 	}
 
@@ -1527,7 +1527,7 @@ function _print_styles() {
 		$ver    = $wp_styles->default_version;
 		$concat = str_split( $concat, 128 );
 		$concat = 'load%5B%5D=' . implode( '&load%5B%5D=', $concat );
-		$href   = $wp_styles->base_url . "/wp-admin/load-styles.php?c={$zip}&dir={$dir}&" . $concat . '&ver=' . $ver;
+		$href   = $wp_styles->base_url . '/' . APP_INC . "/load-styles.php?c={$zip}&dir={$dir}&" . $concat . '&ver=' . $ver;
 
 		echo "<link rel='stylesheet' href='" . esc_attr( $href ) . "' type='text/css' media='all' />\n";
 
