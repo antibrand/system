@@ -177,14 +177,6 @@ function app_initial_constants() {
 	 *
 	 * @since 1.0.0
 	 */
-	if ( ! defined( 'APP_VIEWS' ) ) {
-		define( 'APP_VIEWS', 'app-views' );
-	}
-
-	// No trailing slash, full paths only - APP_CONTENT_URL is defined further down
-	if ( ! defined( 'APP_CONTENT_DIR' ) ) {
-		define( 'APP_CONTENT_DIR', ABSPATH . 'app-views' );
-	}
 
 	// Add define( 'APP_DEBUG', true ); to app-config.php to enable display of notices during development.
 	if ( ! defined( 'APP_DEBUG' ) ) {
