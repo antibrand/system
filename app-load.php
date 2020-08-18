@@ -46,7 +46,6 @@ error_reporting( E_CORE_ERROR | E_CORE_WARNING | E_COMPILE_ERROR | E_ERROR | E_W
  *
  * If neither set of conditions is true, initiate loading the setup process.
  */
-
 if ( file_exists( APP_CONFIG_PATH ) ) {
 
 	// The config file resides in ABSPATH.
