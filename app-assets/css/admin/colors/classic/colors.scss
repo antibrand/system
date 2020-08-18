@@ -209,8 +209,8 @@ optgroup {
 	&:disabled,
 	&.disabled,
 	&.button-disabled {
-		background: lighten( $color: $body_background, $amount: 10% );
-		color: darken( $color: $text_color, $amount: 60% ) ;
+		background: rgba($color: $pale_gray, $alpha: 0.325);
+		color: rgba($color: $light_gray, $alpha: 0.85);
 	}
 }
 
