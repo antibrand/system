@@ -479,6 +479,17 @@ $submenu['plugins.php'][5] = [
 	'plugins.php'
 ];
 
+/**
+ * jQuery script in the plugins.php file uses
+ * the 'form=upload' parameter to show the
+ * hidden upload form.
+ */
+$submenu['plugins.php'][6] = [
+	__( 'Upload Plugin' ),
+	'activate_plugins',
+	'plugins.php#upload-plugin'
+];
+
 if ( ! is_network() ) {
 
 	$submenu['plugins.php'][10] = [

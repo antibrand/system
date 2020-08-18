@@ -656,9 +656,49 @@ if ( ! empty( $invalid ) ) {
 		<script>
 		// Toggle the plugin upload interface.
 		jQuery(document).ready( function($) {
-			$( '#upload-plugin-toggle' ).click( function() {
-				$(this).text( $(this).text() == "<?php _e( 'Upload Plugin' ); ?>" ? "<?php _e( 'Close Upload' ); ?>" : "<?php _e( 'Upload Plugin' ); ?>" );
-				$( '#upload-plugin' ).toggleClass( 'upload-plugin-open' );
+
+			// Upload form variables.
+			var href   = window.location.href,
+				link   = $( 'a[href*="#upload-plugin"]' ),
+				upload = $( '#upload-plugin' ),
+				button = $( '#upload-plugin-toggle' );
+
+			/**
+			 * Upload button
+			 *
+			 * Open the upload form when the "Upload Plugin" button is clicked,
+			 * change menu item classes, and scroll to the form.
+			 */
+			$( button ).click( function() {
+				$(this).blur().text( $(this).text() == "<?php _e( 'Upload Plugin' ); ?>" ? "<?php _e( 'Close Upload' ); ?>" : "<?php _e( 'Upload Plugin' ); ?>" );
+				$( upload ).toggleClass( 'upload-plugin-open' );
+				$( link ).parent().toggleClass( 'current' );
+				$( link ).parent().prev().toggleClass( 'current' );
+				$( 'html, body' ).stop().animate( { scrollTop: $( upload ).offset().top }, 300 );
+			});
+
+			/**
+			 * Upload link
+			 *
+			 * Open the upload form if the #upload-plugin hash is set,
+			 * change menu item classes, and scroll to the form.
+			 * This most likely comes from the "Upload Plugin" link in the menu.
+			 */
+			if ( href.indexOf( 'upload-plugin' ) != -1 ) {
+				$( upload ).toggleClass( 'upload-plugin-open' );
+				$( button ).text( "<?php _e( 'Close Upload' ); ?>" );
+				$( link ).parent().toggleClass( 'current' );
+				$( link ).parent().prev().toggleClass( 'current' );
+				$( 'html, body' ).stop().animate( { scrollTop: $( upload ).offset().top }, 300 );
+			}
+
+			// This function is outside the scope of the URL hash.
+			$( link ).click( function() {
+				$(this).parent().addClass( 'current' );
+				$(this).parent().prev().removeClass( 'current' );
+				$( button ).text( "<?php _e( 'Close Upload' ); ?>" );
+				$( upload ).addClass( 'upload-plugin-open' );
+				$( 'html, body' ).stop().animate( { scrollTop: $( upload ).offset().top }, 300 );
 			});
 
 		});
