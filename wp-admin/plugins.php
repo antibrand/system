@@ -661,7 +661,8 @@ if ( ! empty( $invalid ) ) {
 			var href   = window.location.href,
 				link   = $( 'a[href*="#upload-plugin"]' ),
 				upload = $( '#upload-plugin' ),
-				button = $( '#upload-plugin-toggle' );
+				button = $( '#upload-plugin-toggle' ),
+				scroll = '300';
 
 			/**
 			 * Upload button
@@ -672,9 +673,8 @@ if ( ! empty( $invalid ) ) {
 			$( button ).click( function() {
 				$(this).blur().text( $(this).text() == "<?php _e( 'Upload Plugin' ); ?>" ? "<?php _e( 'Close Upload' ); ?>" : "<?php _e( 'Upload Plugin' ); ?>" );
 				$( upload ).toggleClass( 'upload-plugin-open' );
-				$( link ).parent().toggleClass( 'current' );
-				$( link ).parent().prev().toggleClass( 'current' );
-				$( 'html, body' ).stop().animate( { scrollTop: $( upload ).offset().top }, 300 );
+				$( link ).parent().toggleClass( 'current' ).prev().toggleClass( 'current' );
+				$( 'html, body' ).stop().animate( { scrollTop: $( upload ).offset().top }, scroll );
 			});
 
 			/**
@@ -687,18 +687,16 @@ if ( ! empty( $invalid ) ) {
 			if ( href.indexOf( 'upload-plugin' ) != -1 ) {
 				$( upload ).toggleClass( 'upload-plugin-open' );
 				$( button ).text( "<?php _e( 'Close Upload' ); ?>" );
-				$( link ).parent().toggleClass( 'current' );
-				$( link ).parent().prev().toggleClass( 'current' );
-				$( 'html, body' ).stop().animate( { scrollTop: $( upload ).offset().top }, 300 );
+				$( link ).parent().toggleClass( 'current' ).prev().toggleClass( 'current' );
+				$( 'html, body' ).stop().animate( { scrollTop: $( upload ).offset().top }, scroll );
 			}
 
 			// This function is outside the scope of the URL hash.
 			$( link ).click( function() {
-				$(this).parent().addClass( 'current' );
-				$(this).parent().prev().removeClass( 'current' );
+				$(this).parent().addClass( 'current' ).prev().removeClass( 'current' );
 				$( button ).text( "<?php _e( 'Close Upload' ); ?>" );
 				$( upload ).addClass( 'upload-plugin-open' );
-				$( 'html, body' ).stop().animate( { scrollTop: $( upload ).offset().top }, 300 );
+				$( 'html, body' ).stop().animate( { scrollTop: $( upload ).offset().top }, scroll );
 			});
 
 		});
@@ -710,6 +708,8 @@ if ( ! empty( $invalid ) ) {
 		<div class="upload-plugin-wrap">
 
 			<div id="upload-plugin" class="upload-plugin">
+
+				<h2><?php _e( 'Upload Plugin' ); ?></h2>
 
 				<p class="install-help"><?php _e( 'If you have a plugin in a .zip format, you may install it by uploading it here.' ); ?></p>
 

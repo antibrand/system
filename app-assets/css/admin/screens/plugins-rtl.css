@@ -32,17 +32,28 @@
   border: 1px solid #888888;
 }
 
+.upload-plugin-wrap .upload-plugin h2 {
+  font-size: 2.325em;
+  font-weight: 700;
+  line-height: 1.4em;
+}
+
+@supports (font-variation-settings: normal) {
+  .upload-plugin-wrap .upload-plugin h2 {
+    font-weight: 750;
+    letter-spacing: -0.02em;
+  }
+}
+
 .upload-plugin-wrap .upload-plugin .install-help {
   font-style: normal;
-  font-weight: 700;
-  margin: 0;
   padding: 0;
   text-align: center;
 }
 
 @supports (font-variation-settings: normal) {
   .upload-plugin-wrap .upload-plugin .install-help {
-    font-weight: 600;
+    font-weight: 550;
   }
 }
 
