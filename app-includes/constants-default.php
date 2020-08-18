@@ -136,7 +136,7 @@ function app_initial_constants() {
  *
  * @since Previous 3.0.0
  */
-function app_plugin_directory_constants() {
+function app_extend_constants() {
 
 	if ( ! defined( 'APP_CONTENT_URL' ) ) {
 

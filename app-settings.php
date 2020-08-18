@@ -259,7 +259,7 @@ if ( is_network() ) {
  * Define constants that rely on the API to obtain the default value.
  * Define must-use plugin directory constants, which may be overridden in the sunrise.php drop-in.
  */
-app_plugin_directory_constants();
+app_extend_constants();
 
 $GLOBALS['wp_plugin_paths'] = [];
 
