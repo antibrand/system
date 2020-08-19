@@ -61,53 +61,7 @@ if ( ! defined( 'APP_CONFIG_PATH' ) && defined( 'ABSPATH' ) ) {
 	define( 'APP_CONFIG_PATH', ABSPATH . APP_CONFIG_FILE );
 }
 
-/**
- * App identity
- *
- * Define white label names and URLs.
- *
- * @since 1.0.0
- */
 
-// Check for an identity configuration file.
-if ( file_exists( ABSPATH . 'id-config.php' ) ) {
-	require( ABSPATH . 'id-config.php' );
-
-// Check one level above root for an identity config file.
-} elseif ( file_exists( dirname( ABSPATH ) . 'id-config.php' ) ) {
-	require( dirname( ABSPATH ) . 'id-config.php' );
-
-// Check for a sample identity config file.
-} elseif ( file_exists( ABSPATH . 'id-config.sample.php' ) ) {
-	require( ABSPATH . 'id-config.sample.php' );
-
-// Check one level above root for a sample identity config file.
-} elseif ( file_exists( dirname( ABSPATH ) . 'id-config.sample.php' ) ) {
-	require( dirname( ABSPATH ) . 'id-config.sample.php' );
-
-// Fallback definitions.
-} else {
-
-	// Define a name of the website management system.
-	if ( ! defined( 'APP_NAME' ) ) {
-		define( 'APP_NAME', 'system' );
-	}
-
-	// Define a tagline of the website management system.
-	if ( ! defined( 'APP_TAGLINE' ) ) {
-		define( 'APP_TAGLINE', '' );
-	}
-
-	// Define a URL for the website management system.
-	if ( ! defined( 'APP_WEBSITE' ) ) {
-		define( 'APP_WEBSITE', '' );
-	}
-
-	// Define a logo path for the website management system.
-	if ( ! defined( 'APP_IMAGE' ) ) {
-		define( 'APP_IMAGE', '' );
-	}
-}
 
 /**
  * System API
@@ -117,6 +71,12 @@ if ( file_exists( ABSPATH . 'id-config.php' ) ) {
 
 // This is a dummy URI.
 define( 'APP_API_URI', 'https://api.antibrand.dev' );
+
+// Define the administration pages directory.
+define( 'APP_ADMIN_DIR', 'wp-admin' );
+
+// Define the administration directory path.
+define( 'APP_ADMIN_PATH', ABSPATH . APP_ADMIN_DIR . '/' );
 
 /**
  * HTML templates & themes directory
@@ -131,9 +91,7 @@ define( 'APP_API_URI', 'https://api.antibrand.dev' );
 define( 'APP_VIEWS', 'app-views' );
 
 // Path to HTML templates.
-if ( ! defined( 'APP_VIEWS_PATH' ) ) {
-	define( 'APP_VIEWS_PATH', ABSPATH . APP_VIEWS . '/' );
-}
+define( 'APP_VIEWS_PATH', ABSPATH . APP_VIEWS . '/' );
 
 // No trailing slash, full paths only - APP_CONTENT_URL is defined further down
 define( 'APP_CONTENT_DIR', ABSPATH . APP_VIEWS );

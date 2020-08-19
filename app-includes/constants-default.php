@@ -67,25 +67,7 @@ function app_initial_constants() {
 		$blog_id = 1;
 	}
 
-	// Define the administration pages directory.
-	if ( ! defined( 'APP_ADMIN_DIR' ) ) {
-		define( 'APP_ADMIN_DIR', 'wp-admin' );
-	}
 
-	/**
-	 * Add define( 'SCRIPT_DEBUG', true ); to app-config.php to enable
-	 * loading of non-minified, non-concatenated scripts and stylesheets.
-	 */
-	if ( ! defined( 'SCRIPT_DEBUG' ) ) {
-
-		if ( ! empty( $GLOBALS['app_version'] ) ) {
-			$develop_src = false !== strpos( $GLOBALS['app_version'], '-src' );
-		} else {
-			$develop_src = false;
-		}
-
-		define( 'SCRIPT_DEBUG', $develop_src );
-	}
 
 	/**#@+
 	 * Constants for expressing human-readable intervals
@@ -362,17 +344,5 @@ function app_templating_constants() {
 	 * @since Previous 2.1.0
 	 */
 	define( 'STYLESHEETPATH', get_stylesheet_directory() );
-
-	/**
-	 * Slug of the default theme for this installation.
-	 * Used as the default theme when installing new sites.
-	 * It will be used as the fallback if the current theme doesn't exist.
-	 *
-	 * @since Previous 3.0.0
-	 * @see WP_Theme::get_core_default_theme()
-	 */
-	if ( ! defined( 'APP_DEFAULT_THEME' ) ) {
-		define( 'APP_DEFAULT_THEME', 'theme' );
-	}
 
 }

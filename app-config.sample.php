@@ -77,6 +77,54 @@ define( 'NONCE_SALT',       'Put your unique phrase here' );
 $table_prefix = 'app_';
 
 /**
+ * App identity
+ *
+ * Define white label names and URLs.
+ *
+ * @since 1.0.0
+ */
+
+// Check for an identity configuration file.
+if ( file_exists( ABSPATH . 'id-config.php' ) ) {
+	require( ABSPATH . 'id-config.php' );
+
+// Check one level above root for an identity config file.
+} elseif ( file_exists( dirname( ABSPATH ) . 'id-config.php' ) ) {
+	require( dirname( ABSPATH ) . 'id-config.php' );
+
+// Check for a sample identity config file.
+} elseif ( file_exists( ABSPATH . 'id-config.sample.php' ) ) {
+	require( ABSPATH . 'id-config.sample.php' );
+
+// Check one level above root for a sample identity config file.
+} elseif ( file_exists( dirname( ABSPATH ) . 'id-config.sample.php' ) ) {
+	require( dirname( ABSPATH ) . 'id-config.sample.php' );
+
+// Fallback definitions.
+} else {
+
+	// Define a name of the website management system.
+	if ( ! defined( 'APP_NAME' ) ) {
+		define( 'APP_NAME', 'system' );
+	}
+
+	// Define a tagline of the website management system.
+	if ( ! defined( 'APP_TAGLINE' ) ) {
+		define( 'APP_TAGLINE', '' );
+	}
+
+	// Define a URL for the website management system.
+	if ( ! defined( 'APP_WEBSITE' ) ) {
+		define( 'APP_WEBSITE', '' );
+	}
+
+	// Define a logo path for the website management system.
+	if ( ! defined( 'APP_IMAGE' ) ) {
+		define( 'APP_IMAGE', '' );
+	}
+}
+
+/**
  * User login directory
  *
  * The default login directory is `/login`. You can
@@ -206,9 +254,7 @@ if ( ! defined( 'APP_LOGIN' ) ) {
  *
  * @since 1.0.0
  */
-if ( ! defined( 'APP_DEFAULT_THEME' ) ) {
-	define( 'APP_DEFAULT_THEME', 'theme' );
-}
+define( 'APP_DEFAULT_THEME', 'theme' );
 
 /**
  * System translation
