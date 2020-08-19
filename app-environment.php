@@ -69,7 +69,7 @@ if ( ! defined( 'APP_CONFIG_PATH' ) && defined( 'ABSPATH' ) ) {
  * URL constant to change the location of the API files.
  */
 
-// This is a dummy URI.
+// This is a dummy URI for a fictitious system API.
 define( 'APP_API_URI', 'https://api.antibrand.dev' );
 
 // Define the administration pages directory.
