@@ -15,8 +15,8 @@
  * @package App_Package
  */
 
-// Get the default system constants.
-require_once( dirname( __FILE__ ) . '/app-constants.php' );
+// Get the system environment constants.
+require_once( dirname( __FILE__ ) . '/app-environment.php' );
 
 // Define APP_ASSETS for assets directory.
 if ( ! defined( 'APP_ASSETS' ) ) {

@@ -11,9 +11,9 @@
 
 namespace AppNamespace\Includes;
 
-// Get the default system constants from the system root directory.
-if ( file_exists( dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/app-constants.php' ) ) {
-	require_once( dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/app-constants.php' );
+// Get the system environment constants from the system root directory.
+if ( file_exists( dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/app-environment.php' ) ) {
+	require_once( dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/app-environment.php' );
 }
 
 class App_Constants {

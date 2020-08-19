@@ -19,7 +19,7 @@ namespace AppNamespace;
 const APP_CLASSES = [
 
 	// Utility.
-	'AppNamespace\Includes\App_Constants'  => __DIR__ . '/classes/includes/class-app-constants.php',
+	'AppNamespace\Includes\App_Constants'  => __DIR__ . '/classes/includes/class-app-environment.php',
 	'AppNamespace\Includes\App_Install'    => __DIR__ . '/classes/includes/class-app-install.php',
 	'AppNamespace\Includes\PasswordHash'   => __DIR__ . '/classes/includes/class-phpass.php',
 	'AppNamespace\Includes\User_Logging'   => __DIR__ . '/classes/includes/class-user-logging.php',

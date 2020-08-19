@@ -20,8 +20,8 @@ define( 'WP_SETUP_CONFIG', true );
  */
 error_reporting( 0 );
 
-// Get the default system constants from the root directory.
-require_once( dirname( dirname( dirname( __FILE__ ) ) ) . '/app-constants.php' );
+// Get the system environment constants from the root directory.
+require_once( dirname( dirname( dirname( __FILE__ ) ) ) . '/app-environment.php' );
 
 // Path to assets directory.
 if ( ! defined( 'APP_ASSETS' ) ) {
