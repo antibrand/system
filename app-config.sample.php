@@ -221,9 +221,7 @@ define( 'WP_LOCAL_DEV', false );
  *
  * Sets a version which may be required by plugins & themes.
  */
-if ( ! defined( 'COMPAT_VERSION' ) ) {
-	define( 'COMPAT_VERSION', '5.0' );
-}
+define( 'COMPAT_VERSION', '5.0' );
 
 /**
  * User login path
@@ -237,9 +235,7 @@ if ( ! defined( 'COMPAT_VERSION' ) ) {
  *
  * @since 1.0.0
  */
-if ( ! defined( 'APP_LOGIN' ) ) {
-	define( 'APP_LOGIN', ABSPATH . 'login' . '/' );
-}
+define( 'APP_LOGIN', ABSPATH . 'login' . '/' );
 
 /**
  * Default theme
@@ -277,6 +273,15 @@ define( 'APP_LANG', 'en_US' );
 
 // Default language directory.
 define( 'APP_LANG_DIR', ABSPATH . 'app-languages' );
+
+// Allow better passwords feature.
+define( 'APP_FEATURE_BETTER_PASSWORDS', true );
+
+// Allow the trash status for the 'attachment' post type.
+define( 'MEDIA_TRASH', false );
+
+// Define caching.
+define( 'APP_CACHE', false );
 
 /**
  * End customization

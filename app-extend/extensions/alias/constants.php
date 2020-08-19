@@ -197,8 +197,8 @@ if ( ! defined( 'WP_PLUGIN_URL' ) && ( defined( 'APP_PLUGIN_URL' ) && APP_PLUGIN
  * @since 1.0.0
  * @var   string
  */
-if ( ! defined( 'WPMU_PLUGIN_DIR' ) && defined( 'APP_EXTEND_DIR' ) ) {
-	define( 'WPMU_PLUGIN_DIR', APP_EXTEND_DIR );
+if ( ! defined( 'WPMU_PLUGIN_DIR' ) && defined( 'APP_EXTENSIONS_PATH' ) ) {
+	define( 'WPMU_PLUGIN_DIR', APP_EXTENSIONS_PATH );
 } else {
 	define( 'WPMU_PLUGIN_DIR', ABSPATH . 'app-extend/extensions' );
 }

@@ -8,7 +8,7 @@
  */
 
 /**
- * Absolute path to the system directory
+ * Absolute path of the system directory
  *
  * Do not edit this lightly. The `ABSPATH` constant is
  * used extensively throughout the website management
@@ -18,6 +18,7 @@
  * redefined elsewhere.
  *
  * @since 1.0.0
+ * @var   string Returns the path of the system directory.
  */
 define( 'ABSPATH', dirname( __FILE__ ) . '/' );
 
@@ -45,6 +46,12 @@ define( 'APP_CONFIG_FILE', 'app-config.php' );
 define( 'APP_CONFIG_SAMPLE', 'app-config.sample.php' );
 
 // Store the locations of functions, classes, and core content.
+/**
+ * System includes directory name.
+ *
+ * @since 1.0.0
+ * @var   string Returns the name of the directory.
+ */
 define( 'APP_INC', 'app-includes' );
 
 /**
@@ -56,10 +63,8 @@ define( 'APP_INC', 'app-includes' );
  *
  * @since 1.0.0
  * @var   string Returns the path to the configuration file.
-	*/
-if ( ! defined( 'APP_CONFIG_PATH' ) && defined( 'ABSPATH' ) ) {
-	define( 'APP_CONFIG_PATH', ABSPATH . APP_CONFIG_FILE );
-}
+ */
+define( 'APP_CONFIG_PATH', ABSPATH . APP_CONFIG_FILE );
 
 /**
  * Extensions and plugins parent directory name
@@ -67,8 +72,7 @@ if ( ! defined( 'APP_CONFIG_PATH' ) && defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  * @var   string Returns the name of the directory.
  */
-define( 'APP_EXTEND', 'app-extend' );
-define( 'APP_EXTEND_DIR', ABSPATH . 'app-extend/extensions' );
+define( 'APP_EXTEND_DIR', 'app-extend' );
 
 /**
  * Extensions and plugins parent directory path
@@ -78,7 +82,7 @@ define( 'APP_EXTEND_DIR', ABSPATH . 'app-extend/extensions' );
  * @since 1.0.0
  * @var   string Returns the path to the directory.
  */
-define( 'APP_EXTEND_PATH', ABSPATH . APP_EXTEND );
+define( 'APP_EXTEND_PATH', ABSPATH . APP_EXTEND_DIR );
 
 /**
  * Extensions directory name
@@ -131,22 +135,9 @@ define( 'APP_VIEWS_PATH', ABSPATH . APP_VIEWS . '/' );
 // No trailing slash, full paths only - APP_CONTENT_URL is defined further down
 define( 'APP_CONTENT_DIR', ABSPATH . APP_VIEWS );
 
-// Define caching.
-if ( ! defined( 'APP_CACHE' ) ) {
-	define( 'APP_CACHE', false );
-}
-
-// Allow the trash status for the 'attachment' post type.
-if ( ! defined( 'MEDIA_TRASH' ) ) {
-	define( 'MEDIA_TRASH', false );
-}
-
 /**
  * Disable most of the system
  *
  * Useful for fast responses for custom integrations.
  */
 define( 'SHORTINIT', false );
-
-// Allow better passwords feature.
-define( 'APP_FEATURE_BETTER_PASSWORDS', true );
