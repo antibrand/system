@@ -132,17 +132,6 @@ function app_extend_constants() {
 	/**
 	 * Allows for the extensions directory to be moved from the default location.
 	 *
-	 * @since 1.0.0
-	 */
-	if ( ! defined( 'APP_EXTEND_DIR' ) ) {
-
-		// Full path, no trailing slash.
-		define( 'APP_EXTEND_DIR', ABSPATH . 'app-extend/extensions' );
-	}
-
-	/**
-	 * Allows for the extensions directory to be moved from the default location.
-	 *
 	 * @since Previous 1.0.0
 	 */
 	if ( ! defined( 'APP_EXTEND_URL' ) ) {

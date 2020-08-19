@@ -581,15 +581,24 @@ function app_not_installed() {
  * @return array Files to include.
  */
 function wp_get_mu_plugins() {
-	$mu_plugins = array();
-	if ( !is_dir( APP_EXTEND_DIR ) )
+
+	$mu_plugins = [];
+
+	if ( ! is_dir( APP_EXTEND_DIR ) ) {
 		return $mu_plugins;
-	if ( ! $dh = opendir( APP_EXTEND_DIR ) )
-		return $mu_plugins;
-	while ( ( $plugin = readdir( $dh ) ) !== false ) {
-		if ( substr( $plugin, -4 ) == '.php' )
-			$mu_plugins[] = APP_EXTEND_DIR . '/' . $plugin;
 	}
+
+	if ( ! $dh = opendir( APP_EXTEND_DIR ) ) {
+		return $mu_plugins;
+	}
+
+	while ( ( $plugin = readdir( $dh ) ) !== false ) {
+
+		if ( substr( $plugin, -4 ) == '.php' ) {
+			$mu_plugins[] = APP_EXTEND_DIR . '/' . $plugin;
+		}
+	}
+
 	closedir( $dh );
 	sort( $mu_plugins );
 

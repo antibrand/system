@@ -61,7 +61,42 @@ if ( ! defined( 'APP_CONFIG_PATH' ) && defined( 'ABSPATH' ) ) {
 	define( 'APP_CONFIG_PATH', ABSPATH . APP_CONFIG_FILE );
 }
 
+/**
+ * Extensions and plugins parent directory name
+ *
+ * @since 1.0.0
+ * @var   string Returns the name of the directory.
+ */
+define( 'APP_EXTEND', ABSPATH . 'app-extend' );
+define( 'APP_EXTEND_DIR', ABSPATH . 'app-extend/extensions' );
 
+/**
+ * Extensions and plugins parent directory path
+ *
+ * No trailing slash!
+ *
+ * @since 1.0.0
+ * @var   string Returns the path to the directory.
+ */
+define( 'APP_EXTEND_PATH', ABSPATH . APP_EXTEND );
+
+/**
+ * Extensions directory name
+ *
+ * @since 1.0.0
+ * @var   string Returns the name of the directory.
+ */
+define( 'APP_EXTENSIONS_DIR', 'extensions' );
+
+/**
+ * Extensions directory path
+ *
+ * No trailing slash!
+ *
+ * @since 1.0.0
+ * @var   string Returns the path to the directory.
+ */
+define( 'APP_EXTENSIONS_PATH', APP_EXTEND_PATH . '/' . APP_EXTENSIONS_DIR );
 
 /**
  * System API
