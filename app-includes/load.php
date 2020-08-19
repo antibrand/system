@@ -572,7 +572,7 @@ function app_not_installed() {
  * Retrieve an array of must-use plugin files.
  *
  * The default directory is wp-content/mu-plugins. To change the default
- * directory manually, define `APP_EXTEND_DIR` and `APP_EXTEND_URL`
+ * directory manually, define `APP_EXTENSIONS_PATH` and `APP_EXTEND_URL`
  * in the configuration file.
  *
  * @since 3.0.0
@@ -584,18 +584,18 @@ function wp_get_mu_plugins() {
 
 	$mu_plugins = [];
 
-	if ( ! is_dir( APP_EXTEND_DIR ) ) {
+	if ( ! is_dir( APP_EXTENSIONS_PATH ) ) {
 		return $mu_plugins;
 	}
 
-	if ( ! $dh = opendir( APP_EXTEND_DIR ) ) {
+	if ( ! $dh = opendir( APP_EXTENSIONS_PATH ) ) {
 		return $mu_plugins;
 	}
 
 	while ( ( $plugin = readdir( $dh ) ) !== false ) {
 
 		if ( substr( $plugin, -4 ) == '.php' ) {
-			$mu_plugins[] = APP_EXTEND_DIR . '/' . $plugin;
+			$mu_plugins[] = APP_EXTENSIONS_PATH . '/' . $plugin;
 		}
 	}
 

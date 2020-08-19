@@ -61,7 +61,7 @@ $invalid = validate_active_plugins();
 		<?php
 
 		echo '<p>' . sprintf( __( 'Files in the %s directory are executed automatically and cannot be disabled.' ),
-				'<code>' . str_replace( ABSPATH, '', APP_EXTEND_PATH ) . '</code>'
+				'<code>' . str_replace( ABSPATH, '', APP_EXTENSIONS_PATH ) . '</code>'
 		) . '</p>';
 
 		$wp_list_table->display(); ?>

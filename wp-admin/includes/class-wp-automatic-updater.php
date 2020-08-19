@@ -272,7 +272,7 @@ class WP_Automatic_Updater {
 				break;
 			case 'plugin':
 				$upgrader = new Plugin_Upgrader( $skin );
-				$context  = APP_PLUGIN_DIR; // We don't support custom Plugin directories, or updates for APP_EXTEND_DIR
+				$context  = APP_PLUGIN_DIR; // We don't support custom Plugin directories, or updates for APP_EXTENSIONS_PATH
 				break;
 			case 'theme':
 				$upgrader = new Theme_Upgrader( $skin );

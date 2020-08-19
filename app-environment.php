@@ -67,7 +67,7 @@ if ( ! defined( 'APP_CONFIG_PATH' ) && defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  * @var   string Returns the name of the directory.
  */
-define( 'APP_EXTEND', ABSPATH . 'app-extend' );
+define( 'APP_EXTEND', 'app-extend' );
 define( 'APP_EXTEND_DIR', ABSPATH . 'app-extend/extensions' );
 
 /**

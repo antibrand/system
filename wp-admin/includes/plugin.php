@@ -311,9 +311,9 @@ function get_mu_plugins() {
 	// Files in wp-content/mu-plugins directory
 	$plugin_files = array();
 
-	if ( ! is_dir( APP_EXTEND_DIR ) )
+	if ( ! is_dir( APP_EXTENSIONS_PATH ) )
 		return $wp_plugins;
-	if ( $plugins_dir = @ opendir( APP_EXTEND_DIR ) ) {
+	if ( $plugins_dir = @ opendir( APP_EXTENSIONS_PATH ) ) {
 		while ( ( $file = readdir( $plugins_dir ) ) !== false ) {
 			if ( substr( $file, -4 ) == '.php' )
 				$plugin_files[] = $file;
@@ -328,10 +328,10 @@ function get_mu_plugins() {
 		return $wp_plugins;
 
 	foreach ( $plugin_files as $plugin_file ) {
-		if ( !is_readable( APP_EXTEND_DIR . "/$plugin_file" ) )
+		if ( !is_readable( APP_EXTENSIONS_PATH . "/$plugin_file" ) )
 			continue;
 
-		$plugin_data = get_plugin_data( APP_EXTEND_DIR . "/$plugin_file", false, false ); //Do not apply markup/translate as it'll be cached.
+		$plugin_data = get_plugin_data( APP_EXTENSIONS_PATH . "/$plugin_file", false, false ); //Do not apply markup/translate as it'll be cached.
 
 		if ( empty ( $plugin_data['Name'] ) )
 			$plugin_data['Name'] = $plugin_file;
@@ -339,7 +339,7 @@ function get_mu_plugins() {
 		$wp_plugins[ $plugin_file ] = $plugin_data;
 	}
 
-	if ( isset( $wp_plugins['index.php'] ) && filesize( APP_EXTEND_DIR . '/index.php' ) <= 30 ) // silence is golden
+	if ( isset( $wp_plugins['index.php'] ) && filesize( APP_EXTENSIONS_PATH . '/index.php' ) <= 30 ) // silence is golden
 		unset( $wp_plugins['index.php'] );
 
 	uasort( $wp_plugins, '_sort_uname_callback' );

@@ -590,7 +590,7 @@ function get_theme_root_uri( $stylesheet_or_template = false, $theme_root = fals
 				$theme_root_uri = content_url( str_replace( APP_CONTENT_DIR, '', $theme_root ) );
 			elseif ( 0 === strpos( $theme_root, ABSPATH ) )
 				$theme_root_uri = site_url( str_replace( ABSPATH, '', $theme_root ) );
-			elseif ( 0 === strpos( $theme_root, APP_PLUGIN_DIR ) || 0 === strpos( $theme_root, APP_EXTEND_DIR ) )
+			elseif ( 0 === strpos( $theme_root, APP_PLUGIN_DIR ) || 0 === strpos( $theme_root, APP_EXTENSIONS_PATH ) )
 				$theme_root_uri = plugins_url( basename( $theme_root ), $theme_root );
 			else
 				$theme_root_uri = $theme_root;

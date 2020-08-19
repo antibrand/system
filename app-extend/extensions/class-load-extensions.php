@@ -11,7 +11,7 @@
  * @since 1.0.0
  *
  * Plugin Name: Extensions Loader
- * Description: Loads extensions that have the core file in their own subdirectory of <code>/app-extend/extensions/</code>.
+ * Description: Loads extensions that have the core file in their own subdirectory of the extensions directory.
  * Plugin URI: https://antibrand.dev/extend
  * Author: antibrand
  * Author URI: https://antibrand.dev/

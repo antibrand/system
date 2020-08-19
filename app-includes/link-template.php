@@ -3244,7 +3244,7 @@ function plugins_url( $path = '', $plugin = '' ) {
 
 	$path          = wp_normalize_path( $path );
 	$plugin        = wp_normalize_path( $plugin );
-	$mu_plugin_dir = wp_normalize_path( APP_EXTEND_DIR );
+	$mu_plugin_dir = wp_normalize_path( APP_EXTENSIONS_PATH );
 
 	if ( ! empty( $plugin ) && 0 === strpos( $plugin, $mu_plugin_dir ) ) {
 		$url = APP_EXTEND_URL;
