@@ -54,8 +54,8 @@ final class Load_Extensions {
 	 *
 	 * Example:
 	 * ```
-	 * if ( file_exists( ABSPATH . 'app-extend/extensions/example/example.php' ) ) {
-	 * 		require_once( ABSPATH . 'app-extend/extensions/example/example.php' );
+	 * if ( file_exists( APP_EXTENSIONS_PATH . '/example/example.php' ) ) {
+	 * 		require_once( APP_EXTENSIONS_PATH . '/example/example.php' );
 	 * }
 	 * ```
 	 *
@@ -70,8 +70,8 @@ final class Load_Extensions {
 		 *
 		 * Deprecated PHP constants, classes, methods, and functions.
 		 */
-		if ( file_exists( ABSPATH . 'app-extend/extensions/alias/alias.php' ) ) {
-			require_once( ABSPATH . 'app-extend/extensions/alias/alias.php' );
+		if ( file_exists( APP_EXTENSIONS_PATH . '/alias/alias.php' ) ) {
+			require_once( APP_EXTENSIONS_PATH . '/alias/alias.php' );
 		}
 
 	}
