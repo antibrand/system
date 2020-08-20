@@ -143,7 +143,7 @@ if ( ! defined( 'WPINC' ) && ( defined( 'APP_INC_DIR' ) && APP_INC_DIR ) ) {
  * @since 1.0.0
  * @var   string Returns the path to the content directory.
  */
-if ( ! defined( 'WP_CONTENT_DIR' ) && ( defined( 'APP_CONTENT_DIR' ) && APP_VIEWS_PATH ) ) {
+if ( ! defined( 'WP_CONTENT_DIR' ) && ( defined( 'APP_VIEWS_PATH' ) && APP_VIEWS_PATH ) ) {
 	define( 'WP_CONTENT_DIR', APP_VIEWS_PATH );
 } else {
 	define( 'WP_CONTENT_DIR', ABSPATH . 'app-views' );

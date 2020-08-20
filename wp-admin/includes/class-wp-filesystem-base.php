@@ -61,14 +61,14 @@ class WP_Filesystem_Base {
 	}
 
 	/**
-	 * Return the path on the remote filesystem of APP_CONTENT_DIR.
+	 * Return the path on the remote filesystem of APP_VIEWS_PATH.
 	 *
 	 * @since 2.7.0
 	 *
 	 * @return string The location of the remote path.
 	 */
 	public function wp_content_dir() {
-		return $this->find_folder(APP_CONTENT_DIR);
+		return $this->find_folder(APP_VIEWS_PATH);
 	}
 
 	/**
@@ -95,7 +95,7 @@ class WP_Filesystem_Base {
 
 		// Account for relative theme roots
 		if ( '/themes' == $theme_root || ! is_dir( $theme_root ) )
-			$theme_root = APP_CONTENT_DIR . $theme_root;
+			$theme_root = APP_VIEWS_PATH . $theme_root;
 
 		return $this->find_folder( $theme_root );
 	}
@@ -172,7 +172,7 @@ class WP_Filesystem_Base {
 		if ( stripos($this->method, 'ftp') !== false ) {
 			$constant_overrides = array(
 				'FTP_BASE' => ABSPATH,
-				'FTP_CONTENT_DIR' => APP_CONTENT_DIR,
+				'FTP_CONTENT_DIR' => APP_VIEWS_PATH,
 				'FTP_PLUGIN_DIR' => APP_PLUGINS_PATH,
 				'FTP_LANG_DIR' => APP_LANG_DIR
 			);

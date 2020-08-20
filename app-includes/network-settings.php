@@ -39,7 +39,7 @@ require_once( APP_INC_PATH . '/network-load.php' );
 require_once( APP_INC_PATH . '/constants-default-network.php' );
 
 if ( defined( 'SUNRISE' ) ) {
-	include_once( APP_CONTENT_DIR . '/sunrise.php' );
+	include_once( APP_VIEWS_PATH . '/sunrise.php' );
 }
 
 /** Check for and define SUBDOMAIN_INSTALL and the deprecated VHOST constant. */

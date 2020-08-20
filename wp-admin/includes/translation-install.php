@@ -261,7 +261,7 @@ function wp_can_install_language_pack() {
 	$upgrader = new Language_Pack_Upgrader( $skin );
 	$upgrader->init();
 
-	$check = $upgrader->fs_connect( array( APP_CONTENT_DIR, APP_LANG_DIR ) );
+	$check = $upgrader->fs_connect( array( APP_VIEWS_PATH, APP_LANG_DIR ) );
 
 	if ( ! $check || is_wp_error( $check ) ) {
 		return false;
