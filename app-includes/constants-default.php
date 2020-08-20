@@ -97,47 +97,42 @@ function app_initial_constants() {
  *
  * Defines must-use plugin directory constants, which may be overridden in the sunrise.php drop-in
  *
+ * @since This 1.0.0
  * @since Previous 3.0.0
  */
-function app_extend_constants() {
+function app_url_constants() {
 
-	if ( ! defined( 'APP_CONTENT_URL' ) ) {
-
-		// Full url - APP_CONTENT_DIR is defined further up.
+	/**
+	 * Content URL
+	 *
+	 * @since This 1.0.0
+	 */
+	if ( ! defined( 'APP_CONTENT_URL' ) && defined( 'APP_VIEWS' ) ) {
 		define( 'APP_CONTENT_URL', get_option( 'siteurl' ) . '/' . APP_VIEWS );
+	} elseif ( ! defined( 'APP_CONTENT_URL' ) ) {
+		define( 'APP_CONTENT_URL', get_option( 'siteurl' ) . '/app-views' );
 	}
 
 	/**
-	 * Allows for the plugins directory to be moved from the default location.
+	 * Plugins URL
 	 *
 	 * @since Previous 2.6.0
 	 */
-	if ( ! defined( 'APP_PLUGIN_DIR' ) ) {
-
-		// Full path, no trailing slash.
-		define( 'APP_PLUGIN_DIR', ABSPATH . 'app-extend/plugins' );
-	}
-
-	/**
-	 * Allows for the plugins directory to be moved from the default location.
-	 *
-	 * @since Previous 2.6.0
-	 */
-	if ( ! defined( 'APP_PLUGIN_URL' ) ) {
-
-		// Full url, no trailing slash.
+	if ( ! defined( 'APP_PLUGIN_URL' ) && defined( 'APP_EXTEND_DIR' ) && defined( 'APP_PLUGINS_DIR' ) ) {
+		define( 'APP_PLUGIN_URL', get_option( 'siteurl' ) . '/' . APP_EXTEND_DIR . '/' . APP_PLUGINS_DIR );
+	} elseif ( ! defined( 'APP_PLUGIN_URL' ) ) {
 		define( 'APP_PLUGIN_URL', get_option( 'siteurl' ) . '/app-extend/plugins' );
 	}
 
 	/**
-	 * Allows for the extensions directory to be moved from the default location.
+	 * Extentions URL
 	 *
 	 * @since Previous 1.0.0
 	 */
-	if ( ! defined( 'APP_EXTEND_URL' ) ) {
-
-		// Full url, no trailing slash.
-		define( 'APP_EXTEND_URL', get_option( 'siteurl' ) . '/app-extend/extensions' );
+	if ( ! defined( 'APP_EXTEND_URL' ) && defined( 'APP_EXTEND_DIR' ) && defined( 'APP_EXTENSIONS_DIR' ) ) {
+		define( 'APP_EXTEND_URL', get_option( 'siteurl' ) . '/' . APP_EXTEND_DIR . '/' . APP_EXTENSIONS_DIR );
+	} elseif ( ! defined( 'APP_EXTEND_URL' ) ) {
+		define( 'APP_EXTEND_URL', get_option( 'siteurl' ) . '/app-extend/extenstions' );
 	}
 }
 

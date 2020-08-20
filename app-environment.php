@@ -85,6 +85,24 @@ define( 'APP_EXTEND_DIR', 'app-extend' );
 define( 'APP_EXTEND_PATH', ABSPATH . APP_EXTEND_DIR );
 
 /**
+ * Plugins directory name
+ *
+ * @since 1.0.0
+ * @var   string Returns the name of the directory.
+ */
+define( 'APP_PLUGINS_DIR', 'plugins' );
+
+/**
+ * Plugins directory path
+ *
+ * No trailing slash!
+ *
+ * @since 1.0.0
+ * @var   string Returns the path to the directory.
+ */
+define( 'APP_PLUGINS_PATH', APP_EXTEND_PATH . '/' . APP_PLUGINS_DIR );
+
+/**
  * Extensions directory name
  *
  * @since 1.0.0

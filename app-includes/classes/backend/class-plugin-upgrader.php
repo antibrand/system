@@ -115,7 +115,7 @@ class Plugin_Upgrader extends Includes\Installer {
 
 		$this->run( array(
 			'package' => $package,
-			'destination' => APP_PLUGIN_DIR,
+			'destination' => APP_PLUGINS_PATH,
 			'clear_destination' => false, // Do not overwrite files.
 			'clear_working' => true,
 			'hook_extra' => array(
@@ -183,7 +183,7 @@ class Plugin_Upgrader extends Includes\Installer {
 
 		$this->run( array(
 			'package' => $r->package,
-			'destination' => APP_PLUGIN_DIR,
+			'destination' => APP_PLUGINS_PATH,
 			'clear_destination' => true,
 			'clear_working' => true,
 			'hook_extra' => array(
@@ -240,7 +240,7 @@ class Plugin_Upgrader extends Includes\Installer {
 		$this->skin->header();
 
 		// Connect to the Filesystem first.
-		$res = $this->fs_connect( array(APP_CONTENT_DIR, APP_PLUGIN_DIR) );
+		$res = $this->fs_connect( array(APP_CONTENT_DIR, APP_PLUGINS_PATH) );
 		if ( ! $res ) {
 			$this->skin->footer();
 			return false;
@@ -266,7 +266,7 @@ class Plugin_Upgrader extends Includes\Installer {
 		$this->update_current = 0;
 		foreach ( $plugins as $plugin ) {
 			$this->update_current++;
-			$this->skin->plugin_info = get_plugin_data( APP_PLUGIN_DIR . '/' . $plugin, false, true);
+			$this->skin->plugin_info = get_plugin_data( APP_PLUGINS_PATH . '/' . $plugin, false, true);
 
 			if ( !isset( $current->response[ $plugin ] ) ) {
 				$this->skin->set_result('up_to_date');
@@ -284,7 +284,7 @@ class Plugin_Upgrader extends Includes\Installer {
 
 			$result = $this->run( array(
 				'package' => $r->package,
-				'destination' => APP_PLUGIN_DIR,
+				'destination' => APP_PLUGINS_PATH,
 				'clear_destination' => true,
 				'clear_working' => true,
 				'is_multi' => true,

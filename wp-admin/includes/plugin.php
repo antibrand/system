@@ -117,7 +117,7 @@ function get_plugin_data( $plugin_file, $markup = true, $translate = true ) {
  */
 function _get_plugin_data_markup_translate( $plugin_file, $plugin_data, $markup = true, $translate = true ) {
 
-	// Sanitize the plugin filename to a APP_PLUGIN_DIR relative path.
+	// Sanitize the plugin filename to a APP_PLUGINS_PATH relative path.
 	$plugin_file = plugin_basename( $plugin_file );
 
 	// Translate fields
@@ -195,11 +195,11 @@ function _get_plugin_data_markup_translate( $plugin_file, $plugin_data, $markup 
  */
 function get_plugin_files( $plugin ) {
 
-	$plugin_file  = APP_PLUGIN_DIR . '/' . $plugin;
+	$plugin_file  = APP_PLUGINS_PATH . '/' . $plugin;
 	$dir          = dirname( $plugin_file );
 	$plugin_files = [ plugin_basename( $plugin_file ) ];
 
-	if ( is_dir( $dir ) && APP_PLUGIN_DIR !== $dir ) {
+	if ( is_dir( $dir ) && APP_PLUGINS_PATH !== $dir ) {
 
 		/**
 		 * Filters the array of excluded directories and files while scanning the folder.
@@ -245,7 +245,7 @@ function get_plugins( $plugin_folder = '' ) {
 		return $cache_plugins[ $plugin_folder ];
 
 	$wp_plugins = array ();
-	$plugin_root = APP_PLUGIN_DIR;
+	$plugin_root = APP_PLUGINS_PATH;
 	if ( !empty( $plugin_folder) )
 		$plugin_root .= $plugin_folder;
 
@@ -497,7 +497,7 @@ function is_plugin_active_for_network( $plugin ) {
  * @return bool True if plugin is network only, false otherwise.
  */
 function is_network_only_plugin( $plugin ) {
-	$plugin_data = get_plugin_data( APP_PLUGIN_DIR . '/' . $plugin );
+	$plugin_data = get_plugin_data( APP_PLUGINS_PATH . '/' . $plugin );
 	if ( $plugin_data )
 		return $plugin_data['Network'];
 	return false;
@@ -549,9 +549,9 @@ function activate_plugin( $plugin, $redirect = '', $network_wide = false, $silen
 		if ( !empty( $redirect) )
 			wp_redirect(add_query_arg( '_error_nonce', wp_create_nonce( 'plugin-activation-error_' . $plugin), $redirect)); // we'll override this later if the plugin can be included without fatal error
 		ob_start();
-		wp_register_plugin_realpath( APP_PLUGIN_DIR . '/' . $plugin );
+		wp_register_plugin_realpath( APP_PLUGINS_PATH . '/' . $plugin );
 		$_wp_plugin_file = $plugin;
-		include_once( APP_PLUGIN_DIR . '/' . $plugin );
+		include_once( APP_PLUGINS_PATH . '/' . $plugin );
 		$plugin = $_wp_plugin_file; // Avoid stomping of the $plugin variable in a plugin.
 
 		if ( ! $silent ) {
@@ -953,7 +953,7 @@ function validate_active_plugins() {
 function validate_plugin( $plugin) {
 	if ( validate_file( $plugin) )
 		return new WP_Error( 'plugin_invalid', __( 'Invalid plugin path.' ));
-	if ( ! file_exists(APP_PLUGIN_DIR . '/' . $plugin) )
+	if ( ! file_exists( APP_PLUGINS_PATH . '/' . $plugin ) )
 		return new WP_Error( 'plugin_not_found', __( 'Plugin file does not exist.' ));
 
 	$installed_plugins = get_plugins();
@@ -974,7 +974,7 @@ function is_uninstallable_plugin( $plugin) {
 	$file = plugin_basename( $plugin);
 
 	$uninstallable_plugins = (array) get_option( 'uninstall_plugins' );
-	if ( isset( $uninstallable_plugins[$file] ) || file_exists( APP_PLUGIN_DIR . '/' . dirname( $file ) . '/uninstall.php' ) )
+	if ( isset( $uninstallable_plugins[$file] ) || file_exists( APP_PLUGINS_PATH . '/' . dirname( $file ) . '/uninstall.php' ) )
 		return true;
 
 	return false;
@@ -1005,7 +1005,7 @@ function uninstall_plugin( $plugin) {
 	 */
 	do_action( 'pre_uninstall_plugin', $plugin, $uninstallable_plugins );
 
-	if ( file_exists( APP_PLUGIN_DIR . '/' . dirname( $file ) . '/uninstall.php' ) ) {
+	if ( file_exists( APP_PLUGINS_PATH . '/' . dirname( $file ) . '/uninstall.php' ) ) {
 		if ( isset( $uninstallable_plugins[$file] ) ) {
 			unset( $uninstallable_plugins[$file]);
 			update_option( 'uninstall_plugins', $uninstallable_plugins);
@@ -1013,8 +1013,8 @@ function uninstall_plugin( $plugin) {
 		unset( $uninstallable_plugins);
 
 		define( 'WP_UNINSTALL_PLUGIN', $file );
-		wp_register_plugin_realpath( APP_PLUGIN_DIR . '/' . $file );
-		include( APP_PLUGIN_DIR . '/' . dirname( $file ) . '/uninstall.php' );
+		wp_register_plugin_realpath( APP_PLUGINS_PATH . '/' . $file );
+		include( APP_PLUGINS_PATH . '/' . dirname( $file ) . '/uninstall.php' );
 
 		return true;
 	}
@@ -1025,8 +1025,8 @@ function uninstall_plugin( $plugin) {
 		update_option( 'uninstall_plugins', $uninstallable_plugins);
 		unset( $uninstallable_plugins);
 
-		wp_register_plugin_realpath( APP_PLUGIN_DIR . '/' . $file );
-		include( APP_PLUGIN_DIR . '/' . $file );
+		wp_register_plugin_realpath( APP_PLUGINS_PATH . '/' . $file );
+		include( APP_PLUGINS_PATH . '/' . $file );
 
 		add_action( "uninstall_{$file}", $callable );
 
@@ -1871,8 +1871,8 @@ function wp_clean_plugins_cache( $clear_update_cache = true ) {
  * @param string $plugin Plugin file to load.
  */
 function plugin_sandbox_scrape( $plugin ) {
-	wp_register_plugin_realpath( APP_PLUGIN_DIR . '/' . $plugin );
-	include( APP_PLUGIN_DIR . '/' . $plugin );
+	wp_register_plugin_realpath( APP_PLUGINS_PATH . '/' . $plugin );
+	include( APP_PLUGINS_PATH . '/' . $plugin );
 }
 
 /**

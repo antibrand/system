@@ -229,7 +229,7 @@ class Installer {
 
 					break;
 
-				case APP_PLUGIN_DIR :
+				case APP_PLUGINS_PATH :
 
 					if ( ! $wp_filesystem->wp_plugins_dir() )
 						return new \WP_Error( 'fs_no_plugins_dir', $this->strings['fs_no_plugins_dir'] );
@@ -554,11 +554,11 @@ class Installer {
 		/*
 		 * Protection against deleting files in any important base directories.
 		 * Theme_Upgrader & Plugin_Upgrader also trigger this, as they pass the
-		 * destination directory (APP_PLUGIN_DIR / wp-content/themes) intending
+		 * destination directory (APP_PLUGINS_PATH / wp-content/themes) intending
 		 * to copy the directory into the directory, whilst they pass the source
 		 * as the actual files to copy.
 		 */
-		$protected_directories = array( ABSPATH, APP_CONTENT_DIR, APP_PLUGIN_DIR, APP_CONTENT_DIR . '/themes' );
+		$protected_directories = array( ABSPATH, APP_CONTENT_DIR, APP_PLUGINS_PATH, APP_CONTENT_DIR . '/themes' );
 
 		if ( is_array( $wp_theme_directories ) ) {
 			$protected_directories = array_merge( $protected_directories, $wp_theme_directories );

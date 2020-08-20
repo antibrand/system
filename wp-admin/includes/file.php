@@ -390,7 +390,7 @@ function wp_edit_theme_plugin_file( $args ) {
 
 		$editable_extensions = wp_get_plugin_file_editable_extensions( $plugin );
 
-		$real_file = APP_PLUGIN_DIR . '/' . $file;
+		$real_file = APP_PLUGINS_PATH . '/' . $file;
 
 		$is_active = in_array(
 			$plugin,

@@ -106,9 +106,9 @@ if ( isset( $_GET['action'] ) ) {
 			//Ensure that Fatal errors are displayed.
 			@ini_set( 'display_errors', true );
 
-			wp_register_plugin_realpath( APP_PLUGIN_DIR . '/' . $plugin );
+			wp_register_plugin_realpath( APP_PLUGINS_PATH . '/' . $plugin );
 
-			include( APP_PLUGIN_DIR . '/' . $plugin );
+			include( APP_PLUGINS_PATH . '/' . $plugin );
 		}
 
 		iframe_footer();

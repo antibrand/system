@@ -22,11 +22,11 @@ function wp_load_press_this() {
 			403
 		);
 	} elseif ( is_plugin_active( $plugin_file ) ) {
-		include( APP_PLUGIN_DIR . '/press-this/class-wp-press-this-plugin.php' );
+		include( APP_PLUGINS_PATH . '/press-this/class-wp-press-this-plugin.php' );
 		$wp_press_this = new WP_Press_This_Plugin();
 		$wp_press_this->html();
 	} elseif ( current_user_can( 'activate_plugins' ) ) {
-		if ( file_exists( APP_PLUGIN_DIR . '/' . $plugin_file ) ) {
+		if ( file_exists( APP_PLUGINS_PATH . '/' . $plugin_file ) ) {
 			$url = wp_nonce_url( add_query_arg( array(
 				'action' => 'activate',
 				'plugin' => $plugin_file,
