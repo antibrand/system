@@ -18,7 +18,13 @@
  */
 require( ABSPATH . APP_INC . '/app-autoloader.php' );
 
-require( ABSPATH . APP_INC . '/deprecated-versions.php' );
+/**
+ * Get deprecated functions
+ *
+ * @todo Review the functions and remove as necessary for
+ * this copy of the website management system.
+ */
+require( ABSPATH . APP_INC . '/deprecated.php' );
 
 // Include files required for initialization.
 require( ABSPATH . APP_INC . '/load.php' );
