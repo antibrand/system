@@ -150,7 +150,6 @@ define( 'APP_VIEWS', 'app-views' );
 // Path to HTML templates.
 define( 'APP_VIEWS_PATH', ABSPATH . APP_VIEWS . '/' );
 
-// No trailing slash, full paths only - APP_CONTENT_URL is defined further down
 define( 'APP_CONTENT_DIR', ABSPATH . APP_VIEWS );
 
 /**

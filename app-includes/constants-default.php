@@ -93,50 +93,6 @@ function app_initial_constants() {
 }
 
 /**
- * Defines plugin directory constants
- *
- * Defines must-use plugin directory constants, which may be overridden in the sunrise.php drop-in
- *
- * @since This 1.0.0
- * @since Previous 3.0.0
- */
-function app_url_constants() {
-
-	/**
-	 * Content URL
-	 *
-	 * @since This 1.0.0
-	 */
-	if ( ! defined( 'APP_CONTENT_URL' ) && defined( 'APP_VIEWS' ) ) {
-		define( 'APP_CONTENT_URL', get_option( 'siteurl' ) . '/' . APP_VIEWS );
-	} elseif ( ! defined( 'APP_CONTENT_URL' ) ) {
-		define( 'APP_CONTENT_URL', get_option( 'siteurl' ) . '/app-views' );
-	}
-
-	/**
-	 * Plugins URL
-	 *
-	 * @since Previous 2.6.0
-	 */
-	if ( ! defined( 'APP_PLUGIN_URL' ) && defined( 'APP_EXTEND_DIR' ) && defined( 'APP_PLUGINS_DIR' ) ) {
-		define( 'APP_PLUGIN_URL', get_option( 'siteurl' ) . '/' . APP_EXTEND_DIR . '/' . APP_PLUGINS_DIR );
-	} elseif ( ! defined( 'APP_PLUGIN_URL' ) ) {
-		define( 'APP_PLUGIN_URL', get_option( 'siteurl' ) . '/app-extend/plugins' );
-	}
-
-	/**
-	 * Extentions URL
-	 *
-	 * @since Previous 1.0.0
-	 */
-	if ( ! defined( 'APP_EXTEND_URL' ) && defined( 'APP_EXTEND_DIR' ) && defined( 'APP_EXTENSIONS_DIR' ) ) {
-		define( 'APP_EXTEND_URL', get_option( 'siteurl' ) . '/' . APP_EXTEND_DIR . '/' . APP_EXTENSIONS_DIR );
-	} elseif ( ! defined( 'APP_EXTEND_URL' ) ) {
-		define( 'APP_EXTEND_URL', get_option( 'siteurl' ) . '/app-extend/extenstions' );
-	}
-}
-
-/**
  * Defines cookie related constants
  *
  * Defines constants after network is loaded.
@@ -227,7 +183,14 @@ function app_cookie_constants() {
 	 * @since Previous 2.6.0
 	 */
 	if ( ! defined( 'PLUGINS_COOKIE_PATH' ) ) {
-		define( 'PLUGINS_COOKIE_PATH', preg_replace( '|https?://[^/]+|i', '', APP_PLUGIN_URL ) );
+
+		if ( defined( 'APP_EXTEND_DIR' ) && defined( 'APP_PLUGINS_DIR' ) ) {
+			$url = get_option( 'siteurl' ) . '/' . APP_EXTEND_DIR . '/' . APP_PLUGINS_DIR;
+		} else {
+			$url = get_option( 'siteurl' ) . '/app-extend/plugins';
+		}
+
+		define( 'PLUGINS_COOKIE_PATH', preg_replace( '|https?://[^/]+|i', '', $url ) );
 	}
 
 	/**

@@ -157,8 +157,8 @@ if ( ! defined( 'WP_CONTENT_DIR' ) && ( defined( 'APP_CONTENT_DIR' ) && APP_CONT
  * @since 1.0.0
  * @var   string Returns the URL to the content directory.
  */
-if ( ! defined( 'WP_CONTENT_URL' ) && ( defined( 'APP_CONTENT_URL' ) && APP_CONTENT_URL ) ) {
-	define( 'WP_CONTENT_URL', APP_CONTENT_URL );
+if ( ! defined( 'WP_CONTENT_URL' ) && function_exists( 'content_url' ) ) {
+	define( 'WP_CONTENT_URL', content_url() );
 } else {
 	define( 'WP_CONTENT_URL', get_option( 'siteurl' ) . '/app-views' );
 }

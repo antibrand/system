@@ -1844,7 +1844,7 @@ function wp_get_upload_dir() {
  * override the 'upload_path' option and 'APP_CONTENT_DIR/uploads' path.
  *
  * The upload URL path is set either by the 'upload_url_path' option or by using
- * the 'APP_CONTENT_URL' constant and appending '/uploads' to the path.
+ * the 'content_url()' function and appending '/uploads' to the path.
  *
  * If the 'uploads_use_yearmonth_folders' is set to true (checkbox if checked in
  * the administration settings panel), then the time will be used. The format
@@ -1944,7 +1944,7 @@ function _wp_upload_dir( $time = null ) {
 
 	if ( !$url = get_option( 'upload_url_path' ) ) {
 		if ( empty($upload_path) || ( 'app-views/uploads' == $upload_path ) || ( $upload_path == $dir ) )
-			$url = APP_CONTENT_URL . '/uploads';
+			$url = content_url() . '/uploads';
 		else
 			$url = trailingslashit( $siteurl ) . $upload_path;
 	}

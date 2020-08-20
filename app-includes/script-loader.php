@@ -62,7 +62,7 @@ function wp_default_scripts( &$scripts ) {
 	}
 
 	$scripts->base_url        = $guessurl;
-	$scripts->content_url     = defined( 'APP_CONTENT_URL' ) ? APP_CONTENT_URL : '';
+	$scripts->content_url     = function_exists( 'content_url' ) ? content_url() : '';
 	$scripts->default_version = get_bloginfo( 'version' );
 	$scripts->default_dirs    = [ '/app-assets/js/admin/', '/app-assets/js/includes/' ];
 
@@ -909,7 +909,7 @@ function wp_default_styles( &$styles ) {
 		$styles->base_url = $guessurl;
 	}
 
-	$styles->content_url     = defined( 'APP_CONTENT_URL' ) ? APP_CONTENT_URL : '';
+	$styles->content_url     = function_exists( 'content_url' ) ? content_url() : '';
 	$styles->default_version = $app_version;
 	$styles->text_direction  = function_exists( 'is_rtl' ) && is_rtl() ? 'rtl' : 'ltr';
 	$styles->default_dirs    = [ 'app-assets/css/admin/', 'app-assets/css/includes/' ];

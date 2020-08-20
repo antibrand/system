@@ -3209,7 +3209,12 @@ function includes_url( $path = '', $scheme = null ) {
  * @return string Content URL link with optional path appended.
  */
 function content_url( $path = '' ) {
-	$url = set_url_scheme( APP_CONTENT_URL );
+
+	if ( defined( 'APP_VIEWS' ) ) {
+		$url = set_url_scheme( get_option( 'siteurl' ) . '/' . APP_VIEWS );
+	} else {
+		$url = set_url_scheme( get_option( 'siteurl' ) . '/app-views' );
+	}
 
 	if ( $path && is_string( $path ) )
 		$url .= '/' . ltrim( $path, '/' );
@@ -3247,9 +3252,20 @@ function plugins_url( $path = '', $plugin = '' ) {
 	$mu_plugin_dir = wp_normalize_path( APP_EXTENSIONS_PATH );
 
 	if ( ! empty( $plugin ) && 0 === strpos( $plugin, $mu_plugin_dir ) ) {
-		$url = APP_EXTEND_URL;
+
+		if ( defined( 'APP_EXTEND_DIR' ) && defined( 'APP_EXTENSIONS_DIR' ) ) {
+			$url = get_option( 'siteurl' ) . '/' . APP_EXTEND_DIR . '/' . APP_EXTENSIONS_DIR;
+		} else {
+			$url = get_option( 'siteurl' ) . '/app-extend/extentions';
+		}
+
 	} else {
-		$url = APP_PLUGIN_URL;
+
+		if ( defined( 'APP_EXTEND_DIR' ) && defined( 'APP_PLUGINS_DIR' ) ) {
+			$url = get_option( 'siteurl' ) . '/' . APP_EXTEND_DIR . '/' . APP_PLUGINS_DIR;
+		} else {
+			$url = get_option( 'siteurl' ) . '/app-extend/plugins';
+		}
 	}
 
 
