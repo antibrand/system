@@ -105,9 +105,9 @@ function dropdown_link_categories( $default = 0 ) {
  *
  * @since 1.5.0
  * @deprecated 2.9.0
- * @uses APP_VIEWS_PATH Full filesystem path to the wp-content directory.
+ * @uses APP_VIEWS_PATH Full filesystem path to the APP_VIEWS_DIR directory.
  *
- * @param string $file Filesystem path relative to the wp-content directory.
+ * @param string $file Filesystem path relative to the APP_VIEWS_DIR directory.
  * @return string Full filesystem path to edit.
  */
 function get_real_file_to_edit( $file ) {

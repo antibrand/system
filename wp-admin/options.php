@@ -187,7 +187,7 @@ if ( ! is_network() ) {
 	$whitelist_options['media'][]   = 'uploads_use_yearmonth_folders';
 
 	// If upload_url_path and upload_path are both default values, they're locked.
-	if ( get_option( 'upload_url_path' ) || ( get_option( 'upload_path' ) != 'wp-content/uploads' && get_option( 'upload_path' ) ) ) {
+	if ( get_option( 'upload_url_path' ) || ( get_option( 'upload_path' ) != APP_VIEWS_DIR . '/uploads' && get_option( 'upload_path' ) ) ) {
 		$whitelist_options['media'][] = 'upload_path';
 		$whitelist_options['media'][] = 'upload_url_path';
 	}

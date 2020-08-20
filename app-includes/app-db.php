@@ -39,7 +39,7 @@ define( 'ARRAY_N', 'ARRAY_N' );
  * Database Access Abstraction Object
  *
  * It is possible to replace this class with your own
- * by setting the $wpdb global variable in wp-content/db.php
+ * by setting the $wpdb global variable in APP_VIEWS_DIR/db.php
  * file to your class. The wpdb class will still be included,
  * so you can extend it or simply use your own.
  *

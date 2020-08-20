@@ -554,7 +554,7 @@ class Installer {
 		/*
 		 * Protection against deleting files in any important base directories.
 		 * Theme_Upgrader & Plugin_Upgrader also trigger this, as they pass the
-		 * destination directory (APP_PLUGINS_PATH / wp-content/themes) intending
+		 * destination directory (APP_PLUGINS_PATH / APP_VIEWS_DIR/themes) intending
 		 * to copy the directory into the directory, whilst they pass the source
 		 * as the actual files to copy.
 		 */

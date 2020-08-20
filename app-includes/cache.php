@@ -278,7 +278,7 @@ function wp_cache_reset() {
  * the cache contents.
  *
  * The Object Cache can be replaced by other caching mechanisms by placing files
- * in the wp-content folder which is looked at in wp-settings. If that file
+ * in the APP_VIEWS_DIR folder which is looked at in wp-settings. If that file
  * exists, then this file will not be included.
  *
  * @since 2.0.0

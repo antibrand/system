@@ -596,7 +596,7 @@ define( 'BLOG_ID_CURRENT_SITE', 1 );
 		);
 		echo '</p>';
 		if ( ! $subdomain_install && APP_VIEWS_PATH != ABSPATH . 'app-views' )
-			echo '<p><strong>' . __( 'Warning:' ) . ' ' . __( 'Subdirectory networks may not be fully compatible with custom wp-content directories.' ) . '</strong></p>';
+			echo '<p><strong>' . __( 'Warning:' ) . ' ' . __( 'Subdirectory networks may not be fully compatible with custom directories.' ) . '</strong></p>';
 		?>
 		<textarea class="code" readonly="readonly" cols="100" rows="20"><?php echo esc_textarea( $web_config_file ); ?>
 		</textarea></li>
@@ -637,7 +637,7 @@ EOF;
 		);
 		echo '</p>';
 		if ( ! $subdomain_install && APP_VIEWS_PATH != ABSPATH . 'app-views' )
-			echo '<p><strong>' . __( 'Warning:' ) . ' ' . __( 'Subdirectory networks may not be fully compatible with custom wp-content directories.' ) . '</strong></p>';
+			echo '<p><strong>' . __( 'Warning:' ) . ' ' . __( 'Subdirectory networks may not be fully compatible with custom directories.' ) . '</strong></p>';
 		?>
 				<pre class="code network-add-code">
 <?php echo esc_textarea( $htaccess_file ); ?>
