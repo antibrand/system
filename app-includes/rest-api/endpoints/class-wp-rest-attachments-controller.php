@@ -170,7 +170,7 @@ class WP_REST_Attachments_Controller extends WP_REST_Posts_Controller {
 		do_action( 'rest_insert_attachment', $attachment, $request, true );
 
 		// Include admin functions to get access to wp_generate_attachment_metadata().
-		require_once ABSPATH . 'wp-admin/includes/admin.php';
+		require_once APP_INC_PATH . '/backend/admin.php';
 
 		wp_update_attachment_metadata( $id, wp_generate_attachment_metadata( $id, $file ) );
 
@@ -537,7 +537,7 @@ class WP_REST_Attachments_Controller extends WP_REST_Posts_Controller {
 		$type = array_shift( $headers['content_type'] );
 
 		/** Include admin functions to get access to wp_tempnam() and wp_handle_sideload() */
-		require_once ABSPATH . 'wp-admin/includes/admin.php';
+		require_once APP_INC_PATH . '/backend/admin.php';
 
 		// Save the file.
 		$tmpfname = wp_tempnam( $filename );
@@ -737,7 +737,7 @@ class WP_REST_Attachments_Controller extends WP_REST_Posts_Controller {
 		}
 
 		/** Include admin functions to get access to wp_handle_upload() */
-		require_once ABSPATH . 'wp-admin/includes/admin.php';
+		require_once APP_INC_PATH . '/backend/admin.php';
 
 		$file = wp_handle_upload( $files['file'], $overrides );
 

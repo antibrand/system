@@ -28,7 +28,7 @@ if ( empty( $_REQUEST['action'] ) )
 	wp_die( '0', 400 );
 
 // Load Administration APIs.
-require_once( ABSPATH . 'wp-admin/includes/admin.php' );
+require_once( APP_INC_PATH . '/backend/admin.php' );
 
 // Load Ajax Handlers for Core.
 require_once( APP_INC_PATH . '/backend/ajax-actions.php' );
