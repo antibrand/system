@@ -10,7 +10,7 @@
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 // Load the widgets API.
-require_once( ABSPATH . 'wp-admin/includes/widgets.php' );
+require_once( APP_INC_PATH . '/backend/widgets.php' );
 
 if ( ! current_user_can( 'edit_theme_options' ) ) {
 	wp_die(
