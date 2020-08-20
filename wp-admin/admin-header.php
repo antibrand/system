@@ -7,7 +7,7 @@
  */
 
 @header( 'Content-Type: ' . get_option( 'html_type' ) . '; charset=' . get_option( 'blog_charset' ) );
-if ( ! defined( 'APP_ADMIN' ) ) {
+if ( ! defined( 'APP_ADMIN_DIR' ) ) {
 	require_once( dirname( __FILE__ ) . '/admin.php' );
 }
 
