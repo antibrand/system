@@ -50,7 +50,7 @@ wp_reset_vars( array( 'wp_http_referer' ) );
 $wp_http_referer = remove_query_arg( array( 'action', 'message', 'tag_ID' ), $wp_http_referer );
 
 /** Also used by Edit Tags */
-require_once( ABSPATH . APP_INC . '/backend/edit-tag-messages.php' );
+require_once( APP_INC_PATH . '/backend/edit-tag-messages.php' );
 
 /**
  * Fires before the Edit Term form for all taxonomies.

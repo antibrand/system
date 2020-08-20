@@ -5,7 +5,7 @@
  * @package App_Package
  */
 
-require( ABSPATH . APP_INC . '/option.php' );
+require( APP_INC_PATH . '/option.php' );
 
 /**
  * Convert given date string into a different format.
@@ -557,7 +557,7 @@ function do_enclose( $content, $post_ID ) {
 	global $wpdb;
 
 	//TODO: Tidy this ghetto code up and make the debug code optional
-	include_once( ABSPATH . APP_INC . '/classes/includes/class-IXR.php' );
+	include_once( APP_INC_PATH . '/classes/includes/class-IXR.php' );
 
 	$post_links = array();
 
@@ -1250,7 +1250,7 @@ function do_feed() {
  * @see load_template()
  */
 function do_feed_rdf() {
-	load_template( ABSPATH . APP_INC . '/feed-rdf.php' );
+	load_template( APP_INC_PATH . '/feed-rdf.php' );
 }
 
 /**
@@ -1261,7 +1261,7 @@ function do_feed_rdf() {
  * @see load_template()
  */
 function do_feed_rss() {
-	load_template( ABSPATH . APP_INC . '/feed-rss.php' );
+	load_template( APP_INC_PATH . '/feed-rss.php' );
 }
 
 /**
@@ -1275,9 +1275,9 @@ function do_feed_rss() {
  */
 function do_feed_rss2( $for_comments ) {
 	if ( $for_comments )
-		load_template( ABSPATH . APP_INC . '/feed-rss2-comments.php' );
+		load_template( APP_INC_PATH . '/feed-rss2-comments.php' );
 	else
-		load_template( ABSPATH . APP_INC . '/feed-rss2.php' );
+		load_template( APP_INC_PATH . '/feed-rss2.php' );
 }
 
 /**
@@ -1291,9 +1291,9 @@ function do_feed_rss2( $for_comments ) {
  */
 function do_feed_atom( $for_comments ) {
 	if ($for_comments)
-		load_template( ABSPATH . APP_INC . '/feed-atom-comments.php');
+		load_template( APP_INC_PATH . '/feed-atom-comments.php');
 	else
-		load_template( ABSPATH . APP_INC . '/feed-atom.php' );
+		load_template( APP_INC_PATH . '/feed-atom.php' );
 }
 
 /**
@@ -3601,7 +3601,7 @@ function wp_maybe_load_widgets() {
 		return;
 	}
 
-	require_once( ABSPATH . APP_INC . '/default-widgets.php' );
+	require_once( APP_INC_PATH . '/default-widgets.php' );
 
 	add_action( '_admin_menu', 'wp_widgets_add_menu' );
 }

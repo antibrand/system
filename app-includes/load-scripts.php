@@ -25,9 +25,9 @@ if ( empty( $load ) ) {
 	exit;
 }
 
-require( ABSPATH . APP_INC . '/backend/noop.php' );
-require( ABSPATH . APP_INC . '/script-loader.php' );
-require( ABSPATH . APP_INC . '/version.php' );
+require( APP_INC_PATH . '/backend/noop.php' );
+require( APP_INC_PATH . '/script-loader.php' );
+require( APP_INC_PATH . '/version.php' );
 
 // 1 year.
 $expires_offset = 31536000;

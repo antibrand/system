@@ -716,4 +716,4 @@ $compat = [
 	'themes'          => 'appearance',
 ];
 
-require_once( ABSPATH . APP_INC . '/backend/menu.php' );
+require_once( APP_INC_PATH . '/backend/menu.php' );

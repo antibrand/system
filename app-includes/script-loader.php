@@ -17,22 +17,22 @@
  */
 
 // Dependency class.
-require( ABSPATH . APP_INC . '/classes/includes/class-app-dependency.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-dependency.php' );
 
 // Dependencies class.
-require( ABSPATH . APP_INC . '/classes/includes/class.app-dependencies.php' );
+require( APP_INC_PATH . '/classes/includes/class.app-dependencies.php' );
 
 // Scripts class.
-require( ABSPATH . APP_INC . '/classes/includes/class.app-scripts.php' );
+require( APP_INC_PATH . '/classes/includes/class.app-scripts.php' );
 
 // Scripts functions.
-require( ABSPATH . APP_INC . '/functions.app-scripts.php' );
+require( APP_INC_PATH . '/functions.app-scripts.php' );
 
 // Styles class.
-require( ABSPATH . APP_INC . '/classes/includes/class.app-styles.php' );
+require( APP_INC_PATH . '/classes/includes/class.app-styles.php' );
 
 // Styles functions.
-require( ABSPATH . APP_INC . '/functions.app-styles.php' );
+require( APP_INC_PATH . '/functions.app-styles.php' );
 
 /**
  * Register all scripts
@@ -48,7 +48,7 @@ require( ABSPATH . APP_INC . '/functions.app-styles.php' );
 function wp_default_scripts( &$scripts ) {
 
 	// Include an unmodified $app_version'
-	include( ABSPATH . APP_INC . '/version.php' );
+	include( APP_INC_PATH . '/version.php' );
 
 	$develop_src = false !== strpos( $app_version, '-src' );
 
@@ -893,7 +893,7 @@ function wp_default_scripts( &$scripts ) {
 function wp_default_styles( &$styles ) {
 
 	// Include an unmodified $app_version.
-	include( ABSPATH . APP_INC . '/version.php' );
+	include( APP_INC_PATH . '/version.php' );
 
 	if ( ! defined( 'SCRIPT_DEBUG' ) ) {
 		define( 'SCRIPT_DEBUG', false !== strpos( $app_version, '-src' ) );
@@ -1351,7 +1351,7 @@ function _print_scripts() {
 		$concat = str_split( $concat, 128 );
 		$concat = 'load%5B%5D=' . implode( '&load%5B%5D=', $concat );
 
-		$src = $wp_scripts->base_url . '/' . APP_INC . "/load-scripts.php?c={$zip}&" . $concat . '&ver=' . $wp_scripts->default_version;
+		$src = $wp_scripts->base_url . '/' . APP_INC_DIR . "/load-scripts.php?c={$zip}&" . $concat . '&ver=' . $wp_scripts->default_version;
 		echo "<script type='text/javascript' src='" . esc_attr( $src) . "'></script>\n";
 	}
 
@@ -1527,7 +1527,7 @@ function _print_styles() {
 		$ver    = $wp_styles->default_version;
 		$concat = str_split( $concat, 128 );
 		$concat = 'load%5B%5D=' . implode( '&load%5B%5D=', $concat );
-		$href   = $wp_styles->base_url . '/' . APP_INC . "/load-styles.php?c={$zip}&dir={$dir}&" . $concat . '&ver=' . $ver;
+		$href   = $wp_styles->base_url . '/' . APP_INC_DIR . "/load-styles.php?c={$zip}&dir={$dir}&" . $concat . '&ver=' . $ver;
 
 		echo "<link rel='stylesheet' href='" . esc_attr( $href ) . "' type='text/css' media='all' />\n";
 

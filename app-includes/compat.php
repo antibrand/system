@@ -280,7 +280,7 @@ if ( !function_exists('json_encode') ) {
 		global $wp_json;
 
 		if ( ! ( $wp_json instanceof Services_JSON ) ) {
-			require_once( ABSPATH . APP_INC . '/classes/includes/class-json.php' );
+			require_once( APP_INC_PATH . '/classes/includes/class-json.php' );
 			$wp_json = new Services_JSON();
 		}
 
@@ -299,7 +299,7 @@ if ( !function_exists('json_decode') ) {
 		global $wp_json;
 
 		if ( ! ($wp_json instanceof Services_JSON ) ) {
-			require_once( ABSPATH . APP_INC . '/classes/includes/class-json.php' );
+			require_once( APP_INC_PATH . '/classes/includes/class-json.php' );
 			$wp_json = new Services_JSON();
 		}
 
@@ -431,7 +431,7 @@ if ( ! interface_exists( 'JsonSerializable' ) ) {
 
 // random_int was introduced in PHP 7.0
 if ( ! function_exists( 'random_int' ) ) {
-	require ABSPATH . APP_INC . '/random_compat/random.php';
+	require APP_INC_PATH . '/random_compat/random.php';
 }
 
 if ( ! function_exists( 'array_replace_recursive' ) ) :
@@ -492,7 +492,7 @@ endif;
  * autoloader is included only if necessary.
  */
 if ( ! function_exists( 'spl_autoload_register' ) ) {
-	require_once ABSPATH . APP_INC . '/spl-autoload-compat.php';
+	require_once APP_INC_PATH . '/spl-autoload-compat.php';
 }
 
 if ( ! function_exists( 'is_countable' ) ) {

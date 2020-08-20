@@ -22,6 +22,6 @@ if ( ! isset( $wp_did_header ) ) {
 	app();
 
 	// Load the theme template.
-	require_once( ABSPATH . APP_INC . '/template-loader.php' );
+	require_once( APP_INC_PATH . '/template-loader.php' );
 
 }

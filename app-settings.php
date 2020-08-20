@@ -16,7 +16,7 @@
  *
  * @since 1.0.0
  */
-require( ABSPATH . APP_INC . '/app-autoloader.php' );
+require( APP_INC_PATH . '/app-autoloader.php' );
 
 /**
  * Get deprecated functions
@@ -24,11 +24,11 @@ require( ABSPATH . APP_INC . '/app-autoloader.php' );
  * @todo Review the functions and remove as necessary for
  * this copy of the website management system.
  */
-require( ABSPATH . APP_INC . '/deprecated.php' );
+require( APP_INC_PATH . '/deprecated.php' );
 
 // Include files required for initialization.
-require( ABSPATH . APP_INC . '/load.php' );
-require_once( ABSPATH . APP_INC . '/plugin.php' );
+require( APP_INC_PATH . '/load.php' );
+require_once( APP_INC_PATH . '/plugin.php' );
 
 /**
  * These can't be directly globalized in version.php. When updating,
@@ -36,7 +36,7 @@ require_once( ABSPATH . APP_INC . '/plugin.php' );
  * these values to be overridden if already set.
  */
 global $app_version, $app_version, $wp_db_version, $tinymce_version, $required_php_version, $required_mysql_version, $wp_local_package;
-require( ABSPATH . APP_INC . '/version.php' );
+require( APP_INC_PATH . '/version.php' );
 
 /**
  * If not already configured, `$blog_id` will default to 1 in a single site
@@ -108,13 +108,13 @@ if ( APP_CACHE && apply_filters( 'enable_loading_advanced_cache_dropin', true ) 
 wp_set_lang_dir();
 
 // Load early files.
-require( ABSPATH . APP_INC . '/compat.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-list-util.php' );
-require( ABSPATH . APP_INC . '/functions.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-matchesmapregex.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-system-app.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-error.php' );
-require( ABSPATH . APP_INC . '/pomo/mo.php' );
+require( APP_INC_PATH . '/compat.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-list-util.php' );
+require( APP_INC_PATH . '/functions.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-matchesmapregex.php' );
+require( APP_INC_PATH . '/classes/includes/class-system-app.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-error.php' );
+require( APP_INC_PATH . '/pomo/mo.php' );
 
 // Include the wpdb class and, if present, a db.php database drop-in.
 global $wpdb;
@@ -128,14 +128,14 @@ wp_set_wpdb_vars();
 wp_start_object_cache();
 
 // Attach the default filters.
-require( ABSPATH . APP_INC . '/default-filters.php' );
+require( APP_INC_PATH . '/default-filters.php' );
 
 // Initialize network if enabled.
 if ( is_network() ) {
-	require( ABSPATH . APP_INC . '/classes/includes/class-app-site-query.php' );
-	require( ABSPATH . APP_INC . '/classes/includes/class-app-network-query.php' );
-	require( ABSPATH . APP_INC . '/network-blogs.php' );
-	require( ABSPATH . APP_INC . '/network-settings.php' );
+	require( APP_INC_PATH . '/classes/includes/class-app-site-query.php' );
+	require( APP_INC_PATH . '/classes/includes/class-app-network-query.php' );
+	require( APP_INC_PATH . '/network-blogs.php' );
+	require( APP_INC_PATH . '/network-settings.php' );
 } elseif ( ! defined( 'APP_NETWORK' ) ) {
 	define( 'APP_NETWORK', false );
 }
@@ -148,116 +148,116 @@ if ( SHORTINIT ) {
 }
 
 // Load the L10n library.
-require_once( ABSPATH . APP_INC . '/l10n.php' );
-require_once( ABSPATH . APP_INC . '/classes/includes/class-app-locale.php' );
-require_once( ABSPATH . APP_INC . '/classes/includes/class-app-locale-switcher.php' );
+require_once( APP_INC_PATH . '/l10n.php' );
+require_once( APP_INC_PATH . '/classes/includes/class-app-locale.php' );
+require_once( APP_INC_PATH . '/classes/includes/class-app-locale-switcher.php' );
 
 // Run the installer if the application is not installed.
 app_not_installed();
 
 // Load most of the application.
-require( ABSPATH . APP_INC . '/classes/includes/class-app-ajax-response.php' );
-require( ABSPATH . APP_INC . '/formatting.php' );
-require( ABSPATH . APP_INC . '/capabilities.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-roles.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-role.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-user.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-query.php' );
-require( ABSPATH . APP_INC . '/query.php' );
-require( ABSPATH . APP_INC . '/date.php' );
-require( ABSPATH . APP_INC . '/theme.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-theme.php' );
-require( ABSPATH . APP_INC . '/template.php' );
-require( ABSPATH . APP_INC . '/user.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-user-query.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-session-tokens.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-user-meta-session-tokens.php' );
-require( ABSPATH . APP_INC . '/meta.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-meta-query.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-metadata-lazyloader.php' );
-require( ABSPATH . APP_INC . '/general-template.php' );
-require( ABSPATH . APP_INC . '/link-template.php' );
-require( ABSPATH . APP_INC . '/author-template.php' );
-require( ABSPATH . APP_INC . '/post.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-walker-page-dropdown.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-post-type.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-post.php' );
-require( ABSPATH . APP_INC . '/post-template.php' );
-require( ABSPATH . APP_INC . '/revision.php' );
-require( ABSPATH . APP_INC . '/post-formats.php' );
-require( ABSPATH . APP_INC . '/post-thumbnail-template.php' );
-require( ABSPATH . APP_INC . '/category.php' );
-require( ABSPATH . APP_INC . '/category-template.php' );
-require( ABSPATH . APP_INC . '/comment.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-comment.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-comment-query.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-walker-comment.php' );
-require( ABSPATH . APP_INC . '/comment-template.php' );
-require( ABSPATH . APP_INC . '/rewrite.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-rewrite.php' );
-require( ABSPATH . APP_INC . '/feed.php' );
-require( ABSPATH . APP_INC . '/bookmark.php' );
-require( ABSPATH . APP_INC . '/bookmark-template.php' );
-require( ABSPATH . APP_INC . '/kses.php' );
-require( ABSPATH . APP_INC . '/cron.php' );
-require( ABSPATH . APP_INC . '/script-loader.php' );
-require( ABSPATH . APP_INC . '/taxonomy.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-taxonomy.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-term.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-term-query.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-tax-query.php' );
-require( ABSPATH . APP_INC . '/update.php' );
-require( ABSPATH . APP_INC . '/canonical.php' );
-require( ABSPATH . APP_INC . '/shortcodes.php' );
-require( ABSPATH . APP_INC . '/embed.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-embed.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-oembed.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-oembed-controller.php' );
-require( ABSPATH . APP_INC . '/media.php' );
-require( ABSPATH . APP_INC . '/http.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-http.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-http-streams.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-http-curl.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-http-proxy.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-http-cookie.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-http-encoding.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-http-response.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-http-requests-response.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-http-requests-hooks.php' );
-require( ABSPATH . APP_INC . '/widgets.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-widget.php' );
-require( ABSPATH . APP_INC . '/classes/includes/class-app-widget-factory.php' );
-require( ABSPATH . APP_INC . '/nav-menu.php' );
-require( ABSPATH . APP_INC . '/nav-menu-template.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-ajax-response.php' );
+require( APP_INC_PATH . '/formatting.php' );
+require( APP_INC_PATH . '/capabilities.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-roles.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-role.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-user.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-query.php' );
+require( APP_INC_PATH . '/query.php' );
+require( APP_INC_PATH . '/date.php' );
+require( APP_INC_PATH . '/theme.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-theme.php' );
+require( APP_INC_PATH . '/template.php' );
+require( APP_INC_PATH . '/user.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-user-query.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-session-tokens.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-user-meta-session-tokens.php' );
+require( APP_INC_PATH . '/meta.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-meta-query.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-metadata-lazyloader.php' );
+require( APP_INC_PATH . '/general-template.php' );
+require( APP_INC_PATH . '/link-template.php' );
+require( APP_INC_PATH . '/author-template.php' );
+require( APP_INC_PATH . '/post.php' );
+require( APP_INC_PATH . '/classes/includes/class-walker-page-dropdown.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-post-type.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-post.php' );
+require( APP_INC_PATH . '/post-template.php' );
+require( APP_INC_PATH . '/revision.php' );
+require( APP_INC_PATH . '/post-formats.php' );
+require( APP_INC_PATH . '/post-thumbnail-template.php' );
+require( APP_INC_PATH . '/category.php' );
+require( APP_INC_PATH . '/category-template.php' );
+require( APP_INC_PATH . '/comment.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-comment.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-comment-query.php' );
+require( APP_INC_PATH . '/classes/includes/class-walker-comment.php' );
+require( APP_INC_PATH . '/comment-template.php' );
+require( APP_INC_PATH . '/rewrite.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-rewrite.php' );
+require( APP_INC_PATH . '/feed.php' );
+require( APP_INC_PATH . '/bookmark.php' );
+require( APP_INC_PATH . '/bookmark-template.php' );
+require( APP_INC_PATH . '/kses.php' );
+require( APP_INC_PATH . '/cron.php' );
+require( APP_INC_PATH . '/script-loader.php' );
+require( APP_INC_PATH . '/taxonomy.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-taxonomy.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-term.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-term-query.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-tax-query.php' );
+require( APP_INC_PATH . '/update.php' );
+require( APP_INC_PATH . '/canonical.php' );
+require( APP_INC_PATH . '/shortcodes.php' );
+require( APP_INC_PATH . '/embed.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-embed.php' );
+require( APP_INC_PATH . '/classes/includes/class-oembed.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-oembed-controller.php' );
+require( APP_INC_PATH . '/media.php' );
+require( APP_INC_PATH . '/http.php' );
+require( APP_INC_PATH . '/classes/includes/class-http.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-http-streams.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-http-curl.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-http-proxy.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-http-cookie.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-http-encoding.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-http-response.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-http-requests-response.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-http-requests-hooks.php' );
+require( APP_INC_PATH . '/widgets.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-widget.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-widget-factory.php' );
+require( APP_INC_PATH . '/nav-menu.php' );
+require( APP_INC_PATH . '/nav-menu-template.php' );
 require( APP_VIEWS_PATH . 'includes/user-toolbar.php' );
-require( ABSPATH . APP_INC . '/rest-api.php' );
-require( ABSPATH . APP_INC . '/rest-api/class-wp-rest-server.php' );
-require( ABSPATH . APP_INC . '/rest-api/class-wp-rest-response.php' );
-require( ABSPATH . APP_INC . '/rest-api/class-wp-rest-request.php' );
-require( ABSPATH . APP_INC . '/rest-api/endpoints/class-wp-rest-controller.php' );
-require( ABSPATH . APP_INC . '/rest-api/endpoints/class-wp-rest-posts-controller.php' );
-require( ABSPATH . APP_INC . '/rest-api/endpoints/class-wp-rest-attachments-controller.php' );
-require( ABSPATH . APP_INC . '/rest-api/endpoints/class-wp-rest-post-types-controller.php' );
-require( ABSPATH . APP_INC . '/rest-api/endpoints/class-wp-rest-post-statuses-controller.php' );
-require( ABSPATH . APP_INC . '/rest-api/endpoints/class-wp-rest-revisions-controller.php' );
-require( ABSPATH . APP_INC . '/rest-api/endpoints/class-wp-rest-taxonomies-controller.php' );
-require( ABSPATH . APP_INC . '/rest-api/endpoints/class-wp-rest-terms-controller.php' );
-require( ABSPATH . APP_INC . '/rest-api/endpoints/class-wp-rest-users-controller.php' );
-require( ABSPATH . APP_INC . '/rest-api/endpoints/class-wp-rest-comments-controller.php' );
-require( ABSPATH . APP_INC . '/rest-api/endpoints/class-wp-rest-settings-controller.php' );
-require( ABSPATH . APP_INC . '/rest-api/fields/class-wp-rest-meta-fields.php' );
-require( ABSPATH . APP_INC . '/rest-api/fields/class-wp-rest-comment-meta-fields.php' );
-require( ABSPATH . APP_INC . '/rest-api/fields/class-wp-rest-post-meta-fields.php' );
-require( ABSPATH . APP_INC . '/rest-api/fields/class-wp-rest-term-meta-fields.php' );
-require( ABSPATH . APP_INC . '/rest-api/fields/class-wp-rest-user-meta-fields.php' );
+require( APP_INC_PATH . '/rest-api.php' );
+require( APP_INC_PATH . '/rest-api/class-wp-rest-server.php' );
+require( APP_INC_PATH . '/rest-api/class-wp-rest-response.php' );
+require( APP_INC_PATH . '/rest-api/class-wp-rest-request.php' );
+require( APP_INC_PATH . '/rest-api/endpoints/class-wp-rest-controller.php' );
+require( APP_INC_PATH . '/rest-api/endpoints/class-wp-rest-posts-controller.php' );
+require( APP_INC_PATH . '/rest-api/endpoints/class-wp-rest-attachments-controller.php' );
+require( APP_INC_PATH . '/rest-api/endpoints/class-wp-rest-post-types-controller.php' );
+require( APP_INC_PATH . '/rest-api/endpoints/class-wp-rest-post-statuses-controller.php' );
+require( APP_INC_PATH . '/rest-api/endpoints/class-wp-rest-revisions-controller.php' );
+require( APP_INC_PATH . '/rest-api/endpoints/class-wp-rest-taxonomies-controller.php' );
+require( APP_INC_PATH . '/rest-api/endpoints/class-wp-rest-terms-controller.php' );
+require( APP_INC_PATH . '/rest-api/endpoints/class-wp-rest-users-controller.php' );
+require( APP_INC_PATH . '/rest-api/endpoints/class-wp-rest-comments-controller.php' );
+require( APP_INC_PATH . '/rest-api/endpoints/class-wp-rest-settings-controller.php' );
+require( APP_INC_PATH . '/rest-api/fields/class-wp-rest-meta-fields.php' );
+require( APP_INC_PATH . '/rest-api/fields/class-wp-rest-comment-meta-fields.php' );
+require( APP_INC_PATH . '/rest-api/fields/class-wp-rest-post-meta-fields.php' );
+require( APP_INC_PATH . '/rest-api/fields/class-wp-rest-term-meta-fields.php' );
+require( APP_INC_PATH . '/rest-api/fields/class-wp-rest-user-meta-fields.php' );
 
 $GLOBALS['wp_embed'] = new WP_Embed();
 
 // Load network-specific files.
 if ( is_network() ) {
-	require( ABSPATH . APP_INC . '/network-functions.php' );
-	require( ABSPATH . APP_INC . '/network-default-filters.php' );
-	require( ABSPATH . APP_INC . '/network-deprecated.php' );
+	require( APP_INC_PATH . '/network-functions.php' );
+	require( APP_INC_PATH . '/network-default-filters.php' );
+	require( APP_INC_PATH . '/network-deprecated.php' );
 }
 
 $GLOBALS['wp_plugin_paths'] = [];
@@ -291,7 +291,7 @@ app_cookie_constants();
 app_ssl_constants();
 
 // Create common globals.
-require( ABSPATH . APP_INC . '/vars.php' );
+require( APP_INC_PATH . '/vars.php' );
 
 /**
  * Make taxonomies and posts available to plugins and themes.
@@ -314,8 +314,8 @@ foreach ( wp_get_active_and_valid_plugins() as $plugin ) {
 unset( $plugin );
 
 // Load pluggable functions.
-require( ABSPATH . APP_INC . '/pluggable.php' );
-require( ABSPATH . APP_INC . '/pluggable-deprecated.php' );
+require( APP_INC_PATH . '/pluggable.php' );
+require( APP_INC_PATH . '/pluggable-deprecated.php' );
 
 // Set internal encoding.
 wp_set_internal_encoding();

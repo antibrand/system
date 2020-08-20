@@ -129,10 +129,10 @@ if ( ! defined( 'WP_MAX_MEMORY_LIMIT' ) && defined( 'APP_MAX_MEMORY_LIMIT' ) ) {
  * @since 1.0.0
  * @var   string Returns the path to the includes directory.
  */
-if ( ! defined( 'WPINC' ) && ( defined( 'APP_INC' ) && APP_INC ) ) {
-	define( 'WPINC', APP_INC );
+if ( ! defined( 'WPINC' ) && ( defined( 'APP_INC_DIR' ) && APP_INC_DIR ) ) {
+	define( 'WPINC', APP_INC_DIR );
 } else {
-	define( 'WPINC', ABSPATH . 'app-includes' );
+	define( 'WPINC', 'app-includes' );
 }
 
 /**
@@ -143,8 +143,8 @@ if ( ! defined( 'WPINC' ) && ( defined( 'APP_INC' ) && APP_INC ) ) {
  * @since 1.0.0
  * @var   string Returns the path to the content directory.
  */
-if ( ! defined( 'WP_CONTENT_DIR' ) && ( defined( 'APP_CONTENT_DIR' ) && APP_CONTENT_DIR ) ) {
-	define( 'WP_CONTENT_DIR', APP_CONTENT_DIR );
+if ( ! defined( 'WP_CONTENT_DIR' ) && ( defined( 'APP_CONTENT_DIR' ) && APP_VIEWS_PATH ) ) {
+	define( 'WP_CONTENT_DIR', APP_VIEWS_PATH );
 } else {
 	define( 'WP_CONTENT_DIR', ABSPATH . 'app-views' );
 }

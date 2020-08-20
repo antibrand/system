@@ -17,7 +17,7 @@ if ( file_exists( APP_CONTENT_DIR . '/install.php' ) ) {
 require_once( ABSPATH . 'wp-admin/includes/admin.php' );
 
 /** Schema API */
-require_once( ABSPATH .  APP_INC . '/backend/schema.php' );
+require_once( APP_INC_PATH . '/backend/schema.php' );
 
 if ( ! function_exists( 'wp_install' ) ) :
 /**

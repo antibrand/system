@@ -10,7 +10,7 @@
 // Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
-require_once( ABSPATH . APP_INC . '/http.php' );
+require_once( APP_INC_PATH . '/http.php' );
 
 $title = __( 'Upgrade Network' );
 $parent_file = 'upgrade.php';

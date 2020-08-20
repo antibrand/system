@@ -293,45 +293,45 @@ final class Live_Manager {
 			}
 		}
 
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-setting.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-panel.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-section.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-control.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-color-control.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-media-control.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-upload-control.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-image-control.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-background-image-control.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-background-position-control.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-cropped-image-control.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-site-icon-control.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-header-image-control.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-theme-control.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-code-editor-control.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-widget-area-control.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-widget-form-control.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-nav-menu-control.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-nav-menu-item-control.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-nav-menu-location-control.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-nav-menu-name-control.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-nav-menu-locations-control.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-nav-menu-auto-add-control.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-new-menu-control.php' ); // @todo Remove in 5.0. See #42364.
+		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-setting.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-panel.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-section.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-control.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-color-control.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-media-control.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-upload-control.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-image-control.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-background-image-control.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-background-position-control.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-cropped-image-control.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-site-icon-control.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-header-image-control.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-theme-control.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-code-editor-control.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-widget-area-control.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-widget-form-control.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-nav-menu-control.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-nav-menu-item-control.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-nav-menu-location-control.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-nav-menu-name-control.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-nav-menu-locations-control.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-nav-menu-auto-add-control.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-new-menu-control.php' ); // @todo Remove in 5.0. See #42364.
 
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-wp-customize-nav-menus-panel.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-wp-customize-nav-menus-panel.php' );
 
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-wp-customize-themes-panel.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-wp-customize-themes-section.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-wp-customize-sidebar-section.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-wp-customize-nav-menu-section.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-wp-customize-new-menu-section.php' ); // @todo Remove in 5.0. See #42364.
+		require_once( APP_INC_PATH . '/classes/live-manage/class-wp-customize-themes-panel.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-wp-customize-themes-section.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-wp-customize-sidebar-section.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-wp-customize-nav-menu-section.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-wp-customize-new-menu-section.php' ); // @todo Remove in 5.0. See #42364.
 
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-wp-customize-custom-css-setting.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-wp-customize-filter-setting.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-wp-customize-header-image-setting.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-wp-customize-background-image-setting.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-wp-customize-nav-menu-item-setting.php' );
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-wp-customize-nav-menu-setting.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-wp-customize-custom-css-setting.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-wp-customize-filter-setting.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-wp-customize-header-image-setting.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-wp-customize-background-image-setting.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-wp-customize-nav-menu-item-setting.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-wp-customize-nav-menu-setting.php' );
 
 		/**
 		 * Filters the core live manager components to load.
@@ -350,16 +350,16 @@ final class Live_Manager {
 		 */
 		$components = apply_filters( 'customize_loaded_components', $this->components, $this );
 
-		require_once( ABSPATH . APP_INC . '/classes/live-manage/class-wp-customize-selective-refresh.php' );
+		require_once( APP_INC_PATH . '/classes/live-manage/class-wp-customize-selective-refresh.php' );
 		$this->selective_refresh = new WP_Customize_Selective_Refresh( $this );
 
 		if ( in_array( 'widgets', $components, true ) ) {
-			require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-widgets.php' );
+			require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-widgets.php' );
 			$this->widgets = new WP_Customize_Widgets( $this );
 		}
 
 		if ( in_array( 'nav_menus', $components, true ) ) {
-			require_once( ABSPATH . APP_INC . '/classes/live-manage/class-live-manage-nav-menus.php' );
+			require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-nav-menus.php' );
 			$this->nav_menus = new WP_Customize_Nav_Menus( $this );
 		}
 

@@ -19,7 +19,7 @@
  */
 
 // Initialize the filter globals.
-require( ABSPATH . APP_INC . '/classes/includes/class-app-hook.php' );
+require( APP_INC_PATH . '/classes/includes/class-app-hook.php' );
 
 /** @var WP_Hook[] $wp_filter */
 global $wp_filter, $wp_actions, $wp_current_filter;

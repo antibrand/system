@@ -29,7 +29,7 @@ if ( 'mail.example.com' === $mailserver_url || empty( $mailserver_url ) ) {
 do_action( 'wp-mail.php' );
 
 // Get the POP3 class with which to access the mailbox.
-require_once( ABSPATH . APP_INC . '/classes/includes/class-pop3.php' );
+require_once( APP_INC_PATH . '/classes/includes/class-pop3.php' );
 
 // Only check at this interval for new messages.
 if ( ! defined( 'WP_MAIL_INTERVAL' ) ) {

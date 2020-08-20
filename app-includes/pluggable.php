@@ -221,8 +221,8 @@ function wp_mail( $to, $subject, $message, $headers = '', $attachments = array()
 
 	// (Re)create it, if it's gone missing
 	if ( ! ( $phpmailer instanceof PHPMailer ) ) {
-		require_once ABSPATH . APP_INC . '/classes/includes/class-phpmailer.php';
-		require_once ABSPATH . APP_INC . '/classes/includes/class-smtp.php';
+		require_once APP_INC_PATH . '/classes/includes/class-phpmailer.php';
+		require_once APP_INC_PATH . '/classes/includes/class-smtp.php';
 		$phpmailer = new PHPMailer( true );
 	}
 
@@ -2552,7 +2552,7 @@ function wp_text_diff( $left_string, $right_string, $args = null ) {
 	$args = wp_parse_args( $args, $defaults );
 
 	if ( ! class_exists( 'WP_Text_Diff_Renderer_Table', false ) )
-		require( ABSPATH . APP_INC . '/app-diff.php' );
+		require( APP_INC_PATH . '/app-diff.php' );
 
 	$left_string  = normalize_whitespace($left_string);
 	$right_string = normalize_whitespace($right_string);

@@ -45,15 +45,6 @@ define( 'APP_CONFIG_FILE', 'app-config.php' );
  */
 define( 'APP_CONFIG_SAMPLE', 'app-config.sample.php' );
 
-// Store the locations of functions, classes, and core content.
-/**
- * System includes directory name.
- *
- * @since 1.0.0
- * @var   string Returns the name of the directory.
- */
-define( 'APP_INC', 'app-includes' );
-
 /**
  * Configuration file path
  *
@@ -65,6 +56,24 @@ define( 'APP_INC', 'app-includes' );
  * @var   string Returns the path to the configuration file.
  */
 define( 'APP_CONFIG_PATH', ABSPATH . APP_CONFIG_FILE );
+
+/**
+ * System includes directory name
+ *
+ * @since 1.0.0
+ * @var   string Returns the name of the directory.
+ */
+define( 'APP_INC_DIR', 'app-includes' );
+
+/**
+ * System includes directory path
+ *
+ * No trailing slash!
+ *
+ * @since 1.0.0
+ * @var   string Returns the path to the directory.
+ */
+define( 'APP_INC_PATH', ABSPATH . APP_INC_DIR );
 
 /**
  * Extensions and plugins parent directory name

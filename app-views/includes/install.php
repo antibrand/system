@@ -49,7 +49,7 @@ require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 require_once( ABSPATH . 'wp-admin/includes/translation-install.php' );
 
 // Load wpdb.
-require_once( ABSPATH . APP_INC . '/app-db.php' );
+require_once( APP_INC_PATH . '/app-db.php' );
 
 /**
  * Set the headers to prevent caching

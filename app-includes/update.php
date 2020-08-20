@@ -28,7 +28,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 
 	global $wpdb, $wp_local_package;
 	// include an unmodified $app_version
-	include( ABSPATH . APP_INC . '/version.php' );
+	include( APP_INC_PATH . '/version.php' );
 	$php_version = phpversion();
 
 	$current = get_site_transient( 'update_core' );
@@ -233,7 +233,7 @@ function wp_update_plugins( $extra_stats = array() ) {
 	}
 
 	// include an unmodified $app_version
-	include( ABSPATH . APP_INC . '/version.php' );
+	include( APP_INC_PATH . '/version.php' );
 
 	// If running blog-side, bail unless we've not checked in the last 12 hours
 	if ( !function_exists( 'get_plugins' ) )
@@ -417,7 +417,7 @@ function wp_update_themes( $extra_stats = array() ) {
 	}
 
 	// include an unmodified $app_version
-	include( ABSPATH . APP_INC . '/version.php' );
+	include( APP_INC_PATH . '/version.php' );
 
 	$installed_themes = wp_get_themes();
 	$translations = wp_get_installed_translations( 'themes' );
@@ -696,7 +696,7 @@ function wp_get_update_data() {
  */
 function _maybe_update_core() {
 	// include an unmodified $app_version
-	include( ABSPATH . APP_INC . '/version.php' );
+	include( APP_INC_PATH . '/version.php' );
 
 	$current = get_site_transient( 'update_core' );
 

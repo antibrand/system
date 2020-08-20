@@ -644,8 +644,8 @@ function locate_template( $template_names, $load = false, $require_once = true )
 			$located = TEMPLATEPATH . '/' . $template_name;
 			break;
 
-		} elseif ( file_exists( ABSPATH . APP_INC . '/theme-compat/' . $template_name ) ) {
-			$located = ABSPATH . APP_INC . '/theme-compat/' . $template_name;
+		} elseif ( file_exists( APP_INC_PATH . '/theme-compat/' . $template_name ) ) {
+			$located = APP_INC_PATH . '/theme-compat/' . $template_name;
 			break;
 
 		// Look in views directory.

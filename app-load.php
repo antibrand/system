@@ -45,12 +45,12 @@ if ( file_exists( APP_CONFIG_PATH ) ) {
 // If a config file doesn't exist.
 } else {
 
-	require_once( ABSPATH . APP_INC . '/load.php' );
+	require_once( APP_INC_PATH . '/load.php' );
 
 	// Standardize $_SERVER variables across setups.
 	wp_fix_server_vars();
 
-	require_once( ABSPATH . APP_INC . '/functions.php' );
+	require_once( APP_INC_PATH . '/functions.php' );
 
 	/**
 	 * Try to find the configuration template.
@@ -69,7 +69,7 @@ if ( file_exists( APP_CONFIG_PATH ) ) {
 		exit;
 	}
 
-	require_once( ABSPATH . APP_INC . '/version.php' );
+	require_once( APP_INC_PATH . '/version.php' );
 
 	wp_check_php_mysql_versions();
 	wp_load_translations_early();

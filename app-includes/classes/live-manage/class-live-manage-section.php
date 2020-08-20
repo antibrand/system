@@ -378,13 +378,13 @@ class WP_Customize_Section {
 }
 
 /** WP_Customize_Themes_Section class */
-require_once( ABSPATH . APP_INC . '/classes/live-manage/class-wp-customize-themes-section.php' );
+require_once( APP_INC_PATH . '/classes/live-manage/class-wp-customize-themes-section.php' );
 
 /** WP_Customize_Sidebar_Section class */
-require_once( ABSPATH . APP_INC . '/classes/live-manage/class-wp-customize-sidebar-section.php' );
+require_once( APP_INC_PATH . '/classes/live-manage/class-wp-customize-sidebar-section.php' );
 
 /** WP_Customize_Nav_Menu_Section class */
-require_once( ABSPATH . APP_INC . '/classes/live-manage/class-wp-customize-nav-menu-section.php' );
+require_once( APP_INC_PATH . '/classes/live-manage/class-wp-customize-nav-menu-section.php' );
 
 /**
  * WP_Customize_New_Menu_Section class
@@ -395,4 +395,4 @@ require_once( ABSPATH . APP_INC . '/classes/live-manage/class-wp-customize-nav-m
  *
  * @deprecated 4.9.0 This file is no longer used due to new menu creation UX.
  */
-require_once( ABSPATH . APP_INC . '/classes/live-manage/class-wp-customize-new-menu-section.php' );
+require_once( APP_INC_PATH . '/classes/live-manage/class-wp-customize-new-menu-section.php' );

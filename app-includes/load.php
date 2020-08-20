@@ -356,7 +356,7 @@ function wp_set_lang_dir() {
 
 	if ( ! defined( 'APP_LANG_DIR' ) ) {
 
-		if ( file_exists( ABSPATH . 'app-languages' ) && @is_dir( ABSPATH . 'app-languages' ) || !@is_dir( ABSPATH . APP_INC . '/languages' ) ) {
+		if ( file_exists( ABSPATH . 'app-languages' ) && @is_dir( ABSPATH . 'app-languages' ) || !@is_dir( APP_INC_PATH . '/languages' ) ) {
 
 			/**
 			 * Server path of the language directory.
@@ -382,12 +382,12 @@ function wp_set_lang_dir() {
 			 *
 			 * @since 2.1.0
 			 */
-			define( 'APP_LANG_DIR', ABSPATH . APP_INC . '/languages' );
+			define( 'APP_LANG_DIR', APP_INC_PATH . '/languages' );
 
 			if ( ! defined( 'LANGDIR' ) ) {
 
 				// Old relative path maintained for backward compatibility.
-				define( 'LANGDIR', APP_INC . '/languages' );
+				define( 'LANGDIR', APP_INC_DIR . '/languages' );
 			}
 		}
 	}
@@ -403,7 +403,7 @@ function wp_set_lang_dir() {
 function require_wp_db() {
 	global $wpdb;
 
-	require_once( ABSPATH . APP_INC . '/app-db.php' );
+	require_once( APP_INC_PATH . '/app-db.php' );
 	if ( file_exists( APP_CONTENT_DIR . '/db.php' ) )
 		require_once( APP_CONTENT_DIR . '/db.php' );
 
@@ -511,7 +511,7 @@ function wp_start_object_cache() {
 	}
 
 	if ( ! wp_using_ext_object_cache() ) {
-		require_once ( ABSPATH . APP_INC . '/cache.php' );
+		require_once ( APP_INC_PATH . '/cache.php' );
 	}
 
 	/*
@@ -556,9 +556,9 @@ function app_not_installed() {
 
 		nocache_headers();
 
-		require( ABSPATH . APP_INC . '/kses.php' );
-		require( ABSPATH . APP_INC . '/pluggable.php' );
-		require( ABSPATH . APP_INC . '/formatting.php' );
+		require( APP_INC_PATH . '/kses.php' );
+		require( APP_INC_PATH . '/pluggable.php' );
+		require( APP_INC_PATH . '/formatting.php' );
 
 		$link = wp_guess_url() . '/app-views/includes/install.php';
 
@@ -889,16 +889,16 @@ function wp_load_translations_early() {
 		return;
 
 	// We need $wp_local_package
-	require ABSPATH . APP_INC . '/version.php';
+	require APP_INC_PATH . '/version.php';
 
 	// Translation and localization
-	require_once ABSPATH . APP_INC . '/pomo/mo.php';
-	require_once ABSPATH . APP_INC . '/l10n.php';
-	require_once ABSPATH . APP_INC . '/classes/includes/class-app-locale.php';
-	require_once ABSPATH . APP_INC . '/classes/includes/class-app-locale-switcher.php';
+	require_once APP_INC_PATH . '/pomo/mo.php';
+	require_once APP_INC_PATH . '/l10n.php';
+	require_once APP_INC_PATH . '/classes/includes/class-app-locale.php';
+	require_once APP_INC_PATH . '/classes/includes/class-app-locale-switcher.php';
 
 	// General libraries
-	require_once ABSPATH . APP_INC . '/plugin.php';
+	require_once APP_INC_PATH . '/plugin.php';
 
 	$locales = $locations = array();
 
@@ -924,8 +924,8 @@ function wp_load_translations_early() {
 		if ( @is_dir( ABSPATH . 'app-languages' ) )
 			$locations[] = ABSPATH . 'app-languages';
 
-		if ( @is_dir( ABSPATH . APP_INC . '/languages' ) )
-			$locations[] = ABSPATH . APP_INC . '/languages';
+		if ( @is_dir( APP_INC_PATH . '/languages' ) )
+			$locations[] = APP_INC_PATH . '/languages';
 
 		if ( ! $locations )
 			break;

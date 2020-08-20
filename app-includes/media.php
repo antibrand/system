@@ -2961,9 +2961,9 @@ function wp_image_editor_supports( $args = array() ) {
  *                     editor claims to support the request.
  */
 function _wp_image_editor_choose( $args = array() ) {
-	require_once ABSPATH . APP_INC . '/classes/includes/class-app-image-editor.php';
-	require_once ABSPATH . APP_INC . '/classes/includes/class-app-image-editor-gd.php';
-	require_once ABSPATH . APP_INC . '/classes/includes/class-app-image-editor-imagick.php';
+	require_once APP_INC_PATH . '/classes/includes/class-app-image-editor.php';
+	require_once APP_INC_PATH . '/classes/includes/class-app-image-editor-gd.php';
+	require_once APP_INC_PATH . '/classes/includes/class-app-image-editor-imagick.php';
 	/**
 	 * Filters the list of image editing library classes.
 	 *
@@ -3657,7 +3657,7 @@ function wp_enqueue_media( $args = array() ) {
 	wp_enqueue_style( 'imgareaselect' );
 	wp_plupload_default_settings();
 
-	require_once ABSPATH . APP_INC . '/media-template.php';
+	require_once APP_INC_PATH . '/media-template.php';
 	add_action( 'admin_footer', 'wp_print_media_templates' );
 	add_action( 'wp_footer', 'wp_print_media_templates' );
 	add_action( 'customize_controls_print_footer_scripts', 'wp_print_media_templates' );

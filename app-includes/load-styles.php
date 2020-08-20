@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define( 'APP_INC', 'app-includes' );
 
-require( ABSPATH . APP_INC . '/backend/noop.php' );
-require( ABSPATH . APP_INC . '/script-loader.php' );
-require( ABSPATH . APP_INC . '/version.php' );
+require( APP_INC_PATH . '/backend/noop.php' );
+require( APP_INC_PATH . '/script-loader.php' );
+require( APP_INC_PATH . '/version.php' );
 
 $load = $_GET['load'];
 if ( is_array( $load ) ) {

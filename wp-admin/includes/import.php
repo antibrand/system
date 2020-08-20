@@ -123,7 +123,7 @@ function wp_import_handle_upload() {
  * @return array Importers with metadata for each.
  */
 function wp_get_popular_importers() {
-	include( ABSPATH . APP_INC . '/version.php' ); // include an unmodified $app_version
+	include( APP_INC_PATH . '/version.php' ); // include an unmodified $app_version
 
 	$locale = get_user_locale();
 	$cache_key = 'popular_importers_' . md5( $locale . $app_version );
