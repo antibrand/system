@@ -22,7 +22,6 @@ require( ABSPATH . APP_INC . '/deprecated-versions.php' );
 
 // Include files required for initialization.
 require( ABSPATH . APP_INC . '/load.php' );
-require( ABSPATH . APP_INC . '/constants-default.php' );
 require_once( ABSPATH . APP_INC . '/plugin.php' );
 
 /**
