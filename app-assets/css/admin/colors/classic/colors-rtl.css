@@ -13,12 +13,12 @@ a:hover, a:focus {
 
 .postbox {
   background-color: white;
-  border-color: #888888;
+  border-color: #cccccc;
   color: #444444;
 }
 
 .postbox .hndle {
-  border-color: #888888;
+  border-color: #cccccc;
 }
 
 .striped > tbody > :nth-child(odd),
@@ -32,7 +32,7 @@ ul.striped > :nth-child(odd),
 .metabox-holder .postbox-container .empty-container,
 #screen-meta,
 #contextual-help-back {
-  border-color: #888888;
+  border-color: #cccccc;
 }
 
 .view-switch a:hover, .view-switch a:focus, .view-switch a:active, .view-switch a.current {
@@ -53,7 +53,7 @@ ul.striped > :nth-child(odd),
  */
 fieldset {
   background-color: #f1f1f1;
-  border-color: #888888;
+  border-color: #cccccc;
 }
 
 input[type="text"],
@@ -346,7 +346,7 @@ optgroup {
 }
 
 #screen-meta-links .show-settings {
-  border-color: #888888;
+  border-color: #cccccc;
   border-top-color: white;
 }
 
@@ -661,7 +661,7 @@ ul#adminmenu > li.current > a.current:after {
  */
 #dashboard_right_now .main h3:not(:first-of-type),
 .js #dashboard_quick_draft .drafts {
-  border-color: #888888;
+  border-color: #cccccc;
 }
 
 /**
@@ -669,7 +669,7 @@ ul#adminmenu > li.current > a.current:after {
  */
 table thead,
 table tfoot {
-  border-color: #888888;
+  border-color: #cccccc;
 }
 
 /**
@@ -778,13 +778,13 @@ div.mce-statusbar,
 .media-modal-content,
 .media-frame-content {
   background: #f1f1f1;
-  border-color: #888888;
+  border-color: #cccccc;
 }
 
 .media-upload-form .media-item,
 .media-upload-form .media-item .error {
-  -webkit-box-shadow: 0 1px 0 #888888;
-  box-shadow: 0 1px 0 #888888;
+  -webkit-box-shadow: 0 1px 0 #cccccc;
+  box-shadow: 0 1px 0 #cccccc;
 }
 
 .app-core-ui .attachment
@@ -823,7 +823,7 @@ p.popular-tags,
 .feature-filter,
 .imgedit-group,
 .comment-ays {
-  border-color: #888888;
+  border-color: #cccccc;
 }
 
 .edit-attachment-frame .edit-media-header .left.disabled,
@@ -880,7 +880,7 @@ ul.add-menu-item-tabs li.tabs,
 
 .media-frame-toolbar .media-toolbar {
   background-color: #f1f1f1;
-  border-color: #888888;
+  border-color: #cccccc;
 }
 
 .app-core-ui .attachment:hover,
@@ -894,7 +894,7 @@ ul.add-menu-item-tabs li.tabs,
 .theme-overlay .theme-wrap,
 .theme-browser .themes.single-theme .theme-overlay .theme-wrap {
   background-color: white;
-  border-color: #888888;
+  border-color: #cccccc;
 }
 
 .theme-browser .theme,
@@ -908,7 +908,7 @@ ul.add-menu-item-tabs li.tabs,
 
 .theme-browser .theme .theme-cover-image.blank:before,
 .theme-overlay .screenshot.blank:before {
-  color: #888888;
+  color: #cccccc;
 }
 
 .theme-browser .theme.add-new-theme a:hover span:after,
@@ -934,7 +934,7 @@ ul.add-menu-item-tabs li.tabs,
 .plugins tr.active.plugin-update-tr + tr.inactive td,
 .plugins tr.active + tr.inactive th,
 .plugins tr.active + tr.inactive td {
-  border-color: #888888;
+  border-color: #cccccc;
 }
 
 /**
@@ -942,7 +942,7 @@ ul.add-menu-item-tabs li.tabs,
  */
 .wp-full-overlay-sidebar {
   background-color: #f1f1f1 !important;
-  border-color: #888888 !important;
+  border-color: #cccccc !important;
   color: #444444 !important;
 }
 
@@ -976,12 +976,12 @@ ul.add-menu-item-tabs li.tabs,
 #customize-controls .customize-info .customize-section-description,
 #customize-outer-theme-controls .customize-info .customize-section-description,
 #customize-controls .no-widget-areas-rendered-notice {
-  border-color: #888888 !important;
+  border-color: #cccccc !important;
 }
 
 #available-widgets .widget-tpl:hover,
 #available-widgets .widget-tpl.selected {
-  border-bottom-color: #888888 !important;
+  border-bottom-color: #cccccc !important;
 }
 
 .wp-full-overlay-footer .devices button:before {
@@ -1017,12 +1017,9 @@ fieldset.scheme-list {
   border: solid 1px #888888;
 }
 
-/**
- * Third-party styles
- */
 .app-admin .acf-admin-navigation {
   background-color: white !important;
-  border-color: #888888 !important;
+  border-color: #cccccc !important;
 }
 
 .app-admin .acf-admin-navigation .acf-tab {
@@ -1040,7 +1037,7 @@ fieldset.scheme-list {
 .app-admin .acf-field-list-wrap *,
 .app-admin #acf-field-group-fields .acf-field-list-wrap,
 .app-admin .acf-fields > .acf-field {
-  border-color: #888888 !important;
+  border-color: #cccccc !important;
 }
 
 .app-admin #acf-field-group-fields .acf-field-list,
@@ -1055,11 +1052,11 @@ fieldset.scheme-list {
 .app-admin .acf-tfoot,
 .app-admin .acf-fields.-left > .acf-field:before {
   background-color: white !important;
-  border-color: #888888 !important;
+  border-color: #cccccc !important;
 }
 
 .app-admin .acf-switch {
-  background-color: #f1f1f1 !important;
+  background-color: #ededed !important;
   border-color: #888888 !important;
   color: #444444 !important;
 }
@@ -1080,7 +1077,7 @@ fieldset.scheme-list {
 }
 
 .app-admin .acf-switch.-on .acf-switch-slider {
-  background-color: #444444 !important;
+  background-color: #ededed !important;
   border-color: #44aa11 !important;
 }
 
@@ -1090,7 +1087,7 @@ fieldset.scheme-list {
 
 .app-admin .acf-field-object,
 .app-admin .acf-field-object.open > .handle {
-  border-color: #888888 !important;
+  border-color: #cccccc !important;
 }
 
 .app-admin .acf-field-object.open > .handle a {
@@ -1122,12 +1119,12 @@ fieldset.scheme-list {
 .app-admin .acf-box,
 .app-admin .acf-meta-box-wrap .acf-fields {
   background-color: white !important;
-  border-color: #888888 !important;
+  border-color: #cccccc !important;
 }
 
 .app-admin .acf-box .title,
 .app-admin .acf-box .footer {
-  border-color: #888888 !important;
+  border-color: #cccccc !important;
 }
 
 .page-title-action {
