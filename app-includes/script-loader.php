@@ -4,12 +4,11 @@
  *
  * Several constants are used to manage the loading, concatenating and compression of scripts and CSS:
  * define( 'SCRIPT_DEBUG', true); loads the development (non-minified) versions of all scripts and CSS, and disables compression and concatenation,
- * define( 'CONCATENATE_SCRIPTS', false); disables compression and concatenation of scripts and CSS,
  * define( 'COMPRESS_SCRIPTS', false); disables compression of scripts,
  * define( 'COMPRESS_CSS', false); disables compression of CSS,
  * define( 'ENFORCE_GZIP', true); forces gzip for compression (default is deflate).
  *
- * The globals $concatenate_scripts, $compress_scripts and $compress_css can be set by plugins
+ * The globals $compress_scripts and $compress_css can be set by plugins
  * to temporarily override the above settings. Also a compression test is run once and the result is saved
  * as option 'can_compress_scripts' (0/1). The test will run again if that option is deleted.
  *
@@ -1248,21 +1247,15 @@ function app_code_theme_loader_src( $src, $handle ) {
  * @see wp_print_scripts()
  *
  * @since Previous 2.8.0
- * @global bool $concatenate_scripts
  * @return array
  */
 function print_head_scripts() {
-
-	global $concatenate_scripts;
 
 	if ( ! did_action( 'wp_print_scripts' ) ) {
 		do_action( 'wp_print_scripts' );
 	}
 
 	$wp_scripts = wp_scripts();
-
-	script_concat_settings();
-	$wp_scripts->do_concat = $concatenate_scripts;
 	$wp_scripts->do_head_items();
 
 	/**
@@ -1285,20 +1278,17 @@ function print_head_scripts() {
  *
  * @since Previous 2.8.0
  * @global WP_Scripts $wp_scripts
- * @global bool $concatenate_scripts
  * @return array
  */
 function print_footer_scripts() {
 
-	global $wp_scripts, $concatenate_scripts;
+	global $wp_scripts;
 
 	// No need to run if not instantiated.
 	if ( ! ( $wp_scripts instanceof WP_Scripts ) ) {
 		return [];
 	}
 
-	script_concat_settings();
-	$wp_scripts->do_concat = $concatenate_scripts;
 	$wp_scripts->do_footer_items();
 
 	/**
@@ -1433,18 +1423,11 @@ function wp_enqueue_scripts() {
  * Prints the styles queue in the HTML head on admin pages.
  *
  * @since Previous 2.8.0
- * @global bool $concatenate_scripts
  * @return array
  */
 function print_admin_styles() {
 
-	global $concatenate_scripts;
-
 	$wp_styles = wp_styles();
-
-	script_concat_settings();
-
-	$wp_styles->do_concat = $concatenate_scripts;
 	$wp_styles->do_items( false );
 
 	/**
@@ -1467,20 +1450,16 @@ function print_admin_styles() {
  *
  * @since Previous 3.3.0
  * @global WP_Styles $wp_styles
- * @global bool $concatenate_scripts
  * @return array|void
  */
 function print_late_styles() {
 
-	global $wp_styles, $concatenate_scripts;
+	global $wp_styles;
 
 	if ( ! ( $wp_styles instanceof WP_Styles ) ) {
 		return;
 	}
 
-	script_concat_settings();
-
-	$wp_styles->do_concat = $concatenate_scripts;
 	$wp_styles->do_footer_items();
 
 	/**
@@ -1540,47 +1519,5 @@ function _print_styles() {
 
 	if ( ! empty( $wp_styles->print_html ) ) {
 		echo $wp_styles->print_html;
-	}
-}
-
-/**
- * Determine the concatenation and compression settings for scripts and styles.
- *
- * @since  Previous 2.8.0
- * @global bool $concatenate_scripts
- * @global bool $compress_scripts
- * @global bool $compress_css
- */
-function script_concat_settings() {
-
-	global $concatenate_scripts, $compress_scripts, $compress_css;
-
-	$compressed_output = ( ini_get( 'zlib.output_compression' ) || 'ob_gzhandler' == ini_get( 'output_handler' ) );
-
-	if ( ! isset( $concatenate_scripts) ) {
-
-		$concatenate_scripts = defined( 'CONCATENATE_SCRIPTS' ) ? CONCATENATE_SCRIPTS : true;
-
-		if ( ( ! is_admin() && ! did_action( 'login_init' ) ) || ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ) {
-			$concatenate_scripts = false;
-		}
-	}
-
-	if ( ! isset( $compress_scripts) ) {
-
-		$compress_scripts = defined( 'COMPRESS_SCRIPTS' ) ? COMPRESS_SCRIPTS : true;
-
-		if ( $compress_scripts && ( ! get_site_option( 'can_compress_scripts' ) || $compressed_output ) ) {
-			$compress_scripts = false;
-		}
-	}
-
-	if ( ! isset( $compress_css) ) {
-
-		$compress_css = defined( 'COMPRESS_CSS' ) ? COMPRESS_CSS : true;
-
-		if ( $compress_css && ( ! get_site_option( 'can_compress_scripts' ) || $compressed_output ) ) {
-			$compress_css = false;
-		}
 	}
 }

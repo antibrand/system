@@ -140,9 +140,6 @@ if ( defined( 'WP_LOCAL_DEV' ) && WP_LOCAL_DEV ) {
 	// update_option( 'home', 'https://local.example.dev' );
 }
 
-// Set false to load scripts & styles separately.
-// define( 'CONCATENATE_SCRIPTS', true );
-
 /**
  * Network sites
  *

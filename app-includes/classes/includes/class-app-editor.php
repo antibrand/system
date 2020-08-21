@@ -1393,11 +1393,10 @@ final class _WP_Editors {
 	 *
 	 * @static
 	 * @global string $tinymce_version
-	 * @global bool   $concatenate_scripts
 	 * @global bool   $compress_scripts
 	 */
 	public static function print_tinymce_scripts() {
-		global $tinymce_version, $concatenate_scripts, $compress_scripts;
+		global $tinymce_version, $compress_scripts;
 
 		if ( self::$tinymce_scripts_printed ) {
 			return;
@@ -1405,11 +1404,7 @@ final class _WP_Editors {
 
 		self::$tinymce_scripts_printed = true;
 
-		if ( ! isset( $concatenate_scripts ) ) {
-			script_concat_settings();
-		}
-
-		$suffix = SCRIPT_DEBUG ? '' : '.min';
+		$suffix  = SCRIPT_DEBUG ? '' : '.min';
 		$version = 'ver=' . $tinymce_version;
 		$baseurl = self::get_baseurl();
 
@@ -1421,7 +1416,7 @@ final class _WP_Editors {
 			}
 		}
 
-		$compressed = $compress_scripts && $concatenate_scripts && isset( $_SERVER['HTTP_ACCEPT_ENCODING'] )
+		$compressed = $compress_scripts && isset( $_SERVER['HTTP_ACCEPT_ENCODING'] )
 			&& false !== stripos( $_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip' ) && ! $has_custom_theme;
 
 		// Load tinymce.js when running from /src, else load wp-tinymce.js.gz (production) or tinymce.min.js (SCRIPT_DEBUG)

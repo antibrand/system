@@ -167,9 +167,6 @@ define( 'APP_DEBUG_LOG', false );
 define( 'APP_DEBUG_DISPLAY', true );
 define( 'WP_LOCAL_DEV', false );
 
-// Set false to load scripts & styles separately.
-// define( 'CONCATENATE_SCRIPTS', true );
-
 /**
  * Network sites
  *
