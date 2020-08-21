@@ -736,11 +736,11 @@ function plugin_dir_url( $file ) {
  * When a plugin is activated, the action 'activate_PLUGINNAME' hook is
  * called. In the name of this hook, PLUGINNAME is replaced with the name
  * of the plugin, including the optional subdirectory. For example, when the
- * plugin is located in APP_PLUGINS_PATH/sampleplugin/sample.php, then
+ * plugin is located in wp-content/plugins/sampleplugin/sample.php, then
  * the name of this hook will become 'activate_sampleplugin/sample.php'.
  *
  * When the plugin consists of only one file and is (as by default) located at
- * APP_PLUGINS_PATH/sample.php the name of this hook will be
+ * wp-content/plugins/sample.php the name of this hook will be
  * 'activate_sample.php'.
  *
  * @since 2.0.0
@@ -759,11 +759,11 @@ function register_activation_hook($file, $function) {
  * When a plugin is deactivated, the action 'deactivate_PLUGINNAME' hook is
  * called. In the name of this hook, PLUGINNAME is replaced with the name
  * of the plugin, including the optional subdirectory. For example, when the
- * plugin is located in APP_PLUGINS_PATH/sampleplugin/sample.php, then
+ * plugin is located in wp-content/plugins/sampleplugin/sample.php, then
  * the name of this hook will become 'deactivate_sampleplugin/sample.php'.
  *
  * When the plugin consists of only one file and is (as by default) located at
- * APP_PLUGINS_PATH/sample.php the name of this hook will be
+ * wp-content/plugins/sample.php the name of this hook will be
  * 'deactivate_sample.php'.
  *
  * @since 2.0.0

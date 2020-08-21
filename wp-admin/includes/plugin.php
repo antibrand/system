@@ -221,8 +221,8 @@ function get_plugin_files( $plugin ) {
  * Check the plugins directory and retrieve all plugin files with plugin data.
  *
  * The application only supports plugin files in the base plugins directory
- * (APP_PLUGINS_PATH) and in one directory above the plugins directory
- * (APP_PLUGINS_PATH/my-plugin). The file it looks for has the plugin data
+ * (wp-content/plugins) and in one directory above the plugins directory
+ * (wp-content/plugins/my-plugin). The file it looks for has the plugin data
  * and must be found in those two locations. It is recommended to keep your
  * plugin files in their own directories.
  *
@@ -249,7 +249,7 @@ function get_plugins( $plugin_folder = '' ) {
 	if ( !empty( $plugin_folder) )
 		$plugin_root .= $plugin_folder;
 
-	// Files in APP_PLUGINS_PATH directory
+	// Files in wp-content/plugins directory
 	$plugins_dir = @ opendir( $plugin_root);
 	$plugin_files = array();
 	if ( $plugins_dir ) {
@@ -299,16 +299,16 @@ function get_plugins( $plugin_folder = '' ) {
 }
 
 /**
- * Check the extensions directory and retrieve all extension files with any plugin data.
+ * Check the mu-plugins directory and retrieve all mu-plugin files with any plugin data.
  *
- * The application only includes extension files in the base extensions directory (APP_EXTENSIONS_PATH).
+ * The application only includes mu-plugin files in the base mu-plugins directory (wp-content/mu-plugins).
  *
  * @since 3.0.0
- * @return array Key is the extension file path and the value is an array of the extension data.
+ * @return array Key is the mu-plugin file path and the value is an array of the mu-plugin data.
  */
 function get_mu_plugins() {
 	$wp_plugins = array();
-	// Files in the APP_EXTENSIONS_PATH directory
+	// Files in wp-content/mu-plugins directory
 	$plugin_files = array();
 
 	if ( ! is_dir( APP_EXTENSIONS_PATH ) )
@@ -358,7 +358,7 @@ function _sort_uname_callback( $a, $b ) {
 }
 
 /**
- * Check the APP_PLUGINS_DIR directory and retrieve all drop-ins with any plugin data.
+ * Check the wp-content directory and retrieve all drop-ins with any plugin data.
  *
  * @since 3.0.0
  * @return array Key is the file path and the value is an array of the plugin data.
@@ -369,8 +369,8 @@ function get_dropins() {
 
 	$_dropins = _get_dropins();
 
-	// These exist in the APP_PLUGINS_DIR directory
-	if ( $plugins_dir = @ opendir( APP_PLUGINS_DIR ) ) {
+	// These exist in the wp-content directory
+	if ( $plugins_dir = @ opendir( APP_VIEWS_PATH ) ) {
 		while ( ( $file = readdir( $plugins_dir ) ) !== false ) {
 			if ( isset( $_dropins[ $file ] ) )
 				$plugin_files[] = $file;
@@ -385,9 +385,9 @@ function get_dropins() {
 		return $dropins;
 
 	foreach ( $plugin_files as $plugin_file ) {
-		if ( !is_readable( APP_PLUGINS_DIR . "/$plugin_file" ) )
+		if ( !is_readable( APP_VIEWS_PATH . "/$plugin_file" ) )
 			continue;
-		$plugin_data = get_plugin_data( APP_PLUGINS_DIR . "/$plugin_file", false, false ); //Do not apply markup/translate as it'll be cached.
+		$plugin_data = get_plugin_data( APP_VIEWS_PATH . "/$plugin_file", false, false ); //Do not apply markup/translate as it'll be cached.
 		if ( empty( $plugin_data['Name'] ) )
 			$plugin_data['Name'] = $plugin_file;
 		$dropins[ $plugin_file ] = $plugin_data;

@@ -973,9 +973,9 @@ function _wp_get_attachment_relative_path( $file ) {
 		return '';
 	}
 
-	if ( false !== strpos( $dirname, APP_VIEWS_DIR . '/uploads' ) ) {
+	if ( false !== strpos( $dirname, 'wp-content/uploads' ) ) {
 		// Get the directory name relative to the upload directory (back compat for pre-2.7 uploads)
-		$dirname = substr( $dirname, strpos( $dirname, APP_VIEWS_DIR . '/uploads' ) + 18 );
+		$dirname = substr( $dirname, strpos( $dirname, 'wp-content/uploads' ) + 18 );
 		$dirname = ltrim( $dirname, '/' );
 	}
 

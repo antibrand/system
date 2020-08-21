@@ -71,7 +71,7 @@ class WP_Automatic_Updater {
 	 * checkout somewhere.
 	 *
 	 * ABSPATH is always checked in addition to whatever $context is (which may be the
-	 * APP_VIEWS_DIR directory, for example). The underlying assumption is that if you are
+	 * wp-content directory, for example). The underlying assumption is that if you are
 	 * using version control *anywhere*, then you should be making decisions for
 	 * how things get updated.
 	 *

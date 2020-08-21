@@ -1968,7 +1968,7 @@ function _wp_upload_dir( $time = null ) {
 			 * networks). (The extra directory prevents a four-digit ID from conflicting with
 			 * a year-based directory for the main site. But if a MU-era network has disabled
 			 * ms-files rewriting manually, they don't need the extra directory, as they never
-			 * had APP_VIEWS_DIR/uploads for the main site.)
+			 * had wp-content/uploads for the main site.)
 			 */
 
 			if ( defined( 'APP_NETWORK' ) )
@@ -1983,7 +1983,7 @@ function _wp_upload_dir( $time = null ) {
 			/*
 			 * Handle the old-form network-files.php rewriting if the network still has that enabled.
 			 * When ms-files rewriting is enabled, then we only listen to UPLOADS when:
-			 * 1) We are not on the main site in a post-MU network, as APP_VIEWS_DIR/uploads is used
+			 * 1) We are not on the main site in a post-MU network, as wp-content/uploads is used
 			 *    there, and
 			 * 2) We are not switched, as ms_upload_constants() hardcodes these constants to reflect
 			 *    the original blog ID.
@@ -3639,7 +3639,7 @@ function wp_ob_end_flush_all() {
 /**
  * Load custom DB error or display DB error.
  *
- * If a file exists in the APP_VIEWS_DIR directory named db-error.php, then it will
+ * If a file exists in the wp-content directory named db-error.php, then it will
  * be loaded instead of displaying the DB error. If it is not found,
  * then the DB error will be displayed instead.
  *
@@ -5939,7 +5939,7 @@ function wp_schedule_delete_old_privacy_export_files() {
 /**
  * Cleans up export files older than three days old.
  *
- * The export files are stored in `APP_VIEWS_DIR/uploads`, and are therefore publicly
+ * The export files are stored in `wp-content/uploads`, and are therefore publicly
  * accessible. A CSPRN is appended to the filename to mitigate the risk of an
  * unauthorized person downloading the file, but it is still possible. Deleting
  * the file after the data subject has had a chance to delete it adds an additional

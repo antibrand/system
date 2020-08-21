@@ -165,7 +165,7 @@ function wp_favicon_request() {
  * enters maintenance mode and displays a message.
  *
  * The default message can be replaced by using a drop-in (maintenance.php in
- * the APP_VIEWS_DIR directory).
+ * the wp-content directory).
  *
  * @since 3.0.0
  * @access private
@@ -474,7 +474,7 @@ function wp_using_ext_object_cache( $using = null ) {
 /**
  * Start the object cache.
  *
- * If an object-cache.php file exists in the APP_VIEWS_DIR directory,
+ * If an object-cache.php file exists in the wp-content directory,
  * it uses that drop-in as an external object cache.
  *
  * @since 3.0.0
@@ -571,7 +571,7 @@ function app_not_installed() {
 /**
  * Retrieve an array of must-use plugin files.
  *
- * The default directory is APP_VIEWS_DIR/mu-plugins. To change the default
+ * The default directory is wp-content/mu-plugins. To change the default
  * directory manually, define `APP_EXTENSIONS_PATH` and `APP_EXTEND_URL`
  * in the configuration file.
  *
@@ -610,7 +610,7 @@ function wp_get_mu_plugins() {
  *
  * While upgrading or installing, no plugins are returned.
  *
- * The default directory is APP_VIEWS_DIR/plugins. To change the default
+ * The default directory is wp-content/plugins. To change the default
  * directory manually, define `APP_PLUGINS_PATH` and `APP_PLUGIN_URL`
  * in the configuration file.
  *

@@ -12,7 +12,7 @@
  * Defines network upload constants.
  *
  * Exists for backward compatibility with legacy file-serving through
- * app-includes/network-files.php (APP_VIEWS_DIR/blogs.php in MU).
+ * app-includes/network-files.php (wp-content/blogs.php in MU).
  *
  * @since Previous 3.0.0
  */
@@ -25,9 +25,9 @@ function ms_upload_constants() {
 
 	// Base uploads dir relative to ABSPATH
 	if ( !defined( 'UPLOADBLOGSDIR' ) )
-		define( 'UPLOADBLOGSDIR', APP_VIEWS_DIR . '/blogs.dir' );
+		define( 'UPLOADBLOGSDIR', 'wp-content/blogs.dir' );
 
-	// Note, the main site in a post-MU network uses APP_VIEWS_DIR/uploads.
+	// Note, the main site in a post-MU network uses wp-content/uploads.
 	// This is handled in wp_upload_dir() by ignoring UPLOADS for this case.
 	if ( ! defined( 'UPLOADS' ) ) {
 		$site_id = get_current_blog_id();
@@ -35,7 +35,7 @@ function ms_upload_constants() {
 		define( 'UPLOADS', UPLOADBLOGSDIR . '/' . $site_id . '/files/' );
 
 		// Uploads dir relative to ABSPATH
-		if ( APP_VIEWS_DIR . '/blogs.dir' == UPLOADBLOGSDIR && ! defined( 'BLOGUPLOADDIR' ) )
+		if ( 'wp-content/blogs.dir' == UPLOADBLOGSDIR && ! defined( 'BLOGUPLOADDIR' ) )
 			define( 'BLOGUPLOADDIR', APP_VIEWS_PATH . '/blogs.dir/' . $site_id . '/files/' );
 	}
 }
@@ -86,7 +86,7 @@ function ms_cookie_constants(  ) {
  * Defines network file constants.
  *
  * Exists for backward compatibility with legacy file-serving through
- * app-includes/network-files.php (APP_VIEWS_DIR/blogs.php in MU).
+ * app-includes/network-files.php (wp-content/blogs.php in MU).
  *
  * @since Previous 3.0.0
  */
