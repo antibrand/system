@@ -63,7 +63,7 @@ require_once( ABSPATH . 'wp-admin/includes/list-table.php' );
 require_once( ABSPATH . 'wp-admin/includes/theme.php' );
 
 // User Administration API.
-require_once( APP_INC_PATH . '/backend/user.php' );
+require_once( ABSPATH . 'wp-admin/includes/user.php' );
 
 // Update Administration API.
 require_once( ABSPATH . 'wp-admin/includes/update.php' );

@@ -770,7 +770,7 @@ class WP_REST_Users_Controller extends WP_REST_Controller {
 		$previous = $this->prepare_item_for_response( $user, $request );
 
 		/** Include admin user functions to get access to wp_delete_user() */
-		require_once APP_INC_PATH . '/backend/user.php';
+		require_once ABSPATH . 'wp-admin/includes/user.php';
 
 		$result = wp_delete_user( $id, $reassign );
 
@@ -1083,7 +1083,7 @@ class WP_REST_Users_Controller extends WP_REST_Controller {
 	/**
 	 * Check a username for the REST API.
 	 *
-	 * Performs a couple of checks like edit_user() in APP_INC_PATH/backend/user.php.
+	 * Performs a couple of checks like edit_user() in wp-admin/includes/user.php.
 	 *
 	 * @since 4.7.0
 	 *
@@ -1099,7 +1099,7 @@ class WP_REST_Users_Controller extends WP_REST_Controller {
 			return new WP_Error( 'rest_user_invalid_username', __( 'Username contains invalid characters.' ), array( 'status' => 400 ) );
 		}
 
-		/** This filter is documented in APP_INC_PATH/backend/user.php */
+		/** This filter is documented in app-includes/user.php */
 		$illegal_logins = (array) apply_filters( 'illegal_user_logins', array() );
 
 		if ( in_array( strtolower( $username ), array_map( 'strtolower', $illegal_logins ) ) ) {
@@ -1112,7 +1112,7 @@ class WP_REST_Users_Controller extends WP_REST_Controller {
 	/**
 	 * Check a user password for the REST API.
 	 *
-	 * Performs a couple of checks like edit_user() in APP_INC_PATH/backend/user.php.
+	 * Performs a couple of checks like edit_user() in wp-admin/includes/user.php.
 	 *
 	 * @since 4.7.0
 	 *

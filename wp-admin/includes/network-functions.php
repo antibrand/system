@@ -201,7 +201,7 @@ function wpmu_delete_user( $id ) {
 
 	clean_user_cache( $user );
 
-	// This action is documented in APP_INC_PATH/backend/user.php.
+	// This action is documented in wp-admin/includes/user.php.
 	do_action( 'deleted_user', $id, null );
 
 	return true;

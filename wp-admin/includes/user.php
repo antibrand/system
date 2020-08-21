@@ -246,7 +246,7 @@ function edit_user( $user_id = 0 ) {
 		$errors->add( 'user_login', __( '<strong>ERROR</strong>: This username is already registered. Please choose another one.' ) );
 	}
 
-	// This filter is documented in APP_INC_PATH/backend/user.php.
+	// This filter is documented in app-includes/user.php.
 	$illegal_logins = (array) apply_filters( 'illegal_user_logins', [] );
 
 	if ( in_array( strtolower( $user->user_login ), array_map( 'strtolower', $illegal_logins ) ) ) {
@@ -865,7 +865,7 @@ function _wp_personal_data_handle_actions() {
  */
 function _wp_personal_data_cleanup_requests() {
 
-	// This filter is documented in APP_INC_PATH/backend/user.php.
+	/** This filter is documented in app-includes/user.php */
 	$expires = (int) apply_filters( 'user_request_key_expiration', DAY_IN_SECONDS );
 
 	$requests_query = new WP_Query( [

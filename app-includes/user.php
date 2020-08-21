@@ -231,7 +231,7 @@ function wp_authenticate_email_password( $user, $email, $password ) {
 		);
 	}
 
-	// This filter is documented in APP_INC_PATH/backend/user.php.
+	/** This filter is documented in app-includes/user.php */
 	$user = apply_filters( 'wp_authenticate_user', $user, $password );
 
 	if ( is_wp_error( $user ) ) {
@@ -2355,7 +2355,7 @@ function register_new_user( $user_login, $user_email ) {
 		$errors->add( 'username_exists', __( '<strong>ERROR</strong>: This username is already registered. Please choose another one.' ) );
 
 	} else {
-		// This filter is documented in APP_INC_PATH/backend/user.php.
+		/** This filter is documented in app-includes/user.php */
 		$illegal_user_logins = array_map( 'strtolower', (array) apply_filters( 'illegal_user_logins', array() ) );
 		if ( in_array( strtolower( $sanitized_user_login ), $illegal_user_logins ) ) {
 			$errors->add( 'invalid_username', __( '<strong>ERROR</strong>: Sorry, that username is not allowed.' ) );
