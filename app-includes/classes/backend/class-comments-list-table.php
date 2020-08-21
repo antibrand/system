@@ -607,7 +607,7 @@ class Comments_List_Table extends List_Table {
 			$actions['reply'] = sprintf( $format, $comment->comment_ID, $comment->comment_post_ID, 'replyto', 'vim-r comment-inline', esc_attr__( 'Reply to this comment' ), __( 'Reply' ) );
 		}
 
-		/** This filter is documented in wp-admin/includes/dashboard.php */
+		/** This filter is documented in APP_ADMIN_DIR/includes/dashboard.php */
 		$actions = apply_filters( 'comment_row_actions', array_filter( $actions ), $comment );
 
 		$i = 0;
@@ -672,7 +672,7 @@ class Comments_List_Table extends List_Table {
 		if ( $this->user_can ) { ?>
 		<div id="inline-<?php echo $comment->comment_ID; ?>" class="hidden">
 		<textarea class="comment" rows="1" cols="1"><?php
-			/** This filter is documented in wp-admin/includes/comment.php */
+			/** This filter is documented in APP_ADMIN_DIR/includes/comment.php */
 			echo esc_textarea( apply_filters( 'comment_edit_pre', $comment->comment_content ) );
 		?></textarea>
 		<div class="author-email"><?php echo esc_attr( $comment->comment_author_email ); ?></div>

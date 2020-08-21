@@ -83,7 +83,7 @@ function the_media_upload_tabs() {
 		} elseif ( isset($_GET['tab']) && array_key_exists($_GET['tab'], $tabs) ) {
 			$current = $_GET['tab'];
 		} else {
-			/** This filter is documented in wp-admin/media-upload.php */
+			/** This filter is documented in APP_ADMIN_DIR/media-upload.php */
 			$current = apply_filters( 'media_upload_default_tab', $default );
 		}
 
@@ -477,7 +477,7 @@ var ajaxurl = '<?php echo admin_url( 'admin-ajax.php', 'relative' ); ?>', pageno
 isRtl = <?php echo (int) is_rtl(); ?>;
 </script>
 <?php
-	/** This action is documented in wp-admin/admin-header.php */
+	/** This action is documented in APP_ADMIN_DIR/admin-header.php */
 	do_action( 'admin_enqueue_scripts', 'media-upload-popup' );
 
 	/**
@@ -487,7 +487,7 @@ isRtl = <?php echo (int) is_rtl(); ?>;
 	 */
 	do_action( 'admin_print_styles-media-upload-popup' );
 
-	/** This action is documented in wp-admin/admin-header.php */
+	/** This action is documented in APP_ADMIN_DIR/admin-header.php */
 	do_action( 'admin_print_styles' );
 
 	/**
@@ -497,7 +497,7 @@ isRtl = <?php echo (int) is_rtl(); ?>;
 	 */
 	do_action( 'admin_print_scripts-media-upload-popup' );
 
-	/** This action is documented in wp-admin/admin-header.php */
+	/** This action is documented in APP_ADMIN_DIR/admin-header.php */
 	do_action( 'admin_print_scripts' );
 
 	/**
@@ -508,7 +508,7 @@ isRtl = <?php echo (int) is_rtl(); ?>;
 	 */
 	do_action( 'admin_head-media-upload-popup' );
 
-	/** This action is documented in wp-admin/admin-header.php */
+	/** This action is documented in APP_ADMIN_DIR/admin-header.php */
 	do_action( 'admin_head' );
 
 if ( is_string( $content_func ) ) {
@@ -536,7 +536,7 @@ document.body.className = document.body.className.replace('no-js', 'js');
 	$args = array_slice($args, 1);
 	call_user_func_array($content_func, $args);
 
-	/** This action is documented in wp-admin/admin-footer.php */
+	/** This action is documented in APP_ADMIN_DIR/admin-footer.php */
 	do_action( 'admin_print_footer_scripts' );
 ?>
 <script type="text/javascript">if(typeof wpOnload=='function')wpOnload();</script>
@@ -1632,7 +1632,7 @@ function get_compat_media_markup( $attachment_id, $args = null ) {
 
 	$args = wp_parse_args( $args, $default_args );
 
-	/** This filter is documented in wp-admin/includes/media.php */
+	/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
 	$args = apply_filters( 'get_media_item_args', $args );
 
 	$form_fields = array();
@@ -1666,14 +1666,14 @@ function get_compat_media_markup( $attachment_id, $args = null ) {
 	// The recursive merge is easily traversed with array casting: foreach ( (array) $things as $thing )
 	$form_fields = array_merge_recursive($form_fields, (array) $args['errors'] );
 
-	/** This filter is documented in wp-admin/includes/media.php */
+	/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
 	$form_fields = apply_filters( 'attachment_fields_to_edit', $form_fields, $post );
 
 	unset( $form_fields['image-size'], $form_fields['align'], $form_fields['image_alt'],
 		$form_fields['post_title'], $form_fields['post_excerpt'], $form_fields['post_content'],
 		$form_fields['url'], $form_fields['menu_order'], $form_fields['image_url'] );
 
-	/** This filter is documented in wp-admin/includes/media.php */
+	/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
 	$media_meta = apply_filters( 'media_meta', '', $post );
 
 	$defaults = array(
@@ -2070,7 +2070,7 @@ function media_upload_type_url_form($type = null, $errors = null, $id = null) {
 	$post_id = isset( $_REQUEST['post_id'] ) ? intval( $_REQUEST['post_id'] ) : 0;
 
 	$form_action_url = admin_url("media-upload.php?type=$type&tab=type&post_id=$post_id");
-	/** This filter is documented in wp-admin/includes/media.php */
+	/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
 	$form_action_url = apply_filters( 'media_upload_form_url', $form_action_url, $type );
 	$form_class = 'media-upload-form type-form validate';
 
@@ -2101,7 +2101,7 @@ var addExtImage = {
 			alt = f.alt.value.replace(/'/g, '&#039;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 <?php
-	/** This filter is documented in wp-admin/includes/media.php */
+	/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
 	if ( ! apply_filters( 'disable_captions', '' ) ) {
 		?>
 		if ( f.caption.value ) {
@@ -2213,7 +2213,7 @@ function media_upload_gallery_form($errors) {
 
 	$post_id = intval($_REQUEST['post_id']);
 	$form_action_url = admin_url("media-upload.php?type=$type&tab=gallery&post_id=$post_id");
-	/** This filter is documented in wp-admin/includes/media.php */
+	/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
 	$form_action_url = apply_filters( 'media_upload_form_url', $form_action_url, $type );
 	$form_class = 'media-upload-form validate';
 
@@ -2365,7 +2365,7 @@ function media_upload_library_form($errors) {
 	$post_id = isset( $_REQUEST['post_id'] ) ? intval( $_REQUEST['post_id'] ) : 0;
 
 	$form_action_url = admin_url("media-upload.php?type=$type&tab=library&post_id=$post_id");
-	/** This filter is documented in wp-admin/includes/media.php */
+	/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
 	$form_action_url = apply_filters( 'media_upload_form_url', $form_action_url, $type );
 	$form_class = 'media-upload-form validate';
 
@@ -2540,7 +2540,7 @@ jQuery(function($){
  * @return string the form html
  */
 function wp_media_insert_url_form( $default_view = 'image' ) {
-	/** This filter is documented in wp-admin/includes/media.php */
+	/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
 	if ( ! apply_filters( 'disable_captions', '' ) ) {
 		$caption = '
 		<tr class="image-only">
@@ -2855,7 +2855,7 @@ function attachment_submitbox_metadata() {
 	$meta = wp_get_attachment_metadata( $post->ID );
 	if ( isset( $meta['width'], $meta['height'] ) )
 		$media_dims .= "<span id='media-dims-$post->ID'>{$meta['width']}&nbsp;&times;&nbsp;{$meta['height']}</span> ";
-	/** This filter is documented in wp-admin/includes/media.php */
+	/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
 	$media_dims = apply_filters( 'media_meta', $media_dims, $post );
 
 	$att_url = wp_get_attachment_url( $post->ID );

@@ -396,10 +396,10 @@ class Dashboard {
 			exit;
 		}
 
-		// This action is documented in wp-admin/edit-form-advanced.php.
+		// This action is documented in APP_ADMIN_DIR/edit-form-advanced.php.
 		do_action( 'do_meta_boxes', $screen->id, 'normal', '' );
 
-		// This action is documented in wp-admin/edit-form-advanced.php.
+		// This action is documented in APP_ADMIN_DIR/edit-form-advanced.php.
 		do_action( 'do_meta_boxes', $screen->id, 'side', '' );
 	}
 
@@ -987,7 +987,7 @@ class Dashboard {
 						<label class="screen-reader-text prompt" for="title" id="title-prompt-text">
 
 							<?php
-							// This filter is documented in wp-admin/edit-form-advanced.php'
+							// This filter is documented in APP_ADMIN_DIR/edit-form-advanced.php'
 							echo apply_filters( 'enter_title_here', __( 'Title' ), $post );
 							?>
 						</label>

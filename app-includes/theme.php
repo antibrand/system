@@ -731,7 +731,7 @@ function switch_theme( $stylesheet ) {
 		/*
 		 * Since retrieve_widgets() is called when initializing a theme in the live manager,
 		 * we need to remove the theme mods to avoid overwriting changes made via
-		 * the live manager when accessing wp-admin/widgets.php.
+		 * the live manager when accessing APP_ADMIN_DIR/widgets.php.
 		 */
 		if ( 'wp_ajax_customize_save' === current_action() ) {
 			remove_theme_mod( 'sidebars_widgets' );

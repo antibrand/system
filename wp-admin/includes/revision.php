@@ -72,7 +72,7 @@ function wp_get_revision_ui_diff( $post, $compare_from, $compare_to ) {
 		 */
 		$content_from = $compare_from ? apply_filters( "_wp_post_revision_field_{$field}", $compare_from->$field, $field, $compare_from, 'from' ) : '';
 
-		/** This filter is documented in wp-admin/includes/revision.php */
+		/** This filter is documented in APP_ADMIN_DIR/includes/revision.php */
 		$content_to = apply_filters( "_wp_post_revision_field_{$field}", $compare_to->$field, $field, $compare_to, 'to' );
 
 		$args = array(

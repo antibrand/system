@@ -21,10 +21,10 @@ use \AppNamespace\Includes as Includes;
  * Core class used for updating core.
  *
  * It allows for the application to upgrade itself in combination with
- * the wp-admin/includes/update-core.php file.
+ * the APP_ADMIN_DIR/includes/update-core.php file.
  *
  * @since 2.8.0
- * @since 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader.php.
+ * @since 4.6.0 Moved to its own file from APP_ADMIN_DIR/includes/class-wp-upgrader.php.
  *
  * @see Installer
  */
@@ -176,10 +176,10 @@ class Core_Upgrader extends Includes\Installer {
 			}
 
 			if ( $try_rollback ) {
-				/** This filter is documented in wp-admin/includes/update-core.php */
+				/** This filter is documented in APP_ADMIN_DIR/includes/update-core.php */
 				apply_filters( 'update_feedback', $result );
 
-				/** This filter is documented in wp-admin/includes/update-core.php */
+				/** This filter is documented in APP_ADMIN_DIR/includes/update-core.php */
 				apply_filters( 'update_feedback', $this->strings['start_rollback'] );
 
 				$rollback_result = $this->upgrade( $current, array_merge( $parsed_args, array( 'do_rollback' => true ) ) );
@@ -189,7 +189,7 @@ class Core_Upgrader extends Includes\Installer {
 			}
 		}
 
-		/** This action is documented in wp-admin/includes/class-wp-upgrader.php */
+		/** This action is documented in APP_ADMIN_DIR/includes/class-wp-upgrader.php */
 		do_action( 'upgrader_process_complete', $this, array( 'action' => 'update', 'type' => 'core' ) );
 
 		// Clear the current updates

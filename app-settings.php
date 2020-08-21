@@ -476,7 +476,7 @@ if ( is_network() ) {
 /**
  * This hook is fired once WP, all plugins, and the theme are fully loaded and instantiated.
  *
- * Ajax requests should use wp-admin/admin-ajax.php. admin-ajax.php can handle requests for
+ * Ajax requests should use APP_ADMIN_DIR/admin-ajax.php. admin-ajax.php can handle requests for
  * users not logged in.
  *
  * @since Previous 3.0.0

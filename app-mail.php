@@ -10,7 +10,7 @@
 // Make sure that the website management system bootstrap has run before continuing.
 require( dirname( __FILE__ ) . '/app-load.php' );
 
-// This filter is documented in wp-admin/options.php.
+// This filter is documented in APP_ADMIN_DIR/options.php.
 if ( ! apply_filters( 'enable_post_by_email_configuration', true ) ) {
 	wp_die( __( 'This action has been disabled by the administrator.' ), 403 );
 }

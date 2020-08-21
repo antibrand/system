@@ -283,11 +283,11 @@ function get_inline_data($post) {
 
 	$title = esc_textarea( trim( $post->post_title ) );
 
-	/** This filter is documented in wp-admin/edit-tag-form.php */
+	/** This filter is documented in APP_ADMIN_DIR/edit-tag-form.php */
 	echo '
 <div class="hidden" id="inline_' . $post->ID . '">
 	<div class="post_title">' . $title . '</div>' .
-	/** This filter is documented in wp-admin/edit-tag-form.php */
+	/** This filter is documented in APP_ADMIN_DIR/edit-tag-form.php */
 	'<div class="post_name">' . apply_filters( 'editable_slug', $post->post_name, $post ) . '</div>
 	<div class="post_author">' . $post->post_author . '</div>
 	<div class="comment_status">' . esc_html( $post->comment_status ) . '</div>
@@ -1672,25 +1672,25 @@ var ajaxurl = '<?php echo admin_url( 'admin-ajax.php', 'relative' ); ?>',
 	isRtl = <?php echo (int) is_rtl(); ?>;
 </script>
 <?php
-/** This action is documented in wp-admin/admin-header.php */
+/** This action is documented in APP_ADMIN_DIR/admin-header.php */
 do_action( 'admin_enqueue_scripts', $hook_suffix );
 
-/** This action is documented in wp-admin/admin-header.php */
+/** This action is documented in APP_ADMIN_DIR/admin-header.php */
 do_action( "admin_print_styles-$hook_suffix" );
 
-/** This action is documented in wp-admin/admin-header.php */
+/** This action is documented in APP_ADMIN_DIR/admin-header.php */
 do_action( 'admin_print_styles' );
 
-/** This action is documented in wp-admin/admin-header.php */
+/** This action is documented in APP_ADMIN_DIR/admin-header.php */
 do_action( "admin_print_scripts-$hook_suffix" );
 
-/** This action is documented in wp-admin/admin-header.php */
+/** This action is documented in APP_ADMIN_DIR/admin-header.php */
 do_action( 'admin_print_scripts' );
 
-/** This action is documented in wp-admin/admin-header.php */
+/** This action is documented in APP_ADMIN_DIR/admin-header.php */
 do_action( "admin_head-$hook_suffix" );
 
-/** This action is documented in wp-admin/admin-header.php */
+/** This action is documented in APP_ADMIN_DIR/admin-header.php */
 do_action( 'admin_head' );
 
 $admin_body_class .= ' locale-' . sanitize_html_class( strtolower( str_replace( '_', '-', get_user_locale() ) ) );
@@ -1701,7 +1701,7 @@ if ( is_rtl() )
 ?>
 </head>
 <?php
-/** This filter is documented in wp-admin/admin-header.php */
+/** This filter is documented in APP_ADMIN_DIR/admin-header.php */
 $admin_body_classes = apply_filters( 'admin_body_class', '' );
 ?>
 <body<?php
@@ -1738,13 +1738,13 @@ function iframe_footer() {
 	?>
 	<div class="hidden">
 <?php
-	/** This action is documented in wp-admin/admin-footer.php */
+	/** This action is documented in APP_ADMIN_DIR/admin-footer.php */
 	do_action( 'admin_footer', $hook_suffix );
 
-	/** This action is documented in wp-admin/admin-footer.php */
+	/** This action is documented in APP_ADMIN_DIR/admin-footer.php */
 	do_action( "admin_print_footer_scripts-$hook_suffix" );
 
-	/** This action is documented in wp-admin/admin-footer.php */
+	/** This action is documented in APP_ADMIN_DIR/admin-footer.php */
 	do_action( 'admin_print_footer_scripts' );
 ?>
 	</div>
@@ -2076,7 +2076,7 @@ function _wp_admin_html_begin() {
 <!doctype html>
 <?php do_action( 'before_html' ); ?>
 <html xmlns="http://www.w3.org/1999/xhtml" class="no-js <?php echo $admin_html_class; ?>" <?php
-	/** This action is documented in wp-admin/includes/template.php */
+	/** This action is documented in APP_ADMIN_DIR/includes/template.php */
 	do_action( 'admin_xml_ns' );
 ?> <?php language_attributes(); ?>>
 <head>
@@ -2099,9 +2099,9 @@ function convert_to_screen( $hook_name ) {
 		_doing_it_wrong(
 			'convert_to_screen(), add_meta_box()',
 			sprintf(
-				/* translators: 1: wp-admin/includes/template.php 2: add_meta_box() 3: add_meta_boxes */
+				/* translators: 1: APP_ADMIN_DIR/includes/template.php 2: add_meta_box() 3: add_meta_boxes */
 				__( 'Likely direct inclusion of %1$s in order to use %2$s. This is very wrong. Hook the %2$s call into the %3$s action instead.' ),
-				'<code>wp-admin/includes/template.php</code>',
+				'<code>APP_ADMIN_DIR/includes/template.php</code>',
 				'<code>add_meta_box()</code>',
 				'<code>add_meta_boxes</code>'
 			),

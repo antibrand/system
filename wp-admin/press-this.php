@@ -52,7 +52,7 @@ function wp_load_press_this() {
 				);
 			} else {
 				$action = sprintf(
-					/* translators: URL to wp-admin/press-this.php */
+					/* translators: URL to APP_ADMIN_DIR/press-this.php */
 					__( 'Press This is not installed. Please install Press This from <a href="%s">the main site</a>.' ),
 					get_admin_url( get_current_network_id(), 'press-this.php' )
 				);

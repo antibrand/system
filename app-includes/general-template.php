@@ -4180,7 +4180,7 @@ function app_assets_css( $file = 'app-assets', $force_echo = false ) {
  * @see WP_Styles::_css_href and its {@see 'style_loader_src'} filter.
  *
  * @since Previous  WP 2.3.0
- * @param  string $file file relative to wp-admin/ without its ".css" extension.
+ * @param  string $file file relative to APP_ADMIN_DIR/ without its ".css" extension.
  * @return string
  */
 function wp_admin_css_uri( $file = 'wp-admin' ) {
@@ -4214,12 +4214,12 @@ function wp_admin_css_uri( $file = 'wp-admin' ) {
  *
  * For backward compatibility with 2.3 calling method: If the $file
  * (first) parameter does not correspond to a registered CSS file, we assume
- * $file is a file relative to wp-admin/ without its ".css" extension. A
+ * $file is a file relative to APP_ADMIN_DIR/ without its ".css" extension. A
  * stylesheet link to that generated URL is printed.
  *
  * @since Previous 2.3.0
  * @param string $file       Optional. Style handle name or file name (without ".css" extension) relative
- * 	                         to wp-admin/. Defaults to 'wp-admin'.
+ * 	                         to APP_ADMIN_DIR/. Defaults to APP_ADMIN_DIR.
  * @param bool   $force_echo Optional. Force the stylesheet link to be printed rather than enqueued.
  */
 function wp_admin_css( $file = 'wp-admin', $force_echo = false ) {
@@ -4243,7 +4243,7 @@ function wp_admin_css( $file = 'wp-admin', $force_echo = false ) {
 	 * @since Previous 2.3.0
 	 * @param string $stylesheet_link HTML link element for the stylesheet.
 	 * @param string $file            Style handle name or filename (without ".css" extension)
-	 *                                relative to wp-admin/. Defaults to 'wp-admin'.
+	 *                                relative to APP_ADMIN_DIR/. Defaults to APP_ADMIN_DIR.
 	 */
 	echo apply_filters( 'wp_admin_css', "<link rel='stylesheet' href='" . esc_url( wp_admin_css_uri( $file ) ) . "' type='text/css' />\n", $file );
 

@@ -30,7 +30,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 		<?php echo sprintf(
 			'<p>%1s <code>%2s</code></p>',
 			__( 'The menu entry can be restored by uncommenting it at' ),
-			'wp-admin/menu.php'
+			APP_ADMIN_DIR . '/menu.php'
 		); ?>
 
 		<?php

@@ -11,7 +11,7 @@
  * Bulk Plugin Upgrader Skin for Plugin Upgrades.
  *
  * @since 3.0.0
- * @since 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader-skins.php.
+ * @since 4.6.0 Moved to its own file from APP_ADMIN_DIR/includes/class-wp-upgrader-skins.php.
  *
  * @see Bulk_Upgrader_Skin
  */

@@ -10,7 +10,7 @@
 if ( ! defined( 'APP_ADMIN' ) ) {
 
 	/*
-	 * This file is being included from a file other than wp-admin/admin.php, so
+	 * This file is being included from a file other than APP_ADMIN_DIR/admin.php, so
 	 * some setup was skipped. Make sure the admin message catalog is loaded since
 	 * load_default_textdomain() will not have done so in this context.
 	 */

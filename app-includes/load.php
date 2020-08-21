@@ -741,7 +741,7 @@ function is_admin() {
 /**
  * Whether the current request is for a site's admininstrative interface.
  *
- * e.g. `/wp-admin/`
+ * e.g. `/APP_ADMIN_DIR/`
  *
  * Does not check if the user is an administrator; current_user_can()
  * for checking roles and capabilities.
@@ -764,7 +764,7 @@ function is_blog_admin() {
 /**
  * Whether the current request is for the network administrative interface.
  *
- * e.g. `/wp-admin/network/`
+ * e.g. `/APP_ADMIN_DIR/network/`
  *
  * Does not check if the user is an administrator; current_user_can()
  * for checking roles and capabilities.
@@ -787,7 +787,7 @@ function is_network_admin() {
 /**
  * Whether the current request is for a user admin screen.
  *
- * e.g. `/wp-admin/user/`
+ * e.g. `/APP_ADMIN_DIR/user/`
  *
  * Does not inform on whether the user is an admin! Use capability
  * checks to tell if the user should be accessing a section or not

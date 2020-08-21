@@ -421,7 +421,7 @@ class WP_Customize_Nav_Menu_Setting extends WP_Customize_Setting {
 		$value = array_merge( $default, $value );
 		$value = wp_array_slice_assoc( $value, array_keys( $default ) );
 
-		$value['name']        = trim( esc_html( $value['name'] ) ); // This sanitization code is used in wp-admin/nav-menus.php.
+		$value['name']        = trim( esc_html( $value['name'] ) ); // This sanitization code is used in APP_ADMIN_DIR/nav-menus.php.
 		$value['description'] = sanitize_text_field( $value['description'] );
 		$value['parent']      = max( 0, intval( $value['parent'] ) );
 		$value['auto_add']    = ! empty( $value['auto_add'] );

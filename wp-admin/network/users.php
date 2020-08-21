@@ -16,7 +16,7 @@ if ( ! current_user_can( 'manage_network_users' ) ) {
 
 if ( isset( $_GET['action'] ) ) {
 
-	// This action is documented in wp-admin/network/edit.php.
+	// This action is documented in APP_ADMIN_DIR/network/edit.php.
 	do_action( 'wpmuadminedit' );
 
 	switch ( $_GET['action'] ) {
@@ -140,7 +140,7 @@ if ( isset( $_GET['action'] ) ) {
 					$sendback = wp_get_referer();
 					$user_ids = (array) $_POST['allusers'];
 
-					// This action is documented in wp-admin/network/site-themes.php.
+					// This action is documented in APP_ADMIN_DIR/network/site-themes.php.
 					$sendback = apply_filters( 'handle_network_bulk_actions-' . get_current_screen()->id, $sendback, $doaction, $user_ids );
 
 					wp_safe_redirect( $sendback );

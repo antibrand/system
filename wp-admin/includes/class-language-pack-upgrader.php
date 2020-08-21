@@ -27,7 +27,7 @@ if ( ! defined( 'APP_NAME' ) ) {
  * for plugins, themes, and core.
  *
  * @since 3.7.0
- * @since 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader.php.
+ * @since 4.6.0 Moved to its own file from APP_ADMIN_DIR/includes/class-wp-upgrader.php.
  *
  * @see Installer
  */
@@ -282,7 +282,7 @@ class Language_Pack_Upgrader extends Includes\Installer {
 		remove_action( 'upgrader_process_complete', 'wp_update_plugins' );
 		remove_action( 'upgrader_process_complete', 'wp_update_themes' );
 
-		/** This action is documented in wp-admin/includes/class-wp-upgrader.php */
+		/** This action is documented in APP_ADMIN_DIR/includes/class-wp-upgrader.php */
 		do_action( 'upgrader_process_complete', $this, array(
 			'action'       => 'update',
 			'type'         => 'translation',

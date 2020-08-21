@@ -84,7 +84,7 @@ if ( ! wp_next_scheduled( 'wp_scheduled_auto_draft_delete' ) ) {
 $post    = get_default_post_to_edit( $post_type, true );
 $post_ID = $post->ID;
 
-// This filter is documented in wp-admin/post.php.
+// This filter is documented in APP_ADMIN_DIR/post.php.
 if ( apply_filters( 'replace_editor', false, $post ) !== true ) {
 	wp_enqueue_script( 'autosave' );
 	include( ABSPATH . 'wp-admin/edit-form-advanced.php' );

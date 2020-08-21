@@ -338,7 +338,7 @@ final class WP_Customize_Widgets {
 		/** This action is documented in app-includes/backend/ajax-actions.php */
 		do_action( 'widgets.php' );
 
-		/** This action is documented in wp-admin/widgets.php */
+		/** This action is documented in APP_ADMIN_DIR/widgets.php */
 		do_action( 'sidebar_admin_setup' );
 	}
 
@@ -628,10 +628,10 @@ final class WP_Customize_Widgets {
 	 * @since 3.9.0
 	 */
 	public function print_styles() {
-		/** This action is documented in wp-admin/admin-header.php */
+		/** This action is documented in APP_ADMIN_DIR/admin-header.php */
 		do_action( 'admin_print_styles-widgets.php' );
 
-		/** This action is documented in wp-admin/admin-header.php */
+		/** This action is documented in APP_ADMIN_DIR/admin-header.php */
 		do_action( 'admin_print_styles' );
 	}
 
@@ -642,10 +642,10 @@ final class WP_Customize_Widgets {
 	 * @since 3.9.0
 	 */
 	public function print_scripts() {
-		/** This action is documented in wp-admin/admin-header.php */
+		/** This action is documented in APP_ADMIN_DIR/admin-header.php */
 		do_action( 'admin_print_scripts-widgets.php' );
 
-		/** This action is documented in wp-admin/admin-header.php */
+		/** This action is documented in APP_ADMIN_DIR/admin-header.php */
 		do_action( 'admin_print_scripts' );
 	}
 
@@ -664,7 +664,7 @@ final class WP_Customize_Widgets {
 		wp_enqueue_style( 'customize-widgets' );
 		wp_enqueue_script( 'customize-widgets' );
 
-		/** This action is documented in wp-admin/admin-header.php */
+		/** This action is documented in APP_ADMIN_DIR/admin-header.php */
 		do_action( 'admin_enqueue_scripts', 'widgets.php' );
 
 		/*
@@ -831,13 +831,13 @@ final class WP_Customize_Widgets {
 	 * @since 3.9.0
 	 */
 	public function print_footer_scripts() {
-		/** This action is documented in wp-admin/admin-footer.php */
+		/** This action is documented in APP_ADMIN_DIR/admin-footer.php */
 		do_action( 'admin_print_footer_scripts-widgets.php' );
 
-		/** This action is documented in wp-admin/admin-footer.php */
+		/** This action is documented in APP_ADMIN_DIR/admin-footer.php */
 		do_action( 'admin_print_footer_scripts' );
 
-		/** This action is documented in wp-admin/admin-footer.php */
+		/** This action is documented in APP_ADMIN_DIR/admin-footer.php */
 		do_action( 'admin_footer-widgets.php' );
 	}
 
@@ -1504,7 +1504,7 @@ final class WP_Customize_Widgets {
 		/** This action is documented in app-includes/backend/ajax-actions.php */
 		do_action( 'widgets.php' );
 
-		/** This action is documented in wp-admin/widgets.php */
+		/** This action is documented in APP_ADMIN_DIR/widgets.php */
 		do_action( 'sidebar_admin_setup' );
 
 		$widget_id = $this->get_post_value( 'widget-id' );

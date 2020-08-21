@@ -179,7 +179,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 					} else {
 
 						$action = sprintf(
-							/* translators: URL to wp-admin/import.php */
+							/* translators: URL to APP_ADMIN_DIR/import.php */
 							__( 'This importer is not installed. Please install importers from <a href="%s">the main site</a>.' ),
 							get_admin_url( get_current_network_id(), 'import.php' )
 						);

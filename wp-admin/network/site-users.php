@@ -209,7 +209,7 @@ if ( $action ) {
 
 			$userids = $_REQUEST['users'];
 
-			// This action is documented in wp-admin/network/site-themes.php.
+			// This action is documented in APP_ADMIN_DIR/network/site-themes.php.
 			$referer = apply_filters( 'handle_network_bulk_actions-' . get_current_screen()->id, $referer, $action, $userids, $id );
 			$update  = $action;
 
@@ -341,7 +341,7 @@ jQuery(document).ready( function($) {
 			 */
 			do_action( 'network_site_users_after_list_table' );
 
-			/** This filter is documented in wp-admin/network/site-users.php */
+			/** This filter is documented in APP_ADMIN_DIR/network/site-users.php */
 			if ( current_user_can( 'promote_users' ) && apply_filters( 'show_network_site_users_add_existing_form', true ) ) :
 
 			?>

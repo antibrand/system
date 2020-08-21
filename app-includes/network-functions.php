@@ -368,8 +368,8 @@ function get_blog_id_from_url( $domain, $path = '/' ) {
  * Checks an email address against a list of banned domains.
  *
  * This function checks against the Banned Email Domains list
- * at wp-admin/network/settings.php. The check is only run on
- * self-registrations; user creation at wp-admin/network/users.php
+ * at APP_ADMIN_DIR/network/settings.php. The check is only run on
+ * self-registrations; user creation at APP_ADMIN_DIR/network/users.php
  * bypasses this check.
  *
  * @since MU (3.0.0)
@@ -1862,7 +1862,7 @@ function recurse_dirsize( $directory, $exclude = null ) {
  * which is defined in app-includes/functions.php in
  * get_allowed_mime_types(). This function is used to filter
  * that list against the filetype whitelist provided by network
- * Network Admins at wp-admin/network/settings.php.
+ * Network Admins at APP_ADMIN_DIR/network/settings.php.
  *
  * @since MU (3.0.0)
  *
@@ -2570,7 +2570,7 @@ function get_subdirectory_reserved_names() {
 	 * Filters reserved site names on a sub-directory network installation.
 	 *
 	 * @since 3.0.0
-	 * @since 4.4.0 'wp-admin', 'app-views', 'wp-includes', 'wp-json', and 'embed' were added
+	 * @since 4.4.0 'APP_ADMIN_DIR', 'app-views', 'wp-includes', 'wp-json', and 'embed' were added
 	 *              to the reserved names list.
 	 *
 	 * @param array $subdirectory_reserved_names Array of reserved names.

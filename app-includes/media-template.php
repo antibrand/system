@@ -182,7 +182,7 @@ function wp_print_media_templates() {
 		<?php elseif ( is_network() && ! is_upload_space_available() ) : ?>
 			<h2 class="upload-instructions"><?php _e( 'Upload Limit Exceeded' ); ?></h2>
 			<?php
-			/** This action is documented in wp-admin/includes/media.php */
+			/** This action is documented in APP_ADMIN_DIR/includes/media.php */
 			do_action( 'upload_ui_over_quota' ); ?>
 
 		<?php else : ?>
@@ -196,17 +196,17 @@ function wp_print_media_templates() {
 
 			<div class="post-upload-ui">
 				<?php
-				/** This action is documented in wp-admin/includes/media.php */
+				/** This action is documented in APP_ADMIN_DIR/includes/media.php */
 				do_action( 'pre-upload-ui' );
-				/** This action is documented in wp-admin/includes/media.php */
+				/** This action is documented in APP_ADMIN_DIR/includes/media.php */
 				do_action( 'pre-plupload-upload-ui' );
 
 				if ( 10 === remove_action( 'post-plupload-upload-ui', 'media_upload_flash_bypass' ) ) {
-					/** This action is documented in wp-admin/includes/media.php */
+					/** This action is documented in APP_ADMIN_DIR/includes/media.php */
 					do_action( 'post-plupload-upload-ui' );
 					add_action( 'post-plupload-upload-ui', 'media_upload_flash_bypass' );
 				} else {
-					/** This action is documented in wp-admin/includes/media.php */
+					/** This action is documented in APP_ADMIN_DIR/includes/media.php */
 					do_action( 'post-plupload-upload-ui' );
 				}
 
@@ -230,7 +230,7 @@ function wp_print_media_templates() {
 				<# } #>
 
 				<?php
-				/** This action is documented in wp-admin/includes/media.php */
+				/** This action is documented in APP_ADMIN_DIR/includes/media.php */
 				do_action( 'post-upload-ui' ); ?>
 			</div>
 		<?php endif; ?>
@@ -680,7 +680,7 @@ function wp_print_media_templates() {
 						data-user-setting="imgsize"
 					<# } #>>
 					<?php
-					/** This filter is documented in wp-admin/includes/media.php */
+					/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
 					$sizes = apply_filters( 'image_size_names_choose', array(
 						'thumbnail' => __('Thumbnail'),
 						'medium'    => __('Medium'),
@@ -755,7 +755,7 @@ function wp_print_media_templates() {
 				<# } #>
 				>
 				<?php
-				/** This filter is documented in wp-admin/includes/media.php */
+				/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
 				$size_names = apply_filters( 'image_size_names_choose', array(
 					'thumbnail' => __( 'Thumbnail' ),
 					'medium'    => __( 'Medium' ),
@@ -822,7 +822,7 @@ function wp_print_media_templates() {
 		</div>
 
 		<?php
-		/** This filter is documented in wp-admin/includes/media.php */
+		/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
 		if ( ! apply_filters( 'disable_captions', '' ) ) : ?>
 			<label class="setting caption">
 				<span><?php _e('Caption'); ?></span>
@@ -887,7 +887,7 @@ function wp_print_media_templates() {
 				</div>
 				<div class="column-settings">
 					<?php
-					/** This filter is documented in wp-admin/includes/media.php */
+					/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
 					if ( ! apply_filters( 'disable_captions', '' ) ) : ?>
 						<label class="setting caption">
 							<span><?php _e('Caption'); ?></span>
@@ -929,7 +929,7 @@ function wp_print_media_templates() {
 										data-user-setting="imgsize"
 									<# } #>>
 									<?php
-									/** This filter is documented in wp-admin/includes/media.php */
+									/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
 									$sizes = apply_filters( 'image_size_names_choose', array(
 										'thumbnail' => __('Thumbnail'),
 										'medium'    => __('Medium'),

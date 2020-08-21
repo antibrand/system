@@ -314,7 +314,7 @@ function edit_post( $post_data = null ) {
 
 		$attachment_data = isset( $post_data['attachments'][ $post_ID ] ) ? $post_data['attachments'][ $post_ID ] : array();
 
-		/** This filter is documented in wp-admin/includes/media.php */
+		/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
 		$post_data = apply_filters( 'attachment_fields_to_save', $post_data, $attachment_data );
 	}
 
@@ -1288,14 +1288,14 @@ function get_sample_permalink($id, $title = null, $name = null) {
 			$uri = untrailingslashit($uri);
 		}
 
-		/** This filter is documented in wp-admin/edit-tag-form.php */
+		/** This filter is documented in APP_ADMIN_DIR/edit-tag-form.php */
 		$uri = apply_filters( 'editable_slug', $uri, $post );
 		if ( !empty($uri) )
 			$uri .= '/';
 		$permalink = str_replace('%pagename%', "{$uri}%pagename%", $permalink);
 	}
 
-	/** This filter is documented in wp-admin/edit-tag-form.php */
+	/** This filter is documented in APP_ADMIN_DIR/edit-tag-form.php */
 	$permalink = array( $permalink, apply_filters( 'editable_slug', $post->post_name, $post ) );
 	$post->post_status = $original_status;
 	$post->post_date = $original_date;

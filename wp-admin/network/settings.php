@@ -58,7 +58,7 @@ get_current_screen()->add_help_tab( array(
 get_current_screen()->set_help_sidebar( '' );
 
 if ( $_POST ) {
-	/** This action is documented in wp-admin/network/edit.php */
+	/** This action is documented in APP_ADMIN_DIR/network/edit.php */
 	do_action( 'wpmuadminedit' );
 
 	check_admin_referer( 'siteoptions' );

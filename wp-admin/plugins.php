@@ -212,7 +212,7 @@ if ( $action ) {
 			// Go back to "sandbox" scope so we get the same errors as before.
 			plugin_sandbox_scrape( $plugin );
 
-			// This action is documented in wp-admin/includes/plugin.php.
+			// This action is documented in APP_ADMIN_DIR/includes/plugin.php.
 			do_action( "activate_{$plugin}" );
 			exit;
 
@@ -485,7 +485,7 @@ if ( $action ) {
 				$plugins = isset( $_POST['checked'] ) ? (array) wp_unslash( $_POST['checked'] ) : [];
 				$sendback = wp_get_referer();
 
-				// This action is documented in wp-admin/edit-comments.php.
+				// This action is documented in APP_ADMIN_DIR/edit-comments.php.
 				$sendback = apply_filters( 'handle_bulk_actions-' . get_current_screen()->id, $sendback, $action, $plugins );
 				wp_safe_redirect( $sendback );
 

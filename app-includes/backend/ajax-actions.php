@@ -256,7 +256,7 @@ function wp_ajax_autocomplete_user() {
 	if ( ! is_network() || ! current_user_can( 'promote_users' ) || wp_is_large_network( 'users' ) )
 		wp_die( -1 );
 
-	/** This filter is documented in wp-admin/user-new.php */
+	/** This filter is documented in APP_ADMIN_DIR/user-new.php */
 	if ( ! current_user_can( 'manage_network_users' ) && ! apply_filters( 'autocomplete_users_for_site_admins', false ) )
 		wp_die( -1 );
 
@@ -1219,7 +1219,7 @@ function wp_ajax_add_menu_item() {
 		}
 	}
 
-	/** This filter is documented in wp-admin/includes/nav-menu.php */
+	/** This filter is documented in APP_ADMIN_DIR/includes/nav-menu.php */
 	$walker_class_name = apply_filters( 'wp_edit_nav_menu_walker', 'AppNamespace\Backend\Walker_Nav_Menu_Edit', $_POST['menu'] );
 
 	if ( ! class_exists( $walker_class_name ) )
@@ -1500,7 +1500,7 @@ function wp_ajax_menu_get_metabox() {
 	if ( ! empty( $_POST['item-object'] ) && isset( $items[$_POST['item-object']] ) ) {
 		$menus_meta_box_object = $items[ $_POST['item-object'] ];
 
-		/** This filter is documented in wp-admin/includes/nav-menu.php */
+		/** This filter is documented in APP_ADMIN_DIR/includes/nav-menu.php */
 		$item = apply_filters( 'nav_menu_meta_box_object', $menus_meta_box_object );
 		ob_start();
 		call_user_func_array($callback, array(
@@ -1705,7 +1705,7 @@ function wp_ajax_inline_save() {
 	if ( ! empty( $data['tax_input'] ) ) {
 		foreach ( $data['tax_input'] as $taxonomy => $terms ) {
 			$tax_object = get_taxonomy( $taxonomy );
-			/** This filter is documented in wp-admin/includes/class-wp-posts-list-table.php */
+			/** This filter is documented in APP_ADMIN_DIR/includes/class-wp-posts-list-table.php */
 			if ( ! apply_filters( 'quick_edit_show_taxonomy', $tax_object->show_in_quick_edit, $taxonomy, $post['post_type'] ) ) {
 				unset( $data['tax_input'][ $taxonomy ] );
 			}
@@ -1927,7 +1927,7 @@ function wp_ajax_save_widget() {
 	 */
 	do_action( 'widgets.php' );
 
-	/** This action is documented in wp-admin/widgets.php */
+	/** This action is documented in APP_ADMIN_DIR/widgets.php */
 	do_action( 'sidebar_admin_setup' );
 
 	$id_base = wp_unslash( $_POST['id_base'] );
@@ -1949,7 +1949,7 @@ function wp_ajax_save_widget() {
 		$sidebar = array_diff( $sidebar, array($widget_id) );
 		$_POST = array('sidebar' => $sidebar_id, 'widget-' . $id_base => array(), 'the-widget-id' => $widget_id, 'delete_widget' => '1');
 
-		/** This action is documented in wp-admin/widgets.php */
+		/** This action is documented in APP_ADMIN_DIR/widgets.php */
 		do_action( 'delete_widget', $widget_id, $sidebar_id, $id_base );
 
 	} elseif ( $settings && preg_match( '/__i__|%i%/', key($settings) ) ) {
@@ -2020,7 +2020,7 @@ function wp_ajax_delete_inactive_widgets() {
 	do_action( 'load-widgets.php' );
 	/** This action is documented in app-includes/backend/ajax-actions.php */
 	do_action( 'widgets.php' );
-	/** This action is documented in wp-admin/widgets.php */
+	/** This action is documented in APP_ADMIN_DIR/widgets.php */
 	do_action( 'sidebar_admin_setup' );
 
 	$sidebars_widgets = wp_get_sidebars_widgets();
@@ -2576,7 +2576,7 @@ function wp_ajax_save_attachment_compat() {
 	if ( 'attachment' != $post['post_type'] )
 		wp_send_json_error();
 
-	/** This filter is documented in wp-admin/includes/media.php */
+	/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
 	$post = apply_filters( 'attachment_fields_to_save', $post, $attachment_data );
 
 	if ( isset( $post['errors'] ) ) {
@@ -2691,7 +2691,7 @@ function wp_ajax_send_attachment_to_editor() {
 		}
 	}
 
-	/** This filter is documented in wp-admin/includes/media.php */
+	/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
 	$html = apply_filters( 'media_send_to_editor', $html, $id, $attachment );
 
 	wp_send_json_success( $html );
@@ -2746,7 +2746,7 @@ function wp_ajax_send_link_to_editor() {
 		&& ( 'audio' == $ext_type || 'video' == $ext_type ) )
 			$type = $ext_type;
 
-	/** This filter is documented in wp-admin/includes/media.php */
+	/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
 	$html = apply_filters( "{$type}_send_to_editor_url", $html, $src, $link_text );
 
 	wp_send_json_success( $html );
@@ -2946,7 +2946,7 @@ function wp_ajax_query_themes() {
 
 	$old_filter = isset( $args['browse'] ) ? $args['browse'] : 'search';
 
-	/** This filter is documented in wp-admin/includes/class-wp-theme-install-list-table.php */
+	/** This filter is documented in APP_ADMIN_DIR/includes/class-wp-theme-install-list-table.php */
 	$args = apply_filters( 'install_themes_table_api_args_' . $old_filter, $args );
 
 	$api = themes_api( 'query_themes', $args );
@@ -3264,7 +3264,7 @@ function wp_ajax_crop_image() {
 				break;
 			}
 
-			/** This filter is documented in wp-admin/custom-header.php */
+			/** This filter is documented in APP_ADMIN_DIR/custom-header.php */
 			$cropped = apply_filters( 'wp_create_file_in_uploads', $cropped, $attachment_id ); // For replication.
 			$object  = $wp_site_icon->create_attachment_object( $cropped, $attachment_id );
 			unset( $object['ID'] );
@@ -3293,7 +3293,7 @@ function wp_ajax_crop_image() {
 			 */
 			do_action( 'wp_ajax_crop_image_pre_save', $context, $attachment_id, $cropped );
 
-			/** This filter is documented in wp-admin/custom-header.php */
+			/** This filter is documented in APP_ADMIN_DIR/custom-header.php */
 			$cropped = apply_filters( 'wp_create_file_in_uploads', $cropped, $attachment_id ); // For replication.
 
 			$parent_url = wp_get_attachment_url( $attachment_id );

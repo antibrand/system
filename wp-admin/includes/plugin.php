@@ -1180,7 +1180,7 @@ function add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, 
 
 	/*
 	 * Backward-compatibility for plugins using add_management page.
-	 * See wp-admin/admin.php for redirect from edit.php to tools.php
+	 * See APP_ADMIN_DIR/admin.php for redirect from edit.php to tools.php
 	 */
 	if ( 'tools.php' == $parent_slug )
 		$_registered_pages[get_plugin_page_hookname( $menu_slug, 'edit.php' )] = true;
@@ -1866,7 +1866,7 @@ function wp_clean_plugins_cache( $clear_update_cache = true ) {
  * Load a given plugin attempt to generate errors.
  *
  * @since 3.0.0
- * @since 4.4.0 Function was moved into the `wp-admin/includes/plugin.php` file.
+ * @since 4.4.0 Function was moved into the `APP_ADMIN_DIR/includes/plugin.php` file.
  *
  * @param string $plugin Plugin file to load.
  */
@@ -1899,7 +1899,8 @@ function wp_add_privacy_policy_content( $plugin_name, $policy_text ) {
 			__FUNCTION__,
 			sprintf(
 				/* translators: %s: admin_init */
-				__( 'The suggested privacy policy content should be added only in wp-admin by using the %s (or later) action.' ),
+				__( 'The suggested privacy policy content should be added only in %s by using the %s (or later) action.' ),
+				'<code>APP_ADMIN_DIR</code>',
 				'<code>admin_init</code>'
 			),
 			'4.9.7'

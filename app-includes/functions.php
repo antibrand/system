@@ -2201,7 +2201,7 @@ function wp_upload_bits( $name, $deprecated, $bits, $time = null ) {
 	// Compute the URL
 	$url = $upload['url'] . "/$filename";
 
-	/** This filter is documented in wp-admin/includes/file.php */
+	/** This filter is documented in APP_ADMIN_DIR/includes/file.php */
 	return apply_filters( 'wp_handle_upload', array( 'file' => $new_file, 'url' => $url, 'type' => $wp_filetype['type'], 'error' => false ), 'sideload' );
 }
 
@@ -4208,8 +4208,8 @@ function force_ssl_admin( $force = null ) {
 /**
  * Guess the URL for the site.
  *
- * Will remove wp-admin links to retrieve only return URLs not in the wp-admin
- * directory.
+ * Will remove APP_ADMIN_DIR links to retrieve only return URLs not in
+ * the APP_ADMIN_DIR directory.
  *
  * @since Previous 2.6.0
  * @return string Returns the guessed URL.
@@ -4232,7 +4232,7 @@ function wp_guess_url() {
 		if ( strpos( $_SERVER['REQUEST_URI'], $views ) !== false || strpos( $_SERVER['REQUEST_URI'], 'app-login.php' ) !== false ) {
 			$path = preg_replace( "#/($views/.*|app-login.php)#i", '', $_SERVER['REQUEST_URI'] );
 
-		// The request is for the wp-admin directory.
+		// The request is for the APP_ADMIN_DIR directory.
 		} elseif ( strpos( $_SERVER['REQUEST_URI'], 'wp-admin' ) !== false || strpos( $_SERVER['REQUEST_URI'], 'app-login.php' ) !== false ) {
 			$path = preg_replace( '#/(wp-admin/.*|app-login.php)#i', '', $_SERVER['REQUEST_URI'] );
 

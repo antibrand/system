@@ -419,10 +419,10 @@ do_action( "add_meta_boxes_{$post_type}", $post );
  */
 do_action( 'do_meta_boxes', $post_type, 'normal', $post );
 
-// This action is documented in wp-admin/edit-form-advanced.php.
+// This action is documented in APP_ADMIN_DIR/edit-form-advanced.php.
 do_action( 'do_meta_boxes', $post_type, 'advanced', $post );
 
-// This action is documented in wp-admin/edit-form-advanced.php.
+// This action is documented in APP_ADMIN_DIR/edit-form-advanced.php.
 do_action( 'do_meta_boxes', $post_type, 'side', $post );
 
 add_screen_option( 'layout_columns', [ 'max' => 2, 'default' => 2 ] );

@@ -2,7 +2,7 @@
 /**
  * Revisions administration panel
  *
- * Requires wp-admin/includes/revision.php.
+ * Requires APP_ADMIN_DIR/includes/revision.php.
  *
  * @package App_Package
  * @subpackage Administration

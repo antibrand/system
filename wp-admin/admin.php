@@ -58,7 +58,7 @@ if ( get_option( 'db_upgraded' ) ) {
 	/**
 	 * Filters whether to attempt to perform the network DB upgrade routine.
 	 *
-	 * In single site, the user would be redirected to wp-admin/upgrade.php.
+	 * In single site, the user would be redirected to APP_ADMIN_DIR/upgrade.php.
 	 * In network, the DB upgrade routine is automatically fired, but only
 	 * when this filter returns true.
 	 *
@@ -81,7 +81,7 @@ if ( get_option( 'db_upgraded' ) ) {
 			require_once( APP_INC_PATH . '/http.php' );
 			$response = wp_remote_get( admin_url( 'upgrade.php?step=1' ), [ 'timeout' => 120, 'httpversion' => '1.1' ] );
 
-			// This action is documented in wp-admin/network/upgrade.php.
+			// This action is documented in APP_ADMIN_DIR/network/upgrade.php.
 			do_action( 'after_mu_upgrade', $response );
 			unset( $response );
 		}
@@ -113,7 +113,7 @@ wp_enqueue_script( 'common' );
 
 /**
  * $pagenow is set in vars.php
- * $wp_importers is sometimes set in wp-admin/includes/import.php
+ * $wp_importers is sometimes set in APP_ADMIN_DIR/includes/import.php
  * The remaining variables are imported as globals elsewhere, declared as globals here.
  *
  * @global string $pagenow

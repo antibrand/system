@@ -433,7 +433,7 @@ switch( $step ) :
 	 * credentials are correct.
 	 *
 	 * Links to the installation template.
-	 * @see wp-admin/install.php
+	 * @see APP_ADMIN_DIR/install.php
 	 */
 	else :
 		/*

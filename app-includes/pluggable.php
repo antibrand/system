@@ -1285,7 +1285,7 @@ if ( !function_exists('wp_safe_redirect') ) :
  * path. A plugin can therefore set or remove allowed host(s) to or from the
  * list.
  *
- * If the host is not allowed, then the redirect defaults to wp-admin on the siteurl
+ * If the host is not allowed, then the redirect defaults to APP_ADMIN_DIR on the siteurl
  * instead. This prevents malicious redirects which redirect to another host,
  * but only used in a few places.
  *

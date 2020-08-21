@@ -201,7 +201,7 @@ function wpmu_delete_user( $id ) {
 
 	clean_user_cache( $user );
 
-	// This action is documented in wp-admin/includes/user.php.
+	// This action is documented in APP_ADMIN_DIR/includes/user.php.
 	do_action( 'deleted_user', $id, null );
 
 	return true;
@@ -1014,7 +1014,7 @@ function confirm_delete_users( $users ) {
 	</table>
 	<?php
 
-	// This action is documented in wp-admin/users.php.
+	// This action is documented in APP_ADMIN_DIR/users.php.
 	do_action( 'delete_user_form', $current_user, $allusers );
 
 	if ( 1 == count( $users ) ) :

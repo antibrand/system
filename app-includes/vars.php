@@ -57,7 +57,7 @@ if ( is_admin() ) {
 		preg_match( '#(.*?)(/|$)#', $pagenow, $self_matches );
 		$pagenow = strtolower( $self_matches[1] );
 
-		// For Options +Multiviews: /wp-admin/themes/index.php (themes.php is queried).
+		// For Options +Multiviews: /APP_VIEWS_DIR/themes/index.php (themes.php is queried).
 		if ( '.php' !== substr( $pagenow, -4, 4 ) ) {
 			$pagenow .= '.php';
 		}

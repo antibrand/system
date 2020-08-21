@@ -929,7 +929,7 @@ function update_core($from, $to) {
 	elseif ( !$mysql_compat )
 		return new WP_Error( 'mysql_not_compatible', sprintf( __('The update cannot be installed because the application %1$s requires MySQL version %2$s or higher. You are running version %3$s.'), $app_version, $required_mysql_version, $mysql_version ) );
 
-	/** This filter is documented in wp-admin/includes/update-core.php */
+	/** This filter is documented in APP_ADMIN_DIR/includes/update-core.php */
 	apply_filters( 'update_feedback', __( 'Preparing to install the latest version&#8230;' ) );
 
 	// Don't copy wp-content, we'll deal with that below
@@ -983,7 +983,7 @@ function update_core($from, $to) {
 		}
 	}
 
-	/** This filter is documented in wp-admin/includes/update-core.php */
+	/** This filter is documented in APP_ADMIN_DIR/includes/update-core.php */
 	apply_filters( 'update_feedback', __( 'Enabling Maintenance mode&#8230;' ) );
 	// Create maintenance file to signal that we are upgrading
 	$maintenance_string = '<?php $upgrading = ' . time() . '; ?>';
@@ -991,7 +991,7 @@ function update_core($from, $to) {
 	$wp_filesystem->delete($maintenance_file);
 	$wp_filesystem->put_contents($maintenance_file, $maintenance_string, FS_CHMOD_FILE);
 
-	/** This filter is documented in wp-admin/includes/update-core.php */
+	/** This filter is documented in APP_ADMIN_DIR/includes/update-core.php */
 	apply_filters( 'update_feedback', __( 'Copying the required files&#8230;' ) );
 	// Copy new versions of WP files into place.
 	$result = _copy_dir( $from . $distro, $to, $skip );
@@ -1070,7 +1070,7 @@ function update_core($from, $to) {
 		}
 	}
 
-	/** This filter is documented in wp-admin/includes/update-core.php */
+	/** This filter is documented in APP_ADMIN_DIR/includes/update-core.php */
 	apply_filters( 'update_feedback', __( 'Disabling Maintenance mode&#8230;' ) );
 	// Remove maintenance file, we're done with potential site-breaking changes
 	$wp_filesystem->delete( $maintenance_file );
@@ -1145,7 +1145,7 @@ function update_core($from, $to) {
 	_upgrade_440_force_deactivate_incompatible_plugins();
 
 	// Upgrade DB with separate request
-	/** This filter is documented in wp-admin/includes/update-core.php */
+	/** This filter is documented in APP_ADMIN_DIR/includes/update-core.php */
 	apply_filters( 'update_feedback', __( 'Upgrading database&#8230;' ) );
 	$db_upgrade_url = admin_url('upgrade.php?step=upgrade_db');
 	wp_remote_post($db_upgrade_url, array('timeout' => 60));

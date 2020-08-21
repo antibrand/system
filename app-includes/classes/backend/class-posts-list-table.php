@@ -142,7 +142,7 @@ class Posts_List_Table extends List_Table {
 		$post_type = $this->screen->post_type;
 		$per_page = $this->get_items_per_page( 'edit_' . $post_type . '_per_page' );
 
-		/** This filter is documented in wp-admin/includes/post.php */
+		/** This filter is documented in APP_ADMIN_DIR/includes/post.php */
  		$per_page = apply_filters( 'edit_posts_per_page', $per_page, $post_type );
 
 		if ( $this->hierarchical_display ) {
@@ -1094,7 +1094,7 @@ class Posts_List_Table extends List_Table {
 			echo apply_filters( 'post_date_column_time', $t_time, $post, 'date', $mode );
 		} else {
 
-			/** This filter is documented in wp-admin/includes/class-wp-posts-list-table.php */
+			/** This filter is documented in APP_ADMIN_DIR/includes/class-wp-posts-list-table.php */
 			echo '<abbr title="' . $t_time . '">' . apply_filters( 'post_date_column_time', $h_time, $post, 'date', $mode ) . '</abbr>';
 		}
 	}
@@ -1623,7 +1623,7 @@ class Posts_List_Table extends List_Table {
 				<option value="-1"><?php _e( '&mdash; No Change &mdash;' ); ?></option>
 <?php	endif; // $bulk ?>
                 <?php
-				/** This filter is documented in wp-admin/includes/meta-boxes.php */
+				/** This filter is documented in APP_ADMIN_DIR/includes/meta-boxes.php */
 				$default_title = apply_filters( 'default_page_template_title',  __( 'Default Template' ), 'quick-edit' );
                 ?>
 				<option value="default"><?php echo esc_html( $default_title ); ?></option>

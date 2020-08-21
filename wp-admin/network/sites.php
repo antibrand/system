@@ -63,7 +63,7 @@ if ( isset( $_REQUEST['id'] ) ) {
 
 if ( isset( $_GET['action'] ) ) {
 
-	// This action is documented in wp-admin/network/edit.php.
+	// This action is documented in APP_ADMIN_DIR/network/edit.php.
 	do_action( 'wpmuadminedit' );
 
 	// A list of valid actions and their associated messaging for confirmation output.
@@ -263,7 +263,7 @@ if ( isset( $_GET['action'] ) ) {
 					$redirect_to = wp_get_referer();
 					$blogs       = (array) $_POST['allblogs'];
 
-					// This action is documented in wp-admin/network/site-themes.php.
+					// This action is documented in APP_ADMIN_DIR/network/site-themes.php.
 					$redirect_to = apply_filters( 'handle_network_bulk_actions-' . get_current_screen()->id, $redirect_to, $doaction, $blogs, $id );
 
 					wp_safe_redirect( $redirect_to );

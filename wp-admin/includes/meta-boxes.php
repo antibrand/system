@@ -775,7 +775,7 @@ function post_comment_meta_box( $post ) {
  * @param object $post
  */
 function post_slug_meta_box($post) {
-/** This filter is documented in wp-admin/edit-tag-form.php */
+/** This filter is documented in APP_ADMIN_DIR/edit-tag-form.php */
 $editable_slug = apply_filters( 'editable_slug', $post->post_name, $post );
 ?>
 <label class="screen-reader-text" for="post_name"><?php _e('Slug') ?></label><input name="post_name" type="text" size="13" id="post_name" value="<?php echo esc_attr( $editable_slug ); ?>" />
@@ -947,7 +947,7 @@ function link_submit_meta_box($link) {
 
 <div id="major-publishing-actions">
 <?php
-/** This action is documented in wp-admin/includes/meta-boxes.php */
+/** This action is documented in APP_ADMIN_DIR/includes/meta-boxes.php */
 do_action( 'post_submitbox_start', null );
 ?>
 <div id="delete-action">

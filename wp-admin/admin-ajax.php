@@ -39,7 +39,7 @@ require_once( APP_INC_PATH . '/backend/ajax-actions.php' );
 send_nosniff_header();
 nocache_headers();
 
-// This action is documented in wp-admin/admin.php.
+// This action is documented in APP_ADMIN_DIR/admin.php.
 do_action( 'admin_init' );
 
 $core_actions_get = [

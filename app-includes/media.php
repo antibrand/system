@@ -3187,7 +3187,7 @@ function wp_prepare_attachment_for_js( $attachment ) {
 	if ( $meta && ( 'image' === $type || ! empty( $meta['sizes'] ) ) ) {
 		$sizes = array();
 
-		/** This filter is documented in wp-admin/includes/media.php */
+		/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
 		$possible_sizes = apply_filters( 'image_size_names_choose', array(
 			'thumbnail' => __('Thumbnail'),
 			'medium'    => __('Medium'),
@@ -3341,7 +3341,7 @@ function wp_enqueue_media( $args = array() ) {
 		'library'  => '',
 	);
 
-	/** This filter is documented in wp-admin/includes/media.php */
+	/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
 	$tabs = apply_filters( 'media_upload_tabs', $tabs );
 	unset( $tabs['type'], $tabs['type_url'], $tabs['gallery'], $tabs['library'] );
 
@@ -3446,7 +3446,7 @@ function wp_enqueue_media( $args = array() ) {
 		'tabs'      => $tabs,
 		'tabUrl'    => add_query_arg( array( 'chromeless' => true ), admin_url('media-upload.php') ),
 		'mimeTypes' => wp_list_pluck( get_post_mime_types(), 0 ),
-		/** This filter is documented in wp-admin/includes/media.php */
+		/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
 		'captions'  => ! apply_filters( 'disable_captions', '' ),
 		'nonce'     => array(
 			'sendToEditor' => wp_create_nonce( 'media-send-to-editor' ),

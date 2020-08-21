@@ -158,7 +158,7 @@ do_action( "{$taxonomy}_term_edit_form_top", $tag, $taxonomy );
 					'show_option_none' => __( 'None' ),
 				);
 
-				/** This filter is documented in wp-admin/edit-tags.php */
+				/** This filter is documented in APP_ADMIN_DIR/edit-tags.php */
 				$dropdown_args = apply_filters( 'taxonomy_parent_dropdown_args', $dropdown_args, $taxonomy, 'edit' );
 				wp_dropdown_categories( $dropdown_args ); ?>
 				<?php if ( 'category' == $taxonomy ) : ?>
@@ -224,10 +224,10 @@ do_action( "{$taxonomy}_term_edit_form_top", $tag, $taxonomy );
 <?php
 // Back compat hooks
 if ( 'category' == $taxonomy ) {
-	/** This action is documented in wp-admin/edit-tags.php */
+	/** This action is documented in APP_ADMIN_DIR/edit-tags.php */
 	do_action( 'edit_category_form', $tag );
 } elseif ( 'link_category' == $taxonomy ) {
-	/** This action is documented in wp-admin/edit-tags.php */
+	/** This action is documented in APP_ADMIN_DIR/edit-tags.php */
 	do_action( 'edit_link_category_form', $tag );
 } else {
 	/**

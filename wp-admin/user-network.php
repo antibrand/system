@@ -166,7 +166,7 @@ if ( $updated ) { ?>
 
 			echo "<p class='user-network-actions'>" . $actions . '</p>';
 
-			// This filter is documented in wp-admin/user-network.php.
+			// This filter is documented in APP_ADMIN_DIR/user-network.php.
 			echo apply_filters( 'myblogs_options', '', $user_blog );
 			echo "</li>";
 

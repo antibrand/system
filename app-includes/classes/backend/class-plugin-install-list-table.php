@@ -363,7 +363,7 @@ class Plugin_Install_List_Table extends List_Table {
 
 		$views = $this->get_views();
 
-		// This filter is documented in wp-admin/includes/class-app-list-table.php
+		// This filter is documented in APP_ADMIN_DIR/includes/class-app-list-table.php
 		$views = apply_filters( "views_{$this->screen->id}", $views );
 
 		$this->screen->render_screen_reader_content( 'heading_views' );

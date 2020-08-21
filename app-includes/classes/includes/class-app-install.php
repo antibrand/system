@@ -155,7 +155,7 @@ final class App_Install {
 								</p>
 								<p class="description"><?php _e( 'Note: Neither of these options blocks access to your site &mdash; it is up to search engines to honor your request.' ); ?></p>
 								<?php
-								/** This action is documented in wp-admin/options-reading.php */
+								/** This action is documented in APP_ADMIN_DIR/options-reading.php */
 								do_action( 'blog_privacy_selector' );
 							} else { ?>
 								<p>

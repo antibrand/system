@@ -501,7 +501,7 @@ if ( current_user_can( 'create_users') ) {
 ?>
 <p><?php _e('Create a brand new user and add them to this site.'); ?></p>
 <form method="post" name="createuser" id="createuser" class="validate" novalidate="novalidate"<?php
-	/** This action is documented in wp-admin/user-new.php */
+	/** This action is documented in APP_ADMIN_DIR/user-new.php */
 	do_action( 'user_new_form_tag' );
 ?>>
 <input name="action" type="hidden" value="createuser" />
@@ -614,7 +614,7 @@ $new_user_ignore_pass = $creating && isset( $_POST['noconfirmation'] ) ? wp_unsl
 </table>
 
 <?php
-/** This action is documented in wp-admin/user-new.php */
+/** This action is documented in APP_ADMIN_DIR/user-new.php */
 do_action( 'user_new_form', 'add-new-user' );
 ?>
 

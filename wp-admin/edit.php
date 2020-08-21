@@ -212,7 +212,7 @@ if ( $doaction ) {
 
 		default:
 
-			// This action is documented in wp-admin/edit-comments.php.
+			// This action is documented in APP_ADMIN_DIR/edit-comments.php.
 			$sendback = apply_filters( 'handle_bulk_actions-' . get_current_screen()->id, $sendback, $doaction, $post_ids );
 			break;
 	}

@@ -514,7 +514,7 @@ final class _WP_Editors {
 					$settings['external_plugins'] = wp_json_encode( $mce_external_plugins );
 				}
 
-				/** This filter is documented in wp-admin/includes/media.php */
+				/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
 				if ( apply_filters( 'disable_captions', '' ) ) {
 					$settings['wpeditimage_disable_captions'] = true;
 				}

@@ -11,7 +11,7 @@
  * Generic Skin for the Upgrader classes. This skin is designed to be extended for specific purposes.
  *
  * @since 2.8.0
- * @since 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader-skins.php.
+ * @since 4.6.0 Moved to its own file from APP_ADMIN_DIR/includes/class-wp-upgrader-skins.php.
  */
 class WP_Upgrader_Skin {
 

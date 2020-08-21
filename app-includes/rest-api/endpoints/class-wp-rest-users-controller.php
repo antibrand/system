@@ -1083,7 +1083,7 @@ class WP_REST_Users_Controller extends WP_REST_Controller {
 	/**
 	 * Check a username for the REST API.
 	 *
-	 * Performs a couple of checks like edit_user() in wp-admin/includes/user.php.
+	 * Performs a couple of checks like edit_user() in APP_ADMIN_DIR/includes/user.php.
 	 *
 	 * @since 4.7.0
 	 *
@@ -1112,7 +1112,7 @@ class WP_REST_Users_Controller extends WP_REST_Controller {
 	/**
 	 * Check a user password for the REST API.
 	 *
-	 * Performs a couple of checks like edit_user() in wp-admin/includes/user.php.
+	 * Performs a couple of checks like edit_user() in APP_ADMIN_DIR/includes/user.php.
 	 *
 	 * @since 4.7.0
 	 *

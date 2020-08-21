@@ -378,7 +378,7 @@ class WP_Locale {
 	 * Register date/time format strings for general POT.
 	 *
 	 * Private, unused method to add some date/time formats translated
-	 * on wp-admin/options-general.php to the general POT that would
+	 * on APP_ADMIN_DIR/options-general.php to the general POT that would
 	 * otherwise be added to the admin POT.
 	 *
 	 * @since 3.6.0

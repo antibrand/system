@@ -179,7 +179,7 @@ class Media_List_Table extends List_Table {
 				$this->months_dropdown( 'attachment' );
 			}
 
-			/** This action is documented in wp-admin/includes/class-wp-posts-list-table.php */
+			/** This action is documented in APP_ADMIN_DIR/includes/class-wp-posts-list-table.php */
 			do_action( 'restrict_manage_posts', $this->screen->post_type, $which );
 
 			submit_button( __( 'Filter' ), '', 'filter_action', false, array( 'id' => 'post-query-submit' ) );
@@ -264,7 +264,7 @@ class Media_List_Table extends List_Table {
 		</select>
 		<?php $this->extra_tablenav( 'bar' );
 
-		/** This filter is documented in wp-admin/inclues/class-app-list-table.php */
+		/** This filter is documented in APP_ADMIN_DIR/inclues/class-app-list-table.php */
 		$views = apply_filters( "views_{$this->screen->id}", [] );
 
 		// Back compat for pre-4.0 view links.

@@ -295,7 +295,7 @@ if ( $action ) {
 
 			check_admin_referer( 'bulk-themes' );
 
-			// This action is documented in wp-admin/network/site-themes.php.
+			// This action is documented in APP_ADMIN_DIR/network/site-themes.php.
 			$referer = apply_filters( 'handle_network_bulk_actions-' . get_current_screen()->id, $referer, $action, $themes );
 
 			wp_safe_redirect( $referer );

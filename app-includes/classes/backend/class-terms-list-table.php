@@ -386,7 +386,7 @@ class Terms_List_Table extends List_Table {
 		$out .= '<div class="hidden" id="inline_' . $qe_data->term_id . '">';
 		$out .= '<div class="name">' . $qe_data->name . '</div>';
 
-		/** This filter is documented in wp-admin/edit-tag-form.php */
+		/** This filter is documented in APP_ADMIN_DIR/edit-tag-form.php */
 		$out .= '<div class="slug">' . apply_filters( 'editable_slug', $qe_data->slug, $qe_data ) . '</div>';
 		$out .= '<div class="parent">' . $qe_data->parent . '</div></div>';
 
@@ -509,7 +509,7 @@ class Terms_List_Table extends List_Table {
 	 * @return string
 	 */
 	public function column_slug( $tag ) {
-		/** This filter is documented in wp-admin/edit-tag-form.php */
+		/** This filter is documented in APP_ADMIN_DIR/edit-tag-form.php */
 		return apply_filters( 'editable_slug', $tag->slug, $tag );
 	}
 
@@ -611,7 +611,7 @@ class Terms_List_Table extends List_Table {
 			if ( isset( $core_columns[$column_name] ) )
 				continue;
 
-			/** This action is documented in wp-admin/includes/class-wp-posts-list-table.php */
+			/** This action is documented in APP_ADMIN_DIR/includes/class-wp-posts-list-table.php */
 			do_action( 'quick_edit_custom_box', $column_name, 'edit-tags', $this->screen->taxonomy );
 		}
 

@@ -1022,7 +1022,7 @@ class Import_Data_Content extends Import_Data {
 
 		$post['guid'] = $upload['url'];
 
-		// as per wp-admin/includes/upload.php
+		// as per APP_ADMIN_DIR/includes/upload.php
 		$post_id = wp_insert_attachment( $post, $upload['file'] );
 		wp_update_attachment_metadata( $post_id, wp_generate_attachment_metadata( $post_id, $upload['file'] ) );
 
