@@ -19,6 +19,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @global string $wp_version
  */
+global $wp_version;
+
 if ( defined( 'COMPAT_VERSION' ) && COMPAT_VERSION ) {
 	$wp_version = COMPAT_VERSION;
 } else {
