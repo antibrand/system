@@ -158,6 +158,8 @@ define( 'APP_VIEWS_DIR', 'app-views' );
  */
 define( 'APP_VIEWS_PATH', ABSPATH . APP_VIEWS_DIR . '/' );
 
+define( 'APP_CONTENT_DIR', ABSPATH . APP_VIEWS_DIR );
+
 /**
  * System API
  *
