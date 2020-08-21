@@ -350,7 +350,7 @@ switch ( $action ) {
 
 				$redirect_to = $_REQUEST['redirect_to'];
 
-				if ( $secure_cookie && false !== strpos( $redirect_to, 'wp-admin' ) ) {
+				if ( $secure_cookie && false !== strpos( $redirect_to, APP_ADMIN_DIR ) ) {
 					$redirect_to = preg_replace( '|^http://|', 'https://', $redirect_to );
 				}
 
@@ -419,7 +419,7 @@ switch ( $action ) {
 					exit;
 				}
 
-				if ( ( empty( $redirect_to ) || $redirect_to == 'wp-admin/' || $redirect_to == admin_url() ) ) {
+				if ( ( empty( $redirect_to ) || $redirect_to == APP_ADMIN_DIR . '/' || $redirect_to == admin_url() ) ) {
 
 					/**
 					 * If the user doesn't belong to a blog, send them to user admin.
