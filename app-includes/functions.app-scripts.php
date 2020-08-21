@@ -254,6 +254,7 @@ function wp_deregister_script( $handle ) {
 			'jquery-ui-tabs',
 			'jquery-ui-tooltip',
 			'jquery-ui-widget',
+			'app-tabs',
 			'underscore',
 			'backbone'
 		];
