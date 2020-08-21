@@ -14,7 +14,7 @@ if ( file_exists( APP_VIEWS_PATH . '/install.php' ) ) {
 }
 
 /** Administration API */
-require_once( APP_INC_PATH . '/backend/admin.php' );
+require_once( ABSPATH . 'wp-admin/includes/admin.php' );
 
 /** Schema API */
 require_once( APP_INC_PATH . '/backend/schema.php' );

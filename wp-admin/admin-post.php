@@ -21,7 +21,7 @@ else
 /** Allow for cross-domain requests (from the front end). */
 send_origin_headers();
 
-require_once( APP_INC_PATH . '/backend/admin.php');
+require_once(ABSPATH . 'wp-admin/includes/admin.php');
 
 nocache_headers();
 
