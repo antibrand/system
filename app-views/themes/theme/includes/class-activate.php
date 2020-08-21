@@ -70,7 +70,7 @@ class AB_Theme_Activate {
 
 			// URL returns to Dashboard on closing the Customizer.
 			// Uncomment to enable.
-			wp_redirect( admin_url( 'customize.php' ) . '?return=' . admin_url() );
+			// wp_redirect( admin_url( 'customize.php' ) . '?return=' . admin_url() );
 		}
 
     }
