@@ -531,10 +531,14 @@ ul#adminmenu > li.current > a.current:after {
  */
 .app-tabs {
 	.app-tabs-list {
+		border-color: $box_border_color;
+
 		.app-tab {
+			border-color: $box_border_color;
+
 			a {
-				background-color: $form_background_color;
-				color: darken( $text_color, 30% );
+				background-color: $button_background_color;
+				color: $text_color;
 
 				&:hover,
 				&:focus {

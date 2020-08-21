@@ -19,8 +19,8 @@ $text_color: #444444;
 
 /// Box colors are used to distinguish sections, such as
 /// meta boxes, <hr> tags, and to create content dividers.
-$box_background_color: lighten( $color: $pale_gray, $amount: 20% );
-$box_border_color: $light_gray;
+$box_background_color: $white;
+$box_border_color: #ccd0d4;
 $box_text_color: inherit;
 
 // Standard links.
@@ -34,8 +34,8 @@ $warning_color: #ffb900;
 $success_color: #46b450;
 
 // Form color variables.
-$form_background_color: $body_background;
-$form_border_color: $light_gray;
+$form_background_color: $white;
+$form_border_color: #7e8993;
 $form_text_color: $text_color;
 $form_action_background_color: $form_background_color;
 $form_action_border_color: $link_action_color;
@@ -45,7 +45,7 @@ $form_checked: $link_action_color;
 $form_placeholder_color: $light_gray;
 
 // Button color variables.
-$button_background_color: lighten( $color: $pale_gray, $amount: 13% );
+$button_background_color: lighten( $color: $pale_gray, $amount: 10% );
 $button_border_color: $form_border_color;
 $button_text_color: $text_color;
 $button_action_background_color: $app_highlight_color;
