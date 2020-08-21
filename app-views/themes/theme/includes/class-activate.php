@@ -69,6 +69,7 @@ class AB_Theme_Activate {
 		if ( 'themes.php' == $pagenow && is_admin() && isset( $_GET['activated'] ) ) {
 
 			// URL returns to Dashboard on closing the Customizer.
+			// Uncomment to enable.
 			wp_redirect( admin_url( 'customize.php' ) . '?return=' . admin_url() );
 		}
 
