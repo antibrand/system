@@ -86,6 +86,18 @@ if ( ! defined( 'WP_INSTALLING' ) && defined( 'APP_INSTALLING' ) ) {
 }
 
 /**
+ * Default theme
+ *
+ * @since 1.0.0
+ * @var   string
+ */
+if ( ! defined( 'WP_DEFAULT_THEME' ) && defined( 'APP_DEFAULT_THEME' ) ) {
+	define( 'WP_DEFAULT_THEME', APP_DEFAULT_THEME );
+} else {
+	define( 'WP_DEFAULT_THEME', '' );
+}
+
+/**
  * Site admin
  *
  * @since 1.0.0
@@ -143,8 +155,8 @@ if ( ! defined( 'WPINC' ) && ( defined( 'APP_INC_DIR' ) && APP_INC_DIR ) ) {
  * @since 1.0.0
  * @var   string Returns the path to the content directory.
  */
-if ( ! defined( 'WP_CONTENT_DIR' ) && ( defined( 'APP_CONTENT_DIR' ) && X_VIEWS_PATH ) ) {
-	define( 'WP_CONTENT_DIR', X_VIEWS_PATH );
+if ( ! defined( 'WP_CONTENT_DIR' ) && ( defined( 'APP_VIEWS_PATH' ) && APP_VIEWS_PATH ) ) {
+	define( 'WP_CONTENT_DIR', APP_VIEWS_PATH );
 } else {
 	define( 'WP_CONTENT_DIR', ABSPATH . 'app-views' );
 }
