@@ -147,6 +147,38 @@ define( 'APP_EXTENSIONS_DIR', 'extensions' );
  */
 define( 'APP_EXTENSIONS_PATH', APP_EXTEND_PATH . '/' . APP_EXTENSIONS_DIR );
 
+// Define the administration pages directory.
+define( 'APP_ADMIN_DIR', 'wp-admin' );
+
+// Define the administration directory path.
+define( 'APP_ADMIN_PATH', ABSPATH . APP_ADMIN_DIR . '/' );
+
+/**
+ * System views directory name
+ *
+ * Defines the directory of files which print the HTML
+ * of various page templates and template partials in
+ * the system back end, and the directory ocontaining
+ * themes.
+ *
+ * @since 1.0.0
+ * @var   string Returns the name of the directory.
+ */
+define( 'APP_VIEWS', 'app-views' );
+define( 'APP_VIEWS_DIR', 'app-views' );
+
+/**
+ * System views directory path
+ *
+ * No trailing slash!
+ *
+ * @since 1.0.0
+ * @var   string Returns the path to the directory.
+ */
+define( 'APP_VIEWS_PATH', ABSPATH . APP_VIEWS . '/' );
+
+define( 'APP_CONTENT_DIR', ABSPATH . APP_VIEWS );
+
 /**
  * System API
  *
@@ -155,29 +187,6 @@ define( 'APP_EXTENSIONS_PATH', APP_EXTEND_PATH . '/' . APP_EXTENSIONS_DIR );
 
 // This is a dummy URI for a fictitious system API.
 define( 'APP_API_URI', 'https://api.antibrand.dev' );
-
-// Define the administration pages directory.
-define( 'APP_ADMIN_DIR', 'wp-admin' );
-
-// Define the administration directory path.
-define( 'APP_ADMIN_PATH', ABSPATH . APP_ADMIN_DIR . '/' );
-
-/**
- * HTML templates & themes directory
- *
- * Defines the directory of files which print the HTML
- * of various page templates and template partials in
- * the system back end, and the directory ocontaining
- * themes.
- *
- * @since 1.0.0
- */
-define( 'APP_VIEWS', 'app-views' );
-
-// Path to HTML templates.
-define( 'APP_VIEWS_PATH', ABSPATH . APP_VIEWS . '/' );
-
-define( 'APP_CONTENT_DIR', ABSPATH . APP_VIEWS );
 
 /**
  * Disable most of the system
