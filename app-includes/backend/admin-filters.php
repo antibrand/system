@@ -145,7 +145,7 @@ add_action( 'admin_init', [ 'WP_Privacy_Policy_Content', 'text_change_check' ], 
 add_action( 'edit_form_after_title', [ 'WP_Privacy_Policy_Content', 'notice' ] );
 
 // Add the suggested policy text.
-add_action( 'admin_init', [ 'WP_Privacy_Policy_Content', 'add_suggested_content' ], 10 );
+add_action( 'admin_init', [ 'WP_Privacy_Policy_Content', 'add_suggested_content' ], 1 );
 
 // Update the cached policy info when the policy page is updated.
 add_action( 'post_updated', [ 'WP_Privacy_Policy_Content', '_policy_page_updated' ] );
