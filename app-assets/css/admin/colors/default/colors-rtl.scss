@@ -758,6 +758,9 @@ fieldset {
 	border: solid 1px $form_border_color;
 }
 
+/**
+ * Third-party styles
+ */
 .app-admin {
 
 	.acf-admin-navigation {
@@ -797,15 +800,15 @@ fieldset {
 	}
 
 	.acf-tfoot,
-	.acf-fields.-left > .acf-field:before {
+	.acf-fields.-right > .acf-field:before {
 		background-color: $box_background_color !important;
 		border-color: $box_border_color !important;
 	}
 
 	.acf-switch {
-		background-color: $button_background_color !important;
-		border-color: $button_border_color !important;
-		color: $button_text_color !important;
+		background-color: $form_background_color !important;
+		border-color: $form_border_color !important;
+		color: $text_color !important;
 
 		&:hover,
 		&:focus,
@@ -826,7 +829,7 @@ fieldset {
 			border-color: $app_green !important;
 
 			.acf-switch-slider {
-				background-color: $button_background_color !important;
+				background-color: $text_color !important;
 				border-color: $app_green !important;
 			}
 		}

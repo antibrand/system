@@ -20,7 +20,7 @@ $text_color: #444444;
 /// Box colors are used to distinguish sections, such as
 /// meta boxes, <hr> tags, and to create content dividers.
 $box_background_color: lighten( $color: $pale_gray, $amount: 20% );
-$box_border_color: $pale_gray;
+$box_border_color: $light_gray;
 $box_text_color: inherit;
 
 // Standard links.

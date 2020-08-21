@@ -805,6 +805,9 @@ fieldset.scheme-list {
   border: solid 1px #888888;
 }
 
+/**
+ * Third-party styles
+ */
 .app-admin .acf-admin-navigation {
   background-color: #ffffff !important;
   border-color: #cccccc !important;
@@ -838,7 +841,7 @@ fieldset.scheme-list {
 }
 
 .app-admin .acf-tfoot,
-.app-admin .acf-fields.-left > .acf-field:before {
+.app-admin .acf-fields.-right > .acf-field:before {
   background-color: #ffffff !important;
   border-color: #cccccc !important;
 }
@@ -865,7 +868,7 @@ fieldset.scheme-list {
 }
 
 .app-admin .acf-switch.-on .acf-switch-slider {
-  background-color: #ffffff !important;
+  background-color: #222222 !important;
   border-color: #44aa11 !important;
 }
 
