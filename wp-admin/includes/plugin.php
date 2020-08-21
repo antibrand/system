@@ -370,7 +370,7 @@ function get_dropins() {
 	$_dropins = _get_dropins();
 
 	// These exist in the wp-content directory
-	if ( $plugins_dir = @ opendir( APP_VIEWS_PATH ) ) {
+	if ( $plugins_dir = @ opendir( APP_CONTENT_DIR ) ) {
 		while ( ( $file = readdir( $plugins_dir ) ) !== false ) {
 			if ( isset( $_dropins[ $file ] ) )
 				$plugin_files[] = $file;
@@ -385,9 +385,9 @@ function get_dropins() {
 		return $dropins;
 
 	foreach ( $plugin_files as $plugin_file ) {
-		if ( !is_readable( APP_VIEWS_PATH . "/$plugin_file" ) )
+		if ( !is_readable( APP_CONTENT_DIR . "/$plugin_file" ) )
 			continue;
-		$plugin_data = get_plugin_data( APP_VIEWS_PATH . "/$plugin_file", false, false ); //Do not apply markup/translate as it'll be cached.
+		$plugin_data = get_plugin_data( APP_CONTENT_DIR . "/$plugin_file", false, false ); //Do not apply markup/translate as it'll be cached.
 		if ( empty( $plugin_data['Name'] ) )
 			$plugin_data['Name'] = $plugin_file;
 		$dropins[ $plugin_file ] = $plugin_data;

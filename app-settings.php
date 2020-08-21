@@ -47,7 +47,7 @@ require( APP_INC_PATH . '/version.php' );
  */
 global $blog_id;
 
-// Set initial default constants including APP_MEMORY_LIMIT, APP_MAX_MEMORY_LIMIT, APP_DEBUG, SCRIPT_DEBUG, APP_VIEWS_PATH and APP_CACHE.
+// Set initial default constants including APP_MEMORY_LIMIT, APP_MAX_MEMORY_LIMIT, APP_DEBUG, SCRIPT_DEBUG, APP_CONTENT_DIR and APP_CACHE.
 app_initial_constants();
 
 // Check for the required PHP version and for the MySQL extension or a database drop-in.
@@ -93,9 +93,9 @@ if ( APP_CACHE && apply_filters( 'enable_loading_advanced_cache_dropin', true ) 
 
 	// For an advanced caching plugin to use. Uses a static drop-in because you would only want one.
 	if ( APP_DEV_MODE || APP_DEBUG ) {
-		include( APP_VIEWS_PATH . '/advanced-cache.php' );
+		include( APP_CONTENT_DIR . '/advanced-cache.php' );
 	} else {
-		@include( APP_VIEWS_PATH . '/advanced-cache.php' );
+		@include( APP_CONTENT_DIR . '/advanced-cache.php' );
 	}
 
 	// Re-initialize any hooks added manually by advanced-cache.php.

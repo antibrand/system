@@ -86,7 +86,7 @@ function list_core_update( $update ) {
 
 			$php_compat = version_compare( $php_version, $update->php_version, '>=' );
 
-			if ( file_exists( APP_VIEWS_PATH . '/db.php' ) && empty( $wpdb->is_mysql ) ) {
+			if ( file_exists( APP_CONTENT_DIR . '/db.php' ) && empty( $wpdb->is_mysql ) ) {
 				$mysql_compat = true;
 			} else {
 				$mysql_compat = version_compare( $mysql_version, $update->mysql_version, '>=' );

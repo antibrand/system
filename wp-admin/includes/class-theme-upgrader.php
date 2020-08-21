@@ -341,7 +341,7 @@ class Theme_Upgrader extends Includes\Installer {
 		$this->skin->header();
 
 		// Connect to the Filesystem first.
-		$res = $this->fs_connect( array(APP_VIEWS_PATH) );
+		$res = $this->fs_connect( array(APP_CONTENT_DIR) );
 		if ( ! $res ) {
 			$this->skin->footer();
 			return false;
@@ -444,7 +444,7 @@ class Theme_Upgrader extends Includes\Installer {
 			return $source;
 
 		// Check the folder contains a valid theme
-		$working_directory = str_replace( $wp_filesystem->wp_content_dir(), trailingslashit(APP_VIEWS_PATH), $source);
+		$working_directory = str_replace( $wp_filesystem->wp_content_dir(), trailingslashit(APP_CONTENT_DIR), $source);
 		if ( ! is_dir($working_directory) ) // Sanity check, if the above fails, let's not prevent installation.
 			return $source;
 

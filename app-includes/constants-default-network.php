@@ -36,7 +36,7 @@ function ms_upload_constants() {
 
 		// Uploads dir relative to ABSPATH
 		if ( 'wp-content/blogs.dir' == UPLOADBLOGSDIR && ! defined( 'BLOGUPLOADDIR' ) )
-			define( 'BLOGUPLOADDIR', APP_VIEWS_PATH . '/blogs.dir/' . $site_id . '/files/' );
+			define( 'BLOGUPLOADDIR', APP_CONTENT_DIR . '/blogs.dir/' . $site_id . '/files/' );
 	}
 }
 

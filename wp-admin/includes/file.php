@@ -1141,7 +1141,7 @@ function _unzip_file_ziparchive($file, $to, $needed_dirs = array() ) {
 	 * Require we have enough space to unzip the file and copy its contents, with a 10% buffer.
 	 */
 	if ( wp_doing_cron() ) {
-		$available_space = @disk_free_space( APP_VIEWS_PATH );
+		$available_space = @disk_free_space( APP_CONTENT_DIR );
 		if ( $available_space && ( $uncompressed_size * 2.1 ) > $available_space )
 			return new WP_Error( 'disk_full_unzip_file', __( 'Could not copy files. You may have run out of disk space.' ), compact( 'uncompressed_size', 'available_space' ) );
 	}
@@ -1252,7 +1252,7 @@ function _unzip_file_pclzip($file, $to, $needed_dirs = array()) {
 	 * Require we have enough space to unzip the file and copy its contents, with a 10% buffer.
 	 */
 	if ( wp_doing_cron() ) {
-		$available_space = @disk_free_space( APP_VIEWS_PATH );
+		$available_space = @disk_free_space( APP_CONTENT_DIR );
 		if ( $available_space && ( $uncompressed_size * 2.1 ) > $available_space )
 			return new WP_Error( 'disk_full_unzip_file', __( 'Could not copy files. You may have run out of disk space.' ), compact( 'uncompressed_size', 'available_space' ) );
 	}
@@ -1452,7 +1452,7 @@ function get_filesystem_method( $args = array(), $context = '', $allow_relaxed_f
 	$method = defined('FS_METHOD') ? FS_METHOD : false; // Please ensure that this is either 'direct', 'ssh2', 'ftpext' or 'ftpsockets'
 
 	if ( ! $context ) {
-		$context = APP_VIEWS_PATH;
+		$context = APP_CONTENT_DIR;
 	}
 
 	// If the directory doesn't exist (app-languages) then use the parent directory as we'll create it.

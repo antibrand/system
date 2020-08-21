@@ -267,7 +267,7 @@ function network_step1( $errors = false ) {
 <?php
 	endif;
 
-		if ( APP_VIEWS_PATH != ABSPATH . 'app-views' && ( allow_subdirectory_install() || ! allow_subdomain_install() ) )
+		if ( APP_CONTENT_DIR != ABSPATH . 'app-views' && ( allow_subdirectory_install() || ! allow_subdomain_install() ) )
 			echo '<div class="error inline"><p><strong>' . __( 'Warning:' ) . '</strong> ' . __( 'Subdirectory networks may not be fully compatible with custom app-views directories.' ) . '</p></div>';
 
 		$is_www = ( 0 === strpos( $hostname, 'www.' ) );
@@ -595,7 +595,7 @@ define( 'BLOG_ID_CURRENT_SITE', 1 );
 			'<code>' . $home_path . '</code>'
 		);
 		echo '</p>';
-		if ( ! $subdomain_install && APP_VIEWS_PATH != ABSPATH . 'app-views' )
+		if ( ! $subdomain_install && APP_CONTENT_DIR != ABSPATH . 'app-views' )
 			echo '<p><strong>' . __( 'Warning:' ) . ' ' . __( 'Subdirectory networks may not be fully compatible with custom wp-content directories.' ) . '</strong></p>';
 		?>
 		<textarea class="code" readonly="readonly" cols="100" rows="20"><?php echo esc_textarea( $web_config_file ); ?>
@@ -636,7 +636,7 @@ EOF;
 			'<code>&lt;IfModule&gt;</code>'
 		);
 		echo '</p>';
-		if ( ! $subdomain_install && APP_VIEWS_PATH != ABSPATH . 'app-views' )
+		if ( ! $subdomain_install && APP_CONTENT_DIR != ABSPATH . 'app-views' )
 			echo '<p><strong>' . __( 'Warning:' ) . ' ' . __( 'Subdirectory networks may not be fully compatible with custom wp-content directories.' ) . '</strong></p>';
 		?>
 				<pre class="code network-add-code">

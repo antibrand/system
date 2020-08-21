@@ -9,8 +9,8 @@
  */
 
 /** Include user installation customization script. */
-if ( file_exists( APP_VIEWS_PATH . '/install.php' ) ) {
-	require ( APP_VIEWS_PATH . '/install.php' );
+if ( file_exists( APP_CONTENT_DIR . '/install.php' ) ) {
+	require ( APP_CONTENT_DIR . '/install.php' );
 }
 
 /** Administration API */
@@ -2609,7 +2609,7 @@ function make_db_current_silent( $tables = 'all' ) {
  */
 function make_site_theme_from_oldschool( $theme_name, $template ) {
 	$home_path = get_home_path();
-	$site_dir = APP_VIEWS_PATH . "/themes/$template";
+	$site_dir = APP_CONTENT_DIR . "/themes/$template";
 
 	if (! file_exists("$home_path/index.php"))
 		return false;
@@ -2630,7 +2630,7 @@ function make_site_theme_from_oldschool( $theme_name, $template ) {
 		if ( $oldfile == 'index.php' ) {
 			$index = implode( '', file("$oldpath/$oldfile"));
 			if (strpos( $index, 'WP_USE_THEMES' ) !== false ) {
-				if (! @copy(APP_VIEWS_PATH . '/themes/' . APP_DEFAULT_THEME . '/index.php', "$site_dir/$newfile"))
+				if (! @copy(APP_CONTENT_DIR . '/themes/' . APP_DEFAULT_THEME . '/index.php', "$site_dir/$newfile"))
 					return false;
 
 				// Don't copy anything.
@@ -2691,8 +2691,8 @@ function make_site_theme_from_oldschool( $theme_name, $template ) {
  * @return false|void
  */
 function make_site_theme_from_default( $theme_name, $template ) {
-	$site_dir = APP_VIEWS_PATH . "/themes/$template";
-	$default_dir = APP_VIEWS_PATH . '/themes/' . APP_DEFAULT_THEME;
+	$site_dir = APP_CONTENT_DIR . "/themes/$template";
+	$default_dir = APP_CONTENT_DIR . '/themes/' . APP_DEFAULT_THEME;
 
 	// Copy files from the default theme to the site theme.
 	//$files = array( 'index.php', 'comments.php', 'comments-popup.php', 'footer.php', 'header.php', 'sidebar.php', 'style.css' );
@@ -2757,7 +2757,7 @@ function make_site_theme() {
 	// Name the theme after the blog.
 	$theme_name = __get_option( 'blogname' );
 	$template = sanitize_title( $theme_name );
-	$site_dir = APP_VIEWS_PATH . "/themes/$template";
+	$site_dir = APP_CONTENT_DIR . "/themes/$template";
 
 	// If the theme already exists, nothing to do.
 	if ( is_dir( $site_dir)) {
@@ -2765,7 +2765,7 @@ function make_site_theme() {
 	}
 
 	// We must be able to write to the themes dir.
-	if (! is_writable(APP_VIEWS_PATH . "/themes")) {
+	if (! is_writable(APP_CONTENT_DIR . "/themes")) {
 		return false;
 	}
 

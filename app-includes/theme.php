@@ -42,7 +42,7 @@ function wp_get_themes( $args = array() ) {
 		if ( isset( $theme_directories[ $current_theme ] ) ) {
 			$root_of_current_theme = get_raw_theme_root( $current_theme );
 			if ( ! in_array( $root_of_current_theme, $wp_theme_directories ) )
-				$root_of_current_theme = APP_VIEWS_PATH . $root_of_current_theme;
+				$root_of_current_theme = APP_CONTENT_DIR . $root_of_current_theme;
 			$theme_directories[ $current_theme ]['theme_root'] = $root_of_current_theme;
 		}
 	}
@@ -103,9 +103,9 @@ function wp_get_theme( $stylesheet = null, $theme_root = null ) {
 	if ( empty( $theme_root ) ) {
 		$theme_root = get_raw_theme_root( $stylesheet );
 		if ( false === $theme_root )
-			$theme_root = APP_VIEWS_PATH . '/themes';
+			$theme_root = APP_CONTENT_DIR . '/themes';
 		elseif ( ! in_array( $theme_root, (array) $wp_theme_directories ) )
-			$theme_root = APP_VIEWS_PATH . $theme_root;
+			$theme_root = APP_CONTENT_DIR . $theme_root;
 	}
 
 	return new WP_Theme( $stylesheet, $theme_root );
@@ -372,7 +372,7 @@ function get_theme_roots() {
  *
  * @global array $wp_theme_directories
  *
- * @param string $directory Either the full filesystem path to a theme folder or a folder within APP_VIEWS_PATH
+ * @param string $directory Either the full filesystem path to a theme folder or a folder within APP_CONTENT_DIR
  * @return bool
  */
 function register_theme_directory( $directory ) {
@@ -380,7 +380,7 @@ function register_theme_directory( $directory ) {
 
 	if ( ! file_exists( $directory ) ) {
 		// Try prepending as the theme directory could be relative to the content directory
-		$directory = APP_VIEWS_PATH . '/' . $directory;
+		$directory = APP_CONTENT_DIR . '/' . $directory;
 		// If this directory does not exist, return and do not register
 		if ( ! file_exists( $directory ) ) {
 			return false;
@@ -429,8 +429,8 @@ function search_theme_directories( $force = false ) {
 	// We always want to return absolute, but we need to cache relative
 	// to use in get_theme_root().
 	foreach ( $wp_theme_directories as $theme_root ) {
-		if ( 0 === strpos( $theme_root, APP_VIEWS_PATH ) )
-			$relative_theme_roots[ str_replace( APP_VIEWS_PATH, '', $theme_root ) ] = $theme_root;
+		if ( 0 === strpos( $theme_root, APP_CONTENT_DIR ) )
+			$relative_theme_roots[ str_replace( APP_CONTENT_DIR, '', $theme_root ) ] = $theme_root;
 		else
 			$relative_theme_roots[ $theme_root ] = $theme_root;
 	}
@@ -544,12 +544,12 @@ function get_theme_root( $stylesheet_or_template = false ) {
 	global $wp_theme_directories;
 
 	if ( $stylesheet_or_template && $theme_root = get_raw_theme_root( $stylesheet_or_template ) ) {
-		// Always prepend APP_VIEWS_PATH unless the root currently registered as a theme directory.
+		// Always prepend APP_CONTENT_DIR unless the root currently registered as a theme directory.
 		// This gives relative theme roots the benefit of the doubt when things go haywire.
 		if ( ! in_array( $theme_root, (array) $wp_theme_directories ) )
-			$theme_root = APP_VIEWS_PATH . $theme_root;
+			$theme_root = APP_CONTENT_DIR . $theme_root;
 	} else {
-		$theme_root = APP_VIEWS_PATH . '/themes';
+		$theme_root = APP_CONTENT_DIR . '/themes';
 	}
 
 	/**
@@ -586,8 +586,8 @@ function get_theme_root_uri( $stylesheet_or_template = false, $theme_root = fals
 	if ( $stylesheet_or_template && $theme_root ) {
 		if ( in_array( $theme_root, (array) $wp_theme_directories ) ) {
 			// Absolute path. Make an educated guess. YMMV -- but note the filter below.
-			if ( 0 === strpos( $theme_root, APP_VIEWS_PATH ) )
-				$theme_root_uri = content_url( str_replace( APP_VIEWS_PATH, '', $theme_root ) );
+			if ( 0 === strpos( $theme_root, APP_CONTENT_DIR ) )
+				$theme_root_uri = content_url( str_replace( APP_CONTENT_DIR, '', $theme_root ) );
 			elseif ( 0 === strpos( $theme_root, ABSPATH ) )
 				$theme_root_uri = site_url( str_replace( ABSPATH, '', $theme_root ) );
 			elseif ( 0 === strpos( $theme_root, APP_PLUGINS_PATH ) || 0 === strpos( $theme_root, APP_EXTENSIONS_PATH ) )
