@@ -1727,7 +1727,7 @@ function wp_normalize_path( $path ) {
  * Determine a writable directory for temporary files.
  *
  * Function's preference is the return value of sys_get_temp_dir(),
- * followed by your PHP temporary upload directory, followed by APP_CONTENT_DIR,
+ * followed by your PHP temporary upload directory, followed by APP_VIEWS_PATH,
  * before finally defaulting to /tmp/
  *
  * In the event that this function does not find a writable location,
@@ -1757,7 +1757,7 @@ function get_temp_dir() {
 	if ( @is_dir( $temp ) && wp_is_writable( $temp ) )
 		return trailingslashit( $temp );
 
-	$temp = APP_CONTENT_DIR . '/';
+	$temp = APP_VIEWS_PATH . '/';
 	if ( is_dir( $temp ) && wp_is_writable( $temp ) )
 		return $temp;
 
@@ -1840,8 +1840,8 @@ function wp_get_upload_dir() {
  *
  * Checks the 'upload_path' option, which should be from the web root folder,
  * and if it isn't empty it will be used. If it is empty, then the path will be
- * 'APP_CONTENT_DIR/uploads'. If the 'UPLOADS' constant is defined, then it will
- * override the 'upload_path' option and 'APP_CONTENT_DIR/uploads' path.
+ * 'APP_VIEWS_PATH/uploads'. If the 'UPLOADS' constant is defined, then it will
+ * override the 'upload_path' option and 'APP_VIEWS_PATH/uploads' path.
  *
  * The upload URL path is set either by the 'upload_url_path' option or by using
  * the 'content_url()' function and appending '/uploads' to the path.
@@ -1934,7 +1934,7 @@ function _wp_upload_dir( $time = null ) {
 	$upload_path = trim( get_option( 'upload_path' ) );
 
 	if ( empty( $upload_path ) || 'app-views/uploads' == $upload_path ) {
-		$dir = APP_CONTENT_DIR . '/uploads';
+		$dir = APP_VIEWS_PATH . '/uploads';
 	} elseif ( 0 !== strpos( $upload_path, ABSPATH ) ) {
 		// $dir is absolute, $upload_path is (maybe) relative to ABSPATH
 		$dir = path_join( ABSPATH, $upload_path );
@@ -3660,8 +3660,8 @@ function dead_db() {
 	wp_load_translations_early();
 
 	// Load custom DB error template, if present.
-	if ( file_exists( APP_CONTENT_DIR . '/db-error.php' ) ) {
-		require_once( APP_CONTENT_DIR . '/db-error.php' );
+	if ( file_exists( APP_VIEWS_PATH . '/db-error.php' ) ) {
+		require_once( APP_VIEWS_PATH . '/db-error.php' );
 		die();
 	}
 
@@ -5060,7 +5060,7 @@ function wp_debug_backtrace_summary( $ignore_class = null, $skip_frames = 0, $pr
 			if ( in_array( $call['function'], array( 'do_action', 'apply_filters' ) ) ) {
 				$caller[] = "{$call['function']}('{$call['args'][0]}')";
 			} elseif ( in_array( $call['function'], array( 'include', 'include_once', 'require', 'require_once' ) ) ) {
-				$caller[] = $call['function'] . "('" . str_replace( array( APP_CONTENT_DIR, ABSPATH ) , '', $call['args'][0] ) . "')";
+				$caller[] = $call['function'] . "('" . str_replace( array( APP_VIEWS_PATH, ABSPATH ) , '', $call['args'][0] ) . "')";
 			} else {
 				$caller[] = $call['function'];
 			}

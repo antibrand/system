@@ -91,7 +91,7 @@ class Core_Upgrader extends Includes\Installer {
 		if ( !isset( $current->response ) || $current->response == 'latest' )
 			return new WP_Error('up_to_date', $this->strings['up_to_date']);
 
-		$res = $this->fs_connect( array( ABSPATH, APP_CONTENT_DIR ), $parsed_args['allow_relaxed_file_ownership'] );
+		$res = $this->fs_connect( array( ABSPATH, APP_VIEWS_PATH ), $parsed_args['allow_relaxed_file_ownership'] );
 		if ( ! $res || is_wp_error( $res ) ) {
 			return $res;
 		}

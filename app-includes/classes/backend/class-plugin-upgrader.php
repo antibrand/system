@@ -240,7 +240,7 @@ class Plugin_Upgrader extends Includes\Installer {
 		$this->skin->header();
 
 		// Connect to the Filesystem first.
-		$res = $this->fs_connect( array(APP_CONTENT_DIR, APP_PLUGINS_PATH) );
+		$res = $this->fs_connect( array(APP_EXTEND_DIR, APP_PLUGINS_PATH) );
 		if ( ! $res ) {
 			$this->skin->footer();
 			return false;
@@ -343,7 +343,7 @@ class Plugin_Upgrader extends Includes\Installer {
 		if ( is_wp_error($source) )
 			return $source;
 
-		$working_directory = str_replace( $wp_filesystem->wp_content_dir(), trailingslashit(APP_CONTENT_DIR), $source);
+		$working_directory = str_replace( $wp_filesystem->wp_content_dir(), trailingslashit(APP_EXTEND_DIR), $source);
 		if ( ! is_dir($working_directory) ) // Sanity check, if the above fails, let's not prevent installation.
 			return $source;
 

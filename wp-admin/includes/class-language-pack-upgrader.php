@@ -79,7 +79,7 @@ class Language_Pack_Upgrader extends Includes\Installer {
 		 * Noted: this is not the ideal way to accomplish this.
 		 */
 		$check_vcs = new WP_Automatic_Updater;
-		if ( $check_vcs->is_vcs_checkout( APP_CONTENT_DIR ) ) {
+		if ( $check_vcs->is_vcs_checkout( APP_VIEWS_PATH ) ) {
 			return;
 		}
 
@@ -212,7 +212,7 @@ class Language_Pack_Upgrader extends Includes\Installer {
 		$this->skin->header();
 
 		// Connect to the Filesystem first.
-		$res = $this->fs_connect( array( APP_CONTENT_DIR, APP_LANG_DIR ) );
+		$res = $this->fs_connect( array( APP_VIEWS_PATH, APP_LANG_DIR ) );
 		if ( ! $res ) {
 			$this->skin->footer();
 			return false;

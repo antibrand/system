@@ -1548,8 +1548,8 @@ class wpdb {
 			wp_load_translations_early();
 
 			// Load custom DB error template, if present.
-			if ( file_exists( APP_CONTENT_DIR . '/db-error.php' ) ) {
-				require_once( APP_CONTENT_DIR . '/db-error.php' );
+			if ( file_exists( APP_VIEWS_PATH . '/db-error.php' ) ) {
+				require_once( APP_VIEWS_PATH . '/db-error.php' );
 				die();
 			}
 

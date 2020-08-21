@@ -44,7 +44,7 @@ if ( false === strpos( $_SERVER['SERVER_SOFTWARE'], 'Microsoft-IIS' ) )
 
 // Optional support for X-Sendfile and X-Accel-Redirect
 if ( WPMU_ACCEL_REDIRECT ) {
-	header( 'X-Accel-Redirect: ' . str_replace( APP_CONTENT_DIR, '', $file ) );
+	header( 'X-Accel-Redirect: ' . str_replace( APP_VIEWS_PATH, '', $file ) );
 	exit;
 } elseif ( WPMU_SENDFILE ) {
 	header( 'X-Sendfile: ' . $file );

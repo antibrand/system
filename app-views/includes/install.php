@@ -79,13 +79,13 @@ $app_install->display_setup_form();
 if ( is_blog_installed() ) {
 
 	// Get the page header.
-	include_once( X_VIEWS_PATH . 'includes/partials/header/config-install.php' );
+	include_once( APP_VIEWS_PATH . '/includes/partials/header/config-install.php' );
 
 	// Get the message content.
-	include_once( X_VIEWS_PATH . 'includes/partials/content/install-exists.php' );
+	include_once( APP_VIEWS_PATH . '/includes/partials/content/install-exists.php' );
 
 	// Get the page footer.
-	include( X_VIEWS_PATH . 'includes/partials/footer/config-install.php' );
+	include( APP_VIEWS_PATH . '/includes/partials/footer/config-install.php' );
 
 	return;
 }
@@ -102,7 +102,7 @@ global $app_version, $app_version, $required_php_version, $required_mysql_versio
 $php_version   = phpversion();
 $mysql_version = $wpdb->db_version();
 $php_compat    = version_compare( $php_version, $required_php_version, '>=' );
-$mysql_compat  = version_compare( $mysql_version, $required_mysql_version, '>=' ) || file_exists( APP_CONTENT_DIR . '/db.php' );
+$mysql_compat  = version_compare( $mysql_version, $required_mysql_version, '>=' ) || file_exists( APP_VIEWS_PATH . '/db.php' );
 
 if ( ! $mysql_compat && !$php_compat ) {
 
@@ -120,7 +120,7 @@ if ( ! $mysql_compat && !$php_compat ) {
 if ( ! $mysql_compat || ! $php_compat ) {
 
 	// Get the page header.
-	include_once( X_VIEWS_PATH . 'includes/partials/header/config-install.php' );
+	include_once( APP_VIEWS_PATH . '/includes/partials/header/config-install.php' );
 
 	die( '<h1>' . __( 'Insufficient Requirements' ) . '</h1><p>' . $compat . '</p></body></html>' );
 }
@@ -128,7 +128,7 @@ if ( ! $mysql_compat || ! $php_compat ) {
 if ( ! is_string( $wpdb->base_prefix ) || '' === $wpdb->base_prefix ) {
 
 	// Get the page header.
-	include_once( X_VIEWS_PATH . 'includes/partials/header/config-install.php' );
+	include_once( APP_VIEWS_PATH . '/includes/partials/header/config-install.php' );
 
 	die(
 		'<h1>' . __( 'Configuration Error' ) . '</h1>' .
@@ -143,7 +143,7 @@ if ( ! is_string( $wpdb->base_prefix ) || '' === $wpdb->base_prefix ) {
 if ( defined( 'DO_NOT_UPGRADE_GLOBAL_TABLES' ) ) {
 
 	// Get the page header.
-	include_once( X_VIEWS_PATH . 'includes/partials/header/config-install.php' );
+	include_once( APP_VIEWS_PATH . '/includes/partials/header/config-install.php' );
 
 	die(
 		'<h1>' . __( 'Configuration Error' ) . '</h1>' .
@@ -179,7 +179,7 @@ switch( $step ) {
 			$scripts_to_print[] = 'language-chooser';
 
 			// Get the page header.
-			include_once( X_VIEWS_PATH . 'includes/partials/header/config-install.php' );
+			include_once( APP_VIEWS_PATH . '/includes/partials/header/config-install.php' );
 
 			echo '<form id="setup" method="post" action="?step=1">';
 			wp_install_language_form( $languages );
@@ -206,7 +206,7 @@ switch( $step ) {
 		$scripts_to_print[] = 'user-profile';
 
 		// Get the page header.
-		include_once( X_VIEWS_PATH . 'includes/partials/header/config-install.php' );
+		include_once( APP_VIEWS_PATH . '/includes/partials/header/config-install.php' );
 ?>
 	<div class="setup-install-wrap setup-install-introduction">
 		<h1><?php _e( 'Information Needed' ); ?></h1>
@@ -235,7 +235,7 @@ switch( $step ) {
 		$scripts_to_print[] = 'user-profile';
 
 		// Get the page header.
-		include_once( X_VIEWS_PATH . 'includes/partials/header/config-install.php' );
+		include_once( APP_VIEWS_PATH . '/includes/partials/header/config-install.php' );
 
 		// Fill in the data we gathered.
 		$website_title        = isset( $_POST['website_title'] ) ? trim( wp_unslash( $_POST['website_title'] ) ) : '';
@@ -280,7 +280,7 @@ switch( $step ) {
 			$result = wp_install( $website_title, $website_description, $user_name, $admin_email, $public, '', wp_slash( $admin_password ), $loaded_language );
 
 			// Get the successful installation message content.
-			include_once( X_VIEWS_PATH . 'includes/partials/content/install-success.php' );
+			include_once( APP_VIEWS_PATH . '/includes/partials/content/install-success.php' );
 
 		}
 
@@ -296,7 +296,7 @@ if ( ! wp_is_mobile() ) {
 wp_print_scripts( $scripts_to_print );
 
 // Get the page footer.
-include( X_VIEWS_PATH . 'includes/partials/footer/config-install.php' );
+include( APP_VIEWS_PATH . '/includes/partials/footer/config-install.php' );
 
 ?>
 </body>
