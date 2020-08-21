@@ -57,7 +57,7 @@ if ( file_exists( APP_CONFIG_PATH ) ) {
 	 *
 	 * @see app-includes/functions.php
 	 */
-	$path = wp_guess_url() . '/' . APP_VIEWS . '/includes/config.php';
+	$path = wp_guess_url() . '/' . APP_VIEWS_DIR . '/includes/config.php';
 
 	/**
 	 * We're going to redirect to config.php. While this shouldn't result

@@ -164,7 +164,6 @@ define( 'APP_ADMIN_PATH', ABSPATH . APP_ADMIN_DIR . '/' );
  * @since 1.0.0
  * @var   string Returns the name of the directory.
  */
-define( 'APP_VIEWS', 'app-views' );
 define( 'APP_VIEWS_DIR', 'app-views' );
 
 /**
@@ -175,9 +174,10 @@ define( 'APP_VIEWS_DIR', 'app-views' );
  * @since 1.0.0
  * @var   string Returns the path to the directory.
  */
-define( 'APP_VIEWS_PATH', ABSPATH . APP_VIEWS . '/' );
+define( 'X_VIEWS_PATH', ABSPATH . APP_VIEWS_DIR . '/' );
+define( 'APP_VIEWS_PATH', ABSPATH . APP_VIEWS_DIR );
 
-define( 'APP_CONTENT_DIR', ABSPATH . APP_VIEWS );
+define( 'APP_CONTENT_DIR', ABSPATH . APP_VIEWS_DIR );
 
 /**
  * System API

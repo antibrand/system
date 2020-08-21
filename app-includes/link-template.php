@@ -3210,8 +3210,8 @@ function includes_url( $path = '', $scheme = null ) {
  */
 function content_url( $path = '' ) {
 
-	if ( defined( 'APP_VIEWS' ) ) {
-		$url = set_url_scheme( get_option( 'siteurl' ) . '/' . APP_VIEWS );
+	if ( defined( 'APP_VIEWS_DIR' ) ) {
+		$url = set_url_scheme( get_option( 'siteurl' ) . '/' . APP_VIEWS_DIR );
 	} else {
 		$url = set_url_scheme( get_option( 'siteurl' ) . '/app-views' );
 	}

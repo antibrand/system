@@ -229,7 +229,7 @@ require( APP_INC_PATH . '/classes/includes/class-app-widget.php' );
 require( APP_INC_PATH . '/classes/includes/class-app-widget-factory.php' );
 require( APP_INC_PATH . '/nav-menu.php' );
 require( APP_INC_PATH . '/nav-menu-template.php' );
-require( APP_VIEWS_PATH . 'includes/user-toolbar.php' );
+require( X_VIEWS_PATH . 'includes/user-toolbar.php' );
 require( APP_INC_PATH . '/rest-api.php' );
 require( APP_INC_PATH . '/rest-api/class-wp-rest-server.php' );
 require( APP_INC_PATH . '/rest-api/class-wp-rest-response.php' );
