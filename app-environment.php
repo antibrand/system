@@ -58,6 +58,24 @@ define( 'APP_CONFIG_SAMPLE', 'app-config.sample.php' );
 define( 'APP_CONFIG_PATH', ABSPATH . APP_CONFIG_FILE );
 
 /**
+ * System assets directory name
+ *
+ * @since 1.0.0
+ * @var   string Returns the name of the directory.
+ */
+define( 'APP_ASSETS_DIR', 'app-assets' );
+
+/**
+ * System assets directory path
+ *
+ * No trailing slash!
+ *
+ * @since 1.0.0
+ * @var   string Returns the path to the directory.
+ */
+define( 'APP_ASSETS_PATH', ABSPATH . APP_ASSETS_DIR );
+
+/**
  * System includes directory name
  *
  * @since 1.0.0
