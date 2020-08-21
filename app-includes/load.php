@@ -318,18 +318,20 @@ function app_debug_mode() {
 		return;
 	}
 
-	if ( APP_DEV_MODE || APP_DEBUG ) {
+	if ( ( defined( 'APP_DEV_MODE' ) && APP_DEV_MODE ) || ( defined( 'APP_DEBUG' ) && APP_DEBUG ) ) {
 		error_reporting( E_ALL );
 
-		if ( APP_DEBUG_DISPLAY )
+		if ( APP_DEBUG_DISPLAY ) {
 			ini_set( 'display_errors', 1 );
-		elseif ( null !== APP_DEBUG_DISPLAY )
+		} elseif ( null !== APP_DEBUG_DISPLAY ) {
 			ini_set( 'display_errors', 0 );
+		}
 
 		if ( APP_DEBUG_LOG ) {
 			ini_set( 'log_errors', 1 );
 			ini_set( 'error_log', APP_CONTENT_DIR . '/debug.log' );
 		}
+
 	} else {
 		error_reporting( E_CORE_ERROR | E_CORE_WARNING | E_COMPILE_ERROR | E_ERROR | E_WARNING | E_PARSE | E_USER_ERROR | E_USER_WARNING | E_RECOVERABLE_ERROR );
 	}
