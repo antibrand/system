@@ -14,10 +14,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * The compatability version checked by plugins & themes
  *
- * This is may be defined in the app-config.php file.
- * Fallback is the version from whence this was derived.
+ * This may be defined in the system config (APP_CONFIG_FILE) file.
+ * Fallback is the version from whence this was inspired.
  *
+ * @since  1.0.0
  * @global string $wp_version
+ * @var    string
  */
 global $wp_version;
 
