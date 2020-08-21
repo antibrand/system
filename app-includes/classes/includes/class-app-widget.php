@@ -15,7 +15,7 @@
  * If adding widget options, WP_Widget::update() and WP_Widget::form() should also be overridden.
  *
  * @since 2.8.0
- * @since 4.4.0 Moved to its own file from APP_INC_PATH/backend/widgets.php
+ * @since 4.4.0 Moved to its own file from app-includes/widgets.php
  */
 class WP_Widget {
 
