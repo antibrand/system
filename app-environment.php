@@ -129,24 +129,10 @@ define( 'APP_EXTENSIONS_DIR', 'extensions' );
  */
 define( 'APP_EXTENSIONS_PATH', APP_EXTEND_PATH . '/' . APP_EXTENSIONS_DIR );
 
-/**
- * Admin directory name
- *
- * Define the administration pages directory.
- *
- * @since 1.0.0
- * @var   string Returns the name of the directory.
- */
+// Define the administration pages directory.
 define( 'APP_ADMIN_DIR', 'wp-admin' );
 
-/**
- * Admin directory path
- *
- * No trailing slash!
- *
- * @since 1.0.0
- * @var   string Returns the path to the directory.
- */
+// Define the administration directory path.
 define( 'APP_ADMIN_PATH', ABSPATH . APP_ADMIN_DIR . '/' );
 
 /**
