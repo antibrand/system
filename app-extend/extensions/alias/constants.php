@@ -91,8 +91,8 @@ if ( ! defined( 'WP_INSTALLING' ) && defined( 'APP_INSTALLING' ) ) {
  * @since 1.0.0
  * @var   boolean
  */
-if ( ! defined( 'WP_ADMIN' ) && defined( 'APP_ADMIN' ) ) {
-	define( 'WP_ADMIN', APP_ADMIN );
+if ( ! defined( 'WP_ADMIN' ) && defined( 'APP_ADMIN_DIR' ) ) {
+	define( 'WP_ADMIN', APP_ADMIN_DIR );
 } else {
 	define( 'WP_ADMIN', true );
 }

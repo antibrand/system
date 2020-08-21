@@ -6,14 +6,7 @@
  * @subpackage Administration
  */
 
-/**
- * In administration screens
- *
- * @since Previous 2.3.2
- */
-if ( ! defined( 'APP_ADMIN' ) ) {
-	define( 'APP_ADMIN', true );
-}
+require_once( dirname( dirname( __FILE__ ) ) . '/app-load.php' );
 
 if ( ! defined( 'APP_NETWORK_ADMIN' ) ) {
 	define( 'APP_NETWORK_ADMIN', false );
@@ -30,8 +23,6 @@ if ( ! APP_NETWORK_ADMIN && ! WP_USER_ADMIN ) {
 if ( isset( $_GET['import'] ) && ! defined( 'WP_LOAD_IMPORTERS' ) ) {
 	define( 'WP_LOAD_IMPORTERS', true );
 }
-
-require_once( dirname( dirname( __FILE__ ) ) . '/app-load.php' );
 
 nocache_headers();
 

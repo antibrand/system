@@ -728,10 +728,12 @@ function wp_clone( $object ) {
  * @return bool True if inside the administration interface, false otherwise.
  */
 function is_admin() {
-	if ( isset( $GLOBALS['current_screen'] ) )
+
+	if ( isset( $GLOBALS['current_screen'] ) ) {
 		return $GLOBALS['current_screen']->in_admin();
-	elseif ( defined( 'APP_ADMIN' ) )
-		return APP_ADMIN;
+	} elseif ( ! defined( 'APP_ADMIN_DIR' ) ) {
+		return APP_ADMIN_DIR;
+	}
 
 	return false;
 }

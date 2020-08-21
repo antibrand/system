@@ -3666,7 +3666,7 @@ function dead_db() {
 	}
 
 	// If installing or in the admin, provide the verbose message.
-	if ( wp_installing() || defined( 'APP_ADMIN' ) )
+	if ( wp_installing() || defined( 'APP_ADMIN_DIR' ) )
 		wp_die($wpdb->error);
 
 	// Otherwise, be terse.

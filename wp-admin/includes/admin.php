@@ -7,7 +7,7 @@
  * @since Previous 2.3.0
  */
 
-if ( ! defined( 'APP_ADMIN' ) ) {
+if ( ! defined( 'APP_ADMIN_DIR' ) ) {
 
 	/*
 	 * This file is being included from a file other than wp-admin/admin.php, so

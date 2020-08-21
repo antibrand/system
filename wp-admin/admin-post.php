@@ -8,11 +8,6 @@
  * @subpackage Administration
  */
 
-/** We are located in Administration Screens */
-if ( ! defined( 'APP_ADMIN' ) ) {
-	define( 'APP_ADMIN', true );
-}
-
 if ( defined('ABSPATH') )
 	require_once(ABSPATH . 'app-load.php');
 else

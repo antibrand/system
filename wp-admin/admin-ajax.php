@@ -13,10 +13,6 @@
  */
 define( 'DOING_AJAX', true );
 
-if ( ! defined( 'APP_ADMIN' ) ) {
-	define( 'APP_ADMIN', true );
-}
-
 // Load the website management system.
 require_once( dirname( dirname( __FILE__ ) ) . '/app-load.php' );
 
