@@ -268,7 +268,7 @@ if ( 'update' == $action ) {
 		// Handle translation installation.
 		if ( ! empty( $_POST['APP_LANG'] ) && current_user_can( 'install_languages' ) ) {
 
-			require_once( ABSPATH . 'wp-admin/includes/translation-install.php' );
+			require_once( APP_INC_PATH . '/backend/translation-install.php' );
 
 			if ( wp_can_install_language_pack() ) {
 

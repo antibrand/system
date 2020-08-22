@@ -611,7 +611,7 @@ class Settings_General extends Settings_Screen {
 	public function language() {
 
 		// Load the translation installation API.
-		require_once( ABSPATH . 'wp-admin/includes/translation-install.php' );
+		require_once( APP_INC_PATH . '/backend/translation-install.php' );
 
 		?>
 		<div class="tab-section-wrap tab-section-wrap__time-date">

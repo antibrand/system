@@ -46,7 +46,7 @@ $app_install = new Includes\App_Install;
 require_once( APP_INC_PATH . '/backend/upgrade.php' );
 
 // Load Translation Install API.
-require_once( ABSPATH . 'wp-admin/includes/translation-install.php' );
+require_once( APP_INC_PATH . '/backend/translation-install.php' );
 
 // Load wpdb.
 require_once( APP_INC_PATH . '/app-db.php' );

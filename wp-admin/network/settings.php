@@ -11,7 +11,7 @@
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 /** Translation Installation API */
-require_once( ABSPATH . 'wp-admin/includes/translation-install.php' );
+require_once( APP_INC_PATH . '/backend/translation-install.php' );
 
 if ( ! current_user_can( 'manage_network_options' ) )
 	wp_die( __( 'Sorry, you are not allowed to access this page.' ), 403 );

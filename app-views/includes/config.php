@@ -31,7 +31,7 @@ if ( ! defined( 'APP_ASSETS' ) ) {
 // Load dependency files.
 require( ABSPATH . 'app-settings.php' );
 require_once( APP_INC_PATH . '/backend/upgrade.php' );
-require_once( ABSPATH . 'wp-admin/includes/translation-install.php' );
+require_once( APP_INC_PATH . '/backend/translation-install.php' );
 
 // Get the identity image or white label logo.
 $app_get_logo = dirname( dirname( dirname( $_SERVER['PHP_SELF'] ) ) ) . '/app-assets/images/app-icon.png';
