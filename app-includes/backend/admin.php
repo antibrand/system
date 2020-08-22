@@ -74,6 +74,6 @@ require_once( APP_INC_PATH . '/backend/deprecated.php' );
 // Network support API.
 if ( is_network() ) {
 	require_once( APP_INC_PATH . '/backend/network-admin-filters.php' );
-	require_once( ABSPATH . 'wp-admin/includes/network-functions.php' );
-	require_once( ABSPATH . 'wp-admin/includes/network-deprecated.php' );
+	require_once( APP_INC_PATH . '/backend/network-functions.php' );
+	require_once( APP_INC_PATH . '/backend/network-deprecated.php' );
 }
