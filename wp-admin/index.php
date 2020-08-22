@@ -6,8 +6,17 @@
  * @subpackage Administration
  */
 
-// Load the website management system.
-require_once( dirname( __FILE__ ) . '/admin.php' );
+/**
+ * Load the website management system
+ *
+ * Gets the load file from the root.
+ *
+ * @since 1.0.0
+ */
+require_once( dirname( dirname( __FILE__ ) ) . '/app-load.php' );
+
+// Load the administration environment.
+require_once( APP_ADMIN_PATH . '/app-admin.php' );
 
 // Instance of the dashboard class.
 \AppNamespace\Backend\Dashboard :: instance();
@@ -61,8 +70,8 @@ if ( is_user_admin() ) {
 	);
 }
 
-// Get the page header template.
-include( ABSPATH . 'wp-admin/admin-header.php' );
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 // Begin page content.
 ?>
@@ -131,5 +140,5 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 	</div><!-- .wrap -->
 <?php
 
-// Get the page footer template.
-require( ABSPATH . 'wp-admin/admin-footer.php' );
+// Get the admin page footer.
+include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );

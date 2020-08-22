@@ -6,8 +6,17 @@
  * @subpackage Administration
  */
 
-// Load the website management system.
-require_once( dirname( __FILE__ ) . '/admin.php' );
+/**
+ * Load the website management system
+ *
+ * Gets the load file from the root.
+ *
+ * @since 1.0.0
+ */
+require_once( dirname( dirname( __FILE__ ) ) . '/app-load.php' );
+
+// Load the administration environment.
+require_once( APP_ADMIN_PATH . '/app-admin.php' );
 
 wp_enqueue_script( 'app-tabs' );
 
@@ -15,7 +24,9 @@ $title   = __( 'About' );
 $name    = get_app_info( 'name' );
 $version = get_app_info( 'version' );
 
-include( ABSPATH . 'wp-admin/admin-header.php' );
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
+
 ?>
 <div class="wrap">
 
@@ -97,4 +108,5 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 </div>
 <?php
 
-include( ABSPATH . 'wp-admin/admin-footer.php' );
+// Get the admin page footer.
+include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
