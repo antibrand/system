@@ -42,7 +42,7 @@ require_once( APP_INC_PATH . '/backend/import.php' );
 require_once( APP_INC_PATH . '/backend/misc.php' );
 
 // Plugin Administration API.
-require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+require_once( APP_INC_PATH . '/backend/plugin.php' );
 
 // Post Administration API.
 require_once( ABSPATH . 'wp-admin/includes/post.php' );

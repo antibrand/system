@@ -212,7 +212,7 @@ if ( $action ) {
 			// Go back to "sandbox" scope so we get the same errors as before.
 			plugin_sandbox_scrape( $plugin );
 
-			// This action is documented in APP_ADMIN_DIR/includes/plugin.php.
+			// This action is documented in APP_INC_PATH . '/backend/plugin.php.
 			do_action( "activate_{$plugin}" );
 			exit;
 

@@ -23,7 +23,7 @@
  *
  * Used to check for active plugins with the `is_plugin_active` function.
  */
-include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+include_once( APP_INC_PATH . '/backend/plugin.php' );
 
 // Get privacy notifications.
 $change_notice = '';
