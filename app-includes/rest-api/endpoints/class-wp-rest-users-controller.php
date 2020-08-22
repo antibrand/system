@@ -1067,7 +1067,7 @@ class WP_REST_Users_Controller extends WP_REST_Controller {
 			}
 
 			/** Include admin functions to get access to get_editable_roles() */
-			require_once ABSPATH . 'wp-admin/includes/admin.php';
+			require_once APP_INC_PATH . '/backend/admin.php';
 
 			// The new role must be editable by the logged-in user.
 			$editable_roles = get_editable_roles();

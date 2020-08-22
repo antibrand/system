@@ -90,7 +90,7 @@ if ( get_option( 'db_upgraded' ) ) {
 	}
 }
 
-require_once( ABSPATH . 'wp-admin/includes/admin.php' );
+require_once( APP_INC_PATH . '/backend/admin.php' );
 
 auth_redirect();
 
