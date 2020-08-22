@@ -30,7 +30,7 @@ require_once( APP_INC_PATH . '/backend/comment.php' );
 require_once( APP_INC_PATH . '/backend/file.php' );
 
 // Image Administration API.
-require_once( ABSPATH . 'wp-admin/includes/image.php' );
+require_once( APP_INC_PATH . '/backend/image.php' );
 
 // Media Administration API.
 require_once( ABSPATH . 'wp-admin/includes/media.php' );

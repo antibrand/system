@@ -1585,7 +1585,7 @@ final class Live_Manager {
 
 		require_once( APP_INC_PATH . '/backend/file.php' );
 		require_once( ABSPATH . 'wp-admin/includes/media.php' );
-		require_once( ABSPATH . 'wp-admin/includes/image.php' );
+		require_once( APP_INC_PATH . '/backend/image.php' );
 
 		foreach ( $attachments as $symbol => $attachment ) {
 
