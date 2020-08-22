@@ -250,17 +250,6 @@ define( 'APP_LOGIN', ABSPATH . 'login' . '/' );
 define( 'APP_DEFAULT_THEME', 'theme' );
 
 /**
- * System translation
- *
- * The following two translation definitions
- * are provided for reference while local
- * translations are worked out. The were
- * deprecated in WP 4.0.0.
- *
- * @since 1.0.0
- */
-
-/**
  * Default language
  *
  * Keeping this in U.S. English until the languages settings
