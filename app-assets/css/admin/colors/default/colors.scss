@@ -772,8 +772,28 @@ fieldset {
 
 /**
  * Third-party styles
+ *
+ * Includes:
+ * - Advanced Custom Fields
  */
 .app-admin {
+
+	.acf-admin-toolbar {
+		background-color: $box_background_color !important;
+		border-color: $box_border_color !important;
+
+		.acf-tab {
+
+			&:hover,
+			&:focus {
+				color: $link_action_color !important;
+			}
+
+			&.is-active {
+				border-color: $link_action_color !important;
+			}
+		}
+	}
 
 	.acf-admin-navigation {
 		background-color: $box_background_color !important;
@@ -841,7 +861,7 @@ fieldset {
 			border-color: $app_green !important;
 
 			.acf-switch-slider {
-				background-color: $text_color !important;
+				background-color: $white !important;
 				border-color: $app_green !important;
 			}
 		}

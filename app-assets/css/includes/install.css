@@ -1847,6 +1847,135 @@ table.form-table td .updated p {
   padding-top: 0.5em;
 }
 
+/**
+ * Third-party styles
+ *
+ * Includes:
+ * - Advanced Custom Fields
+ */
+.app-admin .acf-admin-toolbar {
+  background-color: inherit !important;
+  border-color: #cccccc !important;
+}
+
+.app-admin .acf-admin-toolbar .acf-tab:hover, .app-admin .acf-admin-toolbar .acf-tab:focus {
+  color: #005fd6 !important;
+}
+
+.app-admin .acf-admin-toolbar .acf-tab.is-active {
+  border-color: #005fd6 !important;
+}
+
+.app-admin .acf-admin-navigation {
+  background-color: inherit !important;
+  border-color: #cccccc !important;
+}
+
+.app-admin .acf-admin-navigation .acf-tab {
+  color: #004499 !important;
+}
+
+.app-admin .acf-admin-navigation .acf-tab:hover, .app-admin .acf-admin-navigation .acf-tab:focus {
+  color: #005fd6 !important;
+}
+
+.app-admin .acf-admin-navigation .acf-tab.is-active:hover, .app-admin .acf-admin-navigation .acf-tab.is-active:focus {
+  color: #004499 !important;
+}
+
+.app-admin .acf-field-list-wrap *,
+.app-admin #acf-field-group-fields .acf-field-list-wrap,
+.app-admin .acf-fields > .acf-field {
+  border-color: #cccccc !important;
+}
+
+.app-admin #acf-field-group-fields .acf-field-list,
+.app-admin #acf-field-group-fields .acf-field-list .no-fields-message,
+.app-admin .acf-table > tbody > tr > th,
+.app-admin .acf-table > tbody > tr > td,
+.app-admin .acf-table > thead > tr > th,
+.app-admin .acf-table > thead > tr > td {
+  background-color: #ffffff !important;
+}
+
+.app-admin .acf-tfoot,
+.app-admin .acf-fields.-left > .acf-field:before {
+  background-color: inherit !important;
+  border-color: #cccccc !important;
+}
+
+.app-admin .acf-switch {
+  background-color: inherit !important;
+  border-color: #888888 !important;
+  color: #222222 !important;
+}
+
+.app-admin .acf-switch:hover .acf-switch-slider, .app-admin .acf-switch:focus .acf-switch-slider,
+.app-admin .acf-switch .-focus .acf-switch-slider {
+  border-color: #888888 !important;
+}
+
+.app-admin .acf-switch .acf-switch-slider {
+  background-color: #dd0000 !important;
+  border-color: #dd0000 !important;
+}
+
+.app-admin .acf-switch.-on {
+  background-color: #44aa11 !important;
+  border-color: #44aa11 !important;
+}
+
+.app-admin .acf-switch.-on .acf-switch-slider {
+  background-color: #ffffff !important;
+  border-color: #44aa11 !important;
+}
+
+.app-admin .acf-switch .acf-switch-on {
+  text-shadow: none !important;
+}
+
+.app-admin .acf-field-object,
+.app-admin .acf-field-object.open > .handle {
+  border-color: #cccccc !important;
+}
+
+.app-admin .acf-field-object.open > .handle a {
+  color: #004499 !important;
+}
+
+.app-admin .acf-field-object.open > .handle a:hover, .app-admin .acf-field-object.open > .handle a:focus {
+  color: #005fd6 !important;
+  text-decoration: none !important;
+}
+
+.app-admin .acf-field-object.open > .handle a.button {
+  color: #222222 !important;
+}
+
+.app-admin .acf-field-object.open > .handle a.button:hover, .app-admin .acf-field-object.open > .handle a.button:focus {
+  color: #222222 !important;
+  text-decoration: none !important;
+}
+
+.app-admin .acf-field-object.open > .handle a.delete-field {
+  color: #dd0000 !important;
+}
+
+.app-admin .acf-field-object.open > .handle a.delete-field:hover, .app-admin .acf-field-object.open > .handle a.delete-field:focus {
+  color: #dd0000 !important;
+}
+
+.app-admin .acf-box,
+.app-admin .acf-meta-box-wrap .acf-fields {
+  background-color: inherit !important;
+  border-color: #cccccc !important;
+}
+
+.app-admin .acf-box .title,
+.app-admin .acf-box .footer {
+  border-color: #cccccc !important;
+}
+
 /* Media Queries
 -------------------------------------------------------------- */
 @media screen and (max-width: 782px) {

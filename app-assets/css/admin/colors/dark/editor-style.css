@@ -822,6 +822,19 @@ fieldset.scheme-list {
 /**
  * Third-party styles
  */
+.app-admin .acf-admin-toolbar {
+  background-color: #282828 !important;
+  border-color: #414141 !important;
+}
+
+.app-admin .acf-admin-toolbar .acf-tab:hover, .app-admin .acf-admin-toolbar .acf-tab:focus {
+  color: #ffffff !important;
+}
+
+.app-admin .acf-admin-toolbar .acf-tab.is-active {
+  border-color: #ffffff !important;
+}
+
 .app-admin .acf-admin-navigation {
   background-color: #282828 !important;
   border-color: #414141 !important;

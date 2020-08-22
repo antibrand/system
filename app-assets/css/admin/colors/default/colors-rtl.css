@@ -807,7 +807,23 @@ fieldset.scheme-list {
 
 /**
  * Third-party styles
+ *
+ * Includes:
+ * - Advanced Custom Fields
  */
+.app-admin .acf-admin-toolbar {
+  background-color: #ffffff !important;
+  border-color: #cccccc !important;
+}
+
+.app-admin .acf-admin-toolbar .acf-tab:hover, .app-admin .acf-admin-toolbar .acf-tab:focus {
+  color: #005fd6 !important;
+}
+
+.app-admin .acf-admin-toolbar .acf-tab.is-active {
+  border-color: #005fd6 !important;
+}
+
 .app-admin .acf-admin-navigation {
   background-color: #ffffff !important;
   border-color: #cccccc !important;
@@ -868,7 +884,7 @@ fieldset.scheme-list {
 }
 
 .app-admin .acf-switch.-on .acf-switch-slider {
-  background-color: #222222 !important;
+  background-color: #ffffff !important;
   border-color: #44aa11 !important;
 }
 
