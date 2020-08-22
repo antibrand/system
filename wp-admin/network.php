@@ -31,7 +31,7 @@ if ( is_network() ) {
 	}
 }
 
-require_once( dirname( __FILE__ ) . '/includes/network.php' );
+require_once( APP_INC_PATH . '/backend/network.php' );
 
 // We need to create references to ms global tables to enable network.
 foreach ( $wpdb->tables( 'ms_global' ) as $table => $prefixed_table ) {
