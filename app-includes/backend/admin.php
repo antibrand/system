@@ -57,7 +57,7 @@ require_once( APP_INC_PATH . '/backend/taxonomy.php' );
 require_once( APP_INC_PATH . '/backend/template.php' );
 
 // List Table Administration API.
-require_once( ABSPATH . 'wp-admin/includes/list-table.php' );
+require_once( APP_INC_PATH . '/backend/list-table.php' );
 
 // Theme Administration API.
 require_once( ABSPATH . 'wp-admin/includes/theme.php' );
