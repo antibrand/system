@@ -2,7 +2,7 @@
 /**
  * Revisions administration panel
  *
- * Requires APP_ADMIN_DIR/includes/revision.php.
+ * Requires APP_INC_PATH . '/backend/revision.php.
  *
  * @package App_Package
  * @subpackage Administration
@@ -18,7 +18,7 @@
 // Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
-require ABSPATH . 'wp-admin/includes/revision.php';
+require APP_INC_PATH . '/backend/revision.php';
 
 wp_reset_vars( array( 'revision', 'action', 'from', 'to' ) );
 

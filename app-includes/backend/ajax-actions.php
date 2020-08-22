@@ -2835,7 +2835,7 @@ function wp_ajax_heartbeat() {
  * @since 3.6.0
  */
 function wp_ajax_get_revision_diffs() {
-	require ABSPATH . 'wp-admin/includes/revision.php';
+	require APP_INC_PATH . '/backend/revision.php';
 
 	if ( ! $post = get_post( (int) $_REQUEST['post_id'] ) )
 		wp_send_json_error();
