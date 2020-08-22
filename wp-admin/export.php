@@ -14,7 +14,7 @@ if ( ! current_user_can( 'export' ) ) {
 }
 
 // Load export API.
-require_once( ABSPATH . 'wp-admin/includes/export.php' );
+require_once( APP_INC_PATH . '/backend/export.php' );
 
 $title       = __( 'Export' );
 $parent_file = 'options-general.php';

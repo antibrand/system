@@ -11,7 +11,7 @@ require_once( dirname( __FILE__ ) . '/admin.php' );
 
 // Instance of the dashboard class.
 \AppNamespace\Backend\Data_Page :: instance();
-require_once( ABSPATH . 'wp-admin/includes/export.php' );
+require_once( APP_INC_PATH . '/backend/export.php' );
 
 $parent_file = 'options-general.php';
 
