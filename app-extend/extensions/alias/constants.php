@@ -1,6 +1,7 @@
 <?php
 /**
- * Alias constants
+ * Aliased constants that may have been renamed because of
+ * a branded prefix.
  *
  * @package Alias
  * @subpackage App_Package

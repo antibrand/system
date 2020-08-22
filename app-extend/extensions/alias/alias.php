@@ -33,6 +33,13 @@ require( 'classes.php' );
 require( 'constants.php' );
 
 /**
+ * Alias actions
+ *
+ * @since 1.0.0
+ */
+require( 'actions.php' );
+
+/**
  * Alias functions
  *
  * @since 1.0.0

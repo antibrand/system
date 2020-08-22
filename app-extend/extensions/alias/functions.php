@@ -1,14 +1,34 @@
 <?php
 /**
- * Deprecated functions from UUP version 4.9.8 that have been
- * renamed because of the branded prefix.
+ * Aliased functions that may have been renamed because of
+ * a branded prefix or may have been moved to a new class,
+ * or both.
  *
- * These functions may be removed. Remove from your system if desired.
- * @see app-settings.php
- *
- * @package App_Package
- * @subpackage Deprecated
+ * @package Alias
+ * @subpackage App_Package
  */
+
+// Alias namespaces.
+use \AppNamespace\Includes as Includes;
+use \AppNamespace\Backend as Backend;
+
+/**
+ * Dashboard widgets
+ *
+ * @since  1.0.0
+ * @return Backend\Dashboard\add_dashboard_widget().
+ */
+if ( method_exists( '\AppNamespace\Backend\Dashboard', 'add_dashboard_widget' ) && ! function_exists( 'wp_add_dashboard_widget' ) ) {
+
+	function wp_add_dashboard_widget( $widget_id, $widget_name, $callback, $control_callback = null, $callback_args = null ) {
+		$dashboard = new Backend\Dashboard;
+		return $dashboard->add_dashboard_widget( $widget_id, $widget_name, $callback, $control_callback = null, $callback_args = null );
+	}
+} else {
+	function wp_add_dashboard_widget() {
+		return null;
+	}
+}
 
 // Redirect to the installer.
 if ( ! function_exists( 'wp_not_installed' ) ) {
@@ -36,45 +56,5 @@ if ( ! function_exists( 'wp_lostpassword_url' ) ) {
 if ( ! function_exists( 'is_multisite' ) ) {
 	function is_multisite() {
 		return is_network();
-	}
-}
-
-/**
- * Get constants
- */
-if ( ! function_exists( 'wp_initial_constants' ) ) {
-	function wp_initial_constants() {
-		return app_initial_constants();
-	}
-}
-if ( ! function_exists( 'wp_plugin_directory_constants' ) ) {
-	function wp_plugin_directory_constants() {
-		return app_plugin_directory_constants();
-	}
-}
-if ( ! function_exists( 'wp_cookie_constants' ) ) {
-	function wp_cookie_constants() {
-		return app_cookie_constants();
-	}
-}
-if ( ! function_exists( 'wp_ssl_constants' ) ) {
-	function wp_ssl_constants() {
-		return app_ssl_constants();
-	}
-}
-if ( ! function_exists( 'wp_functionality_constants' ) ) {
-	function wp_functionality_constants() {
-		return app_functionality_constants();
-	}
-}
-if ( ! function_exists( 'wp_templating_constants' ) ) {
-	function wp_templating_constants() {
-		return app_templating_constants();
-	}
-}
-
-if ( ! function_exists( 'wp_convert_hr_to_bytes' ) ) {
-	function wp_convert_hr_to_bytes() {
-		return app_convert_hr_to_bytes();
 	}
 }
