@@ -33,7 +33,7 @@ class WP_Customize_Nav_Menus_Panel extends WP_Customize_Panel {
 	 */
 	public function render_screen_options() {
 		// Adds the screen options.
-		require_once ABSPATH . 'wp-admin/includes/nav-menu.php';
+		require_once APP_INC_PATH . '/backend/nav-menu.php';
 		add_filter( 'manage_nav-menus_columns', 'wp_nav_menu_manage_columns' );
 
 		// Display screen options.
@@ -51,7 +51,7 @@ class WP_Customize_Nav_Menus_Panel extends WP_Customize_Panel {
 	 */
 	public function wp_nav_menu_manage_columns() {
 		_deprecated_function( __METHOD__, '4.5.0', 'wp_nav_menu_manage_columns' );
-		require_once ABSPATH . 'wp-admin/includes/nav-menu.php';
+		require_once APP_INC_PATH . '/backend/nav-menu.php';
 		return wp_nav_menu_manage_columns();
 	}
 

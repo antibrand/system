@@ -1168,7 +1168,7 @@ function wp_ajax_add_menu_item() {
 	if ( ! current_user_can( 'edit_theme_options' ) )
 		wp_die( -1 );
 
-	require_once ABSPATH . 'wp-admin/includes/nav-menu.php';
+	require_once APP_INC_PATH . '/backend/nav-menu.php';
 
 	// For performance reasons, we omit some object properties from the checklist.
 	// The following is a hacky way to restore them when adding non-custom items.
@@ -1219,7 +1219,7 @@ function wp_ajax_add_menu_item() {
 		}
 	}
 
-	/** This filter is documented in APP_ADMIN_DIR/includes/nav-menu.php */
+	/** This filter is documented in APP_INC_PATH . '/backend/nav-menu.php */
 	$walker_class_name = apply_filters( 'wp_edit_nav_menu_walker', 'AppNamespace\Backend\Walker_Nav_Menu_Edit', $_POST['menu'] );
 
 	if ( ! class_exists( $walker_class_name ) )
@@ -1485,7 +1485,7 @@ function wp_ajax_menu_get_metabox() {
 	if ( ! current_user_can( 'edit_theme_options' ) )
 		wp_die( -1 );
 
-	require_once ABSPATH . 'wp-admin/includes/nav-menu.php';
+	require_once APP_INC_PATH . '/backend/nav-menu.php';
 
 	if ( isset( $_POST['item-type'] ) && 'post_type' == $_POST['item-type'] ) {
 		$type = 'posttype';
@@ -1500,7 +1500,7 @@ function wp_ajax_menu_get_metabox() {
 	if ( ! empty( $_POST['item-object'] ) && isset( $items[$_POST['item-object']] ) ) {
 		$menus_meta_box_object = $items[ $_POST['item-object'] ];
 
-		/** This filter is documented in APP_ADMIN_DIR/includes/nav-menu.php */
+		/** This filter is documented in APP_INC_PATH . '/backend/nav-menu.php */
 		$item = apply_filters( 'nav_menu_meta_box_object', $menus_meta_box_object );
 		ob_start();
 		call_user_func_array($callback, array(
@@ -1613,7 +1613,7 @@ function wp_ajax_menu_quick_search() {
 	if ( ! current_user_can( 'edit_theme_options' ) )
 		wp_die( -1 );
 
-	require_once ABSPATH . 'wp-admin/includes/nav-menu.php';
+	require_once APP_INC_PATH . '/backend/nav-menu.php';
 
 	_wp_ajax_menu_quick_search( $_POST );
 

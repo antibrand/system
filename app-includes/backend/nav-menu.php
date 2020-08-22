@@ -279,7 +279,7 @@ function wp_nav_menu_taxonomy_meta_boxes() {
 		return;
 
 	foreach ( $taxonomies as $tax ) {
-		/** This filter is documented in APP_ADMIN_DIR/includes/nav-menu.php */
+		/** This filter is documented in APP_INC_PATH . '/backend/nav-menu.php */
 		$tax = apply_filters( 'nav_menu_meta_box_object', $tax );
 		if ( $tax ) {
 			$id = $tax->name;
@@ -1127,7 +1127,7 @@ function wp_nav_menu_update_menu_items ( $nav_menu_selected_id, $nav_menu_select
 
 	wp_defer_term_counting( false );
 
-	/** This action is documented in app-includes/nav-menu.php */
+	/** This action is documented in APP_INC_PATH . '/backend/nav-menu.php */
 	do_action( 'wp_update_nav_menu', $nav_menu_selected_id );
 
 	$messages[] = '<div id="message" class="updated notice is-dismissible"><p>' .
