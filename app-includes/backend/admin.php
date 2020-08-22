@@ -66,7 +66,7 @@ require_once( APP_INC_PATH . '/backend/theme.php' );
 require_once( APP_INC_PATH . '/backend/user.php' );
 
 // Update Administration API.
-require_once( ABSPATH . 'wp-admin/includes/update.php' );
+require_once( APP_INC_PATH . '/backend/update.php' );
 
 // Deprecated Administration API.
 require_once( APP_INC_PATH . '/backend/deprecated.php' );
