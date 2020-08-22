@@ -27,7 +27,7 @@ if ( ! defined( 'APP_NAME' ) ) {
  * for plugins, themes, and core.
  *
  * @since 3.7.0
- * @since 4.6.0 Moved to its own file from APP_ADMIN_DIR/includes/upgrader-skins.php.
+ * @since 4.6.0 Moved to its own file from APP_INC_PATH . '/backend/upgrader-skins.php.
  *
  * @see Installer
  */
@@ -282,7 +282,7 @@ class Language_Pack_Upgrader extends Includes\Installer {
 		remove_action( 'upgrader_process_complete', 'wp_update_plugins' );
 		remove_action( 'upgrader_process_complete', 'wp_update_themes' );
 
-		/** This action is documented in APP_ADMIN_DIR/includes/upgrader-skins.php */
+		/** This action is documented in APP_INC_PATH . '/backend/upgrader-skins.php */
 		do_action( 'upgrader_process_complete', $this, array(
 			'action'       => 'update',
 			'type'         => 'translation',

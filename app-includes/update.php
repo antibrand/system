@@ -582,8 +582,8 @@ function wp_update_themes( $extra_stats = array() ) {
  * @since 3.7.0
  */
 function wp_maybe_auto_update() {
-	include_once( ABSPATH . APP_INC_PATH . '/backend/admin.php' );
-	include_once( ABSPATH . '/wp-admin/includes/upgrader-skins.php' );
+	include_once( APP_INC_PATH . '/backend/admin.php' );
+	include_once( APP_INC_PATH . '/backend/upgrader-skins.php' );
 
 	$upgrader = new WP_Automatic_Updater;
 	$upgrader->run();

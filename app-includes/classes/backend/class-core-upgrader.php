@@ -24,7 +24,7 @@ use \AppNamespace\Includes as Includes;
  * the APP_INC_PATH . '/backend/update-core.php file.
  *
  * @since 2.8.0
- * @since 4.6.0 Moved to its own file from APP_ADMIN_DIR/includes/upgrader-skins.php.
+ * @since 4.6.0 Moved to its own file from APP_INC_PATH . '/backend/upgrader-skins.php.
  *
  * @see Installer
  */
@@ -189,7 +189,7 @@ class Core_Upgrader extends Includes\Installer {
 			}
 		}
 
-		/** This action is documented in APP_ADMIN_DIR/includes/upgrader-skins.php */
+		/** This action is documented in APP_INC_PATH . '/backend/upgrader-skins.php */
 		do_action( 'upgrader_process_complete', $this, array( 'action' => 'update', 'type' => 'core' ) );
 
 		// Clear the current updates

@@ -2450,7 +2450,7 @@
 
 			switch ( message.action ) {
 
-				// Called from `wp-admin/includes/class-wp-upgrader-skins.php`.
+				// Called from APP_INC_PATH . '/backend/upgrader-skins.php`.
 				case 'decrementUpdateCount':
 					/** @property {string} message.upgradeType */
 					wp.updates.decrementCount( message.upgradeType );

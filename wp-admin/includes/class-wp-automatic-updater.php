@@ -21,7 +21,7 @@ use \AppNamespace\Includes as Includes;
  * Core class used for handling automatic background updates.
  *
  * @since 3.7.0
- * @since 4.6.0 Moved to its own file from APP_ADMIN_DIR/includes/upgrader-skins.php.
+ * @since 4.6.0 Moved to its own file from APP_INC_PATH . '/backend/upgrader-skins.php.
  */
 class WP_Automatic_Updater {
 
