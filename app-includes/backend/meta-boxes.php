@@ -947,7 +947,7 @@ function link_submit_meta_box($link) {
 
 <div id="major-publishing-actions">
 <?php
-/** This action is documented in APP_ADMIN_DIR/includes/meta-boxes.php */
+/** This action is documented in APP_INC_PATH . '/backend/meta-boxes.php */
 do_action( 'post_submitbox_start', null );
 ?>
 <div id="delete-action">

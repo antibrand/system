@@ -1623,7 +1623,7 @@ class Posts_List_Table extends List_Table {
 				<option value="-1"><?php _e( '&mdash; No Change &mdash;' ); ?></option>
 <?php	endif; // $bulk ?>
                 <?php
-				/** This filter is documented in APP_ADMIN_DIR/includes/meta-boxes.php */
+				/** This filter is documented in APP_INC_PATH . '/backend/meta-boxes.php */
 				$default_title = apply_filters( 'default_page_template_title',  __( 'Default Template' ), 'quick-edit' );
                 ?>
 				<option value="default"><?php echo esc_html( $default_title ); ?></option>

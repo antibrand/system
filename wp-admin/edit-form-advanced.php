@@ -268,7 +268,7 @@ $post_type_object = get_post_type_object( $post_type );
  * All meta boxes should be defined and added before the first do_meta_boxes() call
  * or potentially during the do_meta_boxes action.
  */
-require_once( ABSPATH . 'wp-admin/includes/meta-boxes.php' );
+require_once( APP_INC_PATH . '/backend/meta-boxes.php' );
 
 
 $publish_callback_args = null;
