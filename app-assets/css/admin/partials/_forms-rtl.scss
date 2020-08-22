@@ -1181,6 +1181,9 @@ table.form-table td .updated p {
  .app-admin {
 
 	.acf-admin-toolbar {
+
+		// Same left & right padding as content area.
+		padding: 0 2rem;
 		background-color: $box_background_color !important;
 		border-color: $box_border_color !important;
 

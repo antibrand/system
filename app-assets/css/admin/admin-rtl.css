@@ -1952,6 +1952,7 @@ table.form-table td .updated p {
  * - Advanced Custom Fields
  */
 .app-admin .acf-admin-toolbar {
+  padding: 0 2rem;
   background-color: inherit !important;
   border-color: #cccccc !important;
 }
