@@ -21,7 +21,7 @@ use \AppNamespace\Includes as Includes;
  * Core class used for updating core.
  *
  * It allows for the application to upgrade itself in combination with
- * the APP_ADMIN_DIR/includes/update-core.php file.
+ * the APP_INC_PATH . '/backend/update-core.php file.
  *
  * @since 2.8.0
  * @since 4.6.0 Moved to its own file from APP_ADMIN_DIR/includes/class-wp-upgrader.php.
@@ -141,14 +141,14 @@ class Core_Upgrader extends Includes\Installer {
 		}
 
 		// Copy update-core.php from the new version into place.
-		if ( !$wp_filesystem->copy($working_dir . '/wordpress/wp-admin/includes/update-core.php', $wp_dir . 'wp-admin/includes/update-core.php', true) ) {
-			$wp_filesystem->delete($working_dir, true);
+		if ( ! $wp_filesystem->copy( $working_dir . '/system/' . APP_INC_DIR . '/backend/update-core.php', $wp_dir . APP_INC_DIR . '/backend/update-core.php', true ) ) {
+			$wp_filesystem->delete( $working_dir, true );
 			Includes\Installer::release_lock( 'core_updater' );
-			return new WP_Error( 'copy_failed_for_update_core_file', __( 'The update cannot be installed because we will be unable to copy some files. This is usually due to inconsistent file permissions.' ), 'wp-admin/includes/update-core.php' );
+			return new WP_Error( 'copy_failed_for_update_core_file', __( 'The update cannot be installed because we will be unable to copy some files. This is usually due to inconsistent file permissions.' ), APP_INC_DIR . '/backend/update-core.php' );
 		}
-		$wp_filesystem->chmod($wp_dir . 'wp-admin/includes/update-core.php', FS_CHMOD_FILE);
+		$wp_filesystem->chmod( $wp_dir . APP_INC_DIR . '/backend/update-core.php', FS_CHMOD_FILE );
 
-		require_once( ABSPATH . 'wp-admin/includes/update-core.php' );
+		require_once( APP_INC_PATH . '/backend/update-core.php' );
 
 		if ( ! function_exists( 'update_core' ) ) {
 			Includes\Installer::release_lock( 'core_updater' );
@@ -176,10 +176,10 @@ class Core_Upgrader extends Includes\Installer {
 			}
 
 			if ( $try_rollback ) {
-				/** This filter is documented in APP_ADMIN_DIR/includes/update-core.php */
+				/** This filter is documented in APP_INC_PATH . '/backend/update-core.php */
 				apply_filters( 'update_feedback', $result );
 
-				/** This filter is documented in APP_ADMIN_DIR/includes/update-core.php */
+				/** This filter is documented in APP_INC_PATH . '/backend/update-core.php */
 				apply_filters( 'update_feedback', $this->strings['start_rollback'] );
 
 				$rollback_result = $this->upgrade( $current, array_merge( $parsed_args, array( 'do_rollback' => true ) ) );
