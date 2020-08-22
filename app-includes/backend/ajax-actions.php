@@ -3672,7 +3672,7 @@ function wp_ajax_install_plugin() {
 	}
 
 	include_once( ABSPATH . 'wp-admin/includes/class-wp-upgrader.php' );
-	include_once( ABSPATH . 'wp-admin/includes/plugin-install.php' );
+	include_once( APP_INC_PATH . '/backend/plugin-install.php' );
 
 	$api = plugins_api( 'plugin_information', array(
 		'slug'   => sanitize_key( wp_unslash( $_POST['slug'] ) ),

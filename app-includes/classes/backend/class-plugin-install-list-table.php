@@ -97,7 +97,7 @@ class Plugin_Install_List_Table extends List_Table {
 	 */
 	public function prepare_items() {
 
-		include( ABSPATH . 'wp-admin/includes/plugin-install.php' );
+		include( APP_INC_PATH . '/backend/plugin-install.php' );
 
 		// Access global variables.
 		global $tabs, $tab, $paged, $type, $term;

@@ -317,7 +317,7 @@ function list_plugin_updates() {
 	$app_version    = get_bloginfo( 'app_version' );
 	$cur_wp_version = preg_replace( '/-.*$/', '', $app_version );
 
-	require_once( ABSPATH . 'wp-admin/includes/plugin-install.php' );
+	require_once( APP_INC_PATH . '/backend/plugin-install.php' );
 
 	$plugins = get_plugin_updates();
 

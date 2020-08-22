@@ -120,7 +120,7 @@ if ( isset( $_GET['action'] ) ) {
 		}
 
 		// For plugins_api.
-		include_once( ABSPATH . 'wp-admin/includes/plugin-install.php' );
+		include_once( APP_INC_PATH . '/backend/plugin-install.php' );
 
 		check_admin_referer( 'install-plugin_' . $plugin );
 
