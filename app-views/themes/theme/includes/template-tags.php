@@ -128,7 +128,7 @@ function site_schema() {
 		$itemtype = esc_attr( 'CheckoutPage' );
 	} elseif ( is_front_page() || is_page() ) {
 		$itemtype = esc_attr( 'WebPage' );
-	} elseif ( is_author() || is_plugin_active( 'buddypress/bp-loader.php' ) && bp_is_home() || is_plugin_active( 'bbpress/bbpress.php' ) && bbp_is_user_home() ) {
+	} elseif ( is_author() || ( function_exists( 'is_plugin_active' ) && is_plugin_active( 'buddypress/bp-loader.php' ) ) && bp_is_home() || ( function_exists( 'is_plugin_active' ) && is_plugin_active( 'bbpress/bbpress.php' ) ) && bbp_is_user_home() ) {
 		$itemtype = esc_attr( 'ProfilePage' );
 	} elseif ( is_search() ) {
 		$itemtype = esc_attr( 'SearchResultsPage' );

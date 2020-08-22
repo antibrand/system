@@ -23,8 +23,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * Used to check for active plugins with the `is_plugin_active` function.
  *
- * @link https://developer.wordpress.org/reference/functions/is_plugin_active/
- *
  * @example The following would check for the Advanced Custom Fields plugin:
  *          ```
  *          if ( is_plugin_active( 'advanced-custom-fields/acf.php' ) ) {
@@ -32,8 +30,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  *           }
  *          ```
  */
-if ( defined( 'APP_ADMIN_DIR' ) && file_exists( ABSPATH . APP_ADMIN_DIR . '/includes/plugin.php' ) ) {
-	include_once( ABSPATH . APP_ADMIN_DIR . '/includes/plugin.php' );
+
+// If the generic website management system.
+if ( defined( 'APP_INC_PATH' ) && file_exists( APP_INC_PATH . '/backend/plugin.php' ) ) {
+	include_once( APP_INC_PATH . '/backend/plugin.php' );
+
+// If another system.
 } elseif ( file_exists( ABSPATH . 'wp-admin/includes/plugin.php' ) ) {
 	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 }
