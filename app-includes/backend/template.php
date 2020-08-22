@@ -2076,7 +2076,7 @@ function _wp_admin_html_begin() {
 <!doctype html>
 <?php do_action( 'before_html' ); ?>
 <html xmlns="http://www.w3.org/1999/xhtml" class="no-js <?php echo $admin_html_class; ?>" <?php
-	/** This action is documented in APP_ADMIN_DIR/includes/template.php */
+	/** This action is documented in APP_INC_PATH . '/backend/template.php */
 	do_action( 'admin_xml_ns' );
 ?> <?php language_attributes(); ?>>
 <head>
@@ -2099,9 +2099,9 @@ function convert_to_screen( $hook_name ) {
 		_doing_it_wrong(
 			'convert_to_screen(), add_meta_box()',
 			sprintf(
-				/* translators: 1: APP_ADMIN_DIR/includes/template.php 2: add_meta_box() 3: add_meta_boxes */
+				/* translators: 1: APP_INC_PATH . '/backend/template.php 2: add_meta_box() 3: add_meta_boxes */
 				__( 'Likely direct inclusion of %1$s in order to use %2$s. This is very wrong. Hook the %2$s call into the %3$s action instead.' ),
-				'<code>APP_ADMIN_DIR/includes/template.php</code>',
+				'<code>APP_INC_PATH/backend/template.php</code>',
 				'<code>add_meta_box()</code>',
 				'<code>add_meta_boxes</code>'
 			),
