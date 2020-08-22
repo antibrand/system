@@ -6,7 +6,7 @@
  *
  * @package App_Package
  * @subpackage Upgrader
- * @since 2.8.0
+ * @since Previous 2.8.0
  */
 
 /** WP_Upgrader_Skin class */

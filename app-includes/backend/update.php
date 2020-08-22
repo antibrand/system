@@ -79,7 +79,7 @@ function find_core_auto_update() {
 	if ( ! $updates || empty( $updates->updates ) )
 		return false;
 
-	include_once( ABSPATH . 'wp-admin/includes/class-wp-upgrader.php' );
+	include_once( ABSPATH . 'wp-admin/includes/upgrader-skins.php' );
 
 	$auto_update = false;
 	$upgrader = new WP_Automatic_Updater;
