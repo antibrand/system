@@ -8,7 +8,7 @@
 
 // Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
-require( ABSPATH . 'wp-admin/includes/theme-install.php' );
+require( APP_INC_PATH . '/backend/theme-install.php' );
 
 if ( ! current_user_can( 'switch_themes' ) && ! current_user_can( 'edit_theme_options' ) ) {
 	wp_die(

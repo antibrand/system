@@ -5433,7 +5433,7 @@ final class Live_Manager {
 				wp_send_json_error();
 			}
 
-			// This list matches the allowed tags in APP_ADMIN_DIR/includes/theme-install.php.
+			// This list matches the allowed tags in APP_INC_PATH . '/backend/theme-install.php.
 			$themes_allowedtags = array_fill_keys(
 				array( 'a', 'abbr', 'acronym', 'code', 'pre', 'em', 'strong', 'div', 'p', 'ul', 'ol', 'li', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'img' ),
 				array()

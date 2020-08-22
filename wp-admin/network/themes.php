@@ -9,7 +9,7 @@
 
 // Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
-require( ABSPATH . 'wp-admin/includes/theme-install.php' );
+require( APP_INC_PATH . '/backend/theme-install.php' );
 
 if ( ! current_user_can( 'manage_network_themes' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to manage network themes.' ) );
