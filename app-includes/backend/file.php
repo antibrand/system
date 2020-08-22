@@ -1219,11 +1219,18 @@ function _unzip_file_pclzip($file, $to, $needed_dirs = array()) {
 
 	mbstring_binary_safe_encoding();
 
-	require_once( ABSPATH . 'wp-admin/includes/class-pclzip.php' );
+	/**
+	 * The PclZip class is in the autoloader.
+	 * Leaving this require here until testing is completed.
+	 *
+	 * @todo Remove the require.
+	 *
+	 * require_once( ABSPATH . 'wp-admin/includes/class-pclzip.php' );
+	 */
 
-	$archive = new PclZip($file);
+	$archive = new PclZip( $file );
 
-	$archive_files = $archive->extract(PCLZIP_OPT_EXTRACT_AS_STRING);
+	$archive_files = $archive->extract( PCLZIP_OPT_EXTRACT_AS_STRING );
 
 	reset_mbstring_encoding();
 

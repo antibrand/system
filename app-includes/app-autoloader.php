@@ -45,6 +45,9 @@ const APP_CLASSES = [
 	// Presentation.
 	'AppNamespace\Includes\Site_Icon' => __DIR__ . '/classes/includes/class-site-icon.php',
 
+	// Backend functionality.
+	'\PclZip' => __DIR__ . '/classes/backend/class-pclzip.php',
+
 	// Screens.
 	'AppNamespace\Backend\Screen'              => __DIR__ . '/classes/backend/class-screen.php',
 	'AppNamespace\Backend\Dashboard'           => __DIR__ . '/classes/backend/class-dashboard.php',
