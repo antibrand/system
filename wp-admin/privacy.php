@@ -89,7 +89,7 @@ if ( ! empty( $action ) ) {
 	} elseif ( 'create-privacy-page' === $action ) {
 
 		if ( ! class_exists( 'WP_Privacy_Policy_Content' ) ) {
-			require_once( ABSPATH . 'wp-admin/includes/misc.php' );
+			require_once( APP_INC_PATH . '/backend/misc.php' );
 		}
 
 		$privacy_policy_page_content = WP_Privacy_Policy_Content::get_default_content();

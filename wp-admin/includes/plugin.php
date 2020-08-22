@@ -1920,7 +1920,7 @@ function wp_add_privacy_policy_content( $plugin_name, $policy_text ) {
 	}
 
 	if ( ! class_exists( 'WP_Privacy_Policy_Content' ) ) {
-		require_once( ABSPATH . 'wp-admin/includes/misc.php' );
+		require_once( APP_INC_PATH . '/backend/misc.php' );
 	}
 
 	WP_Privacy_Policy_Content::add( $plugin_name, $policy_text );

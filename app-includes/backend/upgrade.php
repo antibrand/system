@@ -247,7 +247,7 @@ To get started with moderating, editing, and deleting comments, please visit the
 		$privacy_policy_content = get_site_option( 'default_privacy_policy_content' );
 	} else {
 		if ( ! class_exists( 'WP_Privacy_Policy_Content' ) ) {
-			include_once( ABSPATH . 'wp-admin/includes/misc.php' );
+			include_once( APP_INC_PATH . '/backend/misc.php' );
 		}
 
 		$privacy_policy_content = WP_Privacy_Policy_Content::get_default_content();

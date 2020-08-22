@@ -39,7 +39,7 @@ require_once( APP_INC_PATH . '/backend/media.php' );
 require_once( APP_INC_PATH . '/backend/import.php' );
 
 // Misc Administration API.
-require_once( ABSPATH . 'wp-admin/includes/misc.php' );
+require_once( APP_INC_PATH . '/backend/misc.php' );
 
 // Plugin Administration API.
 require_once( ABSPATH . 'wp-admin/includes/plugin.php' );

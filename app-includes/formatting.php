@@ -5257,7 +5257,7 @@ function _wp_emoji_list( $type = 'entities' ) {
  * Shorten a URL, to be used as link text.
  *
  * @since 1.2.0
- * @since 4.4.0 Moved to wp-includes/formatting.php from APP_ADMIN_DIR/includes/misc.php and added $length param.
+ * @since 4.4.0 Moved to wp-includes/formatting.php from APP_INC_PATH . '/backend/misc.php and added $length param.
  *
  * @param string $url    URL to shorten.
  * @param int    $length Optional. Maximum length of the shortened URL. Default 35 characters.
