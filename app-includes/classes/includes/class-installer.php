@@ -11,9 +11,6 @@
 
 namespace AppNamespace\Includes;
 
-/** WP_Upgrader_Skin class */
-require_once( ABSPATH . 'wp-admin/includes/class-wp-upgrader-skin.php' );
-
 /** Plugin_Upgrader_Skin class */
 require_once( APP_INC_PATH . '/classes/backend/class-plugin-upgrader-skin.php' );
 

@@ -48,6 +48,9 @@ const APP_CLASSES = [
 	// Backend functionality.
 	'\PclZip' => __DIR__ . '/classes/backend/class-pclzip.php',
 
+	// Upgraders.
+	'\WP_Upgrader_Skin' => __DIR__ . '/classes/backend/class-wp-upgrader-skin.php',
+
 	// Screens.
 	'AppNamespace\Backend\Screen'              => __DIR__ . '/classes/backend/class-screen.php',
 	'AppNamespace\Backend\Dashboard'           => __DIR__ . '/classes/backend/class-dashboard.php',
