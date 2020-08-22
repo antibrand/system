@@ -5385,7 +5385,7 @@ final class Live_Manager {
 			$args['page'] = absint( $_POST['page'] );
 		}
 
-		require_once ABSPATH . 'wp-admin/includes/theme.php';
+		require_once APP_INC_PATH . '/backend/theme.php';
 
 		if ( 'installed' === $theme_action ) {
 

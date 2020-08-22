@@ -180,7 +180,7 @@ final class WP_Theme implements ArrayAccess {
 
 		// Initialize caching on first run.
 		if ( ! isset( self::$persistently_cache ) ) {
-			/** This action is documented in app-includes/theme.php */
+			/** This action is documented in APP_INC_PATH . '/backend/theme.php */
 			self::$persistently_cache = apply_filters( 'wp_cache_themes_persistently', false, 'WP_Theme' );
 			if ( self::$persistently_cache ) {
 				wp_cache_add_global_groups( 'themes' );

@@ -60,7 +60,7 @@ require_once( APP_INC_PATH . '/backend/template.php' );
 require_once( APP_INC_PATH . '/backend/list-table.php' );
 
 // Theme Administration API.
-require_once( ABSPATH . 'wp-admin/includes/theme.php' );
+require_once( APP_INC_PATH . '/backend/theme.php' );
 
 // User Administration API.
 require_once( APP_INC_PATH . '/backend/user.php' );

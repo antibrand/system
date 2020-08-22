@@ -3402,7 +3402,7 @@ function wp_ajax_install_theme() {
 	}
 
 	include_once( ABSPATH . 'wp-admin/includes/class-wp-upgrader.php' );
-	include_once( ABSPATH . 'wp-admin/includes/theme.php' );
+	include_once( APP_INC_PATH . '/backend/theme.php' );
 
 	$api = themes_api( 'theme_information', array(
 		'slug'   => $slug,
@@ -3626,7 +3626,7 @@ function wp_ajax_delete_theme() {
 		wp_send_json_error( $status );
 	}
 
-	include_once( ABSPATH . 'wp-admin/includes/theme.php' );
+	include_once( APP_INC_PATH . '/backend/theme.php' );
 
 	$result = delete_theme( $stylesheet );
 
