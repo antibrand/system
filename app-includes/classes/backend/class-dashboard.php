@@ -375,7 +375,7 @@ class Dashboard {
 				$name = $wp_registered_widgets[$widget_id]['name'] . " <a href='{$wp_registered_widgets[$widget_id]['all_link']}' class='edit-box open-box'>" . __( 'View all' ) . '</a>';
 			}
 
-			wp_add_dashboard_widget(
+			$this->add_dashboard_widget(
 				$widget_id,
 				$name,
 				$wp_registered_widgets[$widget_id]['callback'],
