@@ -113,7 +113,7 @@ wp_enqueue_script( 'common' );
 
 /**
  * $pagenow is set in vars.php
- * $wp_importers is sometimes set in APP_ADMIN_DIR/includes/import.php
+ * $wp_importers is sometimes set in APP_INC_PATH . '/backend/import.php
  * The remaining variables are imported as globals elsewhere, declared as globals here.
  *
  * @global string $pagenow
