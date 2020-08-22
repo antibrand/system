@@ -1546,7 +1546,7 @@ final class Screen {
 		// Back compat
 		if ( isset( $this->post_type ) ) {
 
-			// This filter is documented in APP_ADMIN_DIR/includes/post.php.
+			// This filter is documented in APP_INC_PATH . '/backend/post.php.
 			$per_page = apply_filters( 'edit_posts_per_page', $per_page, $this->post_type );
 		}
 

@@ -2940,13 +2940,13 @@ final class Live_Manager {
 			return false;
 		}
 
-		/** This filter is documented in app-includes/post.php */
+		/** This filter is documented in APP_INC_PATH . '/backend/post.php */
 		$check = apply_filters( 'pre_trash_post', null, $post );
 		if ( null !== $check ) {
 			return $check;
 		}
 
-		/** This action is documented in app-includes/post.php */
+		/** This action is documented in APP_INC_PATH . '/backend/post.php */
 		do_action( 'wp_trash_post', $post_id );
 
 		add_post_meta( $post_id, '_wp_trash_meta_status', $post->post_status );
@@ -2960,21 +2960,21 @@ final class Live_Manager {
 		$post->post_status = $new_status;
 		wp_transition_post_status( $new_status, $old_status, $post );
 
-		/** This action is documented in app-includes/post.php */
+		/** This action is documented in APP_INC_PATH . '/backend/post.php */
 		do_action( 'edit_post', $post->ID, $post );
 
-		/** This action is documented in app-includes/post.php */
+		/** This action is documented in APP_INC_PATH . '/backend/post.php */
 		do_action( "save_post_{$post->post_type}", $post->ID, $post, true );
 
-		/** This action is documented in app-includes/post.php */
+		/** This action is documented in APP_INC_PATH . '/backend/post.php */
 		do_action( 'save_post', $post->ID, $post, true );
 
-		/** This action is documented in app-includes/post.php */
+		/** This action is documented in APP_INC_PATH . '/backend/post.php */
 		do_action( 'wp_insert_post', $post->ID, $post, true );
 
 		wp_trash_post_comments( $post_id );
 
-		/** This action is documented in app-includes/post.php */
+		/** This action is documented in APP_INC_PATH . '/backend/post.php */
 		do_action( 'trashed_post', $post_id );
 
 		return $post;

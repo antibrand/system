@@ -45,7 +45,7 @@ require_once( APP_INC_PATH . '/backend/misc.php' );
 require_once( APP_INC_PATH . '/backend/plugin.php' );
 
 // Post Administration API.
-require_once( ABSPATH . 'wp-admin/includes/post.php' );
+require_once( APP_INC_PATH . '/backend/post.php' );
 
 // Administration Screen API.
 require_once( APP_INC_PATH . '/backend/screen.php' );

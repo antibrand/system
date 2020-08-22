@@ -1187,7 +1187,7 @@ function sanitize_user_field($field, $value, $user_id, $context) {
 	if ( 'edit' == $context ) {
 		if ( $prefixed ) {
 
-			/** This filter is documented in app-includes/post.php */
+			/** This filter is documented in APP_INC_PATH . '/backend/post.php */
 			$value = apply_filters( "edit_{$field}", $value, $user_id );
 		} else {
 
@@ -1211,7 +1211,7 @@ function sanitize_user_field($field, $value, $user_id, $context) {
 			$value = esc_attr($value);
 	} elseif ( 'db' == $context ) {
 		if ( $prefixed ) {
-			/** This filter is documented in app-includes/post.php */
+			/** This filter is documented in APP_INC_PATH . '/backend/post.php */
 			$value = apply_filters( "pre_{$field}", $value );
 		} else {
 
@@ -1231,7 +1231,7 @@ function sanitize_user_field($field, $value, $user_id, $context) {
 		// Use display filters by default.
 		if ( $prefixed ) {
 
-			/** This filter is documented in app-includes/post.php */
+			/** This filter is documented in APP_INC_PATH . '/backend/post.php */
 			$value = apply_filters( "{$field}", $value, $user_id, $context );
 		} else {
 
