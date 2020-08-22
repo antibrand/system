@@ -296,7 +296,7 @@ function wp_stream_image( $image, $mime_type, $attachment_id ) {
 function wp_save_image_file( $filename, $image, $mime_type, $post_id ) {
 	if ( $image instanceof WP_Image_Editor ) {
 
-		/** This filter is documented in APP_ADMIN_DIR/includes/image-edit.php */
+		/** This filter is documented in APP_INC_PATH . '/backend/image-edit.php */
 		$image = apply_filters( 'image_editor_save_pre', $image, $post_id );
 
 		/**
@@ -322,7 +322,7 @@ function wp_save_image_file( $filename, $image, $mime_type, $post_id ) {
 	} else {
 		_deprecated_argument( __FUNCTION__, '3.5.0', __( '$image needs to be an WP_Image_Editor object' ) );
 
-		/** This filter is documented in APP_ADMIN_DIR/includes/image-edit.php */
+		/** This filter is documented in APP_INC_PATH . '/backend/image-edit.php */
 		$image = apply_filters( 'image_save_pre', $image, $post_id );
 
 		/**

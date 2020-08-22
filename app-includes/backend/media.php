@@ -2720,7 +2720,7 @@ function network_over_quota_message() {
 function edit_form_image_editor( $post ) {
 	$open = isset( $_GET['image-editor'] );
 	if ( $open )
-		require_once ABSPATH . 'wp-admin/includes/image-edit.php';
+		require_once APP_INC_PATH . '/backend/image-edit.php';
 
 	$thumb_url = false;
 	if ( $attachment_id = intval( $post->ID ) )

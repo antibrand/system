@@ -228,7 +228,7 @@ function wp_ajax_imgedit_preview() {
 
 	check_ajax_referer( "image_editor-$post_id" );
 
-	include_once( ABSPATH . 'wp-admin/includes/image-edit.php' );
+	include_once( APP_INC_PATH . '/backend/image-edit.php' );
 	if ( ! stream_preview_image($post_id) )
 		wp_die( -1 );
 
@@ -2143,7 +2143,7 @@ function wp_ajax_image_editor() {
 		wp_die( -1 );
 
 	check_ajax_referer( "image_editor-$attachment_id" );
-	include_once( ABSPATH . 'wp-admin/includes/image-edit.php' );
+	include_once( APP_INC_PATH . '/backend/image-edit.php' );
 
 	$msg = false;
 	switch ( $_POST['do'] ) {
