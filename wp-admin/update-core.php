@@ -242,7 +242,7 @@ function core_upgrade_preamble() {
 
 		if ( wp_http_supports( array( 'ssl' ) ) ) {
 
-			require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+			require_once( ABSPATH . 'wp-admin/includes/class-wp-upgrader.php' );
 
 			$upgrader            = new WP_Automatic_Updater;
 			$future_minor_update = (object) [
@@ -277,7 +277,7 @@ function core_upgrade_preamble() {
 
 	if ( isset( $updates[0] ) && $updates[0]->response == 'development' ) {
 
-		require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+		require_once( ABSPATH . 'wp-admin/includes/class-wp-upgrader.php' );
 
 		$upgrader = new WP_Automatic_Updater;
 
