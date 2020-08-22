@@ -43,7 +43,7 @@ require_once( dirname( dirname( dirname( __FILE__ ) ) ) . '/app-load.php' );
 $app_install = new Includes\App_Install;
 
 // Load Administration Upgrade API.
-require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+require_once( APP_INC_PATH . '/backend/upgrade.php' );
 
 // Load Translation Install API.
 require_once( ABSPATH . 'wp-admin/includes/translation-install.php' );

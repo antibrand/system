@@ -83,7 +83,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 
 		check_admin_referer( 'install-network-1' );
 
-		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+		require_once( APP_INC_PATH . '/backend/upgrade.php' );
 
 		// Create network tables.
 		install_network();

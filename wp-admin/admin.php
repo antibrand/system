@@ -327,7 +327,7 @@ if ( isset( $plugin_page ) ) {
 		require_once( ABSPATH . 'wp-admin/admin-header.php' );
 	}
 
-	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+	require_once( APP_INC_PATH . '/backend/upgrade.php' );
 
 	define( 'WP_IMPORTING', true );
 
