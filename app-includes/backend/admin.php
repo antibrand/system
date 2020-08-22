@@ -51,7 +51,7 @@ require_once( APP_INC_PATH . '/backend/post.php' );
 require_once( APP_INC_PATH . '/backend/screen.php' );
 
 // Taxonomy Administration API.
-require_once( ABSPATH . 'wp-admin/includes/taxonomy.php' );
+require_once( APP_INC_PATH . '/backend/taxonomy.php' );
 
 // Template Administration API.
 require_once( ABSPATH . 'wp-admin/includes/template.php' );
