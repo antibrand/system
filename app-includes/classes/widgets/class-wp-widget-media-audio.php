@@ -125,7 +125,7 @@ class WP_Widget_Media_Audio extends WP_Widget_Media {
 	 * @since 4.8.0
 	 */
 	public function enqueue_preview_scripts() {
-		/** This filter is documented in app-includes/media.php */
+		/** This filter is documented in APP_INC_PATH . '/backend/media.php */
 		if ( 'mediaelement' === apply_filters( 'wp_audio_shortcode_library', 'mediaelement' ) ) {
 			wp_enqueue_style( 'app-mediaelement' );
 			wp_enqueue_script( 'wp-mediaelement' );

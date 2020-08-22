@@ -2576,7 +2576,7 @@ function wp_ajax_save_attachment_compat() {
 	if ( 'attachment' != $post['post_type'] )
 		wp_send_json_error();
 
-	/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
+	/** This filter is documented in APP_INC_PATH . '/backend/media.php */
 	$post = apply_filters( 'attachment_fields_to_save', $post, $attachment_data );
 
 	if ( isset( $post['errors'] ) ) {
@@ -2691,7 +2691,7 @@ function wp_ajax_send_attachment_to_editor() {
 		}
 	}
 
-	/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
+	/** This filter is documented in APP_INC_PATH . '/backend/media.php */
 	$html = apply_filters( 'media_send_to_editor', $html, $id, $attachment );
 
 	wp_send_json_success( $html );
@@ -2746,7 +2746,7 @@ function wp_ajax_send_link_to_editor() {
 		&& ( 'audio' == $ext_type || 'video' == $ext_type ) )
 			$type = $ext_type;
 
-	/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
+	/** This filter is documented in APP_INC_PATH . '/backend/media.php */
 	$html = apply_filters( "{$type}_send_to_editor_url", $html, $src, $link_text );
 
 	wp_send_json_success( $html );

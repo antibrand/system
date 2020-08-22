@@ -33,7 +33,7 @@ require_once( APP_INC_PATH . '/backend/file.php' );
 require_once( APP_INC_PATH . '/backend/image.php' );
 
 // Media Administration API.
-require_once( ABSPATH . 'wp-admin/includes/media.php' );
+require_once( APP_INC_PATH . '/backend/media.php' );
 
 // Import Administration API.
 require_once( ABSPATH . 'wp-admin/includes/import.php' );

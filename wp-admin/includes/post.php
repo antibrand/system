@@ -314,7 +314,7 @@ function edit_post( $post_data = null ) {
 
 		$attachment_data = isset( $post_data['attachments'][ $post_ID ] ) ? $post_data['attachments'][ $post_ID ] : array();
 
-		/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
+		/** This filter is documented in APP_INC_PATH . '/backend/media.php */
 		$post_data = apply_filters( 'attachment_fields_to_save', $post_data, $attachment_data );
 	}
 

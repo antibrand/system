@@ -539,7 +539,7 @@ if ( current_theme_supports( 'custom-background', 'default-color' ) )
 	public function wp_set_background_image() {
 		if ( ! current_user_can('edit_theme_options') || ! isset( $_POST['attachment_id'] ) ) exit;
 		$attachment_id = absint($_POST['attachment_id']);
-		/** This filter is documented in APP_ADMIN_DIR/includes/media.php */
+		/** This filter is documented in APP_INC_PATH . '/backend/media.php */
 		$sizes = array_keys(apply_filters( 'image_size_names_choose', array('thumbnail' => __('Thumbnail'), 'medium' => __('Medium'), 'large' => __('Large'), 'full' => __('Full Size')) ));
 		$size = 'thumbnail';
 		if ( in_array( $_POST['size'], $sizes ) )
