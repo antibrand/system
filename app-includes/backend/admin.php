@@ -27,7 +27,7 @@ require_once( APP_INC_PATH . '/backend/bookmark.php' );
 require_once( APP_INC_PATH . '/backend/comment.php' );
 
 // Administration File API.
-require_once( ABSPATH . 'wp-admin/includes/file.php' );
+require_once( APP_INC_PATH . '/backend/file.php' );
 
 // Image Administration API.
 require_once( ABSPATH . 'wp-admin/includes/image.php' );
@@ -48,7 +48,7 @@ require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 require_once( ABSPATH . 'wp-admin/includes/post.php' );
 
 // Administration Screen API.
-require_once( ABSPATH . 'wp-admin/includes/screen.php' );
+require_once( APP_INC_PATH . '/backend/screen.php' );
 
 // Taxonomy Administration API.
 require_once( ABSPATH . 'wp-admin/includes/taxonomy.php' );

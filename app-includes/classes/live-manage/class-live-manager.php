@@ -1583,7 +1583,7 @@ final class Live_Manager {
 			return $prepared_attachments;
 		}
 
-		require_once( ABSPATH . 'wp-admin/includes/file.php' );
+		require_once( APP_INC_PATH . '/backend/file.php' );
 		require_once( ABSPATH . 'wp-admin/includes/media.php' );
 		require_once( ABSPATH . 'wp-admin/includes/image.php' );
 
