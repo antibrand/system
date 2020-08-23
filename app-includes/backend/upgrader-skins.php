@@ -27,9 +27,6 @@ require_once( ABSPATH . 'wp-admin/includes/class-wp-ajax-upgrader-skin.php' );
 /** Plugin_Upgrader class */
 require_once( APP_INC_PATH . '/classes/backend/class-plugin-upgrader.php' );
 
-/** Theme_Upgrader class */
-require_once( ABSPATH . 'wp-admin/includes/class-theme-upgrader.php' );
-
 /** Language_Pack_Upgrader class */
 require_once( ABSPATH . 'wp-admin/includes/class-language-pack-upgrader.php' );
 
