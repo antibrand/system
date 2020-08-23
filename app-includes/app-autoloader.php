@@ -50,6 +50,7 @@ const APP_CLASSES = [
 
 	// Upgraders.
 	'WP_Upgrader_Skin'         => __DIR__ . '/classes/backend/class-wp-upgrader-skin.php',
+	'Bulk_Upgrader_Skin'       => __DIR__ . '/classes/backend/class-bulk-upgrader-skin.php',
 	'Automatic_Upgrader_Skin'  => __DIR__ . '/classes/backend/class-automatic-upgrader-skin.php',
 	'Theme_Installer_Skin'     => __DIR__ . '/classes/backend/class-theme-installer-skin.php',
 	'Bulk_Theme_Upgrader_Skin' => __DIR__ . '/classes/backend/class-bulk-theme-upgrader-skin.php',
