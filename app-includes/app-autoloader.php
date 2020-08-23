@@ -54,6 +54,7 @@ const APP_CLASSES = [
 	'Automatic_Upgrader_Skin'  => __DIR__ . '/classes/backend/class-automatic-upgrader-skin.php',
 	'Theme_Installer_Skin'     => __DIR__ . '/classes/backend/class-theme-installer-skin.php',
 	'Bulk_Theme_Upgrader_Skin' => __DIR__ . '/classes/backend/class-bulk-theme-upgrader-skin.php',
+	'File_Upload_Upgrader'     => __DIR__ . '/classes/backend/class-file-upload-upgrader.php',
 
 	// Screens.
 	'AppNamespace\Backend\Screen'              => __DIR__ . '/classes/backend/class-screen.php',
