@@ -17,6 +17,13 @@ if ( ! defined( 'APP_ADMIN' ) ) {
 	define( 'APP_ADMIN', true );
 }
 
+/**
+ * Load the website management system
+ *
+ * Gets the load file from the root.
+ *
+ * @since 1.0.0
+ */
 if ( defined( 'ABSPATH' ) ) {
 	require_once( ABSPATH . 'app-load.php' );
 } else {
@@ -42,7 +49,7 @@ if ( ! wp_validate_auth_cookie() ) {
 		/**
 		 * Fires on a non-authenticated admin post request where no action was supplied.
 		 *
-		 * @since 2.6.0
+		 * @since Previous 2.6.0
 		 */
 		do_action( 'admin_post_nopriv' );
 
@@ -54,7 +61,7 @@ if ( ! wp_validate_auth_cookie() ) {
 		 * The dynamic portion of the hook name, `$action`, refers to the given
 		 * request action.
 		 *
-		 * @since 2.6.0
+		 * @since Previous 2.6.0
 		 */
 		do_action( "admin_post_nopriv_{$action}" );
 	}
@@ -66,7 +73,7 @@ if ( ! wp_validate_auth_cookie() ) {
 		/**
 		 * Fires on an authenticated admin post request where no action was supplied.
 		 *
-		 * @since 2.6.0
+		 * @since Previous 2.6.0
 		 */
 		do_action( 'admin_post' );
 
@@ -78,7 +85,7 @@ if ( ! wp_validate_auth_cookie() ) {
 		 * The dynamic portion of the hook name, `$action`, refers to the given
 		 * request action.
 		 *
-		 * @since 2.6.0
+		 * @since Previous 2.6.0
 		 */
 		do_action( "admin_post_{$action}" );
 	}
