@@ -61,7 +61,8 @@ const APP_CLASSES = [
 	'AppNamespace\Backend\Settings_Content'    => __DIR__ . '/classes/backend/class-settings-content.php',
 	'AppNamespace\Backend\Settings_Discussion' => __DIR__ . '/classes/backend/class-settings-discussion.php',
 	'AppNamespace\Backend\Data_Page'           => __DIR__ . '/classes/backend/class-data-page.php',
-	'Custom_Background' => __DIR__ . '/classes/backend/class-custom-background.php',
+	'Custom_Background'   => __DIR__ . '/classes/backend/class-custom-background.php',
+	'Custom_Image_Header' => __DIR__ . '/classes/backend/class-custom-header.php',
 
 	// List tables.
 	'AppNamespace\Backend\List_Table'          => __DIR__ . '/classes/backend/class-list-table.php',
