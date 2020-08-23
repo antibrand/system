@@ -33,7 +33,8 @@ if ( defined( 'ABSPATH' ) ) {
 // Allow for cross-domain requests (from the front end).
 send_origin_headers();
 
-require_once( APP_INC_PATH . '/backend/admin.php');
+// Load administration files.
+require_once( APP_INC_PATH . '/backend/load-admin.php' );
 
 nocache_headers();
 
