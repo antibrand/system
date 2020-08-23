@@ -46,10 +46,10 @@ const APP_CLASSES = [
 	'AppNamespace\Includes\Site_Icon' => __DIR__ . '/classes/includes/class-site-icon.php',
 
 	// Backend functionality.
-	'\PclZip' => __DIR__ . '/classes/backend/class-pclzip.php',
+	'PclZip' => __DIR__ . '/classes/backend/class-pclzip.php',
 
 	// Upgraders.
-	'\WP_Upgrader_Skin' => __DIR__ . '/classes/backend/class-wp-upgrader-skin.php',
+	'WP_Upgrader_Skin' => __DIR__ . '/classes/backend/class-wp-upgrader-skin.php',
 
 	// Screens.
 	'AppNamespace\Backend\Screen'              => __DIR__ . '/classes/backend/class-screen.php',
