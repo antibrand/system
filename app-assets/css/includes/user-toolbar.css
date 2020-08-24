@@ -410,7 +410,7 @@
   margin-right: 0;
 }
 
-.avatar {
+#app-toolbar .avatar {
   border-radius: 50% !important;
 }
 
@@ -472,7 +472,7 @@
   font-size: 11px;
 }
 
-.avatar-wrap {
+#app-toolbar .avatar-wrap {
   margin-left: 0.5em !important;
   vertical-align: middle;
 }
