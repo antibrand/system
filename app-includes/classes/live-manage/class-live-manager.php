@@ -316,7 +316,6 @@ final class Live_Manager {
 		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-nav-menu-name-control.php' );
 		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-nav-menu-locations-control.php' );
 		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-nav-menu-auto-add-control.php' );
-		require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-new-menu-control.php' ); // @todo Remove in 5.0. See #42364.
 
 		require_once( APP_INC_PATH . '/classes/live-manage/class-wp-customize-nav-menus-panel.php' );
 
