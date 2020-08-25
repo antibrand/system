@@ -88,12 +88,12 @@ if ( isset( $_SERVER['HTTP_USER_AGENT'] ) ) {
 
 			$is_admin = is_admin();
 			/**
-			 * Filters whether Google Chrome Frame should be used, if available.
+			 * Filters whether chrome frame should be used, if available.
 			 *
 			 * @since Previous 3.2.0
-			 * @param bool $is_admin Whether to use the Google Chrome Frame. Default is the value of is_admin().
+			 * @param bool $is_admin Whether to use the chrome frame. Default is the value of is_admin().
 			 */
-			if ( $is_chrome = apply_filters( 'use_google_chrome_frame', $is_admin ) ) {
+			if ( $is_chrome = apply_filters( 'use_chrome_frame', $is_admin ) ) {
 				header( 'X-UA-Compatible: chrome=1' );
 			}
 

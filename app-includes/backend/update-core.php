@@ -119,7 +119,6 @@ $_old_files = array(
 'app-assets/js/includes/tinymce/plugins/paste/jscripts',
 'app-assets/js/includes/tinymce/plugins/paste/langs',
 'app-assets/js/includes/tinymce/plugins/spellchecker/classes/HttpClient.class.php',
-'app-assets/js/includes/tinymce/plugins/spellchecker/classes/TinyGoogleSpell.class.php',
 'app-assets/js/includes/tinymce/plugins/spellchecker/classes/TinyPspell.class.php',
 'app-assets/js/includes/tinymce/plugins/spellchecker/classes/TinyPspellShell.class.php',
 'app-assets/js/includes/tinymce/plugins/spellchecker/css/spellchecker.css',

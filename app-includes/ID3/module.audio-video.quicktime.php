@@ -198,8 +198,6 @@ class getid3_quicktime extends getid3_handler
 	}
 
 	public function QuicktimeParseAtom($atomname, $atomsize, $atom_data, $baseoffset, &$atomHierarchy, $ParseAllPossibleAtoms) {
-		// http://developer.apple.com/techpubs/quicktime/qtdevdocs/APIREF/INDEX/atomalphaindex.htm
-		// https://code.google.com/p/mp4v2/wiki/iTunesMetadata
 
 		$info = &$this->getid3->info;
 
@@ -2410,10 +2408,6 @@ echo 'QuicktimeParseNikonNCTG()::unknown $data_size_type: '.$data_size_type.'<br
 	public function CopyToAppropriateCommentsSection($keyname, $data, $boxname='') {
 		static $handyatomtranslatorarray = array();
 		if (empty($handyatomtranslatorarray)) {
-			// http://www.geocities.com/xhelmboyx/quicktime/formats/qtm-layout.txt
-			// http://www.geocities.com/xhelmboyx/quicktime/formats/mp4-layout.txt
-			// http://atomicparsley.sourceforge.net/mpeg-4files.html
-			// https://code.google.com/p/mp4v2/wiki/iTunesMetadata
 			$handyatomtranslatorarray["\xA9".'alb'] = 'album';               // iTunes 4.0
 			$handyatomtranslatorarray["\xA9".'ART'] = 'artist';
 			$handyatomtranslatorarray["\xA9".'art'] = 'artist';              // iTunes 4.0

@@ -178,15 +178,14 @@ function wp_default_scripts( &$scripts ) {
 
 	$scripts->add( 'wp-lists', "/app-assets/js/includes/wp-lists$minify.js", [ 'wp-ajax-response', 'jquery-color' ], false, 1 );
 
-	// No longer uses or bundles Prototype or script.aculo.us. These are now pulled from an external source.
-	$scripts->add( 'prototype', 'https://ajax.googleapis.com/ajax/libs/prototype/1.7.1.0/prototype.js', [], '1.7.1' );
-	$scripts->add( 'scriptaculous-root', 'https://ajax.googleapis.com/ajax/libs/scriptaculous/1.9.0/scriptaculous.js', [ 'prototype' ], '1.9.0' );
-	$scripts->add( 'scriptaculous-builder', 'https://ajax.googleapis.com/ajax/libs/scriptaculous/1.9.0/builder.js', [ 'scriptaculous-root' ], '1.9.0' );
-	$scripts->add( 'scriptaculous-dragdrop', 'https://ajax.googleapis.com/ajax/libs/scriptaculous/1.9.0/dragdrop.js', [ 'scriptaculous-builder', 'scriptaculous-effects' ], '1.9.0' );
-	$scripts->add( 'scriptaculous-effects', 'https://ajax.googleapis.com/ajax/libs/scriptaculous/1.9.0/effects.js', [ 'scriptaculous-root' ], '1.9.0' );
-	$scripts->add( 'scriptaculous-slider', 'https://ajax.googleapis.com/ajax/libs/scriptaculous/1.9.0/slider.js', [ 'scriptaculous-effects' ], '1.9.0' );
-	$scripts->add( 'scriptaculous-sound', 'https://ajax.googleapis.com/ajax/libs/scriptaculous/1.9.0/sound.js', [ 'scriptaculous-root' ], '1.9.0' );
-	$scripts->add( 'scriptaculous-controls', 'https://ajax.googleapis.com/ajax/libs/scriptaculous/1.9.0/controls.js', [ 'scriptaculous-root' ], '1.9.0' );
+	$scripts->add( 'prototype', "/app-assets/js/includes/prototype/prototype$minify.js", [], '1.7.1' );
+	$scripts->add( 'scriptaculous-root', "/app-assets/js/includes/scriptaculous/scriptaculous$minify.js", [ 'prototype' ], '1.9.0' );
+	$scripts->add( 'scriptaculous-builder', "/app-assets/js/includes/scriptaculous/builder$minify.js", [ 'scriptaculous-root' ], '1.9.0' );
+	$scripts->add( 'scriptaculous-dragdrop', "/app-assets/js/includes/scriptaculous/dragdrop$minify.js", [ 'scriptaculous-builder', 'scriptaculous-effects' ], '1.9.0' );
+	$scripts->add( 'scriptaculous-effects', "/app-assets/js/includes/scriptaculous/effects$minify.js", [ 'scriptaculous-root' ], '1.9.0' );
+	$scripts->add( 'scriptaculous-slider', "/app-assets/js/includes/scriptaculous/slider$minify.js", [ 'scriptaculous-effects' ], '1.9.0' );
+	$scripts->add( 'scriptaculous-sound', "/app-assets/js/includes/scriptaculous/sound$minify.js", [ 'scriptaculous-root' ], '1.9.0' );
+	$scripts->add( 'scriptaculous-controls', "/app-assets/js/includes/scriptaculous/controls$minify.js", [ 'scriptaculous-root' ], '1.9.0' );
 	$scripts->add( 'scriptaculous', false, [ 'scriptaculous-dragdrop', 'scriptaculous-slider', 'scriptaculous-controls' ] );
 
 	// Not used in core, replaced by Jcrop.js.

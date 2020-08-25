@@ -1173,9 +1173,6 @@ class getid3_riff extends getid3_handler {
 				break;
 
 			case 'WEBP':
-				// https://developers.google.com/speed/webp/docs/riff_container
-				// https://tools.ietf.org/html/rfc6386
-				// https://chromium.googlesource.com/webm/libwebp/+/master/doc/webp-lossless-bitstream-spec.txt
 				$info['fileformat'] = 'webp';
 				$info['mime_type']  = 'image/webp';
 
@@ -1375,7 +1372,6 @@ class getid3_riff extends getid3_handler {
 	public function ParseRIFFAMV($startoffset, $maxoffset) {
 		// AMV files are RIFF-AVI files with parts of the spec deliberately broken, such as chunk size fields hardcoded to zero (because players known in hardware that these fields are always a certain size
 
-		// https://code.google.com/p/amv-codec-tools/wiki/AmvDocumentation
 		//typedef struct _amvmainheader {
 		//FOURCC fcc; // 'amvh'
 		//DWORD cb;
