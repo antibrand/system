@@ -63,12 +63,12 @@ function wp_default_scripts( &$scripts ) {
 	$scripts->base_url        = $guessurl;
 	$scripts->content_url     = function_exists( 'content_url' ) ? content_url() : '';
 	$scripts->default_version = get_bloginfo( 'version' );
-	$scripts->default_dirs    = [ '/app-assets/js/admin/', '/app-assets/js/includes/' ];
+	$scripts->default_dirs    = [ '/' . APP_ASSETS_DIR . '/js/admin/', '/' . APP_ASSETS_DIR . '/js/includes/' ];
 
 	$minify     = SCRIPT_DEBUG ? '' : '.min';
 	$dev_minify = $develop_src ? '' : '.min';
 
-	$scripts->add( 'utils', "/app-assets/js/includes/utils$minify.js" );
+	$scripts->add( 'utils', '/' . APP_ASSETS_DIR . "/js/includes/utils$minify.js" );
 
 	did_action( 'init' ) && $scripts->localize( 'utils', 'userSettings', [
 		'url'    => (string) SITECOOKIEPATH,
@@ -77,7 +77,7 @@ function wp_default_scripts( &$scripts ) {
 		'secure' => (string) ( 'https' === parse_url( site_url(), PHP_URL_SCHEME ) ),
 	] );
 
-	$scripts->add( 'common', "/app-assets/js/admin/common$minify.js", [ 'jquery', 'hoverIntent', 'utils' ], false, 1 );
+	$scripts->add( 'common', '/' . APP_ASSETS_DIR . "/js/admin/common$minify.js", [ 'jquery', 'hoverIntent', 'utils' ], false, 1 );
 
 	did_action( 'init' ) && $scripts->localize( 'common', 'commonL10n', [
 		'warnDelete'   => __( "You are about to permanently delete these items from your site.\nThis action cannot be undone.\n 'Cancel' to stop, 'OK' to delete." ),
@@ -86,9 +86,9 @@ function wp_default_scripts( &$scripts ) {
 		'expandMenu'   => __( 'Expand Main menu' ),
 	] );
 
-	$scripts->add( 'wp-a11y', "/app-assets/js/includes/wp-a11y$minify.js", [ 'jquery' ], false, 1 );
-	$scripts->add( 'sack', "/app-assets/js/includes/tw-sack$minify.js", [], '1.6.1', 1 );
-	$scripts->add( 'quicktags', "/app-assets/js/includes/quicktags$minify.js", [], false, 1 );
+	$scripts->add( 'wp-a11y', '/' . APP_ASSETS_DIR . "/js/includes/wp-a11y$minify.js", [ 'jquery' ], false, 1 );
+	$scripts->add( 'sack', '/' . APP_ASSETS_DIR . "/js/includes/tw-sack$minify.js", [], '1.6.1', 1 );
+	$scripts->add( 'quicktags', '/' . APP_ASSETS_DIR . "/js/includes/quicktags$minify.js", [], false, 1 );
 
 	did_action( 'init' ) && $scripts->localize( 'quicktags', 'quicktagsL10n', [
 		'closeAllOpenTags'      => __( 'Close all open tags' ),
@@ -122,16 +122,16 @@ function wp_default_scripts( &$scripts ) {
 		'more'            => __( 'Insert Read More tag' ),
 	] );
 
-	$scripts->add( 'colorpicker', "/app-assets/js/includes/colorpicker$minify.js", [ 'prototype' ], '3517m' );
-	$scripts->add( 'editor', "/app-assets/js/admin/editor$minify.js", [ 'utils','jquery' ], false, 1 );
-	$scripts->add( 'wp-ajax-response', "/app-assets/js/includes/wp-ajax-response$minify.js", [ 'jquery' ], false, 1 );
+	$scripts->add( 'colorpicker', '/' . APP_ASSETS_DIR . "/js/includes/colorpicker$minify.js", [ 'prototype' ], '3517m' );
+	$scripts->add( 'editor', '/' . APP_ASSETS_DIR . "/js/admin/editor$minify.js", [ 'utils','jquery' ], false, 1 );
+	$scripts->add( 'wp-ajax-response', '/' . APP_ASSETS_DIR . "/js/includes/wp-ajax-response$minify.js", [ 'jquery' ], false, 1 );
 
 	did_action( 'init' ) && $scripts->localize( 'wp-ajax-response', 'wpAjax', [
 		'noPerm' => __( 'Sorry, you are not allowed to do that.' ),
 		'broken' => __( 'Something went wrong.' )
 	] );
 
-	$scripts->add( 'wp-api-request', "/app-assets/js/includes/api-request$minify.js", [ 'jquery' ], false, 1 );
+	$scripts->add( 'wp-api-request', '/' . APP_ASSETS_DIR . "/js/includes/api-request$minify.js", [ 'jquery' ], false, 1 );
 
 	// `wpApiSettings` is also used by `wp-api`, which depends on this script.
 	did_action( 'init' ) && $scripts->localize( 'wp-api-request', 'wpApiSettings', [
@@ -140,14 +140,14 @@ function wp_default_scripts( &$scripts ) {
 		'versionString' => 'wp/v2/',
 	] );
 
-	$scripts->add( 'wp-pointer', "/app-assets/js/includes/wp-pointer$minify.js", [ 'jquery-ui-widget', 'jquery-ui-position' ], '20111129a', 1 );
+	$scripts->add( 'wp-pointer', '/' . APP_ASSETS_DIR . "/js/includes/wp-pointer$minify.js", [ 'jquery-ui-widget', 'jquery-ui-position' ], '20111129a', 1 );
 
 	did_action( 'init' ) && $scripts->localize( 'wp-pointer', 'wpPointerL10n', [
 		'dismiss' => __( 'Dismiss' ),
 	] );
 
-	$scripts->add( 'autosave', "/app-assets/js/includes/autosave$minify.js", [ 'heartbeat' ], false, 1 );
-	$scripts->add( 'heartbeat', "/app-assets/js/includes/heartbeat$minify.js", [ 'jquery' ], false, 1 );
+	$scripts->add( 'autosave', '/' . APP_ASSETS_DIR . "/js/includes/autosave$minify.js", [ 'heartbeat' ], false, 1 );
+	$scripts->add( 'heartbeat', '/' . APP_ASSETS_DIR . "/js/includes/heartbeat$minify.js", [ 'jquery' ], false, 1 );
 
 	did_action( 'init' ) && $scripts->localize( 'heartbeat', 'heartbeatSettings',
 
@@ -160,7 +160,7 @@ function wp_default_scripts( &$scripts ) {
 		apply_filters( 'heartbeat_settings', array() )
 	);
 
-	$scripts->add( 'wp-auth-check', "/app-assets/js/includes/wp-auth-check$minify.js", [ 'heartbeat' ], false, 1 );
+	$scripts->add( 'wp-auth-check', '/' . APP_ASSETS_DIR . "/js/includes/wp-auth-check$minify.js", [ 'heartbeat' ], false, 1 );
 
 	did_action( 'init' ) && $scripts->localize( 'wp-auth-check', 'authcheckL10n', [
 
@@ -176,67 +176,67 @@ function wp_default_scripts( &$scripts ) {
 		'interval' => apply_filters( 'wp_auth_check_interval', 3 * MINUTE_IN_SECONDS ),
 	] );
 
-	$scripts->add( 'wp-lists', "/app-assets/js/includes/wp-lists$minify.js", [ 'wp-ajax-response', 'jquery-color' ], false, 1 );
+	$scripts->add( 'wp-lists', '/' . APP_ASSETS_DIR . "/js/includes/wp-lists$minify.js", [ 'wp-ajax-response', 'jquery-color' ], false, 1 );
 
-	$scripts->add( 'prototype', "/app-assets/js/includes/prototype/prototype$minify.js", [], '1.7.1' );
-	$scripts->add( 'scriptaculous-root', "/app-assets/js/includes/scriptaculous/scriptaculous$minify.js", [ 'prototype' ], '1.9.0' );
-	$scripts->add( 'scriptaculous-builder', "/app-assets/js/includes/scriptaculous/builder$minify.js", [ 'scriptaculous-root' ], '1.9.0' );
-	$scripts->add( 'scriptaculous-dragdrop', "/app-assets/js/includes/scriptaculous/dragdrop$minify.js", [ 'scriptaculous-builder', 'scriptaculous-effects' ], '1.9.0' );
-	$scripts->add( 'scriptaculous-effects', "/app-assets/js/includes/scriptaculous/effects$minify.js", [ 'scriptaculous-root' ], '1.9.0' );
-	$scripts->add( 'scriptaculous-slider', "/app-assets/js/includes/scriptaculous/slider$minify.js", [ 'scriptaculous-effects' ], '1.9.0' );
-	$scripts->add( 'scriptaculous-sound', "/app-assets/js/includes/scriptaculous/sound$minify.js", [ 'scriptaculous-root' ], '1.9.0' );
-	$scripts->add( 'scriptaculous-controls', "/app-assets/js/includes/scriptaculous/controls$minify.js", [ 'scriptaculous-root' ], '1.9.0' );
+	$scripts->add( 'prototype', '/' . APP_ASSETS_DIR . "/js/includes/prototype/prototype$minify.js", [], '1.7.1' );
+	$scripts->add( 'scriptaculous-root', '/' . APP_ASSETS_DIR . "/js/includes/scriptaculous/scriptaculous$minify.js", [ 'prototype' ], '1.9.0' );
+	$scripts->add( 'scriptaculous-builder', '/' . APP_ASSETS_DIR . "/js/includes/scriptaculous/builder$minify.js", [ 'scriptaculous-root' ], '1.9.0' );
+	$scripts->add( 'scriptaculous-dragdrop', '/' . APP_ASSETS_DIR . "/js/includes/scriptaculous/dragdrop$minify.js", [ 'scriptaculous-builder', 'scriptaculous-effects' ], '1.9.0' );
+	$scripts->add( 'scriptaculous-effects', '/' . APP_ASSETS_DIR . "/js/includes/scriptaculous/effects$minify.js", [ 'scriptaculous-root' ], '1.9.0' );
+	$scripts->add( 'scriptaculous-slider', '/' . APP_ASSETS_DIR . "/js/includes/scriptaculous/slider$minify.js", [ 'scriptaculous-effects' ], '1.9.0' );
+	$scripts->add( 'scriptaculous-sound', '/' . APP_ASSETS_DIR . "/js/includes/scriptaculous/sound$minify.js", [ 'scriptaculous-root' ], '1.9.0' );
+	$scripts->add( 'scriptaculous-controls', '/' . APP_ASSETS_DIR . "/js/includes/scriptaculous/controls$minify.js", [ 'scriptaculous-root' ], '1.9.0' );
 	$scripts->add( 'scriptaculous', false, [ 'scriptaculous-dragdrop', 'scriptaculous-slider', 'scriptaculous-controls' ] );
 
 	// Not used in core, replaced by Jcrop.js.
-	$scripts->add( 'cropper', '/app-assets/js/includes/crop/cropper.js', [ 'scriptaculous-dragdrop' ] );
+	$scripts->add( 'cropper', '/' . APP_ASSETS_DIR . '/js/includes/crop/cropper.js', [ 'scriptaculous-dragdrop' ] );
 
 	// jQuery.
 	$scripts->add( 'jquery', false, [ 'jquery-core' ], '3.5.1' );
-	$scripts->add( 'jquery-core', "/app-assets/js/includes/jquery/jquery$minify.js", [], '3.5.1' );
+	$scripts->add( 'jquery-core', '/' . APP_ASSETS_DIR . "/js/includes/jquery/jquery$minify.js", [], '3.5.1' );
 
 	// full jQuery UI.
-	$scripts->add( 'jquery-ui-core', "/app-assets/js/includes/jquery/ui/core$dev_minify.js", [ 'jquery' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-effects-core', "/app-assets/js/includes/jquery/ui/effect$dev_minify.js", [ 'jquery' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-effects-blind', "/app-assets/js/includes/jquery/ui/effect-blind$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-effects-bounce', "/app-assets/js/includes/jquery/ui/effect-bounce$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-effects-clip', "/app-assets/js/includes/jquery/ui/effect-clip$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-effects-drop', "/app-assets/js/includes/jquery/ui/effect-drop$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-effects-explode', "/app-assets/js/includes/jquery/ui/effect-explode$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-effects-fade', "/app-assets/js/includes/jquery/ui/effect-fade$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-effects-fold', "/app-assets/js/includes/jquery/ui/effect-fold$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-effects-highlight', "/app-assets/js/includes/jquery/ui/effect-highlight$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-effects-puff', "/app-assets/js/includes/jquery/ui/effect-puff$dev_minify.js", [ 'jquery-effects-core', 'jquery-effects-scale' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-effects-pulsate', "/app-assets/js/includes/jquery/ui/effect-pulsate$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-effects-scale', "/app-assets/js/includes/jquery/ui/effect-scale$dev_minify.js", [ 'jquery-effects-core', 'jquery-effects-size' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-effects-shake', "/app-assets/js/includes/jquery/ui/effect-shake$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-effects-size', "/app-assets/js/includes/jquery/ui/effect-size$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-effects-slide', "/app-assets/js/includes/jquery/ui/effect-slide$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-effects-transfer', "/app-assets/js/includes/jquery/ui/effect-transfer$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-ui-core', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/core$dev_minify.js", [ 'jquery' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-effects-core', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/effect$dev_minify.js", [ 'jquery' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-effects-blind', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/effect-blind$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-effects-bounce', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/effect-bounce$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-effects-clip', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/effect-clip$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-effects-drop', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/effect-drop$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-effects-explode', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/effect-explode$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-effects-fade', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/effect-fade$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-effects-fold', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/effect-fold$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-effects-highlight', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/effect-highlight$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-effects-puff', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/effect-puff$dev_minify.js", [ 'jquery-effects-core', 'jquery-effects-scale' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-effects-pulsate', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/effect-pulsate$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-effects-scale', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/effect-scale$dev_minify.js", [ 'jquery-effects-core', 'jquery-effects-size' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-effects-shake', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/effect-shake$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-effects-size', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/effect-size$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-effects-slide', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/effect-slide$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-effects-transfer', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/effect-transfer$dev_minify.js", [ 'jquery-effects-core' ], '1.11.4', 1 );
 
-	$scripts->add( 'jquery-ui-accordion', "/app-assets/js/includes/jquery/ui/accordion$dev_minify.js", [ 'jquery-ui-core', 'jquery-ui-widget' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-ui-autocomplete', "/app-assets/js/includes/jquery/ui/autocomplete$dev_minify.js", [ 'jquery-ui-menu', 'wp-a11y' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-ui-button', "/app-assets/js/includes/jquery/ui/button$dev_minify.js", [ 'jquery-ui-core', 'jquery-ui-widget' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-ui-datepicker', "/app-assets/js/includes/jquery/ui/datepicker$dev_minify.js", [ 'jquery-ui-core' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-ui-dialog', "/app-assets/js/includes/jquery/ui/dialog$dev_minify.js", [ 'jquery-ui-resizable', 'jquery-ui-draggable', 'jquery-ui-button', 'jquery-ui-position' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-ui-draggable', "/app-assets/js/includes/jquery/ui/draggable$dev_minify.js", [ 'jquery-ui-mouse' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-ui-droppable', "/app-assets/js/includes/jquery/ui/droppable$dev_minify.js", [ 'jquery-ui-draggable' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-ui-menu', "/app-assets/js/includes/jquery/ui/menu$dev_minify.js", [ 'jquery-ui-core', 'jquery-ui-widget', 'jquery-ui-position' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-ui-mouse', "/app-assets/js/includes/jquery/ui/mouse$dev_minify.js", [ 'jquery-ui-core', 'jquery-ui-widget' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-ui-position', "/app-assets/js/includes/jquery/ui/position$dev_minify.js", [ 'jquery' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-ui-progressbar', "/app-assets/js/includes/jquery/ui/progressbar$dev_minify.js", [ 'jquery-ui-core', 'jquery-ui-widget' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-ui-resizable', "/app-assets/js/includes/jquery/ui/resizable$dev_minify.js", [ 'jquery-ui-mouse' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-ui-selectable', "/app-assets/js/includes/jquery/ui/selectable$dev_minify.js", [ 'jquery-ui-mouse' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-ui-selectmenu', "/app-assets/js/includes/jquery/ui/selectmenu$dev_minify.js", [ 'jquery-ui-menu' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-ui-slider', "/app-assets/js/includes/jquery/ui/slider$dev_minify.js", [ 'jquery-ui-mouse' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-ui-sortable', "/app-assets/js/includes/jquery/ui/sortable$dev_minify.js", [ 'jquery-ui-mouse' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-ui-spinner', "/app-assets/js/includes/jquery/ui/spinner$dev_minify.js", [ 'jquery-ui-button' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-ui-tabs', "/app-assets/js/includes/jquery/ui/tabs$dev_minify.js", [ 'jquery-ui-core', 'jquery-ui-widget' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-ui-tooltip', "/app-assets/js/includes/jquery/ui/tooltip$dev_minify.js", [ 'jquery-ui-core', 'jquery-ui-widget', 'jquery-ui-position' ], '1.11.4', 1 );
-	$scripts->add( 'jquery-ui-widget', "/app-assets/js/includes/jquery/ui/widget$dev_minify.js", [ 'jquery' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-ui-accordion', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/accordion$dev_minify.js", [ 'jquery-ui-core', 'jquery-ui-widget' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-ui-autocomplete', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/autocomplete$dev_minify.js", [ 'jquery-ui-menu', 'wp-a11y' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-ui-button', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/button$dev_minify.js", [ 'jquery-ui-core', 'jquery-ui-widget' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-ui-datepicker', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/datepicker$dev_minify.js", [ 'jquery-ui-core' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-ui-dialog', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/dialog$dev_minify.js", [ 'jquery-ui-resizable', 'jquery-ui-draggable', 'jquery-ui-button', 'jquery-ui-position' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-ui-draggable', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/draggable$dev_minify.js", [ 'jquery-ui-mouse' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-ui-droppable', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/droppable$dev_minify.js", [ 'jquery-ui-draggable' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-ui-menu', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/menu$dev_minify.js", [ 'jquery-ui-core', 'jquery-ui-widget', 'jquery-ui-position' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-ui-mouse', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/mouse$dev_minify.js", [ 'jquery-ui-core', 'jquery-ui-widget' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-ui-position', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/position$dev_minify.js", [ 'jquery' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-ui-progressbar', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/progressbar$dev_minify.js", [ 'jquery-ui-core', 'jquery-ui-widget' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-ui-resizable', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/resizable$dev_minify.js", [ 'jquery-ui-mouse' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-ui-selectable', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/selectable$dev_minify.js", [ 'jquery-ui-mouse' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-ui-selectmenu', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/selectmenu$dev_minify.js", [ 'jquery-ui-menu' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-ui-slider', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/slider$dev_minify.js", [ 'jquery-ui-mouse' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-ui-sortable', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/sortable$dev_minify.js", [ 'jquery-ui-mouse' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-ui-spinner', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/spinner$dev_minify.js", [ 'jquery-ui-button' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-ui-tabs', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/tabs$dev_minify.js", [ 'jquery-ui-core', 'jquery-ui-widget' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-ui-tooltip', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/tooltip$dev_minify.js", [ 'jquery-ui-core', 'jquery-ui-widget', 'jquery-ui-position' ], '1.11.4', 1 );
+	$scripts->add( 'jquery-ui-widget', '/' . APP_ASSETS_DIR . "/js/includes/jquery/ui/widget$dev_minify.js", [ 'jquery' ], '1.11.4', 1 );
 
 	// jQuery plugins, non-jQuery UI.
-	$scripts->add( 'app-tabs', "/app-assets/js/includes/app-tabs$dev_minify.js", [ 'jquery' ], '', 1 );
+	$scripts->add( 'app-tabs', '/' . APP_ASSETS_DIR . "/js/includes/app-tabs$dev_minify.js", [ 'jquery' ], '', 1 );
 
 	// Strings for 'jquery-ui-autocomplete' live region messages.
 	did_action( 'init' ) && $scripts->localize( 'jquery-ui-autocomplete', 'uiAutocompleteL10n', [
@@ -247,24 +247,24 @@ function wp_default_scripts( &$scripts ) {
 	] );
 
 	// jQuery plugins
-	$scripts->add( 'jquery-color', "/app-assets/js/includes/jquery/jquery.color.min.js", [ 'jquery' ], '2.1.1', 1 );
-	$scripts->add( 'schedule', '/app-assets/js/includes/jquery/jquery.schedule.js', [ 'jquery' ], '20m', 1 );
-	$scripts->add( 'jquery-query', "/app-assets/js/includes/jquery/jquery.query.js", [ 'jquery' ], '2.1.7', 1 );
-	$scripts->add( 'jquery-serialize-object', "/app-assets/js/includes/jquery/jquery.serialize-object.js", [ 'jquery' ], '0.2', 1 );
-	$scripts->add( 'jquery-hotkeys', "/app-assets/js/includes/jquery/jquery.hotkeys$minify.js", [ 'jquery' ], '0.0.2m', 1 );
-	$scripts->add( 'jquery-table-hotkeys', "/app-assets/js/includes/jquery/jquery.table-hotkeys$minify.js", [ 'jquery', 'jquery-hotkeys' ], false, 1 );
-	$scripts->add( 'jquery-touch-punch', "/app-assets/js/includes/jquery/jquery.ui.touch-punch.js", [ 'jquery-ui-widget', 'jquery-ui-mouse' ], '0.2.2', 1 );
+	$scripts->add( 'jquery-color', '/' . APP_ASSETS_DIR . "/js/includes/jquery/jquery.color.min.js", [ 'jquery' ], '2.1.1', 1 );
+	$scripts->add( 'schedule', '/' . APP_ASSETS_DIR . '/js/includes/jquery/jquery.schedule.js', [ 'jquery' ], '20m', 1 );
+	$scripts->add( 'jquery-query', '/' . APP_ASSETS_DIR . "/js/includes/jquery/jquery.query.js", [ 'jquery' ], '2.1.7', 1 );
+	$scripts->add( 'jquery-serialize-object', '/' . APP_ASSETS_DIR . "/js/includes/jquery/jquery.serialize-object.js", [ 'jquery' ], '0.2', 1 );
+	$scripts->add( 'jquery-hotkeys', '/' . APP_ASSETS_DIR . "/js/includes/jquery/jquery.hotkeys$minify.js", [ 'jquery' ], '0.0.2m', 1 );
+	$scripts->add( 'jquery-table-hotkeys', '/' . APP_ASSETS_DIR . "/js/includes/jquery/jquery.table-hotkeys$minify.js", [ 'jquery', 'jquery-hotkeys' ], false, 1 );
+	$scripts->add( 'jquery-touch-punch', '/' . APP_ASSETS_DIR . "/js/includes/jquery/jquery.ui.touch-punch.js", [ 'jquery-ui-widget', 'jquery-ui-mouse' ], '0.2.2', 1 );
 
 	// Not used any more, registered for backwards compatibility.
-	$scripts->add( 'suggest', "/app-assets/js/includes/jquery/suggest$minify.js", [ 'jquery' ], '1.1-20110113', 1 );
+	$scripts->add( 'suggest', '/' . APP_ASSETS_DIR . "/js/includes/jquery/suggest$minify.js", [ 'jquery' ], '1.1-20110113', 1 );
 
 	// Masonry v2 depended on jQuery. v3 does not. The older jquery-masonry handle is a shiv.
 	// It sets jQuery as a dependency, as the theme may have been implicitly loading it this way.
-	$scripts->add( 'imagesloaded', "/app-assets/js/includes/imagesloaded.min.js", [], '3.2.0', 1 );
-	$scripts->add( 'masonry', "/app-assets/js/includes/masonry.min.js", [ 'imagesloaded' ], '3.3.2', 1 );
-	$scripts->add( 'jquery-masonry', "/app-assets/js/includes/jquery/jquery.masonry$dev_minify.js", [ 'jquery', 'masonry' ], '3.1.2b', 1 );
+	$scripts->add( 'imagesloaded', '/' . APP_ASSETS_DIR . "/js/includes/imagesloaded.min.js", [], '3.2.0', 1 );
+	$scripts->add( 'masonry', '/' . APP_ASSETS_DIR . "/js/includes/masonry.min.js", [ 'imagesloaded' ], '3.3.2', 1 );
+	$scripts->add( 'jquery-masonry', '/' . APP_ASSETS_DIR . "/js/includes/jquery/jquery.masonry$dev_minify.js", [ 'jquery', 'masonry' ], '3.1.2b', 1 );
 
-	$scripts->add( 'thickbox', "/app-assets/js/includes/thickbox/thickbox.js", [ 'jquery' ], '3.1-20121105', 1 );
+	$scripts->add( 'thickbox', '/' . APP_ASSETS_DIR . "/js/includes/thickbox/thickbox.js", [ 'jquery' ], '3.1-20121105', 1 );
 
 	did_action( 'init' ) && $scripts->localize( 'thickbox', 'thickboxL10n', [
 		'next'             => __( 'Next &gt;' ),
@@ -276,7 +276,7 @@ function wp_default_scripts( &$scripts ) {
 		'loadingAnimation' => app_assets_url( 'js/includes/thickbox/loadingAnimation.gif' ),
 	] );
 
-	$scripts->add( 'swfobject', "/app-assets/js/includes/swfobject.js", [], '2.2-20120417' );
+	$scripts->add( 'swfobject', '/' . APP_ASSETS_DIR . "/js/includes/swfobject.js", [], '2.2-20120417' );
 
 	// Error messages for Plupload.
 	$uploader_l10n = [
@@ -304,28 +304,28 @@ function wp_default_scripts( &$scripts ) {
 		'error_uploading'           => __( '&#8220;%s&#8221; has failed to upload.' )
 	];
 
-	$scripts->add( 'moxiejs', "/app-assets/js/includes/plupload/moxie$minify.js", [], '1.3.5' );
-	$scripts->add( 'plupload', "/app-assets/js/includes/plupload/plupload$minify.js", [ 'moxiejs' ], '2.1.9' );
-	$scripts->add( 'plupload-handlers', "/app-assets/js/includes/plupload/handlers$minify.js", [ 'plupload', 'jquery' ] );
+	$scripts->add( 'moxiejs', '/' . APP_ASSETS_DIR . "/js/includes/plupload/moxie$minify.js", [], '1.3.5' );
+	$scripts->add( 'plupload', '/' . APP_ASSETS_DIR . "/js/includes/plupload/plupload$minify.js", [ 'moxiejs' ], '2.1.9' );
+	$scripts->add( 'plupload-handlers', '/' . APP_ASSETS_DIR . "/js/includes/plupload/handlers$minify.js", [ 'plupload', 'jquery' ] );
 
 	did_action( 'init' ) && $scripts->localize( 'plupload-handlers', 'pluploadL10n', $uploader_l10n );
 
-	$scripts->add( 'wp-plupload', "/app-assets/js/includes/plupload/wp-plupload$minify.js", [ 'plupload', 'jquery', 'json2', 'media-models' ], false, 1 );
+	$scripts->add( 'wp-plupload', '/' . APP_ASSETS_DIR . "/js/includes/plupload/wp-plupload$minify.js", [ 'plupload', 'jquery', 'json2', 'media-models' ], false, 1 );
 
 	did_action( 'init' ) && $scripts->localize( 'wp-plupload', 'pluploadL10n', $uploader_l10n );
 
 	// Keep 'swfupload' for back-compat.
-	$scripts->add( 'swfupload', '/app-assets/js/includes/swfupload/swfupload.js', [], '2201-20110113' );
+	$scripts->add( 'swfupload', '/' . APP_ASSETS_DIR . '/js/includes/swfupload/swfupload.js', [], '2201-20110113' );
 	$scripts->add( 'swfupload-all', false, [ 'swfupload' ], '2201' );
-	$scripts->add( 'swfupload-handlers', "/app-assets/js/includes/swfupload/handlers$minify.js", [ 'swfupload-all', 'jquery' ], '2201-20110524' );
+	$scripts->add( 'swfupload-handlers', '/' . APP_ASSETS_DIR . "/js/includes/swfupload/handlers$minify.js", [ 'swfupload-all', 'jquery' ], '2201-20110524' );
 
 	did_action( 'init' ) && $scripts->localize( 'swfupload-handlers', 'swfuploadL10n', $uploader_l10n );
 
-	$scripts->add( 'comment-reply', "/app-assets/js/includes/comment-reply$minify.js", [], false, 1 );
-	$scripts->add( 'json2', "/app-assets/js/includes/json2$minify.js", [], '2015-05-03' );
-	$scripts->add( 'underscore', "/app-assets/js/includes/underscore$dev_minify.js", [], '1.8.3', 1 );
-	$scripts->add( 'backbone', "/app-assets/js/includes/backbone$dev_minify.js", [ 'underscore','jquery' ], '1.2.3', 1 );
-	$scripts->add( 'wp-util', "/app-assets/js/includes/wp-util$minify.js", [ 'underscore', 'jquery' ], false, 1 );
+	$scripts->add( 'comment-reply', '/' . APP_ASSETS_DIR . "/js/includes/comment-reply$minify.js", [], false, 1 );
+	$scripts->add( 'json2', '/' . APP_ASSETS_DIR . "/js/includes/json2$minify.js", [], '2015-05-03' );
+	$scripts->add( 'underscore', '/' . APP_ASSETS_DIR . "/js/includes/underscore$dev_minify.js", [], '1.8.3', 1 );
+	$scripts->add( 'backbone', '/' . APP_ASSETS_DIR . "/js/includes/backbone$dev_minify.js", [ 'underscore','jquery' ], '1.2.3', 1 );
+	$scripts->add( 'wp-util', '/' . APP_ASSETS_DIR . "/js/includes/wp-util$minify.js", [ 'underscore', 'jquery' ], false, 1 );
 
 	did_action( 'init' ) && $scripts->localize( 'wp-util', '_wpUtilSettings', [
 		'ajax' => [
@@ -333,13 +333,13 @@ function wp_default_scripts( &$scripts ) {
 		],
 	] );
 
-	$scripts->add( 'wp-sanitize', "/app-assets/js/includes/wp-sanitize$minify.js", [ 'jquery' ], false, 1 );
-	$scripts->add( 'wp-backbone', "/app-assets/js/includes/wp-backbone$minify.js", [ 'backbone', 'wp-util' ], false, 1 );
-	$scripts->add( 'revisions', "/app-assets/js/admin/revisions$minify.js", [ 'wp-backbone', 'jquery-ui-slider', 'hoverIntent' ], false, 1 );
-	$scripts->add( 'imgareaselect', "/app-assets/js/includes/imgareaselect/jquery.imgareaselect$minify.js", [ 'jquery' ], false, 1 );
+	$scripts->add( 'wp-sanitize', '/' . APP_ASSETS_DIR . "/js/includes/wp-sanitize$minify.js", [ 'jquery' ], false, 1 );
+	$scripts->add( 'wp-backbone', '/' . APP_ASSETS_DIR . "/js/includes/wp-backbone$minify.js", [ 'backbone', 'wp-util' ], false, 1 );
+	$scripts->add( 'revisions', '/' . APP_ASSETS_DIR . "/js/admin/revisions$minify.js", [ 'wp-backbone', 'jquery-ui-slider', 'hoverIntent' ], false, 1 );
+	$scripts->add( 'imgareaselect', '/' . APP_ASSETS_DIR . "/js/includes/imgareaselect/jquery.imgareaselect$minify.js", [ 'jquery' ], false, 1 );
 	$scripts->add( 'mediaelement', false, [ 'jquery', 'mediaelement-core', 'mediaelement-migrate' ], '4.2.6-78496d1' );
-	$scripts->add( 'mediaelement-core', "/app-assets/js/includes/mediaelement/mediaelement-and-player$minify.js", [], '4.2.6-78496d1', 1 );
-	$scripts->add( 'mediaelement-migrate', "/app-assets/js/includes/mediaelement/mediaelement-migrate$minify.js", [], false, 1);
+	$scripts->add( 'mediaelement-core', '/' . APP_ASSETS_DIR . "/js/includes/mediaelement/mediaelement-and-player$minify.js", [], '4.2.6-78496d1', 1 );
+	$scripts->add( 'mediaelement-migrate', '/' . APP_ASSETS_DIR . "/js/includes/mediaelement/mediaelement-migrate$minify.js", [], false, 1);
 
 	did_action( 'init' ) && $scripts->add_inline_script( 'mediaelement-core', sprintf( 'var mejsL10n = %s;', wp_json_encode( [
 
@@ -442,8 +442,8 @@ function wp_default_scripts( &$scripts ) {
 	] ) ), 'before' );
 
 
-	$scripts->add( 'mediaelement-vimeo', "/app-assets/js/includes/mediaelement/renderers/vimeo.min.js", [ 'mediaelement' ], '4.2.6-78496d1', 1 );
-	$scripts->add( 'wp-mediaelement', "/app-assets/js/includes/mediaelement/wp-mediaelement$minify.js", [ 'mediaelement' ], false, 1 );
+	$scripts->add( 'mediaelement-vimeo', '/' . APP_ASSETS_DIR . "/js/includes/mediaelement/renderers/vimeo.min.js", [ 'mediaelement' ], '4.2.6-78496d1', 1 );
+	$scripts->add( 'wp-mediaelement', '/' . APP_ASSETS_DIR . "/js/includes/mediaelement/wp-mediaelement$minify.js", [ 'mediaelement' ], false, 1 );
 
 	$mejs_settings = [
 		'pluginPath'  => app_assets_url( 'js/includes/mediaelement/', 'relative' ),
@@ -462,14 +462,14 @@ function wp_default_scripts( &$scripts ) {
 		apply_filters( 'mejs_settings', $mejs_settings )
 	);
 
-	$scripts->add( 'app-codemirror', '/app-assets/js/includes/vendor/codemirror/codemirror.min.js', [], '5.29.1-alpha-ee20357' );
-	$scripts->add( 'csslint', '/app-assets/js/includes/vendor/codemirror/csslint.js', [], '1.0.5' );
-	$scripts->add( 'jshint', '/app-assets/js/includes/vendor/codemirror/jshint.js', [], '2.9.5.999' );
-	$scripts->add( 'jsonlint', '/app-assets/js/includes/vendor/codemirror/jsonlint.js', [], '1.6.2' );
-	$scripts->add( 'htmlhint', '/app-assets/js/includes/vendor/codemirror/htmlhint.js', [], '0.9.14-xwp' );
-	$scripts->add( 'htmlhint-kses', '/app-assets/js/includes/vendor/codemirror/htmlhint-kses.js', [ 'htmlhint' ] );
-	$scripts->add( 'code-editor', "/app-assets/js/admin/code-editor$minify.js", [ 'jquery', 'app-codemirror', 'underscore' ] );
-	$scripts->add( 'wp-theme-plugin-editor', "/app-assets/js/admin/theme-plugin-editor$minify.js", [ 'wp-util', 'wp-sanitize', 'jquery', 'jquery-ui-core', 'wp-a11y', 'underscore' ] );
+	$scripts->add( 'app-codemirror', '/' . APP_ASSETS_DIR . '/js/includes/vendor/codemirror/codemirror.min.js', [], '5.29.1-alpha-ee20357' );
+	$scripts->add( 'csslint', '/' . APP_ASSETS_DIR . '/js/includes/vendor/codemirror/csslint.js', [], '1.0.5' );
+	$scripts->add( 'jshint', '/' . APP_ASSETS_DIR . '/js/includes/vendor/codemirror/jshint.js', [], '2.9.5.999' );
+	$scripts->add( 'jsonlint', '/' . APP_ASSETS_DIR . '/js/includes/vendor/codemirror/jsonlint.js', [], '1.6.2' );
+	$scripts->add( 'htmlhint', '/' . APP_ASSETS_DIR . '/js/includes/vendor/codemirror/htmlhint.js', [], '0.9.14-xwp' );
+	$scripts->add( 'htmlhint-kses', '/' . APP_ASSETS_DIR . '/js/includes/vendor/codemirror/htmlhint-kses.js', [ 'htmlhint' ] );
+	$scripts->add( 'code-editor', '/' . APP_ASSETS_DIR . "/js/admin/code-editor$minify.js", [ 'jquery', 'app-codemirror', 'underscore' ] );
+	$scripts->add( 'wp-theme-plugin-editor', '/' . APP_ASSETS_DIR . "/js/admin/theme-plugin-editor$minify.js", [ 'wp-util', 'wp-sanitize', 'jquery', 'jquery-ui-core', 'wp-a11y', 'underscore' ] );
 
 	did_action( 'init' ) && $scripts->add_inline_script( 'wp-theme-plugin-editor', sprintf( 'wp.themePluginEditor.l10n = %s;', wp_json_encode( [
 
@@ -481,14 +481,14 @@ function wp_default_scripts( &$scripts ) {
 		]
 	] ) ) );
 
-	$scripts->add( 'wp-playlist', "/app-assets/js/includes/mediaelement/wp-playlist$minify.js", [ 'wp-util', 'backbone', 'mediaelement' ], false, 1 );
-	$scripts->add( 'zxcvbn-async', "/app-assets/js/includes/zxcvbn-async$minify.js", [], '1.0' );
+	$scripts->add( 'wp-playlist', '/' . APP_ASSETS_DIR . "/js/includes/mediaelement/wp-playlist$minify.js", [ 'wp-util', 'backbone', 'mediaelement' ], false, 1 );
+	$scripts->add( 'zxcvbn-async', '/' . APP_ASSETS_DIR . "/js/includes/zxcvbn-async$minify.js", [], '1.0' );
 
 	did_action( 'init' ) && $scripts->localize( 'zxcvbn-async', '_zxcvbnSettings', [
-		'src' => empty( $guessed_url ) ? app_assets_url( 'js/includes/zxcvbn.min.js' ) : $scripts->base_url . '/app-assets/js/includes/zxcvbn.min.js',
+		'src' => empty( $guessed_url ) ? app_assets_url( 'js/includes/zxcvbn.min.js' ) : $scripts->base_url . '/' . APP_ASSETS_DIR . '/js/includes/zxcvbn.min.js',
 	] );
 
-	$scripts->add( 'password-strength-meter', "/app-assets/js/admin/password-strength-meter$minify.js", [ 'jquery', 'zxcvbn-async' ], false, 1 );
+	$scripts->add( 'password-strength-meter', '/' . APP_ASSETS_DIR . "/js/admin/password-strength-meter$minify.js", [ 'jquery', 'zxcvbn-async' ], false, 1 );
 
 	did_action( 'init' ) && $scripts->localize( 'password-strength-meter', 'pwsL10n', [
 		'unknown'  => _x( 'Password strength unknown', 'password strength' ),
@@ -499,7 +499,7 @@ function wp_default_scripts( &$scripts ) {
 		'mismatch' => _x( 'Mismatch', 'password mismatch' ),
 	] );
 
-	$scripts->add( 'user-profile', "/app-assets/js/admin/user-profile$minify.js", [ 'jquery', 'password-strength-meter', 'wp-util' ], false, 1 );
+	$scripts->add( 'user-profile', '/' . APP_ASSETS_DIR . "/js/admin/user-profile$minify.js", [ 'jquery', 'password-strength-meter', 'wp-util' ], false, 1 );
 
 	did_action( 'init' ) && $scripts->localize( 'user-profile', 'userProfileL10n', [
 		'warn'     => __( 'Your new password has not been saved.' ),
@@ -511,10 +511,10 @@ function wp_default_scripts( &$scripts ) {
 		'ariaHide' => esc_attr__( 'Hide password' ),
 	] );
 
-	$scripts->add( 'language-chooser', "/app-assets/js/admin/language-chooser$minify.js", [ 'jquery' ], false, 1 );
-	$scripts->add( 'user-suggest', "/app-assets/js/admin/user-suggest$minify.js", [ 'jquery-ui-autocomplete' ], false, 1 );
-	$scripts->add( 'admin-bar', "/app-assets/js/includes/admin-bar$minify.js", [], false, 1 );
-	$scripts->add( 'wplink', "/app-assets/js/includes/wplink$minify.js", [ 'jquery', 'wp-a11y' ], false, 1 );
+	$scripts->add( 'language-chooser', '/' . APP_ASSETS_DIR . "/js/admin/language-chooser$minify.js", [ 'jquery' ], false, 1 );
+	$scripts->add( 'user-suggest', '/' . APP_ASSETS_DIR . "/js/admin/user-suggest$minify.js", [ 'jquery-ui-autocomplete' ], false, 1 );
+	$scripts->add( 'admin-bar', '/' . APP_ASSETS_DIR . "/js/includes/admin-bar$minify.js", [], false, 1 );
+	$scripts->add( 'wplink', '/' . APP_ASSETS_DIR . "/js/includes/wplink$minify.js", [ 'jquery', 'wp-a11y' ], false, 1 );
 
 	did_action( 'init' ) && $scripts->localize( 'wplink', 'wpLinkL10n', [
 		'title'          => __( 'Insert/edit link' ),
@@ -526,16 +526,16 @@ function wp_default_scripts( &$scripts ) {
 		'linkInserted'   => __( 'Link inserted.' ),
 	] );
 
-	$scripts->add( 'wpdialogs', "/app-assets/js/includes/wpdialog$minify.js", [ 'jquery-ui-dialog' ], false, 1 );
-	$scripts->add( 'word-count', "/app-assets/js/admin/word-count$minify.js", [], false, 1 );
-	$scripts->add( 'media-upload', "/app-assets/js/admin/media-upload$minify.js", [ 'thickbox', 'shortcode' ], false, 1 );
-	$scripts->add( 'hoverIntent', "/app-assets/js/includes/hoverIntent$minify.js", [ 'jquery' ], '1.8.1', 1 );
-	$scripts->add( 'customize-base',     "/app-assets/js/includes/customize-base$minify.js", [ 'jquery', 'json2', 'underscore' ], false, 1 );
-	$scripts->add( 'customize-loader',   "/app-assets/js/includes/customize-loader$minify.js", [ 'customize-base' ], false, 1 );
-	$scripts->add( 'customize-preview',  "/app-assets/js/includes/customize-preview$minify.js", [ 'wp-a11y', 'customize-base' ], false, 1 );
-	$scripts->add( 'customize-models',   "/app-assets/js/includes/customize-models.js", [ 'underscore', 'backbone' ], false, 1 );
-	$scripts->add( 'customize-views',    "/app-assets/js/includes/customize-views.js", [ 'jquery', 'underscore', 'imgareaselect', 'customize-models', 'media-editor', 'media-views' ], false, 1 );
-	$scripts->add( 'customize-controls', "/app-assets/js/admin/customize-controls$minify.js", [ 'customize-base', 'wp-a11y', 'wp-util', 'jquery-ui-core' ], false, 1 );
+	$scripts->add( 'wpdialogs', '/' . APP_ASSETS_DIR . "/js/includes/wpdialog$minify.js", [ 'jquery-ui-dialog' ], false, 1 );
+	$scripts->add( 'word-count', '/' . APP_ASSETS_DIR . "/js/admin/word-count$minify.js", [], false, 1 );
+	$scripts->add( 'media-upload', '/' . APP_ASSETS_DIR . "/js/admin/media-upload$minify.js", [ 'thickbox', 'shortcode' ], false, 1 );
+	$scripts->add( 'hoverIntent', '/' . APP_ASSETS_DIR . "/js/includes/hoverIntent$minify.js", [ 'jquery' ], '1.8.1', 1 );
+	$scripts->add( 'customize-base',     '/' . APP_ASSETS_DIR . "/js/includes/customize-base$minify.js", [ 'jquery', 'json2', 'underscore' ], false, 1 );
+	$scripts->add( 'customize-loader',   '/' . APP_ASSETS_DIR . "/js/includes/customize-loader$minify.js", [ 'customize-base' ], false, 1 );
+	$scripts->add( 'customize-preview',  '/' . APP_ASSETS_DIR . "/js/includes/customize-preview$minify.js", [ 'wp-a11y', 'customize-base' ], false, 1 );
+	$scripts->add( 'customize-models',   '/' . APP_ASSETS_DIR . "/js/includes/customize-models.js", [ 'underscore', 'backbone' ], false, 1 );
+	$scripts->add( 'customize-views',    '/' . APP_ASSETS_DIR . "/js/includes/customize-views.js", [ 'jquery', 'underscore', 'imgareaselect', 'customize-models', 'media-editor', 'media-views' ], false, 1 );
+	$scripts->add( 'customize-controls', '/' . APP_ASSETS_DIR . "/js/admin/customize-controls$minify.js", [ 'customize-base', 'wp-a11y', 'wp-util', 'jquery-ui-core' ], false, 1 );
 
 	did_action( 'init' ) && $scripts->localize( 'customize-controls', '_wpCustomizeControlsL10n', [
 		'activate'           => __( 'Activate &amp; Publish' ),
@@ -596,15 +596,15 @@ function wp_default_scripts( &$scripts ) {
 		'invalidValue'    => __( 'Invalid value.' ),
 	] );
 
-	$scripts->add( 'customize-selective-refresh', "/app-assets/js/includes/customize-selective-refresh$minify.js", [ 'jquery', 'wp-util', 'customize-preview' ], false, 1 );
-	$scripts->add( 'customize-widgets', "/app-assets/js/admin/customize-widgets$minify.js", [ 'jquery', 'jquery-ui-sortable', 'jquery-ui-droppable', 'wp-backbone', 'customize-controls' ], false, 1 );
-	$scripts->add( 'customize-preview-widgets', "/app-assets/js/includes/customize-preview-widgets$minify.js", [ 'jquery', 'wp-util', 'customize-preview', 'customize-selective-refresh' ], false, 1 );
-	$scripts->add( 'customize-nav-menus', "/app-assets/js/admin/customize-nav-menus$minify.js", [ 'jquery', 'wp-backbone', 'customize-controls', 'accordion', 'nav-menu' ], false, 1 );
-	$scripts->add( 'customize-preview-nav-menus', "/app-assets/js/includes/customize-preview-nav-menus$minify.js", [ 'jquery', 'wp-util', 'customize-preview', 'customize-selective-refresh' ], false, 1 );
-	$scripts->add( 'wp-custom-header', "/app-assets/js/includes/wp-custom-header$minify.js", [ 'wp-a11y' ], false, 1 );
-	$scripts->add( 'accordion', "/app-assets/js/admin/accordion$minify.js", [ 'jquery' ], false, 1 );
-	$scripts->add( 'shortcode', "/app-assets/js/includes/shortcode$minify.js", [ 'underscore' ], false, 1 );
-	$scripts->add( 'media-models', "/app-assets/js/includes/media-models$minify.js", [ 'wp-backbone' ], false, 1 );
+	$scripts->add( 'customize-selective-refresh', '/' . APP_ASSETS_DIR . "/js/includes/customize-selective-refresh$minify.js", [ 'jquery', 'wp-util', 'customize-preview' ], false, 1 );
+	$scripts->add( 'customize-widgets', '/' . APP_ASSETS_DIR . "/js/admin/customize-widgets$minify.js", [ 'jquery', 'jquery-ui-sortable', 'jquery-ui-droppable', 'wp-backbone', 'customize-controls' ], false, 1 );
+	$scripts->add( 'customize-preview-widgets', '/' . APP_ASSETS_DIR . "/js/includes/customize-preview-widgets$minify.js", [ 'jquery', 'wp-util', 'customize-preview', 'customize-selective-refresh' ], false, 1 );
+	$scripts->add( 'customize-nav-menus', '/' . APP_ASSETS_DIR . "/js/admin/customize-nav-menus$minify.js", [ 'jquery', 'wp-backbone', 'customize-controls', 'accordion', 'nav-menu' ], false, 1 );
+	$scripts->add( 'customize-preview-nav-menus', '/' . APP_ASSETS_DIR . "/js/includes/customize-preview-nav-menus$minify.js", [ 'jquery', 'wp-util', 'customize-preview', 'customize-selective-refresh' ], false, 1 );
+	$scripts->add( 'wp-custom-header', '/' . APP_ASSETS_DIR . "/js/includes/wp-custom-header$minify.js", [ 'wp-a11y' ], false, 1 );
+	$scripts->add( 'accordion', '/' . APP_ASSETS_DIR . "/js/admin/accordion$minify.js", [ 'jquery' ], false, 1 );
+	$scripts->add( 'shortcode', '/' . APP_ASSETS_DIR . "/js/includes/shortcode$minify.js", [ 'underscore' ], false, 1 );
+	$scripts->add( 'media-models', '/' . APP_ASSETS_DIR . "/js/includes/media-models$minify.js", [ 'wp-backbone' ], false, 1 );
 
 	did_action( 'init' ) && $scripts->localize( 'media-models', '_wpMediaModelsL10n', [
 		'settings' => [
@@ -613,26 +613,26 @@ function wp_default_scripts( &$scripts ) {
 		],
 	] );
 
-	$scripts->add( 'wp-embed', "/app-assets/js/includes/wp-embed$minify.js" );
+	$scripts->add( 'wp-embed', '/' . APP_ASSETS_DIR . "/js/includes/wp-embed$minify.js" );
 
 	// To enqueue media-views or media-editor, call wp_enqueue_media().
 	// Both rely on numerous settings, styles, and templates to operate correctly.
-	$scripts->add( 'media-views',  "/app-assets/js/includes/media-views$minify.js",  [ 'utils', 'media-models', 'wp-plupload', 'jquery-ui-sortable', 'wp-mediaelement', 'wp-api-request' ], false, 1 );
-	$scripts->add( 'media-editor', "/app-assets/js/includes/media-editor$minify.js", [ 'shortcode', 'media-views' ], false, 1 );
-	$scripts->add( 'media-audiovideo', "/app-assets/js/includes/media-audiovideo$minify.js", [ 'media-editor' ], false, 1 );
-	$scripts->add( 'mce-view', "/app-assets/js/includes/mce-view$minify.js", [ 'shortcode', 'jquery', 'media-views', 'media-audiovideo' ], false, 1 );
-	$scripts->add( 'wp-api', "/app-assets/js/includes/wp-api$minify.js", [ 'jquery', 'backbone', 'underscore', 'wp-api-request' ], false, 1 );
+	$scripts->add( 'media-views',  '/' . APP_ASSETS_DIR . "/js/includes/media-views$minify.js",  [ 'utils', 'media-models', 'wp-plupload', 'jquery-ui-sortable', 'wp-mediaelement', 'wp-api-request' ], false, 1 );
+	$scripts->add( 'media-editor', '/' . APP_ASSETS_DIR . "/js/includes/media-editor$minify.js", [ 'shortcode', 'media-views' ], false, 1 );
+	$scripts->add( 'media-audiovideo', '/' . APP_ASSETS_DIR . "/js/includes/media-audiovideo$minify.js", [ 'media-editor' ], false, 1 );
+	$scripts->add( 'mce-view', '/' . APP_ASSETS_DIR . "/js/includes/mce-view$minify.js", [ 'shortcode', 'jquery', 'media-views', 'media-audiovideo' ], false, 1 );
+	$scripts->add( 'wp-api', '/' . APP_ASSETS_DIR . "/js/includes/wp-api$minify.js", [ 'jquery', 'backbone', 'underscore', 'wp-api-request' ], false, 1 );
 
 	if ( is_admin() ) {
 
-		$scripts->add( 'admin-tags', "/app-assets/js/admin/tags$minify.js", [ 'jquery', 'wp-ajax-response' ], false, 1 );
+		$scripts->add( 'admin-tags', '/' . APP_ASSETS_DIR . "/js/admin/tags$minify.js", [ 'jquery', 'wp-ajax-response' ], false, 1 );
 
 		did_action( 'init' ) && $scripts->localize( 'admin-tags', 'tagsl10n', [
 			'noPerm' => __( 'Sorry, you are not allowed to do that.' ),
 			'broken' => __( 'Something went wrong.' )
 		] );
 
-		$scripts->add( 'admin-comments', "/app-assets/js/admin/edit-comments$minify.js", [ 'wp-lists', 'quicktags', 'jquery-query' ], false, 1 );
+		$scripts->add( 'admin-comments', '/' . APP_ASSETS_DIR . "/js/admin/edit-comments$minify.js", [ 'wp-lists', 'quicktags', 'jquery-query' ], false, 1 );
 
 		did_action( 'init' ) && $scripts->localize( 'admin-comments', 'adminCommentsL10n', [
 			'hotkeys_highlight_first' => isset( $_GET['hotkeys_highlight_first']),
@@ -645,7 +645,7 @@ function wp_default_scripts( &$scripts ) {
 			'docTitleCommentsCount' => __( 'Comments (%s)' )
 		] );
 
-		$scripts->add( 'xfn', "/app-assets/js/admin/xfn$minify.js", [ 'jquery' ], false, 1 );
+		$scripts->add( 'xfn', '/' . APP_ASSETS_DIR . "/js/admin/xfn$minify.js", [ 'jquery' ], false, 1 );
 
 		did_action( 'init' ) && $scripts->localize(
 			'xfn', 'privacyToolsL10n', [
@@ -659,14 +659,14 @@ function wp_default_scripts( &$scripts ) {
 			]
 		);
 
-		$scripts->add( 'postbox', "/app-assets/js/admin/postbox$minify.js", [ 'jquery-ui-sortable' ], false, 1 );
+		$scripts->add( 'postbox', '/' . APP_ASSETS_DIR . "/js/admin/postbox$minify.js", [ 'jquery-ui-sortable' ], false, 1 );
 
 		did_action( 'init' ) && $scripts->localize( 'postbox', 'postBoxL10n', [
 			'postBoxEmptyString' => __( 'Drag boxes here' ),
 		] );
 
-		$scripts->add( 'tags-box', "/app-assets/js/admin/tags-box$minify.js", [ 'jquery', 'tags-suggest' ], false, 1 );
-		$scripts->add( 'tags-suggest', "/app-assets/js/admin/tags-suggest$minify.js", [ 'jquery-ui-autocomplete', 'wp-a11y' ], false, 1 );
+		$scripts->add( 'tags-box', '/' . APP_ASSETS_DIR . "/js/admin/tags-box$minify.js", [ 'jquery', 'tags-suggest' ], false, 1 );
+		$scripts->add( 'tags-suggest', '/' . APP_ASSETS_DIR . "/js/admin/tags-suggest$minify.js", [ 'jquery-ui-autocomplete', 'wp-a11y' ], false, 1 );
 
 		did_action( 'init' ) && $scripts->localize( 'tags-suggest', 'tagsSuggestL10n', [
 			'tagDelimiter' => _x( ',', 'tag delimiter' ),
@@ -676,7 +676,7 @@ function wp_default_scripts( &$scripts ) {
 			'termRemoved'  => __( 'Term removed.' ),
 		] );
 
-		$scripts->add( 'post', "/app-assets/js/admin/post$minify.js", [ 'suggest', 'wp-lists', 'postbox', 'tags-box', 'underscore', 'word-count', 'wp-a11y' ], false, 1 );
+		$scripts->add( 'post', '/' . APP_ASSETS_DIR . "/js/admin/post$minify.js", [ 'suggest', 'wp-lists', 'postbox', 'tags-box', 'underscore', 'word-count', 'wp-a11y' ], false, 1 );
 
 		did_action( 'init' ) && $scripts->localize( 'post', 'postL10n', [
 			'ok'                 => __( 'OK' ),
@@ -703,9 +703,9 @@ function wp_default_scripts( &$scripts ) {
 			'permalinkSaved'     => __( 'Permalink saved' ),
 		] );
 
-		$scripts->add( 'editor-expand', "/app-assets/js/admin/editor-expand$minify.js", [ 'jquery', 'underscore' ], false, 1 );
-		$scripts->add( 'link', "/app-assets/js/admin/link$minify.js", [ 'wp-lists', 'postbox' ], false, 1 );
-		$scripts->add( 'comment', "/app-assets/js/admin/comment$minify.js", [ 'jquery', 'postbox' ] );
+		$scripts->add( 'editor-expand', '/' . APP_ASSETS_DIR . "/js/admin/editor-expand$minify.js", [ 'jquery', 'underscore' ], false, 1 );
+		$scripts->add( 'link', '/' . APP_ASSETS_DIR . "/js/admin/link$minify.js", [ 'wp-lists', 'postbox' ], false, 1 );
+		$scripts->add( 'comment', '/' . APP_ASSETS_DIR . "/js/admin/comment$minify.js", [ 'jquery', 'postbox' ] );
 		$scripts->add_data( 'comment', 'group', 1 );
 
 		did_action( 'init' ) && $scripts->localize( 'comment', 'commentL10n', [
@@ -713,8 +713,8 @@ function wp_default_scripts( &$scripts ) {
 			'dateFormat' => __( '%1$s %2$s, %3$s @ %4$s:%5$s' )
 		] );
 
-		$scripts->add( 'admin-gallery', "/app-assets/js/admin/gallery$minify.js", [ 'jquery-ui-sortable' ] );
-		$scripts->add( 'admin-widgets', "/app-assets/js/admin/widgets$minify.js", [ 'jquery-ui-sortable', 'jquery-ui-draggable', 'jquery-ui-droppable' ], false, 1 );
+		$scripts->add( 'admin-gallery', '/' . APP_ASSETS_DIR . "/js/admin/gallery$minify.js", [ 'jquery-ui-sortable' ] );
+		$scripts->add( 'admin-widgets', '/' . APP_ASSETS_DIR . "/js/admin/widgets$minify.js", [ 'jquery-ui-sortable', 'jquery-ui-draggable', 'jquery-ui-droppable' ], false, 1 );
 
 		did_action( 'init' ) && $scripts->add_inline_script( 'admin-widgets', sprintf( 'wpWidgets.l10n = %s;', wp_json_encode( [
 			'save'      => __( 'Save' ),
@@ -722,17 +722,17 @@ function wp_default_scripts( &$scripts ) {
 			'saveAlert' => __( 'The changes you made will be lost if you navigate away from this page.' ),
 		] ) ) );
 
-		$scripts->add( 'media-widgets', "/app-assets/js/admin/widgets/media-widgets$minify.js", [ 'jquery', 'media-models', 'media-views', 'wp-api-request' ] );
+		$scripts->add( 'media-widgets', '/' . APP_ASSETS_DIR . "/js/admin/widgets/media-widgets$minify.js", [ 'jquery', 'media-models', 'media-views', 'wp-api-request' ] );
 		$scripts->add_inline_script( 'media-widgets', 'wp.mediaWidgets.init();', 'after' );
 
-		$scripts->add( 'media-audio-widget', "/app-assets/js/admin/widgets/media-audio-widget$minify.js", [ 'media-widgets', 'media-audiovideo' ] );
-		$scripts->add( 'media-image-widget', "/app-assets/js/admin/widgets/media-image-widget$minify.js", [ 'media-widgets' ] );
-		$scripts->add( 'media-gallery-widget', "/app-assets/js/admin/widgets/media-gallery-widget$minify.js", [ 'media-widgets' ] );
-		$scripts->add( 'media-video-widget', "/app-assets/js/admin/widgets/media-video-widget$minify.js", [ 'media-widgets', 'media-audiovideo', 'wp-api-request' ] );
-		$scripts->add( 'text-widgets', "/app-assets/js/admin/widgets/text-widgets$minify.js", [ 'jquery', 'backbone', 'editor', 'wp-util', 'wp-a11y' ] );
-		$scripts->add( 'custom-html-widgets', "/app-assets/js/admin/widgets/custom-html-widgets$minify.js", [ 'jquery', 'backbone', 'wp-util', 'jquery-ui-core', 'wp-a11y' ] );
-		$scripts->add( 'theme', "/app-assets/js/admin/theme$minify.js", [ 'wp-backbone', 'wp-a11y', 'customize-base' ], false, 1 );
-		$scripts->add( 'inline-edit-post', "/app-assets/js/admin/inline-edit-post$minify.js", [ 'jquery', 'tags-suggest', 'wp-a11y' ], false, 1 );
+		$scripts->add( 'media-audio-widget', '/' . APP_ASSETS_DIR . "/js/admin/widgets/media-audio-widget$minify.js", [ 'media-widgets', 'media-audiovideo' ] );
+		$scripts->add( 'media-image-widget', '/' . APP_ASSETS_DIR . "/js/admin/widgets/media-image-widget$minify.js", [ 'media-widgets' ] );
+		$scripts->add( 'media-gallery-widget', '/' . APP_ASSETS_DIR . "/js/admin/widgets/media-gallery-widget$minify.js", [ 'media-widgets' ] );
+		$scripts->add( 'media-video-widget', '/' . APP_ASSETS_DIR . "/js/admin/widgets/media-video-widget$minify.js", [ 'media-widgets', 'media-audiovideo', 'wp-api-request' ] );
+		$scripts->add( 'text-widgets', '/' . APP_ASSETS_DIR . "/js/admin/widgets/text-widgets$minify.js", [ 'jquery', 'backbone', 'editor', 'wp-util', 'wp-a11y' ] );
+		$scripts->add( 'custom-html-widgets', '/' . APP_ASSETS_DIR . "/js/admin/widgets/custom-html-widgets$minify.js", [ 'jquery', 'backbone', 'wp-util', 'jquery-ui-core', 'wp-a11y' ] );
+		$scripts->add( 'theme', '/' . APP_ASSETS_DIR . "/js/admin/theme$minify.js", [ 'wp-backbone', 'wp-a11y', 'customize-base' ], false, 1 );
+		$scripts->add( 'inline-edit-post', '/' . APP_ASSETS_DIR . "/js/admin/inline-edit-post$minify.js", [ 'jquery', 'tags-suggest', 'wp-a11y' ], false, 1 );
 
 		did_action( 'init' ) && $scripts->localize( 'inline-edit-post', 'inlineEditL10n', [
 			'error'      => __( 'Error while saving the changes.' ),
@@ -742,14 +742,14 @@ function wp_default_scripts( &$scripts ) {
 			'saved'      => __( 'Changes saved.' ),
 		] );
 
-		$scripts->add( 'inline-edit-tax', "/app-assets/js/admin/inline-edit-tax$minify.js", [ 'jquery', 'wp-a11y' ], false, 1 );
+		$scripts->add( 'inline-edit-tax', '/' . APP_ASSETS_DIR . "/js/admin/inline-edit-tax$minify.js", [ 'jquery', 'wp-a11y' ], false, 1 );
 
 		did_action( 'init' ) && $scripts->localize( 'inline-edit-tax', 'inlineEditL10n', [
 			'error' => __( 'Error while saving the changes.' ),
 			'saved' => __( 'Changes saved.' ),
 		] );
 
-		$scripts->add( 'plugin-install', "/app-assets/js/admin/plugin-install$minify.js", [ 'jquery', 'jquery-ui-core', 'thickbox' ], false, 1 );
+		$scripts->add( 'plugin-install', '/' . APP_ASSETS_DIR . "/js/admin/plugin-install$minify.js", [ 'jquery', 'jquery-ui-core', 'thickbox' ], false, 1 );
 
 		did_action( 'init' ) && $scripts->localize( 'plugin-install', 'plugininstallL10n', [
 			'plugin_information' => __( 'Plugin:' ),
@@ -757,7 +757,7 @@ function wp_default_scripts( &$scripts ) {
 			'ays' => __( 'Are you sure you want to install this plugin?' )
 		] );
 
-		$scripts->add( 'updates', "/app-assets/js/admin/updates$minify.js", [ 'jquery', 'wp-util', 'wp-a11y' ], false, 1 );
+		$scripts->add( 'updates', '/' . APP_ASSETS_DIR . "/js/admin/updates$minify.js", [ 'jquery', 'wp-util', 'wp-a11y' ], false, 1 );
 
 		did_action( 'init' ) && $scripts->localize( 'updates', '_wpUpdatesSettings', [
 
@@ -821,8 +821,8 @@ function wp_default_scripts( &$scripts ) {
 			],
 		] );
 
-		$scripts->add( 'iris', '/app-assets/js/admin/iris.min.js', [ 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ], '1.0.7', 1 );
-		$scripts->add( 'wp-color-picker', "/app-assets/js/admin/color-picker$minify.js", [ 'iris' ], false, 1 );
+		$scripts->add( 'iris', '/' . APP_ASSETS_DIR . '/js/admin/iris.min.js', [ 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ], '1.0.7', 1 );
+		$scripts->add( 'wp-color-picker', '/' . APP_ASSETS_DIR . "/js/admin/color-picker$minify.js", [ 'iris' ], false, 1 );
 
 		did_action( 'init' ) && $scripts->localize( 'wp-color-picker', 'wpColorPickerL10n', [
 			'clear'            => __( 'Clear' ),
@@ -833,22 +833,22 @@ function wp_default_scripts( &$scripts ) {
 			'defaultLabel'     => __( 'Color value' ),
 		] );
 
-		$scripts->add( 'dashboard', "/app-assets/js/admin/dashboard$minify.js", [ 'jquery', 'admin-comments', 'postbox', 'wp-util', 'wp-a11y' ], false, 1 );
-		$scripts->add( 'list-revisions', "/app-assets/js/includes/wp-list-revisions$minify.js" );
-		$scripts->add( 'media-grid', "/app-assets/js/includes/media-grid$minify.js", [ 'media-editor' ], false, 1 );
-		$scripts->add( 'media', "/app-assets/js/admin/media$minify.js", [ 'jquery' ], false, 1 );
+		$scripts->add( 'dashboard', '/' . APP_ASSETS_DIR . "/js/admin/dashboard$minify.js", [ 'jquery', 'admin-comments', 'postbox', 'wp-util', 'wp-a11y' ], false, 1 );
+		$scripts->add( 'list-revisions', '/' . APP_ASSETS_DIR . "/js/includes/wp-list-revisions$minify.js" );
+		$scripts->add( 'media-grid', '/' . APP_ASSETS_DIR . "/js/includes/media-grid$minify.js", [ 'media-editor' ], false, 1 );
+		$scripts->add( 'media', '/' . APP_ASSETS_DIR . "/js/admin/media$minify.js", [ 'jquery' ], false, 1 );
 
 		did_action( 'init' ) && $scripts->localize( 'media', 'attachMediaBoxL10n', [
 			'error' => __( 'An error has occurred. Please reload the page and try again.' ),
 		] );
 
-		$scripts->add( 'image-edit', "/app-assets/js/admin/image-edit$minify.js", [ 'jquery', 'json2', 'imgareaselect' ], false, 1 );
+		$scripts->add( 'image-edit', '/' . APP_ASSETS_DIR . "/js/admin/image-edit$minify.js", [ 'jquery', 'json2', 'imgareaselect' ], false, 1 );
 
 		did_action( 'init' ) && $scripts->localize( 'image-edit', 'imageEditL10n', [
 			'error' => __( 'Could not load the preview image. Please reload the page and try again.' )
 		] );
 
-		$scripts->add( 'set-post-thumbnail', "/app-assets/js/admin/set-post-thumbnail$minify.js", [ 'jquery' ], false, 1 );
+		$scripts->add( 'set-post-thumbnail', '/' . APP_ASSETS_DIR . "/js/admin/set-post-thumbnail$minify.js", [ 'jquery' ], false, 1 );
 
 		did_action( 'init' ) && $scripts->localize( 'set-post-thumbnail', 'setPostThumbnailL10n', [
 			'setThumbnail' => __( 'Use as featured image' ),
@@ -858,7 +858,7 @@ function wp_default_scripts( &$scripts ) {
 		] );
 
 		// Navigation menus.
-		$scripts->add( 'nav-menu', "/app-assets/js/admin/nav-menu$minify.js", [ 'jquery-ui-sortable', 'jquery-ui-draggable', 'jquery-ui-droppable', 'wp-lists', 'postbox', 'json2' ] );
+		$scripts->add( 'nav-menu', '/' . APP_ASSETS_DIR . "/js/admin/nav-menu$minify.js", [ 'jquery-ui-sortable', 'jquery-ui-draggable', 'jquery-ui-droppable', 'wp-lists', 'postbox', 'json2' ] );
 
 		did_action( 'init' ) && $scripts->localize( 'nav-menu', 'navMenuL10n', [
 			'noResultsFound' => __( 'No results found.' ),
@@ -867,10 +867,10 @@ function wp_default_scripts( &$scripts ) {
 			'untitled'       => _x( '(no label)', 'missing menu item navigation label' )
 		] );
 
-		$scripts->add( 'custom-header', "/app-assets/js/admin/custom-header.js", [ 'jquery-masonry' ], false, 1 );
-		$scripts->add( 'custom-background', "/app-assets/js/admin/custom-background$minify.js", [ 'wp-color-picker', 'media-views' ], false, 1 );
-		$scripts->add( 'media-gallery', "/app-assets/js/admin/media-gallery$minify.js", [ 'jquery' ], false, 1 );
-		$scripts->add( 'svg-painter', '/app-assets/js/admin/svg-painter.js', [ 'jquery' ], false, 1 );
+		$scripts->add( 'custom-header', '/' . APP_ASSETS_DIR . "/js/admin/custom-header.js", [ 'jquery-masonry' ], false, 1 );
+		$scripts->add( 'custom-background', '/' . APP_ASSETS_DIR . "/js/admin/custom-background$minify.js", [ 'wp-color-picker', 'media-views' ], false, 1 );
+		$scripts->add( 'media-gallery', '/' . APP_ASSETS_DIR . "/js/admin/media-gallery$minify.js", [ 'jquery' ], false, 1 );
+		$scripts->add( 'svg-painter', '/' . APP_ASSETS_DIR . '/js/admin/svg-painter.js', [ 'jquery' ], false, 1 );
 	}
 }
 
@@ -926,18 +926,18 @@ function wp_default_styles( &$styles ) {
 	}
 
 	// Admin stylesheets.
-	$styles->add( 'admin',       "/app-assets/css/admin/admin$minify.css" );
-	$styles->add( 'list-tables', "/app-assets/css/admin/screens/list-tables$minify.css" );
-	$styles->add( 'edit',        "/app-assets/css/admin/screens/edit$minify.css" );
-	$styles->add( 'revisions',   "/app-assets/css/admin/screens/revisions$minify.css" );
-	$styles->add( 'media',       "/app-assets/css/admin/screens/media$minify.css" );
-	$styles->add( 'themes',      "/app-assets/css/admin/screens/themes$minify.css" );
-	$styles->add( 'plugins',     "/app-assets/css/admin/screens/plugins$minify.css" );
-	$styles->add( 'nav-menus',   "/app-assets/css/admin/screens/nav-menus$minify.css" );
-	$styles->add( 'widgets',     "/app-assets/css/admin/screens/widgets$minify.css", [ 'app-pointer' ] );
-	$styles->add( 'profile',     "/app-assets/css/admin/screens/profile$minify.css" );
-	$styles->add( 'site-icon',   "/app-assets/css/admin/screens/site-icon$minify.css" );
-	$styles->add( 'code-editor', "/app-assets/css/admin/screens/code-editor$minify.css", [ 'app-codemirror', 'code-theme' ] );
+	$styles->add( 'admin',       '/' . APP_ASSETS_DIR . "/css/admin/admin$minify.css" );
+	$styles->add( 'list-tables', '/' . APP_ASSETS_DIR . "/css/admin/screens/list-tables$minify.css" );
+	$styles->add( 'edit',        '/' . APP_ASSETS_DIR . "/css/admin/screens/edit$minify.css" );
+	$styles->add( 'revisions',   '/' . APP_ASSETS_DIR . "/css/admin/screens/revisions$minify.css" );
+	$styles->add( 'media',       '/' . APP_ASSETS_DIR . "/css/admin/screens/media$minify.css" );
+	$styles->add( 'themes',      '/' . APP_ASSETS_DIR . "/css/admin/screens/themes$minify.css" );
+	$styles->add( 'plugins',     '/' . APP_ASSETS_DIR . "/css/admin/screens/plugins$minify.css" );
+	$styles->add( 'nav-menus',   '/' . APP_ASSETS_DIR . "/css/admin/screens/nav-menus$minify.css" );
+	$styles->add( 'widgets',     '/' . APP_ASSETS_DIR . "/css/admin/screens/widgets$minify.css", [ 'app-pointer' ] );
+	$styles->add( 'profile',     '/' . APP_ASSETS_DIR . "/css/admin/screens/profile$minify.css" );
+	$styles->add( 'site-icon',   '/' . APP_ASSETS_DIR . "/css/admin/screens/site-icon$minify.css" );
+	$styles->add( 'code-editor', '/' . APP_ASSETS_DIR . "/css/admin/screens/code-editor$minify.css", [ 'app-codemirror', 'code-theme' ] );
 
 	$styles->add( 'app-admin', false, [
 		'admin',
@@ -953,32 +953,32 @@ function wp_default_styles( &$styles ) {
 		'site-icon'
 	] );
 
-	$styles->add( 'customize-controls',  "/app-assets/css/admin/screens/customize-controls$minify.css", [ 'admin', 'colors', 'code-theme', 'imgareaselect' ] );
-	$styles->add( 'customize-widgets',   "/app-assets/css/admin/screens/customize-widgets$minify.css", [ 'admin', 'colors' ] );
-	$styles->add( 'customize-nav-menus', "/app-assets/css/admin/screens/customize-nav-menus$minify.css", [ 'admin', 'colors' ] );
+	$styles->add( 'customize-controls',  '/' . APP_ASSETS_DIR . "/css/admin/screens/customize-controls$minify.css", [ 'admin', 'colors', 'code-theme', 'imgareaselect' ] );
+	$styles->add( 'customize-widgets',   '/' . APP_ASSETS_DIR . "/css/admin/screens/customize-widgets$minify.css", [ 'admin', 'colors' ] );
+	$styles->add( 'customize-nav-menus', '/' . APP_ASSETS_DIR . "/css/admin/screens/customize-nav-menus$minify.css", [ 'admin', 'colors' ] );
 
 	// Common stylesheets.
-	$styles->add( 'dashicons', "/app-assets/css/includes/dashicons$minify.css", [ 'admin' ] );
+	$styles->add( 'dashicons', '/' . APP_ASSETS_DIR . "/css/includes/dashicons$minify.css", [ 'admin' ] );
 
 	// Includes stylesheets.
-	$styles->add( 'utility',               "/app-assets/css/includes/utility$minify.css" );
-	$styles->add( 'install',               "/app-assets/css/includes/install$minify.css" );
-	$styles->add( 'login',                 "/app-assets/css/includes/login$minify.css", [ 'dashicons' ] );
-	$styles->add( 'user-toolbar',          "/app-assets/css/includes/user-toolbar$minify.css", [ 'dashicons' ] );
-	$styles->add( 'app-auth-check',        "/app-assets/css/includes/app-auth-check$minify.css", [ 'dashicons' ] );
-	$styles->add( 'editor-buttons',        "/app-assets/css/includes/editor$minify.css", [ 'dashicons' ] );
-	$styles->add( 'media-views',           "/app-assets/css/includes/media-views$minify.css", [ 'dashicons', 'app-mediaelement' ] );
-	$styles->add( 'app-pointer',           "/app-assets/css/includes/app-pointer$minify.css", [ 'dashicons' ] );
-	$styles->add( 'customize-preview',     "/app-assets/css/includes/customize-preview$minify.css", [ 'dashicons' ] );
-	$styles->add( 'app-embed-template-ie', "/app-assets/css/includes/app-embed-template-ie$minify.css" );
+	$styles->add( 'utility',               '/' . APP_ASSETS_DIR . "/css/includes/utility$minify.css" );
+	$styles->add( 'install',               '/' . APP_ASSETS_DIR . "/css/includes/install$minify.css" );
+	$styles->add( 'login',                 '/' . APP_ASSETS_DIR . "/css/includes/login$minify.css", [ 'dashicons' ] );
+	$styles->add( 'user-toolbar',          '/' . APP_ASSETS_DIR . "/css/includes/user-toolbar$minify.css", [ 'dashicons' ] );
+	$styles->add( 'app-auth-check',        '/' . APP_ASSETS_DIR . "/css/includes/app-auth-check$minify.css", [ 'dashicons' ] );
+	$styles->add( 'editor-buttons',        '/' . APP_ASSETS_DIR . "/css/includes/editor$minify.css", [ 'dashicons' ] );
+	$styles->add( 'media-views',           '/' . APP_ASSETS_DIR . "/css/includes/media-views$minify.css", [ 'dashicons', 'app-mediaelement' ] );
+	$styles->add( 'app-pointer',           '/' . APP_ASSETS_DIR . "/css/includes/app-pointer$minify.css", [ 'dashicons' ] );
+	$styles->add( 'customize-preview',     '/' . APP_ASSETS_DIR . "/css/includes/customize-preview$minify.css", [ 'dashicons' ] );
+	$styles->add( 'app-embed-template-ie', '/' . APP_ASSETS_DIR . "/css/includes/app-embed-template-ie$minify.css" );
 
 	// External library stylesheets.
-	$styles->add( 'imgareaselect',        '/app-assets/js/includes/imgareaselect/imgareaselect.css', [], '0.9.8' );
-	$styles->add( 'app-jquery-ui-dialog', "/app-assets/css/includes/jquery-ui-dialog$minify.css", [ 'dashicons' ] );
-	$styles->add( 'mediaelement',         "/app-assets/js/includes/mediaelement/mediaelementplayer-legacy.min.css", [], '4.2.6-78496d1' );
-	$styles->add( 'app-mediaelement',     "/app-assets/js/includes/mediaelement/wp-mediaelement$minify.css", [ 'mediaelement' ] );
-	$styles->add( 'thickbox',             '/app-assets/js/includes/thickbox/thickbox.css', [ 'dashicons' ] );
-	$styles->add( 'app-codemirror',       '/app-assets/css/includes/vendor/codemirror/codemirror.min.css', [], '4.9.8' );
+	$styles->add( 'imgareaselect',        '/' . APP_ASSETS_DIR . '/js/includes/imgareaselect/imgareaselect.css', [], '0.9.8' );
+	$styles->add( 'app-jquery-ui-dialog', '/' . APP_ASSETS_DIR . "/css/includes/jquery-ui-dialog$minify.css", [ 'dashicons' ] );
+	$styles->add( 'mediaelement',         '/' . APP_ASSETS_DIR . "/js/includes/mediaelement/mediaelementplayer-legacy.min.css", [], '4.2.6-78496d1' );
+	$styles->add( 'app-mediaelement',     '/' . APP_ASSETS_DIR . "/js/includes/mediaelement/wp-mediaelement$minify.css", [ 'mediaelement' ] );
+	$styles->add( 'thickbox',             '/' . APP_ASSETS_DIR . '/js/includes/thickbox/thickbox.css', [ 'dashicons' ] );
+	$styles->add( 'app-codemirror',       '/' . APP_ASSETS_DIR . '/css/includes/vendor/codemirror/codemirror.min.css', [], '4.9.8' );
 
 	// RTL stylesheets.
 	$rtl_styles = [
