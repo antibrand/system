@@ -127,7 +127,7 @@ class Themes_List_Table extends List_Table {
 
 			if ( current_user_can( 'install_themes' ) ) {
 
-				printf( __( 'You only have one theme installed right now. Live a little! You can choose from over 1,000 free themes in the WordPress Theme Directory at any time: just click on the <a href="%s">Install Themes</a> tab above.' ), admin_url( 'theme-install.php' ) );
+				printf( __( 'There is only one theme installed.' ) );
 
 				return;
 			}

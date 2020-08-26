@@ -96,7 +96,7 @@ class Dashboard {
 	 *
 	 * Content varies by user role and can be superceded by themes & plugins.
 	 *
-	 * @since  WP 3.3.0 WordPress released the "Welcome" panel.
+	 * @since  Previous 3.3.0
 	 * @since  1.0.0 Completely reworked for this management system.
 	 * @access public
 	 * @return void

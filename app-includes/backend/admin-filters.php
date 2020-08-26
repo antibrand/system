@@ -124,7 +124,7 @@ add_action( 'load-themes.php', 'wp_theme_update_rows', 20 ); // After wp_update_
 add_action( 'admin_notices', 'maintenance_nag', 10 );
 
 // Update Core hooks.
-add_action( '_core_updated_successfully', '_redirect_to_about_wordpress' );
+add_action( '_core_updated_successfully', '_redirect_to_about' );
 
 // Upgrade hooks.
 add_action( 'upgrader_process_complete', [ 'Language_Pack_Upgrader', 'async_upgrade' ], 20 );

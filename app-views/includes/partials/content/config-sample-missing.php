@@ -111,7 +111,7 @@ define( 'APP_LOGIN', 'login' );
 /**
  * Disable automatic updates.
  *
- * This will prevent WordPress overwriting files.
+ * This will prevent any automatic updates that may be implemented.
  *
  * @todo Review this if updates are removed entirely.
  */

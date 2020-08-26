@@ -1,6 +1,6 @@
 <?php
 /**
- * Deprecated functions from versions of WordPress prior to 4.9.8,
+ * Deprecated functions from versions of the system prior to this,
  * the version from whence this website management system was derived.
  *
  * These functions may be removed. Remove from your system if desired.

@@ -20,6 +20,13 @@ use \WP_Locale;
  */
 define( 'EXPORT_VERSION', '1.2' );
 
+// Get system name for user agent.
+if ( defined( 'APP_NAME' ) ) {
+	$system = APP_NAME;
+} else {
+	$system = 'website management system';
+}
+
 /**
  * Export data class
  *
@@ -164,7 +171,7 @@ public static function export_wp( $args = array() ) {
 		$sitename .= '.';
 	}
 	$date = date( 'Y-m-d' );
-	$wp_filename = $sitename . 'wordpress.' . $date . '.xml';
+	$wp_filename = $sitename . $system . $date . '.xml';
 	/**
 	 * Filters the export filename.
 	 *
@@ -514,11 +521,8 @@ public static function export_wp( $args = array() ) {
 
 <?php the_generator( 'export' ); ?>
 <rss version="2.0"
-	xmlns:excerpt="http://wordpress.org/export/<?php echo EXPORT_VERSION; ?>/excerpt/"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
-	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
 	xmlns:dc="http://purl.org/dc/elements/1.1/"
-	xmlns:wp="http://wordpress.org/export/<?php echo EXPORT_VERSION; ?>/"
 >
 
 <channel>

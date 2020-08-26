@@ -273,7 +273,7 @@ var plupload = {
 
 	/**
 	 * Gets the true type of the built-in object (better version of typeof).
-	 * @credits Angus Croll (http://javascriptweblog.wordpress.com/)
+	 * @credits Angus Croll
 	 *
 	 * @method typeOf
 	 * @static

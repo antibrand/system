@@ -414,7 +414,7 @@ if ( current_theme_supports( 'menus' ) || current_theme_supports( 'widgets' ) ) 
  *
  * Requires the permission to install themes.
  *
- * Used by the WordPress Themes plugin to add a page link if
+ * Used by the themes plugin to add a page link if
  * the plugin is installed & activated.
  *
  * @since 1.0.0

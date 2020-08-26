@@ -354,7 +354,7 @@ if ( $file_description != $file_show ) {
 			<!-- div id="documentation" class="hide-if-no-js">
 				<label for="docs-list"><?php // _e('Documentation:') ?></label>
 				<?php // echo $docs_select; ?>
-				<input type="button" class="button" value="<?php // esc_attr_e( 'Look Up' ); ?>" onclick="if ( '' != jQuery('#docs-list').val() ) { window.open( 'https://api.wordpress.org/core/handbook/1.0/?function=' + escape( jQuery( '#docs-list' ).val() ) + '&amp;locale=<?php // echo urlencode( get_user_locale() ) ?>&amp;version=<?php // echo urlencode( get_bloginfo( 'version' ) ) ?>&amp;redirect=true'); }" />
+				<input type="button" class="button" value="<?php // esc_attr_e( 'Look Up' ); ?>" onclick="if ( '' != jQuery('#docs-list').val() ) { window.open( 'https://api.example.com' ); }" />
 			</div -->
 		<?php endif; ?>
 
@@ -375,7 +375,7 @@ if ( $file_description != $file_show ) {
 				<span class="spinner"></span>
 			</p>
 		<?php else : ?>
-			<p><em><?php _e('You need to make this file writable before you can save your changes. See <a href="https://codex.wordpress.org/Changing_File_Permissions">the Codex</a> for more information.'); ?></em></p>
+			<p><em><?php _e('You need to make this file writable before you can save your changes.'); ?></em></p>
 		<?php endif; ?>
 		</div>
 		<?php wp_print_file_editor_templates(); ?>

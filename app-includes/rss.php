@@ -26,10 +26,17 @@ _deprecated_file( basename( __FILE__ ), '3.0.0', APP_INC_DIR . '/classes/include
  */
 do_action( 'load_feed_engine' );
 
+// System name for user agent.
+if ( defined( 'APP_NAME' ) ) {
+	$system = APP_NAME;
+} else {
+	$system = 'website-management-system';
+}
+
 /** RSS feed constant. */
 define('RSS', 'RSS');
 define('ATOM', 'Atom');
-define('MAGPIE_USER_AGENT', 'WordPress/' . $GLOBALS['wp_version']);
+define('MAGPIE_USER_AGENT', $system . $GLOBALS['wp_version']);
 
 class MagpieRSS {
 	var $parser;
@@ -665,8 +672,9 @@ function init () {
 		define('MAGPIE_DEBUG', 0);
 	}
 
-	if ( !defined('MAGPIE_USER_AGENT') ) {
-		$ua = 'WordPress/' . $GLOBALS['wp_version'];
+	if ( ! defined('MAGPIE_USER_AGENT') ) {
+
+		$ua = $system . $GLOBALS['wp_version'];
 
 		if ( MAGPIE_CACHE_ON ) {
 			$ua = $ua . ')';

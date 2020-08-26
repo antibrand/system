@@ -12,7 +12,7 @@
 namespace AppNamespace\Includes;
 
 /**
- * WordPress Importer class for managing parsing of WXR files.
+ * Importer class for managing parsing of WXR files.
  */
 class WXR_Parser {
 	function parse( $file ) {

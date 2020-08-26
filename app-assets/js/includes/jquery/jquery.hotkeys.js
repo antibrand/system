@@ -5,11 +5,6 @@
  * @ Original License : BSD
 
  * @ jQuery Plugin by Tzury Bar Yochay
-        mail: tzury.by@gmail.com
-        blog: evalinux.wordpress.com
-        face: facebook.com/profile.php?id=513676303
-
-        (c) Copyrights 2007
 
  * @ jQuery Plugin version Beta (0.0.2)
  * @ License: jQuery-License.

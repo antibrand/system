@@ -133,6 +133,7 @@ $_old_files = array(
 'app-assets/js/includes/tinymce/themes/advanced/images',
 'app-assets/js/includes/tinymce/themes/advanced/jscripts',
 'app-assets/js/includes/tinymce/themes/advanced/langs',
+
 // 2.5.1
 'app-assets/js/includes/tinymce/tiny_mce_gzip.php',
 // 2.6
@@ -1254,7 +1255,7 @@ function _copy_dir($from, $to, $skip_list = array() ) {
  *
  * @param string $new_version
  */
-function _redirect_to_about_wordpress( $new_version ) {
+function _redirect_to_about( $new_version ) {
 	global $app_version, $pagenow, $action;
 
 	if ( version_compare( $app_version, '3.4-RC1', '>=' ) )

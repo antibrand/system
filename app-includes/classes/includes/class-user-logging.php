@@ -793,7 +793,7 @@ class User_Logging {
 	/**
 	 * Logout remove stored post data
 	 *
-	 * This is not added by add_action( 'login_head' ) lin WordPress,
+	 * This is not added by add_action( 'login_head' )
 	 * but here it is removable by plugins.
 	 *
 	 * @since 1.0.0

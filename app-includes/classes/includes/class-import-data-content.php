@@ -1210,7 +1210,7 @@ class Import_Data_Content extends Import_Data {
 	 */
 	function greet() {
 		echo '<div class="narrow">';
-		echo '<p>'.__( 'Howdy! Upload your WordPress eXtended RSS (WXR) file and we&#8217;ll import the posts, pages, comments, custom fields, categories, and tags into this site.' ).'</p>';
+		echo '<p>'.__( 'Upload your eXtended RSS (WXR) file and we&#8217;ll import the posts, pages, comments, custom fields, categories, and tags into this site.' ).'</p>';
 		echo '<p>'.__( 'Choose a WXR (.xml) file to upload, then click Upload file and import.' ).'</p>';
 		wp_import_upload_form( 'admin.php?import=content&amp;step=1' );
 		echo '</div>';
