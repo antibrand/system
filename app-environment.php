@@ -147,11 +147,25 @@ define( 'APP_EXTENSIONS_DIR', 'extensions' );
  */
 define( 'APP_EXTENSIONS_PATH', APP_EXTEND_PATH . '/' . APP_EXTENSIONS_DIR );
 
-// Define the administration pages directory.
+/**
+ * Admin directory name
+ *
+ * Defines the administration pages directory.
+ *
+ * @since 1.0.0
+ * @var   string Returns the name of the directory.
+ */
 define( 'APP_ADMIN_DIR', 'app-admin' );
 
-// Define the administration directory path.
-define( 'APP_ADMIN_PATH', ABSPATH . APP_ADMIN_DIR . '/' );
+/**
+ * Admin directory path
+ *
+ * No trailing slash!
+ *
+ * @since 1.0.0
+ * @var   string Returns the path to the directory.
+ */
+define( 'APP_ADMIN_PATH', ABSPATH . APP_ADMIN_DIR );
 
 /**
  * System views directory name
