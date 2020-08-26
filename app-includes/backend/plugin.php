@@ -474,7 +474,7 @@ function is_plugin_inactive( $plugin ) {
  * @return bool True, if active for the network, otherwise false.
  */
 function is_plugin_active_for_network( $plugin ) {
-	if ( !is_network() )
+	if ( ! is_network() )
 		return false;
 
 	$plugins = get_site_option( 'active_sitewide_plugins' );
