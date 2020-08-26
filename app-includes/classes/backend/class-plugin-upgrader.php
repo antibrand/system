@@ -24,7 +24,6 @@ use \AppNamespace\Includes as Includes;
  * or uploaded zip file.
  *
  * @since 2.8.0
- * @since 4.6.0 Moved to its own file from APP_INC_PATH . '/backend/upgrader-skins.php.
  *
  * @see Installer
  */
@@ -305,7 +304,6 @@ class Plugin_Upgrader extends Includes\Installer {
 		// Force refresh of plugin update information.
 		wp_clean_plugins_cache( $parsed_args['clear_update_cache'] );
 
-		/** This action is documented in APP_INC_PATH . '/backend/upgrader-skins.php */
 		do_action( 'upgrader_process_complete', $this, array(
 			'action' => 'update',
 			'type' => 'plugin',

@@ -26,7 +26,6 @@ use \AppNamespace\Includes as Includes;
  * @see Installer
  *
  * @since Previous 2.8.0
- * @since Previous 4.6.0 Moved to its own file from APP_INC_PATH . '/backend/upgrader-skins.php.
  */
 class Theme_Upgrader extends Includes\Installer {
 
@@ -441,7 +440,6 @@ class Theme_Upgrader extends Includes\Installer {
 		// Refresh the Theme Update information.
 		wp_clean_themes_cache( $parsed_args['clear_update_cache'] );
 
-		// This action is documented in APP_INC_PATH . '/backend/upgrader-skins.php.
 		do_action( 'upgrader_process_complete', $this, [
 			'action' => 'update',
 			'type'   => 'theme',

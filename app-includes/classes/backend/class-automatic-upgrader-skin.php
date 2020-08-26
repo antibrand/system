@@ -14,7 +14,6 @@
  * is captured and stored for the caller to process and log/email/discard.
  *
  * @since Previous 3.7.0
- * @since Previous 4.6.0 Moved to its own file from APP_ADMIN_DIR/includes/class-wp-upgrader-skins.php.
  *
  * @see Bulk_Upgrader_Skin
  */

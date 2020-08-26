@@ -13,8 +13,6 @@ if ( ! defined( 'IFRAME_REQUEST' ) && isset( $_GET['action'] ) && in_array( $_GE
 // Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
-include_once( APP_INC_PATH . '/backend/upgrader-skins.php' );
-
 if ( isset( $_GET['action'] ) ) {
 
 	$plugin = isset( $_REQUEST['plugin'] ) ? trim( $_REQUEST['plugin'] ) : '';
@@ -254,9 +252,6 @@ if ( isset( $_GET['action'] ) ) {
 		if ( ! current_user_can( 'install_themes' ) ) {
 			wp_die( __( 'Sorry, you are not allowed to install themes on this site.' ) );
 		}
-
-		// For themes_api.
-		include_once( APP_INC_PATH . '/backend/upgrader-skins.php' );
 
 		check_admin_referer( 'install-theme_' . $theme );
 

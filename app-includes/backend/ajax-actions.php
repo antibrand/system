@@ -3401,7 +3401,6 @@ function wp_ajax_install_theme() {
 		wp_send_json_error( $status );
 	}
 
-	include_once( APP_INC_PATH . '/backend/upgrader-skins.php' );
 	include_once( APP_INC_PATH . '/backend/theme.php' );
 
 	$api = themes_api( 'theme_information', array(
@@ -3515,8 +3514,6 @@ function wp_ajax_update_theme() {
 	if ( $theme->exists() ) {
 		$status['oldVersion'] = $theme->get( 'Version' );
 	}
-
-	include_once( APP_INC_PATH . '/backend/upgrader-skins.php' );
 
 	$current = get_site_transient( 'update_themes' );
 	if ( empty( $current ) ) {
@@ -3671,7 +3668,6 @@ function wp_ajax_install_plugin() {
 		wp_send_json_error( $status );
 	}
 
-	include_once( APP_INC_PATH . '/backend/upgrader-skins.php' );
 	include_once( APP_INC_PATH . '/backend/plugin-install.php' );
 
 	$api = plugins_api( 'plugin_information', array(
@@ -3784,8 +3780,6 @@ function wp_ajax_update_plugin() {
 		/* translators: %s: Plugin version */
 		$status['oldVersion'] = sprintf( __( 'Version %s' ), $plugin_data['Version'] );
 	}
-
-	include_once( APP_INC_PATH . '/backend/upgrader-skins.php' );
 
 	wp_update_plugins();
 

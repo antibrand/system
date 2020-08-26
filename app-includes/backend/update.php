@@ -79,8 +79,6 @@ function find_core_auto_update() {
 	if ( ! $updates || empty( $updates->updates ) )
 		return false;
 
-	include_once( APP_INC_PATH . '/backend/upgrader-skins.php' );
-
 	$auto_update = false;
 	$upgrader = new WP_Automatic_Updater;
 	foreach ( $updates->updates as $update ) {

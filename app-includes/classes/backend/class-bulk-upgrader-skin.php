@@ -11,7 +11,6 @@
  * Generic Bulk Upgrader Skin for Upgrades.
  *
  * @since Previous 3.0.0
- * @since Previous 4.6.0 Moved to its own file from APP_ADMIN_DIR/includes/class-wp-upgrader-skins.php.
  *
  * @see WP_Upgrader_Skin
  */

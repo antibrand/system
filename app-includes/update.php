@@ -583,7 +583,6 @@ function wp_update_themes( $extra_stats = array() ) {
  */
 function wp_maybe_auto_update() {
 	include_once( APP_INC_PATH . '/backend/admin.php' );
-	include_once( APP_INC_PATH . '/backend/upgrader-skins.php' );
 
 	$upgrader = new WP_Automatic_Updater;
 	$upgrader->run();

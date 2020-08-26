@@ -242,8 +242,6 @@ function core_upgrade_preamble() {
 
 		if ( wp_http_supports( array( 'ssl' ) ) ) {
 
-			require_once( APP_INC_PATH . '/backend/upgrader-skins.php' );
-
 			$upgrader            = new WP_Automatic_Updater;
 			$future_minor_update = (object) [
 				'current'       => $app_version . '.1.next.minor',
@@ -276,8 +274,6 @@ function core_upgrade_preamble() {
 	}
 
 	if ( isset( $updates[0] ) && $updates[0]->response == 'development' ) {
-
-		require_once( APP_INC_PATH . '/backend/upgrader-skins.php' );
 
 		$upgrader = new WP_Automatic_Updater;
 
@@ -606,8 +602,6 @@ function list_translation_updates() {
 function do_core_upgrade( $reinstall = false ) {
 
 	global $wp_filesystem;
-
-	include_once( APP_INC_PATH . '/backend/upgrader-skins.php' );
 
 	if ( $reinstall ) {
 		$url = 'update-core.php?action=do-core-reinstall';
@@ -970,7 +964,6 @@ if ( 'upgrade-core' == $action ) {
 	check_admin_referer( 'upgrade-translations' );
 
 	require_once( ABSPATH . 'wp-admin/admin-header.php' );
-	include_once( APP_INC_PATH . '/backend/upgrader-skins.php' );
 
 	$url     = 'update-core.php?action=do-translation-upgrade';
 	$nonce   = 'upgrade-translations';

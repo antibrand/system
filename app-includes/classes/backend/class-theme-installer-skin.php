@@ -11,7 +11,6 @@
  * Theme Installer Skin for the Theme Installer.
  *
  * @since Previous 2.8.0
- * @since Previous 4.6.0 Moved to its own file from APP_ADMIN_DIR/includes/class-wp-upgrader-skins.php.
  *
  * @see WP_Upgrader_Skin
  */

@@ -14,7 +14,6 @@
  * to the Upgrade/Installer functions.
  *
  * @since Previous 2.8.0
- * @since Previous 4.6.0 Moved to its own file from APP_INC_PATH . '/backend/upgrader-skins.php.
  */
 class File_Upload_Upgrader {
 

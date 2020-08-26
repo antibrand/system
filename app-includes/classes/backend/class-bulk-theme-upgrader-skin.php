@@ -13,7 +13,6 @@
  * @see Bulk_Upgrader_Skin
  *
  * @since Previous 3.0.0
- * @since Previous 4.6.0 Moved to its own file from APP_ADMIN_DIR/includes/class-wp-upgrader-skins.php.
  */
 class Bulk_Theme_Upgrader_Skin extends Bulk_Upgrader_Skin {
 
