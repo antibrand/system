@@ -52,6 +52,7 @@ const APP_CLASSES = [
 	'Core_Upgrader'             => __DIR__ . '/classes/backend/class-core-upgrader.php',
 	'WP_Automatic_Updater'      => __DIR__ . '/classes/backend/class-automatic-updater.php',
 	'WP_Upgrader_Skin'          => __DIR__ . '/classes/backend/class-wp-upgrader-skin.php',
+	'WP_Ajax_Upgrader_Skin'     => __DIR__ . '/classes/backend/class-ajax-upgrader-skin.php',
 	'Bulk_Upgrader_Skin'        => __DIR__ . '/classes/backend/class-bulk-upgrader-skin.php',
 	'Automatic_Upgrader_Skin'   => __DIR__ . '/classes/backend/class-automatic-upgrader-skin.php',
 	'Plugin_Upgrader'           => __DIR__ . '/classes/backend/class-plugin-upgrader.php',
