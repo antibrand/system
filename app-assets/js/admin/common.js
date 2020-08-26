@@ -863,10 +863,10 @@ $document.ready( function() {
 				self.deactivate();
 			});
 
-			$( '#wp-admin-bar-menu-toggle a' ).attr( 'aria-expanded', 'false' );
+			$( '#user-toolbar-menu-toggle a' ).attr( 'aria-expanded', 'false' );
 
 			// Toggle sidebar when toggle is clicked
-			$( '#wp-admin-bar-menu-toggle' ).on( 'click.wp-responsive', function( event ) {
+			$( '#user-toolbar-menu-toggle' ).on( 'click.wp-responsive', function( event ) {
 				event.preventDefault();
 
 				// close any open toolbar submenus

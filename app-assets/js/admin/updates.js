@@ -271,7 +271,7 @@
 	 * @since 4.7.0
 	 */
 	wp.updates.refreshCount = function() {
-		var $adminBarUpdates              = $( '#wp-admin-bar-updates' ),
+		var $adminBarUpdates              = $( '#user-toolbar-updates' ),
 			$dashboardNavMenuUpdateCount  = $( 'a[href="update-core.php"] .update-plugins' ),
 			$pluginsNavMenuUpdateCount    = $( 'a[href="plugins.php"] .update-plugins' ),
 			$appearanceNavMenuUpdateCount = $( 'a[href="themes.php"] .update-plugins' ),

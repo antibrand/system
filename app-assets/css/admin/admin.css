@@ -6893,7 +6893,7 @@ ul#adminmenu a.wp-has-current-submenu {
 /**
  * Toolbar menu toggle
  */
-li#wp-admin-bar-menu-toggle {
+li#user-toolbar-menu-toggle {
   display: none;
 }
 
@@ -7091,7 +7091,7 @@ li#wp-admin-bar-menu-toggle {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
   }
-  #app-toolbar #wp-admin-bar-menu-toggle a {
+  #app-toolbar #user-toolbar-menu-toggle a {
     display: block;
     padding: 0;
     overflow: hidden;
@@ -7102,16 +7102,16 @@ li#wp-admin-bar-menu-toggle {
     height: 44px;
     margin-left: -1px;
   }
-  .wp-responsive-open #app-toolbar #wp-admin-bar-menu-toggle a {
+  .wp-responsive-open #app-toolbar #user-toolbar-menu-toggle a {
     background: #333;
   }
-  li#wp-admin-bar-menu-toggle {
+  li#user-toolbar-menu-toggle {
     display: block;
   }
-  #app-toolbar #wp-admin-bar-menu-toggle a:hover {
+  #app-toolbar #user-toolbar-menu-toggle a:hover {
     border: 1px solid transparent;
   }
-  #app-toolbar #wp-admin-bar-menu-toggle .ab-icon:before {
+  #app-toolbar #user-toolbar-menu-toggle .ab-icon:before {
     content: "\f228";
     display: inline-block;
     float: left;
@@ -7130,7 +7130,7 @@ li#wp-admin-bar-menu-toggle {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
   }
-  .wp-responsive-open #app-toolbar #wp-admin-bar-menu-toggle .ab-icon:before {
+  .wp-responsive-open #app-toolbar #user-toolbar-menu-toggle .ab-icon:before {
     color: #00b9eb;
   }
 }

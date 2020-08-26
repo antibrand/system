@@ -577,7 +577,7 @@ class User_Toolbar {
 			return;
 		}
 
-		?><div id="<?php echo esc_attr( 'wp-admin-bar-' . $node->id ); ?>" class="ab-group-container"><?php
+		?><div id="<?php echo esc_attr( 'user-toolbar-' . $node->id ); ?>" class="ab-group-container"><?php
 			foreach ( $node->children as $group ) {
 				$this->_render_group( $group );
 			}
@@ -606,7 +606,7 @@ class User_Toolbar {
 			$class = '';
 		}
 
-		?><ul id="<?php echo esc_attr( 'wp-admin-bar-' . $node->id ); ?>"<?php echo $class; ?>><?php
+		?><ul id="<?php echo esc_attr( 'user-toolbar-' . $node->id ); ?>"<?php echo $class; ?>><?php
 			foreach ( $node->children as $item ) {
 				$this->_render_item( $item );
 			}
@@ -646,7 +646,7 @@ class User_Toolbar {
 		}
 
 		?>
-		<li id="<?php echo esc_attr( 'wp-admin-bar-' . $node->id ); ?>"<?php echo $menuclass; ?>><?php
+		<li id="<?php echo esc_attr( 'user-toolbar-' . $node->id ); ?>"<?php echo $menuclass; ?>><?php
 			if ( $has_link ) :
 				?><a class="ab-item"<?php echo $aria_attributes; ?> href="<?php echo esc_url( $node->href ) ?>"<?php
 					if ( ! empty( $node->meta['onclick'] ) ) :

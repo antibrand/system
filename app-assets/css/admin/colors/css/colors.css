@@ -372,26 +372,26 @@ ul#adminmenu > li.current > a.current:after {
   color: #f3f1f1;
 }
 
-#app-toolbar > #wp-toolbar > #wp-admin-bar-top-secondary > #wp-admin-bar-search #adminbarsearch input.adminbar-input:focus {
+#app-toolbar > #wp-toolbar > #user-toolbar-top-secondary > #user-toolbar-search #adminbarsearch input.adminbar-input:focus {
   color: #fff;
   background: #d66560;
 }
 
 /* Admin Bar: my account */
-#app-toolbar .quicklinks li#wp-admin-bar-my-account.with-avatar > a img {
+#app-toolbar .quicklinks li#user-toolbar-my-account.with-avatar > a img {
   border-color: #d66560;
   background-color: #d66560;
 }
 
-#app-toolbar #wp-admin-bar-user-info .display-name {
+#app-toolbar #user-toolbar-user-info .display-name {
   color: #fff;
 }
 
-#app-toolbar #wp-admin-bar-user-info a:hover .display-name {
+#app-toolbar #user-toolbar-user-info a:hover .display-name {
   color: #f7e3d3;
 }
 
-#app-toolbar #wp-admin-bar-user-info .username {
+#app-toolbar #user-toolbar-user-info .username {
   color: #f1c8c7;
 }
 
@@ -492,11 +492,11 @@ div#wp-responsive-toggle a:before {
   background: #dd823b;
 }
 
-.wp-responsive-open #app-toolbar #wp-admin-bar-menu-toggle a {
+.wp-responsive-open #app-toolbar #user-toolbar-menu-toggle a {
   background: #be3631;
 }
 
-.wp-responsive-open #app-toolbar #wp-admin-bar-menu-toggle .ab-icon:before {
+.wp-responsive-open #app-toolbar #user-toolbar-menu-toggle .ab-icon:before {
   color: #f3f1f1;
 }
 

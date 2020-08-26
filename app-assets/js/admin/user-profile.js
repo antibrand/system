@@ -330,7 +330,7 @@
 		var $colorpicker, $stylesheet, user_id, current_user_id,
 			select       = $( '#display_name' ),
 			current_name = select.val(),
-			greeting     = $( '#wp-admin-bar-my-account' ).find( '.display-name' );
+			greeting     = $( '#user-toolbar-my-account' ).find( '.display-name' );
 
 		$('#pass1').val('').on( inputEvent + ' pwupdate', check_pass_strength );
 		$('#pass-strength-result').show();

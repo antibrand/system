@@ -20,7 +20,7 @@ if ( typeof(jQuery) != 'undefined' ) {
 			adminbar.find('li.menupop').on('click.wp-mobile-hover', function(e) {
 				var el = $(this);
 
-				if ( el.parent().is('#wp-admin-bar-root-default') && !el.hasClass('hover') ) {
+				if ( el.parent().is('#user-toolbar-root-default') && !el.hasClass('hover') ) {
 					e.preventDefault();
 					adminbar.find('li.menupop.hover').removeClass('hover');
 					el.addClass('hover');
@@ -86,10 +86,10 @@ if ( typeof(jQuery) != 'undefined' ) {
 		if ( window.location.hash )
 			window.scrollBy( 0, -32 );
 
-		$('#wp-admin-bar-get-shortlink').click(function(e){
+		$('#user-toolbar-get-shortlink').click(function(e){
 			e.preventDefault();
 			$(this).addClass('selected').children('.shortlink-input').blur(function(){
-				$(this).parents('#wp-admin-bar-get-shortlink').removeClass('selected');
+				$(this).parents('#user-toolbar-get-shortlink').removeClass('selected');
 			}).focus().select();
 		});
 
@@ -130,7 +130,7 @@ if ( typeof(jQuery) != 'undefined' ) {
 		});
 
 		adminbar.click( function(e) {
-			if ( e.target.id != 'app-toolbar' && e.target.id != 'wp-admin-bar-top-secondary' ) {
+			if ( e.target.id != 'app-toolbar' && e.target.id != 'user-toolbar-top-secondary' ) {
 				return;
 			}
 
@@ -167,7 +167,7 @@ if ( typeof(jQuery) != 'undefined' ) {
 
 		// Empty sessionStorage on logging out
 		if ( 'sessionStorage' in window ) {
-			$('#wp-admin-bar-logout a').click( function() {
+			$('#user-toolbar-logout a').click( function() {
 				try {
 					for ( var key in sessionStorage ) {
 						if ( key.indexOf('wp-autosave-') != -1 )
@@ -277,7 +277,7 @@ if ( typeof(jQuery) != 'undefined' ) {
 				if ( ! t || t == d || t == aB )
 					return;
 				// Check if we've found the shortlink node.
-				if ( t.id && t.id == 'wp-admin-bar-get-shortlink' )
+				if ( t.id && t.id == 'user-toolbar-get-shortlink' )
 					break;
 				t = t.parentNode;
 			}
@@ -308,7 +308,7 @@ if ( typeof(jQuery) != 'undefined' ) {
 			var distance, speed, step, steps, timer, speed_step;
 
 			// Ensure that the #app-toolbar was the target of the click.
-			if ( t.id != 'app-toolbar' && t.id != 'wp-admin-bar-top-secondary' )
+			if ( t.id != 'app-toolbar' && t.id != 'user-toolbar-top-secondary' )
 				return;
 
 			distance    = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
@@ -361,7 +361,7 @@ if ( typeof(jQuery) != 'undefined' ) {
 					scrollToTop( e.target || e.srcElement );
 				});
 
-				addEvent( document.getElementById('wp-admin-bar-logout'), 'click', function() {
+				addEvent( document.getElementById('user-toolbar-logout'), 'click', function() {
 					if ( 'sessionStorage' in window ) {
 						try {
 							for ( var key in sessionStorage ) {

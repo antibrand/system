@@ -502,27 +502,27 @@ ul#adminmenu > li.current > a.current:after {
 	color: $menu_icon;
 }
 
-#app-toolbar > #app-toolbar-links > #wp-admin-bar-top-secondary > #wp-admin-bar-search #adminbarsearch input.adminbar-input:focus {
+#app-toolbar > #app-toolbar-links > #user-toolbar-top-secondary > #user-toolbar-search #adminbarsearch input.adminbar-input:focus {
 	color: $menu_text_color;
 	background: $adminbar_input_background;
 }
 
 /* Admin Bar: my account */
 
-#app-toolbar .quicklinks li#wp-admin-bar-my-account.with-avatar > a img {
+#app-toolbar .quicklinks li#user-toolbar-my-account.with-avatar > a img {
 	border-color: $adminbar_avatar_frame;
 	background-color: $adminbar_avatar_frame;
 }
 
-#app-toolbar #wp-admin-bar-user-info .display-name {
+#app-toolbar #user-toolbar-user-info .display-name {
 	color: $menu_text_color;
 }
 
-#app-toolbar #wp-admin-bar-user-info a:hover .display-name {
+#app-toolbar #user-toolbar-user-info a:hover .display-name {
 	color: $menu_submenu_focus_text;
 }
 
-#app-toolbar #wp-admin-bar-user-info .username {
+#app-toolbar #user-toolbar-user-info .username {
 	color: $menu_submenu_text;
 }
 

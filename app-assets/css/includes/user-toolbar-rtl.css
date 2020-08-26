@@ -52,8 +52,8 @@
   color: #ffffff;
 }
 
-#app-toolbar #wp-admin-bar-site-name a.ab-item,
-#app-toolbar #wp-admin-bar-my-sites a.ab-item {
+#app-toolbar #user-toolbar-site-name a.ab-item,
+#app-toolbar #user-toolbar-my-sites a.ab-item {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -127,7 +127,7 @@
   line-height: inherit;
 }
 
-#app-toolbar ul#wp-admin-bar-root-default > li {
+#app-toolbar ul#user-toolbar-root-default > li {
   margin-left: 0;
 }
 
@@ -244,7 +244,7 @@
   color: #ffffff;
 }
 
-#app-toolbar > #wp-toolbar > #wp-admin-bar-root-default .ab-icon,
+#app-toolbar > #wp-toolbar > #user-toolbar-root-default .ab-icon,
 #app-toolbar .ab-icon,
 #app-toolbar .ab-item:before {
   position: relative;
@@ -398,11 +398,11 @@
 /**
  * My Account
  */
-#wp-admin-bar-my-account > ul {
+#user-toolbar-my-account > ul {
   min-width: 198px;
 }
 
-#wp-admin-bar-my-account > .ab-item:before {
+#user-toolbar-my-account > .ab-item:before {
   content: "\f110";
   top: 2px;
   float: left;
@@ -414,36 +414,36 @@
   border-radius: 50% !important;
 }
 
-#wp-admin-bar-my-account.with-avatar > .ab-item:before {
+#user-toolbar-my-account.with-avatar > .ab-item:before {
   display: none;
   content: none;
 }
 
-#wp-admin-bar-my-account.with-avatar > ul {
+#user-toolbar-my-account.with-avatar > ul {
   min-width: 270px;
 }
 
-#app-toolbar #wp-admin-bar-user-actions > li {
+#app-toolbar #user-toolbar-user-actions > li {
   margin-right: 16px;
   margin-left: 16px;
 }
 
-#app-toolbar #wp-admin-bar-user-actions.ab-submenu {
+#app-toolbar #user-toolbar-user-actions.ab-submenu {
   padding: 6px 0 12px;
 }
 
-#app-toolbar #wp-admin-bar-my-account.with-avatar #wp-admin-bar-user-actions > li {
+#app-toolbar #user-toolbar-my-account.with-avatar #user-toolbar-user-actions > li {
   margin-right: 88px;
 }
 
-#app-toolbar #wp-admin-bar-user-info {
+#app-toolbar #user-toolbar-user-info {
   margin-top: 6px;
   margin-bottom: 15px;
   height: auto;
   background: none;
 }
 
-#wp-admin-bar-user-info .avatar {
+#user-toolbar-user-info .avatar {
   position: absolute;
   right: -72px;
   top: 4px;
@@ -451,23 +451,23 @@
   height: 64px;
 }
 
-#app-toolbar #wp-admin-bar-user-info a {
+#app-toolbar #user-toolbar-user-info a {
   background: none;
   height: auto;
 }
 
-#app-toolbar #wp-admin-bar-user-info span {
+#app-toolbar #user-toolbar-user-info span {
   background: none;
   padding: 0;
   height: 18px;
 }
 
-#app-toolbar #wp-admin-bar-user-info .display-name,
-#app-toolbar #wp-admin-bar-user-info .username {
+#app-toolbar #user-toolbar-user-info .display-name,
+#app-toolbar #user-toolbar-user-info .username {
   display: block;
 }
 
-#app-toolbar #wp-admin-bar-user-info .username {
+#app-toolbar #user-toolbar-user-info .username {
   color: #a0a5aa;
   font-size: 11px;
 }
@@ -477,8 +477,8 @@
   vertical-align: middle;
 }
 
-#app-toolbar #wp-admin-bar-my-account.with-avatar > .ab-empty-item img,
-#app-toolbar #wp-admin-bar-my-account.with-avatar > a img {
+#app-toolbar #user-toolbar-my-account.with-avatar > .ab-empty-item img,
+#app-toolbar #user-toolbar-my-account.with-avatar > a img {
   display: block;
   float: none;
   width: auto;
@@ -492,54 +492,54 @@
 /*
  * My Sites & Site Title
  */
-#app-toolbar #wp-admin-bar-appearance {
+#app-toolbar #user-toolbar-appearance {
   margin-top: -12px;
 }
 
-#app-toolbar #wp-admin-bar-my-sites > .ab-item:before,
-#app-toolbar #wp-admin-bar-site-name > .ab-item:before {
+#app-toolbar #user-toolbar-my-sites > .ab-item:before,
+#app-toolbar #user-toolbar-site-name > .ab-item:before {
   content: "\f541";
   top: 2px;
 }
 
-#app-toolbar #wp-admin-bar-customize > .ab-item:before {
+#app-toolbar #user-toolbar-customize > .ab-item:before {
   content: "\f540";
   top: 2px;
 }
 
-#app-toolbar #wp-admin-bar-edit > .ab-item:before {
+#app-toolbar #user-toolbar-edit > .ab-item:before {
   content: "\f464";
   top: 2px;
 }
 
-#app-toolbar #wp-admin-bar-site-name > .ab-item:before {
+#app-toolbar #user-toolbar-site-name > .ab-item:before {
   content: "\f226";
 }
 
-.app-admin #app-toolbar #wp-admin-bar-site-name > .ab-item:before {
+.app-admin #app-toolbar #user-toolbar-site-name > .ab-item:before {
   content: "\f102";
 }
 
 /**
  * Comments
  */
-#app-toolbar #wp-admin-bar-comments .ab-icon {
+#app-toolbar #user-toolbar-comments .ab-icon {
   margin-left: 6px;
 }
 
-#app-toolbar #wp-admin-bar-comments .ab-icon:before {
+#app-toolbar #user-toolbar-comments .ab-icon:before {
   content: "\f101";
   top: 3px;
 }
 
-#app-toolbar #wp-admin-bar-comments .count-0 {
+#app-toolbar #user-toolbar-comments .count-0 {
   opacity: .5;
 }
 
 /**
  * New Content
  */
-#app-toolbar #wp-admin-bar-new-content .ab-icon:before {
+#app-toolbar #user-toolbar-new-content .ab-icon:before {
   content: "\f132";
   top: 4px;
 }
@@ -547,7 +547,7 @@
 /**
  * Updates
  */
-#app-toolbar #wp-admin-bar-updates .ab-icon:before {
+#app-toolbar #user-toolbar-updates .ab-icon:before {
   content: "\f463";
   top: 2px;
 }
@@ -555,7 +555,7 @@
 /**
  * Search
  */
-#app-toolbar #wp-admin-bar-search .ab-item {
+#app-toolbar #user-toolbar-search .ab-item {
   padding: 0;
   background: transparent;
 }
@@ -580,7 +580,7 @@
 }
 
 /* The admin bar search field needs to reset many styles that might be inherited from the active Theme CSS. See ticket #40313. */
-#app-toolbar > #app-toolbar-links > #wp-admin-bar-top-secondary > #wp-admin-bar-search #adminbarsearch input.adminbar-input {
+#app-toolbar > #app-toolbar-links > #user-toolbar-top-secondary > #user-toolbar-search #adminbarsearch input.adminbar-input {
   display: inline-block;
   float: none;
   position: relative;
@@ -610,7 +610,7 @@
           transition-timing-function: ease;
 }
 
-#app-toolbar > #app-toolbar-links > #wp-admin-bar-top-secondary > #wp-admin-bar-search #adminbarsearch input.adminbar-input:focus {
+#app-toolbar > #app-toolbar-links > #user-toolbar-top-secondary > #user-toolbar-search #adminbarsearch input.adminbar-input:focus {
   z-index: 10;
   color: #000;
   width: 200px;
@@ -701,9 +701,9 @@
   margin: 0 3px;
 }
 
-.no-font-face #app-toolbar #wp-admin-bar-my-sites > .ab-item,
-.no-font-face #app-toolbar #wp-admin-bar-site-name > .ab-item,
-.no-font-face #app-toolbar #wp-admin-bar-edit > .ab-item {
+.no-font-face #app-toolbar #user-toolbar-my-sites > .ab-item,
+.no-font-face #app-toolbar #user-toolbar-site-name > .ab-item,
+.no-font-face #app-toolbar #user-toolbar-edit > .ab-item {
   text-indent: 0;
 }
 
@@ -717,18 +717,18 @@
   display: inline;
 }
 
-.no-font-face #app-toolbar #wp-admin-bar-menu-toggle span.ab-icon {
+.no-font-face #app-toolbar #user-toolbar-menu-toggle span.ab-icon {
   display: inline !important;
 }
 
-.no-font-face #app-toolbar #wp-admin-bar-menu-toggle span.ab-icon:before {
+.no-font-face #app-toolbar #user-toolbar-menu-toggle span.ab-icon:before {
   content: "Menu";
   font: 14px/45px sans-serif !important;
   display: inline-block !important;
   color: #ffffff;
 }
 
-.no-font-face #app-toolbar #wp-admin-bar-site-name a.ab-item {
+.no-font-face #app-toolbar #user-toolbar-site-name a.ab-item {
   color: #ffffff;
 }
 
@@ -787,9 +787,9 @@
   #app-toolbar .ab-submenu {
     padding: 0;
   }
-  #app-toolbar #wp-admin-bar-site-name a.ab-item,
-  #app-toolbar #wp-admin-bar-my-sites a.ab-item,
-  #app-toolbar #wp-admin-bar-my-account a.ab-item {
+  #app-toolbar #user-toolbar-site-name a.ab-item,
+  #app-toolbar #user-toolbar-my-sites a.ab-item,
+  #app-toolbar #user-toolbar-my-account a.ab-item {
     text-overflow: clip;
   }
   #app-toolbar .ab-label {
@@ -814,11 +814,11 @@
     display: none;
   }
   /* My Sites and "Site Title" menu */
-  #app-toolbar #wp-admin-bar-my-sites > .ab-item,
-  #app-toolbar #wp-admin-bar-site-name > .ab-item,
-  #app-toolbar #wp-admin-bar-customize > .ab-item,
-  #app-toolbar #wp-admin-bar-edit > .ab-item,
-  #app-toolbar #wp-admin-bar-my-account > .ab-item {
+  #app-toolbar #user-toolbar-my-sites > .ab-item,
+  #app-toolbar #user-toolbar-site-name > .ab-item,
+  #app-toolbar #user-toolbar-customize > .ab-item,
+  #app-toolbar #user-toolbar-edit > .ab-item,
+  #app-toolbar #user-toolbar-my-account > .ab-item {
     text-indent: 100%;
     white-space: nowrap;
     overflow: hidden;
@@ -826,17 +826,17 @@
     padding: 0;
     position: relative;
   }
-  #app-toolbar > #wp-toolbar > #wp-admin-bar-root-default .ab-icon,
+  #app-toolbar > #wp-toolbar > #user-toolbar-root-default .ab-icon,
   #app-toolbar .ab-icon,
   #app-toolbar .ab-item:before {
     padding: 0;
     margin-left: 0;
   }
-  #app-toolbar #wp-admin-bar-edit > .ab-item:before,
-  #app-toolbar #wp-admin-bar-my-sites > .ab-item:before,
-  #app-toolbar #wp-admin-bar-site-name > .ab-item:before,
-  #app-toolbar #wp-admin-bar-customize > .ab-item:before,
-  #app-toolbar #wp-admin-bar-my-account > .ab-item:before {
+  #app-toolbar #user-toolbar-edit > .ab-item:before,
+  #app-toolbar #user-toolbar-my-sites > .ab-item:before,
+  #app-toolbar #user-toolbar-site-name > .ab-item:before,
+  #app-toolbar #user-toolbar-customize > .ab-item:before,
+  #app-toolbar #user-toolbar-my-account > .ab-item:before {
     display: block;
     text-indent: 0;
     font: normal 32px/1 dashicons;
@@ -847,15 +847,15 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  #app-toolbar #wp-admin-bar-appearance {
+  #app-toolbar #user-toolbar-appearance {
     margin-top: 0;
   }
   /* Search */
-  #app-toolbar #wp-admin-bar-search {
+  #app-toolbar #user-toolbar-search {
     display: none;
   }
   /* New Content */
-  #app-toolbar #wp-admin-bar-new-content .ab-icon:before {
+  #app-toolbar #user-toolbar-new-content .ab-icon:before {
     top: 0;
     line-height: 53px;
     height: 46px !important;
@@ -864,17 +864,17 @@
     display: block;
   }
   /* Updates */
-  #app-toolbar #wp-admin-bar-updates {
+  #app-toolbar #user-toolbar-updates {
     text-align: center;
   }
-  #app-toolbar #wp-admin-bar-updates .ab-icon:before {
+  #app-toolbar #user-toolbar-updates .ab-icon:before {
     top: 3px;
   }
   /* Comments */
-  #app-toolbar #wp-admin-bar-comments .ab-icon {
+  #app-toolbar #user-toolbar-comments .ab-icon {
     margin: 0;
   }
-  #app-toolbar #wp-admin-bar-comments .ab-icon:before {
+  #app-toolbar #user-toolbar-comments .ab-icon:before {
     display: block;
     font-size: 34px;
     height: 46px;
@@ -882,7 +882,7 @@
     top: 0;
   }
   /* My Account */
-  #app-toolbar #wp-admin-bar-my-account > a {
+  #app-toolbar #user-toolbar-my-account > a {
     position: relative;
     white-space: nowrap;
     text-indent: 150%;
@@ -892,32 +892,32 @@
     overflow: hidden;
     /* Prevent link text from forcing horizontal scrolling on mobile */
   }
-  #app-toolbar .quicklinks li#wp-admin-bar-my-account.with-avatar > a img {
+  #app-toolbar .quicklinks li#user-toolbar-my-account.with-avatar > a img {
     position: absolute;
     top: 13px;
     left: 10px;
     width: 26px;
     height: 26px;
   }
-  #app-toolbar #wp-admin-bar-user-actions.ab-submenu {
+  #app-toolbar #user-toolbar-user-actions.ab-submenu {
     padding: 0;
   }
-  #app-toolbar #wp-admin-bar-user-actions.ab-submenu img.avatar {
+  #app-toolbar #user-toolbar-user-actions.ab-submenu img.avatar {
     display: none;
   }
-  #app-toolbar #wp-admin-bar-my-account.with-avatar #wp-admin-bar-user-actions > li {
+  #app-toolbar #user-toolbar-my-account.with-avatar #user-toolbar-user-actions > li {
     margin: 0;
   }
-  #app-toolbar #wp-admin-bar-user-info .display-name {
+  #app-toolbar #user-toolbar-user-info .display-name {
     height: auto;
     font-size: 16px;
     line-height: 24px;
     color: #eee;
   }
-  #app-toolbar #wp-admin-bar-user-info a {
+  #app-toolbar #user-toolbar-user-info a {
     padding-top: 4px;
   }
-  #app-toolbar #wp-admin-bar-user-info .username {
+  #app-toolbar #user-toolbar-user-info .username {
     line-height: 0.8 !important;
     margin-bottom: -2px;
   }
@@ -925,15 +925,15 @@
   #wp-toolbar > ul > li {
     display: none;
   }
-  #app-toolbar li#wp-admin-bar-menu-toggle,
-  #app-toolbar li#wp-admin-bar-my-sites,
-  #app-toolbar li#wp-admin-bar-updates,
-  #app-toolbar li#wp-admin-bar-site-name,
-  #app-toolbar li#wp-admin-bar-customize,
-  #app-toolbar li#wp-admin-bar-new-content,
-  #app-toolbar li#wp-admin-bar-edit,
-  #app-toolbar li#wp-admin-bar-comments,
-  #app-toolbar li#wp-admin-bar-my-account {
+  #app-toolbar li#user-toolbar-menu-toggle,
+  #app-toolbar li#user-toolbar-my-sites,
+  #app-toolbar li#user-toolbar-updates,
+  #app-toolbar li#user-toolbar-site-name,
+  #app-toolbar li#user-toolbar-customize,
+  #app-toolbar li#user-toolbar-new-content,
+  #app-toolbar li#user-toolbar-edit,
+  #app-toolbar li#user-toolbar-comments,
+  #app-toolbar li#user-toolbar-my-account {
     display: block;
   }
   /* Allow dropdown list items to appear normally */
@@ -949,25 +949,25 @@
     min-width: -moz-fit-content;
     min-width: fit-content;
   }
-  #app-toolbar ul#wp-admin-bar-root-default > li {
+  #app-toolbar ul#user-toolbar-root-default > li {
     margin-left: 0;
   }
   /* Experimental fix for touch toolbar dropdown positioning */
   #app-toolbar .ab-top-menu,
   #app-toolbar .ab-top-secondary,
-  #app-toolbar #wp-admin-bar-my-sites,
-  #app-toolbar #wp-admin-bar-site-name,
-  #app-toolbar #wp-admin-bar-updates,
-  #app-toolbar #wp-admin-bar-comments,
-  #app-toolbar #wp-admin-bar-new-content,
-  #app-toolbar #wp-admin-bar-edit,
-  #app-toolbar #wp-admin-bar-my-account {
+  #app-toolbar #user-toolbar-my-sites,
+  #app-toolbar #user-toolbar-site-name,
+  #app-toolbar #user-toolbar-updates,
+  #app-toolbar #user-toolbar-comments,
+  #app-toolbar #user-toolbar-new-content,
+  #app-toolbar #user-toolbar-edit,
+  #app-toolbar #user-toolbar-my-account {
     position: static;
   }
-  #app-toolbar #wp-admin-bar-my-account {
+  #app-toolbar #user-toolbar-my-account {
     float: left;
   }
-  .network-admin #app-toolbar ul#wp-admin-bar-top-secondary > li#wp-admin-bar-my-account {
+  .network-admin #app-toolbar ul#user-toolbar-top-secondary > li#user-toolbar-my-account {
     margin-left: 0;
   }
   /* Realign arrows on taller responsive submenus */
@@ -1011,7 +1011,7 @@
   #app-toolbar li:hover ul li ul li {
     display: list-item;
   }
-  #app-toolbar li#wp-admin-bar-updates {
+  #app-toolbar li#user-toolbar-updates {
     display: none;
   }
   /* Make submenus full-width at this size */
@@ -1024,7 +1024,7 @@
 
 /* Very narrow screens */
 @media screen and (max-width: 400px) {
-  #app-toolbar li#wp-admin-bar-comments {
+  #app-toolbar li#user-toolbar-comments {
     display: none;
   }
 }

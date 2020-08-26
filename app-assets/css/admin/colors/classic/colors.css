@@ -607,26 +607,26 @@ ul#adminmenu > li.current > a.current:after {
   color: #aeaeae;
 }
 
-#app-toolbar > #app-toolbar-links > #wp-admin-bar-top-secondary > #wp-admin-bar-search #adminbarsearch input.adminbar-input:focus {
+#app-toolbar > #app-toolbar-links > #user-toolbar-top-secondary > #user-toolbar-search #adminbarsearch input.adminbar-input:focus {
   color: #eeeeee;
   background: #333a41;
 }
 
 /* Admin Bar: my account */
-#app-toolbar .quicklinks li#wp-admin-bar-my-account.with-avatar > a img {
+#app-toolbar .quicklinks li#user-toolbar-my-account.with-avatar > a img {
   border-color: #333a41;
   background-color: #333a41;
 }
 
-#app-toolbar #wp-admin-bar-user-info .display-name {
+#app-toolbar #user-toolbar-user-info .display-name {
   color: #eeeeee;
 }
 
-#app-toolbar #wp-admin-bar-user-info a:hover .display-name {
+#app-toolbar #user-toolbar-user-info a:hover .display-name {
   color: #eeeeee;
 }
 
-#app-toolbar #wp-admin-bar-user-info .username {
+#app-toolbar #user-toolbar-user-info .username {
   color: #dadadb;
 }
 
