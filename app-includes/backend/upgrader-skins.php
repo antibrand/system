@@ -9,15 +9,6 @@
  * @since Previous 2.8.0
  */
 
-/** Bulk_Plugin_Upgrader_Skin class */
-require_once( APP_INC_PATH . '/classes/backend/class-bulk-plugin-upgrader-skin.php' );
-
-/** Plugin_Installer_Skin class */
-require_once( APP_INC_PATH . '/classes/backend/class-plugin-installer-skin.php' );
-
-/** Language_Pack_Upgrader_Skin class */
-require_once( ABSPATH . 'wp-admin/includes/class-language-pack-upgrader-skin.php' );
-
 /** WP_Ajax_Upgrader_Skin class */
 require_once( ABSPATH . 'wp-admin/includes/class-wp-ajax-upgrader-skin.php' );
 
