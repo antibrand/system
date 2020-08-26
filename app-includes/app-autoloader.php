@@ -80,6 +80,9 @@ const APP_CLASSES = [
 	'Custom_Background'   => __DIR__ . '/classes/backend/class-custom-background.php',
 	'Custom_Image_Header' => __DIR__ . '/classes/backend/class-custom-header.php',
 
+	// UI features.
+	'WP_Internal_Pointers' => __DIR__ . '/classes/backend/class-internal-pointers.php',
+
 	// List tables.
 	'AppNamespace\Backend\List_Table'          => __DIR__ . '/classes/backend/class-list-table.php',
 	'AppNamespace\Backend\List_Table_Compat'   => __DIR__ . '/classes/backend/class-list-table-compat.php',
