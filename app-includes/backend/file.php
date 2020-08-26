@@ -1378,9 +1378,8 @@ function copy_dir($from, $to, $skip_list = array() ) {
  * @return null|bool false on failure, true on success.
  */
 function WP_Filesystem( $args = false, $context = false, $allow_relaxed_file_ownership = false ) {
-	global $wp_filesystem;
 
-	require_once( ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php' );
+	global $wp_filesystem;
 
 	$method = get_filesystem_method( $args, $context, $allow_relaxed_file_ownership );
 

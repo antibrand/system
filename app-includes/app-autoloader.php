@@ -26,6 +26,7 @@ const APP_CLASSES = [
 	'AppNamespace\Includes\User_Toolbar'   => __DIR__ . '/classes/includes/class-user-toolbar.php',
 	'AppNamespace\Includes\Installer'      => __DIR__ . '/classes/includes/class-installer.php',
 	'AppNamespace\Includes\Error_Messages' => __DIR__ . '/classes/includes/class-error-messages.php',
+	'WP_Filesystem_Base' => __DIR__ . '/classes/backend/class-filesystem-base.php',
 	'ftp' => __DIR__ . '/classes/backend/class-ftp.php',
 
 	// Walkers.
