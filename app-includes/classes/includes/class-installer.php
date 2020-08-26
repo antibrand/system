@@ -11,9 +11,6 @@
 
 namespace AppNamespace\Includes;
 
-/** Plugin_Upgrader_Skin class */
-require_once( APP_INC_PATH . '/classes/backend/class-plugin-upgrader-skin.php' );
-
 /** Bulk_Plugin_Upgrader_Skin class */
 require_once( APP_INC_PATH . '/classes/backend/class-bulk-plugin-upgrader-skin.php' );
 

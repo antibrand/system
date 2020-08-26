@@ -53,6 +53,7 @@ const APP_CLASSES = [
 	'Bulk_Upgrader_Skin'       => __DIR__ . '/classes/backend/class-bulk-upgrader-skin.php',
 	'Automatic_Upgrader_Skin'  => __DIR__ . '/classes/backend/class-automatic-upgrader-skin.php',
 	'Plugin_Upgrader'          => __DIR__ . '/classes/backend/class-plugin-upgrader.php',
+	'Plugin_Upgrader_Skin'     => __DIR__ . '/classes/backend/class-plugin-upgrader-skin.php',
 	'Theme_Upgrader'           => __DIR__ . '/classes/backend/class-theme-upgrader.php',
 	'Theme_Installer_Skin'     => __DIR__ . '/classes/backend/class-theme-installer-skin.php',
 	'Theme_Upgrader_Skin'      => __DIR__ . '/classes/backend/class-theme-upgrader-skin.php',
