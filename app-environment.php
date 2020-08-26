@@ -148,7 +148,7 @@ define( 'APP_EXTENSIONS_DIR', 'extensions' );
 define( 'APP_EXTENSIONS_PATH', APP_EXTEND_PATH . '/' . APP_EXTENSIONS_DIR );
 
 // Define the administration pages directory.
-define( 'APP_ADMIN_DIR', 'wp-admin' );
+define( 'APP_ADMIN_DIR', 'app-admin' );
 
 // Define the administration directory path.
 define( 'APP_ADMIN_PATH', ABSPATH . APP_ADMIN_DIR . '/' );
