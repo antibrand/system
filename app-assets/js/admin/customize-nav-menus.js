@@ -3360,7 +3360,7 @@
 	 */
 	function displayNavMenuName( name ) {
 		name = name || '';
-		name = $( '<div>' ).text( name ).html(); // Emulate esc_html() which is used in wp-admin/nav-menus.php.
+		name = $( '<div>' ).text( name ).html(); // Emulate esc_html() which is used in APP_ADMIN_DIR/nav-menus.php.
 		name = $.trim( name );
 		return name || api.Menus.data.l10n.unnamed;
 	}
