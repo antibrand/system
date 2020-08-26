@@ -1398,7 +1398,7 @@ function WP_Filesystem( $args = false, $context = false, $allow_relaxed_file_own
 		 * @param string $path   Path to the specific filesystem method class file.
 		 * @param string $method The filesystem method to use.
 		 */
-		$abstraction_file = apply_filters( 'filesystem_method_file', ABSPATH . 'wp-admin/includes/class-wp-filesystem-' . $method . '.php', $method );
+		$abstraction_file = apply_filters( 'filesystem_method_file', APP_INC_PATH . '/classes/backend/class-filesystem-' . $method . '.php', $method );
 
 		if ( ! file_exists($abstraction_file) )
 			return;
