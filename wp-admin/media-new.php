@@ -86,7 +86,7 @@ get_current_screen()->add_help_tab( [
 $set_help_sidebar = apply_filters( 'set_help_sidebar_media_new', '' );
 get_current_screen()->set_help_sidebar( $set_help_sidebar );
 
-require_once( ABSPATH . 'wp-admin/admin-header.php' );
+require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 $form_class = 'media-upload-form type-form validate';
 
@@ -118,4 +118,4 @@ if ( get_user_setting('uploader') || isset( $_GET['browser-uploader'] ) )
 </div>
 
 <?php
-include( ABSPATH . 'wp-admin/admin-footer.php' );
+include( APP_ADMIN_PATH . '/admin-footer.php' );

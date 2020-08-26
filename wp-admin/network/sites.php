@@ -107,7 +107,7 @@ if ( isset( $_GET['action'] ) ) {
 		$site_details = get_site( $id );
 		$site_address = untrailingslashit( $site_details->domain . $site_details->path );
 
-		require_once( ABSPATH . 'wp-admin/admin-header.php' );
+		require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 		?>
 			<div class="wrap">
@@ -130,7 +130,7 @@ if ( isset( $_GET['action'] ) ) {
 			</div>
 		<?php
 
-		require_once( ABSPATH . 'wp-admin/admin-footer.php' );
+		require_once( APP_ADMIN_PATH . '/admin-footer.php' );
 
 		exit();
 
@@ -204,7 +204,7 @@ if ( isset( $_GET['action'] ) ) {
 
 							case 'delete' :
 
-								require_once( ABSPATH . 'wp-admin/admin-header.php' );
+								require_once( APP_ADMIN_PATH . '/admin-header.php' );
 								?>
 								<div class="wrap">
 
@@ -238,7 +238,7 @@ if ( isset( $_GET['action'] ) ) {
 								</div>
 								<?php
 
-								require_once( ABSPATH . 'wp-admin/admin-footer.php' );
+								require_once( APP_ADMIN_PATH . '/admin-footer.php' );
 
 								exit();
 
@@ -419,7 +419,7 @@ if ( isset( $_GET['updated'] ) ) {
 
 $wp_list_table->prepare_items();
 
-require_once( ABSPATH . 'wp-admin/admin-header.php' );
+require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 ?>
 
@@ -459,4 +459,4 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 </div>
 <?php
 
-require_once( ABSPATH . 'wp-admin/admin-footer.php' ); ?>
+require_once( APP_ADMIN_PATH . '/admin-footer.php' ); ?>

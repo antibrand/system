@@ -1225,7 +1225,7 @@ function _unzip_file_pclzip($file, $to, $needed_dirs = array()) {
 	 *
 	 * @todo Remove the require.
 	 *
-	 * require_once( ABSPATH . 'wp-admin/includes/class-pclzip.php' );
+	 * require_once( APP_INC_PATH . '/classes/backend/class-pclzip.php' );
 	 */
 
 	$archive = new PclZip( $file );

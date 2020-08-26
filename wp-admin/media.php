@@ -80,7 +80,7 @@ case 'edit' :
 
 	get_current_screen()->set_help_sidebar( '' );
 
-	require( ABSPATH . 'wp-admin/admin-header.php' );
+	require( APP_ADMIN_PATH . '/admin-header.php' );
 
 	$parent_file = 'upload.php';
 	$message = '';
@@ -134,7 +134,7 @@ if ( current_user_can( 'upload_files' ) ) { ?>
 
 <?php
 
-	require( ABSPATH . 'wp-admin/admin-footer.php' );
+	require( APP_ADMIN_PATH . '/admin-footer.php' );
 
 	exit;
 

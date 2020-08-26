@@ -159,7 +159,7 @@ if ( ! empty( $privacy_policy_page_id ) ) {
 	}
 }
 
-require_once( ABSPATH . 'wp-admin/admin-header.php' );
+require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 if ( $is_privacy_guide ) :
 	include_once( APP_VIEWS_PATH . '/backend/content/privacy-policy-guide.php' );
@@ -337,4 +337,4 @@ $page_tabs = [
 endif; ?>
 
 </div><!-- End .wrap -->
-<?php include( ABSPATH . 'wp-admin/admin-footer.php' );
+<?php include( APP_ADMIN_PATH . '/admin-footer.php' );

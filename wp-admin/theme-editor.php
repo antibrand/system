@@ -214,7 +214,7 @@ if ( 'POST' === $_SERVER['REQUEST_METHOD'] ) {
 	wp_add_inline_script( 'wp-theme-plugin-editor', sprintf( 'jQuery( function( $ ) { wp.themePluginEditor.init( $( "#template" ), %s ); } )', wp_json_encode( $settings ) ) );
 	wp_add_inline_script( 'wp-theme-plugin-editor', 'wp.themePluginEditor.themeOrPlugin = "theme";' );
 
-	require_once( ABSPATH . 'wp-admin/admin-header.php' );
+	require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 	update_recently_edited( $file );
 
@@ -424,4 +424,4 @@ if ( $file_description != $file_show ) {
 <?php
 endif; // editor warning notice
 
-include(ABSPATH . 'wp-admin/admin-footer.php' );
+include( APP_ADMIN_PATH . '/admin-footer.php' );

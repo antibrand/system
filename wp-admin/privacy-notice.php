@@ -13,7 +13,7 @@ $title   = __( 'Privacy Notice' );
 $name    = get_app_info( 'name' );
 $version = get_app_info( 'version' );
 
-include( ABSPATH . 'wp-admin/admin-header.php' );
+include( APP_ADMIN_PATH . '/admin-header.php' );
 
 ?>
 <div class="wrap not-using__about-wrap not-using__full-width-layout">
@@ -37,4 +37,4 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 	<p><?php _e( 'Add your content here.' ); ?></p>
 
 </div>
-<?php include( ABSPATH . 'wp-admin/admin-footer.php' ); ?>
+<?php include( APP_ADMIN_PATH . '/admin-footer.php' ); ?>

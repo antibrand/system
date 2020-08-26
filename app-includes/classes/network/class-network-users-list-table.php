@@ -95,7 +95,7 @@ class Users_List_Table extends Backend\List_Table {
 			$mode = get_user_setting( 'network_users_list_mode', 'list' );
 		}
 
-		/** This filter is documented in wp-admin/includes/class-wp-users-list-table.php */
+		// This filter is documented in APP_INC_PATH/classes/backend/class-wp-users-list-table.php.
 		$args = apply_filters( 'users_list_table_query_args', $args );
 
 		// Query the user IDs for this page
@@ -389,7 +389,8 @@ class Users_List_Table extends Backend\List_Table {
 	 * @param string $column_name The current column name.
 	 */
 	public function column_default( $user, $column_name ) {
-		/** This filter is documented in wp-admin/includes/class-wp-users-list-table.php */
+
+		// This filter is documented in APP_INC_PATH/classes/backend/class-wp-users-list-table.php.
 		echo apply_filters( 'manage_users_custom_column', '', $column_name, $user->ID );
 	}
 

@@ -13,4 +13,4 @@ if ( isset( $_GET['tab'] ) && ( 'plugin-information' == $_GET['tab'] ) )
 // Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
-require( ABSPATH . 'wp-admin/plugin-install.php' );
+require( APP_ADMIN_PATH . '/plugin-install.php' );

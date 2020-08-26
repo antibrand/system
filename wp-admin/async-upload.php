@@ -32,7 +32,7 @@ if ( defined( 'ABSPATH' ) ) {
 	require_once( dirname( dirname( __FILE__ ) ) . '/app-load.php' );
 }
 
-require_once( ABSPATH . 'wp-admin/admin.php' );
+require_once( APP_ADMIN_PATH . '/admin.php' );
 
 header( 'Content-Type: text/html; charset=' . get_option( 'blog_charset' ) );
 

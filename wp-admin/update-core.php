@@ -787,7 +787,7 @@ if ( 'upgrade-core' == $action ) {
 	$force_check = ! empty( $_GET['force-check'] );
 	wp_version_check( [], $force_check );
 
-	require_once( ABSPATH . 'wp-admin/admin-header.php' );
+	require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 	?>
 	<div class="wrap">
@@ -848,7 +848,7 @@ if ( 'upgrade-core' == $action ) {
 		'totals'  => wp_get_update_data(),
 	) );
 
-	include( ABSPATH . 'wp-admin/admin-footer.php' );
+	include( APP_ADMIN_PATH . '/admin-footer.php' );
 
 } elseif ( 'do-core-upgrade' == $action || 'do-core-reinstall' == $action ) {
 
@@ -865,7 +865,7 @@ if ( 'upgrade-core' == $action ) {
 		do_undismiss_core_update();
 	}
 
-	require_once( ABSPATH . 'wp-admin/admin-header.php' );
+	require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 	if ( 'do-core-reinstall' == $action ) {
 		$reinstall = true;
@@ -881,7 +881,7 @@ if ( 'upgrade-core' == $action ) {
 		'totals'  => wp_get_update_data(),
 	] );
 
-	include( ABSPATH . 'wp-admin/admin-footer.php' );
+	include( APP_ADMIN_PATH . '/admin-footer.php' );
 
 } elseif ( 'do-plugin-upgrade' == $action ) {
 
@@ -905,7 +905,7 @@ if ( 'upgrade-core' == $action ) {
 	$url   = wp_nonce_url( $url, 'bulk-update-plugins' );
 	$title = __( 'Update Plugins' );
 
-	require_once( ABSPATH . 'wp-admin/admin-header.php' );
+	require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 	echo '<div class="wrap">';
 	echo '<h1>' . __( 'Update Plugins' ) . '</h1>';
@@ -916,7 +916,7 @@ if ( 'upgrade-core' == $action ) {
 		'totals'  => wp_get_update_data(),
 	] );
 
-	include( ABSPATH . 'wp-admin/admin-footer.php' );
+	include( APP_ADMIN_PATH . '/admin-footer.php' );
 
 } elseif ( 'do-theme-upgrade' == $action ) {
 
@@ -940,7 +940,7 @@ if ( 'upgrade-core' == $action ) {
 	$url   = wp_nonce_url( $url, 'bulk-update-themes' );
 	$title = __( 'Update Themes' );
 
-	require_once( ABSPATH . 'wp-admin/admin-header.php' );
+	require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 	?>
 	<div class="wrap">
@@ -953,7 +953,7 @@ if ( 'upgrade-core' == $action ) {
 		'totals'  => wp_get_update_data(),
 	] );
 
-	include( ABSPATH . 'wp-admin/admin-footer.php' );
+	include( APP_ADMIN_PATH . '/admin-footer.php' );
 
 } elseif ( 'do-translation-upgrade' == $action ) {
 
@@ -963,7 +963,7 @@ if ( 'upgrade-core' == $action ) {
 
 	check_admin_referer( 'upgrade-translations' );
 
-	require_once( ABSPATH . 'wp-admin/admin-header.php' );
+	require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 	$url     = 'update-core.php?action=do-translation-upgrade';
 	$nonce   = 'upgrade-translations';
@@ -977,7 +977,7 @@ if ( 'upgrade-core' == $action ) {
 		'totals'  => wp_get_update_data(),
 	] );
 
-	require_once( ABSPATH . 'wp-admin/admin-footer.php' );
+	require_once( APP_ADMIN_PATH . '/admin-footer.php' );
 
 } else {
 	/**

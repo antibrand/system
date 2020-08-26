@@ -66,7 +66,7 @@ if ( wp_is_mobile() ) {
 	wp_enqueue_script( 'jquery-touch-punch' );
 }
 
-require_once( ABSPATH . 'wp-admin/admin-header.php' );
+require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 ?>
 
@@ -86,4 +86,4 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 </div><!-- wrap -->
 
 <?php
-include( ABSPATH . 'wp-admin/admin-footer.php' );
+include( APP_ADMIN_PATH . '/admin-footer.php' );

@@ -67,7 +67,7 @@ function ms_cookie_constants(  ) {
 		if ( ! is_subdomain_install() || trim( parse_url( get_option( 'siteurl' ), PHP_URL_PATH ), '/' ) ) {
 			define( 'ADMIN_COOKIE_PATH', SITECOOKIEPATH );
 		} else {
-			define( 'ADMIN_COOKIE_PATH', SITECOOKIEPATH . 'wp-admin' );
+			define( 'ADMIN_COOKIE_PATH', SITECOOKIEPATH . APP_ADMIN_DIR );
 		}
 	}
 

@@ -337,7 +337,7 @@ if ( is_network() && current_user_can( 'promote_users' ) && ! wp_is_large_networ
 	wp_enqueue_script( 'user-suggest' );
 }
 
-require_once( ABSPATH . 'wp-admin/admin-header.php' );
+require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 if ( isset( $_GET['update'] ) ) {
 
@@ -624,4 +624,4 @@ do_action( 'user_new_form', 'add-new-user' );
 <?php } // current_user_can('create_users') ?>
 </div>
 <?php
-include( ABSPATH . 'wp-admin/admin-footer.php' );
+include( APP_ADMIN_PATH . '/admin-footer.php' );

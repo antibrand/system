@@ -153,7 +153,7 @@ if ( isset( $_GET['download'] ) ) {
 	die();
 }
 
-require_once( ABSPATH . 'wp-admin/admin-header.php' );
+require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 /**
  * Create the date options fields for exporting a given post type.
@@ -347,4 +347,4 @@ function export_date_options( $post_type = 'post' ) {
 </div>
 
 <?php
-include( ABSPATH . 'wp-admin/admin-footer.php' );
+include( APP_ADMIN_PATH . '/admin-footer.php' );

@@ -27,14 +27,14 @@ $plugins = get_plugins();
 
 if ( empty( $plugins ) ) {
 
-	include( ABSPATH . 'wp-admin/admin-header.php' );
+	include( APP_ADMIN_PATH . '/admin-header.php' );
 	?>
 	<div class="wrap">
 		<h1><?php echo esc_html( $title ); ?></h1>
 		<div id="message" class="error"><p><?php _e( 'You do not appear to have any plugins available at this time.' ); ?></p></div>
 	</div>
 	<?php
-	include( ABSPATH . 'wp-admin/admin-footer.php' );
+	include( APP_ADMIN_PATH . '/admin-footer.php' );
 
 	exit;
 }
@@ -219,7 +219,7 @@ wp_enqueue_script( 'wp-theme-plugin-editor' );
 wp_add_inline_script( 'wp-theme-plugin-editor', sprintf( 'jQuery( function( $ ) { wp.themePluginEditor.init( $( "#template" ), %s ); } )', wp_json_encode( $settings ) ) );
 wp_add_inline_script( 'wp-theme-plugin-editor', sprintf( 'wp.themePluginEditor.themeOrPlugin = "plugin";' ) );
 
-require_once( ABSPATH . 'wp-admin/admin-header.php' );
+require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 update_recently_edited( APP_PLUGINS_PATH . '/' . $file );
 
@@ -413,4 +413,4 @@ $content = esc_textarea( $content );
 <?php
 endif; // editor warning notice
 
-include(ABSPATH . "wp-admin/admin-footer.php");
+include( APP_ADMIN_PATH . '/admin-footer.php' );

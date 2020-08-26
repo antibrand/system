@@ -327,7 +327,7 @@ if ( 'category' == $taxonomy || 'link_category' == $taxonomy || 'post_tag' == $t
 	get_current_screen()->set_help_sidebar( $set_help_sidebar );
 }
 
-require_once( ABSPATH . 'wp-admin/admin-header.php' );
+require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 // Also used by the Edit Tag  form.
 require_once( APP_INC_PATH . '/backend/edit-tag-messages.php' );
@@ -667,4 +667,4 @@ endif;
 
 $wp_list_table->inline_edit();
 
-include( ABSPATH . 'wp-admin/admin-footer.php' );
+include( APP_ADMIN_PATH . '/admin-footer.php' );

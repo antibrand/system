@@ -542,7 +542,7 @@ window.location = 'about.php?updated';
 	<?php
 
 	// Include admin-footer.php and exit.
-	include(ABSPATH . 'wp-admin/admin-footer.php');
+	include( APP_ADMIN_PATH . '/admin-footer.php');
 	exit();
 }
 

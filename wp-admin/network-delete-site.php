@@ -29,7 +29,7 @@ $user = wp_get_current_user();
 
 $title = __( 'Delete Site' );
 $parent_file = 'privacy.php';
-require_once( ABSPATH . 'wp-admin/admin-header.php' );
+require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 echo '<div class="wrap">';
 echo '<h1>' . esc_html( $title ) . '</h1>';
@@ -104,4 +104,4 @@ Webmaster
 }
 echo '</div>';
 
-include( ABSPATH . 'wp-admin/admin-footer.php' );
+include( APP_ADMIN_PATH . '/admin-footer.php' );

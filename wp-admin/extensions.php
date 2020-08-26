@@ -27,7 +27,7 @@ $wp_list_table->prepare_items();
 $title       = __( 'System Extensions' );
 $parent_file = 'plugins.php';
 
-require_once( ABSPATH . 'wp-admin/admin-header.php' );
+require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 $invalid = validate_active_plugins();
 
@@ -71,4 +71,4 @@ $invalid = validate_active_plugins();
 <?php
 
 // Get the admin footer.
-include( ABSPATH . 'wp-admin/admin-footer.php' );
+include( APP_ADMIN_PATH . '/admin-footer.php' );

@@ -360,7 +360,7 @@ if ( isset( $_GET['editwidget'] ) && $_GET['editwidget'] ) {
 	$width = ' style="width:' . max( $control['width'], 350 ) . 'px"';
 	$key   = isset( $_GET['key'] ) ? (int) $_GET['key'] : 0;
 
-	require_once( ABSPATH . 'wp-admin/admin-header.php' );
+	require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 	?>
 	<div class="wrap">
@@ -447,7 +447,7 @@ if ( isset( $_GET['editwidget'] ) && $_GET['editwidget'] ) {
 		</div>
 	</div>
 	<?php
-	require_once( ABSPATH . 'wp-admin/admin-footer.php' );
+	require_once( APP_ADMIN_PATH . '/admin-footer.php' );
 
 	exit;
 }
@@ -461,7 +461,7 @@ $errors = [
 	__( 'Error in displaying the widget settings form.' )
 ];
 
-require_once( ABSPATH . 'wp-admin/admin-header.php' ); ?>
+require_once( APP_ADMIN_PATH . '/admin-header.php' ); ?>
 
 	<div class="wrap">
 
@@ -628,4 +628,4 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' ); ?>
  */
 do_action( 'sidebar_admin_page' );
 
-require_once( ABSPATH . 'wp-admin/admin-footer.php' );
+require_once( APP_ADMIN_PATH . '/admin-footer.php' );

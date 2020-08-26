@@ -708,7 +708,7 @@ $set_help_sidebar = apply_filters( 'set_help_sidebar_nav_menus', '' );
 get_current_screen()->set_help_sidebar( $set_help_sidebar );
 
 // Get the admin header.
-require_once( ABSPATH . 'wp-admin/admin-header.php' );
+require_once( APP_ADMIN_PATH . '/admin-header.php' );
 ?>
 <div class="wrap">
 	<h1><?php echo esc_html( __( 'Menus' ) ); ?></h1>
@@ -987,4 +987,4 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 	</div><!-- /#nav-menus-frame -->
 	<?php endif; ?>
 </div><!-- /.wrap-->
-<?php include( ABSPATH . 'wp-admin/admin-footer.php' ); ?>
+<?php include( APP_ADMIN_PATH . '/admin-footer.php' ); ?>

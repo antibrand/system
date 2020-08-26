@@ -13,4 +13,4 @@ if ( isset( $_GET['action'] ) && in_array( $_GET['action'], array( 'update-selec
 // Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
-require( ABSPATH . 'wp-admin/update.php' );
+require( APP_ADMIN_PATH . '/update.php' );

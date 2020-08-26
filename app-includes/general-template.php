@@ -4183,7 +4183,7 @@ function app_assets_css( $file = APP_ASSETS_DIR, $force_echo = false ) {
  * @param  string $file file relative to APP_ADMIN_DIR/ without its ".css" extension.
  * @return string
  */
-function wp_admin_css_uri( $file = 'wp-admin' ) {
+function wp_admin_css_uri( $file = APP_ADMIN_DIR ) {
 
 	if ( defined( 'APP_INSTALLING' ) ) {
 		$_file = "./$file.css";
@@ -4222,7 +4222,7 @@ function wp_admin_css_uri( $file = 'wp-admin' ) {
  * 	                         to APP_ADMIN_DIR/. Defaults to APP_ADMIN_DIR.
  * @param bool   $force_echo Optional. Force the stylesheet link to be printed rather than enqueued.
  */
-function wp_admin_css( $file = 'wp-admin', $force_echo = false ) {
+function wp_admin_css( $file = APP_ADMIN_DIR, $force_echo = false ) {
 	// For backward compatibility
 	$handle = 0 === strpos( $file, 'css/' ) ? substr( $file, 4 ) : $file;
 

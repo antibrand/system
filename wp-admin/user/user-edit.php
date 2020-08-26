@@ -10,4 +10,4 @@
 // Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
-require( ABSPATH . 'wp-admin/user-edit.php' );
+require( APP_ADMIN_PATH . '/user-edit.php' );

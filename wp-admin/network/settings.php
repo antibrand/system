@@ -104,7 +104,7 @@ if ( $_POST ) {
 	exit();
 }
 
-include( ABSPATH . 'wp-admin/admin-header.php' );
+include( APP_ADMIN_PATH . '/admin-header.php' );
 
 if ( isset( $_GET['updated'] ) ) {
 	?><div id="message" class="updated notice is-dismissible"><p><?php _e( 'Settings saved.' ) ?></p></div><?php
@@ -436,4 +436,4 @@ if ( isset( $_GET['updated'] ) ) {
 	</form>
 </div>
 
-<?php include( ABSPATH . 'wp-admin/admin-footer.php' ); ?>
+<?php include( APP_ADMIN_PATH . '/admin-footer.php' ); ?>

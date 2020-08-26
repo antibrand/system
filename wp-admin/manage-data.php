@@ -25,7 +25,7 @@ $description = apply_filters(
 	__( 'Manage the database, import and export content.' )
 );
 
-require_once( ABSPATH . 'wp-admin/admin-header.php' );
+require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 // Script for tabbed content.
 wp_enqueue_script( 'app-tabs' );
@@ -152,4 +152,4 @@ if ( isset( $_GET['download'] ) ) {
 wp_print_request_filesystem_credentials_modal();
 wp_print_admin_notice_templates();
 
-include( ABSPATH . 'wp-admin/admin-footer.php' );
+include( APP_ADMIN_PATH . '/admin-footer.php' );

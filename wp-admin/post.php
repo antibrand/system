@@ -203,7 +203,7 @@ switch( $action ) {
 			enqueue_comment_hotkeys_js();
 		}
 
-		include( ABSPATH . 'wp-admin/edit-form-advanced.php' );
+		include( APP_ADMIN_PATH . '/edit-form-advanced.php' );
 
 		break;
 
@@ -354,4 +354,4 @@ switch( $action ) {
 
 } // End switch.
 
-include( ABSPATH . 'wp-admin/admin-footer.php' );
+include( APP_ADMIN_PATH . '/admin-footer.php' );

@@ -150,7 +150,7 @@ if ( isset( $_POST['permalink_structure'] ) || isset( $_POST['category_base'] ) 
 flush_rewrite_rules();
 
 // Get page header.
-require( ABSPATH . 'wp-admin/admin-header.php' );
+require( APP_ADMIN_PATH . '/admin-header.php' );
 
 ?>
 <div class="wrap">
@@ -422,4 +422,4 @@ require( ABSPATH . 'wp-admin/admin-header.php' );
 <?php
 
 // Get page footer.
-require( ABSPATH . 'wp-admin/admin-footer.php' );
+require( APP_ADMIN_PATH . '/admin-footer.php' );

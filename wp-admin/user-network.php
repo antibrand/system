@@ -76,7 +76,7 @@ get_current_screen()->add_help_tab( [
 $set_help_sidebar = apply_filters( 'set_help_sidebar_network_sites', '' );
 get_current_screen()->set_help_sidebar( $set_help_sidebar );
 
-require_once( ABSPATH . 'wp-admin/admin-header.php' );
+require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 if ( $updated ) { ?>
 	<div id="message" class="updated notice is-dismissible">
@@ -189,4 +189,4 @@ if ( $updated ) { ?>
 </div>
 <?php
 
-include( ABSPATH . 'wp-admin/admin-footer.php' );
+include( APP_ADMIN_PATH . '/admin-footer.php' );

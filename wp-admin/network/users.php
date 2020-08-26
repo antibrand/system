@@ -39,13 +39,13 @@ if ( isset( $_GET['action'] ) ) {
 				$title       = __( 'Accounts' );
 				$parent_file = 'users.php';
 
-				require_once( ABSPATH . 'wp-admin/admin-header.php' );
+				require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 				echo '<div class="wrap">';
 				confirm_delete_users( $_POST['allusers'] );
 				echo '</div>';
 
-				require_once( ABSPATH . 'wp-admin/admin-footer.php' );
+				require_once( APP_ADMIN_PATH . '/admin-footer.php' );
 
 			} else {
 				wp_redirect( network_admin_url( 'users.php' ) );
@@ -81,13 +81,13 @@ if ( isset( $_GET['action'] ) ) {
 								$title       = __( 'Accounts' );
 								$parent_file = 'users.php';
 
-								require_once( ABSPATH . 'wp-admin/admin-header.php' );
+								require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 								echo '<div class="wrap">';
 								confirm_delete_users( $_POST['allusers'] );
 								echo '</div>';
 
-								require_once( ABSPATH . 'wp-admin/admin-footer.php' );
+								require_once( APP_ADMIN_PATH . '/admin-footer.php' );
 
 								exit();
 
@@ -257,7 +257,7 @@ get_current_screen()->set_screen_reader_content( [
 	'heading_list'       => __( 'Accounts list' ),
 ] );
 
-require_once( ABSPATH . 'wp-admin/admin-header.php' );
+require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 if ( isset( $_REQUEST['updated'] ) && $_REQUEST['updated'] == 'true' && ! empty( $_REQUEST['action'] ) ) {
 
@@ -317,4 +317,4 @@ if ( isset( $_REQUEST['updated'] ) && $_REQUEST['updated'] == 'true' && ! empty(
 </div>
 
 <?php
-require_once( ABSPATH . 'wp-admin/admin-footer.php' );
+require_once( APP_ADMIN_PATH . '/admin-footer.php' );

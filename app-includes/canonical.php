@@ -46,7 +46,7 @@ function redirect_canonical( $requested_url = null, $do_redirect = true ) {
 		return;
 	}
 
-	// If we're not in wp-admin and the post has been published and preview nonce
+	// If we're not in the admin and the post has been published and preview nonce
 	// is non-existent or invalid then no need for preview in query
 	if ( is_preview() && get_query_var( 'p' ) && 'publish' == get_post_status( get_query_var( 'p' ) ) ) {
 		if ( ! isset( $_GET['preview_id'] )
@@ -642,7 +642,7 @@ function redirect_guess_404_permalink() {
 /**
  * Redirects a variety of shorthand URLs to the admin.
  *
- * If a user visits example.com/admin, they'll be redirected to /wp-admin.
+ * If a user visits example.com/admin, they'll be redirected to /APP_ADMIN_DIR.
  * Visiting /login redirects to /app-login.php, and so on.
  *
  * @since 3.4.0
@@ -655,7 +655,7 @@ function wp_redirect_admin_locations() {
 		return;
 
 	$admins = array(
-		home_url( 'wp-admin', 'relative' ),
+		home_url( APP_ADMIN_DIR, 'relative' ),
 		home_url( 'dashboard', 'relative' ),
 		home_url( 'admin', 'relative' ),
 		site_url( 'dashboard', 'relative' ),

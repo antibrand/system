@@ -298,7 +298,7 @@ get_current_screen()->set_screen_reader_content( [
 	'heading_list'       => __( 'Comments list' ),
 ] );
 
-require_once( ABSPATH . 'wp-admin/admin-header.php' );
+require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 ?>
 
@@ -458,4 +458,4 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 	wp_comment_reply( '-1', true, 'detail' );
 	wp_comment_trashnotice();
 
-include( ABSPATH . 'wp-admin/admin-footer.php' ); ?>
+include( APP_ADMIN_PATH . '/admin-footer.php' ); ?>

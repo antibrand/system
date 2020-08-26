@@ -10,4 +10,4 @@
 // Load the website management system.
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
-require( ABSPATH . 'wp-admin/plugins.php' );
+require( APP_ADMIN_PATH . '/plugins.php' );

@@ -60,7 +60,7 @@ if ( isset( $_GET['action'] ) ) {
 		$submenu_file = 'plugins.php';
 
 		wp_enqueue_script( 'updates' );
-		require_once( ABSPATH . 'wp-admin/admin-header.php' );
+		require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 		$nonce = 'upgrade-plugin_' . $plugin;
 		$url   = 'update.php?action=upgrade-plugin&plugin=' . urlencode( $plugin );
@@ -68,7 +68,7 @@ if ( isset( $_GET['action'] ) ) {
 		$upgrader = new Plugin_Upgrader( new Plugin_Upgrader_Skin( compact( 'title', 'nonce', 'url', 'plugin' ) ) );
 		$upgrader->upgrade( $plugin );
 
-		include( ABSPATH . 'wp-admin/admin-footer.php' );
+		include( APP_ADMIN_PATH . '/admin-footer.php' );
 
 	} elseif ( 'activate-plugin' == $action ) {
 
@@ -148,7 +148,7 @@ if ( isset( $_GET['action'] ) ) {
 		$parent_file  = 'plugins.php';
 		$submenu_file = 'plugin-install.php';
 
-		require_once( ABSPATH . 'wp-admin/admin-header.php' );
+		require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 		$title = sprintf( __( 'Installing plugin: %s' ), $api->name . ' ' . $api->version );
 		$nonce = 'install-plugin_' . $plugin;
@@ -163,7 +163,7 @@ if ( isset( $_GET['action'] ) ) {
 		$upgrader = new Plugin_Upgrader( new Plugin_Installer_Skin( compact( 'title', 'url', 'nonce', 'plugin', 'api' ) ) );
 		$upgrader->install( $api->download_link );
 
-		include( ABSPATH . 'wp-admin/admin-footer.php' );
+		include( APP_ADMIN_PATH . '/admin-footer.php' );
 
 	} elseif ( 'upload-plugin' == $action ) {
 
@@ -179,7 +179,7 @@ if ( isset( $_GET['action'] ) ) {
 		$parent_file  = 'plugins.php';
 		$submenu_file = 'plugin-install.php';
 
-		require_once( ABSPATH . 'wp-admin/admin-header.php' );
+		require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 		$title = sprintf( __( 'Installing plugin from uploaded file: %s' ), esc_html( basename( $file_upload->filename ) ) );
 		$nonce = 'plugin-upload';
@@ -194,7 +194,7 @@ if ( isset( $_GET['action'] ) ) {
 			$file_upload->cleanup();
 		}
 
-		include( ABSPATH . 'wp-admin/admin-footer.php' );
+		include( APP_ADMIN_PATH . '/admin-footer.php' );
 
 	} elseif ( 'upgrade-theme' == $action ) {
 
@@ -209,7 +209,7 @@ if ( isset( $_GET['action'] ) ) {
 		$parent_file  = 'themes.php';
 		$submenu_file = 'themes.php';
 
-		require_once( ABSPATH . 'wp-admin/admin-header.php' );
+		require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 		$nonce = 'upgrade-theme_' . $theme;
 		$url   = 'update.php?action=upgrade-theme&theme=' . urlencode( $theme );
@@ -217,7 +217,7 @@ if ( isset( $_GET['action'] ) ) {
 		$upgrader = new Theme_Upgrader( new Theme_Upgrader_Skin( compact( 'title', 'nonce', 'url', 'theme' ) ) );
 		$upgrader->upgrade( $theme );
 
-		include( ABSPATH . 'wp-admin/admin-footer.php' );
+		include( APP_ADMIN_PATH . '/admin-footer.php' );
 
 	} elseif ( 'update-selected-themes' == $action ) {
 
@@ -266,7 +266,7 @@ if ( isset( $_GET['action'] ) ) {
 		$parent_file  = 'themes.php';
 		$submenu_file = 'themes.php';
 
-		require_once( ABSPATH . 'wp-admin/admin-header.php' );
+		require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 		$title = sprintf( __( 'Installing Theme: %s' ), $api->name . ' ' . $api->version );
 		$nonce = 'install-theme_' . $theme;
@@ -278,7 +278,7 @@ if ( isset( $_GET['action'] ) ) {
 		$upgrader = new Theme_Upgrader( new Theme_Installer_Skin( compact( 'title', 'url', 'nonce', 'plugin', 'api' ) ) );
 		$upgrader->install( $api->download_link );
 
-		include( ABSPATH . 'wp-admin/admin-footer.php' );
+		include( APP_ADMIN_PATH . '/admin-footer.php' );
 
 	} elseif ( 'upload-theme' == $action ) {
 
@@ -294,7 +294,7 @@ if ( isset( $_GET['action'] ) ) {
 		$parent_file  = 'themes.php';
 		$submenu_file = 'theme-install.php';
 
-		require_once( ABSPATH . 'wp-admin/admin-header.php' );
+		require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 		$title = sprintf( __( 'Installing Theme from uploaded file: %s' ), esc_html( basename( $file_upload->filename ) ) );
 		$nonce = 'theme-upload';
@@ -310,14 +310,14 @@ if ( isset( $_GET['action'] ) ) {
 			$file_upload->cleanup();
 		}
 
-		include( ABSPATH . 'wp-admin/admin-footer.php' );
+		include( APP_ADMIN_PATH . '/admin-footer.php' );
 
 	} else {
 		/**
 		 * Fires when a custom plugin or theme update request is received.
 		 *
 		 * The dynamic portion of the hook name, `$action`, refers to the action
-		 * provided in the request for wp-admin/update.php. Can be used to
+		 * provided in the request for update.php. Can be used to
 		 * provide custom update functionality for themes and plugins.
 		 *
 		 * @since Before 2.8.0

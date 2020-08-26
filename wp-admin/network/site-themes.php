@@ -155,7 +155,7 @@ $title = sprintf( __( 'Edit Site: %s' ), esc_html( $details->blogname ) );
 $parent_file = 'sites.php';
 $submenu_file = 'sites.php';
 
-require( ABSPATH . 'wp-admin/admin-header.php' ); ?>
+require( APP_ADMIN_PATH . '/admin-header.php' ); ?>
 
 <div class="wrap">
 
@@ -215,4 +215,4 @@ require( ABSPATH . 'wp-admin/admin-header.php' ); ?>
 </div>
 <?php
 
-include(ABSPATH . 'wp-admin/admin-footer.php'); ?>
+include( APP_ADMIN_PATH . '/admin-footer.php'); ?>

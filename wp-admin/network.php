@@ -71,7 +71,7 @@ get_current_screen()->add_help_tab( [
 
 get_current_screen()->set_help_sidebar( '' );
 
-include( ABSPATH . 'wp-admin/admin-header.php' );
+include( APP_ADMIN_PATH . '/admin-header.php' );
 
 ?>
 <div class="wrap">
@@ -114,4 +114,4 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 	?>
 </div>
 
-<?php include( ABSPATH . 'wp-admin/admin-footer.php' );
+<?php include( APP_ADMIN_PATH . '/admin-footer.php' );

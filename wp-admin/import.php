@@ -55,7 +55,7 @@ add_thickbox();
 wp_enqueue_script( 'plugin-install' );
 wp_enqueue_script( 'updates' );
 
-require_once( ABSPATH . 'wp-admin/admin-header.php' );
+require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 ?>
 
@@ -252,4 +252,4 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 wp_print_request_filesystem_credentials_modal();
 wp_print_admin_notice_templates();
 
-include( ABSPATH . 'wp-admin/admin-footer.php' );
+include( APP_ADMIN_PATH . '/admin-footer.php' );

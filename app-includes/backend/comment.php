@@ -191,6 +191,6 @@ function enqueue_comment_hotkeys_js() {
  */
 function comment_footer_die( $msg ) {
 	echo "<div class='wrap'><p>$msg</p></div>";
-	include( ABSPATH . 'wp-admin/admin-footer.php' );
+	include( APP_ADMIN_PATH . '/admin-footer.php' );
 	die;
 }

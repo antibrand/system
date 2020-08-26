@@ -233,7 +233,7 @@ $admin_body_classes = apply_filters( 'admin_body_class', '' );
 		wp_customize_support_script();
 	} ?>
 
-	<?php require( ABSPATH . 'wp-admin/menu-header.php' ); ?>
+	<?php require( APP_ADMIN_PATH . '/menu-header.php' ); ?>
 
 	<div id="admin-page-wrap" class="page-wrap admin-page-wrap">
 
@@ -295,5 +295,5 @@ $admin_body_classes = apply_filters( 'admin_body_class', '' );
 				do_action( 'all_admin_notices' );
 
 				if ( $parent_file == 'options-general.php' ) {
-					require( ABSPATH . 'wp-admin/options-head.php' );
+					require( APP_ADMIN_PATH . '/options-head.php' );
 				}

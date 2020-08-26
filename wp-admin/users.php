@@ -319,7 +319,7 @@ case 'delete':
 		add_action( 'admin_head', 'delete_users_add_js' );
 	}
 
-	include( ABSPATH . 'wp-admin/admin-header.php' );
+	include( APP_ADMIN_PATH . '/admin-header.php' );
 
 ?>
 	<form method="post" name="updateusers" id="updateusers">
@@ -471,7 +471,7 @@ case 'remove':
 		$userids = $_REQUEST['users'];
 	}
 
-	include( ABSPATH . 'wp-admin/admin-header.php' );
+	include( APP_ADMIN_PATH . '/admin-header.php' );
 
 ?>
 	<form id="updateusers" class="list-table-form" method="post" name="updateusers">
@@ -554,7 +554,7 @@ default:
 		exit;
 	}
 
-	include( ABSPATH . 'wp-admin/admin-header.php' );
+	include( APP_ADMIN_PATH . '/admin-header.php' );
 
 	$messages = [];
 
@@ -673,4 +673,4 @@ break;
 
 } // End of the $doaction switch.
 
-include( ABSPATH . 'wp-admin/admin-footer.php' );
+include( APP_ADMIN_PATH . '/admin-footer.php' );

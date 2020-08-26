@@ -87,7 +87,7 @@ $post_ID = $post->ID;
 // This filter is documented in APP_ADMIN_DIR/post.php.
 if ( apply_filters( 'replace_editor', false, $post ) !== true ) {
 	wp_enqueue_script( 'autosave' );
-	include( ABSPATH . 'wp-admin/edit-form-advanced.php' );
+	include( APP_ADMIN_PATH . '/edit-form-advanced.php' );
 }
 
-include( ABSPATH . 'wp-admin/admin-footer.php' );
+include( APP_ADMIN_PATH . '/admin-footer.php' );

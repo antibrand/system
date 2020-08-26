@@ -346,7 +346,7 @@ if ( 'update' == $action ) {
 	exit;
 }
 
-include( ABSPATH . 'wp-admin/admin-header.php' );
+include( APP_ADMIN_PATH . '/admin-header.php' );
 
 ?>
 <div class="wrap">
@@ -429,4 +429,4 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 
 <?php
 
-include( ABSPATH . 'wp-admin/admin-footer.php' );
+include( APP_ADMIN_PATH . '/admin-footer.php' );

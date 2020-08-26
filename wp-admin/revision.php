@@ -118,7 +118,7 @@ get_current_screen()->add_help_tab( array(
 
 get_current_screen()->set_help_sidebar( '' );
 
-require_once( ABSPATH . 'wp-admin/admin-header.php' );
+require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 ?>
 
@@ -129,4 +129,4 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 <?php
 wp_print_revision_templates();
 
-require_once( ABSPATH . 'wp-admin/admin-footer.php' );
+require_once( APP_ADMIN_PATH . '/admin-footer.php' );

@@ -219,7 +219,7 @@ add_thickbox();
 wp_enqueue_script( 'theme' );
 wp_enqueue_script( 'updates' );
 
-require_once( ABSPATH . 'wp-admin/admin-header.php' );
+require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 ?>
 
@@ -728,4 +728,4 @@ wp_localize_script( 'updates', '_wpUpdatesItemCounts', [
 	'totals'  => wp_get_update_data(),
 ] );
 
-require( ABSPATH . 'wp-admin/admin-footer.php' );
+require( APP_ADMIN_PATH . '/admin-footer.php' );

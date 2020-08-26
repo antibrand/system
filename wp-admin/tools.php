@@ -15,7 +15,7 @@ require_once( dirname( __FILE__ ) . '/admin.php' );
 
 $title = __( 'Tools' );
 
-require_once( ABSPATH . 'wp-admin/admin-header.php' );
+require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 ?>
 <main id="app-body" class="main admin-main" role="main">
@@ -48,4 +48,4 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
 </main>
 <?php
-include( ABSPATH . 'wp-admin/admin-footer.php' );
+include( APP_ADMIN_PATH . '/admin-footer.php' );

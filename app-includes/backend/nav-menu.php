@@ -18,9 +18,6 @@
 use \AppNamespace\Backend  as Backend;
 use \AppNamespace\Includes as Includes;
 
-/** Walker_Nav_Menu_Checklist class */
-// require_once( ABSPATH . 'wp-admin/includes/class-walker-nav-menu-checklist.php' );
-
 /**
  * Prints the appropriate response to a menu quick search.
  *

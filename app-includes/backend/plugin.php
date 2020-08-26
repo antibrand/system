@@ -784,9 +784,9 @@ function delete_plugins( $plugins, $deprecated = '' ) {
 
 	if ( false === $credentials ) {
 		if ( ! empty( $data) ){
-			include_once( ABSPATH . 'wp-admin/admin-header.php' );
+			include_once( APP_ADMIN_PATH . '/admin-header.php' );
 			echo $data;
-			include( ABSPATH . 'wp-admin/admin-footer.php' );
+			include( APP_ADMIN_PATH . '/admin-footer.php' );
 			exit;
 		}
 		return;
@@ -798,9 +798,9 @@ function delete_plugins( $plugins, $deprecated = '' ) {
 		$data = ob_get_clean();
 
 		if ( ! empty( $data) ){
-			include_once( ABSPATH . 'wp-admin/admin-header.php' );
+			include_once( APP_ADMIN_PATH . '/admin-header.php' );
 			echo $data;
-			include( ABSPATH . 'wp-admin/admin-footer.php' );
+			include( APP_ADMIN_PATH . '/admin-footer.php' );
 			exit;
 		}
 		return;

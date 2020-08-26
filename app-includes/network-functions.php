@@ -2562,8 +2562,8 @@ function wp_is_large_network( $using = 'sites', $network_id = null ) {
  */
 function get_subdirectory_reserved_names() {
 	$names = array(
-		'page', 'comments', 'blog', 'files', 'feed', 'wp-admin',
-		'app-views', 'wp-includes', 'wp-json', 'embed'
+		'page', 'comments', 'blog', 'files', 'feed', APP_ADMIN_DIR,
+		APP_VIEWS_DIR, APP_INC_DIR, 'wp-json', 'embed'
 	);
 
 	/**

@@ -313,7 +313,8 @@ function wp_ajax_autocomplete_user() {
  * @since 3.4.0
  */
 function wp_ajax_dashboard_widgets() {
-	require_once ABSPATH . 'wp-admin/includes/dashboard.php';
+
+	require_once APP_ADMIN_PATH . '/includes/dashboard.php';
 
 	$pagenow = $_GET['pagenow'];
 	if ( $pagenow === 'dashboard-user' || $pagenow === 'dashboard-network' || $pagenow === 'dashboard' ) {

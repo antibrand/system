@@ -244,7 +244,7 @@ if ( ! wp_is_large_network( 'users' ) && apply_filters( 'show_network_site_users
 	wp_enqueue_script( 'user-suggest' );
 }
 
-require( ABSPATH . 'wp-admin/admin-header.php' ); ?>
+require( APP_ADMIN_PATH . '/admin-header.php' ); ?>
 
 <script type="text/javascript">
 var current_site_id = <?php echo $id; ?>;
@@ -455,4 +455,4 @@ jQuery(document).ready( function($) {
 </div>
 <?php
 
-require( ABSPATH . 'wp-admin/admin-footer.php' );
+require( APP_ADMIN_PATH . '/admin-footer.php' );

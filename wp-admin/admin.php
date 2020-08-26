@@ -147,11 +147,11 @@ if ( isset( $_REQUEST['taxonomy'] ) && taxonomy_exists( $_REQUEST['taxonomy'] ) 
 }
 
 if ( APP_NETWORK_ADMIN ) {
-	require( ABSPATH . 'wp-admin/network/menu.php' );
+	require( APP_ADMIN_PATH . '/network/menu.php' );
 } elseif ( WP_USER_ADMIN ) {
-	require( ABSPATH . 'wp-admin/user/menu.php' );
+	require( APP_ADMIN_PATH . '/user/menu.php' );
 } else {
-	require( ABSPATH . 'wp-admin/menu.php' );
+	require( APP_ADMIN_PATH . '/menu.php' );
 }
 
 if ( current_user_can( 'manage_options' ) ) {
@@ -240,7 +240,7 @@ if ( isset( $plugin_page ) ) {
 		do_action( "load-{$page_hook}" );
 
 		if ( ! isset( $_GET['noheader'] ) ) {
-			require_once( ABSPATH . 'wp-admin/admin-header.php' );
+			require_once( APP_ADMIN_PATH . '/admin-header.php' );
 		}
 
 		/**
@@ -276,7 +276,7 @@ if ( isset( $plugin_page ) ) {
 		do_action( "load-{$plugin_page}" );
 
 		if ( ! isset( $_GET['noheader'] ) ) {
-			require_once( ABSPATH . 'wp-admin/admin-header.php' );
+			require_once( APP_ADMIN_PATH . '/admin-header.php' );
 		}
 
 		if ( file_exists( APP_EXTENSIONS_PATH . "/$plugin_page" ) ) {
@@ -286,7 +286,7 @@ if ( isset( $plugin_page ) ) {
 		}
 	}
 
-	include( ABSPATH . 'wp-admin/admin-footer.php' );
+	include( APP_ADMIN_PATH . '/admin-footer.php' );
 
 	exit();
 
@@ -324,7 +324,7 @@ if ( isset( $plugin_page ) ) {
 	$title        = __( 'Import' );
 
 	if ( ! isset( $_GET['noheader'] ) ) {
-		require_once( ABSPATH . 'wp-admin/admin-header.php' );
+		require_once( APP_ADMIN_PATH . '/admin-header.php' );
 	}
 
 	require_once( APP_INC_PATH . '/backend/upgrade.php' );
@@ -349,7 +349,7 @@ if ( isset( $plugin_page ) ) {
 
 	call_user_func( $wp_importers[$importer][2] );
 
-	include( ABSPATH . 'wp-admin/admin-footer.php' );
+	include( APP_ADMIN_PATH . '/admin-footer.php' );
 
 	// Make sure rules are flushed.
 	flush_rewrite_rules( false );

@@ -26,7 +26,7 @@ get_current_screen()->add_help_tab( array(
 
 get_current_screen()->set_help_sidebar( '' );
 
-require_once( ABSPATH . 'wp-admin/admin-header.php' );
+require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 if ( ! current_user_can( 'upgrade_network' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to access this page.' ), 403 );
@@ -137,4 +137,4 @@ switch ( $action ) {
 ?>
 </div>
 
-<?php include( ABSPATH . 'wp-admin/admin-footer.php' ); ?>
+<?php include( APP_ADMIN_PATH . '/admin-footer.php' ); ?>

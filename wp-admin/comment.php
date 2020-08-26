@@ -80,7 +80,7 @@ switch( $action ) {
 
 		$comment = get_comment_to_edit( $comment_id );
 
-		include( ABSPATH . 'wp-admin/edit-form-comment.php' );
+		include( APP_ADMIN_PATH . '/edit-form-comment.php' );
 
 		break;
 

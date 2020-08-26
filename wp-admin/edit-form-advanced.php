@@ -652,7 +652,7 @@ if ( 'post' == $post_type ) {
 	] );
 }
 
-require_once( ABSPATH . 'wp-admin/admin-header.php' );
+require_once( APP_ADMIN_PATH . '/admin-header.php' );
 
 ?>
 <div class="wrap">
