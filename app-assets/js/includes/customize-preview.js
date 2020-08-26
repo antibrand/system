@@ -303,17 +303,17 @@
 		}
 
 		// Skip wp login and signup pages.
-		if ( /\/wp-(login|signup)\.php$/.test( element.pathname ) ) {
+		if ( /\/app-(login|signup)\.php$/.test( element.pathname ) ) {
 			return false;
 		}
 
 		// Allow links to admin ajax as faux frontend URLs.
-		if ( /\/wp-admin\/admin-ajax\.php$/.test( element.pathname ) ) {
+		if ( /\/app-admin\/admin-ajax\.php$/.test( element.pathname ) ) {
 			return args.allowAdminAjax;
 		}
 
-		// Disallow links to admin, includes, and content.
-		if ( /\/wp-(admin|includes|content)(\/|$)/.test( element.pathname ) ) {
+		// Disallow links.
+		if ( /\/app-(admin|includes|extend|views|assets|languages)(\/|$)/.test( element.pathname ) ) {
 			return false;
 		}
 

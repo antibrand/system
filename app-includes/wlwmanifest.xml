@@ -16,12 +16,12 @@
     <adminLinkText>Dashboard</adminLinkText>
     <adminUrl>
       <![CDATA[
-			{blog-postapi-url}/../wp-admin/
+			{blog-postapi-url}/../app-admin/
 		]]>
     </adminUrl>
     <postEditingUrl>
       <![CDATA[
-			{blog-postapi-url}/../wp-admin/post.php?action=edit&post={post-id}
+			{blog-postapi-url}/../app-admin/post.php?action=edit&post={post-id}
 		]]>
     </postEditingUrl>
   </weblog>
@@ -32,7 +32,7 @@
       <text>Manage Comments</text>
       <clickUrl>
         <![CDATA[
-				{blog-postapi-url}/../wp-admin/edit-comments.php
+				{blog-postapi-url}/../app-admin/edit-comments.php
 			]]>
       </clickUrl>
     </button>
