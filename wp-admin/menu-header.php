@@ -11,8 +11,8 @@
  *
  * @global string $self
  */
-$self = preg_replace('|^.*/wp-admin/network/|i', '', $_SERVER['PHP_SELF']);
-$self = preg_replace('|^.*/wp-admin/|i', '', $self);
+$self = preg_replace('|^.*/' . APP_ADMIN_DIR . '/network/|i', '', $_SERVER['PHP_SELF']);
+$self = preg_replace('|^.*/' . APP_ADMIN_DIR . '/|i', '', $self);
 $self = preg_replace('|^.*/plugins/|i', '', $self);
 $self = preg_replace('|^.*/mu-plugins/|i', '', $self);
 

@@ -558,8 +558,8 @@ define( 'BLOG_ID_CURRENT_SITE', 1 );
                 }
                 $web_config_file .= '
                 <rule name="Rule 2" stopProcessing="true">
-                    <match url="^' . $iis_subdir_match . 'wp-admin$" ignoreCase="false" />
-                    <action type="Redirect" url="' . $iis_subdir_replacement . 'wp-admin/" redirectType="Permanent" />
+                    <match url="^' . $iis_subdir_match . APP_ADMIN_DIR . '$" ignoreCase="false" />
+                    <action type="Redirect" url="' . $iis_subdir_replacement . APP_ADMIN_DIR . '/" redirectType="Permanent" />
                 </rule>
                 <rule name="Rule 3" stopProcessing="true">
                     <match url="^" ignoreCase="false" />
@@ -609,13 +609,16 @@ define( 'BLOG_ID_CURRENT_SITE', 1 );
 			$ms_files_rewriting .= $subdir_match . "files/(.+) {$rewrite_base}" . APP_INC_DIR . "/network-files.php?file={$subdir_replacement_12} [L]" . "\n";
 		}
 
+		// Admin directory constant for rewrite rules.
+		$admin_dir = APP_ADMIN_DIR;
+
 		$htaccess_file = <<<EOF
 RewriteEngine On
 RewriteBase {$base}
 RewriteRule ^index\.php$ - [L]
 {$ms_files_rewriting}
-# add a trailing slash to /wp-admin
-RewriteRule ^{$subdir_match}wp-admin$ {$subdir_replacement_01}wp-admin/ [R=301,L]
+# add a trailing slash to /$admin_dir
+RewriteRule ^{$subdir_match}$admin_dir$ {$subdir_replacement_01}$admin_dir/ [R=301,L]
 
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d

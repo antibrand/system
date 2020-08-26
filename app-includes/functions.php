@@ -1321,8 +1321,8 @@ function do_robots() {
 	} else {
 		$site_url = parse_url( site_url() );
 		$path = ( !empty( $site_url['path'] ) ) ? $site_url['path'] : '';
-		$output .= "Disallow: $path/wp-admin/\n";
-		$output .= "Allow: $path/wp-admin/admin-ajax.php\n";
+		$output .= "Disallow: $path/APP_ADMIN_DIR/\n";
+		$output .= "Allow: $path/APP_ADMIN_DIR/admin-ajax.php\n";
 	}
 
 	/**
@@ -4233,8 +4233,8 @@ function wp_guess_url() {
 			$path = preg_replace( "#/($views/.*|app-login.php)#i", '', $_SERVER['REQUEST_URI'] );
 
 		// The request is for the APP_ADMIN_DIR directory.
-		} elseif ( strpos( $_SERVER['REQUEST_URI'], 'wp-admin' ) !== false || strpos( $_SERVER['REQUEST_URI'], 'app-login.php' ) !== false ) {
-			$path = preg_replace( '#/(wp-admin/.*|app-login.php)#i', '', $_SERVER['REQUEST_URI'] );
+		} elseif ( strpos( $_SERVER['REQUEST_URI'], APP_ADMIN_DIR ) !== false || strpos( $_SERVER['REQUEST_URI'], 'app-login.php' ) !== false ) {
+			$path = preg_replace( '#/(' . APP_ADMIN_DIR . '/.*|app-login.php)#i', '', $_SERVER['REQUEST_URI'] );
 
 		// The request is for a file in ABSPATH.
 		} elseif ( $script_filename_dir . '/' == $abspath_fix ) {

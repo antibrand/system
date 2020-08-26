@@ -60,7 +60,7 @@ if ( !isset( $current_site ) || !isset( $current_blog ) ) {
 
 	$path = stripslashes( $_SERVER['REQUEST_URI'] );
 	if ( is_admin() ) {
-		$path = preg_replace( '#(.*)/wp-admin/.*#', '$1/', $path );
+		$path = preg_replace( '#(.*)/' . APP_ADMIN_DIR . '/.*#', '$1/', $path );
 	}
 	list( $path ) = explode( '?', $path );
 

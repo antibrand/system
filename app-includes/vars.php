@@ -38,11 +38,11 @@ if ( is_admin() ) {
 
 	// Admin pages are checked more carefully.
 	if ( is_network_admin() ) {
-		preg_match( '#/wp-admin/network/?(.*?)$#i', $_SERVER['PHP_SELF'], $self_matches );
+		preg_match( '#/' . APP_ADMIN_DIR . '/network/?(.*?)$#i', $_SERVER['PHP_SELF'], $self_matches );
 	} elseif ( is_user_admin() ) {
-		preg_match( '#/wp-admin/user/?(.*?)$#i', $_SERVER['PHP_SELF'], $self_matches );
+		preg_match( '#/' . APP_ADMIN_DIR . '/user/?(.*?)$#i', $_SERVER['PHP_SELF'], $self_matches );
 	} else {
-		preg_match( '#/wp-admin/?(.*?)$#i', $_SERVER['PHP_SELF'], $self_matches );
+		preg_match( '#/' . APP_ADMIN_DIR . '/?(.*?)$#i', $_SERVER['PHP_SELF'], $self_matches );
 	}
 
 	$pagenow = $self_matches[1];
