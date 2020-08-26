@@ -101,14 +101,14 @@ class WP_Filesystem_Base {
 	}
 
 	/**
-	 * Return the path on the remote filesystem of APP_LANG_DIR.
+	 * Return the path on the remote filesystem of APP_LANG_PATH.
 	 *
 	 * @since 3.2.0
 	 *
 	 * @return string The location of the remote path.
 	 */
 	public function wp_lang_dir() {
-		return $this->find_folder(APP_LANG_DIR);
+		return $this->find_folder(APP_LANG_PATH);
 	}
 
 	/**
@@ -174,7 +174,7 @@ class WP_Filesystem_Base {
 				'FTP_BASE' => ABSPATH,
 				'FTP_CONTENT_DIR' => APP_VIEWS_PATH,
 				'FTP_PLUGIN_DIR' => APP_PLUGINS_PATH,
-				'FTP_LANG_DIR' => APP_LANG_DIR
+				'FTP_LANG_DIR' => APP_LANG_PATH
 			);
 
 			// Direct matches ( folder = CONSTANT/ )

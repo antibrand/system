@@ -261,14 +261,6 @@ define( 'APP_DEFAULT_THEME', 'theme' );
 define( 'APP_LANG', 'en_US' );
 
 /**
- * Default language directory
- *
- * @since 1.0.0
- * @var   string
- */
-define( 'APP_LANG_DIR', ABSPATH . 'app-languages' );
-
-/**
  * Allow better passwords feature
  *
  * @since 1.0.0

@@ -344,7 +344,7 @@ function app_debug_mode() {
 /**
  * Set the location of the language directory.
  *
- * To set directory manually, define the `APP_LANG_DIR` constant
+ * To set directory manually, define the `APP_LANG_PATH` constant
  * in the configuration file.
  *
  * If the language directory exists within `APP_VIEWS_PATH`, it
@@ -356,7 +356,7 @@ function app_debug_mode() {
  */
 function wp_set_lang_dir() {
 
-	if ( ! defined( 'APP_LANG_DIR' ) ) {
+	if ( ! defined( 'APP_LANG_PATH' ) ) {
 
 		if ( file_exists( ABSPATH . 'app-languages' ) && @is_dir( ABSPATH . 'app-languages' ) || !@is_dir( APP_INC_PATH . '/languages' ) ) {
 
@@ -367,7 +367,7 @@ function wp_set_lang_dir() {
 			 *
 			 * @since 2.1.0
 			 */
-			define( 'APP_LANG_DIR', ABSPATH . 'app-languages' );
+			define( 'APP_LANG_PATH', ABSPATH . 'app-languages' );
 
 			if ( ! defined( 'LANGDIR' ) ) {
 
@@ -384,7 +384,7 @@ function wp_set_lang_dir() {
 			 *
 			 * @since 2.1.0
 			 */
-			define( 'APP_LANG_DIR', APP_INC_PATH . '/languages' );
+			define( 'APP_LANG_PATH', APP_INC_PATH . '/languages' );
 
 			if ( ! defined( 'LANGDIR' ) ) {
 
@@ -917,8 +917,8 @@ function wp_load_translations_early() {
 		if ( ! $locales )
 			break;
 
-		if ( defined( 'APP_LANG_DIR' ) && @is_dir( APP_LANG_DIR ) )
-			$locations[] = APP_LANG_DIR;
+		if ( defined( 'APP_LANG_PATH' ) && @is_dir( APP_LANG_PATH ) )
+			$locations[] = APP_LANG_PATH;
 
 		if ( defined( 'APP_VIEWS_PATH' ) && @is_dir( APP_VIEWS_PATH . '/languages' ) )
 			$locations[] = APP_VIEWS_PATH . '/languages';

@@ -211,7 +211,7 @@ class Language_Pack_Upgrader extends Includes\Installer {
 		$this->skin->header();
 
 		// Connect to the Filesystem first.
-		$res = $this->fs_connect( array( APP_VIEWS_PATH, APP_LANG_DIR ) );
+		$res = $this->fs_connect( array( APP_VIEWS_PATH, APP_LANG_PATH ) );
 		if ( ! $res ) {
 			$this->skin->footer();
 			return false;
@@ -223,10 +223,10 @@ class Language_Pack_Upgrader extends Includes\Installer {
 		$this->update_current = 0;
 
 		/*
-		 * The filesystem's mkdir() is not recursive. Make sure APP_LANG_DIR exists,
+		 * The filesystem's mkdir() is not recursive. Make sure APP_LANG_PATH exists,
 		 * as we then may need to create a /plugins or /themes directory inside of it.
 		 */
-		$remote_destination = $wp_filesystem->find_folder( APP_LANG_DIR );
+		$remote_destination = $wp_filesystem->find_folder( APP_LANG_PATH );
 		if ( ! $wp_filesystem->exists( $remote_destination ) )
 			if ( ! $wp_filesystem->mkdir( $remote_destination, FS_CHMOD_DIR ) )
 				return new WP_Error( 'mkdir_failed_lang_dir', $this->strings['mkdir_failed'], $remote_destination );
@@ -237,7 +237,7 @@ class Language_Pack_Upgrader extends Includes\Installer {
 
 			$this->skin->language_update = $language_update;
 
-			$destination = APP_LANG_DIR;
+			$destination = APP_LANG_PATH;
 			if ( 'plugin' == $language_update->type )
 				$destination .= '/plugins';
 			elseif ( 'theme' == $language_update->type )

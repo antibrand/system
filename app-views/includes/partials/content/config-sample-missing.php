@@ -221,7 +221,7 @@ define( 'APP_LOGIN', '/' . 'login' . '/' );
 // define( 'APP_LANG', 'en_US' );
 
 // Default language directory.
-// define( 'APP_LANG_DIR', ABSPATH . 'app-languages' );
+// define( 'APP_LANG_PATH', ABSPATH . 'app-languages' );
 
 // Sets up vars and included files.
 require( ABSPATH . 'app-settings.php' );

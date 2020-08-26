@@ -869,8 +869,8 @@ function delete_plugins( $plugins, $deprecated = '' ) {
 			$translations = $plugin_translations[ $plugin_slug ];
 
 			foreach ( $translations as $translation => $data ) {
-				$wp_filesystem->delete( APP_LANG_DIR . '/plugins/' . $plugin_slug . '-' . $translation . '.po' );
-				$wp_filesystem->delete( APP_LANG_DIR . '/plugins/' . $plugin_slug . '-' . $translation . '.mo' );
+				$wp_filesystem->delete( APP_LANG_PATH . '/plugins/' . $plugin_slug . '-' . $translation . '.po' );
+				$wp_filesystem->delete( APP_LANG_PATH . '/plugins/' . $plugin_slug . '-' . $translation . '.mo' );
 			}
 		}
 	}

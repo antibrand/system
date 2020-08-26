@@ -1462,7 +1462,7 @@ function get_filesystem_method( $args = array(), $context = '', $allow_relaxed_f
 	}
 
 	// If the directory doesn't exist (app-languages) then use the parent directory as we'll create it.
-	if ( APP_LANG_DIR == $context && ! is_dir( $context ) ) {
+	if ( APP_LANG_PATH == $context && ! is_dir( $context ) ) {
 		$context = dirname( $context );
 	}
 

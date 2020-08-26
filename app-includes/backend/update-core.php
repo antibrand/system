@@ -77,7 +77,7 @@ $_new_bundled_files = array(
  *   3. Copy new application directory over old files.
  *   4. Upgrade to new version.
  *     4.1. Copy all files/folders other than wp-content
- *     4.2. Copy any language files to APP_LANG_DIR (which may differ from APP_VIEWS_PATH
+ *     4.2. Copy any language files to APP_LANG_PATH (which may differ from APP_VIEWS_PATH
  *     4.3. Copy any new bundled themes/plugins to their respective locations
  *   5. Delete new application directory path.
  *   6. Delete .maintenance file.
@@ -307,8 +307,8 @@ function update_core($from, $to) {
 	// Custom Content Directory needs updating now.
 	// Copy Languages
 	if ( !is_wp_error($result) && $wp_filesystem->is_dir($from . $distro . 'app-languages' ) ) {
-		if ( APP_LANG_DIR != APP_INC_PATH . '/languages' || @is_dir( APP_LANG_DIR ) )
-			$lang_dir = APP_LANG_DIR;
+		if ( APP_LANG_PATH != APP_INC_PATH . '/languages' || @is_dir( APP_LANG_PATH ) )
+			$lang_dir = APP_LANG_PATH;
 		else
 			$lang_dir = APP_VIEWS_PATH . '/languages';
 
@@ -320,7 +320,7 @@ function update_core($from, $to) {
 		if ( @is_dir($lang_dir) ) {
 			$wp_lang_dir = $wp_filesystem->find_folder($lang_dir);
 			if ( $wp_lang_dir ) {
-				$result = copy_dir($from . $distro . APP_LANG_DIR, $wp_lang_dir);
+				$result = copy_dir($from . $distro . APP_LANG_PATH, $wp_lang_dir);
 				if ( is_wp_error( $result ) )
 					$result = new WP_Error( $result->get_error_code() . '_languages', $result->get_error_message(), substr( $result->get_error_data(), strlen( $wp_lang_dir ) ) );
 			}

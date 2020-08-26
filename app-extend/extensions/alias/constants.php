@@ -240,8 +240,8 @@ if ( ! defined( 'WPMU_PLUGIN_URL' ) && defined( 'APP_EXTEND_URL' ) ) {
  * @since 1.0.0
  * @var   string Returns the path to the languages directory.
  */
-if ( ! defined( 'WP_LANG_DIR' ) && ( defined( 'APP_LANG_DIR' ) && APP_LANG_DIR ) ) {
-	define( 'WP_LANG_DIR', APP_LANG_DIR );
+if ( ! defined( 'WP_LANG_DIR' ) && ( defined( 'APP_LANG_PATH' ) && APP_LANG_PATH ) ) {
+	define( 'WP_LANG_DIR', APP_LANG_PATH );
 } else {
 	define( 'WP_LANG_DIR', ABSPATH . 'app-languages' );
 }

@@ -177,6 +177,22 @@ define( 'APP_VIEWS_DIR', 'app-views' );
 define( 'APP_VIEWS_PATH', ABSPATH . APP_VIEWS_DIR );
 
 /**
+ * Language directory name
+ *
+ * @since 1.0.0
+ * @var   string Returns the name of the directory.
+ */
+define( 'APP_LANG_DIR', 'app-languages' );
+
+/**
+ * Language directory path
+ *
+ * @since 1.0.0
+ * @var   string Returns the path to the directory.
+ */
+define( 'APP_LANG_PATH', ABSPATH . 'APP_LANG_DIR' );
+
+/**
  * System API
  *
  * URL constant to change the location of the API files.

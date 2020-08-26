@@ -82,8 +82,8 @@ function delete_theme($stylesheet, $redirect = '') {
 		$translations = $theme_translations[ $stylesheet ];
 
 		foreach ( $translations as $translation => $data ) {
-			$wp_filesystem->delete( APP_LANG_DIR . '/themes/' . $stylesheet . '-' . $translation . '.po' );
-			$wp_filesystem->delete( APP_LANG_DIR . '/themes/' . $stylesheet . '-' . $translation . '.mo' );
+			$wp_filesystem->delete( APP_LANG_PATH . '/themes/' . $stylesheet . '-' . $translation . '.po' );
+			$wp_filesystem->delete( APP_LANG_PATH . '/themes/' . $stylesheet . '-' . $translation . '.mo' );
 		}
 	}
 
