@@ -49,6 +49,7 @@ const APP_CLASSES = [
 	'PclZip' => __DIR__ . '/classes/backend/class-pclzip.php',
 
 	// Upgraders.
+	'Core_Upgrader'             => __DIR__ . '/classes/backend/class-core-upgrader.php',
 	'WP_Upgrader_Skin'          => __DIR__ . '/classes/backend/class-wp-upgrader-skin.php',
 	'Bulk_Upgrader_Skin'        => __DIR__ . '/classes/backend/class-bulk-upgrader-skin.php',
 	'Automatic_Upgrader_Skin'   => __DIR__ . '/classes/backend/class-automatic-upgrader-skin.php',

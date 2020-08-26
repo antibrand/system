@@ -12,8 +12,5 @@
 /** WP_Ajax_Upgrader_Skin class */
 require_once( ABSPATH . 'wp-admin/includes/class-wp-ajax-upgrader-skin.php' );
 
-/** Core_Upgrader class */
-require_once( APP_INC_PATH . '/classes/backend/class-core-upgrader.php' );
-
 /** WP_Automatic_Updater class */
 require_once( ABSPATH . 'wp-admin/includes/class-wp-automatic-updater.php' );
