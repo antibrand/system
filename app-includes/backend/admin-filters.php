@@ -40,11 +40,11 @@ add_action( 'admin_head', 'wp_site_icon' );
 add_action( 'admin_head', '_ipad_meta' );
 
 // Privacy tools
-add_action( 'admin_menu', '_wp_privacy_hook_requests_page' );
-add_action( 'load-users_page_export_personal_data', '_wp_privacy_requests_screen_options' );
-add_action( 'load-users_page_remove_personal_data', '_wp_privacy_requests_screen_options' );
-add_action( 'load-data-export-personal.php', '_wp_privacy_requests_screen_options' );
-add_action( 'load-data-erase-personal.php', '_wp_privacy_requests_screen_options' );
+add_action( 'admin_menu', 'app_privacy_hook_requests_page' );
+add_action( 'load-users_page_export_personal_data', 'app_privacy_requests_screen_options' );
+add_action( 'load-users_page_remove_personal_data', 'app_privacy_requests_screen_options' );
+add_action( 'load-data-export-personal.php', 'app_privacy_requests_screen_options' );
+add_action( 'load-data-erase-personal.php', 'app_privacy_requests_screen_options' );
 
 // Prerendering.
 if ( ! is_customize_preview() ) {
@@ -70,7 +70,7 @@ add_filter( 'heartbeat_received', 'heartbeat_autosave', 500, 2 );
 add_filter( 'heartbeat_settings', 'wp_heartbeat_set_suspension' );
 
 // Nav Menu hooks.
-add_action( 'admin_head-nav-menus.php', '_wp_delete_orphaned_draft_menu_items' );
+add_action( 'admin_head-nav-menus.php', 'app_delete_orphaned_draft_menu_items' );
 
 // Plugin hooks.
 add_filter( 'whitelist_options', 'option_update_filter' );
@@ -136,7 +136,7 @@ add_action( 'upgrader_process_complete', 'wp_update_themes', 10, 0 );
 add_filter( 'wp_privacy_personal_data_erasure_page', 'wp_privacy_process_personal_data_erasure_page', 10, 5 );
 add_filter( 'wp_privacy_personal_data_export_page', 'wp_privacy_process_personal_data_export_page', 10, 7 );
 add_action( 'wp_privacy_personal_data_export_file', 'wp_privacy_generate_personal_data_export_file', 10 );
-add_action( 'wp_privacy_personal_data_erased', '_wp_privacy_send_erasure_fulfillment_notification', 10 );
+add_action( 'wp_privacy_personal_data_erased', 'app_privacy_send_erasure_fulfillment_notification', 10 );
 
 // Privacy policy text changes check.
 add_action( 'admin_init', [ 'WP_Privacy_Policy_Content', 'text_change_check' ], 100 );
@@ -151,4 +151,4 @@ add_action( 'admin_init', [ 'WP_Privacy_Policy_Content', 'add_suggested_content'
 add_action( 'post_updated', [ 'WP_Privacy_Policy_Content', '_policy_page_updated' ] );
 
 // Append '(Draft)' to draft page titles in the privacy page dropdown.
-add_filter( 'list_pages', '_wp_privacy_settings_filter_draft_page_titles', 10, 2 );
+add_filter( 'list_pages', 'app_privacy_settings_filter_draft_page_titles', 10, 2 );

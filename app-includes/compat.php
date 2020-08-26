@@ -27,7 +27,7 @@ if ( !function_exists('_') ) {
  *             false  : Used for testing - return false for future calls to this function
  *             'reset': Used for testing - restore default behavior of this function
  */
-function _wp_can_use_pcre_u( $set = null ) {
+function app_can_use_pcre_u( $set = null ) {
 	static $utf8_pcre = 'reset';
 
 	if ( null !== $set ) {
@@ -92,7 +92,7 @@ function _mb_substr( $str, $start, $length = null, $encoding = null ) {
 		return is_null( $length ) ? substr( $str, $start ) : substr( $str, $start, $length );
 	}
 
-	if ( _wp_can_use_pcre_u() ) {
+	if ( app_can_use_pcre_u() ) {
 		// Use the regex unicode support to separate the UTF-8 characters into an array.
 		preg_match_all( '/./us', $str, $match );
 		$chars = is_null( $length ) ? array_slice( $match[0], $start ) : array_slice( $match[0], $start, $length );
@@ -176,7 +176,7 @@ function _mb_strlen( $str, $encoding = null ) {
 		return strlen( $str );
 	}
 
-	if ( _wp_can_use_pcre_u() ) {
+	if ( app_can_use_pcre_u() ) {
 		// Use the regex unicode support to separate the UTF-8 characters into an array.
 		preg_match_all( '/./us', $str, $match );
 		return count( $match[0] );

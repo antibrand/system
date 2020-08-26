@@ -159,7 +159,7 @@ function wp_nav_menu( $args = array() ) {
 	}
 
 	// Set up the $menu_item variables
-	_wp_menu_item_classes_by_context( $menu_items );
+	app_menu_item_classes_by_context( $menu_items );
 
 	$sorted_menu_items = $menu_items_with_children = array();
 	foreach ( (array) $menu_items as $menu_item ) {
@@ -269,7 +269,7 @@ function wp_nav_menu( $args = array() ) {
  *
  * @param array $menu_items The current menu item objects to which to add the class property information.
  */
-function _wp_menu_item_classes_by_context( &$menu_items ) {
+function app_menu_item_classes_by_context( &$menu_items ) {
 	global $wp_query, $wp_rewrite;
 
 	$queried_object = $wp_query->get_queried_object();

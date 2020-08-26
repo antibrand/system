@@ -28,7 +28,7 @@ use \AppNamespace\Includes as Includes;
  *
  * @param array $request The unsanitized request values.
  */
-function _wp_ajax_menu_quick_search( $request = array() ) {
+function app_ajax_menu_quick_search( $request = array() ) {
 
 	$args            = [];
 	$type            = isset( $request['type'] ) ? $request['type'] : '';
@@ -96,7 +96,7 @@ function _wp_ajax_menu_quick_search( $request = array() ) {
 
 		if ( 'posttype' == $matches[1] && get_post_type_object( $matches[2] ) ) {
 
-			$post_type_obj = _wp_nav_menu_meta_box_object( get_post_type_object( $matches[2] ) );
+			$post_type_obj = app_nav_menu_meta_box_object( get_post_type_object( $matches[2] ) );
 
 			$args  = array_merge(
 				$args,
@@ -913,7 +913,7 @@ function wp_save_nav_menu_items( $menu_id = 0, $menu_data = array() ) {
  * @param object $object The post type or taxonomy meta-object.
  * @return object The post type of taxonomy object.
  */
-function _wp_nav_menu_meta_box_object( $object = null ) {
+function app_nav_menu_meta_box_object( $object = null ) {
 	if ( isset( $object->name ) ) {
 
 		if ( 'page' == $object->name ) {
@@ -1042,7 +1042,7 @@ function wp_nav_menu_manage_columns() {
  *
  * @global wpdb $wpdb DSatabase abstraction object.
  */
-function _wp_delete_orphaned_draft_menu_items() {
+function app_delete_orphaned_draft_menu_items() {
 	global $wpdb;
 	$delete_timestamp = time() - ( DAY_IN_SECONDS * EMPTY_TRASH_DAYS );
 
@@ -1149,7 +1149,7 @@ function wp_nav_menu_update_menu_items ( $nav_menu_selected_id, $nav_menu_select
  * @since Previous 4.5.3
  * @access private
  */
-function _wp_expand_nav_menu_post_data() {
+function app_expand_nav_menu_post_data() {
 	if ( ! isset( $_POST['nav-menu-data'] ) ) {
 		return;
 	}

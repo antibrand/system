@@ -377,7 +377,7 @@ function update_attached_file( $attachment_id, $file ) {
 	 */
 	$file = apply_filters( 'update_attached_file', $file, $attachment_id );
 
-	if ( $file = _wp_relative_upload_path( $file ) )
+	if ( $file = app_relative_upload_path( $file ) )
 		return update_post_meta( $attachment_id, '_wp_attached_file', $file );
 	else
 		return delete_post_meta( $attachment_id, '_wp_attached_file' );
@@ -393,7 +393,7 @@ function update_attached_file( $attachment_id, $file ) {
  * @param string $path Full path to the file.
  * @return string Relative path on success, unchanged path on failure.
  */
-function _wp_relative_upload_path( $path ) {
+function app_relative_upload_path( $path ) {
 	$new_path = $path;
 
 	$uploads = wp_get_upload_dir();
@@ -410,7 +410,7 @@ function _wp_relative_upload_path( $path ) {
 	 * @param string $new_path Relative path to the file.
 	 * @param string $path     Full path to the file.
 	 */
-	return apply_filters( '_wp_relative_upload_path', $new_path, $path );
+	return apply_filters( 'app_relative_upload_path', $new_path, $path );
 }
 
 /**
@@ -779,7 +779,7 @@ function get_page_statuses() {
  *
  * @return array
  */
-function _wp_privacy_statuses() {
+function app_privacy_statuses() {
 	return array(
 		'request-pending'   => __( 'Pending' ),      // Pending confirmation from user.
 		'request-confirmed' => __( 'Confirmed' ),    // User has confirmed the action.
@@ -5270,7 +5270,7 @@ function wp_get_attachment_url( $attachment_id = 0 ) {
 				$url = str_replace($uploads['basedir'], $uploads['baseurl'], $file);
 			} elseif ( false !== strpos($file, 'wp-content/uploads') ) {
 				// Get the directory name relative to the basedir (back compat for pre-2.7 uploads)
-				$url = trailingslashit( $uploads['baseurl'] . '/' . _wp_get_attachment_relative_path( $file ) ) . basename( $file );
+				$url = trailingslashit( $uploads['baseurl'] . '/' . app_get_attachment_relative_path( $file ) ) . basename( $file );
 			} else {
 				// It's a newly-uploaded file, therefore $file is relative to the basedir.
 				$url = $uploads['baseurl'] . "/$file";

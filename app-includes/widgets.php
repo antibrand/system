@@ -1103,7 +1103,7 @@ function _get_widget_id_base( $id ) {
  *
  * @global array $sidebars_widgets
  */
-function _wp_sidebars_changed() {
+function app_sidebars_changed() {
 	global $sidebars_widgets;
 
 	if ( ! is_array( $sidebars_widgets ) )
@@ -1143,14 +1143,14 @@ function retrieve_widgets( $theme_changed = false ) {
 		sort( $registered_sidebars_keys );
 
 		if ( $sidebars_widgets_keys === $registered_sidebars_keys ) {
-			$sidebars_widgets = _wp_remove_unregistered_widgets( $sidebars_widgets, $registered_widgets_ids );
+			$sidebars_widgets = app_remove_unregistered_widgets( $sidebars_widgets, $registered_widgets_ids );
 
 			return $sidebars_widgets;
 		}
 	}
 
 	// Discard invalid, theme-specific widgets from sidebars.
-	$sidebars_widgets = _wp_remove_unregistered_widgets( $sidebars_widgets, $registered_widgets_ids );
+	$sidebars_widgets = app_remove_unregistered_widgets( $sidebars_widgets, $registered_widgets_ids );
 	$sidebars_widgets = wp_map_sidebars_widgets( $sidebars_widgets );
 
 	// Find hidden/lost multi-widget instances.
@@ -1309,7 +1309,7 @@ function wp_map_sidebars_widgets( $existing_sidebars_widgets ) {
 			}
 		}
 
-		$old_sidebars_widgets = _wp_remove_unregistered_widgets( $old_sidebars_widgets );
+		$old_sidebars_widgets = app_remove_unregistered_widgets( $old_sidebars_widgets );
 
 		if ( ! empty( $old_sidebars_widgets ) ) {
 
@@ -1359,7 +1359,7 @@ function wp_map_sidebars_widgets( $existing_sidebars_widgets ) {
  * @param array $whitelist        Optional. List of widget IDs to compare against. Default: Registered widgets.
  * @return array Sidebars with whitelisted widgets.
  */
-function _wp_remove_unregistered_widgets( $sidebars_widgets, $whitelist = array() ) {
+function app_remove_unregistered_widgets( $sidebars_widgets, $whitelist = array() ) {
 	if ( empty( $whitelist ) ) {
 		$whitelist = array_keys( $GLOBALS['wp_registered_widgets'] );
 	}

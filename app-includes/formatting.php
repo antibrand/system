@@ -235,7 +235,7 @@ function wptexturize( $text, $reset = false ) {
 	$textarr = preg_split( $regex, $text, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY );
 
 	foreach ( $textarr as &$curl ) {
-		// Only call _wptexturize_pushpop_element if $curl is a delimiter.
+		// Only call app_texturize_pushpop_element if $curl is a delimiter.
 		$first = $curl[0];
 		if ( '<' === $first ) {
 			if ( '<!--' === substr( $curl, 0, 4 ) ) {
@@ -247,7 +247,7 @@ function wptexturize( $text, $reset = false ) {
 				// Replace each & with &#038; unless it already looks like an entity.
 				$curl = preg_replace( '/&(?!#(?:\d+|x[a-f0-9]+);|[a-z1-4]{1,8};)/i', '&#038;', $curl );
 
-				_wptexturize_pushpop_element( $curl, $no_texturize_tags_stack, $no_texturize_tags );
+				app_texturize_pushpop_element( $curl, $no_texturize_tags_stack, $no_texturize_tags );
 			}
 
 		} elseif ( '' === trim( $curl ) ) {
@@ -259,7 +259,7 @@ function wptexturize( $text, $reset = false ) {
 
 			if ( '[[' !== substr( $curl, 0, 2 ) && ']]' !== substr( $curl, -2 ) ) {
 				// Looks like a normal shortcode.
-				_wptexturize_pushpop_element( $curl, $no_texturize_shortcodes_stack, $no_texturize_shortcodes );
+				app_texturize_pushpop_element( $curl, $no_texturize_shortcodes_stack, $no_texturize_shortcodes );
 			} else {
 				// Looks like an escaped shortcode.
 				continue;
@@ -382,7 +382,7 @@ function wptexturize_primes( $haystack, $needle, $prime, $open_quote, $close_quo
  * @param array  $stack List of open tag elements.
  * @param array  $disabled_elements The tag names to match against. Spaces are not allowed in tag names.
  */
-function _wptexturize_pushpop_element( $text, &$stack, $disabled_elements ) {
+function app_texturize_pushpop_element( $text, &$stack, $disabled_elements ) {
 	// Is it an opening tag or closing tag?
 	if ( isset( $text[1] ) && '/' !== $text[1] ) {
 		$opening_tag = true;
@@ -908,7 +908,7 @@ function seems_utf8( $str ) {
  * @param bool       $double_encode  Optional. Whether to encode existing html entities. Default is false.
  * @return string The encoded text with HTML entities.
  */
-function _wp_specialchars( $string, $quote_style = ENT_NOQUOTES, $charset = false, $double_encode = false ) {
+function app_specialchars( $string, $quote_style = ENT_NOQUOTES, $charset = false, $double_encode = false ) {
 	$string = (string) $string;
 
 	if ( 0 === strlen( $string ) )
@@ -975,7 +975,7 @@ function _wp_specialchars( $string, $quote_style = ENT_NOQUOTES, $charset = fals
  * @param string|int $quote_style Optional. Converts double quotes if set to ENT_COMPAT,
  *                                both single and double if set to ENT_QUOTES or
  *                                none if set to ENT_NOQUOTES.
- *                                Also compatible with old _wp_specialchars() values;
+ *                                Also compatible with old app_specialchars() values;
  *                                converting single quotes if set to 'single',
  *                                double if set to 'double' or both if otherwise set.
  *                                Default is ENT_NOQUOTES.
@@ -993,7 +993,7 @@ function wp_specialchars_decode( $string, $quote_style = ENT_NOQUOTES ) {
 		return $string;
 	}
 
-	// Match the previous behaviour of _wp_specialchars() when the $quote_style is not an accepted value
+	// Match the previous behaviour of app_specialchars() when the $quote_style is not an accepted value
 	if ( empty( $quote_style ) ) {
 		$quote_style = ENT_NOQUOTES;
 	} elseif ( !in_array( $quote_style, array( 0, 2, 3, 'single', 'double' ), true ) ) {
@@ -2974,7 +2974,7 @@ function wp_iso_descrambler( $string ) {
 		return $string;
 	} else {
 		$subject = str_replace('_', ' ', $matches[2]);
-		return preg_replace_callback( '#\=([0-9a-f]{2})#i', '_wp_iso_convert', $subject );
+		return preg_replace_callback( '#\=([0-9a-f]{2})#i', 'app_iso_convert', $subject );
 	}
 }
 
@@ -2987,7 +2987,7 @@ function wp_iso_descrambler( $string ) {
  * @param array $match The preg_replace_callback matches array
  * @return string Converted chars
  */
-function _wp_iso_convert( $match ) {
+function app_iso_convert( $match ) {
 	return chr( hexdec( strtolower( $match[1] ) ) );
 }
 
@@ -3919,7 +3919,7 @@ function htmlentities2( $myHTML ) {
  */
 function esc_js( $text ) {
 	$safe_text = wp_check_invalid_utf8( $text );
-	$safe_text = _wp_specialchars( $safe_text, ENT_COMPAT );
+	$safe_text = app_specialchars( $safe_text, ENT_COMPAT );
 	$safe_text = preg_replace( '/&#(x)?0*(?(1)27|39);?/i', "'", stripslashes( $safe_text ) );
 	$safe_text = str_replace( "\r", '', $safe_text );
 	$safe_text = str_replace( "\n", '\\n', addslashes( $safe_text ) );
@@ -3947,7 +3947,7 @@ function esc_js( $text ) {
  */
 function esc_html( $text ) {
 	$safe_text = wp_check_invalid_utf8( $text );
-	$safe_text = _wp_specialchars( $safe_text, ENT_QUOTES );
+	$safe_text = app_specialchars( $safe_text, ENT_QUOTES );
 	/**
 	 * Filters a string cleaned and escaped for output in HTML.
 	 *
@@ -3972,7 +3972,7 @@ function esc_html( $text ) {
  */
 function esc_attr( $text ) {
 	$safe_text = wp_check_invalid_utf8( $text );
-	$safe_text = _wp_specialchars( $safe_text, ENT_QUOTES );
+	$safe_text = app_specialchars( $safe_text, ENT_QUOTES );
 	/**
 	 * Filters a string cleaned and escaped for output in an HTML attribute.
 	 *
@@ -5044,7 +5044,7 @@ function _print_emoji_detection_script() {
  * @return string The encoded content.
  */
 function wp_encode_emoji( $content ) {
-	$emoji = _wp_emoji_list( 'partials' );
+	$emoji = app_emoji_list( 'partials' );
 
 	foreach ( $emoji as $emojum ) {
 		if ( version_compare( phpversion(), '5.4', '<' ) ) {
@@ -5083,7 +5083,7 @@ function wp_staticize_emoji( $text ) {
 		}
 	}
 
-	$emoji = _wp_emoji_list( 'entities' );
+	$emoji = app_emoji_list( 'entities' );
 
 	// Quickly narrow down the list of emoji that might be in the text and need replacing.
 	$possible_emoji = array();
@@ -5238,7 +5238,7 @@ function wp_staticize_emoji_for_email( $mail ) {
  * @param string $type Optional. Which array type to return. Accepts 'partials' or 'entities', default 'entities'.
  * @return array An array to match all emoji recognised.
  */
-function _wp_emoji_list( $type = 'entities' ) {
+function app_emoji_list( $type = 'entities' ) {
 	// Do not remove the START/END comments - they're used to find where to insert the arrays.
 
 	// START: emoji arrays

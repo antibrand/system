@@ -676,7 +676,7 @@ Please click the following link to activate your user account:
  * @param int $request_id Request ID.
  * @return bool|WP_Error Returns true/false based on the success of sending the email, or a WP_Error object.
  */
-function _wp_privacy_resend_request( $request_id ) {
+function app_privacy_resend_request( $request_id ) {
 
 	$request_id = absint( $request_id );
 	$request    = get_post( $request_id );
@@ -705,7 +705,7 @@ function _wp_privacy_resend_request( $request_id ) {
  * @param  int          $request_id Request ID.
  * @return int|WP_Error $request    Request ID on success or WP_Error.
  */
-function _wp_privacy_completed_request( $request_id ) {
+function app_privacy_completed_request( $request_id ) {
 
 	$request_id   = absint( $request_id );
 	$request_data = wp_get_user_request_data( $request_id );
@@ -730,14 +730,14 @@ function _wp_privacy_completed_request( $request_id ) {
  * @since Previous 4.9.6
  * @access private
  */
-function _wp_personal_data_handle_actions() {
+function app_personal_data_handle_actions() {
 
 	if ( isset( $_POST['privacy_action_email_retry'] ) ) {
 
 		check_admin_referer( 'bulk-privacy_requests' );
 
 		$request_id = absint( current( array_keys( (array) wp_unslash( $_POST['privacy_action_email_retry'] ) ) ) );
-		$result     = _wp_privacy_resend_request( $request_id );
+		$result     = app_privacy_resend_request( $request_id );
 
 		if ( is_wp_error( $result ) ) {
 
@@ -786,7 +786,7 @@ function _wp_personal_data_handle_actions() {
 				$username_or_email_address = sanitize_text_field( wp_unslash( $_POST['username_or_email_for_privacy_request'] ) );
 				$email_address             = '';
 
-				if ( ! in_array( $action_type, _wp_privacy_action_request_types(), true ) ) {
+				if ( ! in_array( $action_type, app_privacy_action_request_types(), true ) ) {
 
 					add_settings_error(
 						'action_type',
@@ -863,7 +863,7 @@ function _wp_personal_data_handle_actions() {
  * @since Previous 4.9.6
  * @access private
  */
-function _wp_personal_data_cleanup_requests() {
+function app_personal_data_cleanup_requests() {
 
 	/** This filter is documented in APP_INC_PATH . '/backend/user.php */
 	$expires = (int) apply_filters( 'user_request_key_expiration', DAY_IN_SECONDS );
@@ -898,7 +898,7 @@ function _wp_personal_data_cleanup_requests() {
  * @since  WP 4.9.6
  * @access private
  */
-function _wp_personal_data_export_page() {
+function app_personal_data_export_page() {
 	require_once( APP_VIEWS_PATH . '/backend/content/data-export-personal.php' );
 }
 
@@ -908,7 +908,7 @@ function _wp_personal_data_export_page() {
  * @since  WP 4.9.6
  * @access private
  */
-function _wp_personal_data_removal_page() {
+function app_personal_data_removal_page() {
 	require_once( APP_VIEWS_PATH . '/backend/content/data-remove-personal.php' );
 }
 
@@ -976,7 +976,7 @@ function wp_privacy_process_personal_data_erasure_page( $response, $eraser_index
 		return $response;
 	}
 
-	_wp_privacy_completed_request( $request_id );
+	app_privacy_completed_request( $request_id );
 
 	/**
 	 * Fires immediately after a personal data erasure request has been marked completed.
@@ -996,7 +996,7 @@ function wp_privacy_process_personal_data_erasure_page( $response, $eraser_index
  * @since  WP 4.9.6
  * @return mixed
  */
-function _wp_privacy_hook_requests_page() {
+function app_privacy_hook_requests_page() {
 
 	$export_personal_data = add_submenu_page(
 		'users.php',
@@ -1004,7 +1004,7 @@ function _wp_privacy_hook_requests_page() {
 		__( 'Export Data' ),
 		'export_others_personal_data',
 		'export_personal_data',
-		'_wp_personal_data_export_page'
+		'app_personal_data_export_page'
 	);
 
 	$remove_personal_data = add_submenu_page(
@@ -1013,7 +1013,7 @@ function _wp_privacy_hook_requests_page() {
 		__( 'Remove Data' ),
 		'erase_others_personal_data',
 		'remove_personal_data',
-		'_wp_personal_data_removal_page'
+		'app_personal_data_removal_page'
 	);
 
 	// Load content for help tabs.
@@ -1179,7 +1179,7 @@ function help_remove_personal_data_sidebar() {
  * @since  WP 4.9.8
  * @access private
  */
-function _wp_privacy_requests_screen_options() {
+function app_privacy_requests_screen_options() {
 
 	$args = [
 		'option'  => str_replace( 'users_page_', '', get_current_screen()->id ) . '_requests_per_page',
@@ -1306,7 +1306,7 @@ abstract class WP_Privacy_Requests_Table extends AppNamespace\Backend\List_Table
 			$current_status = '';
 		}
 
-		$statuses  = _wp_privacy_statuses();
+		$statuses  = app_privacy_statuses();
 		$views     = [];
 		$admin_url = admin_url( 'users.php?page=' . $this->request_type );
 		$counts    = $this->get_request_counts();
@@ -1392,7 +1392,7 @@ abstract class WP_Privacy_Requests_Table extends AppNamespace\Backend\List_Table
 			case 'resend':
 
 				foreach ( $request_ids as $request_id ) {
-					$resend = _wp_privacy_resend_request( $request_id );
+					$resend = app_privacy_resend_request( $request_id );
 
 					if ( $resend && ! is_wp_error( $resend ) ) {
 						$count++;

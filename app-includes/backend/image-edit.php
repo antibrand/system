@@ -657,7 +657,7 @@ function wp_restore_image($post_id) {
 		$restored_file = path_join($parts['dirname'], $data['file']);
 		$restored = update_attached_file($post_id, $restored_file);
 
-		$meta['file'] = _wp_relative_upload_path( $restored_file );
+		$meta['file'] = app_relative_upload_path( $restored_file );
 		$meta['width'] = $data['width'];
 		$meta['height'] = $data['height'];
 	}
@@ -813,7 +813,7 @@ function wp_save_image( $post_id ) {
 		}
 		$success = ( $path === $new_path ) || update_attached_file( $post_id, $new_path );
 
-		$meta['file'] = _wp_relative_upload_path( $new_path );
+		$meta['file'] = app_relative_upload_path( $new_path );
 
 		$size = $img->get_size();
 		$meta['width'] = $size['width'];

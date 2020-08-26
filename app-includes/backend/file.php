@@ -697,7 +697,7 @@ function validate_file_to_edit( $file, $allowed_files = array() ) {
  * @return array On success, returns an associative array of file attributes. On failure, returns
  *               $overrides['upload_error_handler'](&$file, $message ) or array( 'error'=>$message ).
  */
-function _wp_handle_upload( &$file, $overrides, $time, $action ) {
+function app_handle_upload( &$file, $overrides, $time, $action ) {
 	// The default error handler.
 	if ( ! function_exists( 'wp_handle_upload_error' ) ) {
 		function wp_handle_upload_error( &$file, $message ) {
@@ -893,13 +893,13 @@ function _wp_handle_upload( &$file, $overrides, $time, $action ) {
 }
 
 /**
- * Wrapper for _wp_handle_upload().
+ * Wrapper for app_handle_upload().
  *
  * Passes the {@see 'wp_handle_upload'} action.
  *
  * @since 2.0.0
  *
- * @see _wp_handle_upload()
+ * @see app_handle_upload()
  *
  * @param array      $file      Reference to a single element of `$_FILES`. Call the function once for
  *                              each uploaded file.
@@ -919,17 +919,17 @@ function wp_handle_upload( &$file, $overrides = false, $time = null ) {
 		$action = $overrides['action'];
 	}
 
-	return _wp_handle_upload( $file, $overrides, $time, $action );
+	return app_handle_upload( $file, $overrides, $time, $action );
 }
 
 /**
- * Wrapper for _wp_handle_upload().
+ * Wrapper for app_handle_upload().
  *
  * Passes the {@see 'wp_handle_sideload'} action.
  *
  * @since 2.6.0
  *
- * @see _wp_handle_upload()
+ * @see app_handle_upload()
  *
  * @param array      $file      An array similar to that of a PHP `$_FILES` POST array
  * @param array|bool $overrides Optional. An associative array of names=>values to override default
@@ -947,7 +947,7 @@ function wp_handle_sideload( &$file, $overrides = false, $time = null ) {
 	if ( isset( $overrides['action'] ) ) {
 		$action = $overrides['action'];
 	}
-	return _wp_handle_upload( $file, $overrides, $time, $action );
+	return app_handle_upload( $file, $overrides, $time, $action );
 }
 
 
@@ -2248,7 +2248,7 @@ function wp_privacy_process_personal_data_export_page( $response, $exporter_inde
 	}
 
 	// Update the request to completed state.
-	_wp_privacy_completed_request( $request_id );
+	app_privacy_completed_request( $request_id );
 
 	return $response;
 }

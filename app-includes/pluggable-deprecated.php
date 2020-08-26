@@ -48,7 +48,7 @@ if ( !function_exists('get_currentuserinfo') ) :
 function get_currentuserinfo() {
 	_deprecated_function( __FUNCTION__, '4.5.0', 'wp_get_current_user()' );
 
-	return _wp_get_current_user();
+	return app_get_current_user();
 }
 endif;
 

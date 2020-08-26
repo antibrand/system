@@ -17,7 +17,7 @@
  * @param array $post_data Array of post data. Defaults to the contents of $_POST.
  * @return object|bool WP_Error on failure, true on success.
  */
-function _wp_translate_postdata( $update = false, $post_data = null ) {
+function app_translate_postdata( $update = false, $post_data = null ) {
 
 	if ( empty($post_data) )
 		$post_data = &$_POST;
@@ -213,8 +213,8 @@ function edit_post( $post_data = null ) {
 		$revision = current( $revisions );
 
 		// Check if the revisions have been upgraded
-		if ( $revisions && _wp_get_post_revision_version( $revision ) < 1 )
-			_wp_upgrade_revisions_of_post( $post, wp_get_post_revisions( $post_ID ) );
+		if ( $revisions && app_get_post_revision_version( $revision ) < 1 )
+			app_upgrade_revisions_of_post( $post, wp_get_post_revisions( $post_ID ) );
 	}
 
 	if ( isset($post_data['visibility']) ) {
@@ -233,7 +233,7 @@ function edit_post( $post_data = null ) {
 		}
 	}
 
-	$post_data = _wp_translate_postdata( true, $post_data );
+	$post_data = app_translate_postdata( true, $post_data );
 	if ( is_wp_error($post_data) )
 		wp_die( $post_data->get_error_message() );
 
@@ -551,7 +551,7 @@ function bulk_edit_posts( $post_data = null ) {
 		$post_data['ID'] = $post_ID;
 		$post_data['post_ID'] = $post_ID;
 
-		$post_data = _wp_translate_postdata( true, $post_data );
+		$post_data = app_translate_postdata( true, $post_data );
 		if ( is_wp_error( $post_data ) ) {
 			$skipped[] = $post_ID;
 			continue;
@@ -772,7 +772,7 @@ function wp_write_post() {
 		}
 	}
 
-	$translated = _wp_translate_postdata( false );
+	$translated = app_translate_postdata( false );
 	if ( is_wp_error($translated) )
 		return $translated;
 
@@ -1408,7 +1408,7 @@ function get_sample_permalink_html( $id, $new_title = null, $new_slug = null ) {
  * @param mixed $post The post ID or object associated with the thumbnail, defaults to global $post.
  * @return string html
  */
-function _wp_post_thumbnail_html( $thumbnail_id = null, $post = null ) {
+function app_post_thumbnail_html( $thumbnail_id = null, $post = null ) {
 	$_wp_additional_image_sizes = wp_get_additional_image_sizes();
 
 	$post               = get_post( $post );
@@ -1707,7 +1707,7 @@ function wp_create_post_autosave( $post_data ) {
 		$post_id = (int) $post_data['post_ID'];
 	}
 
-	$post_data = _wp_translate_postdata( true, $post_data );
+	$post_data = app_translate_postdata( true, $post_data );
 	if ( is_wp_error( $post_data ) )
 		return $post_data;
 
@@ -1715,14 +1715,14 @@ function wp_create_post_autosave( $post_data ) {
 
 	// Store one autosave per author. If there is already an autosave, overwrite it.
 	if ( $old_autosave = wp_get_post_autosave( $post_id, $post_author ) ) {
-		$new_autosave = _wp_post_revision_data( $post_data, true );
+		$new_autosave = app_post_revision_data( $post_data, true );
 		$new_autosave['ID'] = $old_autosave->ID;
 		$new_autosave['post_author'] = $post_author;
 
 		// If the new autosave has the same content as the post, delete the autosave.
 		$post = get_post( $post_id );
 		$autosave_is_different = false;
-		foreach ( array_intersect( array_keys( $new_autosave ), array_keys( _wp_post_revision_fields( $post ) ) ) as $field ) {
+		foreach ( array_intersect( array_keys( $new_autosave ), array_keys( app_post_revision_fields( $post ) ) ) as $field ) {
 			if ( normalize_whitespace( $new_autosave[ $field ] ) != normalize_whitespace( $post->$field ) ) {
 				$autosave_is_different = true;
 				break;
@@ -1746,11 +1746,11 @@ function wp_create_post_autosave( $post_data ) {
 		return wp_update_post( $new_autosave );
 	}
 
-	// _wp_put_post_revision() expects unescaped.
+	// app_put_post_revision() expects unescaped.
 	$post_data = wp_unslash( $post_data );
 
 	// Otherwise create the new autosave as a special post revision
-	return _wp_put_post_revision( $post_data, true );
+	return app_put_post_revision( $post_data, true );
 }
 
 /**

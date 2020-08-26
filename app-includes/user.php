@@ -2092,7 +2092,7 @@ function wp_get_user_contact_methods( $user = null ) {
  * @param WP_User $user Optional. WP_User object. Default null.
  * @return array Array of contact methods and their labels.
  */
-function _wp_get_user_contactmethods( $user = null ) {
+function app_get_user_contactmethods( $user = null ) {
 	return wp_get_user_contact_methods( $user );
 }
 
@@ -2557,7 +2557,7 @@ function wp_get_users_with_no_role( $site_id = null ) {
  *
  * @return WP_User Current WP_User instance.
  */
-function _wp_get_current_user() {
+function app_get_current_user() {
 	global $current_user;
 
 	if ( ! empty( $current_user ) ) {
@@ -2733,7 +2733,7 @@ function new_user_email_admin_notice() {
  *
  * @return array List of core privacy action types.
  */
-function _wp_privacy_action_request_types() {
+function app_privacy_action_request_types() {
 	return array(
 		'export_personal_data',
 		'remove_personal_data',
@@ -2847,7 +2847,7 @@ function wp_user_personal_data_exporter( $email_address ) {
  *
  * @param int $request_id ID of the request.
  */
-function _wp_privacy_account_request_confirmed( $request_id ) {
+function app_privacy_account_request_confirmed( $request_id ) {
 	$request_data = wp_get_user_request_data( $request_id );
 
 	if ( ! $request_data ) {
@@ -2875,7 +2875,7 @@ function _wp_privacy_account_request_confirmed( $request_id ) {
  *
  * @param int $request_id The ID of the request.
  */
-function _wp_privacy_send_request_confirmation_notification( $request_id ) {
+function app_privacy_send_request_confirmation_notification( $request_id ) {
 	$request_data = wp_get_user_request_data( $request_id );
 
 	if ( ! is_a( $request_data, 'WP_User_Request' ) || 'request-confirmed' !== $request_data->status ) {
@@ -3014,7 +3014,7 @@ All at ###SITENAME###
  *
  * @param int $request_id The privacy request post ID associated with this request.
  */
-function _wp_privacy_send_erasure_fulfillment_notification( $request_id ) {
+function app_privacy_send_erasure_fulfillment_notification( $request_id ) {
 	$request_data = wp_get_user_request_data( $request_id );
 
 	if ( ! is_a( $request_data, 'WP_User_Request' ) || 'request-completed' !== $request_data->status ) {
@@ -3151,13 +3151,13 @@ All at ###SITENAME###
  * @param int $request_id The request ID being confirmed.
  * @return string $message The confirmation message.
  */
-function _wp_privacy_account_request_confirmed_message( $request_id ) {
+function app_privacy_account_request_confirmed_message( $request_id ) {
 	$request = wp_get_user_request_data( $request_id );
 
 	$message = '<p class="success">' . __( 'Action has been confirmed.' ) . '</p>';
 	$message .= '<p>' . __( 'The site administrator has been notified and will fulfill your request as soon as possible.' ) . '</p>';
 
-	if ( $request && in_array( $request->action_name, _wp_privacy_action_request_types(), true ) ) {
+	if ( $request && in_array( $request->action_name, app_privacy_action_request_types(), true ) ) {
 		if ( 'export_personal_data' === $request->action_name ) {
 			$message = '<p class="success">' . __( 'Thanks for confirming your export request.' ) . '</p>';
 			$message .= '<p>' . __( 'The site administrator has been notified. You will receive a link to download your export via email when they fulfill your request.' ) . '</p>';

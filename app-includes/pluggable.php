@@ -67,13 +67,13 @@ if ( !function_exists('wp_get_current_user') ) :
  *
  * @since 2.0.3
  *
- * @see _wp_get_current_user()
+ * @see app_get_current_user()
  * @global WP_User $current_user Checks if the current user is set.
  *
  * @return WP_User Current WP_User instance.
  */
 function wp_get_current_user() {
-	return _wp_get_current_user();
+	return app_get_current_user();
 }
 endif;
 
@@ -1251,7 +1251,7 @@ function wp_sanitize_redirect($location) {
 			|   \xF4[\x80-\x8F][\x80-\xBF]{2}
 		){1,40}                              # ...one or more times
 		)/x';
-	$location = preg_replace_callback( $regex, '_wp_sanitize_utf8_in_redirect', $location );
+	$location = preg_replace_callback( $regex, 'app_sanitize_utf8_in_redirect', $location );
 	$location = preg_replace('|[^a-z0-9-~+_.?#=&;,/:%!*\[\]()@]|i', '', $location);
 	$location = wp_kses_no_null($location);
 
@@ -1272,7 +1272,7 @@ function wp_sanitize_redirect($location) {
  * @param array $matches RegEx matches against the redirect location.
  * @return string URL-encoded version of the first RegEx match.
  */
-function _wp_sanitize_utf8_in_redirect( $matches ) {
+function app_sanitize_utf8_in_redirect( $matches ) {
 	return urlencode( $matches[0] );
 }
 endif;

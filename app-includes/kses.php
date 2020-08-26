@@ -497,7 +497,7 @@ if ( ! CUSTOM_TAGS ) {
 		'there4',
 	);
 
-	$allowedposttags = array_map( '_wp_add_global_attributes', $allowedposttags );
+	$allowedposttags = array_map( 'app_add_global_attributes', $allowedposttags );
 } else {
 	$allowedtags = wp_kses_array_lc( $allowedtags );
 	$allowedposttags = wp_kses_array_lc( $allowedposttags );
@@ -718,7 +718,7 @@ function wp_kses_split( $string, $allowed_html, $allowed_protocols ) {
 	global $pass_allowed_html, $pass_allowed_protocols;
 	$pass_allowed_html = $allowed_html;
 	$pass_allowed_protocols = $allowed_protocols;
-	return preg_replace_callback( '%(<!--.*?(-->|$))|(<[^>]*(>|$)|>)%', '_wp_kses_split_callback', $string );
+	return preg_replace_callback( '%(<!--.*?(-->|$))|(<[^>]*(>|$)|>)%', 'app_kses_split_callback', $string );
 }
 
 /**
@@ -732,7 +732,7 @@ function wp_kses_split( $string, $allowed_html, $allowed_protocols ) {
  *
  * @return string
  */
-function _wp_kses_split_callback( $match ) {
+function app_kses_split_callback( $match ) {
 	global $pass_allowed_html, $pass_allowed_protocols;
 	return wp_kses_split2( $match[0], $pass_allowed_html, $pass_allowed_protocols );
 }
@@ -1492,8 +1492,8 @@ function valid_unicode($i) {
  * @return string Content after decoded entities
  */
 function wp_kses_decode_entities($string) {
-	$string = preg_replace_callback('/&#([0-9]+);/', '_wp_kses_decode_entities_chr', $string);
-	$string = preg_replace_callback('/&#[Xx]([0-9A-Fa-f]+);/', '_wp_kses_decode_entities_chr_hexdec', $string);
+	$string = preg_replace_callback('/&#([0-9]+);/', 'app_kses_decode_entities_chr', $string);
+	$string = preg_replace_callback('/&#[Xx]([0-9A-Fa-f]+);/', 'app_kses_decode_entities_chr_hexdec', $string);
 
 	return $string;
 }
@@ -1506,7 +1506,7 @@ function wp_kses_decode_entities($string) {
  * @param array $match preg match
  * @return string
  */
-function _wp_kses_decode_entities_chr( $match ) {
+function app_kses_decode_entities_chr( $match ) {
 	return chr( $match[1] );
 }
 
@@ -1518,7 +1518,7 @@ function _wp_kses_decode_entities_chr( $match ) {
  * @param array $match preg match
  * @return string
  */
-function _wp_kses_decode_entities_chr_hexdec( $match ) {
+function app_kses_decode_entities_chr_hexdec( $match ) {
 	return chr( hexdec( $match[1] ) );
 }
 
@@ -1813,7 +1813,7 @@ function safecss_filter_attr( $css, $deprecated = '' ) {
  * @param array $value An array of attributes.
  * @return array The array of attributes with global attributes added.
  */
-function _wp_add_global_attributes( $value ) {
+function app_add_global_attributes( $value ) {
 	$global_attributes = array(
 		'class' => true,
 		'id' => true,

@@ -179,7 +179,7 @@ function apply_filters( $tag, $value ) {
 	if ( isset($wp_filter['all']) ) {
 		$wp_current_filter[] = $tag;
 		$args = func_get_args();
-		_wp_call_all_hook($args);
+		app_call_all_hook($args);
 	}
 
 	if ( !isset($wp_filter[$tag]) ) {
@@ -226,7 +226,7 @@ function apply_filters_ref_array($tag, $args) {
 	if ( isset($wp_filter['all']) ) {
 		$wp_current_filter[] = $tag;
 		$all_args = func_get_args();
-		_wp_call_all_hook($all_args);
+		app_call_all_hook($all_args);
 	}
 
 	if ( !isset($wp_filter[$tag]) ) {
@@ -427,7 +427,7 @@ function do_action($tag, $arg = '') {
 	if ( isset($wp_filter['all']) ) {
 		$wp_current_filter[] = $tag;
 		$all_args = func_get_args();
-		_wp_call_all_hook($all_args);
+		app_call_all_hook($all_args);
 	}
 
 	if ( !isset($wp_filter[$tag]) ) {
@@ -497,7 +497,7 @@ function do_action_ref_array($tag, $args) {
 	if ( isset($wp_filter['all']) ) {
 		$wp_current_filter[] = $tag;
 		$all_args = func_get_args();
-		_wp_call_all_hook($all_args);
+		app_call_all_hook($all_args);
 	}
 
 	if ( !isset($wp_filter[$tag]) ) {
@@ -837,7 +837,7 @@ function register_uninstall_hook( $file, $callback ) {
  *
  * @param array $args The collected parameters from the hook that was called.
  */
-function _wp_call_all_hook($args) {
+function app_call_all_hook($args) {
 	global $wp_filter;
 
 	$wp_filter['all']->do_all_hook( $args );
@@ -875,7 +875,7 @@ function _wp_call_all_hook($args) {
  *                      and $function is an object reference, and it does not already have
  *                      a unique id.
  */
-function _wp_filter_build_unique_id($tag, $function, $priority) {
+function app_filter_build_unique_id($tag, $function, $priority) {
 	global $wp_filter;
 	static $filter_id_count = 0;
 

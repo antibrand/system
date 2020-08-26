@@ -321,7 +321,7 @@ function add_rewrite_endpoint( $name, $places, $query_var = true ) {
  * @param string $base The taxonomy base that we're going to filter
  * @return string
  */
-function _wp_filter_taxonomy_base( $base ) {
+function app_filter_taxonomy_base( $base ) {
 	if ( !empty( $base ) ) {
 		$base = preg_replace( '|^/index\.php/|', '', $base );
 		$base = trim( $base, '/' );

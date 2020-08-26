@@ -957,7 +957,7 @@ function wp_get_associated_nav_menu_items( $object_id = 0, $object_type = 'post_
  * @param int $object_id The ID of the original object being trashed.
  *
  */
-function _wp_delete_post_menu_item( $object_id = 0 ) {
+function app_delete_post_menu_item( $object_id = 0 ) {
 	$object_id = (int) $object_id;
 
 	$menu_item_ids = wp_get_associated_nav_menu_items( $object_id, 'post_type' );
@@ -977,7 +977,7 @@ function _wp_delete_post_menu_item( $object_id = 0 ) {
  * @param int    $tt_id     Term taxonomy ID. Unused.
  * @param string $taxonomy  Taxonomy slug.
  */
-function _wp_delete_tax_menu_item( $object_id = 0, $tt_id, $taxonomy ) {
+function app_delete_tax_menu_item( $object_id = 0, $tt_id, $taxonomy ) {
 	$object_id = (int) $object_id;
 
 	$menu_item_ids = wp_get_associated_nav_menu_items( $object_id, 'taxonomy', $taxonomy );
@@ -997,7 +997,7 @@ function _wp_delete_tax_menu_item( $object_id = 0, $tt_id, $taxonomy ) {
  * @param string $old_status The old status of the post object.
  * @param object $post       The post object being transitioned from one status to another.
  */
-function _wp_auto_add_pages_to_menu( $new_status, $old_status, $post ) {
+function app_auto_add_pages_to_menu( $new_status, $old_status, $post ) {
 	if ( 'publish' != $new_status || 'publish' == $old_status || 'page' != $post->post_type )
 		return;
 	if ( ! empty( $post->post_parent ) )
@@ -1036,7 +1036,7 @@ function _wp_auto_add_pages_to_menu( $new_status, $old_status, $post ) {
  *
  * @param int $post_id Post ID for the customize_changeset.
  */
-function _wp_delete_customize_changeset_dependent_auto_drafts( $post_id ) {
+function app_delete_customize_changeset_dependent_auto_drafts( $post_id ) {
 	$post = get_post( $post_id );
 
 	if ( ! $post || 'customize_changeset' !== $post->post_type ) {
@@ -1047,7 +1047,7 @@ function _wp_delete_customize_changeset_dependent_auto_drafts( $post_id ) {
 	if ( empty( $data['nav_menus_created_posts']['value'] ) ) {
 		return;
 	}
-	remove_action( 'delete_post', '_wp_delete_customize_changeset_dependent_auto_drafts' );
+	remove_action( 'delete_post', 'app_delete_customize_changeset_dependent_auto_drafts' );
 	foreach ( $data['nav_menus_created_posts']['value'] as $stub_post_id ) {
 		if ( empty( $stub_post_id ) ) {
 			continue;
@@ -1059,7 +1059,7 @@ function _wp_delete_customize_changeset_dependent_auto_drafts( $post_id ) {
 			delete_post_meta( $stub_post_id, '_customize_changeset_uuid' );
 		}
 	}
-	add_action( 'delete_post', '_wp_delete_customize_changeset_dependent_auto_drafts' );
+	add_action( 'delete_post', 'app_delete_customize_changeset_dependent_auto_drafts' );
 }
 
 /**
@@ -1068,7 +1068,7 @@ function _wp_delete_customize_changeset_dependent_auto_drafts( $post_id ) {
  * @access private
  * @since 4.9.0
  */
-function _wp_menus_changed() {
+function app_menus_changed() {
 	$old_nav_menu_locations    = get_option( 'theme_switch_menu_locations', array() );
 	$new_nav_menu_locations    = get_nav_menu_locations();
 	$mapped_nav_menu_locations = wp_map_nav_menu_locations( $new_nav_menu_locations, $old_nav_menu_locations );

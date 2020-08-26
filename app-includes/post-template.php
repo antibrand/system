@@ -1007,7 +1007,7 @@ function wp_link_pages( $args = '' ) {
 			for ( $i = 1; $i <= $numpages; $i++ ) {
 				$link = $r['link_before'] . str_replace( '%', $i, $r['pagelink'] ) . $r['link_after'];
 				if ( $i != $page || ! $more && 1 == $page ) {
-					$link = _wp_link_page( $i ) . $link . '</a>';
+					$link = app_link_page( $i ) . $link . '</a>';
 				}
 				/**
 				 * Filters the HTML output of individual page number links.
@@ -1028,7 +1028,7 @@ function wp_link_pages( $args = '' ) {
 			$output .= $r['before'];
 			$prev = $page - 1;
 			if ( $prev > 0 ) {
-				$link = _wp_link_page( $prev ) . $r['link_before'] . $r['previouspagelink'] . $r['link_after'] . '</a>';
+				$link = app_link_page( $prev ) . $r['link_before'] . $r['previouspagelink'] . $r['link_after'] . '</a>';
 
 				/** This filter is documented in app-includes/post-template.php */
 				$output .= apply_filters( 'wp_link_pages_link', $link, $prev );
@@ -1038,7 +1038,7 @@ function wp_link_pages( $args = '' ) {
 				if ( $prev ) {
 					$output .= $r['separator'];
 				}
-				$link = _wp_link_page( $next ) . $r['link_before'] . $r['nextpagelink'] . $r['link_after'] . '</a>';
+				$link = app_link_page( $next ) . $r['link_before'] . $r['nextpagelink'] . $r['link_after'] . '</a>';
 
 				/** This filter is documented in app-includes/post-template.php */
 				$output .= apply_filters( 'wp_link_pages_link', $link, $next );
@@ -1074,7 +1074,7 @@ function wp_link_pages( $args = '' ) {
  * @param int $i Page number.
  * @return string Link.
  */
-function _wp_link_page( $i ) {
+function app_link_page( $i ) {
 	global $wp_rewrite;
 	$post = get_post();
 	$query_args = array();

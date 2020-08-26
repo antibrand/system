@@ -3683,7 +3683,7 @@ function _split_shared_term( $term_id, $term_taxonomy_id, $record = true ) {
  *
  * @global wpdb $wpdb database abstraction object.
  */
-function _wp_batch_split_terms() {
+function app_batch_split_terms() {
 	global $wpdb;
 
 	$lock_name = 'term_split.lock';
@@ -3772,13 +3772,13 @@ function _wp_batch_split_terms() {
 }
 
 /**
- * In order to avoid the _wp_batch_split_terms() job being accidentally removed,
+ * In order to avoid the app_batch_split_terms() job being accidentally removed,
  * check that it's still scheduled while we haven't finished splitting terms.
  *
  * @ignore
  * @since 4.3.0
  */
-function _wp_check_for_scheduled_split_terms() {
+function app_check_for_scheduled_split_terms() {
 	if ( ! get_option( 'finished_splitting_shared_terms' ) && ! wp_next_scheduled( 'wp_split_shared_term_batch' ) ) {
 		wp_schedule_single_event( time() + MINUTE_IN_SECONDS, 'wp_split_shared_term_batch' );
 	}
@@ -3795,7 +3795,7 @@ function _wp_check_for_scheduled_split_terms() {
  * @param int    $term_taxonomy_id ID for the term_taxonomy row affected by the split.
  * @param string $taxonomy         Taxonomy for the split term.
  */
-function _wp_check_split_default_terms( $term_id, $new_term_id, $term_taxonomy_id, $taxonomy ) {
+function app_check_split_default_terms( $term_id, $new_term_id, $term_taxonomy_id, $taxonomy ) {
 	if ( 'category' != $taxonomy ) {
 		return;
 	}
@@ -3820,7 +3820,7 @@ function _wp_check_split_default_terms( $term_id, $new_term_id, $term_taxonomy_i
  * @param int    $term_taxonomy_id ID for the term_taxonomy row affected by the split.
  * @param string $taxonomy         Taxonomy for the split term.
  */
-function _wp_check_split_terms_in_menus( $term_id, $new_term_id, $term_taxonomy_id, $taxonomy ) {
+function app_check_split_terms_in_menus( $term_id, $new_term_id, $term_taxonomy_id, $taxonomy ) {
 	global $wpdb;
 	$post_ids = $wpdb->get_col( $wpdb->prepare(
 		"SELECT m1.post_id
@@ -3852,7 +3852,7 @@ function _wp_check_split_terms_in_menus( $term_id, $new_term_id, $term_taxonomy_
  * @param int    $term_taxonomy_id ID for the term_taxonomy row affected by the split.
  * @param string $taxonomy         Taxonomy for the split term.
  */
-function _wp_check_split_nav_menu_terms( $term_id, $new_term_id, $term_taxonomy_id, $taxonomy ) {
+function app_check_split_nav_menu_terms( $term_id, $new_term_id, $term_taxonomy_id, $taxonomy ) {
 	if ( 'nav_menu' !== $taxonomy ) {
 		return;
 	}

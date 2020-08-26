@@ -459,7 +459,7 @@ function media_handle_sideload( $file_array, $post_id, $desc = null, $post_data 
  * @param string|callable $content_func
  */
 function wp_iframe($content_func /* ... */) {
-	_wp_admin_html_begin();
+	app_admin_html_begin();
 ?>
 <title><?php bloginfo( 'name' ) ?> &rsaquo; <?php _e( 'Uploads' ); ?></title>
 <?php

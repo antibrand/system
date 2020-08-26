@@ -410,7 +410,7 @@ final class WP_Taxonomy {
 	 * @since 4.7.0
 	 */
 	public function add_hooks() {
-		add_filter( 'wp_ajax_add-' . $this->name, '_wp_ajax_add_hierarchical_term' );
+		add_filter( 'wp_ajax_add-' . $this->name, 'app_ajax_add_hierarchical_term' );
 	}
 
 	/**
@@ -419,6 +419,6 @@ final class WP_Taxonomy {
 	 * @since 4.7.0
 	 */
 	public function remove_hooks() {
-		remove_filter( 'wp_ajax_add-' . $this->name, '_wp_ajax_add_hierarchical_term' );
+		remove_filter( 'wp_ajax_add-' . $this->name, 'app_ajax_add_hierarchical_term' );
 	}
 }

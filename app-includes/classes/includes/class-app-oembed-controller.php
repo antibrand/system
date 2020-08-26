@@ -173,7 +173,7 @@ final class WP_oEmbed_Controller {
 			$args['height'] = $args['maxheight'];
 		}
 
-		$data = _wp_oembed_get_object()->get_data( $url, $args );
+		$data = app_oembed_get_object()->get_data( $url, $args );
 
 		if ( false === $data ) {
 			return new WP_Error( 'oembed_invalid_url', get_status_header_desc( 404 ), array( 'status' => 404 ) );

@@ -2691,8 +2691,8 @@ function check_theme_switched() {
 
 		// Prevent widget & menu mapping from running since live manager already called it up front
 		if ( get_option( 'theme_switched_via_customizer' ) ) {
-			remove_action( 'after_switch_theme', '_wp_menus_changed' );
-			remove_action( 'after_switch_theme', '_wp_sidebars_changed' );
+			remove_action( 'after_switch_theme', 'app_menus_changed' );
+			remove_action( 'after_switch_theme', 'app_sidebars_changed' );
 			update_option( 'theme_switched_via_customizer', false );
 		}
 
@@ -2819,7 +2819,7 @@ function live_manager_include() {
  * @param string  $old_status     Old post status.
  * @param WP_Post $changeset_post Changeset post object.
  */
-function _wp_customize_publish_changeset( $new_status, $old_status, $changeset_post ) {
+function app_customize_publish_changeset( $new_status, $old_status, $changeset_post ) {
 	global $wp_customize, $wpdb;
 
 	$is_publishing_changeset = (
@@ -2891,7 +2891,7 @@ function _wp_customize_publish_changeset( $new_status, $old_status, $changeset_p
  * @param array $supplied_post_data An array of sanitized, but otherwise unmodified post data.
  * @returns array Filtered data.
  */
-function _wp_customize_changeset_filter_insert_post_data( $post_data, $supplied_post_data ) {
+function app_customize_changeset_filter_insert_post_data( $post_data, $supplied_post_data ) {
 	if ( isset( $post_data['post_type'] ) && 'customize_changeset' === $post_data['post_type'] ) {
 
 		// Prevent post_name from being dropped, such as when contributor saves a changeset post as pending.
@@ -2907,7 +2907,7 @@ function _wp_customize_changeset_filter_insert_post_data( $post_data, $supplied_
  *
  * @since 3.4.0
  */
-function _wp_customize_loader_settings() {
+function app_customize_loader_settings() {
 	$admin_origin = parse_url( admin_url() );
 	$home_origin  = parse_url( home_url() );
 	$cross_domain = ( strtolower( $admin_origin[ 'host' ] ) != strtolower( $home_origin[ 'host' ] ) );
@@ -3040,7 +3040,7 @@ function is_customize_preview() {
  * @param \WP_Post $post       Post data.
  * @global wpdb $wpdb
  */
-function _wp_keep_alive_customize_changeset_dependent_auto_drafts( $new_status, $old_status, $post ) {
+function app_keep_alive_customize_changeset_dependent_auto_drafts( $new_status, $old_status, $post ) {
 	global $wpdb;
 	unset( $old_status );
 
@@ -3059,7 +3059,7 @@ function _wp_keep_alive_customize_changeset_dependent_auto_drafts( $new_status, 
 	 * getting trashed. This is needed because when a changeset transitions to a draft, then any of the
 	 * dependent auto-draft post/page stubs will also get transitioned to customization drafts which
 	 * are then visible in the WP Admin. We cannot wait for the deletion of the changeset in which
-	 * _wp_delete_customize_changeset_dependent_auto_drafts() will be called, since they need to be
+	 * app_delete_customize_changeset_dependent_auto_drafts() will be called, since they need to be
 	 * trashed to remove from visibility immediately.
 	 */
 	if ( 'trash' === $new_status ) {

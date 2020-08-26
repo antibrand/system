@@ -21,7 +21,7 @@
  * @param bool          $deprecated Not used.
  * @return array Array of fields that can be versioned.
  */
-function _wp_post_revision_fields( $post = array(), $deprecated = false ) {
+function app_post_revision_fields( $post = array(), $deprecated = false ) {
 	static $fields = null;
 
 	if ( ! is_array( $post ) ) {
@@ -54,7 +54,7 @@ function _wp_post_revision_fields( $post = array(), $deprecated = false ) {
 	 *                      'post_content', and 'post_excerpt' by default.
 	 * @param array $post   A post array being processed for insertion as a post revision.
 	 */
-	$fields = apply_filters( '_wp_post_revision_fields', $fields, $post );
+	$fields = apply_filters( 'app_post_revision_fields', $fields, $post );
 
 	// WP uses these internally either in versioning or elsewhere - they cannot be versioned
 	foreach ( array( 'ID', 'post_name', 'post_parent', 'post_date', 'post_date_gmt', 'post_status', 'post_type', 'comment_count', 'post_author' ) as $protect ) {
@@ -76,12 +76,12 @@ function _wp_post_revision_fields( $post = array(), $deprecated = false ) {
  * @param bool          $autosave Optional. Is the revision an autosave? Default false.
  * @return array Post array ready to be inserted as a post revision.
  */
-function _wp_post_revision_data( $post = array(), $autosave = false ) {
+function app_post_revision_data( $post = array(), $autosave = false ) {
 	if ( ! is_array( $post ) ) {
 		$post = get_post( $post, ARRAY_A );
 	}
 
-	$fields = _wp_post_revision_fields( $post );
+	$fields = app_post_revision_fields( $post );
 
 	$revision_data = array();
 
@@ -155,7 +155,7 @@ function wp_save_post_revision( $post_id ) {
 		if ( isset( $last_revision ) && apply_filters( 'wp_save_post_revision_check_for_changes', $check_for_changes = true, $last_revision, $post ) ) {
 			$post_has_changed = false;
 
-			foreach ( array_keys( _wp_post_revision_fields( $post ) ) as $field ) {
+			foreach ( array_keys( app_post_revision_fields( $post ) ) as $field ) {
 				if ( normalize_whitespace( $post->$field ) != normalize_whitespace( $last_revision->$field ) ) {
 					$post_has_changed = true;
 					break;
@@ -184,7 +184,7 @@ function wp_save_post_revision( $post_id ) {
 		}
 	}
 
-	$return = _wp_put_post_revision( $post );
+	$return = app_put_post_revision( $post );
 
 	// If a limit for the number of revisions to keep has been set,
 	// delete the oldest ones.
@@ -283,7 +283,7 @@ function wp_is_post_autosave( $post ) {
  * @param bool                   $autosave Optional. Is the revision an autosave?
  * @return int|WP_Error WP_Error or 0 if error, new revision ID if success.
  */
-function _wp_put_post_revision( $post = null, $autosave = false ) {
+function app_put_post_revision( $post = null, $autosave = false ) {
 	if ( is_object($post) )
 		$post = get_object_vars( $post );
 	elseif ( !is_array($post) )
@@ -295,7 +295,7 @@ function _wp_put_post_revision( $post = null, $autosave = false ) {
 	if ( isset($post['post_type']) && 'revision' == $post['post_type'] )
 		return new WP_Error( 'post_type', __( 'Cannot create a revision of a revision' ) );
 
-	$post = _wp_post_revision_data( $post, $autosave );
+	$post = app_post_revision_data( $post, $autosave );
 	$post = wp_slash($post); //since data is from db
 
 	$revision_id = wp_insert_post( $post );
@@ -310,7 +310,7 @@ function _wp_put_post_revision( $post = null, $autosave = false ) {
 		 *
 		 * @param int $revision_id Post revision ID.
 		 */
-		do_action( '_wp_put_post_revision', $revision_id );
+		do_action( 'app_put_post_revision', $revision_id );
 	}
 
 	return $revision_id;
@@ -362,7 +362,7 @@ function wp_restore_post_revision( $revision_id, $fields = null ) {
 		return $revision;
 
 	if ( !is_array( $fields ) )
-		$fields = array_keys( _wp_post_revision_fields( $revision ) );
+		$fields = array_keys( app_post_revision_fields( $revision ) );
 
 	$update = array();
 	foreach ( array_intersect( array_keys( $revision ), $fields ) as $field ) {
@@ -532,8 +532,8 @@ function _set_preview( $post ) {
 	$post->post_subtitle = $preview->post_subtitle;
 	$post->post_excerpt  = $preview->post_excerpt;
 
-	add_filter( 'get_the_terms', '_wp_preview_terms_filter', 10, 3 );
-	add_filter( 'get_post_metadata', '_wp_preview_post_thumbnail_filter', 10, 3 );
+	add_filter( 'get_the_terms', 'app_preview_terms_filter', 10, 3 );
+	add_filter( 'get_post_metadata', 'app_preview_post_thumbnail_filter', 10, 3 );
 
 	return $post;
 }
@@ -566,7 +566,7 @@ function _show_post_preview() {
  * @param string $taxonomy
  * @return array
  */
-function _wp_preview_terms_filter( $terms, $post_id, $taxonomy ) {
+function app_preview_terms_filter( $terms, $post_id, $taxonomy ) {
 	if ( ! $post = get_post() )
 		return $terms;
 
@@ -592,7 +592,7 @@ function _wp_preview_terms_filter( $terms, $post_id, $taxonomy ) {
  * @param string            $meta_key Meta key.
  * @return null|array The default return value or the post thumbnail meta array.
  */
-function _wp_preview_post_thumbnail_filter( $value, $post_id, $meta_key ) {
+function app_preview_post_thumbnail_filter( $value, $post_id, $meta_key ) {
 	if ( ! $post = get_post() ) {
 		return $value;
 	}
@@ -624,7 +624,7 @@ function _wp_preview_post_thumbnail_filter( $value, $post_id, $meta_key ) {
  * @param WP_Post $revision
  * @return int|false
  */
-function _wp_get_post_revision_version( $revision ) {
+function app_get_post_revision_version( $revision ) {
 	if ( is_object( $revision ) )
 		$revision = get_object_vars( $revision );
 	elseif ( !is_array( $revision ) )
@@ -648,7 +648,7 @@ function _wp_get_post_revision_version( $revision ) {
  * @param array   $revisions Current revisions of the post
  * @return bool true if the revisions were upgraded, false if problems
  */
-function _wp_upgrade_revisions_of_post( $post, $revisions ) {
+function app_upgrade_revisions_of_post( $post, $revisions ) {
 	global $wpdb;
 
 	// Add post option exclusively
@@ -682,7 +682,7 @@ function _wp_upgrade_revisions_of_post( $post, $revisions ) {
 		$this_revision = current( $revisions );
 		$prev_revision = next( $revisions );
 
-		$this_revision_version = _wp_get_post_revision_version( $this_revision );
+		$this_revision_version = app_get_post_revision_version( $this_revision );
 
 		// Something terrible happened
 		if ( false === $this_revision_version )
@@ -704,7 +704,7 @@ function _wp_upgrade_revisions_of_post( $post, $revisions ) {
 		// the correct post_author is probably $post->post_author, but that's only a good guess.
 		// Update the revision version only and Leave the author as-is.
 		if ( $prev_revision ) {
-			$prev_revision_version = _wp_get_post_revision_version( $prev_revision );
+			$prev_revision_version = app_get_post_revision_version( $prev_revision );
 
 			// If the previous revision is already up to date, it no longer has the information we need :(
 			if ( $prev_revision_version < 1 )

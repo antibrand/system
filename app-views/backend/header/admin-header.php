@@ -64,7 +64,7 @@ $admin_title = apply_filters( 'admin_title', $admin_title, $title );
 
 wp_user_settings();
 
-_wp_admin_html_begin();
+app_admin_html_begin();
 
 ?>
 <title><?php echo $admin_title; ?></title>

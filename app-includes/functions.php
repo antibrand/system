@@ -1863,7 +1863,7 @@ function wp_get_upload_dir() {
  * 'error' - false or error message.
  *
  * @since 2.0.0
- * @uses _wp_upload_dir()
+ * @uses app_upload_dir()
  *
  * @staticvar array $cache
  * @staticvar array $tested_paths
@@ -1880,7 +1880,7 @@ function wp_upload_dir( $time = null, $create_dir = true, $refresh_cache = false
 	$key = sprintf( '%d-%s', get_current_blog_id(), (string) $time );
 
 	if ( $refresh_cache || empty( $cache[ $key ] ) ) {
-		$cache[ $key ] = _wp_upload_dir( $time );
+		$cache[ $key ] = app_upload_dir( $time );
 	}
 
 	/**
@@ -1929,7 +1929,7 @@ function wp_upload_dir( $time = null, $create_dir = true, $refresh_cache = false
  * @param string $time Optional. Time formatted in 'yyyy/mm'. Default null.
  * @return array See wp_upload_dir()
  */
-function _wp_upload_dir( $time = null ) {
+function app_upload_dir( $time = null ) {
 	$siteurl = get_option( 'siteurl' );
 	$upload_path = trim( get_option( 'upload_path' ) );
 
@@ -2894,7 +2894,7 @@ function wp_json_encode( $data, $options = 0, $depth = 512 ) {
 	}
 
 	// Prepare the data for JSON serialization.
-	$args[0] = _wp_json_prepare_data( $data );
+	$args[0] = app_json_prepare_data( $data );
 
 	$json = @call_user_func_array( 'json_encode', $args );
 
@@ -2906,7 +2906,7 @@ function wp_json_encode( $data, $options = 0, $depth = 512 ) {
 	}
 
 	try {
-		$args[0] = _wp_json_sanity_check( $data, $depth );
+		$args[0] = app_json_sanity_check( $data, $depth );
 	} catch ( Exception $e ) {
 		return false;
 	}
@@ -2927,7 +2927,7 @@ function wp_json_encode( $data, $options = 0, $depth = 512 ) {
  * @param int   $depth Maximum depth to walk through $data. Must be greater than 0.
  * @return mixed The sanitized data that shall be encoded to JSON.
  */
-function _wp_json_sanity_check( $data, $depth ) {
+function app_json_sanity_check( $data, $depth ) {
 	if ( $depth < 0 ) {
 		throw new Exception( 'Reached depth limit' );
 	}
@@ -2937,16 +2937,16 @@ function _wp_json_sanity_check( $data, $depth ) {
 		foreach ( $data as $id => $el ) {
 			// Don't forget to sanitize the ID!
 			if ( is_string( $id ) ) {
-				$clean_id = _wp_json_convert_string( $id );
+				$clean_id = app_json_convert_string( $id );
 			} else {
 				$clean_id = $id;
 			}
 
 			// Check the element type, so that we're only recursing if we really have to.
 			if ( is_array( $el ) || is_object( $el ) ) {
-				$output[ $clean_id ] = _wp_json_sanity_check( $el, $depth - 1 );
+				$output[ $clean_id ] = app_json_sanity_check( $el, $depth - 1 );
 			} elseif ( is_string( $el ) ) {
-				$output[ $clean_id ] = _wp_json_convert_string( $el );
+				$output[ $clean_id ] = app_json_convert_string( $el );
 			} else {
 				$output[ $clean_id ] = $el;
 			}
@@ -2955,21 +2955,21 @@ function _wp_json_sanity_check( $data, $depth ) {
 		$output = new stdClass;
 		foreach ( $data as $id => $el ) {
 			if ( is_string( $id ) ) {
-				$clean_id = _wp_json_convert_string( $id );
+				$clean_id = app_json_convert_string( $id );
 			} else {
 				$clean_id = $id;
 			}
 
 			if ( is_array( $el ) || is_object( $el ) ) {
-				$output->$clean_id = _wp_json_sanity_check( $el, $depth - 1 );
+				$output->$clean_id = app_json_sanity_check( $el, $depth - 1 );
 			} elseif ( is_string( $el ) ) {
-				$output->$clean_id = _wp_json_convert_string( $el );
+				$output->$clean_id = app_json_convert_string( $el );
 			} else {
 				$output->$clean_id = $el;
 			}
 		}
 	} elseif ( is_string( $data ) ) {
-		return _wp_json_convert_string( $data );
+		return app_json_convert_string( $data );
 	} else {
 		return $data;
 	}
@@ -2984,14 +2984,14 @@ function _wp_json_sanity_check( $data, $depth ) {
  * @since 4.1.0
  * @access private
  *
- * @see _wp_json_sanity_check()
+ * @see app_json_sanity_check()
  *
  * @staticvar bool $use_mb
  *
  * @param string $string The string which is to be converted.
  * @return string The checked string.
  */
-function _wp_json_convert_string( $string ) {
+function app_json_convert_string( $string ) {
 	static $use_mb = null;
 	if ( is_null( $use_mb ) ) {
 		$use_mb = function_exists( 'mb_convert_encoding' );
@@ -3021,7 +3021,7 @@ function _wp_json_convert_string( $string ) {
  * @param mixed $data Native representation.
  * @return bool|int|float|null|string|array Data ready for `json_encode()`.
  */
-function _wp_json_prepare_data( $data ) {
+function app_json_prepare_data( $data ) {
 	if ( ! defined( 'WP_JSON_SERIALIZE_COMPATIBLE' ) || WP_JSON_SERIALIZE_COMPATIBLE === false ) {
 		return $data;
 	}
@@ -3037,7 +3037,7 @@ function _wp_json_prepare_data( $data ) {
 
 		case 'array':
 			// Arrays must be mapped in case they also return objects.
-			return array_map( '_wp_json_prepare_data', $data );
+			return array_map( 'app_json_prepare_data', $data );
 
 		case 'object':
 			// If this is an incomplete object (__PHP_Incomplete_Class), bail.
@@ -3052,7 +3052,7 @@ function _wp_json_prepare_data( $data ) {
 			}
 
 			// Now, pass the array (or whatever was returned from jsonSerialize through).
-			return _wp_json_prepare_data( $data );
+			return app_json_prepare_data( $data );
 
 		default:
 			return null;
@@ -4491,7 +4491,7 @@ function wp_timezone_override_offset() {
  * @param array $b
  * @return int
  */
-function _wp_timezone_choice_usort_callback( $a, $b ) {
+function app_timezone_choice_usort_callback( $a, $b ) {
 	// Don't use translated versions of Etc
 	if ( 'Etc' === $a['continent'] && 'Etc' === $b['continent'] ) {
 		// Make the order of these more like the old dropdown
@@ -4582,7 +4582,7 @@ function wp_timezone_choice( $selected_zone, $locale = null ) {
 			't_subcity'   => ( $exists[5] ? translate( str_replace( '_', ' ', $zone[2] ), 'continents-cities' ) : '' )
 		);
 	}
-	usort( $zonen, '_wp_timezone_choice_usort_callback' );
+	usort( $zonen, 'app_timezone_choice_usort_callback' );
 
 	$structure = array();
 
@@ -4890,7 +4890,7 @@ function send_nosniff_header() {
  * @param string $column Database column.
  * @return string SQL clause.
  */
-function _wp_mysql_week( $column ) {
+function app_mysql_week( $column ) {
 	switch ( $start_of_week = (int) get_option( 'start_of_week' ) ) {
 	case 1 :
 		return "WEEK( $column, 1 )";

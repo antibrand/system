@@ -1380,7 +1380,7 @@ function wp_print_head_scripts() {
  *
  * @since Previous 3.3.0
  */
-function _wp_footer_scripts() {
+function app_footer_scripts() {
 	print_late_styles();
 	print_footer_scripts();
 }

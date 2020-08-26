@@ -308,7 +308,7 @@ switch ( $action ) {
 		 */
 		do_action( 'user_request_action_confirmed', $request_id );
 
-		$message = _wp_privacy_account_request_confirmed_message( $request_id );
+		$message = app_privacy_account_request_confirmed_message( $request_id );
 
 		$user_log->login_header( __( 'User action confirmed.' ), $message );
 

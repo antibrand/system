@@ -52,7 +52,7 @@ function wp_print_styles( $handles = false ) {
 		do_action( 'wp_print_styles' );
 	}
 
-	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
+	app_scripts_maybe_doing_it_wrong( __FUNCTION__ );
 
 	global $wp_styles;
 	if ( ! ( $wp_styles instanceof WP_Styles ) ) {
@@ -81,7 +81,7 @@ function wp_print_styles( $handles = false ) {
  * @return bool True on success, false on failure.
  */
 function wp_add_inline_style( $handle, $data ) {
-	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
+	app_scripts_maybe_doing_it_wrong( __FUNCTION__ );
 
 	if ( false !== stripos( $data, '</style>' ) ) {
 		_doing_it_wrong( __FUNCTION__, sprintf(
@@ -118,7 +118,7 @@ function wp_add_inline_style( $handle, $data ) {
  * @return bool Whether the style has been registered. True on success, false on failure.
  */
 function wp_register_style( $handle, $src, $deps = array(), $ver = false, $media = 'all' ) {
-	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
+	app_scripts_maybe_doing_it_wrong( __FUNCTION__ );
 
 	return wp_styles()->add( $handle, $src, $deps, $ver, $media );
 }
@@ -133,7 +133,7 @@ function wp_register_style( $handle, $src, $deps = array(), $ver = false, $media
  * @param string $handle Name of the stylesheet to be removed.
  */
 function wp_deregister_style( $handle ) {
-	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
+	app_scripts_maybe_doing_it_wrong( __FUNCTION__ );
 
 	wp_styles()->remove( $handle );
 }
@@ -162,7 +162,7 @@ function wp_deregister_style( $handle ) {
  *                                 '(orientation: portrait)' and '(max-width: 640px)'.
  */
 function wp_enqueue_style( $handle, $src = '', $deps = array(), $ver = false, $media = 'all' ) {
-	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
+	app_scripts_maybe_doing_it_wrong( __FUNCTION__ );
 
 	$wp_styles = wp_styles();
 
@@ -183,7 +183,7 @@ function wp_enqueue_style( $handle, $src = '', $deps = array(), $ver = false, $m
  * @param string $handle Name of the stylesheet to be removed.
  */
 function wp_dequeue_style( $handle ) {
-	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
+	app_scripts_maybe_doing_it_wrong( __FUNCTION__ );
 
 	wp_styles()->dequeue( $handle );
 }
@@ -199,7 +199,7 @@ function wp_dequeue_style( $handle ) {
  * @return bool Whether style is queued.
  */
 function wp_style_is( $handle, $list = 'enqueued' ) {
-	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
+	app_scripts_maybe_doing_it_wrong( __FUNCTION__ );
 
 	return (bool) wp_styles()->query( $handle, $list );
 }

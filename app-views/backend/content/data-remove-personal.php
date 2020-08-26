@@ -21,8 +21,8 @@ if ( ! current_user_can( 'erase_others_personal_data' ) || ! current_user_can( '
 	wp_die( __( 'You are not allowed to erase data on this site.' ) );
 }
 
-_wp_personal_data_handle_actions();
-_wp_personal_data_cleanup_requests();
+app_personal_data_handle_actions();
+app_personal_data_cleanup_requests();
 
 // "Borrow" xfn.js for now so we don't have to create new files.
 wp_enqueue_script( 'xfn' );

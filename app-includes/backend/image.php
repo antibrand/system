@@ -84,7 +84,7 @@ function wp_generate_attachment_metadata( $attachment_id, $file ) {
 		$metadata['height'] = $imagesize[1];
 
 		// Make the file path relative to the upload dir.
-		$metadata['file'] = _wp_relative_upload_path($file);
+		$metadata['file'] = app_relative_upload_path($file);
 
 		// Make thumbnails and other intermediate sizes.
 		$_wp_additional_image_sizes = wp_get_additional_image_sizes();

@@ -2576,7 +2576,7 @@ final class Live_Manager {
 		}
 
 		// Fail if attempting to publish but publish hook is missing.
-		if ( 'publish' === $args['status'] && false === has_action( 'transition_post_status', '_wp_customize_publish_changeset' ) ) {
+		if ( 'publish' === $args['status'] && false === has_action( 'transition_post_status', 'app_customize_publish_changeset' ) ) {
 			return new WP_Error( 'missing_publish_callback' );
 		}
 
@@ -2608,7 +2608,7 @@ final class Live_Manager {
 			$args['status'] = 'future';
 		}
 
-		// Validate autosave param. See _wp_post_revision_fields() for why these fields are disallowed.
+		// Validate autosave param. See app_post_revision_fields() for why these fields are disallowed.
 		if ( $args['autosave'] ) {
 			if ( $args['date_gmt'] ) {
 				return new WP_Error( 'illegal_autosave_with_date_gmt' );
@@ -2863,7 +2863,7 @@ final class Live_Manager {
 		// Note that updating a post with publish status will trigger Live_Manager::publish_changeset_values().
 		if ( $changeset_post_id ) {
 			if ( $args['autosave'] && 'auto-draft' !== get_post_status( $changeset_post_id ) ) {
-				// See _wp_translate_postdata() for why this is required as it will use the edit_post meta capability.
+				// See app_translate_postdata() for why this is required as it will use the edit_post meta capability.
 				add_filter( 'map_meta_cap', array( $this, 'grant_edit_post_capability_for_changeset' ), 10, 4 );
 				$post_array['post_ID'] = $post_array['ID'];
 				$post_array['post_type'] = 'customize_changeset';
@@ -3044,13 +3044,13 @@ final class Live_Manager {
 	 * There is essentially a "meta meta" cap in play here, where 'edit_post' meta cap maps to
 	 * the 'customize' meta cap which then maps to 'edit_theme_options'. This is currently
 	 * required in core for `wp_create_post_autosave()` because it will call
-	 * `_wp_translate_postdata()` which in turn will check if a user can 'edit_post', but the
+	 * `app_translate_postdata()` which in turn will check if a user can 'edit_post', but the
 	 * the caps for the customize_changeset post type are all mapping to the meta capability.
 	 * This should be able to be removed once #40922 is addressed in core.
 	 *
 	 * @since 4.9.0
 	 * @see Live_Manager::save_changeset_post()
-	 * @see _wp_translate_postdata()
+	 * @see app_translate_postdata()
 	 *
 	 * @param array  $caps    Returns the user's actual capabilities.
 	 * @param string $cap     Capability name.
@@ -3262,7 +3262,7 @@ final class Live_Manager {
 	 *
 	 * This will the values contained in a changeset, even changesets that do not
 	 * correspond to current manager instance. This is called by
-	 * `_wp_customize_publish_changeset()` when a customize_changeset post is
+	 * `app_customize_publish_changeset()` when a customize_changeset post is
 	 * transitioned to the `publish` status. As such, this method should not be
 	 * called directly and instead `wp_publish_post()` should be used.
 	 *
@@ -3271,7 +3271,7 @@ final class Live_Manager {
 	 * invoking this method.
 	 *
 	 * @since 4.7.0
-	 * @see _wp_customize_publish_changeset()
+	 * @see app_customize_publish_changeset()
 	 * @global wpdb $wpdb
 	 *
 	 * @param int $changeset_post_id ID for customize_changeset post. Defaults to the changeset for the current manager instance.

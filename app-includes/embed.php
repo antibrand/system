@@ -94,7 +94,7 @@ function wp_embed_defaults( $url = '' ) {
  * @return false|string False on failure or the embed HTML on success.
  */
 function wp_oembed_get( $url, $args = '' ) {
-	$oembed = _wp_oembed_get_object();
+	$oembed = app_oembed_get_object();
 	return $oembed->get_html( $url, $args );
 }
 
@@ -108,7 +108,7 @@ function wp_oembed_get( $url, $args = '' ) {
  *
  * @return WP_oEmbed object.
  */
-function _wp_oembed_get_object() {
+function app_oembed_get_object() {
 	static $wp_oembed = null;
 
 	if ( is_null( $wp_oembed ) ) {
@@ -131,7 +131,7 @@ function _wp_oembed_get_object() {
  */
 function wp_oembed_add_provider( $format, $provider, $regex = false ) {
 	if ( did_action( 'plugins_loaded' ) ) {
-		$oembed = _wp_oembed_get_object();
+		$oembed = app_oembed_get_object();
 		$oembed->providers[$format] = array( $provider, $regex );
 	} else {
 		WP_oEmbed::_add_provider_early( $format, $provider, $regex );
@@ -150,7 +150,7 @@ function wp_oembed_add_provider( $format, $provider, $regex = false ) {
  */
 function wp_oembed_remove_provider( $format ) {
 	if ( did_action( 'plugins_loaded' ) ) {
-		$oembed = _wp_oembed_get_object();
+		$oembed = app_oembed_get_object();
 
 		if ( isset( $oembed->providers[ $format ] ) ) {
 			unset( $oembed->providers[ $format ] );
@@ -720,7 +720,7 @@ function wp_filter_oembed_result( $result, $data, $url ) {
 		return $result;
 	}
 
-	$wp_oembed = _wp_oembed_get_object();
+	$wp_oembed = app_oembed_get_object();
 
 	// Don't modify the HTML for trusted providers.
 	if ( false !== $wp_oembed->get_provider( $url, array( 'discover' => false ) ) ) {
@@ -1101,7 +1101,7 @@ function wp_filter_pre_oembed_result( $result, $url, $args ) {
 	$width = isset( $args['width'] ) ? $args['width'] : 0;
 
 	$data = get_oembed_response_data( $post_id, $width );
-	$data = _wp_oembed_get_object()->data2html( (object) $data, $url );
+	$data = app_oembed_get_object()->data2html( (object) $data, $url );
 
 	if ( $switched_blog ) {
 		restore_current_blog();

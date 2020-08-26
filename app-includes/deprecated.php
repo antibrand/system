@@ -2225,7 +2225,7 @@ function wp_specialchars( $string, $quote_style = ENT_NOQUOTES, $charset = false
 	// Maintain back-compat for people passing additional arguments.
 	if ( func_num_args() > 1 ) {
 		$args = func_get_args();
-		return call_user_func_array( '_wp_specialchars', $args );
+		return call_user_func_array( 'app_specialchars', $args );
 	} else {
 		return esc_html( $string );
 	}

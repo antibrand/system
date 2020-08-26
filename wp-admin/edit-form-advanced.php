@@ -82,7 +82,7 @@ if ( isset( $action ) ) {
 }
 
 if ( $post_ID == get_option( 'page_for_posts' ) && empty( $post->post_content ) ) {
-	add_action( 'edit_form_after_title', '_wp_posts_page_notice' );
+	add_action( 'edit_form_after_title', 'app_posts_page_notice' );
 	remove_post_type_support( $post_type, 'editor' );
 }
 
@@ -247,7 +247,7 @@ $form_extra  .= "<input type='hidden' id='post_ID' name='post_ID' value='" . esc
  */
 if ( $autosave && mysql2date( 'U', $autosave->post_modified_gmt, false ) > mysql2date( 'U', $post->post_modified_gmt, false ) ) {
 
-	foreach ( _wp_post_revision_fields( $post ) as $autosave_field => $_autosave_field ) {
+	foreach ( app_post_revision_fields( $post ) as $autosave_field => $_autosave_field ) {
 
 		if ( normalize_whitespace( $autosave->$autosave_field ) != normalize_whitespace( $post->$autosave_field ) ) {
 			$notice = sprintf( __( 'There is an autosave of this post that is more recent than the version below. <a href="%s">View the autosave</a>' ), get_edit_post_link( $autosave->ID ) );

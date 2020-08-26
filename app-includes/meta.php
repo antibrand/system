@@ -1260,7 +1260,7 @@ function get_registered_metadata( $object_type, $object_id, $meta_key = '' ) {
  *
  * @return array Filtered arguments.
  */
-function _wp_register_meta_args_whitelist( $args, $default_args ) {
+function app_register_meta_args_whitelist( $args, $default_args ) {
 	return array_intersect_key( $args, $default_args );
 }
 

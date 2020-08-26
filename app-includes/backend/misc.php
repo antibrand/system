@@ -1288,7 +1288,7 @@ All at ###SITENAME###
  *
  * @return string Page title.
  */
-function _wp_privacy_settings_filter_draft_page_titles( $title, $page ) {
+function app_privacy_settings_filter_draft_page_titles( $title, $page ) {
 	if ( 'draft' === $page->post_status && 'privacy' === get_current_screen()->id ) {
 		/* translators: %s: Page Title */
 		$title = sprintf( __( '%s (Draft)' ), $title );

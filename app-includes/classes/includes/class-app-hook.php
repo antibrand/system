@@ -71,7 +71,7 @@ final class WP_Hook implements Iterator, ArrayAccess {
 	 * @param int      $accepted_args   The number of arguments the function accepts.
 	 */
 	public function add_filter( $tag, $function_to_add, $priority, $accepted_args ) {
-		$idx = _wp_filter_build_unique_id( $tag, $function_to_add, $priority );
+		$idx = app_filter_build_unique_id( $tag, $function_to_add, $priority );
 		$priority_existed = isset( $this->callbacks[ $priority ] );
 
 		$this->callbacks[ $priority ][ $idx ] = array(
@@ -169,7 +169,7 @@ final class WP_Hook implements Iterator, ArrayAccess {
 	 * @return bool Whether the callback existed before it was removed.
 	 */
 	public function remove_filter( $tag, $function_to_remove, $priority ) {
-		$function_key = _wp_filter_build_unique_id( $tag, $function_to_remove, $priority );
+		$function_key = app_filter_build_unique_id( $tag, $function_to_remove, $priority );
 
 		$exists = isset( $this->callbacks[ $priority ][ $function_key ] );
 		if ( $exists ) {
@@ -199,7 +199,7 @@ final class WP_Hook implements Iterator, ArrayAccess {
 			return $this->has_filters();
 		}
 
-		$function_key = _wp_filter_build_unique_id( $tag, $function_to_check, false );
+		$function_key = app_filter_build_unique_id( $tag, $function_to_check, false );
 		if ( ! $function_key ) {
 			return false;
 		}

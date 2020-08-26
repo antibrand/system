@@ -966,7 +966,7 @@ function wp_get_attachment_image_url( $attachment_id, $size = 'thumbnail', $icon
  * @param string $file Attachment file name.
  * @return string Attachment path relative to the upload directory.
  */
-function _wp_get_attachment_relative_path( $file ) {
+function app_get_attachment_relative_path( $file ) {
 	$dirname = dirname( $file );
 
 	if ( '.' === $dirname ) {
@@ -995,7 +995,7 @@ function _wp_get_attachment_relative_path( $file ) {
  * @return array|bool Array of width and height values in pixels (in that order)
  *                    or false if the size doesn't exist.
  */
-function _wp_get_image_size_from_meta( $size_name, $image_meta ) {
+function app_get_image_size_from_meta( $size_name, $image_meta ) {
 	if ( $size_name === 'full' ) {
 		return array(
 			absint( $image_meta['width'] ),
@@ -1100,7 +1100,7 @@ function wp_calculate_image_srcset( $size_array, $image_src, $image_meta, $attac
 	}
 
 	// Retrieve the uploads sub-directory from the full size image.
-	$dirname = _wp_get_attachment_relative_path( $image_meta['file'] );
+	$dirname = app_get_attachment_relative_path( $image_meta['file'] );
 
 	if ( $dirname ) {
 		$dirname = trailingslashit( $dirname );
@@ -1286,7 +1286,7 @@ function wp_calculate_image_sizes( $size, $image_src = null, $image_meta = null,
 		}
 
 		if ( is_array( $image_meta ) ) {
-			$size_array = _wp_get_image_size_from_meta( $size, $image_meta );
+			$size_array = app_get_image_size_from_meta( $size, $image_meta );
 			if ( $size_array ) {
 				$width = absint( $size_array[0] );
 			}
@@ -1463,13 +1463,13 @@ function wp_image_add_srcset_and_sizes( $image, $image_meta, $attachment_id ) {
  * @param array $attr Thumbnail attributes including src, class, alt, title.
  * @return array Modified array of attributes including the new 'wp-post-image' class.
  */
-function _wp_post_thumbnail_class_filter( $attr ) {
+function app_post_thumbnail_class_filter( $attr ) {
 	$attr['class'] .= ' wp-post-image';
 	return $attr;
 }
 
 /**
- * Adds '_wp_post_thumbnail_class_filter' callback to the 'wp_get_attachment_image_attributes'
+ * Adds 'app_post_thumbnail_class_filter' callback to the 'wp_get_attachment_image_attributes'
  * filter hook. Internal use only.
  *
  * @ignore
@@ -1477,12 +1477,12 @@ function _wp_post_thumbnail_class_filter( $attr ) {
  *
  * @param array $attr Thumbnail attributes including src, class, alt, title.
  */
-function _wp_post_thumbnail_class_filter_add( $attr ) {
-	add_filter( 'wp_get_attachment_image_attributes', '_wp_post_thumbnail_class_filter' );
+function app_post_thumbnail_class_filter_add( $attr ) {
+	add_filter( 'wp_get_attachment_image_attributes', 'app_post_thumbnail_class_filter' );
 }
 
 /**
- * Removes the '_wp_post_thumbnail_class_filter' callback from the 'wp_get_attachment_image_attributes'
+ * Removes the 'app_post_thumbnail_class_filter' callback from the 'wp_get_attachment_image_attributes'
  * filter hook. Internal use only.
  *
  * @ignore
@@ -1490,8 +1490,8 @@ function _wp_post_thumbnail_class_filter_add( $attr ) {
  *
  * @param array $attr Thumbnail attributes including src, class, alt, title.
  */
-function _wp_post_thumbnail_class_filter_remove( $attr ) {
-	remove_filter( 'wp_get_attachment_image_attributes', '_wp_post_thumbnail_class_filter' );
+function app_post_thumbnail_class_filter_remove( $attr ) {
+	remove_filter( 'wp_get_attachment_image_attributes', 'app_post_thumbnail_class_filter' );
 }
 
 add_shortcode('wp_caption', 'img_caption_shortcode');
@@ -2921,7 +2921,7 @@ function wp_get_image_editor( $path, $args = array() ) {
 			$args['mime_type'] = $file_info['type'];
 	}
 
-	$implementation = _wp_image_editor_choose( $args );
+	$implementation = app_image_editor_choose( $args );
 
 	if ( $implementation ) {
 		$editor = new $implementation( $path );
@@ -2946,7 +2946,7 @@ function wp_get_image_editor( $path, $args = array() ) {
  * @return bool True if an eligible editor is found; false otherwise.
  */
 function wp_image_editor_supports( $args = array() ) {
-	return (bool) _wp_image_editor_choose( $args );
+	return (bool) app_image_editor_choose( $args );
 }
 
 /**
@@ -2959,7 +2959,7 @@ function wp_image_editor_supports( $args = array() ) {
  * @return string|false Class name for the first editor that claims to support the request. False if no
  *                     editor claims to support the request.
  */
-function _wp_image_editor_choose( $args = array() ) {
+function app_image_editor_choose( $args = array() ) {
 	require_once APP_INC_PATH . '/classes/includes/class-app-image-editor.php';
 	require_once APP_INC_PATH . '/classes/includes/class-app-image-editor-gd.php';
 	require_once APP_INC_PATH . '/classes/includes/class-app-image-editor-imagick.php';

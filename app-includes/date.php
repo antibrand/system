@@ -741,9 +741,9 @@ class WP_Date_Query {
 			$where_parts[] = "MONTH( $column ) $compare $value";
 		}
 		if ( isset( $query['week'] ) && false !== ( $value = $this->build_value( $compare, $query['week'] ) ) ) {
-			$where_parts[] = _wp_mysql_week( $column ) . " $compare $value";
+			$where_parts[] = app_mysql_week( $column ) . " $compare $value";
 		} elseif ( isset( $query['w'] ) && false !== ( $value = $this->build_value( $compare, $query['w'] ) ) ) {
-			$where_parts[] = _wp_mysql_week( $column ) . " $compare $value";
+			$where_parts[] = app_mysql_week( $column ) . " $compare $value";
 		}
 		if ( isset( $query['dayofyear'] ) && $value = $this->build_value( $compare, $query['dayofyear'] ) )
 			$where_parts[] = "DAYOFYEAR( $column ) $compare $value";

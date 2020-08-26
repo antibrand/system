@@ -346,7 +346,7 @@ function wp_ajax_logged_in() {
  * @param int $comment_id
  * @param int $delta
  */
-function _wp_ajax_delete_comment_response( $comment_id, $delta = -1 ) {
+function app_ajax_delete_comment_response( $comment_id, $delta = -1 ) {
 	$total    = isset( $_POST['_total'] )    ? (int) $_POST['_total']    : 0;
 	$per_page = isset( $_POST['_per_page'] ) ? (int) $_POST['_per_page'] : 0;
 	$page     = isset( $_POST['_page'] )     ? (int) $_POST['_page']     : 0;
@@ -455,7 +455,7 @@ function _wp_ajax_delete_comment_response( $comment_id, $delta = -1 ) {
  * @access private
  * @since 3.1.0
  */
-function _wp_ajax_add_hierarchical_term() {
+function app_ajax_add_hierarchical_term() {
 	$action = $_POST['action'];
 	$taxonomy = get_taxonomy(substr($action, 4));
 	check_ajax_referer( $action, '_ajax_nonce-add-' . $taxonomy->name );
@@ -586,7 +586,7 @@ function wp_ajax_delete_comment() {
 	}
 
 	if ( $r ) // Decide if we need to send back '1' or a more complicated response including page links and comment counts
-		_wp_ajax_delete_comment_response( $comment->comment_ID, $delta );
+		app_ajax_delete_comment_response( $comment->comment_ID, $delta );
 	wp_die( 0 );
 }
 
@@ -785,7 +785,7 @@ function wp_ajax_dim_comment() {
 	}
 
 	// Decide if we need to send back '1' or a more complicated response including page links and comment counts
-	_wp_ajax_delete_comment_response( $comment->comment_ID );
+	app_ajax_delete_comment_response( $comment->comment_ID );
 	wp_die( 0 );
 }
 
@@ -1615,7 +1615,7 @@ function wp_ajax_menu_quick_search() {
 
 	require_once APP_INC_PATH . '/backend/nav-menu.php';
 
-	_wp_ajax_menu_quick_search( $_POST );
+	app_ajax_menu_quick_search( $_POST );
 
 	wp_die();
 }
@@ -2185,7 +2185,7 @@ function wp_ajax_set_post_thumbnail() {
 
 	if ( $thumbnail_id == '-1' ) {
 		if ( delete_post_thumbnail( $post_ID ) ) {
-			$return = _wp_post_thumbnail_html( null, $post_ID );
+			$return = app_post_thumbnail_html( null, $post_ID );
 			$json ? wp_send_json_success( $return ) : wp_die( $return );
 		} else {
 			wp_die( 0 );
@@ -2193,7 +2193,7 @@ function wp_ajax_set_post_thumbnail() {
 	}
 
 	if ( set_post_thumbnail( $post_ID, $thumbnail_id ) ) {
-		$return = _wp_post_thumbnail_html( $thumbnail_id, $post_ID );
+		$return = app_post_thumbnail_html( $thumbnail_id, $post_ID );
 		$json ? wp_send_json_success( $return ) : wp_die( $return );
 	}
 
@@ -2221,7 +2221,7 @@ function wp_ajax_get_post_thumbnail_html() {
 		$thumbnail_id = null;
 	}
 
-	$return = _wp_post_thumbnail_html( $thumbnail_id, $post_ID );
+	$return = app_post_thumbnail_html( $thumbnail_id, $post_ID );
 	wp_send_json_success( $return );
 }
 
@@ -4226,7 +4226,7 @@ function wp_ajax_wp_privacy_erase_personal_data() {
 		wp_send_json_error( __( 'Invalid request ID.' ) );
 	}
 
-	// Both capabilities are required to avoid confusion, see `_wp_personal_data_removal_page()`.
+	// Both capabilities are required to avoid confusion, see `app_personal_data_removal_page()`.
 	if ( ! current_user_can( 'erase_others_personal_data' ) || ! current_user_can( 'delete_users' ) ) {
 		wp_send_json_error( __( 'Invalid request.' ) );
 	}

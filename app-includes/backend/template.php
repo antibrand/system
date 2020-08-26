@@ -1654,7 +1654,7 @@ function iframe_header( $title = '', $deprecated = false ) {
 	$current_screen = get_current_screen();
 
 	@header( 'Content-Type: ' . get_option( 'html_type' ) . '; charset=' . get_option( 'blog_charset' ) );
-	_wp_admin_html_begin();
+	app_admin_html_begin();
 ?>
 <title><?php bloginfo( 'name' ) ?> &rsaquo; <?php echo $title ?></title>
 <?php
@@ -2063,7 +2063,7 @@ function get_submit_button( $text = '', $type = 'primary large', $name = 'submit
  * Begin admin HTML
  * @global bool $is_IE
  */
-function _wp_admin_html_begin() {
+function app_admin_html_begin() {
 	global $is_IE;
 
 	$admin_html_class = ( is_admin_bar_showing() ) ? 'wp-toolbar' : '';
@@ -2207,6 +2207,6 @@ function wp_star_rating( $args = array() ) {
  * @ignore
  * @since 4.2.0
  */
-function _wp_posts_page_notice() {
+function app_posts_page_notice() {
 	echo '<div class="notice notice-warning inline"><p>' . __( 'You are currently editing the page that shows your latest posts.' ) . '</p></div>';
 }

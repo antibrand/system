@@ -1182,7 +1182,7 @@ function wp_get_document_title() {
  * @since Previous 4.4.0 Improved title output replaced `wp_title()`.
  * @access private
  */
-function _wp_render_title_tag() {
+function app_render_title_tag() {
 	if ( ! current_theme_supports( 'title-tag' ) ) {
 		return;
 	}
@@ -1947,7 +1947,7 @@ function wp_get_archives( $args = '' ) {
 			}
 		}
 	} elseif ( 'weekly' == $r['type'] ) {
-		$week = _wp_mysql_week( '`post_date`' );
+		$week = app_mysql_week( '`post_date`' );
 		$query = "SELECT DISTINCT $week AS `week`, YEAR( `post_date` ) AS `yr`, DATE_FORMAT( `post_date`, '%Y-%m-%d' ) AS `yyyymmdd`, count( `ID` ) AS `posts` FROM `$wpdb->posts` $join $where GROUP BY $week, YEAR( `post_date` ) ORDER BY `post_date` $order $limit";
 		$key = md5( $query );
 		$key = "wp_get_archives:$key:$last_changed";

@@ -843,9 +843,9 @@ function wp_generate_tag_cloud( $tags, $args = '' ) {
 		} else {
 			// SQL cannot save you; this is a second (potentially different) sort on a subset of data.
 			if ( 'name' === $args['orderby'] ) {
-				uasort( $tags, '_wp_object_name_sort_cb' );
+				uasort( $tags, 'app_object_name_sort_cb' );
 			} else {
-				uasort( $tags, '_wp_object_count_sort_cb' );
+				uasort( $tags, 'app_object_count_sort_cb' );
 			}
 
 			if ( 'DESC' === $args['order'] ) {
@@ -1000,7 +1000,7 @@ function wp_generate_tag_cloud( $tags, $args = '' ) {
  * @return int Negative number if `$a->name` is less than `$b->name`, zero if they are equal,
  *             or greater than zero if `$a->name` is greater than `$b->name`.
  */
-function _wp_object_name_sort_cb( $a, $b ) {
+function app_object_name_sort_cb( $a, $b ) {
 	return strnatcasecmp( $a->name, $b->name );
 }
 
@@ -1016,7 +1016,7 @@ function _wp_object_name_sort_cb( $a, $b ) {
  * @param object $b The second object to compare.
  * @return bool Whether the count value for `$a` is greater than the count value for `$b`.
  */
-function _wp_object_count_sort_cb( $a, $b ) {
+function app_object_count_sort_cb( $a, $b ) {
 	return ( $a->count > $b->count );
 }
 
