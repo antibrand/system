@@ -12,6 +12,6 @@
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
 if ( ! is_network() ) {
-	wp_redirect( admin_url( 'options-content.php' ), 301 );
+	wp_redirect( admin_url( 'options-content.php#tab-display' ), 301 );
 	exit;
 }
