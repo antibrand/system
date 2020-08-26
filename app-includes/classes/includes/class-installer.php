@@ -936,6 +936,3 @@ class Installer {
 	}
 
 }
-
-/** WP_Automatic_Updater class */
-require_once( ABSPATH . 'wp-admin/includes/class-wp-automatic-updater.php' );
