@@ -3064,7 +3064,7 @@ function app_assets_url( $path = '', $scheme = 'admin' ) {
  */
 function get_app_assets_url( $blog_id = null, $path = '', $scheme = 'admin' ) {
 
-	$url = get_site_url( $blog_id, 'app-assets/', $scheme );
+	$url = get_site_url( $blog_id, APP_ASSETS_DIR . '/', $scheme );
 
 	if ( $path && is_string( $path ) ) {
 		$url .= ltrim( $path, '/' );

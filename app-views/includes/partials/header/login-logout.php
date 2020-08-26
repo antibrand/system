@@ -33,7 +33,7 @@ if ( APP_TAGLINE ) {
 }
 
 // Get the identity image or white label logo.
-$app_get_logo = dirname( dirname( dirname( $_SERVER['PHP_SELF'] ) ) ) . '/app-assets/images/app-icon.png';
+$app_get_logo = dirname( dirname( dirname( $_SERVER['PHP_SELF'] ) ) ) . '/' . APP_ASSETS_DIR . '/images/app-icon.png';
 
 // Link for the logo image.
 $app_link = APP_WEBSITE;
@@ -72,11 +72,11 @@ header( 'Content-Type: text/html; charset=utf-8' );
 
 	<title><?php _e( 'Configuration File Setup' ); ?></title>
 
-	<link rel="preload" href="<?php echo site_url( 'app-assets/fonts/sans/variable/sans.woff2' ); ?>" as="font" type="font/woff2" crossorigin>
-	<link rel="preload" href="<?php echo site_url( 'app-assets/fonts/sans/variable/sans-italic.woff2' ); ?>" as="font" type="font/woff2" crossorigin>
-	<link rel="preload" href="<?php echo site_url( 'app-assets/fonts/serif/variable/serif.woff' ); ?>" as="font" type="font/woff" crossorigin>
-	<link rel="preload" href="<?php echo site_url( 'app-assets/fonts/serif/variable/serif.woff' ); ?>" as="font" type="font/woff" crossorigin>
-	<link rel="preload" href="<?php echo site_url( 'app-assets/fonts/mono/variable/mono.woff2' ); ?>" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="<?php echo site_url( APP_ASSETS_DIR . '/fonts/sans/variable/sans.woff2' ); ?>" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="<?php echo site_url( APP_ASSETS_DIR . '/fonts/sans/variable/sans-italic.woff2' ); ?>" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="<?php echo site_url( APP_ASSETS_DIR . '/fonts/serif/variable/serif.woff' ); ?>" as="font" type="font/woff" crossorigin>
+	<link rel="preload" href="<?php echo site_url( APP_ASSETS_DIR . '/fonts/serif/variable/serif.woff' ); ?>" as="font" type="font/woff" crossorigin>
+	<link rel="preload" href="<?php echo site_url( APP_ASSETS_DIR . '/fonts/mono/variable/mono.woff2' ); ?>" as="font" type="font/woff2" crossorigin>
 
 	<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
 

@@ -48,6 +48,9 @@
  *    replace with your own description.
  */
 
+// Get the system environment constants.
+require_once( dirname( __FILE__ ) . '/app-environment.php' );
+
 // Define a name of the website management system.
 define( 'APP_NAME', 'system' );
 
@@ -58,7 +61,7 @@ define( 'APP_TAGLINE', 'generic, white-label website management' );
 define( 'APP_WEBSITE', '' );
 
 // Define a logo or icon path for the website management system.
-define( 'APP_IMAGE', dirname( dirname( $_SERVER['PHP_SELF'] ) ) . '/app-assets/images/app-icon.jpg' );
+define( 'APP_IMAGE', dirname( dirname( $_SERVER['PHP_SELF'] ) ) . APP_ASSETS_DIR . '/images/app-icon.png' );
 
 /**
  * Identity colors

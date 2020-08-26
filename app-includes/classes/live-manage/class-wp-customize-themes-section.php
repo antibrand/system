@@ -86,7 +86,7 @@ class WP_Customize_Themes_Section extends WP_Customize_Section {
 						/**
 						 * The themes list is populated by JavaScript.
 						 *
-						 * @see app-assets/js/admin/theme.js
+						 * @see APP_ASSETS_DIR/js/admin/theme.js
 						 */
 						?>
 					</ul>

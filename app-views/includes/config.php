@@ -25,7 +25,7 @@ require_once( dirname( dirname( dirname( __FILE__ ) ) ) . '/app-environment.php'
 
 // Path to assets directory.
 if ( ! defined( 'APP_ASSETS' ) ) {
-	define( 'APP_ASSETS', ABSPATH . 'app-assets' );
+	define( 'APP_ASSETS', APP_ASSETS_PATH );
 }
 
 // Load dependency files.
@@ -34,7 +34,7 @@ require_once( APP_INC_PATH . '/backend/upgrade.php' );
 require_once( APP_INC_PATH . '/backend/translation-install.php' );
 
 // Get the identity image or white label logo.
-$app_get_logo = dirname( dirname( dirname( $_SERVER['PHP_SELF'] ) ) ) . '/app-assets/images/app-icon.png';
+$app_get_logo = dirname( dirname( dirname( $_SERVER['PHP_SELF'] ) ) ) . '/' . APP_ASSETS_DIR . '/images/app-icon.png';
 
 /**
  * Set the headers to prevent caching

@@ -873,9 +873,9 @@ function print_embed_styles() {
 	?>
 	<?php
 		if ( SCRIPT_DEBUG ) {
-			readfile( ABSPATH . 'app-assets/css/includes/app-embed-template.css' );
+			readfile( APP_ASSETS_PATH . '/css/includes/app-embed-template.css' );
 		} else {
-			readfile( ABSPATH . 'app-assets/css/includes/app-embed-template.min.css' );
+			readfile( APP_ASSETS_PATH . '/css/includes/app-embed-template.min.css' );
 		}
 	?>
 	</style>

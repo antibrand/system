@@ -3215,7 +3215,7 @@ function wp_editor( $content, $editor_id, $settings = array() ) {
  * Outputs the editor scripts, stylesheets, and default settings.
  *
  * The editor can be initialized when needed after page load.
- * See wp.editor.initialize() in app-assets/js/admin/editor.js for initialization options.
+ * See wp.editor.initialize() in APP_ASSETS_DIR/js/admin/editor.js for initialization options.
  *
  * @uses _WP_Editors
  * @since Previous 4.8.0
@@ -4101,10 +4101,10 @@ function register_user_code_themes() {
  * @see WP_Styles::_css_href and its {@see 'style_loader_src'} filter.
  *
  * @since Previous  WP 2.3.0
- * @param  string $file file relative to app-assets/ without its ".css" extension.
+ * @param  string $file file relative to APP_ASSETS_DIR/ without its ".css" extension.
  * @return string
  */
-function app_assets_css_uri( $file = 'app-assets' ) {
+function app_assets_css_uri( $file = APP_ASSETS_DIR ) {
 
 	if ( defined( 'APP_INSTALLING' ) ) {
 		$_file = "./$file.css";
@@ -4135,15 +4135,15 @@ function app_assets_css_uri( $file = 'app-assets' ) {
  *
  * For backward compatibility with 2.3 calling method: If the $file
  * (first) parameter does not correspond to a registered CSS file, we assume
- * $file is a file relative to app-assets/ without its ".css" extension. A
+ * $file is a file relative to APP_ASSETS_DIR/ without its ".css" extension. A
  * stylesheet link to that generated URL is printed.
  *
  * @since Previous 2.3.0
  * @param string $file       Optional. Style handle name or file name (without ".css" extension) relative
- * 	                         to app-assets/. Defaults to 'app-assets'.
+ * 	                         to APP_ASSETS_DIR/. Defaults to APP_ASSETS_DIR.
  * @param bool   $force_echo Optional. Force the stylesheet link to be printed rather than enqueued.
  */
-function app_assets_css( $file = 'app-assets', $force_echo = false ) {
+function app_assets_css( $file = APP_ASSETS_DIR, $force_echo = false ) {
 	// For backward compatibility
 	$handle = 0 === strpos( $file, 'css/' ) ? substr( $file, 4 ) : $file;
 
@@ -4164,7 +4164,7 @@ function app_assets_css( $file = 'app-assets', $force_echo = false ) {
 	 * @since Previous 2.3.0
 	 * @param string $stylesheet_link HTML link element for the stylesheet.
 	 * @param string $file            Style handle name or filename (without ".css" extension)
-	 *                                relative to app-assets/. Defaults to 'app-assets'.
+	 *                                relative to APP_ASSETS_DIR/. Defaults to APP_ASSETS_DIR.
 	 */
 	echo apply_filters( 'app_assets_css', "<link rel='stylesheet' href='" . esc_url( app_assets_url( $file ) ) . "' type='text/css' />\n", $file );
 
