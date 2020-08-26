@@ -217,6 +217,9 @@ define( 'WP_LOCAL_DEV', false );
  * Compatability version
  *
  * Sets a version which may be required by plugins & themes.
+ *
+ * @since 1.0.0
+ * @var string The general or precise version number.
  */
 define( 'COMPAT_VERSION', '5.0' );
 
@@ -243,9 +246,9 @@ define( 'APP_LOGIN', ABSPATH . 'login' . '/' );
  * Defined in the default constants file if not defined here.
  *
  * @see WP_Theme::get_core_default_theme()
- * @see app-includes/constants-default.php
  *
  * @since 1.0.0
+ * @var   string The directory name of the theme.
  */
 define( 'APP_DEFAULT_THEME', 'theme' );
 
@@ -257,25 +260,53 @@ define( 'APP_DEFAULT_THEME', 'theme' );
  */
 define( 'APP_LANG', 'en_US' );
 
-// Default language directory.
+/**
+ * Default language directory
+ *
+ * @since 1.0.0
+ * @var   string
+ */
 define( 'APP_LANG_DIR', ABSPATH . 'app-languages' );
 
-// Allow better passwords feature.
-define( 'APP_FEATURE_BETTER_PASSWORDS', true );
+/**
+ * Allow better passwords feature
+ *
+ * @since 1.0.0
+ * @var   boolean Default is true.
+ */
+// define( 'APP_FEATURE_BETTER_PASSWORDS', true );
 
-// Allow the trash status for the 'attachment' post type.
+/**
+ * Allow post revisions
+ *
+ * @since 1.0.0
+ * @var   boolean Default is true.
+ */
+// define( 'APP_POST_REVISIONS', true );
+
+/**
+ * Medai trash
+ *
+ * Allow the trash status for the 'attachment' post type.
+ *
+ * @since 1.0.0
+ * @var   boolean Default is false.
+ */
 define( 'MEDIA_TRASH', false );
 
-// Define caching.
+/**
+ * System chaching
+ *
+ * @since 1.0.0
+ * @var   boolean Default is false
+ */
 define( 'APP_CACHE', false );
 
 /**
  * End customization
  *
  * Do not add or edit anything below this comment block.
- *
- * @since 1.0.0
  */
 
-// Sets up vars and included files.
+// Get the system settings.
 require( ABSPATH . 'app-settings.php' );

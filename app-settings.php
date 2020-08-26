@@ -1,5 +1,7 @@
 <?php
 /**
+ * System settings
+ *
  * Used to set up and fix common variables and include
  * the procedural and class library.
  *
