@@ -61,7 +61,8 @@ const APP_CLASSES = [
 	'Theme_Upgrader_Skin'       => __DIR__ . '/classes/backend/class-theme-upgrader-skin.php',
 	'Bulk_Theme_Upgrader_Skin'  => __DIR__ . '/classes/backend/class-bulk-theme-upgrader-skin.php',
 	'File_Upload_Upgrader'      => __DIR__ . '/classes/backend/class-file-upload-upgrader.php',
-	'Language_Pack_Upgrader'    => __DIR__ . '/classes/backend/class-language-pack-upgrader-skin.php',
+	'Language_Pack_Upgrader'    => __DIR__ . '/classes/backend/class-language-pack-upgrader.php',
+	'Language_Pack_Upgrader_Skin' => __DIR__ . '/classes/backend/class-language-pack-upgrader-skin.php',
 
 	// Screens.
 	'AppNamespace\Backend\Screen'              => __DIR__ . '/classes/backend/class-screen.php',
