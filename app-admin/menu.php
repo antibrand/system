@@ -27,6 +27,7 @@ include_once( APP_INC_PATH . '/backend/plugin.php' );
 
 // Get privacy notifications.
 $change_notice = '';
+
 if ( current_user_can( 'manage_privacy_options' ) && WP_Privacy_Policy_Content::text_change_check() ) {
 	$change_notice = ' <span class="update-plugins 1"><span class="plugin-count">' . number_format_i18n( 1 ) . '</span></span>';
 }
@@ -83,8 +84,7 @@ if ( ! is_network() ) {
 		$cap = 'update_languages';
 	}
 
-	/*
-	$submenu['index.php'][10] = array(
+	$submenu['index.php'][30] =[
 		sprintf(
 			'%1s %2s',
 			__( 'Updates' ),
@@ -92,22 +92,10 @@ if ( ! is_network() ) {
 		),
 		$cap,
 		'update-core.php'
-	);
+	];
 
 	unset( $cap );
-	*/
 }
-
-// Separator before content management items.
-/*
-$menu[4] = [
-	'',
-	'read',
-	'separator1',
-	'',
-	'wp-menu-separator'
-];
-*/
 
 $menu[5] = [
 	__( 'Media' ),
@@ -313,52 +301,6 @@ foreach ( array_merge( $builtin, $types ) as $ptype ) {
 }
 unset( $ptype, $ptype_obj, $ptype_for_id, $ptype_menu_position, $menu_icon, $i, $tax, $post_new_file );
 
-/*
-$menu[54] = [
-	'',
-	'read',
-	'separator2',
-	'',
-	'wp-menu-separator'
-];
-*/
-
-/*
-$menu[55] = [
-	__( 'Content' ),
-	'edit_others_posts',
-	'options-content.php',
-	'',
-	'menu-top menu-icon-appearance',
-	'menu-appearance',
-	'dashicons-welcome-write-blog'
-];
-
-$submenu['options-content.php'][5] = [
-	__( 'Content Options' ),
-	'edit_others_posts',
-	'options-content.php'
-];
-
-$submenu['options-content.php'][10] = [
-	__( 'Content Types' ),
-	'edit_others_posts',
-	'content-types.php'
-];
-
-$submenu['options-content.php'][15] = [
-	__( 'Authors' ),
-	'edit_others_posts',
-	'authors.php'
-];
-
-$submenu['options-content.php'][20] = [
-	__( 'Taxonomies' ),
-	'edit_others_posts',
-	'content-taxes.php'
-];
-*/
-
 if ( current_user_can( 'switch_themes' ) ) {
 	$appearance_cap = 'switch_themes';
 } else {
@@ -434,7 +376,7 @@ if ( ! is_network() ) {
  * Adds the (theme) 'Editor' link to the bottom of the Appearance menu.
  *
  * @access private
- * @since 3.0.0
+ * @since Previous 3.0.0
  */
 function _add_themes_utility_last() {
 
