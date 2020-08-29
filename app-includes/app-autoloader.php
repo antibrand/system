@@ -69,9 +69,22 @@ const APP_CLASSES = [
 	'Language_Pack_Upgrader'    => __DIR__ . '/classes/backend/class-language-pack-upgrader.php',
 	'Language_Pack_Upgrader_Skin' => __DIR__ . '/classes/backend/class-language-pack-upgrader-skin.php',
 
-	// Screens.
-	'AppNamespace\Backend\Screen'              => __DIR__ . '/classes/backend/class-screen.php',
-	'AppNamespace\Backend\Dashboard'           => __DIR__ . '/classes/backend/class-dashboard.php',
+	/**
+	 * Administration screen
+	 *
+	 * These load classes for the various administration pages.
+	 *
+	 * @since 1.0.0
+	 */
+	'AppNamespace\Backend\Screen' => __DIR__ . '/classes/backend/class-screen.php',
+
+	// Dashboard screens.
+	'AppNamespace\Backend\Dashboard' => __DIR__ . '/classes/backend/class-dashboard.php',
+
+	// General and/or multi-purpose screens.
+	'AppNamespace\Backend\Admin_Screen' => __DIR__ . '/classes/backend/class-admin-screen.php',
+
+	// Settings screens.
 	'AppNamespace\Backend\Settings_Screen'     => __DIR__ . '/classes/backend/class-settings-screen.php',
 	'AppNamespace\Backend\Settings_General'    => __DIR__ . '/classes/backend/class-settings-general.php',
 	'AppNamespace\Backend\Settings_Permalinks' => __DIR__ . '/classes/backend/class-settings-permalinks.php',
