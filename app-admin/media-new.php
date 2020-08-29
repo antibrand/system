@@ -9,35 +9,47 @@
  * @subpackage Administration
  */
 
-// Load the website management system.
-require_once( dirname( __FILE__ ) . '/admin.php' );
+// Get the system environment constants from the root directory.
+require_once( dirname( dirname( __FILE__ ) ) . '/app-environment.php' );
 
-if (!current_user_can('upload_files'))
-	wp_die(__('Sorry, you are not allowed to upload files.'));
+// Load the administration environment.
+require_once( APP_INC_PATH . '/backend/app-admin.php' );
 
-wp_enqueue_script('plupload-handlers');
+if ( ! current_user_can( 'upload_files' ) ) {
+	wp_die( __( 'Sorry, you are not allowed to upload files.' ) );
+}
+
+wp_enqueue_script( 'plupload-handlers' );
 
 $post_id = 0;
+
 if ( isset( $_REQUEST['post_id'] ) ) {
+
 	$post_id = absint( $_REQUEST['post_id'] );
-	if ( ! get_post( $post_id ) || ! current_user_can( 'edit_post', $post_id ) )
+
+	if ( ! get_post( $post_id ) || ! current_user_can( 'edit_post', $post_id ) ) {
 		$post_id = 0;
+	}
 }
 
 if ( $_POST ) {
-	if ( isset($_POST['html-upload']) && !empty($_FILES) ) {
-		check_admin_referer('media-form');
-		// Upload File button was clicked
+
+	if ( isset( $_POST['html-upload'] ) && ! empty( $_FILES ) ) {
+
+		check_admin_referer( 'media-form' );
+
+		// Upload File button was clicked.
 		$upload_id = media_handle_upload( 'async-upload', $post_id );
 		if ( is_wp_error( $upload_id ) ) {
 			wp_die( $upload_id );
 		}
 	}
+
 	wp_redirect( admin_url( 'upload.php' ) );
 	exit;
 }
 
-$title = __('Upload New Media');
+$title       = __( 'Upload New Media' );
 $parent_file = 'upload.php';
 
 $help = sprintf(
@@ -86,7 +98,8 @@ get_current_screen()->add_help_tab( [
 $set_help_sidebar = apply_filters( 'set_help_sidebar_media_new', '' );
 get_current_screen()->set_help_sidebar( $set_help_sidebar );
 
-require_once( APP_ADMIN_PATH . '/admin-header.php' );
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 $form_class = 'media-upload-form type-form validate';
 
@@ -97,7 +110,7 @@ if ( get_user_setting('uploader') || isset( $_GET['browser-uploader'] ) )
 
 	<h1><?php echo esc_html( $title ); ?></h1>
 
-	<form enctype="multipart/form-data" method="post" action="<?php echo admin_url('media-new.php'); ?>" class="<?php echo esc_attr( $form_class ); ?>" id="file-form">
+	<form enctype="multipart/form-data" method="post" action="<?php echo admin_url( 'media-new.php' ); ?>" class="<?php echo esc_attr( $form_class ); ?>" id="file-form">
 
 		<div class="media-upload-form-wrap">
 			<?php media_upload_form(); ?>
@@ -116,6 +129,7 @@ if ( get_user_setting('uploader') || isset( $_GET['browser-uploader'] ) )
 	</form>
 
 </div>
-
 <?php
-include( APP_ADMIN_PATH . '/admin-footer.php' );
+
+// Get the admin page footer.
+include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );

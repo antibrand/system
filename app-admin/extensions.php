@@ -6,8 +6,11 @@
  * @subpackage Administration
  */
 
-// Load the website management system.
-require_once( dirname( __FILE__ ) . '/admin.php' );
+// Get the system environment constants from the root directory.
+require_once( dirname( dirname( __FILE__ ) ) . '/app-environment.php' );
+
+// Load the administration environment.
+require_once( APP_INC_PATH . '/backend/app-admin.php' );
 
 if ( ! current_user_can( 'manage_options' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to manage extensions for this site.' ) );
@@ -27,7 +30,8 @@ $wp_list_table->prepare_items();
 $title       = __( 'System Extensions' );
 $parent_file = 'plugins.php';
 
-require_once( APP_ADMIN_PATH . '/admin-header.php' );
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 $invalid = validate_active_plugins();
 
@@ -70,5 +74,5 @@ $invalid = validate_active_plugins();
 
 <?php
 
-// Get the admin footer.
-include( APP_ADMIN_PATH . '/admin-footer.php' );
+// Get the admin page footer.
+include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );

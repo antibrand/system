@@ -6,8 +6,11 @@
  * @subpackage Administration
  */
 
-// Load the website management system.
-require_once( dirname( __FILE__ ) . '/admin.php' );
+// Get the system environment constants from the root directory.
+require_once( dirname( dirname( __FILE__ ) ) . '/app-environment.php' );
+
+// Load the administration environment.
+require_once( APP_INC_PATH . '/backend/app-admin.php' );
 
 if ( ! current_user_can( 'export' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to export the content of this site.' ) );
@@ -153,7 +156,8 @@ if ( isset( $_GET['download'] ) ) {
 	die();
 }
 
-require_once( APP_ADMIN_PATH . '/admin-header.php' );
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 /**
  * Create the date options fields for exporting a given post type.
@@ -347,4 +351,6 @@ function export_date_options( $post_type = 'post' ) {
 </div>
 
 <?php
-include( APP_ADMIN_PATH . '/admin-footer.php' );
+
+// Get the admin page footer.
+include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );

@@ -6,11 +6,15 @@
  * @subpackage Administration
  */
 
-// Load the website management system.
-require_once( dirname( __FILE__ ) . '/admin.php' );
+// Get the system environment constants from the root directory.
+require_once( dirname( dirname( __FILE__ ) ) . '/app-environment.php' );
+
+// Load the administration environment.
+require_once( APP_INC_PATH . '/backend/app-admin.php' );
 
 // Instance of the dashboard class.
 \AppNamespace\Backend\Data_Page :: instance();
+
 require_once( APP_INC_PATH . '/backend/export.php' );
 
 $parent_file = 'options-general.php';
@@ -25,10 +29,8 @@ $description = apply_filters(
 	__( 'Manage the database, import and export content.' )
 );
 
-require_once( APP_ADMIN_PATH . '/admin-header.php' );
-
-// Script for tabbed content.
-wp_enqueue_script( 'app-tabs' );
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 /**
  * Set up export
@@ -152,4 +154,5 @@ if ( isset( $_GET['download'] ) ) {
 wp_print_request_filesystem_credentials_modal();
 wp_print_admin_notice_templates();
 
-include( APP_ADMIN_PATH . '/admin-footer.php' );
+// Get the admin page footer.
+include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );

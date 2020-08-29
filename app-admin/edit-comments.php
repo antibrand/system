@@ -6,8 +6,11 @@
  * @subpackage Administration
  */
 
-// Load the website management system.
-require_once( dirname( __FILE__ ) . '/admin.php' );
+// Get the system environment constants from the root directory.
+require_once( dirname( dirname( __FILE__ ) ) . '/app-environment.php' );
+
+// Load the administration environment.
+require_once( APP_INC_PATH . '/backend/app-admin.php' );
 
 if ( ! current_user_can( 'edit_posts' ) ) {
 	wp_die(
@@ -298,164 +301,166 @@ get_current_screen()->set_screen_reader_content( [
 	'heading_list'       => __( 'Comments list' ),
 ] );
 
-require_once( APP_ADMIN_PATH . '/admin-header.php' );
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 ?>
+<div class="wrap">
 
-	<div class="wrap">
+	<h1><?php
+	if ( $post_id ) {
+		// Translators: %s: link to post.
+		printf( __( 'Comments on &#8220;%s&#8221;' ),
+			sprintf( '<a href="%1$s">%2$s</a>',
+				get_edit_post_link( $post_id ),
+				wp_html_excerpt( _draft_or_post_title( $post_id ), 50, '&hellip;' )
+			)
+		);
+	} else {
+		_e( 'Discussion' );
+	}
+	?></h1>
 
-		<h1><?php
-		if ( $post_id ) {
-			// Translators: %s: link to post.
-			printf( __( 'Comments on &#8220;%s&#8221;' ),
-				sprintf( '<a href="%1$s">%2$s</a>',
-					get_edit_post_link( $post_id ),
-					wp_html_excerpt( _draft_or_post_title( $post_id ), 50, '&hellip;' )
-				)
-			);
-		} else {
-			_e( 'Discussion' );
-		}
-		?></h1>
-
-		<?php if ( ! $post_id ) {
-			echo sprintf(
-				'<p class="description">%1s</p>',
-				__( 'Manage comments on content that allows discussion.' )
-			);
-		} ?>
-
-		<?php
-		if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {
-			echo '<p class="subtitle">';
-			// Translators: %s: search keywords.
-			printf( __( 'Search results for &#8220;%s&#8221;' ),
-				wp_html_excerpt( esc_html( wp_unslash( $_REQUEST['s'] ) ), 50, '&hellip;' )
-			);
-			echo '</p>';
-		}
-		?>
-
-		<?php
-		if ( isset( $_REQUEST['error'] ) ) {
-
-			$error     = (int) $_REQUEST['error'];
-			$error_msg = '';
-
-			switch ( $error ) {
-
-				case 1 :
-					$error_msg = __( 'Invalid comment ID.' );
-
-					break;
-
-				case 2 :
-					$error_msg = __( 'Sorry, you are not allowed to edit comments on this post.' );
-
-					break;
-			}
-
-			if ( $error_msg ) {
-				echo '<div id="moderated" class="error"><p>' . $error_msg . '</p></div>';
-			}
-		}
-
-		if ( isset( $_REQUEST['approved'] ) || isset( $_REQUEST['deleted'] ) || isset( $_REQUEST['trashed'] ) || isset( $_REQUEST['untrashed'] ) || isset( $_REQUEST['spammed'] ) || isset( $_REQUEST['unspammed'] ) || isset( $_REQUEST['same'] ) ) {
-
-			$approved  = isset( $_REQUEST['approved']  ) ? (int) $_REQUEST['approved']  : 0;
-			$deleted   = isset( $_REQUEST['deleted']   ) ? (int) $_REQUEST['deleted']   : 0;
-			$trashed   = isset( $_REQUEST['trashed']   ) ? (int) $_REQUEST['trashed']   : 0;
-			$untrashed = isset( $_REQUEST['untrashed'] ) ? (int) $_REQUEST['untrashed'] : 0;
-			$spammed   = isset( $_REQUEST['spammed']   ) ? (int) $_REQUEST['spammed']   : 0;
-			$unspammed = isset( $_REQUEST['unspammed'] ) ? (int) $_REQUEST['unspammed'] : 0;
-			$same      = isset( $_REQUEST['same'] )      ? (int) $_REQUEST['same']      : 0;
-
-			if ( $approved > 0 || $deleted > 0 || $trashed > 0 || $untrashed > 0 || $spammed > 0 || $unspammed > 0 || $same > 0 ) {
-
-				if ( $approved > 0 ) {
-					// Translators: %s: number of comments approved.
-					$messages[] = sprintf( _n( '%s comment approved', '%s comments approved', $approved ), $approved );
-				}
-
-				if ( $spammed > 0 ) {
-					$ids = isset($_REQUEST['ids']) ? $_REQUEST['ids'] : 0;
-					// Translators: %s: number of comments marked as spam.
-					$messages[] = sprintf( _n( '%s comment marked as spam.', '%s comments marked as spam.', $spammed ), $spammed ) . ' <a href="' . esc_url( wp_nonce_url( "edit-comments.php?doaction=undo&action=unspam&ids=$ids", "bulk-comments" ) ) . '">' . __('Undo') . '</a><br />';
-				}
-
-				if ( $unspammed > 0 ) {
-					// Translators: %s: number of comments restored from the spam.
-					$messages[] = sprintf( _n( '%s comment restored from the spam', '%s comments restored from the spam', $unspammed ), $unspammed );
-				}
-
-				if ( $trashed > 0 ) {
-					$ids = isset($_REQUEST['ids']) ? $_REQUEST['ids'] : 0;
-					// Translators: %s: number of comments moved to the Trash.
-					$messages[] = sprintf( _n( '%s comment moved to the Trash.', '%s comments moved to the Trash.', $trashed ), $trashed ) . ' <a href="' . esc_url( wp_nonce_url( "edit-comments.php?doaction=undo&action=untrash&ids=$ids", "bulk-comments" ) ) . '">' . __('Undo') . '</a><br />';
-				}
-
-				if ( $untrashed > 0 ) {
-					// Translators: %s: number of comments restored from the Trash.
-					$messages[] = sprintf( _n( '%s comment restored from the Trash', '%s comments restored from the Trash', $untrashed ), $untrashed );
-				}
-
-				if ( $deleted > 0 ) {
-					// Translators: %s: number of comments permanently deleted.
-					$messages[] = sprintf( _n( '%s comment permanently deleted', '%s comments permanently deleted', $deleted ), $deleted );
-				}
-
-				if ( $same > 0 && $comment = get_comment( $same ) ) {
-					switch ( $comment->comment_approved ) {
-						case '1' :
-							$messages[] = __('This comment is already approved.') . ' <a href="' . esc_url( admin_url( "comment.php?action=editcomment&c=$same" ) ) . '">' . __( 'Edit comment' ) . '</a>';
-							break;
-						case 'trash' :
-							$messages[] = __( 'This comment is already in the Trash.' ) . ' <a href="' . esc_url( admin_url( 'edit-comments.php?comment_status=trash' ) ) . '"> ' . __( 'View Trash' ) . '</a>';
-							break;
-						case 'spam' :
-							$messages[] = __( 'This comment is already marked as spam.' ) . ' <a href="' . esc_url( admin_url( "comment.php?action=editcomment&c=$same" ) ) . '">' . __( 'Edit comment' ) . '</a>';
-							break;
-					}
-				}
-
-				echo '<div id="moderated" class="updated notice is-dismissible"><p>' . implode( "<br/>\n", $messages ) . '</p></div>';
-			}
-		}
-		?>
-
-		<div class="list-table-top">
-
-			<?php $wp_list_table->views(); ?>
-
-			<form method="get" id="search-comments-list" class="search-form">
-				<?php $wp_list_table->search_box( __( 'Search Comments' ), 'comment' ); ?>
-			</form>
-
-		</div>
-
-		<form id="comments-form" class="list-table-form" method="get">
-
-			<?php if ( $post_id ) : ?>
-			<input type="hidden" name="p" value="<?php echo esc_attr( intval( $post_id ) ); ?>" />
-			<?php endif; ?>
-			<input type="hidden" name="comment_status" value="<?php echo esc_attr( $comment_status ); ?>" />
-			<input type="hidden" name="pagegen_timestamp" value="<?php echo esc_attr( current_time( 'mysql', 1 ) ); ?>" />
-			<input type="hidden" name="_total" value="<?php echo esc_attr( $wp_list_table->get_pagination_arg( 'total_items' ) ); ?>" />
-			<input type="hidden" name="_per_page" value="<?php echo esc_attr( $wp_list_table->get_pagination_arg( 'per_page' ) ); ?>" />
-			<input type="hidden" name="_page" value="<?php echo esc_attr( $wp_list_table->get_pagination_arg( 'page' ) ); ?>" />
-
-			<?php if ( isset( $_REQUEST['paged'] ) ) { ?>
-				<input type="hidden" name="paged" value="<?php echo esc_attr( absint( $_REQUEST['paged'] ) ); ?>" />
-			<?php } ?>
-
-			<?php $wp_list_table->display(); ?>
-		</form>
-	</div><!-- .wrap -->
-
-	<div id="ajax-response"></div>
+	<?php if ( ! $post_id ) {
+		echo sprintf(
+			'<p class="description">%1s</p>',
+			__( 'Manage comments on content that allows discussion.' )
+		);
+	} ?>
 
 	<?php
-	wp_comment_reply( '-1', true, 'detail' );
-	wp_comment_trashnotice();
+	if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {
+		echo '<p class="subtitle">';
+		// Translators: %s: search keywords.
+		printf( __( 'Search results for &#8220;%s&#8221;' ),
+			wp_html_excerpt( esc_html( wp_unslash( $_REQUEST['s'] ) ), 50, '&hellip;' )
+		);
+		echo '</p>';
+	}
+	?>
 
-include( APP_ADMIN_PATH . '/admin-footer.php' ); ?>
+	<?php
+	if ( isset( $_REQUEST['error'] ) ) {
+
+		$error     = (int) $_REQUEST['error'];
+		$error_msg = '';
+
+		switch ( $error ) {
+
+			case 1 :
+				$error_msg = __( 'Invalid comment ID.' );
+
+				break;
+
+			case 2 :
+				$error_msg = __( 'Sorry, you are not allowed to edit comments on this post.' );
+
+				break;
+		}
+
+		if ( $error_msg ) {
+			echo '<div id="moderated" class="error"><p>' . $error_msg . '</p></div>';
+		}
+	}
+
+	if ( isset( $_REQUEST['approved'] ) || isset( $_REQUEST['deleted'] ) || isset( $_REQUEST['trashed'] ) || isset( $_REQUEST['untrashed'] ) || isset( $_REQUEST['spammed'] ) || isset( $_REQUEST['unspammed'] ) || isset( $_REQUEST['same'] ) ) {
+
+		$approved  = isset( $_REQUEST['approved']  ) ? (int) $_REQUEST['approved']  : 0;
+		$deleted   = isset( $_REQUEST['deleted']   ) ? (int) $_REQUEST['deleted']   : 0;
+		$trashed   = isset( $_REQUEST['trashed']   ) ? (int) $_REQUEST['trashed']   : 0;
+		$untrashed = isset( $_REQUEST['untrashed'] ) ? (int) $_REQUEST['untrashed'] : 0;
+		$spammed   = isset( $_REQUEST['spammed']   ) ? (int) $_REQUEST['spammed']   : 0;
+		$unspammed = isset( $_REQUEST['unspammed'] ) ? (int) $_REQUEST['unspammed'] : 0;
+		$same      = isset( $_REQUEST['same'] )      ? (int) $_REQUEST['same']      : 0;
+
+		if ( $approved > 0 || $deleted > 0 || $trashed > 0 || $untrashed > 0 || $spammed > 0 || $unspammed > 0 || $same > 0 ) {
+
+			if ( $approved > 0 ) {
+				// Translators: %s: number of comments approved.
+				$messages[] = sprintf( _n( '%s comment approved', '%s comments approved', $approved ), $approved );
+			}
+
+			if ( $spammed > 0 ) {
+				$ids = isset($_REQUEST['ids']) ? $_REQUEST['ids'] : 0;
+				// Translators: %s: number of comments marked as spam.
+				$messages[] = sprintf( _n( '%s comment marked as spam.', '%s comments marked as spam.', $spammed ), $spammed ) . ' <a href="' . esc_url( wp_nonce_url( "edit-comments.php?doaction=undo&action=unspam&ids=$ids", "bulk-comments" ) ) . '">' . __('Undo') . '</a><br />';
+			}
+
+			if ( $unspammed > 0 ) {
+				// Translators: %s: number of comments restored from the spam.
+				$messages[] = sprintf( _n( '%s comment restored from the spam', '%s comments restored from the spam', $unspammed ), $unspammed );
+			}
+
+			if ( $trashed > 0 ) {
+				$ids = isset($_REQUEST['ids']) ? $_REQUEST['ids'] : 0;
+				// Translators: %s: number of comments moved to the Trash.
+				$messages[] = sprintf( _n( '%s comment moved to the Trash.', '%s comments moved to the Trash.', $trashed ), $trashed ) . ' <a href="' . esc_url( wp_nonce_url( "edit-comments.php?doaction=undo&action=untrash&ids=$ids", "bulk-comments" ) ) . '">' . __('Undo') . '</a><br />';
+			}
+
+			if ( $untrashed > 0 ) {
+				// Translators: %s: number of comments restored from the Trash.
+				$messages[] = sprintf( _n( '%s comment restored from the Trash', '%s comments restored from the Trash', $untrashed ), $untrashed );
+			}
+
+			if ( $deleted > 0 ) {
+				// Translators: %s: number of comments permanently deleted.
+				$messages[] = sprintf( _n( '%s comment permanently deleted', '%s comments permanently deleted', $deleted ), $deleted );
+			}
+
+			if ( $same > 0 && $comment = get_comment( $same ) ) {
+				switch ( $comment->comment_approved ) {
+					case '1' :
+						$messages[] = __('This comment is already approved.') . ' <a href="' . esc_url( admin_url( "comment.php?action=editcomment&c=$same" ) ) . '">' . __( 'Edit comment' ) . '</a>';
+						break;
+					case 'trash' :
+						$messages[] = __( 'This comment is already in the Trash.' ) . ' <a href="' . esc_url( admin_url( 'edit-comments.php?comment_status=trash' ) ) . '"> ' . __( 'View Trash' ) . '</a>';
+						break;
+					case 'spam' :
+						$messages[] = __( 'This comment is already marked as spam.' ) . ' <a href="' . esc_url( admin_url( "comment.php?action=editcomment&c=$same" ) ) . '">' . __( 'Edit comment' ) . '</a>';
+						break;
+				}
+			}
+
+			echo '<div id="moderated" class="updated notice is-dismissible"><p>' . implode( "<br/>\n", $messages ) . '</p></div>';
+		}
+	}
+	?>
+
+	<div class="list-table-top">
+
+		<?php $wp_list_table->views(); ?>
+
+		<form method="get" id="search-comments-list" class="search-form">
+			<?php $wp_list_table->search_box( __( 'Search Comments' ), 'comment' ); ?>
+		</form>
+
+	</div>
+
+	<form id="comments-form" class="list-table-form" method="get">
+
+		<?php if ( $post_id ) : ?>
+		<input type="hidden" name="p" value="<?php echo esc_attr( intval( $post_id ) ); ?>" />
+		<?php endif; ?>
+		<input type="hidden" name="comment_status" value="<?php echo esc_attr( $comment_status ); ?>" />
+		<input type="hidden" name="pagegen_timestamp" value="<?php echo esc_attr( current_time( 'mysql', 1 ) ); ?>" />
+		<input type="hidden" name="_total" value="<?php echo esc_attr( $wp_list_table->get_pagination_arg( 'total_items' ) ); ?>" />
+		<input type="hidden" name="_per_page" value="<?php echo esc_attr( $wp_list_table->get_pagination_arg( 'per_page' ) ); ?>" />
+		<input type="hidden" name="_page" value="<?php echo esc_attr( $wp_list_table->get_pagination_arg( 'page' ) ); ?>" />
+
+		<?php if ( isset( $_REQUEST['paged'] ) ) { ?>
+			<input type="hidden" name="paged" value="<?php echo esc_attr( absint( $_REQUEST['paged'] ) ); ?>" />
+		<?php } ?>
+
+		<?php $wp_list_table->display(); ?>
+	</form>
+</div><!-- .wrap -->
+
+<div id="ajax-response"></div>
+
+<?php
+wp_comment_reply( '-1', true, 'detail' );
+wp_comment_trashnotice();
+
+
+// Get the admin page footer.
+include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );

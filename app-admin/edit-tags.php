@@ -6,8 +6,11 @@
  * @subpackage Administration
  */
 
-// Load the website management system.
-require_once( dirname( __FILE__ ) . '/admin.php' );
+// Get the system environment constants from the root directory.
+require_once( dirname( dirname( __FILE__ ) ) . '/app-environment.php' );
+
+// Load the administration environment.
+require_once( APP_INC_PATH . '/backend/app-admin.php' );
 
 if ( ! $taxnow ) {
 	wp_die( __( 'Invalid taxonomy.' ) );
@@ -327,7 +330,8 @@ if ( 'category' == $taxonomy || 'link_category' == $taxonomy || 'post_tag' == $t
 	get_current_screen()->set_help_sidebar( $set_help_sidebar );
 }
 
-require_once( APP_ADMIN_PATH . '/admin-header.php' );
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 // Also used by the Edit Tag  form.
 require_once( APP_INC_PATH . '/backend/edit-tag-messages.php' );
@@ -667,4 +671,5 @@ endif;
 
 $wp_list_table->inline_edit();
 
-include( APP_ADMIN_PATH . '/admin-footer.php' );
+// Get the admin page footer.
+include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );

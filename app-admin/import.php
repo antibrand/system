@@ -6,10 +6,13 @@
  * @subpackage Administration
  */
 
-define( 'WP_LOAD_IMPORTERS', true );
+// Get the system environment constants from the root directory.
+require_once( dirname( dirname( __FILE__ ) ) . '/app-environment.php' );
 
-// Load the website management system.
-require_once( dirname( __FILE__ ) . '/admin.php' );
+// Load the administration environment.
+require_once( APP_INC_PATH . '/backend/app-admin.php' );
+
+define( 'WP_LOAD_IMPORTERS', true );
 
 if ( ! current_user_can( 'import' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to import content.' ) );
@@ -55,7 +58,8 @@ add_thickbox();
 wp_enqueue_script( 'plugin-install' );
 wp_enqueue_script( 'updates' );
 
-require_once( APP_ADMIN_PATH . '/admin-header.php' );
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 ?>
 
@@ -252,4 +256,5 @@ require_once( APP_ADMIN_PATH . '/admin-header.php' );
 wp_print_request_filesystem_credentials_modal();
 wp_print_admin_notice_templates();
 
-include( APP_ADMIN_PATH . '/admin-footer.php' );
+// Get the admin page footer.
+include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );

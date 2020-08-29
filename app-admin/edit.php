@@ -6,8 +6,11 @@
  * @subpackage Administration
  */
 
-// Load the website management system.
-require_once( dirname( __FILE__ ) . '/admin.php' );
+// Get the system environment constants from the root directory.
+require_once( dirname( dirname( __FILE__ ) ) . '/app-environment.php' );
+
+// Load the administration environment.
+require_once( APP_INC_PATH . '/backend/app-admin.php' );
 
 if ( ! $typenow ) {
 	wp_die( __( 'Invalid post type.' ) );
@@ -212,7 +215,7 @@ if ( $doaction ) {
 
 		default:
 
-			// This action is documented in APP_ADMIN_DIR/edit-comments.php.
+			// This action is documented in APP_ADMIN_DIRR/edit-comments.php.
 			$sendback = apply_filters( 'handle_bulk_actions-' . get_current_screen()->id, $sendback, $doaction, $post_ids );
 			break;
 	}
@@ -478,7 +481,8 @@ $bulk_messages['page'] = [
 $bulk_messages = apply_filters( 'bulk_post_updated_messages', $bulk_messages, $bulk_counts );
 $bulk_counts   = array_filter( $bulk_counts );
 
-require_once( APP_ADMIN_PATH . '/admin-header.php' );
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 ?>
 	<div class="wrap">
@@ -555,4 +559,6 @@ require_once( APP_ADMIN_PATH . '/admin-header.php' );
 	</div><!-- .wrap -->
 
 <?php
-include( APP_ADMIN_PATH . '/admin-footer.php' );
+
+// Get the admin page footer.
+include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
