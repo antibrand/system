@@ -24,8 +24,9 @@ require_once( dirname( dirname( __FILE__ ) ) . '/app-load.php' );
 send_origin_headers();
 
 // Require an action parameter
-if ( empty( $_REQUEST['action'] ) )
+if ( empty( $_REQUEST['action'] ) ) {
 	wp_die( '0', 400 );
+}
 
 // Load Administration APIs.
 require_once( APP_INC_PATH . '/backend/admin.php' );
