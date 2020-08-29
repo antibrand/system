@@ -39,7 +39,8 @@ if ( isset( $_GET['action'] ) ) {
 				$title       = __( 'Accounts' );
 				$parent_file = 'users.php';
 
-				require_once( APP_ADMIN_PATH . '/admin-header.php' );
+				// Get the admin page header.
+				include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 				echo '<div class="wrap">';
 				confirm_delete_users( $_POST['allusers'] );
@@ -81,7 +82,8 @@ if ( isset( $_GET['action'] ) ) {
 								$title       = __( 'Accounts' );
 								$parent_file = 'users.php';
 
-								require_once( APP_ADMIN_PATH . '/admin-header.php' );
+								// Get the admin page header.
+								include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 								echo '<div class="wrap">';
 								confirm_delete_users( $_POST['allusers'] );
@@ -257,7 +259,8 @@ get_current_screen()->set_screen_reader_content( [
 	'heading_list'       => __( 'Accounts list' ),
 ] );
 
-require_once( APP_ADMIN_PATH . '/admin-header.php' );
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 if ( isset( $_REQUEST['updated'] ) && $_REQUEST['updated'] == 'true' && ! empty( $_REQUEST['action'] ) ) {
 

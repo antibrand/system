@@ -29,7 +29,9 @@ $user = wp_get_current_user();
 
 $title = __( 'Delete Site' );
 $parent_file = 'privacy.php';
-require_once( APP_ADMIN_PATH . '/admin-header.php' );
+
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 echo '<div class="wrap">';
 echo '<h1>' . esc_html( $title ) . '</h1>';

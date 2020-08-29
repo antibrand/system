@@ -119,7 +119,8 @@ if ( $action ) {
 			$title       = __( 'Update Themes' );
 			$parent_file = 'themes.php';
 
-			require_once( APP_ADMIN_PATH . '/admin-header.php' );
+			// Get the admin page header.
+			include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 			echo '<div class="wrap">';
 			echo '<h1>' . esc_html( $title ) . '</h1>';
@@ -169,7 +170,8 @@ if ( $action ) {
 
 				wp_enqueue_script( 'jquery' );
 
-				require_once( APP_ADMIN_PATH . '/admin-header.php' );
+				// Get the admin page header.
+				include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 				$themes_to_delete = count( $themes );
 
@@ -361,7 +363,8 @@ $parent_file = 'themes.php';
 wp_enqueue_script( 'updates' );
 wp_enqueue_script( 'theme-preview' );
 
-require_once( APP_ADMIN_PATH . '/admin-header.php' );
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 ?>
 

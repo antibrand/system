@@ -13,7 +13,8 @@ $title   = __( 'Privacy Notice' );
 $name    = get_app_info( 'name' );
 $version = get_app_info( 'version' );
 
-include( APP_ADMIN_PATH . '/admin-header.php' );
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 ?>
 <div class="wrap not-using__about-wrap not-using__full-width-layout">

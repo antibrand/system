@@ -235,7 +235,7 @@ $admin_body_classes = apply_filters( 'admin_body_class', '' );
 		wp_customize_support_script();
 	} ?>
 
-	<?php require( APP_ADMIN_PATH . '/menu-header.php' ); ?>
+	<?php require( APP_INC_PATH . '/backend/menu-header.php' ); ?>
 
 	<div id="admin-page-wrap" class="page-wrap admin-page-wrap">
 

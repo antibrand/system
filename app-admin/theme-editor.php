@@ -214,7 +214,8 @@ if ( 'POST' === $_SERVER['REQUEST_METHOD'] ) {
 	wp_add_inline_script( 'wp-theme-plugin-editor', sprintf( 'jQuery( function( $ ) { wp.themePluginEditor.init( $( "#template" ), %s ); } )', wp_json_encode( $settings ) ) );
 	wp_add_inline_script( 'wp-theme-plugin-editor', 'wp.themePluginEditor.themeOrPlugin = "theme";' );
 
-	require_once( APP_ADMIN_PATH . '/admin-header.php' );
+	// Get the admin page header.
+	include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 	update_recently_edited( $file );
 

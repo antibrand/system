@@ -360,7 +360,8 @@ if ( isset( $_GET['editwidget'] ) && $_GET['editwidget'] ) {
 	$width = ' style="width:' . max( $control['width'], 350 ) . 'px"';
 	$key   = isset( $_GET['key'] ) ? (int) $_GET['key'] : 0;
 
-	require_once( APP_ADMIN_PATH . '/admin-header.php' );
+	// Get the admin page header.
+	include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 	?>
 	<div class="wrap">
@@ -461,7 +462,10 @@ $errors = [
 	__( 'Error in displaying the widget settings form.' )
 ];
 
-require_once( APP_ADMIN_PATH . '/admin-header.php' ); ?>
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
+
+?>
 
 	<div class="wrap">
 

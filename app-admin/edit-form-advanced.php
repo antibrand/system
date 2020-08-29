@@ -652,7 +652,8 @@ if ( 'post' == $post_type ) {
 	] );
 }
 
-require_once( APP_ADMIN_PATH . '/admin-header.php' );
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 ?>
 <div class="wrap">

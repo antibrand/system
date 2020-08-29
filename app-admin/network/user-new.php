@@ -81,7 +81,10 @@ if ( isset($_GET['update']) ) {
 $title = __('Add New User');
 $parent_file = 'users.php';
 
-require( APP_ADMIN_PATH . '/admin-header.php' ); ?>
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
+
+?>
 
 <div class="wrap">
 <h1 id="add-new-user"><?php _e( 'Add New User' ); ?></h1>

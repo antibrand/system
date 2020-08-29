@@ -159,7 +159,8 @@ if ( ! empty( $privacy_policy_page_id ) ) {
 	}
 }
 
-require_once( APP_ADMIN_PATH . '/admin-header.php' );
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 if ( $is_privacy_guide ) :
 	include_once( APP_VIEWS_PATH . '/backend/content/privacy-policy-guide.php' );

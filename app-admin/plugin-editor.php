@@ -27,14 +27,17 @@ $plugins = get_plugins();
 
 if ( empty( $plugins ) ) {
 
-	include( APP_ADMIN_PATH . '/admin-header.php' );
-	?>
-	<div class="wrap">
-		<h1><?php echo esc_html( $title ); ?></h1>
-		<div id="message" class="error"><p><?php _e( 'You do not appear to have any plugins available at this time.' ); ?></p></div>
-	</div>
-	<?php
-	include( APP_ADMIN_PATH . '/admin-footer.php' );
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
+
+?>
+<div class="wrap">
+	<h1><?php echo esc_html( $title ); ?></h1>
+	<div id="message" class="error"><p><?php _e( 'You do not appear to have any plugins available at this time.' ); ?></p></div>
+</div>
+<?php
+
+include( APP_ADMIN_PATH . '/admin-footer.php' );
 
 	exit;
 }
@@ -219,7 +222,8 @@ wp_enqueue_script( 'wp-theme-plugin-editor' );
 wp_add_inline_script( 'wp-theme-plugin-editor', sprintf( 'jQuery( function( $ ) { wp.themePluginEditor.init( $( "#template" ), %s ); } )', wp_json_encode( $settings ) ) );
 wp_add_inline_script( 'wp-theme-plugin-editor', sprintf( 'wp.themePluginEditor.themeOrPlugin = "plugin";' ) );
 
-require_once( APP_ADMIN_PATH . '/admin-header.php' );
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 update_recently_edited( APP_PLUGINS_PATH . '/' . $file );
 

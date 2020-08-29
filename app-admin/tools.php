@@ -15,7 +15,8 @@ require_once( dirname( __FILE__ ) . '/admin.php' );
 
 $title = __( 'Tools' );
 
-require_once( APP_ADMIN_PATH . '/admin-header.php' );
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 ?>
 <main id="app-body" class="main admin-main" role="main">

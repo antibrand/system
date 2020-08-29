@@ -787,7 +787,8 @@ if ( 'upgrade-core' == $action ) {
 	$force_check = ! empty( $_GET['force-check'] );
 	wp_version_check( [], $force_check );
 
-	require_once( APP_ADMIN_PATH . '/admin-header.php' );
+	// Get the admin page header.
+	include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 	?>
 	<div class="wrap">
@@ -865,7 +866,8 @@ if ( 'upgrade-core' == $action ) {
 		do_undismiss_core_update();
 	}
 
-	require_once( APP_ADMIN_PATH . '/admin-header.php' );
+	// Get the admin page header.
+	include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 	if ( 'do-core-reinstall' == $action ) {
 		$reinstall = true;
@@ -905,7 +907,8 @@ if ( 'upgrade-core' == $action ) {
 	$url   = wp_nonce_url( $url, 'bulk-update-plugins' );
 	$title = __( 'Update Plugins' );
 
-	require_once( APP_ADMIN_PATH . '/admin-header.php' );
+	// Get the admin page header.
+	include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 	echo '<div class="wrap">';
 	echo '<h1>' . __( 'Update Plugins' ) . '</h1>';
@@ -940,7 +943,8 @@ if ( 'upgrade-core' == $action ) {
 	$url   = wp_nonce_url( $url, 'bulk-update-themes' );
 	$title = __( 'Update Themes' );
 
-	require_once( APP_ADMIN_PATH . '/admin-header.php' );
+	// Get the admin page header.
+	include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 	?>
 	<div class="wrap">
@@ -963,7 +967,8 @@ if ( 'upgrade-core' == $action ) {
 
 	check_admin_referer( 'upgrade-translations' );
 
-	require_once( APP_ADMIN_PATH . '/admin-header.php' );
+	// Get the admin page header.
+	include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 	$url     = 'update-core.php?action=do-translation-upgrade';
 	$nonce   = 'upgrade-translations';

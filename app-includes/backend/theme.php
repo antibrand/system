@@ -33,7 +33,9 @@ function delete_theme($stylesheet, $redirect = '') {
 
 	if ( false === $credentials ) {
 		if ( ! empty( $data ) ){
-			include_once( APP_ADMIN_PATH . '/admin-header.php');
+
+			// Get the admin page header.
+			include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 			echo $data;
 			include( APP_ADMIN_PATH . '/admin-footer.php');
 			exit;
@@ -47,7 +49,9 @@ function delete_theme($stylesheet, $redirect = '') {
 		$data = ob_get_clean();
 
 		if ( ! empty($data) ) {
-			include_once( APP_ADMIN_PATH . '/admin-header.php');
+
+			// Get the admin page header.
+			include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 			echo $data;
 			include( APP_ADMIN_PATH . '/admin-footer.php');
 			exit;

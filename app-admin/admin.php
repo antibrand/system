@@ -240,7 +240,9 @@ if ( isset( $plugin_page ) ) {
 		do_action( "load-{$page_hook}" );
 
 		if ( ! isset( $_GET['noheader'] ) ) {
-			require_once( APP_ADMIN_PATH . '/admin-header.php' );
+
+			// Get the admin page header.
+			include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 		}
 
 		/**
@@ -276,7 +278,9 @@ if ( isset( $plugin_page ) ) {
 		do_action( "load-{$plugin_page}" );
 
 		if ( ! isset( $_GET['noheader'] ) ) {
-			require_once( APP_ADMIN_PATH . '/admin-header.php' );
+
+			// Get the admin page header.
+			include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 		}
 
 		if ( file_exists( APP_EXTENSIONS_PATH . "/$plugin_page" ) ) {
@@ -324,7 +328,9 @@ if ( isset( $plugin_page ) ) {
 	$title        = __( 'Import' );
 
 	if ( ! isset( $_GET['noheader'] ) ) {
-		require_once( APP_ADMIN_PATH . '/admin-header.php' );
+
+		// Get the admin page header.
+		include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 	}
 
 	require_once( APP_INC_PATH . '/backend/upgrade.php' );

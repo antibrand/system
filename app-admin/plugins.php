@@ -176,7 +176,9 @@ if ( $action ) {
 			$parent_file = 'plugins.php';
 
 			wp_enqueue_script( 'updates' );
-			require_once( APP_ADMIN_PATH . '/admin-header.php' );
+
+			// Get the admin page header.
+			include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 			echo '<div class="wrap">';
 			echo '<h1>' . esc_html( $title ) . '</h1>';
@@ -340,7 +342,9 @@ if ( $action ) {
 			if ( ! isset( $_REQUEST['verify-delete'] ) ) {
 
 				wp_enqueue_script( 'jquery' );
-				require_once( APP_ADMIN_PATH . '/admin-header.php' );
+
+				// Get the admin page header.
+				include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 				?>
 			<div class="wrap">
@@ -573,7 +577,8 @@ get_current_screen()->set_screen_reader_content( [
 $title       = __( 'Manage Plugins' );
 $parent_file = 'plugins.php';
 
-require_once( APP_ADMIN_PATH . '/admin-header.php' );
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 $invalid = validate_active_plugins();
 

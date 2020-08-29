@@ -319,7 +319,8 @@ case 'delete':
 		add_action( 'admin_head', 'delete_users_add_js' );
 	}
 
-	include( APP_ADMIN_PATH . '/admin-header.php' );
+	// Get the admin page header.
+	include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 ?>
 	<form method="post" name="updateusers" id="updateusers">
@@ -471,7 +472,8 @@ case 'remove':
 		$userids = $_REQUEST['users'];
 	}
 
-	include( APP_ADMIN_PATH . '/admin-header.php' );
+	// Get the admin page header.
+	include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 ?>
 	<form id="updateusers" class="list-table-form" method="post" name="updateusers">
@@ -554,7 +556,8 @@ default:
 		exit;
 	}
 
-	include( APP_ADMIN_PATH . '/admin-header.php' );
+	// Get the admin page header.
+	include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 	$messages = [];
 

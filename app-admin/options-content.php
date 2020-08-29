@@ -24,8 +24,8 @@ $parent_file = $class->parent;
 $title       = $class->title();
 $description = $class->description();
 
-// Get page header.
-include( APP_ADMIN_PATH . '/admin-header.php' );
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 ?>
 <div class="wrap">

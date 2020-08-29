@@ -707,8 +707,9 @@ if ( ! $locations_screen ) {
 $set_help_sidebar = apply_filters( 'set_help_sidebar_nav_menus', '' );
 get_current_screen()->set_help_sidebar( $set_help_sidebar );
 
-// Get the admin header.
-require_once( APP_ADMIN_PATH . '/admin-header.php' );
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
+
 ?>
 <div class="wrap">
 	<h1><?php echo esc_html( __( 'Menus' ) ); ?></h1>

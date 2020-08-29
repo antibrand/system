@@ -60,7 +60,9 @@ if ( isset( $_GET['action'] ) ) {
 		$submenu_file = 'plugins.php';
 
 		wp_enqueue_script( 'updates' );
-		require_once( APP_ADMIN_PATH . '/admin-header.php' );
+
+		// Get the admin page header.
+		include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 		$nonce = 'upgrade-plugin_' . $plugin;
 		$url   = 'update.php?action=upgrade-plugin&plugin=' . urlencode( $plugin );
@@ -148,7 +150,8 @@ if ( isset( $_GET['action'] ) ) {
 		$parent_file  = 'plugins.php';
 		$submenu_file = 'plugin-install.php';
 
-		require_once( APP_ADMIN_PATH . '/admin-header.php' );
+		// Get the admin page header.
+		include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 		$title = sprintf( __( 'Installing plugin: %s' ), $api->name . ' ' . $api->version );
 		$nonce = 'install-plugin_' . $plugin;
@@ -179,7 +182,8 @@ if ( isset( $_GET['action'] ) ) {
 		$parent_file  = 'plugins.php';
 		$submenu_file = 'plugin-install.php';
 
-		require_once( APP_ADMIN_PATH . '/admin-header.php' );
+		// Get the admin page header.
+		include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 		$title = sprintf( __( 'Installing plugin from uploaded file: %s' ), esc_html( basename( $file_upload->filename ) ) );
 		$nonce = 'plugin-upload';
@@ -209,7 +213,8 @@ if ( isset( $_GET['action'] ) ) {
 		$parent_file  = 'themes.php';
 		$submenu_file = 'themes.php';
 
-		require_once( APP_ADMIN_PATH . '/admin-header.php' );
+		// Get the admin page header.
+		include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 		$nonce = 'upgrade-theme_' . $theme;
 		$url   = 'update.php?action=upgrade-theme&theme=' . urlencode( $theme );
@@ -266,7 +271,8 @@ if ( isset( $_GET['action'] ) ) {
 		$parent_file  = 'themes.php';
 		$submenu_file = 'themes.php';
 
-		require_once( APP_ADMIN_PATH . '/admin-header.php' );
+		// Get the admin page header.
+		include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 		$title = sprintf( __( 'Installing Theme: %s' ), $api->name . ' ' . $api->version );
 		$nonce = 'install-theme_' . $theme;
@@ -294,7 +300,8 @@ if ( isset( $_GET['action'] ) ) {
 		$parent_file  = 'themes.php';
 		$submenu_file = 'theme-install.php';
 
-		require_once( APP_ADMIN_PATH . '/admin-header.php' );
+		// Get the admin page header.
+		include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 		$title = sprintf( __( 'Installing Theme from uploaded file: %s' ), esc_html( basename( $file_upload->filename ) ) );
 		$nonce = 'theme-upload';

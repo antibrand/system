@@ -107,7 +107,8 @@ if ( isset( $_GET['action'] ) ) {
 		$site_details = get_site( $id );
 		$site_address = untrailingslashit( $site_details->domain . $site_details->path );
 
-		require_once( APP_ADMIN_PATH . '/admin-header.php' );
+		// Get the admin page header.
+		include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 		?>
 			<div class="wrap">
@@ -204,7 +205,8 @@ if ( isset( $_GET['action'] ) ) {
 
 							case 'delete' :
 
-								require_once( APP_ADMIN_PATH . '/admin-header.php' );
+								// Get the admin page header.
+								include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 								?>
 								<div class="wrap">
 
@@ -419,7 +421,8 @@ if ( isset( $_GET['updated'] ) ) {
 
 $wp_list_table->prepare_items();
 
-require_once( APP_ADMIN_PATH . '/admin-header.php' );
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 ?>
 
