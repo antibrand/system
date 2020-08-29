@@ -238,7 +238,11 @@ $wp_list_table->prepare_items();
 wp_enqueue_script( 'inline-edit-post' );
 wp_enqueue_script( 'heartbeat' );
 
-$title = $post_type_object->labels->name;
+$title = sprintf(
+	'%1s %2s',
+	__( 'Manage' ),
+	$post_type_object->labels->name
+);
 
 if ( 'post' == $post_type ) {
 
@@ -486,7 +490,7 @@ include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 ?>
 	<div class="wrap">
-		<h1><?php echo esc_html( $post_type_object->labels->name ); ?></h1>
+		<h1><?php echo $title; ?></h1>
 
 		<?php
 		if ( isset( $_REQUEST['s'] ) && strlen( $_REQUEST['s'] ) ) {
