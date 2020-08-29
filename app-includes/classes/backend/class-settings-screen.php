@@ -144,6 +144,11 @@ class Settings_Screen {
 	/**
 	 * Enqueue scripts
 	 *
+	 * This is for scripts that shall not be
+	 * overridden by class extension. Specific
+	 * screens should use enqueue_scripts() to
+	 * enqueue scripts for its screen.
+	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @return void
@@ -156,6 +161,11 @@ class Settings_Screen {
 
 	/**
 	 * Print scripts
+	 *
+	 * This is for scripts that shall not be
+	 * overridden by class extension. Specific
+	 * screens should use print_scripts() to
+	 * print scripts for its screen.
 	 *
 	 * @since  1.0.0
 	 * @access public
