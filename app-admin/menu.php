@@ -68,6 +68,12 @@ if ( is_network() ) {
 	];
 }
 
+$submenu['index.php'][30] = [
+	__( 'Information' ),
+	'read',
+	'about.php'
+];
+
 if ( ! is_network() || current_user_can( 'update_core' ) ) {
 	$update_data = wp_get_update_data();
 }
@@ -84,7 +90,7 @@ if ( ! is_network() ) {
 		$cap = 'update_languages';
 	}
 
-	$submenu['index.php'][30] =[
+	$submenu['index.php'][60] =[
 		sprintf(
 			'%1s %2s',
 			__( 'Updates' ),
