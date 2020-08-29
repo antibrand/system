@@ -34,7 +34,7 @@ if ( defined( 'ABSPATH' ) ) {
 send_origin_headers();
 
 // Load administration files.
-require_once( APP_INC_PATH . '/backend/load-admin.php' );
+require_once( APP_INC_PATH . '/backend/load.php' );
 
 nocache_headers();
 
