@@ -135,7 +135,7 @@ class Admin_About extends Admin_Screen {
 		);
 		$screen->add_content_tab( [
 			'id'         => $screen->id . '-intro',
-			'capability' => 'manage_options',
+			'capability' => 'read',
 			'tab'        => __( 'Intro' ),
 			'heading'    => __( 'Introduction' ),
 			'content'    => $description,
@@ -150,7 +150,7 @@ class Admin_About extends Admin_Screen {
 		);
 		$screen->add_content_tab( [
 			'id'         => $screen->id . '-features',
-			'capability' => 'manage_options',
+			'capability' => 'read',
 			'tab'        => __( 'Features' ),
 			'heading'    => __( 'Features' ),
 			'content'    => $description,
@@ -161,7 +161,7 @@ class Admin_About extends Admin_Screen {
 		// Manage.
 		$description = sprintf(
 			'<p class="description">%1s</p>',
-			__( '' )
+			__( 'Managing websites and the content management system.' )
 		);
 		$screen->add_content_tab( [
 			'id'         => $screen->id . '-manage',
@@ -180,7 +180,7 @@ class Admin_About extends Admin_Screen {
 		);
 		$screen->add_content_tab( [
 			'id'         => $screen->id . '-extend',
-			'capability' => 'manage_options',
+			'capability' => 'activate_plugins',
 			'tab'        => __( 'Extend' ),
 			'heading'    => __( 'Extend' ),
 			'content'    => $description,
