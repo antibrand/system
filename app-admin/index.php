@@ -71,7 +71,7 @@ if ( is_user_admin() ) {
 }
 
 // Get the admin page header.
-include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
+include_once( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 // Begin page content.
 ?>
@@ -141,4 +141,4 @@ include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 <?php
 
 // Get the admin page footer.
-include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
+include_once( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
