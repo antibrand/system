@@ -6,14 +6,8 @@
  * @subpackage Administration
  */
 
-/**
- * Load the website management system
- *
- * Gets the load file from the root.
- *
- * @since 1.0.0
- */
-require_once( dirname( dirname( __FILE__ ) ) . '/app-load.php' );
+// Get the system environment constants from the root directory.
+require_once( dirname( dirname( __FILE__ ) ) . '/app-environment.php' );
 
 // Load the administration environment.
 require_once( APP_ADMIN_PATH . '/app-admin.php' );
