@@ -2,6 +2,8 @@
 /**
  * Settings screen class
  *
+ * Bootstrap for settings & forms pages.
+ *
  * @package App_Package
  * @subpackage Administration/Backend
  * @since 1.0.0
@@ -77,96 +79,6 @@ class Settings_Screen extends Admin_Screen {
 	}
 
 	/**
-	 * Page title
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return string Returns the translated title.
-	 */
-	public function title() {
-
-		$title = esc_html__( $this->title );
-
-		return $title;
-	}
-
-	/**
-	 * Page description
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return string Returns the description markup.
-	 */
-	public function description() {
-
-		$description = sprintf(
-			'<p class="description">%1s</p>',
-			esc_html__( $this->description )
-		);
-
-		return $description;
-	}
-
-	/**
-	 * Enqueue scripts
-	 *
-	 * This is for scripts that shall not be
-	 * overridden by class extension. Specific
-	 * screens should use enqueue_scripts() to
-	 * enqueue scripts for its screen.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void
-	 */
-	public function parent_enqueue_scripts() {
-
-		// Script for tabbed content.
-		wp_enqueue_script( 'app-tabs' );
-	}
-
-	/**
-	 * Print scripts
-	 *
-	 * This is for scripts that shall not be
-	 * overridden by class extension. Specific
-	 * screens should use print_scripts() to
-	 * print scripts for its screen.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return string
-	 */
-	public function parent_print_scripts() {
-
-		// Print scripts
-	}
-
-	/**
-	 * Tabbed content
-	 *
-	 * Add content to the tabbed section of the page.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void
-	 */
-	public function tabs() {
-
-		$screen = get_current_screen();
-
-		$screen->add_content_tab( [
-			'id'         => $screen->id . '-page',
-			'capability' => 'manage_options',
-			'tab'        => '',
-			'icon'       => '',
-			'heading'    => '',
-			'content'    => '',
-			'callback'   => null
-		] );
-	}
-
-	/**
 	 * Render settings form
 	 *
 	 * Compiles the markup (fields, labels, descriptions, etc.)
@@ -189,59 +101,5 @@ class Settings_Screen extends Admin_Screen {
 		echo get_submit_button( esc_html__( $this->submit ) );
 
 		echo '</form>';
-	}
-
-	/**
-	 * Help content
-	 *
-	 * Add content to the help section of the page.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void
-	 */
-	public function help() {
-
-		$screen = get_current_screen();
-
-		$screen->add_help_tab( [
-			'id'       => $screen->id . '-overview',
-			'title'    => __( 'Overview' ),
-			'content'  => '',
-			'callback' => null
-		] );
-	}
-
-	/**
-	 * Set help sidebar
-	 *
-	 * Use the help_sidebar() method when extending the class
-	 * to render the sidebar markup.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void
-	 */
-	public function set_help_sidebar() {
-
-		$screen = get_current_screen();
-
-		// Add a help sidebar.
-		$screen->set_help_sidebar(
-			$this->help_sidebar()
-		);
-	}
-
-	/**
-	 * Help sidebar
-	 *
-	 * Render the sidebar markup.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void Applies a filter for the markup of the help sidebar content.
-	 */
-	public function help_sidebar() {
-		return apply_filters( 'help_settings_page_sidebar', '' );
 	}
 }
