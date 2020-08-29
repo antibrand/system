@@ -8,7 +8,7 @@
  * @subpackage Administration/Backend
  * @since 1.0.0
  *
- * For screen requiring form subbmission use
+ * For screen requiring form subbmission extend
  * the `Settings_Screen` class.
  *
  * @see APP_INC_PATH/classes/backend/class-settings-screen.php
@@ -32,20 +32,20 @@ class Admin_Screen {
 	/**
 	 * Page parent file
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 * @access public
-	 * @var string The parent file of the settings screen.
-	 *             For instance, if the page is registered as a submenu
-	 *             item of index.php then that is the parent.
+	 * @var    string The parent file of the settings screen.
+	 *                For instance, if the page is registered as a submenu
+	 *                item of index.php then that is the parent.
 	 */
 	public $parent = '';
 
 	/**
 	 * Page title
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 * @access public
-	 * @var string
+	 * @var    string
 	 */
 	public $title = '';
 
@@ -54,7 +54,7 @@ class Admin_Screen {
 	 *
 	 * @since 1.0.0
 	 * @access public
-	 * @var string
+	 * @var    string
 	 */
 	public $description = '';
 
@@ -72,9 +72,6 @@ class Admin_Screen {
 
 		// Print page scripts to head.
 		add_action( 'admin_head', [ $this, 'parent_print_scripts' ] );
-
-		// Allow hashtags for content tabs.
-		add_filter( 'app_tabs_hashtags', '__return_true' );
 
 		// Render tabbed content.
 		add_action( 'render_tabs_settings_screen', [ $this, 'render_tabs' ] );
@@ -195,7 +192,7 @@ class Admin_Screen {
 	 *
 	 * Add content to the help section of the page.
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 * @access public
 	 * @return void
 	 */
@@ -217,7 +214,7 @@ class Admin_Screen {
 	 * Use the help_sidebar() method when extending the class
 	 * to render the sidebar markup.
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 * @access public
 	 * @return void
 	 */
@@ -236,7 +233,7 @@ class Admin_Screen {
 	 *
 	 * Render the sidebar markup.
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 * @access public
 	 * @return void Applies a filter for the markup of the help sidebar content.
 	 */

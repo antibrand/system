@@ -25,20 +25,20 @@ class Settings_Screen extends Admin_Screen {
 	/**
 	 * Page parent file
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 * @access public
-	 * @var string The parent file of the settings screen.
-	 *             For instance, if the page is registered as a submenu
-	 *             item of options-general.php then that is the parent.
+	 * @var    string The parent file of the settings screen.
+	 *                For instance, if the page is registered as a submenu
+	 *                item of options-general.php then that is the parent.
 	 */
 	public $parent = 'options-general.php';
 
 	/**
 	 * Form action
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 * @access public
-	 * @var string This will most likely be options.php.
+	 * @var    string This will most likely be options.php.
 	 */
 	public $action = 'options.php';
 
@@ -55,9 +55,9 @@ class Settings_Screen extends Admin_Screen {
 	/**
 	 * Submit button
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 * @access public
-	 * @var string The thext of the form submit button.
+	 * @var    string The thext of the form submit button.
 	 */
 	public $submit = 'Save Settings';
 
@@ -167,17 +167,6 @@ class Settings_Screen extends Admin_Screen {
 	}
 
 	/**
-	 * Render tabbed content
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void
-	 */
-	public function render_tabs() {
-		echo get_current_screen()->render_content_tabs();
-	}
-
-	/**
 	 * Render settings form
 	 *
 	 * Compiles the markup (fields, labels, descriptions, etc.)
@@ -207,7 +196,7 @@ class Settings_Screen extends Admin_Screen {
 	 *
 	 * Add content to the help section of the page.
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 * @access public
 	 * @return void
 	 */
@@ -229,7 +218,7 @@ class Settings_Screen extends Admin_Screen {
 	 * Use the help_sidebar() method when extending the class
 	 * to render the sidebar markup.
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 * @access public
 	 * @return void
 	 */
@@ -248,7 +237,7 @@ class Settings_Screen extends Admin_Screen {
 	 *
 	 * Render the sidebar markup.
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 * @access public
 	 * @return void Applies a filter for the markup of the help sidebar content.
 	 */
