@@ -156,10 +156,6 @@
  * Toolbar
  */
 .media-toolbar {
-	position: absolute;
-	top: 0;
-	right: 0;
-	left: 0;
 	z-index: 100;
 	overflow: hidden;
 	display: flex;
@@ -169,8 +165,6 @@
 }
 
 .media-frame-toolbar .media-toolbar {
-	top: initial;
-	bottom: -5em;
 	height: auto;
 	overflow: initial;
 	padding: 1em;
