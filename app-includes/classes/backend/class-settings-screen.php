@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since  1.0.0
  * @access public
  */
-class Settings_Screen {
+class Settings_Screen extends Admin_Screen {
 
 	/**
 	 * Page parent file
@@ -32,24 +32,6 @@ class Settings_Screen {
 	 *             item of options-general.php then that is the parent.
 	 */
 	public $parent = 'options-general.php';
-
-	/**
-	 * Page title
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @var string
-	 */
-	public $title = '';
-
-	/**
-	 * Page description
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @var string
-	 */
-	public $description = '';
 
 	/**
 	 * Form action
@@ -88,26 +70,10 @@ class Settings_Screen {
 	 */
 	protected function __construct() {
 
-		// Enqueue page scripts.
-		add_action( 'admin_enqueue_scripts', [ $this, 'parent_enqueue_scripts' ] );
-
-		// Print page scripts to head.
-		add_action( 'admin_head', [ $this, 'parent_print_scripts' ] );
+		parent :: __construct();
 
 		// Allow hashtags for content tabs.
 		add_filter( 'app_tabs_hashtags', '__return_true' );
-
-		// Render tabbed content.
-		add_action( 'render_tabs_settings_screen', [ $this, 'render_tabs' ] );
-
-		// Set the tabbed content.
-		$this->tabs();
-
-		// Set the help content.
-		$this->help();
-
-		// Set the help sidebar
-		$this->set_help_sidebar();
 	}
 
 	/**
