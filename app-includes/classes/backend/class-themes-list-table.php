@@ -60,7 +60,7 @@ class Themes_List_Table extends List_Table {
 				array_filter(
 					array_map(
 						'trim',
-						explode( ',', strtolower( wp_unslash( $_REQUEST['s'] ) )
+						explode( ',', strtolower( wp_unslash( $_REQUEST['s'] ) ) )
 					)
 				)
 			);
