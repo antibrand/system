@@ -34,7 +34,7 @@ class Admin_Screen {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @var    string The parent file of the settings screen.
+	 * @var    string The parent file of the administration screen.
 	 *                For instance, if the page is registered as a submenu
 	 *                item of index.php then that is the parent.
 	 */
@@ -74,7 +74,7 @@ class Admin_Screen {
 		add_action( 'admin_head', [ $this, 'parent_print_scripts' ] );
 
 		// Render tabbed content.
-		add_action( 'render_tabs_settings_screen', [ $this, 'render_tabs' ] );
+		add_action( 'render_screen_tabs', [ $this, 'render_tabs' ] );
 
 		// Set the tabbed content.
 		$this->tabs();

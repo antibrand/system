@@ -183,7 +183,7 @@ class Settings_Screen extends Admin_Screen {
 		settings_fields( $this->fields );
 
 		do_action( "settings_screen_{$this->fields}_tabs_before" );
-		do_action( 'render_tabs_settings_screen' );
+		do_action( 'render_screen_tabs' );
 		do_action( "settings_screen-{$this->fields}-tabs_after" );
 
 		echo get_submit_button( esc_html__( $this->submit ) );

@@ -467,7 +467,7 @@ class Settings_Content extends Settings_Screen {
 		settings_fields( 'content' );
 
 		do_action( 'settings_screen_add_fields_before' );
-		do_action( 'render_tabs_settings_screen' );
+		do_action( 'render_screen_tabs' );
 		do_action( 'settings_screen_add_fields_after' );
 
 		echo get_submit_button( esc_html__( $this->submit ) );
