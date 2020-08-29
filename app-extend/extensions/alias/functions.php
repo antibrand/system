@@ -58,3 +58,9 @@ if ( ! function_exists( 'is_multisite' ) ) {
 		return is_network();
 	}
 }
+
+if ( ! function_exists( '_wp_image_editor_choose' ) ) {
+	function _wp_image_editor_choose( $args = [] ) {
+		return app_image_editor_choose( $args = [] );
+	}
+}
