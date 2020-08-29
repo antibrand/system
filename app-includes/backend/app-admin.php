@@ -4,37 +4,61 @@
  *
  * @package App_Package
  * @subpackage Administration
+ * @since 1.0.0
  */
 
 /**
- * In administration screens
+ * Administration screen definitions
  *
- * @since Previous 2.3.2
+ * @since 1.0.0
  */
+
+// This is single site administration.
 if ( ! defined( 'APP_ADMIN' ) ) {
 	define( 'APP_ADMIN', true );
 }
 
+// This is not network administration.
 if ( ! defined( 'APP_NETWORK_ADMIN' ) ) {
 	define( 'APP_NETWORK_ADMIN', false );
 }
 
+// This is not user administration.
 if ( ! defined( 'WP_USER_ADMIN' ) ) {
 	define( 'WP_USER_ADMIN', false );
 }
 
+// This is single site administration if part of a network.
 if ( ! APP_NETWORK_ADMIN && ! WP_USER_ADMIN ) {
 	define( 'WP_BLOG_ADMIN', true );
 }
 
+// Import screen.
 if ( isset( $_GET['import'] ) && ! defined( 'WP_LOAD_IMPORTERS' ) ) {
 	define( 'WP_LOAD_IMPORTERS', true );
 }
 
-require_once( dirname( dirname( __FILE__ ) ) . '/app-load.php' );
+/**
+ * Load the website management system
+ *
+ * Admin screen files must first get the
+ * system environment constants.
+ *
+ * @example :
+ * require_once( dirname( dirname( __FILE__ ) ) . '/app-environment.php' );
+ *
+ * @since 1.0.0
+ */
+require_once( ABSPATH . 'app-load.php' );
 
+// Set the headers to prevent caching for the different browsers.
 nocache_headers();
 
+/**
+ * Database upgrade actions
+ *
+ * @since 1.0.0
+ */
 if ( get_option( 'db_upgraded' ) ) {
 
 	flush_rewrite_rules();
@@ -91,8 +115,9 @@ if ( get_option( 'db_upgraded' ) ) {
 }
 
 // Load administration files.
-require_once( APP_INC_PATH . '/backend/load-admin.php' );
+require_once( APP_INC_PATH . '/backend/load.php' );
 
+// Check if a user is logged in, if not it redirect to the login page.
 auth_redirect();
 
 // Schedule trash collection.
@@ -105,14 +130,19 @@ if ( ! wp_next_scheduled( 'delete_expired_transients' ) && ! wp_installing() ) {
 	wp_schedule_event( time(), 'daily', 'delete_expired_transients' );
 }
 
+// Set the display options for administration screens.
 set_screen_options();
 
+// Date & time formats.
 $date_format = __( 'F j, Y' );
 $time_format = __( 'g:i a' );
 
+// Enqueu global administration script.
 wp_enqueue_script( 'common' );
 
 /**
+ * Access global variables
+ *
  * $pagenow is set in vars.php
  * $wp_importers is sometimes set in APP_INC_PATH . '/backend/import.php
  * The remaining variables are imported as globals elsewhere, declared as globals here.
@@ -127,8 +157,7 @@ wp_enqueue_script( 'common' );
 global $pagenow, $wp_importers, $hook_suffix, $plugin_page, $typenow, $taxnow;
 
 $page_hook = null;
-
-$editing = false;
+$editing   = false;
 
 if ( isset( $_GET['page'] ) ) {
 	$plugin_page = wp_unslash( $_GET['page'] );
@@ -147,6 +176,7 @@ if ( isset( $_REQUEST['taxonomy'] ) && taxonomy_exists( $_REQUEST['taxonomy'] ) 
 	$taxnow = '';
 }
 
+// Get the applicable admin menu.
 if ( APP_NETWORK_ADMIN ) {
 	require( APP_ADMIN_PATH . '/network/menu.php' );
 } elseif ( WP_USER_ADMIN ) {
@@ -155,6 +185,13 @@ if ( APP_NETWORK_ADMIN ) {
 	require( APP_ADMIN_PATH . '/menu.php' );
 }
 
+/**
+ * Raise memory limits
+ *
+ * Attempts to raise the PHP memory limit for memory intensive processes.
+ * Only allows raising the existing limit and prevents lowering it.
+ * Only if the current user can manage options.
+ */
 if ( current_user_can( 'manage_options' ) ) {
 	wp_raise_memory_limit( 'admin' );
 }
