@@ -1,9 +1,8 @@
 <?php
 /**
- * Bootstrap file for setting the ABSPATH constant
- * and loading the configuration file. The configuration
- * file will then load the settings file, which will
- * then set up the environment.
+ * Bootstrap file for loading the configuration file.
+ * The configuration file will then load the settings file,
+ * which will then set up the environment.
  *
  * If the configuration file is not found then an error
  * will be displayed asking the visitor to set up the
