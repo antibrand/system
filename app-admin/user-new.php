@@ -625,4 +625,6 @@ do_action( 'user_new_form', 'add-new-user' );
 <?php } // current_user_can('create_users') ?>
 </div>
 <?php
-include( APP_ADMIN_PATH . '/admin-footer.php' );
+
+// Get the admin page footer.
+include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );

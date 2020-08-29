@@ -230,4 +230,6 @@ include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 </div>
 <?php
-require( APP_ADMIN_PATH . '/admin-footer.php' );
+
+// Get the admin page footer.
+include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );

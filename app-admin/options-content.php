@@ -38,5 +38,5 @@ include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 </div><!-- .wrap -->
 <?php
 
-// Get page footer.
-include( APP_ADMIN_PATH . '/admin-footer.php' );
+// Get the admin page footer.
+include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );

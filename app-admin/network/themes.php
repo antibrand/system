@@ -130,7 +130,9 @@ if ( $action ) {
 
 			echo "<iframe src='$url' style='width: 100%; height:100%; min-height:850px;'></iframe>";
 			echo '</div>';
-			require_once( APP_ADMIN_PATH . '/admin-footer.php' );
+
+			// Get the admin page footer.
+			include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
 
 			exit;
 
@@ -243,7 +245,9 @@ if ( $action ) {
 				</form>
 			</div>
 			<?php
-				require_once( APP_ADMIN_PATH . '/admin-footer.php' );
+
+				// Get the admin page footer.
+				include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
 				exit;
 			} // End if verify-delete.
 
@@ -477,4 +481,5 @@ wp_print_request_filesystem_credentials_modal();
 wp_print_admin_notice_templates();
 wp_print_update_row_templates();
 
-include( APP_ADMIN_PATH . '/admin-footer.php' );
+// Get the admin page footer.
+include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );

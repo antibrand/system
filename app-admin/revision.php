@@ -130,4 +130,5 @@ include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 <?php
 wp_print_revision_templates();
 
-require_once( APP_ADMIN_PATH . '/admin-footer.php' );
+// Get the admin page footer.
+include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );

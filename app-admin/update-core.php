@@ -849,7 +849,8 @@ if ( 'upgrade-core' == $action ) {
 		'totals'  => wp_get_update_data(),
 	) );
 
-	include( APP_ADMIN_PATH . '/admin-footer.php' );
+	// Get the admin page footer.
+	include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
 
 } elseif ( 'do-core-upgrade' == $action || 'do-core-reinstall' == $action ) {
 
@@ -883,7 +884,8 @@ if ( 'upgrade-core' == $action ) {
 		'totals'  => wp_get_update_data(),
 	] );
 
-	include( APP_ADMIN_PATH . '/admin-footer.php' );
+	// Get the admin page footer.
+	include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
 
 } elseif ( 'do-plugin-upgrade' == $action ) {
 
@@ -919,7 +921,8 @@ if ( 'upgrade-core' == $action ) {
 		'totals'  => wp_get_update_data(),
 	] );
 
-	include( APP_ADMIN_PATH . '/admin-footer.php' );
+	// Get the admin page footer.
+	include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
 
 } elseif ( 'do-theme-upgrade' == $action ) {
 
@@ -957,7 +960,8 @@ if ( 'upgrade-core' == $action ) {
 		'totals'  => wp_get_update_data(),
 	] );
 
-	include( APP_ADMIN_PATH . '/admin-footer.php' );
+	// Get the admin page footer.
+	include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
 
 } elseif ( 'do-translation-upgrade' == $action ) {
 
@@ -982,7 +986,8 @@ if ( 'upgrade-core' == $action ) {
 		'totals'  => wp_get_update_data(),
 	] );
 
-	require_once( APP_ADMIN_PATH . '/admin-footer.php' );
+	// Get the admin page footer.
+	include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
 
 } else {
 	/**

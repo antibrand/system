@@ -37,7 +37,8 @@ include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 </div>
 <?php
 
-include( APP_ADMIN_PATH . '/admin-footer.php' );
+// Get the admin page footer.
+include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
 
 	exit;
 }
@@ -417,4 +418,5 @@ $content = esc_textarea( $content );
 <?php
 endif; // editor warning notice
 
-include( APP_ADMIN_PATH . '/admin-footer.php' );
+// Get the admin page footer.
+include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );

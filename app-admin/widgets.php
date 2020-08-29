@@ -448,7 +448,9 @@ if ( isset( $_GET['editwidget'] ) && $_GET['editwidget'] ) {
 		</div>
 	</div>
 	<?php
-	require_once( APP_ADMIN_PATH . '/admin-footer.php' );
+
+	// Get the admin page footer.
+	include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
 
 	exit;
 }
@@ -632,4 +634,5 @@ include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
  */
 do_action( 'sidebar_admin_page' );
 
-require_once( APP_ADMIN_PATH . '/admin-footer.php' );
+// Get the admin page footer.
+include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );

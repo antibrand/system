@@ -131,7 +131,8 @@ if ( isset( $_GET['action'] ) ) {
 			</div>
 		<?php
 
-		require_once( APP_ADMIN_PATH . '/admin-footer.php' );
+		// Get the admin page footer.
+		include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
 
 		exit();
 
@@ -240,7 +241,8 @@ if ( isset( $_GET['action'] ) ) {
 								</div>
 								<?php
 
-								require_once( APP_ADMIN_PATH . '/admin-footer.php' );
+								// Get the admin page footer.
+								include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
 
 								exit();
 
@@ -462,4 +464,5 @@ include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 </div>
 <?php
 
-require_once( APP_ADMIN_PATH . '/admin-footer.php' ); ?>
+// Get the admin page footer.
+include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );

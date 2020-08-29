@@ -290,7 +290,8 @@ if ( isset( $plugin_page ) ) {
 		}
 	}
 
-	include( APP_ADMIN_PATH . '/admin-footer.php' );
+	// Get the admin page footer.
+	include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
 
 	exit();
 
@@ -355,7 +356,8 @@ if ( isset( $plugin_page ) ) {
 
 	call_user_func( $wp_importers[$importer][2] );
 
-	include( APP_ADMIN_PATH . '/admin-footer.php' );
+	// Get the admin page footer.
+	include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
 
 	// Make sure rules are flushed.
 	flush_rewrite_rules( false );

@@ -191,6 +191,9 @@ function enqueue_comment_hotkeys_js() {
  */
 function comment_footer_die( $msg ) {
 	echo "<div class='wrap'><p>$msg</p></div>";
-	include( APP_ADMIN_PATH . '/admin-footer.php' );
+
+	// Get the admin page footer.
+	include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
+
 	die;
 }

@@ -70,7 +70,8 @@ if ( isset( $_GET['action'] ) ) {
 		$upgrader = new Plugin_Upgrader( new Plugin_Upgrader_Skin( compact( 'title', 'nonce', 'url', 'plugin' ) ) );
 		$upgrader->upgrade( $plugin );
 
-		include( APP_ADMIN_PATH . '/admin-footer.php' );
+		// Get the admin page footer.
+		include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
 
 	} elseif ( 'activate-plugin' == $action ) {
 
@@ -166,7 +167,8 @@ if ( isset( $_GET['action'] ) ) {
 		$upgrader = new Plugin_Upgrader( new Plugin_Installer_Skin( compact( 'title', 'url', 'nonce', 'plugin', 'api' ) ) );
 		$upgrader->install( $api->download_link );
 
-		include( APP_ADMIN_PATH . '/admin-footer.php' );
+		// Get the admin page footer.
+		include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
 
 	} elseif ( 'upload-plugin' == $action ) {
 
@@ -198,7 +200,8 @@ if ( isset( $_GET['action'] ) ) {
 			$file_upload->cleanup();
 		}
 
-		include( APP_ADMIN_PATH . '/admin-footer.php' );
+		// Get the admin page footer.
+		include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
 
 	} elseif ( 'upgrade-theme' == $action ) {
 
@@ -222,7 +225,8 @@ if ( isset( $_GET['action'] ) ) {
 		$upgrader = new Theme_Upgrader( new Theme_Upgrader_Skin( compact( 'title', 'nonce', 'url', 'theme' ) ) );
 		$upgrader->upgrade( $theme );
 
-		include( APP_ADMIN_PATH . '/admin-footer.php' );
+		// Get the admin page footer.
+		include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
 
 	} elseif ( 'update-selected-themes' == $action ) {
 
@@ -284,7 +288,8 @@ if ( isset( $_GET['action'] ) ) {
 		$upgrader = new Theme_Upgrader( new Theme_Installer_Skin( compact( 'title', 'url', 'nonce', 'plugin', 'api' ) ) );
 		$upgrader->install( $api->download_link );
 
-		include( APP_ADMIN_PATH . '/admin-footer.php' );
+		// Get the admin page footer.
+		include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
 
 	} elseif ( 'upload-theme' == $action ) {
 
@@ -317,7 +322,8 @@ if ( isset( $_GET['action'] ) ) {
 			$file_upload->cleanup();
 		}
 
-		include( APP_ADMIN_PATH . '/admin-footer.php' );
+		// Get the admin page footer.
+		include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
 
 	} else {
 		/**

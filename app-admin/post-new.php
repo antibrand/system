@@ -90,4 +90,5 @@ if ( apply_filters( 'replace_editor', false, $post ) !== true ) {
 	include( APP_ADMIN_PATH . '/edit-form-advanced.php' );
 }
 
-include( APP_ADMIN_PATH . '/admin-footer.php' );
+// Get the admin page footer.
+include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );

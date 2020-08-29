@@ -121,7 +121,8 @@ function network_step1( $errors = false ) {
 		) . '</p></div>';
 		echo '</div>';
 
-		include( APP_ADMIN_PATH . '/admin-footer.php' );
+		// Get the admin page footer.
+		include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
 
 		die();
 	}
@@ -137,7 +138,8 @@ function network_step1( $errors = false ) {
 		echo '<p>' . __( 'Once the network is created, you may reactivate your plugins.' ) . '</p>';
 		echo '</div>';
 
-		include( APP_ADMIN_PATH . '/admin-footer.php' );
+		// Get the admin page footer.
+		include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
 
 		die();
 	}
@@ -155,7 +157,8 @@ function network_step1( $errors = false ) {
 		echo '<a href="' . esc_url( admin_url() ) . '">' . __( 'Return to Dashboard' ) . '</a>';
 		echo '</div>';
 
-		include( APP_ADMIN_PATH . '/admin-footer.php' );
+		// Get the admin page footer.
+		include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
 
 		die();
 	}

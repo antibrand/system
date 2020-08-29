@@ -65,4 +65,6 @@ wp_enqueue_script( 'admin-tags' );
 include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 include( APP_ADMIN_PATH . '/edit-tag-form.php' );
-include( APP_ADMIN_PATH . '/admin-footer.php' );
+
+// Get the admin page footer.
+include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );

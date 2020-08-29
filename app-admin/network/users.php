@@ -46,7 +46,8 @@ if ( isset( $_GET['action'] ) ) {
 				confirm_delete_users( $_POST['allusers'] );
 				echo '</div>';
 
-				require_once( APP_ADMIN_PATH . '/admin-footer.php' );
+				// Get the admin page footer.
+				include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
 
 			} else {
 				wp_redirect( network_admin_url( 'users.php' ) );
@@ -89,7 +90,8 @@ if ( isset( $_GET['action'] ) ) {
 								confirm_delete_users( $_POST['allusers'] );
 								echo '</div>';
 
-								require_once( APP_ADMIN_PATH . '/admin-footer.php' );
+								// Get the admin page footer.
+								include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
 
 								exit();
 
@@ -320,4 +322,6 @@ if ( isset( $_REQUEST['updated'] ) && $_REQUEST['updated'] == 'true' && ! empty(
 </div>
 
 <?php
-require_once( APP_ADMIN_PATH . '/admin-footer.php' );
+
+// Get the admin page footer.
+include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );

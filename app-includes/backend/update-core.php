@@ -541,8 +541,9 @@ window.location = 'about.php?updated';
 </script>
 	<?php
 
-	// Include admin-footer.php and exit.
-	include( APP_ADMIN_PATH . '/admin-footer.php');
+	// Get the admin page footer.
+	include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
+
 	exit();
 }
 

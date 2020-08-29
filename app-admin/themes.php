@@ -729,4 +729,5 @@ wp_localize_script( 'updates', '_wpUpdatesItemCounts', [
 	'totals'  => wp_get_update_data(),
 ] );
 
-require( APP_ADMIN_PATH . '/admin-footer.php' );
+// Get the admin page footer.
+include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );

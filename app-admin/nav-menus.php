@@ -988,4 +988,7 @@ include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 	</div><!-- /#nav-menus-frame -->
 	<?php endif; ?>
 </div><!-- /.wrap-->
-<?php include( APP_ADMIN_PATH . '/admin-footer.php' ); ?>
+<?php
+
+// Get the admin page footer.
+include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
