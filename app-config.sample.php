@@ -295,6 +295,17 @@ define( 'MEDIA_TRASH', false );
 define( 'APP_CACHE', false );
 
 /**
+ * Database repair
+ *
+ * Enables the databse repair page in the
+ * Admin Tools submenu.
+ *
+ * @since 1.0.0
+ * @var   boolean Default is false
+ */
+define( 'APP_ALLOW_REPAIR', false );
+
+/**
  * End customization
  *
  * Do not add or edit anything below this comment block.

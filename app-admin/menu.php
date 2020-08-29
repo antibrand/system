@@ -622,6 +622,15 @@ if ( ! is_network() && defined( 'APP_ALLOW_NETWORK' ) && APP_ALLOW_NETWORK ) {
 	];
 }
 
+// Database repair.
+if ( defined( 'APP_ALLOW_REPAIR' ) && APP_ALLOW_REPAIR ) {
+	$submenu['options-general.php'][95] = [
+		__( 'Database Repair' ),
+		'manage_options',
+		'repair.php'
+	];
+}
+
 // The index of the last top-level menu in the utility menu group.
 $_wp_last_utility_menu = 80;
 

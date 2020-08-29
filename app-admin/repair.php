@@ -5,37 +5,41 @@
  * @package App_Package
  * @subpackage Database
  */
+
 define( 'WP_REPAIRING', true );
 
-require_once( dirname( dirname( dirname( __FILE__ ) ) ) . '/app-load.php' );
+// Get the system environment constants from the root directory.
+require_once( dirname( dirname( __FILE__ ) ) . '/app-environment.php' );
+
+// Load the administration environment.
+require_once( APP_INC_PATH . '/backend/app-admin.php' );
 
 header( 'Content-Type: text/html; charset=utf-8' );
+
+// Page identification.
+$parent_file = 'tools.php';
+$title       = __( 'Database Repair' );
+
+// Get the admin page header.
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
+
 ?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
-<head>
-	<meta name="viewport" content="width=device-width" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="robots" content="noindex,nofollow" />
-
-	<title><?php _e( 'Database Repair' ); ?></title>
-
-	<?php wp_admin_css( 'install', true ); ?>
-</head>
-<body class="app-core-ui">
-
+<div class="wrap">
 <?php
 
-if ( ! defined( 'WP_ALLOW_REPAIR' ) ) {
+if ( ! defined( 'APP_ALLOW_REPAIR' ) || ( defined( 'APP_ALLOW_REPAIR' ) && ! APP_ALLOW_REPAIR ) ) {
 
-	echo '<h1 class="screen-reader-text">' . __( 'Allow automatic database repair' ) . '</h1>';
+	echo sprintf(
+		'<h1>%1s</h1>',
+		$title
+	);
 
 	echo '<p>';
 	printf(
 		__( 'To allow use of this page to automatically repair database problems, please add the following line to your %s file. Once this line is added to your config, reload this page.' ),
 		'<code>app-config.php</code>'
 	);
-	echo "</p><p><code>define( 'WP_ALLOW_REPAIR', true);</code></p>";
+	echo "</p><p><code>define( 'APP_ALLOW_REPAIR', true );</code></p>";
 
 	$default_key     = 'put your unique phrase here';
 	$missing_key     = false;
@@ -76,7 +80,10 @@ if ( ! defined( 'WP_ALLOW_REPAIR' ) ) {
 
 } elseif ( isset( $_GET['repair'] ) ) {
 
-	echo '<h1>' . __( 'Database repair results' ) . '</h1>';
+	echo sprintf(
+		'<h1>%1s</h1>',
+		$title
+	);
 
 	$optimize = 2 == $_GET['repair'];
 	$okay     = true;
@@ -164,12 +171,21 @@ if ( ! defined( 'WP_ALLOW_REPAIR' ) ) {
 		echo '<p><textarea name="errors" id="errors" rows="20" cols="60">' . esc_textarea( $problem_output ) . '</textarea></p>';
 
 	} else {
-		echo '<p>' . __( 'Repairs complete. Please remove the following line from the configuration file to prevent this page from being used by unauthorized users.' ) . "</p><p><code>define( 'WP_ALLOW_REPAIR', true);</code></p>";
+		echo '<p>' . __( 'Repairs complete. Please remove the following line from the configuration file to prevent this page from being used by unauthorized users.' ) . "</p><p><code>define( 'APP_ALLOW_REPAIR', true );</code></p>";
+
+		echo sprintf(
+			'<p><a href="%1s" class="button">%2s</a></p>',
+			esc_url( 'repair.php' ),
+			__( 'Back to Repair' )
+		);
 	}
 
 } else {
 
-	echo '<h1>' . __( 'Database Repair' ) . '</h1>';
+	echo sprintf(
+		'<h1>%1s</h1>',
+		$title
+	);
 
 	if ( isset( $_GET['referrer'] ) && 'is_blog_installed' == $_GET['referrer'] ) {
 		echo '<p>' . __( 'One or more database tables are unavailable. To attempt to repair these tables, press the &#8220;Repair Database&#8221; button. Repairing can take a while, so please be patient.' ) . '</p>';
@@ -185,5 +201,8 @@ if ( ! defined( 'WP_ALLOW_REPAIR' ) ) {
 <?php
 }
 ?>
-</body>
-</html>
+</div><!-- End .wrap -->
+<?php
+
+// Get the admin page footer.
+include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
