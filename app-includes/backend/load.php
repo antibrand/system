@@ -10,8 +10,8 @@
 if ( ! defined( 'APP_ADMIN' ) ) {
 
 	/*
-	 * This file is being included from a file other than APP_ADMIN_DIR/admin.php, so
-	 * some setup was skipped. Make sure the admin message catalog is loaded since
+	 * This file is being included from a file other than APP_INC_PATH . '/backend/app-admin.php'
+	 * so some setup was skipped. Make sure the admin message catalog is loaded since
 	 * load_default_textdomain() will not have done so in this context.
 	 */
 	load_textdomain( 'default', APP_LANG_PATH . '/admin-' . get_locale() . '.mo' );

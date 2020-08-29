@@ -13,8 +13,8 @@ if ( file_exists( APP_VIEWS_PATH . '/install.php' ) ) {
 	require ( APP_VIEWS_PATH . '/install.php' );
 }
 
-/** Administration API */
-require_once( APP_INC_PATH . '/backend/admin.php' );
+// Load the administration environment.
+require_once( APP_INC_PATH . '/backend/app-admin.php' );
 
 /** Schema API */
 require_once( APP_INC_PATH . '/backend/schema.php' );

@@ -582,7 +582,12 @@ function wp_update_themes( $extra_stats = array() ) {
  * @since 3.7.0
  */
 function wp_maybe_auto_update() {
-	include_once( APP_INC_PATH . '/backend/admin.php' );
+
+	// Get the system environment constants from the root directory.
+	require_once( dirname( dirname( __FILE__ ) ) . '/app-environment.php' );
+
+	// Load the administration environment.
+	require_once( APP_INC_PATH . '/backend/app-admin.php' );
 
 	$upgrader = new WP_Automatic_Updater;
 	$upgrader->run();

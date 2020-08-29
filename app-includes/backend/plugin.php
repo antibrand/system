@@ -1190,7 +1190,7 @@ function add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, 
 
 	/*
 	 * Backward-compatibility for plugins using add_management page.
-	 * See APP_ADMIN_DIR/admin.php for redirect from edit.php to tools.php
+	 * See APP_INC_PATH . '/backend/app-admin.php' for redirect from edit.php to tools.php
 	 */
 	if ( 'tools.php' == $parent_slug )
 		$_registered_pages[get_plugin_page_hookname( $menu_slug, 'edit.php' )] = true;

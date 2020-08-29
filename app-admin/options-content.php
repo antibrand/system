@@ -8,8 +8,11 @@
 
 use \AppNamespace\Backend as Backend;
 
-// Load the website management system.
-require_once( dirname( __FILE__ ) . '/admin.php' );
+// Get the system environment constants from the root directory.
+require_once( dirname( dirname( __FILE__ ) ) . '/app-environment.php' );
+
+// Load the administration environment.
+require_once( APP_INC_PATH . '/backend/app-admin.php' );
 
 // Stop here if the current user is not allowed.
 if ( ! current_user_can( 'manage_options' ) ) {

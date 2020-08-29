@@ -38,7 +38,7 @@ require_once( APP_INC_PATH . '/backend/load.php' );
 
 nocache_headers();
 
-// This action is documented in APP_ADMIN_DIR/admin.php.
+// This action is documented in APP_INC_PATH . '/backend/app-admin.php'.
 do_action( 'admin_init' );
 
 $action = empty( $_REQUEST['action'] ) ? '' : $_REQUEST['action'];

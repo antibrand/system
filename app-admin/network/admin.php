@@ -9,8 +9,11 @@
 
 define( 'APP_NETWORK_ADMIN', true );
 
-// Load the website management system.
-require_once( dirname( dirname( __FILE__ ) ) . '/admin.php' );
+// Get the system environment constants from the root directory.
+require_once( dirname( dirname( __FILE__ ) ) . '/app-environment.php' );
+
+// Load the administration environment.
+require_once( APP_INC_PATH . '/backend/app-admin.php' );
 
 // Do not remove this check. It is required by individual network admin pages.
 if ( ! is_network() ) {

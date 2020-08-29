@@ -28,8 +28,8 @@ if ( empty( $_REQUEST['action'] ) ) {
 	wp_die( '0', 400 );
 }
 
-// Load Administration APIs.
-require_once( APP_INC_PATH . '/backend/admin.php' );
+// Load the administration environment.
+require_once( APP_INC_PATH . '/backend/app-admin.php' );
 
 // Load Ajax Handlers for Core.
 require_once( APP_INC_PATH . '/backend/ajax-actions.php' );
@@ -40,7 +40,7 @@ require_once( APP_INC_PATH . '/backend/ajax-actions.php' );
 send_nosniff_header();
 nocache_headers();
 
-// This action is documented in APP_ADMIN_DIR/admin.php.
+// This action is documented in APP_INC_PATH . '/backend/app-admin.php'.
 do_action( 'admin_init' );
 
 $core_actions_get = [

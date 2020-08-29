@@ -6,8 +6,11 @@
  * @subpackage Administration
  */
 
-// Administration page dependencies.
-require_once( dirname( __FILE__ ) . '/admin.php' );
+// Get the system environment constants from the root directory.
+require_once( dirname( dirname( __FILE__ ) ) . '/app-environment.php' );
+
+// Load the administration environment.
+require_once( APP_INC_PATH . '/backend/app-admin.php' );
 
 // Variable for the privacy policy guide URL parameter.
 $is_privacy_guide = ( isset( $_GET['privacy-policy-guide'] ) && current_user_can( 'manage_privacy_options' ) );

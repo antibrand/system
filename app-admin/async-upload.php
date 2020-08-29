@@ -32,7 +32,8 @@ if ( defined( 'ABSPATH' ) ) {
 	require_once( dirname( dirname( __FILE__ ) ) . '/app-load.php' );
 }
 
-require_once( APP_ADMIN_PATH . '/admin.php' );
+// Load the administration environment.
+require_once( APP_INC_PATH . '/backend/app-admin.php' );
 
 header( 'Content-Type: text/html; charset=' . get_option( 'blog_charset' ) );
 

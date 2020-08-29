@@ -1066,8 +1066,8 @@ class WP_REST_Users_Controller extends WP_REST_Controller {
 				return new WP_Error( 'rest_user_invalid_role', __( 'Sorry, you are not allowed to give users that role.' ), array( 'status' => rest_authorization_required_code() ) );
 			}
 
-			/** Include admin functions to get access to get_editable_roles() */
-			require_once APP_INC_PATH . '/backend/admin.php';
+			// Load the administration environment.
+			require_once( APP_INC_PATH . '/backend/app-admin.php' );
 
 			// The new role must be editable by the logged-in user.
 			$editable_roles = get_editable_roles();
