@@ -15,13 +15,14 @@ require_once( dirname( dirname( __FILE__ ) ) . '/app-environment.php' );
 // Load the administration environment.
 require_once( APP_INC_PATH . '/backend/app-admin.php' );
 
-// Instance of the about page class.
-$class = Backend\Admin_About :: instance();
+// Instance of the page class.
+$page = Backend\Admin_About :: instance();
 
 // Page identification.
-$parent_file = $class->parent;
-$title       = $class->title();
-$description = $class->description();
+$parent_file = $page->parent;
+$screen      = $page->screen();
+$title       = $page->title();
+$description = $page->description();
 
 // Get the admin page header.
 include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
@@ -30,9 +31,8 @@ include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 <div class="wrap">
 
 	<h1><?php echo esc_html( $title ); ?></h1>
-	<?php echo $description; ?>
 
-	<?php $class->render_tabs(); ?>
+	<?php $page->render_tabs(); ?>
 
 </div>
 <?php

@@ -16,12 +16,13 @@ require_once( dirname( dirname( __FILE__ ) ) . '/app-environment.php' );
 require_once( APP_INC_PATH . '/backend/app-admin.php' );
 
 // Instance of the dashboard class.
-$dashboard = Backend\Dashboard :: instance();
+$page = Backend\Dashboard :: instance();
 
 // Page identification.
-$parent_file = $dashboard->parent;
-$title       = $dashboard->title();
-$description = $dashboard->description();
+$parent_file = $page->parent;
+$screen      = $page->screen();
+$title       = $page->title();
+$description = $page->description();
 
 // Get the admin page header.
 include_once( APP_VIEWS_PATH . '/backend/header/admin-header.php' );

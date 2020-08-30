@@ -67,6 +67,9 @@ class Admin_Screen {
 	 */
 	protected function __construct() {
 
+		// Get the current screen.
+		$this->screen();
+
 		// Enqueue page scripts.
 		add_action( 'admin_enqueue_scripts', [ $this, 'parent_enqueue_scripts' ] );
 
@@ -93,6 +96,19 @@ class Admin_Screen {
 
 		// Set the help sidebar
 		$this->set_help_sidebar();
+	}
+
+	/**
+	 * Current screen
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the translated title.
+	 */
+	public function screen() {
+
+		// Get the current scrren.
+		return get_current_screen()->id;
 	}
 
 	/**
