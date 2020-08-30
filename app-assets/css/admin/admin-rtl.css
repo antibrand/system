@@ -2843,6 +2843,18 @@ body {
   clear: both;
 }
 
+.clear.margin-bottom-1em {
+  margin-bottom: 1em;
+}
+
+.clear.margin-bottom-2em {
+  margin-bottom: 2em;
+}
+
+.clear.margin-bottom-3em {
+  margin-bottom: 3em;
+}
+
 .avatar {
   border-radius: 50%;
 }
