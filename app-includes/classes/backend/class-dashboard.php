@@ -8,7 +8,16 @@
 
 namespace AppNamespace\Backend;
 
-class Dashboard {
+class Dashboard extends Admin_Screen {
+
+	/**
+	 * Page title
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @var    string
+	 */
+	public $title = 'Dashboard';
 
 	/**
 	 * Instance of the class
@@ -19,23 +28,11 @@ class Dashboard {
 	 */
 	public static function instance() {
 
-		// Varialbe for the instance to be used outside the class.
-		static $instance = null;
+		// Set variable for new instance.
+		$instance = new self;
 
-		if ( is_null( $instance ) ) {
-
-			// Set variable for new instance.
-			$instance = new self;
-
-			// Instantiate the widgets API.
-			$instance->dashboard_widgets();
-
-			// Instantiate the tabbed content.
-			$instance->tabs();
-
-			// Instantiate the help content.
-			$instance->help();
-		}
+		// Instantiate the widgets API.
+		$instance->dashboard_widgets();
 
 		// Return the instance.
 		return $instance;
@@ -50,8 +47,14 @@ class Dashboard {
 	 */
 	public function __construct() {
 
-		// Enqueue scripts & styles.
-		add_action( 'admin_enqueue_scripts', [ $this, 'scripts_styles' ] );
+		// Run the parent constructor method.
+		parent :: __construct();
+
+		// Enqueue scripts.
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
+
+		// Enqueue styles.
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_styles' ] );
 
 		// Add content to the tabbed section of the dashboard page.
 		// add_action( 'dashboard_top_panel', [ $this, 'tabs' ] );
@@ -61,13 +64,26 @@ class Dashboard {
 	}
 
 	/**
+	 * Enqueue scripts
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function enqueue_scripts() {
+
+		// Script for AJAX, drag & drop, show/hide.
+		wp_enqueue_script( 'dashboard' );
+	}
+
+	/**
 	 * Enqueue scripts & styles
 	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @return void
 	 */
-	public function scripts_styles() {
+	public function enqueue_styles() {
 
 		// Load RTL stylesheets if direction is set.
 		if ( is_rtl() ) {
@@ -87,60 +103,6 @@ class Dashboard {
 		$file = $direction . $minify;
 
 		wp_enqueue_style( 'dashboard', app_assets_url( "/css/admin/screens/dashboard$file.css" ), [ 'admin' ], null, 'all' );
-	}
-
-	/**
-	 * Dashboard intro panel
-	 *
-	 * Displays introductory information and quick access links.
-	 *
-	 * Content varies by user role and can be superceded by themes & plugins.
-	 *
-	 * @since  Previous 3.3.0
-	 * @since  1.0.0 Completely reworked for this management system.
-	 * @access public
-	 * @return void
-	 */
-	public function dashboard_tabs( $args = [] ) {
-
-		/**
-		 * Get intro panel content by user role.
-		 */
-
-		// Developer.
-		if ( current_user_can( 'develop' ) ) {
-			$tabs['intro'] = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-developer.php' );
-
-		// Network administrator.
-		} elseif ( current_user_can( 'manage_network' ) ) {
-			$tabs['intro'] = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-network.php' );
-
-		// Administrator.
-		} elseif ( current_user_can( 'manage_options' ) ) {
-			$tabs['intro'] = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-administrator.php' );
-
-		// Editor.
-		} elseif ( current_user_can( 'edit_others_posts' ) ) {
-			$tabs['intro'] = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-editor.php' );
-
-		// Author.
-		} elseif ( current_user_can( 'publish_posts' ) ) {
-			$tabs['intro'] = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-author.php' );
-
-		// Contributor.
-		} elseif ( current_user_can( 'edit_posts' ) ) {
-			$tabs['intro'] = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-contributor.php' );
-
-		// Subscriber.
-		} elseif ( current_user_can( 'read' ) ) {
-			$tabs['intro'] = include( ABSPATH . 'app-views/backend/content/dashboard/intro-panel-subscriber.php' );
-
-		// Fallback.
-		} else {
-			$tabs['intro'] = '';
-		}
-
-		return apply_filters( 'dashboard_tabs', $tabs );
 	}
 
 	/**
@@ -171,9 +133,7 @@ class Dashboard {
 			'id'         => 'dashboard-start',
 			'capability' => 'read',
 			'tab'        => __( 'Start' ),
-			'icon'       => '',
 			'heading'    => $start_heading,
-			'content'    => '',
 			'callback'   => [ $this, 'start_tab' ]
 		] );
 
@@ -181,9 +141,7 @@ class Dashboard {
 			'id'         => 'dashboard-overview',
 			'capability' => 'manage_options',
 			'tab'        => __( 'Overview' ),
-			'icon'       => '',
 			'heading'    => __( 'Site Overview' ),
-			'content'    => '',
 			'callback'   => [ $this, 'site_overview_tab' ]
 		] );
 
@@ -191,20 +149,17 @@ class Dashboard {
 			'id'         => 'dashboard-widgets',
 			'capability' => 'read',
 			'tab'        => __( 'Widgets' ),
-			'icon'       => '',
 			'heading'    => __( 'Dashboard Widgets' ),
-			'content'    => '',
 			'callback'   =>  [ $this, 'dashboard' ]
 		] );
 
 		$screen->add_content_tab( [
-			'id'         => 'dashboard-draftposts',
-			'capability' => 'edit_posts',
-			'tab'        => __( 'Drafts' ),
-			'icon'       => '',
-			'heading'    => __( 'Draft Posts' ),
-			'content'    => '',
-			'callback'   => [ $this, 'dashboard_draft_posts' ]
+			'id'            => 'dashboard-draftposts',
+			'capability'    => 'edit_posts',
+			'hide-if-no-js' => true,
+			'tab'           => __( 'Drafts' ),
+			'heading'       => __( 'Draft Posts' ),
+			'callback'      => [ $this, 'dashboard_draft_posts' ]
 		] );
 	}
 
@@ -969,58 +924,58 @@ class Dashboard {
 
 		$post_ID = (int) $post->ID;
 	?>
-		<div class="tab-section-wrap tab-section-wrap__dashboard hide-if-no-js">
+		<div class="tab-section-wrap tab-section-wrap__dashboard">
 
-			<section class="tab-section tab-section-dashboard tab-section__quick-draft">
+			<form name="post" action="<?php echo esc_url( admin_url( 'post.php' ) ); ?>" method="post" id="quick-draft" class="quick-draft-form initial-form">
 
-				<h3><?php _e( 'Quick Draft' ); ?></h3>
+				<section class="quick-draft quick-draft-dashboard quick-draft-fields">
 
-				<p class="description"><?php _e( 'Save a thought or a note as a standard post to be completed & published at a later time.' ); ?></p>
+					<h3><?php _e( 'Quick Draft' ); ?></h3>
 
-				<form name="post" action="<?php echo esc_url( admin_url( 'post.php' ) ); ?>" method="post" id="quick-draft" class="initial-form">
+					<p class="description"><?php _e( 'Save a thought or a note as a standard post to be completed & published at a later time.' ); ?></p>
 
-					<?php if ( $error_msg ) : ?>
-					<div class="error dashboard-quick-draft-error"><?php echo $error_msg; ?></div>
-					<?php endif; ?>
+						<?php if ( $error_msg ) : ?>
+						<div class="error dashboard-quick-draft-error"><?php echo $error_msg; ?></div>
+						<?php endif; ?>
 
-					<div class="input-text-wrap" id="title-wrap">
-						<label class="screen-reader-text prompt" for="title" id="title-prompt-text">
+						<div class="input-text-wrap" id="title-wrap">
+							<label class="screen-reader-text prompt" for="title" id="title-prompt-text">
 
-							<?php
-							// This filter is documented in APP_ADMIN_DIR/edit-form-advanced.php'
-							echo apply_filters( 'enter_title_here', __( 'Title' ), $post );
-							?>
-						</label>
-						<input type="text" name="post_title" id="title" autocomplete="off" />
-					</div>
+								<?php
+								// This filter is documented in APP_ADMIN_DIR/edit-form-advanced.php'
+								echo apply_filters( 'enter_title_here', __( 'Title' ), $post );
+								?>
+							</label>
+							<input type="text" name="post_title" id="title" autocomplete="off" />
+						</div>
 
-					<div class="textarea-wrap" id="description-wrap">
-						<label class="screen-reader-text prompt" for="content" id="content-prompt-text"><?php _e( 'Draft content' ); ?></label>
-						<textarea name="content" id="content" class="mceEditor" rows="3" cols="15" autocomplete="off"></textarea>
-					</div>
+						<div class="textarea-wrap" id="description-wrap">
+							<label class="screen-reader-text prompt" for="content" id="content-prompt-text"><?php _e( 'Draft content' ); ?></label>
+							<textarea name="content" id="content" class="mceEditor" rows="3" cols="15" autocomplete="off"></textarea>
+						</div>
 
-					<p class="submit">
-						<input type="hidden" name="action" id="quickpost-action" value="post-quickdraft-save" />
-						<input type="hidden" name="post_ID" value="<?php echo $post_ID; ?>" />
-						<input type="hidden" name="post_type" value="post" />
+						<p class="submit">
+							<input type="hidden" name="action" id="quickpost-action" value="post-quickdraft-save" />
+							<input type="hidden" name="post_ID" value="<?php echo $post_ID; ?>" />
+							<input type="hidden" name="post_type" value="post" />
 
-						<?php wp_nonce_field( 'add-post' ); ?>
+							<?php wp_nonce_field( 'add-post' ); ?>
 
-						<?php submit_button( __( 'Save Draft' ), 'primary', 'save', false, [ 'id' => 'save-post' ] ); ?>
-					</p>
+							<?php submit_button( __( 'Save Draft' ), 'primary', 'save', false, [ 'id' => 'save-post' ] ); ?>
+						</p>
 
-				</form>
+				</section>
 
-			</section>
+				<section id="dashboard-recent-drafts" class="quick-draft quick-draft-dashboard quick-draft-recent">
 
-			<section id="dashboard-recent-drafts" class="tab-section tab-section-dashboard tab-section__recent-drafts">
+					<h3><?php _e( 'Recent Drafts' ); ?></h3>
 
-				<h3><?php _e( 'Recent Drafts' ); ?></h3>
+					<p class="description"><?php _e( 'The following posts have not been published.' ); ?></p>
 
-				<p class="description"><?php _e( 'The following posts have not been published.' ); ?></p>
+					<?php $this->dashboard_recent_drafts(); ?>
 
-				<?php $this->dashboard_recent_drafts(); ?>
-			</section>
+				</section>
+			</form>
 		</div>
 		<?php
 	}

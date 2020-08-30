@@ -6,6 +6,8 @@
  * @subpackage Administration
  */
 
+use \AppNamespace\Backend as Backend;
+
 // Get the system environment constants from the root directory.
 require_once( dirname( dirname( __FILE__ ) ) . '/app-environment.php' );
 
@@ -13,13 +15,12 @@ require_once( dirname( dirname( __FILE__ ) ) . '/app-environment.php' );
 require_once( APP_INC_PATH . '/backend/app-admin.php' );
 
 // Instance of the dashboard class.
-\AppNamespace\Backend\Dashboard :: instance();
+$dashboard = Backend\Dashboard :: instance();
 
-// Script for AJAX, drag & drop, show/hide.
-wp_enqueue_script( 'dashboard' );
-
-// Script for tabbed content.
-wp_enqueue_script( 'app-tabs' );
+// Page identification.
+$parent_file = $dashboard->parent;
+$title       = $dashboard->title();
+$description = $dashboard->description();
 
 // Script for media uploads.
 if ( current_user_can( 'upload_files' ) ) {
@@ -33,15 +34,6 @@ add_thickbox();
 if ( wp_is_mobile() ) {
 	wp_enqueue_script( 'jquery-touch-punch' );
 }
-
-// Parent file for indication in the menu.
-$parent_file = 'index.php';
-
-// Page heading.
-$title = apply_filters( 'admin_page_heading_dashboard', __( 'Dashboard' ) );
-
-// Page subheading.
-$subtitle = apply_filters( 'admin_page_subheading_dashboard', '' );
 
 // User option for layout in the widgets tab.
 if ( is_user_admin() ) {
@@ -72,7 +64,7 @@ include_once( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 	<div class="wrap">
 
 		<h1><?php echo esc_html( $title ); ?></h1>
-		<?php echo $subtitle; ?>
+		<?php echo $description; ?>
 
 		<div id="dashboard-tabs">
 			<?php
