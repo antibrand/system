@@ -293,8 +293,8 @@ class Dashboard extends Admin_Screen {
 		$screen = get_current_screen();
 
 		// Register wdgets and controls.
-		$this->add_dashboard_widget( 'sample_widget_one', __( 'Sample Widget One' ), [ $this, 'app_sample_dashboard_widget_one' ] );
-		$this->add_dashboard_widget( 'sample_widget_two', __( 'Sample Widget Two' ), [ $this, 'app_sample_dashboard_widget_two' ] );
+		$this->add_dashboard_widget( 'sample_widget_one', __( 'Sample Widget One' ), [ $this, 'sample_dashboard_widget_one' ] );
+		$this->add_dashboard_widget( 'sample_widget_two', __( 'Sample Widget Two' ), [ $this, 'sample_dashboard_widget_two' ] );
 
 		if ( is_network_admin() ) {
 			$this->add_dashboard_widget( 'network_dashboard_right_now', __( 'Right Now' ), [ $this, 'network_overview' ] );
@@ -527,7 +527,7 @@ class Dashboard extends Admin_Screen {
 	 *
 	 * @todo Remove this if no longer desired.
 	 */
-	function app_sample_dashboard_widget_one() {
+	function sample_dashboard_widget_one() {
 
 	?>
 		<h3><?php _e( 'Sample Dashboard Widget #1' ); ?></h3>
@@ -536,7 +536,7 @@ class Dashboard extends Admin_Screen {
 	<?php
 	}
 
-	function app_sample_dashboard_widget_two() {
+	function sample_dashboard_widget_two() {
 
 	?>
 		<h3><?php _e( 'Sample Dashboard Widget #2' ); ?></h3>
