@@ -83,6 +83,10 @@ class Admin {
 	 */
 	public function dashboard_widgets() {
 
+		if ( ! class_exists( '\AppNamespace\Backend\Dashboard' ) ) {
+			return;
+		}
+
 		// Instance of the Dashboard class.
 		$dashboard = new Backend\Dashboard;
 
