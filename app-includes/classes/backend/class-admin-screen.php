@@ -73,6 +73,12 @@ class Admin_Screen {
 		// Print page scripts to head.
 		add_action( 'admin_head', [ $this, 'parent_print_scripts' ] );
 
+		// Enqueue page scripts.
+		add_action( 'admin_enqueue_scripts', [ $this, 'parent_enqueue_styles' ] );
+
+		// Print page scripts to head.
+		add_action( 'admin_head', [ $this, 'parent_print_styles' ] );
+
 		// Add screen options.
 		add_action( 'admin_head', [ $this, 'screen_options' ] );
 
@@ -152,7 +158,43 @@ class Admin_Screen {
 	 */
 	public function parent_print_scripts() {
 
-		// Print scripts
+		// <script></script>
+		// file_get_contents();
+	}
+
+	/**
+	 * Enqueue styles
+	 *
+	 * This is for styles that shall not be
+	 * overridden by class extension. Specific
+	 * screens should use enqueue_styles() to
+	 * enqueue styles for its screen.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function parent_enqueue_styles() {
+
+		// wp_enqueue_script();
+	}
+
+	/**
+	 * Print styles
+	 *
+	 * This is for styles that shall not be
+	 * overridden by class extension. Specific
+	 * screens should use print_styles() to
+	 * print styles for its screen.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string
+	 */
+	public function parent_print_styles() {
+
+		// <style></style>
+		// file_get_contents();
 	}
 
 	/**
