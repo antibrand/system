@@ -3,7 +3,7 @@ app-config.php
 id-config.php
 app-extend/plugins/
 # app-extend/extensions/
-app-views/themes/
+# app-views/themes/
 app-views/uploads/
 
 /.htaccess
