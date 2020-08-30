@@ -6,5 +6,5 @@
  * @subpackage Administration
  */
 
-get_template_part( 'template-parts/navigation/navigation', 'main' );
+get_template_part( 'template-parts/navigation/navigation', 'admin' );
 get_template_part( 'template-parts/header/site-identity' );
