@@ -682,6 +682,7 @@ final class Screen {
 			'class'          => 'app-tab',
 			'icon'           => null,
 			'content'        => null,
+			'hide-if-no-js'  => false,
 			'callback'       => null,
 			'priority'       => 10,
 		];
@@ -756,7 +757,7 @@ final class Screen {
 						$icon = null;
 					}
 					?>
-						<li class="<?php echo $tab['class'] ?>">
+						<li class="<?php echo $tab['class']; ?>">
 							<a href="<?php echo esc_url( $href ); ?>" aria-controls="<?php echo esc_attr( $content_id ); ?>">
 								<?php echo $icon . $tab['tab']; ?>
 							</a>
@@ -771,6 +772,11 @@ final class Screen {
 
 			<?php
 			foreach ( $this->get_content_tabs() as $tab ) :
+
+				if ( true == $tab['hide-if-no-js'] ) {
+					$content_class .= ' hide-if-no-js';
+				}
+
 
 				if ( current_user_can( $tab['capability'] ) ) :
 
