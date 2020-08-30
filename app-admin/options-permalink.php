@@ -20,12 +20,13 @@ if ( ! current_user_can( 'manage_options' ) ) {
 }
 
 // Instance of the general settings class.
-$class = Backend\Settings_Permalinks :: instance();
+$page = Backend\Settings_Permalinks :: instance();
 
 // Page identification.
-$parent_file = $class->parent;
-$title       = $class->title();
-$description = $class->description();
+$parent_file = $page->parent;
+$screen      = $page->screen();
+$title       = $page->title();
+$description = $page->description();
 
 $home_path           = get_home_path();
 $iis7_permalinks     = iis7_supports_permalinks();
@@ -321,7 +322,7 @@ include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 		</div><!-- .app-tabs -->
 
-		<?php submit_button( $class->submit ); ?>
+		<?php submit_button( $page->submit ); ?>
 
 	</form>
 

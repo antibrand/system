@@ -20,12 +20,13 @@ if ( ! current_user_can( 'manage_options' ) ) {
 }
 
 // Instance of the general settings class.
-$class = Backend\Settings_Discussion :: instance();
+$page = Backend\Settings_Discussion :: instance();
 
 // Page identification.
-$parent_file = $class->parent;
-$title       = $class->title();
-$description = $class->description();
+$parent_file = $page->parent;
+$screen      = $page->screen();
+$title       = $page->title();
+$description = $page->description();
 
 // Get the admin page header.
 include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
@@ -36,7 +37,7 @@ include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 	<h1><?php echo esc_html( $title ); ?></h1>
 	<?php echo $description; ?>
 
-	<?php $class->render_form(); ?>
+	<?php $page->render_form(); ?>
 
 </div><!-- .wrap -->
 <?php
