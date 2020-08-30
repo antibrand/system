@@ -73,6 +73,9 @@ class Admin_Screen {
 		// Print page scripts to head.
 		add_action( 'admin_head', [ $this, 'parent_print_scripts' ] );
 
+		// Add screen options.
+		add_action( 'admin_head', [ $this, 'screen_options' ] );
+
 		// Render tabbed content.
 		add_action( 'render_screen_tabs', [ $this, 'render_tabs' ] );
 
@@ -150,6 +153,18 @@ class Admin_Screen {
 	public function parent_print_scripts() {
 
 		// Print scripts
+	}
+
+	/**
+	 * Screen options
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function screen_options() {
+
+		// add_screen_option();
 	}
 
 	/**
