@@ -328,7 +328,8 @@ final class Functions {
 		register_nav_menus( [
 			'main'   => __( 'Main Menu', 'antibrand' ),
 			'footer' => __( 'Footer Menu', 'antibrand' ),
-			'social' => __( 'Social Menu', 'antibrand' )
+			'social' => __( 'Social Menu', 'antibrand' ),
+			'admin'  => __( 'Admin Header Menu', 'antibrand' )
 		] );
 
 		/**

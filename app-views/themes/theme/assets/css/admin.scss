@@ -1,6 +1,14 @@
 @import 'modules/_colors';
 @import 'partials/_typography';
+@import 'partials/_header';
+@import 'partials/_navigation';
 
 .theme-info-page {
 	max-width: 640px;
+}
+
+.main-navigation,
+.site-identity {
+	padding-left: 2rem;
+	padding-right: 2rem;
 }
