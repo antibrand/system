@@ -6,6 +6,7 @@
  * @subpackage Administration
  */
 
+// Alias namespaces.
 use \AppNamespace\Backend as Backend;
 
 // Get the system environment constants from the root directory.
@@ -21,40 +22,6 @@ $dashboard = Backend\Dashboard :: instance();
 $parent_file = $dashboard->parent;
 $title       = $dashboard->title();
 $description = $dashboard->description();
-
-// Script for media uploads.
-if ( current_user_can( 'upload_files' ) ) {
-	wp_enqueue_script( 'media-upload' );
-}
-
-// Script for modal content.
-add_thickbox();
-
-// Script for mobile devices.
-if ( wp_is_mobile() ) {
-	wp_enqueue_script( 'jquery-touch-punch' );
-}
-
-// User option for layout in the widgets tab.
-if ( is_user_admin() ) {
-
-	add_screen_option(
-		'layout_columns',
-		[
-			'max'     => 4,
-			'default' => 3
-		]
-	);
-
-} else {
-	add_screen_option(
-		'layout_columns',
-		[
-			'max'     => 4,
-			'default' => 2
-		]
-	);
-}
 
 // Get the admin page header.
 include_once( APP_VIEWS_PATH . '/backend/header/admin-header.php' );

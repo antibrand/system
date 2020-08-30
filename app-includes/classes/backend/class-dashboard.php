@@ -56,9 +56,6 @@ class Dashboard extends Admin_Screen {
 		// Enqueue styles.
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_styles' ] );
 
-		// Add content to the tabbed section of the dashboard page.
-		// add_action( 'dashboard_top_panel', [ $this, 'tabs' ] );
-
 		// Add dashboard quota to the activity box.
 		add_action( 'activity_box_end', [ $this, 'dashboard_quota' ] );
 	}
@@ -74,6 +71,16 @@ class Dashboard extends Admin_Screen {
 
 		// Script for AJAX, drag & drop, show/hide.
 		wp_enqueue_script( 'dashboard' );
+
+		// Script for media uploads.
+		if ( current_user_can( 'upload_files' ) ) {
+			wp_enqueue_script( 'media-upload' );
+		}
+
+		// Script for mobile devices.
+		if ( wp_is_mobile() ) {
+			wp_enqueue_script( 'jquery-touch-punch' );
+		}
 	}
 
 	/**
@@ -103,6 +110,35 @@ class Dashboard extends Admin_Screen {
 		$file = $direction . $minify;
 
 		wp_enqueue_style( 'dashboard', app_assets_url( "/css/admin/screens/dashboard$file.css" ), [ 'admin' ], null, 'all' );
+	}
+
+	/**
+	 * Screen options
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function screen_options() {
+
+		// User option for layout in the widgets tab.
+		if ( is_user_admin() ) {
+			add_screen_option(
+				'layout_columns',
+				[
+					'max'     => 4,
+					'default' => 3
+				]
+			);
+		} else {
+			add_screen_option(
+				'layout_columns',
+				[
+					'max'     => 4,
+					'default' => 2
+				]
+			);
+		}
 	}
 
 	/**
@@ -495,9 +531,7 @@ class Dashboard extends Admin_Screen {
 
 	?>
 		<h3><?php _e( 'Sample Dashboard Widget #1' ); ?></h3>
-
 		<p><?php _e( 'Using this for testing while the system is in development.' ); ?></p>
-
 		<p><?php _e( 'This may be retained to aid in development of forks.' ); ?></p>
 	<?php
 	}
@@ -506,9 +540,7 @@ class Dashboard extends Admin_Screen {
 
 	?>
 		<h3><?php _e( 'Sample Dashboard Widget #2' ); ?></h3>
-
 		<p><?php _e( 'Using this for testing while the system is in development.' ); ?></p>
-
 		<p><?php _e( 'This may be retained to aid in development of forks.' ); ?></p>
 	<?php
 	}
@@ -528,14 +560,12 @@ class Dashboard extends Admin_Screen {
 		<div class="tab-section-wrap tab-section-wrap__dashboard">
 
 			<section class="tab-section tab-section-dashboard tab-section__system-overview">
-
 				<?php
 
 				// Include the system overview.
 				$this->system_overview();
 				?>
 			</section>
-
 			<section class="tab-section tab-section-dashboard tab-section__dashboard-content">
 
 				<h3><?php _e( 'Content' ); ?></h3>
