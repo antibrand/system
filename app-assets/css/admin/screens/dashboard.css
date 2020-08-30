@@ -172,6 +172,31 @@
   line-height: 1.2;
 }
 
+.quick-draft-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.quick-draft-form section:not(:first-of-type) {
+  margin-left: 2rem;
+}
+
+@media screen and (max-width: 782px) {
+  .quick-draft-form section:not(:first-of-type) {
+    margin: 3rem 0 0 0;
+  }
+}
+
+@media screen and (max-width: 782px) {
+  .quick-draft-form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 #tab-panel-draftposts .app-tab-content-inner {
   display: -webkit-box;
   display: -ms-flexbox;

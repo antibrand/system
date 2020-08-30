@@ -170,6 +170,24 @@
 	}
 }
 
+.quick-draft-form {
+	display: flex;
+
+	section {
+		&:not(:first-of-type) {
+			margin-left: 2rem;
+
+			@media screen and (max-width: 782px) {
+				margin: 3rem 0 0 0;
+			}
+		}
+	}
+
+	@media screen and (max-width: 782px) {
+		flex-direction: column;
+	}
+}
+
 #tab-panel-draftposts {
 
 	.app-tab-content-inner {
