@@ -827,6 +827,11 @@ body.mobile.modal-open .admin-page-wrap {
   }
 }
 
+.site-header.backend-site-header .site-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .site-header.backend-site-header .site-description {
   margin: 0;
   font-size: 1rem;

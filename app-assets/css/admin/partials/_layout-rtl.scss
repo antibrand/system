@@ -85,6 +85,11 @@ body {
 			@supports ( font-variation-settings: normal ) {
 				font-weight: 650;
 			}
+
+			a {
+				color: inherit;
+				text-decoration: none;
+			}
 		}
 
 		.site-description {

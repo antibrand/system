@@ -8,6 +8,8 @@
 
 ?>
 <header class="site-header backend-site-header">
-	<p class="site-title backend-site-title"><?php echo get_bloginfo( 'name' ); ?></p>
+	<p class="site-title backend-site-title">
+		<a href="<?php echo esc_url( site_url() ); ?>"><?php echo get_bloginfo( 'name' ); ?></a>
+	</p>
 	<p class="site-description backend-site-description"><?php echo get_bloginfo( 'description' ); ?></p>
 </header>
