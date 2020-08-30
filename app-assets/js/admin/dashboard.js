@@ -77,7 +77,7 @@ jQuery(document).ready( function($) {
 
 			$.post( t.attr( 'action' ), t.serializeArray(), function( data ) {
 				// Replace the form, and prepend the published post.
-				$('#drafts').html( data );
+				$('#quick-draft').html( data );
 				$('#quick-draft').removeClass('initial-form');
 				quickDraftLoad();
 				highlightLatestPost();
