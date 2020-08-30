@@ -35,6 +35,15 @@ class Admin_Sample extends Admin_Screen {
 	public $parent = '';
 
 	/**
+	 * Page title
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @var    string
+	 */
+	public $title = '';
+
+	/**
 	 * Page description
 	 *
 	 * @since 1.0.0
