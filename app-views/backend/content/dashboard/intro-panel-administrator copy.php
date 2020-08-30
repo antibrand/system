@@ -6,6 +6,7 @@
  * @subpackage Administration
  */
 
+// Alias namespaces.
 use \AppNamespace\Backend\Dashboard as Dashboard;
 
 // App version.

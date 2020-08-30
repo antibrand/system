@@ -8,6 +8,7 @@
  * @package App_Package
  */
 
+// Alias namespaces.
 use \AppNamespace\Includes as Includes;
 
 // Make sure that the website management system bootstrap has run before continuing.

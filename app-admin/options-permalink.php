@@ -6,6 +6,7 @@
  * @subpackage Administration
  */
 
+// Alias namespaces.
 use \AppNamespace\Backend as Backend;
 
 // Get the system environment constants from the root directory.

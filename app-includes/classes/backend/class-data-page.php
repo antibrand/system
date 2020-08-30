@@ -9,6 +9,7 @@
 
 namespace AppNamespace\Backend;
 
+// Alias namespaces.
 use \AppNamespace\Includes as Includes;
 
 /**

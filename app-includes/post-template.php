@@ -8,6 +8,7 @@
  * @subpackage Template
  */
 
+// Alias namespaces.
 use \AppNamespace\Includes as Includes;
 
 /**

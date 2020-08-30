@@ -6,6 +6,7 @@
  * @package App_Package
  */
 
+// Alias namespaces.
 use \AppNamespace\Includes as Includes;
 
 // Define the application name.

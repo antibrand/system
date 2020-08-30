@@ -26,6 +26,7 @@ if ( false ) {
 return;
 }
 
+// Alias namespaces.
 use \AppNamespace\Includes as Includes;
 
 /**

@@ -6,6 +6,7 @@
  * @subpackage Users
  */
 
+// Alias namespaces.
 use \AppNamespace\Includes as Includes;
 
 /**

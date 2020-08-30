@@ -9,6 +9,7 @@
 
 namespace AppNamespace\Network;
 
+// Alias namespaces.
 use \AppNamespace\Backend as Backend;
 
 /**

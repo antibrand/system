@@ -9,14 +9,7 @@
 
 namespace AppNamespace\Backend;
 
-/**
- * Alias namespaces
- *
- * Make sure the namespaces here are the same base as that
- * used in your copy of this website management system.
- *
- * @since 1.0.0
- */
+// Alias namespaces.
 use \AppNamespace\Includes as Includes;
 
 /**

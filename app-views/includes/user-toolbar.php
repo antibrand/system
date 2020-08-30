@@ -9,6 +9,7 @@
  * @since Previous 3.1.0
  */
 
+// Alias namespaces.
 use \AppNamespace\Includes as Includes;
 
 /**
