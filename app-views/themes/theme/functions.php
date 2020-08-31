@@ -455,7 +455,7 @@ final class Functions {
 		wp_enqueue_script( 'jquery' );
 
 		// Navigation toggle and dropdown.
-		wp_enqueue_script( 'test-navigation', get_theme_file_uri( '/assets/js/navigation.min.js' ), [], null, true );
+		wp_enqueue_script( 'theme-navigation', get_theme_file_uri( '/assets/js/navigation.min.js' ), [], null, true );
 
 		// Skip link focus, for accessibility.
 		wp_enqueue_script( 'antibrand-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix.min.js' ), [], null, true );
@@ -478,7 +478,11 @@ final class Functions {
 	 * @access public
 	 * @return void
 	 */
-	public function admin_scripts() {}
+	public function admin_scripts() {
+
+		// Navigation toggle and dropdown.
+		wp_enqueue_script( 'theme-navigation', get_theme_file_uri( '/assets/js/navigation.min.js' ), [], null, true );
+	}
 
 	/**
 	 * Frontend styles
