@@ -41,55 +41,53 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 				</div>
 				<?php endif; ?>
-				<div id="namediv" class="stuffbox">
 
-					<div class="inside">
-						<fieldset>
+				<h2><?php _e( 'Author' ); ?></h2>
 
-							<legend class="edit-comment-author"><?php _e( 'Author' ) ?></legend>
+				<fieldset>
 
-							<table class="form-table editcomment">
-								<tbody>
-									<tr>
-										<td class="first"><label for="name"><?php _e( 'Name:' ); ?></label></td>
-										<td><input type="text" name="newcomment_author" size="30" value="<?php echo esc_attr( $comment->comment_author ); ?>" id="name" /></td>
-									</tr>
-									<tr>
-										<td class="first"><label for="email"><?php _e( 'Email:' ); ?></label></td>
-										<td>
-											<input type="text" name="newcomment_author_email" size="30" value="<?php echo $comment->comment_author_email; ?>" id="email" />
-										</td>
-									</tr>
-									<tr>
-										<td class="first"><label for="newcomment_author_url"><?php _e( 'URL:' ); ?></label></td>
-										<td>
-											<input type="text" id="newcomment_author_url" name="newcomment_author_url" size="30" class="code" value="<?php echo esc_attr( $comment->comment_author_url ); ?>" />
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</fieldset>
-					</div>
-				</div>
+					<legend class="edit-comment-author screen-reader-text"><?php _e( 'Author' ); ?></legend>
 
-				<div id="postdiv" class="postarea">
+					<table class="form-table editcomment">
+						<tbody>
+							<tr>
+								<td class="first"><label for="name"><?php _e( 'Name:' ); ?></label></td>
+								<td><input type="text" name="newcomment_author" size="30" value="<?php echo esc_attr( $comment->comment_author ); ?>" id="name" /></td>
+							</tr>
+							<tr>
+								<td class="first"><label for="email"><?php _e( 'Email:' ); ?></label></td>
+								<td>
+									<input type="text" name="newcomment_author_email" size="30" value="<?php echo $comment->comment_author_email; ?>" id="email" />
+								</td>
+							</tr>
+							<tr>
+								<td class="first"><label for="newcomment_author_url"><?php _e( 'URL:' ); ?></label></td>
+								<td>
+									<input type="text" id="newcomment_author_url" name="newcomment_author_url" size="30" class="code" value="<?php echo esc_attr( $comment->comment_author_url ); ?>" />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</fieldset>
+
+				<h2><?php _e( 'Comment' ); ?></h2>
+
 				<?php
-					echo '<label for="content" class="screen-reader-text">' . __( 'Comment' ) . '</label>';
+				echo '<label for="content" class="screen-reader-text">' . __( 'Comment' ) . '</label>';
 
-					$quicktags_settings = [ 'buttons' => 'strong,em,link,block,del,ins,img,ul,ol,li,code,close' ];
+				$quicktags_settings = [ 'buttons' => 'strong,em,link,block,del,ins,img,ul,ol,li,code,close' ];
 
-					wp_editor(
-						$comment->comment_content,
-						'content',
-						[
-							'media_buttons' => false,
-							'tinymce'       => false,
-							'quicktags'     => $quicktags_settings
-						]
-					);
+				wp_editor(
+					$comment->comment_content,
+					'content',
+					[
+						'media_buttons' => false,
+						'tinymce'       => false,
+						'quicktags'     => $quicktags_settings
+					]
+				);
 
-					wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false ); ?>
-				</div>
+				wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false ); ?>
 			</div><!-- /post-body-content -->
 
 			<div id="postbox-container-1" class="postbox-container">

@@ -4961,39 +4961,12 @@ body.iframe {
   margin-bottom: 1em;
 }
 
-#post-body #post-body-content #namediv h3,
-#post-body #post-body-content #namediv h2 {
-  margin-top: 0;
-}
-
 .edit-comment-author {
   font-size: 14px;
   line-height: 1.4;
   font-weight: 600;
   color: #222;
   margin: 2px 9px 0 0;
-}
-
-#namediv h3 label,
-#namediv h2 label {
-  vertical-align: baseline;
-}
-
-#namediv table {
-  width: 100%;
-}
-
-#namediv td.first {
-  width: 10px;
-  white-space: nowrap;
-}
-
-#namediv input {
-  width: 98%;
-}
-
-#namediv p {
-  margin: 10px 0;
 }
 
 #submitdiv h3 {
