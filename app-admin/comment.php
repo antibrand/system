@@ -31,12 +31,6 @@ switch( $action ) {
 
 	case 'editcomment' :
 
-		// Add help tabs.
-		$page->edit_help();
-
-		// Enqueue comment script.
-		wp_enqueue_script( 'comment' );
-
 		// Get the admin page header.
 		include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 

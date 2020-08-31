@@ -71,8 +71,8 @@ class Admin_Comment extends Admin_Screen {
 		// Comment form actions.
 		$this->action();
 
-		// Empty help method.
-		$this->help();
+		// Enqueue scripts.
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 	}
 
 	/**
@@ -157,6 +157,27 @@ class Admin_Comment extends Admin_Screen {
 	}
 
 	/**
+	 * Enqueue scripts
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function enqueue_scripts() {
+
+		// Comment form actions.
+		$action = $this->action();
+
+		switch( $action ) {
+			case 'editcomment' :
+
+				// Enqueue comment edit script.
+				wp_enqueue_script( 'comment' );
+			break;
+		}
+	}
+
+	/**
 	 * Tabbed content
 	 *
 	 * Add content to the tabbed section of the page.
@@ -203,14 +224,21 @@ class Admin_Comment extends Admin_Screen {
 	/**
 	 * Remove help content
 	 *
-	 * This empty method negates the overview tab
-	 * of the parent class.
-	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @return void
 	 */
 	public function help() {
+
+		// Comment form actions.
+		$action = $this->action();
+
+		switch( $action ) {
+			case 'editcomment' :
+				$this->edit_help();
+			break;
+		}
+
 		return null;
 	}
 
