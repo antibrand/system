@@ -35,6 +35,24 @@ class List_Manage_Screen extends Admin_Screen {
 	protected function __construct() {
 
 		parent :: __construct();
+
+		// Edit capabilities.
+		$this->die();
+	}
+
+	/**
+	 * Edit capabilities
+	 *
+	 * Messages if the edit request cannot
+	 * be fulfilled.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the die() message.
+	 */
+	public function die() {
+
+		// wp_die( $message )
 	}
 
 	/**
