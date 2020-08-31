@@ -6,53 +6,35 @@
  * @subpackage Administration
  */
 
+// Alias namespaces.
+use \AppNamespace\Backend as Backend;
+
 // Get the system environment constants from the root directory.
 require_once( dirname( dirname( __FILE__ ) ) . '/app-environment.php' );
 
 // Load the administration environment.
 require_once( APP_INC_PATH . '/backend/app-admin.php' );
 
-$parent_file  = 'edit-comments.php';
-$submenu_file = 'edit-comments.php';
+// Instance of the page class.
+$page = Backend\Admin_Comment :: instance();
 
-global $action;
+// Page identification.
+$parent_file  = $page->parent;
+$submenu_file = $page->submenu;
+$screen       = $page->screen();
+$title        = $page->title();
 
-wp_reset_vars( array( 'action' ) );
-
-if ( isset( $_POST['deletecomment'] ) ) {
-	$action = 'deletecomment';
-}
-
-if ( 'cdc' == $action ) {
-	$action = 'delete';
-} elseif ( 'mac' == $action ) {
-	$action = 'approve';
-}
-
-if ( isset( $_GET['dt'] ) ) {
-	if ( 'spam' == $_GET['dt'] ) {
-		$action = 'spam';
-	} elseif ( 'trash' == $_GET['dt'] ) {
-		$action = 'trash';
-	}
-}
+// Comment form actions.
+$action = $page->action();
 
 switch( $action ) {
 
 	case 'editcomment' :
 
-		$title = __( 'Edit Comment' );
+		// Add help tabs.
+		$page->edit_help();
 
-		get_current_screen()->add_help_tab( [
-			'id'      => 'overview',
-			'title'   => __( 'Overview' ),
-			'content' =>
-				'<p>' . __( 'You can edit the information left in a comment if needed. This is often useful when you notice that a commenter has made a typographical error.' ) . '</p>' .
-				'<p>' . __( 'You can also moderate the comment from this screen using the Status box, where you can also change the timestamp of the comment.' ) . '</p>'
-		] );
-
-		get_current_screen()->set_help_sidebar( '' );
-
+		// Enqueue comment script.
 		wp_enqueue_script( 'comment' );
 
 		// Get the admin page header.
@@ -83,8 +65,6 @@ switch( $action ) {
 	case 'trash'   :
 	case 'spam'    :
 
-		$title = __( 'Moderate Comment' );
-
 		$comment_id = absint( $_GET['c'] );
 
 		if ( ! $comment = get_comment( $comment_id ) ) {
@@ -113,37 +93,29 @@ switch( $action ) {
 	?>
 	<div class="wrap">
 
-		<h1><?php echo esc_html( $title ); ?></h1>
+		<h1><?php echo $title; ?></h1>
 
 		<?php
 		switch ( $action ) {
 
 			case 'spam' :
-
 				$caution_msg = __( 'You are about to mark the following comment as spam:' );
 				$button      = _x( 'Mark as Spam', 'comment' );
-
 				break;
 
 			case 'trash' :
-
 				$caution_msg = __( 'You are about to move the following comment to the Trash:' );
 				$button      = __( 'Move to Trash' );
-
 				break;
 
 			case 'delete' :
-
 				$caution_msg = __( 'You are about to delete the following comment:' );
 				$button      = __( 'Permanently Delete Comment' );
-
 				break;
 
 			default :
-
 				$caution_msg = __( 'You are about to approve the following comment:' );
 				$button      = __( 'Approve Comment' );
-
 				break;
 		}
 
@@ -200,18 +172,24 @@ switch( $action ) {
 				<td>
 				<?php
 					$post_id = $comment->comment_post_ID;
+
 					if ( current_user_can( 'edit_post', $post_id ) ) {
+
 						$post_link = "<a href='" . esc_url( get_edit_post_link( $post_id ) ) . "'>";
 						$post_link .= esc_html( get_the_title( $post_id ) ) . '</a>';
+
 					} else {
 						$post_link = esc_html( get_the_title( $post_id ) );
 					}
+
 					echo $post_link;
 
 					if ( $comment->comment_parent ) {
+
 						$parent      = get_comment( $comment->comment_parent );
 						$parent_link = esc_url( get_comment_link( $parent ) );
 						$name        = get_comment_author( $parent );
+
 						printf(
 							' | ' . __( 'In reply to %s.' ),
 							'<a href="' . $parent_link . '">' . $name . '</a>'
@@ -228,6 +206,7 @@ switch( $action ) {
 						get_comment_date( __( 'Y/m/d' ), $comment ),
 						get_comment_date( __( 'g:i a' ), $comment )
 					);
+
 					if ( 'approved' === wp_get_comment_status( $comment ) && ! empty ( $comment->comment_post_ID ) ) {
 						echo '<a href="' . esc_url( get_comment_link( $comment ) ) . '">' . $submitted . '</a>';
 					} else {
@@ -318,52 +297,38 @@ switch( $action ) {
 		switch ( $action ) {
 
 			case 'deletecomment' :
-
 				wp_delete_comment( $comment );
-				$redir = add_query_arg( array( 'deleted' => '1' ), $redir );
-
+				$redir = add_query_arg( [ 'deleted' => '1' ], $redir );
 				break;
 
 			case 'trashcomment' :
-
 				wp_trash_comment( $comment );
-				$redir = add_query_arg( array( 'trashed' => '1', 'ids' => $comment_id), $redir );
-
+				$redir = add_query_arg( [ 'trashed' => '1', 'ids' => $comment_id ], $redir );
 				break;
 
 			case 'untrashcomment' :
-
 				wp_untrash_comment( $comment );
-				$redir = add_query_arg( array( 'untrashed' => '1' ), $redir );
-
+				$redir = add_query_arg( [ 'untrashed' => '1' ], $redir );
 				break;
 
 			case 'spamcomment' :
-
 				wp_spam_comment( $comment );
-				$redir = add_query_arg( array( 'spammed' => '1', 'ids' => $comment_id), $redir );
-
+				$redir = add_query_arg( [ 'spammed' => '1', 'ids' => $comment_id ], $redir );
 				break;
 
 			case 'unspamcomment' :
-
 				wp_unspam_comment( $comment );
-				$redir = add_query_arg( array( 'unspammed' => '1' ), $redir );
-
+				$redir = add_query_arg( [ 'unspammed' => '1' ], $redir );
 				break;
 
 			case 'approvecomment' :
-
 				wp_set_comment_status( $comment, 'approve' );
-				$redir = add_query_arg( array( 'approved' => 1 ), $redir );
-
+				$redir = add_query_arg( [ 'approved' => 1 ], $redir );
 				break;
 
 			case 'unapprovecomment' :
-
 				wp_set_comment_status( $comment, 'hold' );
-				$redir = add_query_arg( array( 'unapproved' => 1 ), $redir );
-
+				$redir = add_query_arg( [ 'unapproved' => 1 ], $redir );
 				break;
 
 		} // End switch.
@@ -396,8 +361,20 @@ switch( $action ) {
 
 		exit();
 
-	default:
-		wp_die( __( 'Unknown action.' ) );
+	default :
+
+		$message = sprintf(
+			'<p>%1s</p>',
+			__( 'This comment action is unknown.' )
+		);
+
+		$message .= sprintf(
+			'<p><a class="button" href="%1s">%2s</a></p>',
+			esc_url( admin_url( 'edit-comments.php' ) ),
+			__( 'Manage Comments' )
+		);
+
+		wp_die( $message );
 
 } // End switch.
 

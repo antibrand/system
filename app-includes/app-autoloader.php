@@ -79,11 +79,14 @@ const APP_CLASSES = [
 	'AppNamespace\Backend\Screen' => __DIR__ . '/classes/backend/class-screen.php',
 
 	// Dashboard screens.
-	'AppNamespace\Backend\Dashboard' => __DIR__ . '/classes/backend/class-dashboard.php',
+	'AppNamespace\Backend\Dashboard' => __DIR__ . '/classes/backend/class-admin-dashboard.php',
 
 	// General and/or multi-purpose screens.
 	'AppNamespace\Backend\Admin_Screen' => __DIR__ . '/classes/backend/class-admin-screen.php',
 	'AppNamespace\Backend\Admin_About'  => __DIR__ . '/classes/backend/class-admin-about.php',
+
+	// Post & discussion screens.
+	'AppNamespace\Backend\Admin_Comment' => __DIR__ . '/classes/backend/class-admin-comment.php',
 
 	// List management screens.
 	'AppNamespace\Backend\List_Manage_Screen' => __DIR__ . '/classes/backend/class-list-manage-screen.php',
