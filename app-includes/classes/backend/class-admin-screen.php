@@ -41,6 +41,15 @@ class Admin_Screen {
 	public $parent = '';
 
 	/**
+	 * Submenu file
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @var    string
+	 */
+	public $submenu = '';
+
+	/**
 	 * Page title
 	 *
 	 * @since  1.0.0
