@@ -27,7 +27,6 @@ $description = $page->description();
 // Get the admin page header.
 include_once( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
-// Begin page content.
 ?>
 	<div class="wrap">
 
@@ -36,61 +35,23 @@ include_once( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 		<div id="dashboard-tabs">
 			<?php
-
 			// Tabbed content.
-			echo get_current_screen()->render_content_tabs();
-
-			?>
+			echo get_current_screen()->render_content_tabs(); ?>
 		</div>
-
-	<?php
-
-		if ( has_action( 'dashboard_add_content' ) || has_action( 'welcome_panel' ) ) :
-
-			// Get the user preference.
-			$option  = get_user_meta( get_current_user_id(), 'show_top_panel', true );
-
-			// Top panel base class.
-			$classes = 'dashboard-add-content';
-
+		<?php if ( has_action( 'dashboard_add_content' ) || has_action( 'welcome_panel' ) ) : ?>
+		<div id="dashboard-add-content" class="dashboard-add-content">
+			<?php
 			/**
-			 * Hidden class
+			 * Additional dashboard content
 			 *
-			 * Add `.hidden` class if the user wants to hide the top panel.
-			 * 0 = hide, 1 = toggled to show or single site creator, 2 = network site owner.
+			 * Plugins & themes may use this to add content below
+			 * the included top panel.
+			 *
+			 * @since 1.0.0
 			 */
-			$hide = '0' === $option || ( '2' === $option && wp_get_current_user()->user_email != get_option( 'admin_email' ) );
-
-			if ( $hide ) {
-				$classes .= ' hidden';
-			}
-
-			?>
-			<div id="top-panel" class="<?php echo esc_attr( $classes ); ?>">
-				<?php
-
-				// User display preference nonce for the top panel.
-				wp_nonce_field( 'top-panel-nonce', 'toppanelnonce', false );
-				/**
-				 * Additional dashboard content
-				 *
-				 * Plugins & themes may use this to add content below
-				 * the included top panel.
-				 *
-				 * @since 1.0.0
-				 */
-				// do_action( 'dashboard_add_content' );
-
-				/**
-				 * Deprecated hook
-				 *
-				 * @since      WP 3.5.0
-				 * @deprecated 1.0.0 Not used by this website management system.
-				 */
-				do_action( 'welcome_panel' );
-				?>
-			</div>
-		<?php endif; ?>
+			do_action( 'dashboard_add_content' ); ?>
+		</div>
+		<?php endif; // End if has action. ?>
 	</div><!-- .wrap -->
 <?php
 
