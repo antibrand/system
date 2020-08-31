@@ -41,6 +41,30 @@ class List_Manage_Screen extends Admin_Screen {
 	}
 
 	/**
+	 * Enqueue scripts
+	 *
+	 * This is for scripts that shall not be
+	 * overridden by class extension. Specific
+	 * screens should use enqueue_scripts() to
+	 * enqueue scripts for its screen.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function parent_enqueue_scripts() {
+
+		// System heartbeat.
+		wp_enqueue_script( 'heartbeat' );
+
+		// Script for tabbed content.
+		wp_enqueue_script( 'app-tabs' );
+
+		// Inline ("Quick") edit.
+		wp_enqueue_script( 'inline-edit-post' );
+	}
+
+	/**
 	 * Edit capabilities
 	 *
 	 * Messages if the edit request cannot
