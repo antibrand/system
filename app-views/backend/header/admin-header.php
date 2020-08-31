@@ -18,7 +18,7 @@ if ( ! defined( 'APP_ADMIN' ) ) {
  *
  * @global string    $title
  * @global string    $hook_suffix
- * @global WP_Screen $current_screen
+ * @global Screen $current_screen
  * @global WP_Locale $wp_locale
  * @global string    $pagenow
  * @global string    $update_title

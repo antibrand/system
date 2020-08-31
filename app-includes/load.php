@@ -725,7 +725,7 @@ function wp_clone( $object ) {
  *
  * @since 1.5.1
  *
- * @global WP_Screen $current_screen
+ * @global Screen $current_screen
  *
  * @return bool True if inside the administration interface, false otherwise.
  */
@@ -748,7 +748,7 @@ function is_admin() {
  *
  * @since 3.1.0
  *
- * @global WP_Screen $current_screen
+ * @global Screen $current_screen
  *
  * @return bool True if inside the blog administration pages.
  */
@@ -771,7 +771,7 @@ function is_blog_admin() {
  *
  * @since 3.1.0
  *
- * @global WP_Screen $current_screen
+ * @global Screen $current_screen
  *
  * @return bool True if inside the network administration pages.
  */
@@ -795,7 +795,7 @@ function is_network_admin() {
  *
  * @since 3.1.0
  *
- * @global WP_Screen $current_screen
+ * @global Screen $current_screen
  *
  * @return bool True if inside the user administration pages.
  */

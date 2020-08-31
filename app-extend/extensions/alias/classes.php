@@ -38,7 +38,7 @@ use \AppNamespace\Network  as Network;
 \class_alias( Includes\Site_Icon :: class, \WP_Site_Icon :: class );
 
 // Screens.
-\class_alias( Backend\Screen :: class, \WP_Screen :: class );
+\class_alias( Backend\Screen :: class, \Screen :: class );
 
 // List tables.
 \class_alias( Backend\List_Table          :: class, \WP_List_Table :: class );

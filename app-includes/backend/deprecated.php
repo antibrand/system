@@ -808,8 +808,8 @@ function wp_quicktags() {
  * Returns the screen layout options.
  *
  * @since 2.8.0
- * @deprecated 3.3.0 WP_Screen::render_screen_layout()
- * @see WP_Screen::render_screen_layout()
+ * @deprecated 3.3.0 Screen::render_screen_layout()
+ * @see Screen::render_screen_layout()
  */
 function screen_layout( $screen ) {
 	_deprecated_function( __FUNCTION__, '3.3.0', '$current_screen->render_screen_layout()' );
@@ -828,8 +828,8 @@ function screen_layout( $screen ) {
  * Returns the screen's per-page options.
  *
  * @since 2.8.0
- * @deprecated 3.3.0 Use WP_Screen::render_per_page_options()
- * @see WP_Screen::render_per_page_options()
+ * @deprecated 3.3.0 Use Screen::render_per_page_options()
+ * @see Screen::render_per_page_options()
  */
 function screen_options( $screen ) {
 	_deprecated_function( __FUNCTION__, '3.3.0', '$current_screen->render_per_page_options()' );
@@ -848,8 +848,8 @@ function screen_options( $screen ) {
  * Renders the screen's help.
  *
  * @since 2.7.0
- * @deprecated 3.3.0 Use WP_Screen::render_screen_meta()
- * @see WP_Screen::render_screen_meta()
+ * @deprecated 3.3.0 Use Screen::render_screen_meta()
+ * @see Screen::render_screen_meta()
  */
 function screen_meta( $screen ) {
 	$current_screen = get_current_screen();
@@ -977,8 +977,8 @@ function type_url_form_file() {
  * Creates an 'Overview' help tab.
  *
  * @since 2.7.0
- * @deprecated 3.3.0 Use WP_Screen::add_help_tab()
- * @see WP_Screen::add_help_tab()
+ * @deprecated 3.3.0 Use Screen::add_help_tab()
+ * @see Screen::add_help_tab()
  *
  * @param string    $screen The handle for the screen to add help to. This is usually the hook name returned by the add_*_page() functions.
  * @param string    $help   The content of an 'Overview' help tab.
