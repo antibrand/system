@@ -8,7 +8,7 @@
  * @subpackage Administration/Backend
  * @since 1.0.0
  *
- * For screen requiring form subbmission extend
+ * For screens requiring form subbmission extend
  * the `Settings_Screen` class.
  *
  * @see APP_INC_PATH/classes/backend/class-settings-screen.php
