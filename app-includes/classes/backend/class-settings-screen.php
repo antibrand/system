@@ -5,7 +5,7 @@
  * Bootstrap for settings & forms pages.
  *
  * @package App_Package
- * @subpackage Administration/Backend
+ * @subpackage Classes/Backend
  * @since 1.0.0
  */
 

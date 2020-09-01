@@ -11,7 +11,7 @@
  * @todo Remove the help tabs added here if they cannot be used.
  *
  * @package App_Package
- * @subpackage Administration/Backend
+ * @subpackage Classes/Backend
  */
 
 namespace AppNamespace\Backend;

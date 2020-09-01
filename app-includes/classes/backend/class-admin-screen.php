@@ -4,14 +4,12 @@
  *
  * Bootstrap for administration pages.
  *
+ * This is a parent class for several screen type classes
+ * which in turn are parent to specific screen classes.
+ *
  * @package App_Package
- * @subpackage Administration/Backend
+ * @subpackage Classes/Backend
  * @since 1.0.0
- *
- * For screens requiring form subbmission extend
- * the `Settings_Screen` class.
- *
- * @see APP_INC_PATH/classes/backend/class-settings-screen.php
  */
 
 namespace AppNamespace\Backend;

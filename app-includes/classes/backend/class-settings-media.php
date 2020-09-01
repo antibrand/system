@@ -3,7 +3,7 @@
  * Media settings screen class
  *
  * @package App_Package
- * @subpackage Administration/Backend
+ * @subpackage Classes/Backend
  */
 
 namespace AppNamespace\Backend;
