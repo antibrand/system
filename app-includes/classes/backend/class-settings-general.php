@@ -57,9 +57,6 @@ class Settings_General extends Settings_Screen {
 	public function __construct() {
 
 		parent :: __construct();
-
-		// Print page scripts to head.
-		add_action( 'admin_head', [ $this, 'child_print_scripts' ] );
 	}
 
 	/**
@@ -103,7 +100,7 @@ class Settings_General extends Settings_Screen {
 	 * @access public
 	 * @return string Returns the script markup.
 	 */
-	function child_print_scripts() {
+	function print_scripts() {
 
 		/**
 		 * Print unminified script if in development mode

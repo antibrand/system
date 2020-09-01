@@ -50,12 +50,6 @@ class Dashboard extends Admin_Screen {
 		// Run the parent constructor method.
 		parent :: __construct();
 
-		// Enqueue scripts.
-		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
-
-		// Enqueue styles.
-		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_styles' ] );
-
 		// Add dashboard quota to the activity box.
 		add_action( 'activity_box_end', [ $this, 'dashboard_quota' ] );
 	}

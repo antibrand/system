@@ -80,9 +80,6 @@ class Settings_Discussion extends Settings_Screen {
 	protected function __construct() {
 
 		parent :: __construct();
-
-		// Print page scripts to head.
-		add_action( 'admin_head', [ $this, 'child_print_scripts' ] );
 	}
 
 	/**
@@ -92,7 +89,7 @@ class Settings_Discussion extends Settings_Screen {
 	 * @access public
 	 * @return string Returns the script markup.
 	 */
-	public function child_print_scripts() {
+	public function print_scripts() {
 		?>
 			<script>
 			(function($){
