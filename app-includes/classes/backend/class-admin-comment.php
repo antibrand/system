@@ -67,9 +67,6 @@ class Admin_Comment extends Edit_Screen {
 
 		// Run the parent constructor method.
 		parent :: __construct();
-
-		// Enqueue scripts.
-		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 	}
 
 	/**
