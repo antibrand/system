@@ -80,20 +80,26 @@ class Admin_Screen {
 		// Enqueue page parent scripts.
 		add_action( 'admin_enqueue_scripts', [ $this, 'parent_enqueue_scripts' ] );
 
-		// Print page scripts to head.
+		// Print page parent scripts to head.
 		add_action( 'admin_head', [ $this, 'parent_print_scripts' ] );
 
 		// Enqueue page-specific scripts.
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 
+		// Print page-specific scripts to head.
+		add_action( 'admin_head', [ $this, 'print_scripts' ] );
+
 		// Enqueue page parent styles.
 		add_action( 'admin_enqueue_scripts', [ $this, 'parent_enqueue_styles' ] );
 
-		// Print page scripts to head.
+		// Print page parent styles to head.
 		add_action( 'admin_head', [ $this, 'parent_print_styles' ] );
 
 		// Enqueue page-specific styles.
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_styles' ] );
+
+		// Print page-specific styles to head.
+		add_action( 'admin_head', [ $this, 'print_styles' ] );
 
 		// Add screen options.
 		add_action( 'admin_head', [ $this, 'screen_options' ] );
@@ -207,6 +213,22 @@ class Admin_Screen {
 	}
 
 	/**
+	 * Print page-specific scripts
+	 *
+	 * This is for scripts that are
+	 * spefific to a screen class.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string
+	 */
+	public function print_scripts() {
+
+		// <script></script>
+		// file_get_contents();
+	}
+
+	/**
 	 * Enqueue page parent styles
 	 *
 	 * This is for styles that shall not be
@@ -254,6 +276,22 @@ class Admin_Screen {
 	public function enqueue_styles() {
 
 		// wp_enqueue_style();
+	}
+
+	/**
+	 * Print page-specific styles
+	 *
+	 * This is for styles that are
+	 * spefific to a screen class.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string
+	 */
+	public function print_styles() {
+
+		// <style></style>
+		// file_get_contents();
 	}
 
 	/**
