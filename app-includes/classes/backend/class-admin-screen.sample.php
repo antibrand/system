@@ -119,6 +119,36 @@ class Admin_Sample extends Admin_Screen {
 	}
 
 	/**
+	 * Enqueue page-specific scripts
+	 *
+	 * This is for scripts that are
+	 * spefific to a screen class.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function enqueue_scripts() {
+
+		// wp_enqueue_script();
+	}
+
+	/**
+	 * Enqueue page-specific styles
+	 *
+	 * This is for styles that are
+	 * spefific to a screen class.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function enqueue_styles() {
+
+		// wp_enqueue_style();
+	}
+
+	/**
 	 * Tabbed content
 	 *
 	 * Add content to the tabbed section of the page.
