@@ -77,17 +77,23 @@ class Admin_Screen {
 		// Get the current screen.
 		$this->screen();
 
-		// Enqueue page scripts.
+		// Enqueue page parent scripts.
 		add_action( 'admin_enqueue_scripts', [ $this, 'parent_enqueue_scripts' ] );
 
 		// Print page scripts to head.
 		add_action( 'admin_head', [ $this, 'parent_print_scripts' ] );
 
-		// Enqueue page scripts.
+		// Enqueue page-specific scripts.
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
+
+		// Enqueue page parent styles.
 		add_action( 'admin_enqueue_scripts', [ $this, 'parent_enqueue_styles' ] );
 
 		// Print page scripts to head.
 		add_action( 'admin_head', [ $this, 'parent_print_styles' ] );
+
+		// Enqueue page-specific styles.
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_styles' ] );
 
 		// Add screen options.
 		add_action( 'admin_head', [ $this, 'screen_options' ] );
@@ -150,7 +156,7 @@ class Admin_Screen {
 	}
 
 	/**
-	 * Enqueue scripts
+	 * Enqueue page parent scripts
 	 *
 	 * This is for scripts that shall not be
 	 * overridden by class extension. Specific
@@ -168,7 +174,7 @@ class Admin_Screen {
 	}
 
 	/**
-	 * Print scripts
+	 * Print page parent scripts
 	 *
 	 * This is for scripts that shall not be
 	 * overridden by class extension. Specific
@@ -186,7 +192,22 @@ class Admin_Screen {
 	}
 
 	/**
-	 * Enqueue styles
+	 * Enqueue page-specific scripts
+	 *
+	 * This is for scripts that are
+	 * spefific to a screen class.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function enqueue_scripts() {
+
+		// wp_enqueue_script();
+	}
+
+	/**
+	 * Enqueue page parent styles
 	 *
 	 * This is for styles that shall not be
 	 * overridden by class extension. Specific
@@ -199,11 +220,11 @@ class Admin_Screen {
 	 */
 	public function parent_enqueue_styles() {
 
-		// wp_enqueue_script();
+		// wp_enqueue_style();
 	}
 
 	/**
-	 * Print styles
+	 * Print page parent styles
 	 *
 	 * This is for styles that shall not be
 	 * overridden by class extension. Specific
@@ -218,6 +239,21 @@ class Admin_Screen {
 
 		// <style></style>
 		// file_get_contents();
+	}
+
+	/**
+	 * Enqueue page-specific styles
+	 *
+	 * This is for styles that are
+	 * spefific to a screen class.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function enqueue_styles() {
+
+		// wp_enqueue_style();
 	}
 
 	/**
