@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since  1.0.0
  * @access public
  */
-class Admin_Comment extends Admin_Screen {
+class Admin_Comment extends Edit_Screen {
 
 	/**
 	 * Page parent file
@@ -67,9 +67,6 @@ class Admin_Comment extends Admin_Screen {
 
 		// Run the parent constructor method.
 		parent :: __construct();
-
-		// Comment form actions.
-		$this->action();
 
 		// Enqueue scripts.
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
@@ -190,35 +187,26 @@ class Admin_Comment extends Admin_Screen {
 
 		$screen = get_current_screen();
 
-		// Sample tab.
-		$description = sprintf(
-			'<p class="description">%1s</p>',
-			__( 'This is a sample tab description.' )
-		);
 		$screen->add_content_tab( [
-			'id'         => $screen->id . '-sample',
+			'id'         => $screen->id . '-management',
 			'capability' => 'manage_options',
-			'tab'        => '',
+			'tab'        => 'Hello',
 			'icon'       => '',
 			'heading'    => '',
-			'content'    => '',
-			'callback'   => [ $this, 'sample' ]
+			'content'    => null,
+			'callback'   => [ $this, 'action_content' ]
 		] );
-		unset( $description );
 	}
 
 	/**
-	 * Sample tab callback
+	 * Introduction
 	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @return mixed Returns the markup of the tab content.
 	 */
-	public function sample() {
-
-		?>
-		<p><?php _e( 'Put section content here.' ); ?></p>
-		<?php
+	public function action_content() {
+		echo '<span style="color: red;">Hello.</span>';
 	}
 
 	/**

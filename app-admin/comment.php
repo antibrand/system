@@ -24,15 +24,23 @@ $submenu_file = $page->submenu;
 $screen       = $page->screen();
 $title        = $page->title();
 
+include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
+
+?>
+<div class="wrap">
+
+	<h1><?php echo esc_html( $title ); ?></h1>
+
+	<?php $page->render_tabs(); ?>
+
+<?php
+
 // Comment form actions.
 $action = $page->action();
 
 switch( $action ) {
 
 	case 'editcomment' :
-
-		// Get the admin page header.
-		include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 		$comment_id = absint( $_GET['c'] );
 
@@ -50,7 +58,7 @@ switch( $action ) {
 
 		$comment = get_comment_to_edit( $comment_id );
 
-		include( APP_ADMIN_PATH . '/edit-form-comment.php' );
+		include( APP_VIEWS_PATH . '/backend/content/edit-form-comment.php' );
 
 		break;
 
@@ -76,9 +84,6 @@ switch( $action ) {
 			wp_redirect( admin_url( 'edit-comments.php?same=' . $comment_id ) );
 			die();
 		}
-
-		// Get the admin page header.
-		include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 		$formaction    = $action . 'comment';
 		$nonce_action  = 'approve' == $action ? 'approve-comment_' : 'delete-comment_';
@@ -371,6 +376,10 @@ switch( $action ) {
 		wp_die( $message );
 
 } // End switch.
+
+?>
+</div><!-- End .wrap -->
+<?php
 
 // Get the admin page footer.
 include( APP_VIEWS_PATH . '/backend/footer/admin-footer.php' );
