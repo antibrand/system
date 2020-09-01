@@ -90,6 +90,7 @@ const APP_CLASSES = [
 
 	// List management screens.
 	'AppNamespace\Backend\List_Manage_Screen' => __DIR__ . '/classes/backend/class-list-manage-screen.php',
+	'AppNamespace\Backend\List_Manage_Edit'   => __DIR__ . '/classes/backend/class-list-manage-edit.php',
 
 	// Settings screens.
 	'AppNamespace\Backend\Settings_Screen'     => __DIR__ . '/classes/backend/class-settings-screen.php',
