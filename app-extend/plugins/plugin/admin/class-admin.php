@@ -13,7 +13,7 @@ namespace Plugin\Admin;
 use \AppNamespace\Backend as Backend;
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
@@ -75,7 +75,7 @@ class Admin {
 	private function dependencies() {}
 
 	/**
-	 * Class dashboard widgets
+	 * Dashboard widgets
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -90,8 +90,8 @@ class Admin {
 		// Instance of the Dashboard class.
 		$dashboard = new Backend\Dashboard;
 
-		$dashboard->add_dashboard_widget( 'demo_widget_one', __( 'Demo Widget One' ), [ $this, 'demo_dashboard_widget_one' ] );
-		$dashboard->add_dashboard_widget( 'demo_widget_two', __( 'Demo Widget Two' ), [ $this, 'demo_dashboard_widget_two' ] );
+		$dashboard->add_dashboard_widget( 'demo_widget_one', __( 'Demo Widget One', 'antibrand' ), [ $this, 'demo_dashboard_widget_one' ] );
+		$dashboard->add_dashboard_widget( 'demo_widget_two', __( 'Demo Widget Two', 'antibrand' ), [ $this, 'demo_dashboard_widget_two' ] );
 	}
 
 	/**
@@ -104,8 +104,8 @@ class Admin {
 	public function demo_dashboard_widget_one() {
 
 	?>
-		<h3><?php _e( 'Demo Dashboard Widget #1' ); ?></h3>
-		<p><?php _e( 'Demonstration widget added via plugin.' ); ?></p>
+		<h3><?php _e( 'Demo Dashboard Widget #1', 'antibrand' ); ?></h3>
+		<p><?php _e( 'Demonstration widget added via plugin.', 'antibrand' ); ?></p>
 	<?php
 	}
 
@@ -119,8 +119,8 @@ class Admin {
 	public function demo_dashboard_widget_two() {
 
 	?>
-		<h3><?php _e( 'Demo Dashboard Widget #2' ); ?></h3>
-		<p><?php _e( 'Demonstration widget added via plugin.' ); ?></p>
+		<h3><?php _e( 'Demo Dashboard Widget #2', 'antibrand' ); ?></h3>
+		<p><?php _e( 'Demonstration widget added via plugin.', 'antibrand' ); ?></p>
 	<?php
 	}
 
