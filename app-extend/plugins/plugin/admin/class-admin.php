@@ -75,7 +75,7 @@ class Admin {
 	private function dependencies() {}
 
 	/**
-	 * Class dependency files
+	 * Class dashboard widgets
 	 *
 	 * @since  1.0.0
 	 * @access public
