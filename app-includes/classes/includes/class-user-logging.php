@@ -58,14 +58,14 @@ class User_Logging {
 
 		$login_title = apply_filters( 'login_title_tag', $login_title );
 
-		// Get the identity image or white label logo.
+		// Get the identity image or white label icon.
 		$app_get_logo = app_assets_url( 'images/app-icon.png' );
 
-		// Conditional logo markup.
+		// Conditional icon markup.
 		if ( defined( 'APP_WEBSITE' ) && APP_WEBSITE ) {
 
 			$app_icon = sprintf(
-				'<a href="%1s"><img src="%2s" class="app-icon-image" alt="%3s" itemprop="logo" width="512" height="512"></a>',
+				'<a href="%1s"><img src="%2s" class="app-icon-image" alt="%3s" itemprop="image" width="512" height="512"></a>',
 				esc_url( APP_WEBSITE ),
 				esc_attr( $app_get_logo ),
 				esc_html( APP_NAME )
@@ -74,7 +74,7 @@ class User_Logging {
 		} else {
 
 			$app_icon = sprintf(
-				'<img src="%1s" class="app-icon-image" alt="%2s" itemprop="logo" width="512" height="512">',
+				'<img src="%1s" class="app-icon-image" alt="%2s" itemprop="image" width="512" height="512">',
 				esc_attr( $app_get_logo ),
 				esc_html( APP_NAME )
 			);
@@ -129,18 +129,18 @@ class User_Logging {
 			}
 
 			/**
-			 * Filters link URL of the header logo above login form.
+			 * Filters link URL of the header icon above login form.
 			 *
 			 * @since Previous 2.1.0
-			 * @param string $login_header_url Login header logo URL.
+			 * @param string $login_header_url Login header icon URL.
 			 */
 			$login_header_url = apply_filters( 'login_headerurl', $login_header_url );
 
 			/**
-			 * Filters the title attribute of the header logo above login form.
+			 * Filters the title attribute of the header icon above login form.
 			 *
 			 * @since Previous 2.1.0
-			 * @param string $login_header_title Login header logo title attribute.
+			 * @param string $login_header_title Login header icon title attribute.
 			 */
 			$login_header_title = apply_filters( 'login_headertitle', $login_header_title );
 

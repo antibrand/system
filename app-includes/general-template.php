@@ -953,6 +953,115 @@ function has_site_icon( $blog_id = 0 ) {
  * @param int $blog_id Optional. ID of the blog in question. Default is the ID of the current blog.
  * @return bool Whether the site has a custom icon or not.
  */
+function has_custom_icon( $blog_id = 0 ) {
+	$switched_blog = false;
+
+	if ( is_network() && ! empty( $blog_id ) && (int) $blog_id !== get_current_blog_id() ) {
+		switch_to_blog( $blog_id );
+		$switched_blog = true;
+	}
+
+	$custom_icon_id = get_theme_mod( 'custom_icon' );
+
+	if ( $switched_blog ) {
+		restore_current_blog();
+	}
+
+	return (bool) $custom_icon_id;
+}
+
+/**
+ * Returns a custom icon, linked to home.
+ *
+ * @since Previous 4.5.0
+ *
+ * @param int $blog_id Optional. ID of the blog in question. Default is the ID of the current blog.
+ * @return string Custom icon markup.
+ */
+function get_custom_icon( $blog_id = 0 ) {
+
+	$html = '';
+	$switched_blog = false;
+
+	if ( is_network() && ! empty( $blog_id ) && (int) $blog_id !== get_current_blog_id() ) {
+		switch_to_blog( $blog_id );
+		$switched_blog = true;
+	}
+
+	$custom_icon_id = get_theme_mod( 'custom_icon' );
+
+	// If an icon is designated.
+	if ( $custom_icon_id ) {
+
+		$custom_icon_attr = [
+			'class'    => 'custom-icon',
+			'itemprop' => 'image',
+		];
+
+		/*
+		 * If the icon alt attribute is empty, get the site title and explicitly
+		 * pass it to the attributes used by wp_get_attachment_image().
+		 */
+		$image_alt = get_post_meta( $custom_icon_id, '_wp_attachment_image_alt', true );
+
+		if ( empty( $image_alt ) ) {
+			$custom_icon_attr['alt'] = get_bloginfo( 'name', 'display' );
+		}
+
+		/*
+		 * If the alt attribute is not empty, there's no need to explicitly pass
+		 * it because wp_get_attachment_image() already adds the alt attribute.
+		 */
+		$html = sprintf(
+			'<a href="%1$s" class="custom-icon-link" rel="home" itemprop="url">%2$s</a>',
+			esc_url( home_url( '/' ) ),
+			wp_get_attachment_image( $custom_icon_id, 'full', false, $custom_icon_attr )
+		);
+	}
+
+	// If no icon is set but we're in the live manager, leave a placeholder (needed for the live preview).
+	elseif ( is_customize_preview() ) {
+
+		$html = sprintf( '<a href="%1$s" class="custom-icon-link" style="display:none;"><img class="custom-icon"/></a>',
+			esc_url( home_url( '/' ) )
+		);
+	}
+
+	if ( $switched_blog ) {
+		restore_current_blog();
+	}
+
+	/**
+	 * Filters the custom icon output.
+	 *
+	 * @since Previous 4.5.0
+	 * @since Previous 4.6.0 Added the `$blog_id` parameter.
+	 *
+	 * @param string $html    Custom icon HTML output.
+	 * @param int    $blog_id ID of the blog to get the custom icon for.
+	 */
+	return apply_filters( 'get_custom_icon', $html, $blog_id );
+}
+
+/**
+ * Displays a custom icon, linked to home.
+ *
+ * @since Previous 4.5.0
+ *
+ * @param int $blog_id Optional. ID of the blog in question. Default is the ID of the current blog.
+ */
+function the_custom_icon( $blog_id = 0 ) {
+	echo get_custom_icon( $blog_id );
+}
+
+/**
+ * Determines whether the site has a custom logo.
+ *
+ * @since Previous 4.5.0
+ *
+ * @param int $blog_id Optional. ID of the blog in question. Default is the ID of the current blog.
+ * @return bool Whether the site has a custom logo or not.
+ */
 function has_custom_logo( $blog_id = 0 ) {
 	$switched_blog = false;
 
@@ -971,12 +1080,12 @@ function has_custom_logo( $blog_id = 0 ) {
 }
 
 /**
- * Returns a custom icon, linked to home.
+ * Returns a custom logo, linked to home.
  *
  * @since Previous 4.5.0
  *
  * @param int $blog_id Optional. ID of the blog in question. Default is the ID of the current blog.
- * @return string Custom icon markup.
+ * @return string Custom logo markup.
  */
 function get_custom_logo( $blog_id = 0 ) {
 
@@ -990,7 +1099,7 @@ function get_custom_logo( $blog_id = 0 ) {
 
 	$custom_logo_id = get_theme_mod( 'custom_logo' );
 
-	// If an icon is designated.
+	// If an logo is designated.
 	if ( $custom_logo_id ) {
 
 		$custom_logo_attr = [
@@ -999,7 +1108,7 @@ function get_custom_logo( $blog_id = 0 ) {
 		];
 
 		/*
-		 * If the icon alt attribute is empty, get the site title and explicitly
+		 * If the logo alt attribute is empty, get the site title and explicitly
 		 * pass it to the attributes used by wp_get_attachment_image().
 		 */
 		$image_alt = get_post_meta( $custom_logo_id, '_wp_attachment_image_alt', true );
@@ -1019,7 +1128,7 @@ function get_custom_logo( $blog_id = 0 ) {
 		);
 	}
 
-	// If no icon is set but we're in the live manager, leave a placeholder (needed for the live preview).
+	// If no logo is set but we're in the live manager, leave a placeholder (needed for the live preview).
 	elseif ( is_customize_preview() ) {
 
 		$html = sprintf( '<a href="%1$s" class="custom-logo-link" style="display:none;"><img class="custom-logo"/></a>',
@@ -1032,19 +1141,19 @@ function get_custom_logo( $blog_id = 0 ) {
 	}
 
 	/**
-	 * Filters the custom icon output.
+	 * Filters the custom logo output.
 	 *
 	 * @since Previous 4.5.0
 	 * @since Previous 4.6.0 Added the `$blog_id` parameter.
 	 *
-	 * @param string $html    Custom icon HTML output.
-	 * @param int    $blog_id ID of the blog to get the custom icon for.
+	 * @param string $html    Custom logo HTML output.
+	 * @param int    $blog_id ID of the blog to get the custom logo for.
 	 */
 	return apply_filters( 'get_custom_logo', $html, $blog_id );
 }
 
 /**
- * Displays a custom icon, linked to home.
+ * Displays a custom logo, linked to home.
  *
  * @since Previous 4.5.0
  *

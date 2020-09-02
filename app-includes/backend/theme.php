@@ -261,6 +261,7 @@ function get_theme_feature_list( $api = true ) {
 			'custom-background'     => __( 'Custom Background' ),
 			'custom-colors'         => __( 'Custom Colors' ),
 			'custom-header'         => __( 'Custom Header' ),
+			'custom-icon'           => __( 'Custom Icon' ),
 			'custom-logo'           => __( 'Custom Logo' ),
 			'editor-style'          => __( 'Editor Style' ),
 			'featured-image-header' => __( 'Featured Image Header' ),

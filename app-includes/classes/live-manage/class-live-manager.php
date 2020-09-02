@@ -4881,7 +4881,7 @@ final class Live_Manager {
 		// Add a setting to hide header text if the theme doesn't support custom headers.
 		if ( ! current_theme_supports( 'custom-header', 'header-text' ) ) {
 			$this->add_setting( 'header_text', array(
-				'theme_supports'    => array( 'custom-logo', 'header-text' ),
+				'theme_supports'    => array( 'custom-icon', 'custom-logo', 'header-text' ),
 				'default'           => 1,
 				'sanitize_callback' => 'absint',
 			) );

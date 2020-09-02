@@ -311,7 +311,16 @@ include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 			);
 
 			// Icon link.
-			if ( current_theme_supports( 'custom-logo' ) || current_theme_supports( 'custom-logo' ) ) {
+			if ( current_theme_supports( 'custom-icon' ) ) {
+				$current_theme_action_links .= sprintf(
+					'<a class="button hide-if-no-customize" href="%1s">%2s</a>',
+					esc_url( admin_url( 'customize.php' ) . '?autofocus[control]=custom_icon' ),
+					__( 'Identity' )
+				);
+			}
+
+			// Logo link.
+			if ( current_theme_supports( 'custom-logo' ) ) {
 				$current_theme_action_links .= sprintf(
 					'<a class="button hide-if-no-customize" href="%1s">%2s</a>',
 					esc_url( admin_url( 'customize.php' ) . '?autofocus[control]=custom_logo' ),

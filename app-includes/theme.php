@@ -2179,7 +2179,7 @@ function get_theme_starter_content() {
  * @global array $_wp_theme_features
  *
  * @param string $feature  The feature being added. Likely core values include 'post-formats',
- *                         'post-thumbnails', 'html5', 'custom-logo', 'custom-header-uploads',
+ *                         'post-thumbnails', 'html5', 'custom-icon', 'custom-logo', 'custom-header-uploads',
  *                         'custom-header', 'custom-background', 'title-tag', 'starter-content', etc.
  * @param mixed  $args,... Optional extra arguments to pass along with certain features.
  * @return void|bool False on failure, void otherwise.
@@ -2234,7 +2234,8 @@ function add_theme_support( $feature ) {
 				$args[0] = array_merge( $_wp_theme_features['html5'][0], $args[0] );
 			break;
 
-		case 'custom-logo':
+		case 'custom-icon' :
+		case 'custom-logo' :
 			if ( ! is_array( $args ) ) {
 				$args = array( 0 => array() );
 			}
@@ -2435,6 +2436,30 @@ function _custom_header_background_just_in_time() {
  * @since 4.5.0
  * @access private
  */
+function _custom_icon_header_styles() {
+	if ( ! current_theme_supports( 'custom-header', 'header-text' ) && get_theme_support( 'custom-icon', 'header-text' ) && ! get_theme_mod( 'header_text', true ) ) {
+		$classes = (array) get_theme_support( 'custom-icon', 'header-text' );
+		$classes = array_map( 'sanitize_html_class', $classes );
+		$classes = '.' . implode( ', .', $classes );
+
+		?>
+		<!-- Custom icon: hide header text -->
+		<style id="custom-icon-css" type="text/css">
+			<?php echo $classes; ?> {
+				position: absolute;
+				clip: rect(1px, 1px, 1px, 1px);
+			}
+		</style>
+	<?php
+	}
+}
+
+/**
+ * Adds CSS to hide header text for custom icon, based on live manager setting.
+ *
+ * @since 4.5.0
+ * @access private
+ */
 function _custom_logo_header_styles() {
 	if ( ! current_theme_supports( 'custom-header', 'header-text' ) && get_theme_support( 'custom-logo', 'header-text' ) && ! get_theme_mod( 'header_text', true ) ) {
 		$classes = (array) get_theme_support( 'custom-logo', 'header-text' );
@@ -2473,6 +2498,7 @@ function get_theme_support( $feature ) {
 
 	$args = array_slice( func_get_args(), 1 );
 	switch ( $feature ) {
+		case 'custom-icon' :
 		case 'custom-logo' :
 		case 'custom-header' :
 		case 'custom-background' :
@@ -2603,9 +2629,10 @@ function current_theme_supports( $feature ) {
 			$type = $args[0];
 			return in_array( $type, $_wp_theme_features[$feature][0] );
 
-		case 'custom-logo':
-		case 'custom-header':
-		case 'custom-background':
+		case 'custom-logo' :
+		case 'custom-icon' :
+		case 'custom-header' :
+		case 'custom-background' :
 			// Specific capabilities can be registered by passing an array to add_theme_support().
 			return ( isset( $_wp_theme_features[ $feature ][0][ $args[0] ] ) && $_wp_theme_features[ $feature ][0][ $args[0] ] );
 	}
