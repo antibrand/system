@@ -186,14 +186,14 @@ class Admin_Comment extends Edit_Screen {
 		// Conditional callback variable.
 		switch( $action ) {
 			case 'editcomment' :
-				$callback = $this->comment_edit();
+				$callback = $this->edit_comment();
 			break;
 
 			case 'delete'  :
 			case 'approve' :
 			case 'trash'   :
 			case 'spam'    :
-				$callback = $this->comment_status();
+				$callback = $this->edit_comment();
 			break;
 
 			case 'deletecomment'    :
@@ -203,17 +203,16 @@ class Admin_Comment extends Edit_Screen {
 			case 'unspamcomment'    :
 			case 'approvecomment'   :
 			case 'unapprovecomment' :
-				$callback = $this->comment_quick_edit();
+				$callback = $this->edit_comment();
 
 			die;
 
 			case 'editedcomment' :
-				$callback = $this->comment_edited();
+				$callback = $this->edited_comment();
 
 			exit();
 
 			default :
-				$callback = $this->comment_unknown();
 
 			break;
 		}

@@ -150,7 +150,7 @@ switch( $action ) {
 
 		<table class="form-table comment-ays">
 			<tr>
-				<th scope="row"><?php _e( 'xAuthor' ); ?></th>
+				<th scope="row"><?php _e( 'Author' ); ?></th>
 				<td><?php comment_author( $comment ); ?></td>
 			</tr>
 
