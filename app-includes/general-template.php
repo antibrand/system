@@ -979,6 +979,7 @@ function has_custom_logo( $blog_id = 0 ) {
  * @return string Custom icon markup.
  */
 function get_custom_logo( $blog_id = 0 ) {
+
 	$html = '';
 	$switched_blog = false;
 
@@ -989,18 +990,20 @@ function get_custom_logo( $blog_id = 0 ) {
 
 	$custom_logo_id = get_theme_mod( 'custom_logo' );
 
-	// We have a icon. Logo is go.
+	// If an icon is designated.
 	if ( $custom_logo_id ) {
-		$custom_logo_attr = array(
+
+		$custom_logo_attr = [
 			'class'    => 'custom-logo',
 			'itemprop' => 'image',
-		);
+		];
 
 		/*
 		 * If the icon alt attribute is empty, get the site title and explicitly
 		 * pass it to the attributes used by wp_get_attachment_image().
 		 */
 		$image_alt = get_post_meta( $custom_logo_id, '_wp_attachment_image_alt', true );
+
 		if ( empty( $image_alt ) ) {
 			$custom_logo_attr['alt'] = get_bloginfo( 'name', 'display' );
 		}
@@ -1009,7 +1012,8 @@ function get_custom_logo( $blog_id = 0 ) {
 		 * If the alt attribute is not empty, there's no need to explicitly pass
 		 * it because wp_get_attachment_image() already adds the alt attribute.
 		 */
-		$html = sprintf( '<a href="%1$s" class="custom-logo-link" rel="home" itemprop="url">%2$s</a>',
+		$html = sprintf(
+			'<a href="%1$s" class="custom-logo-link" rel="home" itemprop="url">%2$s</a>',
 			esc_url( home_url( '/' ) ),
 			wp_get_attachment_image( $custom_logo_id, 'full', false, $custom_logo_attr )
 		);
@@ -1017,6 +1021,7 @@ function get_custom_logo( $blog_id = 0 ) {
 
 	// If no icon is set but we're in the live manager, leave a placeholder (needed for the live preview).
 	elseif ( is_customize_preview() ) {
+
 		$html = sprintf( '<a href="%1$s" class="custom-logo-link" style="display:none;"><img class="custom-logo"/></a>',
 			esc_url( home_url( '/' ) )
 		);

@@ -291,8 +291,8 @@ final class Functions {
 		 * @since 1.0.0
 		 */
 
-		// Logo arguments.
-		$logo_args = [
+		// Icon arguments.
+		$icon_args = [
 			'width'       => 180,
 			'height'      => 180,
 			'flex-width'  => true,
@@ -300,10 +300,10 @@ final class Functions {
 		];
 
 		// Apply a filter to logo arguments.
-		$logo = apply_filters( 'ab_custom_logo', $logo_args );
+		$icon = apply_filters( 'ab_custom_logo', $icon_args );
 
 		// Add logo support.
-		add_theme_support( 'custom-logo', $logo );
+		add_theme_support( 'custom-logo', $icon );
 
 		 /**
 		 * Set content width.

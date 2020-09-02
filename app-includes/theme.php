@@ -2442,7 +2442,7 @@ function _custom_logo_header_styles() {
 		$classes = '.' . implode( ', .', $classes );
 
 		?>
-		<!-- Custom Logo: hide header text -->
+		<!-- Custom icon: hide header text -->
 		<style id="custom-logo-css" type="text/css">
 			<?php echo $classes; ?> {
 				position: absolute;

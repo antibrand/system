@@ -876,7 +876,7 @@
 		});
 
 		/**
-		 * Custom Logo
+		 * Custom icon
 		 *
 		 * Toggle the app-custom-icon body class when an icon is added or removed.
 		 *

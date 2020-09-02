@@ -310,8 +310,8 @@ include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 				__( 'Manage' )
 			);
 
-			// Logo link.
-			if ( current_theme_supports( 'custom-logo' ) ) {
+			// Icon link.
+			if ( current_theme_supports( 'custom-logo' ) || current_theme_supports( 'custom-logo' ) ) {
 				$current_theme_action_links .= sprintf(
 					'<a class="button hide-if-no-customize" href="%1s">%2s</a>',
 					esc_url( admin_url( 'customize.php' ) . '?autofocus[control]=custom_logo' ),
