@@ -946,12 +946,12 @@ function has_site_icon( $blog_id = 0 ) {
 }
 
 /**
- * Determines whether the site has a custom logo.
+ * Determines whether the site has a custom icon.
  *
  * @since Previous 4.5.0
  *
  * @param int $blog_id Optional. ID of the blog in question. Default is the ID of the current blog.
- * @return bool Whether the site has a custom logo or not.
+ * @return bool Whether the site has a custom icon or not.
  */
 function has_custom_logo( $blog_id = 0 ) {
 	$switched_blog = false;
@@ -971,12 +971,12 @@ function has_custom_logo( $blog_id = 0 ) {
 }
 
 /**
- * Returns a custom logo, linked to home.
+ * Returns a custom icon, linked to home.
  *
  * @since Previous 4.5.0
  *
  * @param int $blog_id Optional. ID of the blog in question. Default is the ID of the current blog.
- * @return string Custom logo markup.
+ * @return string Custom icon markup.
  */
 function get_custom_logo( $blog_id = 0 ) {
 	$html = '';
@@ -989,15 +989,15 @@ function get_custom_logo( $blog_id = 0 ) {
 
 	$custom_logo_id = get_theme_mod( 'custom_logo' );
 
-	// We have a logo. Logo is go.
+	// We have a icon. Logo is go.
 	if ( $custom_logo_id ) {
 		$custom_logo_attr = array(
 			'class'    => 'custom-logo',
-			'itemprop' => 'logo',
+			'itemprop' => 'image',
 		);
 
 		/*
-		 * If the logo alt attribute is empty, get the site title and explicitly
+		 * If the icon alt attribute is empty, get the site title and explicitly
 		 * pass it to the attributes used by wp_get_attachment_image().
 		 */
 		$image_alt = get_post_meta( $custom_logo_id, '_wp_attachment_image_alt', true );
@@ -1015,7 +1015,7 @@ function get_custom_logo( $blog_id = 0 ) {
 		);
 	}
 
-	// If no logo is set but we're in the live manager, leave a placeholder (needed for the live preview).
+	// If no icon is set but we're in the live manager, leave a placeholder (needed for the live preview).
 	elseif ( is_customize_preview() ) {
 		$html = sprintf( '<a href="%1$s" class="custom-logo-link" style="display:none;"><img class="custom-logo"/></a>',
 			esc_url( home_url( '/' ) )
@@ -1027,19 +1027,19 @@ function get_custom_logo( $blog_id = 0 ) {
 	}
 
 	/**
-	 * Filters the custom logo output.
+	 * Filters the custom icon output.
 	 *
 	 * @since Previous 4.5.0
 	 * @since Previous 4.6.0 Added the `$blog_id` parameter.
 	 *
-	 * @param string $html    Custom logo HTML output.
-	 * @param int    $blog_id ID of the blog to get the custom logo for.
+	 * @param string $html    Custom icon HTML output.
+	 * @param int    $blog_id ID of the blog to get the custom icon for.
 	 */
 	return apply_filters( 'get_custom_logo', $html, $blog_id );
 }
 
 /**
- * Displays a custom logo, linked to home.
+ * Displays a custom icon, linked to home.
  *
  * @since Previous 4.5.0
  *

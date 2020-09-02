@@ -2430,7 +2430,7 @@ function _custom_header_background_just_in_time() {
 }
 
 /**
- * Adds CSS to hide header text for custom logo, based on live manager setting.
+ * Adds CSS to hide header text for custom icon, based on live manager setting.
  *
  * @since 4.5.0
  * @access private
@@ -2653,7 +2653,7 @@ function require_if_theme_supports( $feature, $include ) {
  * @access private
  * @since 3.0.0
  * @since 4.3.0 Also removes `header_image_data`.
- * @since 4.5.0 Also removes custom logo theme mods.
+ * @since 4.5.0 Also removes custom icon theme mods.
  *
  * @param int $id The attachment id.
  */
