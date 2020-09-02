@@ -627,7 +627,7 @@
 		 * @returns {void}
 		 */
 		custom_logo: function( attachmentId ) {
-			$( 'body' ).toggleClass( 'wp-custom-logo', !! attachmentId );
+			$( 'body' ).toggleClass( 'app-custom-icon', !! attachmentId );
 		},
 
 		/**
@@ -878,7 +878,7 @@
 		/**
 		 * Custom Logo
 		 *
-		 * Toggle the wp-custom-logo body class when an icon is added or removed.
+		 * Toggle the app-custom-icon body class when an icon is added or removed.
 		 *
 		 * @since 4.5.0
 		 */

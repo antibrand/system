@@ -841,7 +841,7 @@ function get_body_class( $class = '' ) {
 		$classes[] = 'custom-background';
 
 	if ( has_custom_logo() ) {
-		$classes[] = 'wp-custom-logo';
+		$classes[] = 'app-custom-icon';
 	}
 
 	$page = $wp_query->get( 'page' );
