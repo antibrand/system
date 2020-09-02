@@ -2,7 +2,7 @@
 /**
  * Site identity markup
  *
- * Renders the site title, descriiption, and logo.
+ * Renders the site title, descriiption, and icon.
  *
  * @package    system
  * @subpackage AB_Theme
@@ -10,23 +10,23 @@
  */
 
 /**
- * Conditional site logo markup
+ * Conditional site icon markup
  *
  * Uses a link to the home page if not on the home page.
  */
 if ( is_front_page() && has_custom_logo() ) {
 	$id        = get_theme_mod( 'custom_logo' );
 	$src       = wp_get_attachment_image_src( $id , 'full' );
-	$site_logo = sprintf(
-		'<img src="%1s" class="custom-logo" alt="%2s" itemprop="logo" width="512" height="512">',
+	$site_icon = sprintf(
+		'<img src="%1s" class="custom-icon" alt="%2s" itemprop="image" width="512" height="512">',
 		$src[0],
 		get_bloginfo( 'name' )
 	);
 } elseif ( has_custom_logo() ) {
-	$site_logo = get_custom_logo();
+	$site_icon = get_custom_logo();
 } else {
-	$site_logo = sprintf(
-		'<a href="%1s" class="custom-logo-link" rel="home" itemprop="url"><img src="%2s" class="custom-logo" alt="%3s" itemprop="logo" width="512" height="512"></a>',
+	$site_icon = sprintf(
+		'<a href="%1s" class="custom-icon-link" rel="home" itemprop="url"><img src="%2s" class="custom-icon" alt="%3s" itemprop="image" width="512" height="512"></a>',
 		esc_url( home_url( '/' ) ),
 		get_theme_file_uri( '/assets/images/identity-image.png' ),
 		get_bloginfo( 'name' )
@@ -78,7 +78,7 @@ $site_description = apply_filters( 'ab_site_title', $site_description );
 ?>
 <div class="site-identity">
 	<div class="site-icon">
-		<?php echo $site_logo; ?>
+		<?php echo $site_icon; ?>
 	</div>
 	<div class="site-title-description">
 		<?php echo $site_title; ?>

@@ -229,12 +229,12 @@ samp {
   padding: 2em 0 1em;
 }
 
-.site-identity .site-logo {
+.site-identity .site-icon {
   max-width: 90px;
   margin-right: 1em;
 }
 
-.site-identity .site-logo img {
+.site-identity .site-icon img {
   display: block;
 }
 
