@@ -65,7 +65,7 @@ class User_Logging {
 		if ( defined( 'APP_WEBSITE' ) && APP_WEBSITE ) {
 
 			$app_icon = sprintf(
-				'<a href="%1s"><img src="%2s" class="app-logo-image" alt="%3s" itemprop="logo" width="512" height="512"></a>',
+				'<a href="%1s"><img src="%2s" class="app-icon-image" alt="%3s" itemprop="logo" width="512" height="512"></a>',
 				esc_url( APP_WEBSITE ),
 				esc_attr( $app_get_logo ),
 				esc_html( APP_NAME )
@@ -74,7 +74,7 @@ class User_Logging {
 		} else {
 
 			$app_icon = sprintf(
-				'<img src="%1s" class="app-logo-image" alt="%2s" itemprop="logo" width="512" height="512">',
+				'<img src="%1s" class="app-icon-image" alt="%2s" itemprop="logo" width="512" height="512">',
 				esc_attr( $app_get_logo ),
 				esc_html( APP_NAME )
 			);
@@ -198,7 +198,7 @@ class User_Logging {
 
 		<header class="login-header">
 			<div class="login-identity">
-				<div class="site-logo">
+				<div class="site-icon">
 					<?php echo $app_icon; ?>
 				</div>
 				<div class="site-title-description">

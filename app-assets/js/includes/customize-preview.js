@@ -621,9 +621,9 @@
 	api.settingPreviewHandlers = {
 
 		/**
-		 * Preview changes to custom logo.
+		 * Preview changes to custom icon.
 		 *
-		 * @param {number} attachmentId Attachment ID for custom logo.
+		 * @param {number} attachmentId Attachment ID for custom icon.
 		 * @returns {void}
 		 */
 		custom_logo: function( attachmentId ) {
@@ -878,7 +878,7 @@
 		/**
 		 * Custom Logo
 		 *
-		 * Toggle the wp-custom-logo body class when a logo is added or removed.
+		 * Toggle the wp-custom-logo body class when an icon is added or removed.
 		 *
 		 * @since 4.5.0
 		 */

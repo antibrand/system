@@ -118,7 +118,7 @@ if ( file_exists( ABSPATH . 'id-config.php' ) ) {
 		define( 'APP_WEBSITE', '' );
 	}
 
-	// Define a logo path for the website management system.
+	// Define an icon path for the website management system.
 	if ( ! defined( 'APP_IMAGE' ) ) {
 		define( 'APP_IMAGE', '' );
 	}

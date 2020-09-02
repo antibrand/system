@@ -65,7 +65,7 @@ $app_icon_dir = apply_filters( 'app_icon_upload_directory', ABSPATH . APP_ASSETS
 				<br /><span class="description config-field-description"><?php _e( 'Link users to your website for more information.' ); ?></span>
 			</p>
 
-			<p class="config-field config-app-logo">
+			<p class="config-field config-app-icon">
 				<label for="app_icon"><?php _e( 'Application Icon' ); ?></label>
 				<br /><input name="app_icon" id="app_icon" type="file" accept="image/png, image/jpg, image/jpeg image/gif" />
 				<br /><span class="description config-field-description"><?php _e( 'Accepts .png, .jpg, .jpeg, .gif.' ); ?></span>

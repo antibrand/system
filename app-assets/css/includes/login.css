@@ -2602,12 +2602,12 @@ ol {
   padding: 2rem;
 }
 
-.login-header .login-identity .site-logo {
+.login-header .login-identity .site-icon {
   max-width: 80px;
   margin-right: 1em;
 }
 
-.login-header .login-identity .site-logo img {
+.login-header .login-identity .site-icon img {
   display: block;
 }
 

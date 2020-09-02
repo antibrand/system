@@ -60,7 +60,7 @@ define( 'APP_TAGLINE', 'generic, white-label website management' );
 // Define a URL for the website management system.
 define( 'APP_WEBSITE', '' );
 
-// Define a logo or icon path for the website management system.
+// Define an icon path for the website management system.
 define( 'APP_IMAGE', dirname( dirname( $_SERVER['PHP_SELF'] ) ) . APP_ASSETS_DIR . '/images/app-icon.png' );
 
 /**

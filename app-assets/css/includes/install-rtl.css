@@ -2602,12 +2602,12 @@ ol {
   padding: 2rem;
 }
 
-.app-header .app-identity .app-logo {
+.app-header .app-identity .app-icon {
   max-width: 80px;
   margin-left: 1em;
 }
 
-.app-header .app-identity .app-logo img {
+.app-header .app-identity .app-icon img {
   display: block;
 }
 

@@ -77,7 +77,7 @@ $site_description = apply_filters( 'ab_site_title', $site_description );
 
 ?>
 <div class="site-identity">
-	<div class="site-logo">
+	<div class="site-icon">
 		<?php echo $site_logo; ?>
 	</div>
 	<div class="site-title-description">
