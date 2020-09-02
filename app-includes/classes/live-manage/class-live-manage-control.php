@@ -728,7 +728,7 @@ require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-background-
 require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-cropped-image-control.php' );
 
 /**
- * WP_Customize_Site_Icon_Control class.
+ * WP_Customize_Browser_Icon_Control class.
  */
 require_once( APP_INC_PATH . '/classes/live-manage/class-live-manage-site-icon-control.php' );
 

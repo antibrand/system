@@ -4804,7 +4804,7 @@
 		 * @param {object} attachment
 		 */
 		setImageFromAttachment: function( attachment ) {
-			var sizes = [ 'site_icon-32', 'thumbnail', 'full' ], link,
+			var sizes = [ 'browser_icon-32', 'thumbnail', 'full' ], link,
 				icon;
 
 			_.each( sizes, function( size ) {
@@ -6913,7 +6913,7 @@
 		upload:              api.UploadControl,
 		image:               api.ImageControl,
 		cropped_image:       api.CroppedImageControl,
-		site_icon:           api.SiteIconControl,
+		browser_icon:        api.SiteIconControl,
 		header:              api.HeaderControl,
 		background:          api.BackgroundControl,
 		background_position: api.BackgroundPositionControl,

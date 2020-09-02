@@ -45,7 +45,7 @@ const APP_CLASSES = [
 	'AppNamespace\Includes\Import_Data_Content' => __DIR__ . '/classes/includes/class-import-data-content.php',
 
 	// Presentation.
-	'AppNamespace\Includes\Site_Icon' => __DIR__ . '/classes/includes/class-site-icon.php',
+	'AppNamespace\Includes\Browser_Icon' => __DIR__ . '/classes/includes/class-site-icon.php',
 
 	// Backend functionality.
 	'PclZip' => __DIR__ . '/classes/backend/class-pclzip.php',

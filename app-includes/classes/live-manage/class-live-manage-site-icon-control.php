@@ -1,6 +1,6 @@
 <?php
 /**
- * Live manager API: WP_Customize_Site_Icon_Control class
+ * Live manager API: WP_Customize_Browser_Icon_Control class
  *
  * @package App_Package
  * @subpackage Live_Manage
@@ -16,7 +16,7 @@
  *
  * @see WP_Customize_Cropped_Image_Control
  */
-class WP_Customize_Site_Icon_Control extends WP_Customize_Cropped_Image_Control {
+class WP_Customize_Browser_Icon_Control extends WP_Customize_Cropped_Image_Control {
 
 	/**
 	 * Control type
@@ -25,7 +25,7 @@ class WP_Customize_Site_Icon_Control extends WP_Customize_Cropped_Image_Control 
 	 * @access public
 	 * @var    string
 	 */
-	public $type = 'site_icon';
+	public $type = 'browser_icon';
 
 	/**
 	 * Constructor method
@@ -66,7 +66,7 @@ class WP_Customize_Site_Icon_Control extends WP_Customize_Cropped_Image_Control 
 				<# if ( data.attachment.sizes ) { #>
 					<div class="site-icon-preview app-clearfix">
 						<div class="favicon-preview">
-							<img src="<?php echo esc_url( admin_url( 'images/' . ( is_rtl() ? 'browser-rtl.png' : 'browser.png' ) ) ); ?>" class="browser-preview" width="182" alt="" />
+							<img src="<?php echo esc_url( app_assets_url( 'images/' . ( is_rtl() ? 'browser-rtl.png' : 'browser.png' ) ) ); ?>" class="browser-preview" width="182" alt="" />
 
 							<div class="favicon">
 								<img src="{{ data.attachment.sizes.full ? data.attachment.sizes.full.url : data.attachment.url }}" alt="<?php esc_attr_e( 'Preview as a browser icon' ); ?>"/>

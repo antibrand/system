@@ -35,7 +35,7 @@ use \AppNamespace\Network  as Network;
 \class_alias( Backend\Walker_Nav_Menu_Checklist :: class, \Walker_Nav_Menu_Checklist :: class );
 
 // Presentation.
-\class_alias( Includes\Site_Icon :: class, \WP_Site_Icon :: class );
+\class_alias( Includes\Browser_Icon :: class, \WP_Site_Icon :: class );
 
 // Screens.
 \class_alias( Backend\Screen :: class, \Screen :: class );

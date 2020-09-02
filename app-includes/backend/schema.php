@@ -549,7 +549,7 @@ function populate_options() {
 
 		// @since Previous 4.3.0
 		'finished_splitting_shared_terms' => 1,
-		'site_icon' => 0,
+		'browser_icon' => 0,
 
 		// @since Previous 4.9.6
 		'wp_page_for_privacy_policy' => 0,

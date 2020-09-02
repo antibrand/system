@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------------------
-  28.0 - Site Icon
+  28.0 - Browser Icon
 ------------------------------------------------------------------------------*/
 
 .site-icon-preview .favicon-preview {
@@ -43,12 +43,14 @@
 	direction: ltr;
 }
 
+.customize-control-browser_icon .favicon-preview,
 .customize-control-site_icon .favicon-preview {
 	float: left;
 	margin-right: 12px;
 	margin-bottom: 0;
 }
 
+.customize-control-browser_icon .app-icon-preview,
 .customize-control-site_icon .app-icon-preview {
 	margin-top: 9px;
 }

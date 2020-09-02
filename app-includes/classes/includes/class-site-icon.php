@@ -1,6 +1,6 @@
 <?php
 /**
- * Site_Icon class
+ * Browser_Icon class
  *
  * @package App_Package
  * @subpackage Includes
@@ -14,7 +14,7 @@ namespace AppNamespace\Includes;
  *
  * @since Previous 4.3.0
  */
-class Site_Icon {
+class Browser_Icon {
 
 	/**
 	 * The minimum size of the site icon.
@@ -135,7 +135,7 @@ class Site_Icon {
 	}
 
 	/**
-	 * Adds additional sizes to be made when creating the site_icon images.
+	 * Adds additional sizes to be made when creating the browser_icon images.
 	 *
 	 * @since Previous 4.3.0
 	 * @access public
@@ -150,7 +150,7 @@ class Site_Icon {
 		 * Filters the different dimensions that a site icon is saved in.
 		 *
 		 * @since Previous 4.3.0
-		 * @param array $site_icon_sizes Sizes available for the Site Icon.
+		 * @param array $site_icon_sizes Sizes available for the browser icon.
 		 */
 		$this->site_icon_sizes = apply_filters( 'site_icon_image_sizes', $this->site_icon_sizes );
 
@@ -169,7 +169,7 @@ class Site_Icon {
 		foreach ( $this->site_icon_sizes as $size ) {
 
 			if ( $size < $this->min_size ) {
-				$only_crop_sizes[ 'site_icon-' . $size ] = [
+				$only_crop_sizes[ 'browser_icon-' . $size ] = [
 					'width ' => $size,
 					'height' => $size,
 					'crop'   => true,
@@ -181,7 +181,7 @@ class Site_Icon {
 	}
 
 	/**
-	 * Adds Site Icon sizes to the array of image sizes on demand.
+	 * Adds browser icon sizes to the array of image sizes on demand.
 	 *
 	 * @since  WP 4.3.0
 	 * @access public
@@ -194,14 +194,14 @@ class Site_Icon {
 		$this->site_icon_sizes = apply_filters( 'site_icon_image_sizes', $this->site_icon_sizes );
 
 		foreach ( $this->site_icon_sizes as $size ) {
-			$sizes[] = 'site_icon-' . $size;
+			$sizes[] = 'browser_icon-' . $size;
 		}
 
 		return $sizes;
 	}
 
 	/**
-	 * Deletes the Site Icon when the image file is deleted.
+	 * Deletes the browser icon when the image file is deleted.
 	 *
 	 * @since  WP 4.3.0
 	 * @access public
@@ -209,15 +209,15 @@ class Site_Icon {
 	 */
 	public function delete_attachment_data( $post_id ) {
 
-		$site_icon_id = get_option( 'site_icon' );
+		$site_icon_id = get_option( 'browser_icon' );
 
 		if ( $site_icon_id && $post_id == $site_icon_id ) {
-			delete_option( 'site_icon' );
+			delete_option( 'browser_icon' );
 		}
 	}
 
 	/**
-	 * Adds custom image sizes when meta data for an image is requested, that happens to be used as Site Icon.
+	 * Adds custom image sizes when meta data for an image is requested, that happens to be used as browser icon.
 	 *
 	 * @since  WP 4.3.0
 	 * @access public
@@ -232,7 +232,7 @@ class Site_Icon {
 
 		if ( $single && '_wp_attachment_backup_sizes' === $meta_key ) {
 
-			$site_icon_id = get_option( 'site_icon' );
+			$site_icon_id = get_option( 'browser_icon' );
 
 			if ( $post_id == $site_icon_id ) {
 				add_filter( 'intermediate_image_sizes', [ $this, 'intermediate_image_sizes' ] );

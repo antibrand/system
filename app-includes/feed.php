@@ -566,7 +566,7 @@ function prep_atom_text_construct($data) {
 }
 
 /**
- * Displays Site Icon in atom feeds.
+ * Displays browser icon in atom feeds.
  *
  * @since 4.3.0
  *
@@ -580,7 +580,7 @@ function atom_site_icon() {
 }
 
 /**
- * Displays Site Icon in RSS2.
+ * Displays browser icon in RSS2.
  *
  * @since 4.3.0
  */

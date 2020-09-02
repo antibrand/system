@@ -907,7 +907,7 @@ final class Live_Manager {
 		$this->register_control_type( 'WP_Customize_Background_Image_Control' );
 		$this->register_control_type( 'WP_Customize_Background_Position_Control' );
 		$this->register_control_type( 'WP_Customize_Cropped_Image_Control' );
-		$this->register_control_type( 'WP_Customize_Site_Icon_Control' );
+		$this->register_control_type( 'WP_Customize_Browser_Icon_Control' );
 		$this->register_control_type( 'WP_Customize_Theme_Control' );
 		$this->register_control_type( 'WP_Customize_Code_Editor_Control' );
 		$this->register_control_type( 'WP_Customize_Date_Time_Control' );
@@ -4894,18 +4894,18 @@ final class Live_Manager {
 			) );
 		}
 
-		$this->add_setting( 'site_icon', array(
+		$this->add_setting( 'browser_icon', array(
 			'type'       => 'option',
 			'capability' => 'manage_options',
 			'transport'  => 'postMessage', // Previewed with JS in the live manager controls window.
 		) );
 
-		$this->add_control( new WP_Customize_Site_Icon_Control( $this, 'site_icon', array(
-			'label'       => __( 'Site Icon' ),
+		$this->add_control( new WP_Customize_Browser_Icon_Control( $this, 'browser_icon', array(
+			'label'       => __( 'Browser Icon' ),
 			'description' => sprintf(
-				'<p>' . __( 'Site Icons are what you see in browser tabs, bookmark bars, and within mobile apps. Upload one here!' ) . '</p>' .
+				'<p>' . __( 'Browser icons are what you see in browser tabs, bookmark bars, and within mobile apps. Upload one here!' ) . '</p>' .
 				/* translators: %s: site icon size in pixels */
-				'<p>' . __( 'Site Icons should be square and at least %s pixels.' ) . '</p>',
+				'<p>' . __( 'Browser icons should be square and at least %s pixels.' ) . '</p>',
 				'<strong>512 &times; 512</strong>'
 			),
 			'section'     => 'title_tagline',

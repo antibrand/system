@@ -1860,8 +1860,8 @@ function _media_states( $post ) {
 		}
 	}
 
-	if ( $post->ID == get_option( 'site_icon' ) ) {
-		$media_states[] = __( 'Site Icon' );
+	if ( $post->ID == get_option( 'browser_icon' ) ) {
+		$media_states[] = __( 'Browser Icon' );
 	}
 
 	if ( $post->ID == get_theme_mod( 'custom_logo' ) ) {
@@ -1875,7 +1875,7 @@ function _media_states( $post ) {
 	 * @since 4.8.0 Added the `$post` parameter.
 	 *
 	 * @param array   $media_states An array of media states. Default 'Header Image',
-	 *                              'Background Image', 'Site Icon', 'Logo'.
+	 *                              'Background Image', 'Browser Icon', 'Logo'.
 	 * @param WP_Post $post         The current attachment object.
 	 */
 	$media_states = apply_filters( 'display_media_states', $media_states, $post );

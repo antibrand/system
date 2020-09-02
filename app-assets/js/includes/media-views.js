@@ -2459,7 +2459,7 @@ var Controller = wp.media.controller,
 /**
  * wp.media.controller.SiteIconCropper
  *
- * A state for cropping a Site Icon.
+ * A state for cropping a browser icon.
  *
  * @memberOf wp.media.controller
  *
@@ -9009,7 +9009,7 @@ var View = wp.media.view,
 /**
  * wp.media.view.SiteIconCropper
  *
- * Uses the imgAreaSelect plugin to allow a user to crop a Site Icon.
+ * Uses the imgAreaSelect plugin to allow a user to crop a Browser Icon.
  *
  * Takes imgAreaSelect options from
  * wp.customize.SiteIconControl.calculateImageSelectOptions.
@@ -9059,7 +9059,7 @@ var View = wp.media.View,
 /**
  * wp.media.view.SiteIconPreview
  *
- * Shows a preview of the Site Icon as a favicon and app icon while cropping.
+ * Shows a preview of the Browser Icon as a favicon and app icon while cropping.
  *
  * @memberOf wp.media.view
  *

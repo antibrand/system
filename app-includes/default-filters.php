@@ -312,7 +312,7 @@ foreach ( [ 'rss2_head', 'commentsrss2_head', 'rss_head', 'rdf_header', 'atom_he
 	add_action( $action, 'the_generator' );
 }
 
-// Feed Site Icon
+// Feed browser icon
 add_action( 'atom_head', 'atom_site_icon' );
 add_action( 'rss2_head', 'rss2_site_icon' );
 

@@ -876,14 +876,14 @@ function get_bloginfo( $show = '', $filter = 'raw' ) {
 }
 
 /**
- * Returns the Site Icon URL.
+ * Returns the browser icon URL.
  *
  * @since Previous 4.3.0
  *
  * @param int    $size    Optional. Size of the site icon. Default 512 (pixels).
  * @param string $url     Optional. Fallback url if no site icon is found. Default empty.
  * @param int    $blog_id Optional. ID of the blog to get the site icon for. Default current blog.
- * @return string Site Icon URL.
+ * @return string Browser icon URL.
  */
 function get_site_icon_url( $size = 512, $url = '', $blog_id = 0 ) {
 	$switched_blog = false;
@@ -893,7 +893,7 @@ function get_site_icon_url( $size = 512, $url = '', $blog_id = 0 ) {
 		$switched_blog = true;
 	}
 
-	$site_icon_id = get_option( 'site_icon' );
+	$site_icon_id = get_option( 'browser_icon' );
 
 	if ( $site_icon_id ) {
 		if ( $size >= 512 ) {
@@ -921,7 +921,7 @@ function get_site_icon_url( $size = 512, $url = '', $blog_id = 0 ) {
 }
 
 /**
- * Displays the Site Icon URL.
+ * Displays the Browser Icon URL.
  *
  * @since Previous 4.3.0
  *
@@ -934,7 +934,7 @@ function site_icon_url( $size = 512, $url = '', $blog_id = 0 ) {
 }
 
 /**
- * Whether the site has a Site Icon.
+ * Whether the site has a Browser Icon.
  *
  * @since Previous 4.3.0
  *
@@ -3078,7 +3078,7 @@ function wp_site_icon() {
 	 *
 	 * @since Previous 4.3.0
 	 *
-	 * @param array $meta_tags Site Icon meta elements.
+	 * @param array $meta_tags Browser Icon meta elements.
 	 */
 	$meta_tags = apply_filters( 'site_icon_meta_tags', $meta_tags );
 	$meta_tags = array_filter( $meta_tags );

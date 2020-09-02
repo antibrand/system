@@ -3245,9 +3245,9 @@ function wp_ajax_crop_image() {
 	switch ( $context ) {
 		case 'site-icon':
 
-			$wp_site_icon = new Includes\Site_Icon();
+			$wp_site_icon = new Includes\Browser_Icon();
 
-			// Skip creating a new attachment if the attachment is a Site Icon.
+			// Skip creating a new attachment if the attachment is a browser icon.
 			if ( get_post_meta( $attachment_id, '_wp_attachment_context', true ) == $context ) {
 
 				// Delete the temporary cropped file, we don't need it.

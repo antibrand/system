@@ -982,6 +982,7 @@ p.customize-section-description {
 }
 
 /* Remove descender space. */
+.customize-control-browser_icon .favicon-preview .browser-preview,
 .customize-control-site_icon .favicon-preview .browser-preview {
   vertical-align: top;
 }
