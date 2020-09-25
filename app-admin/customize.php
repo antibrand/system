@@ -25,7 +25,7 @@ if ( ! current_user_can( 'customize' ) ) {
 }
 
 /**
- * @global WP_Scripts           $wp_scripts
+ * @global WP_Scripts $wp_scripts
  * @global Live_Manager $wp_customize
  */
 global $wp_scripts, $wp_customize;
@@ -60,15 +60,15 @@ if ( $wp_customize->changeset_post_id() ) {
 		$nonces = $wp_customize->get_nonces();
 
 		$request_args = [
-			'nonce' => $nonces['save'],
-			'customize_changeset_uuid' => $wp_customize->changeset_uuid(),
-			'wp_customize' => 'on',
+			'nonce'                      => $nonces['save'],
+			'customize_changeset_uuid'   => $wp_customize->changeset_uuid(),
+			'wp_customize'               => 'on',
 			'customize_changeset_status' => 'publish',
 		];
 
 		ob_start();
 
-		wp_print_scripts( array( 'wp-util' ) ); ?>
+		wp_print_scripts( [ 'wp-util' ] ); ?>
 		<script>
 			wp.ajax.post( 'customize_save', <?php echo wp_json_encode( $request_args ); ?> );
 		</script>
@@ -93,7 +93,7 @@ if ( $wp_customize->changeset_post_id() ) {
 }
 
 
-wp_reset_vars( array( 'url', 'return', 'autofocus' ) );
+wp_reset_vars( [ 'url', 'return', 'autofocus' ] );
 
 if ( ! empty( $url ) ) {
 	$wp_customize->set_preview_url( wp_unslash( $url ) );
@@ -154,12 +154,12 @@ if ( is_rtl() ) {
 	$body_class .= ' rtl';
 }
 $body_class .= ' locale-' . sanitize_html_class( strtolower( str_replace( '_', '-', get_user_locale() ) ) );
-
 $body_class .= ' admin-color-' . sanitize_html_class( get_user_option( 'admin_color' ), 'default' );
 
 $admin_title = sprintf( $wp_customize->get_document_title_template(), __( 'Loading&hellip;' ) );
 
-?><title><?php echo $admin_title; ?></title>
+?>
+<title><?php echo $admin_title; ?></title>
 
 <script type="text/javascript">
 var ajaxurl = <?php echo wp_json_encode( admin_url( 'admin-ajax.php', 'relative' ) ); ?>,
@@ -207,7 +207,14 @@ do_action( 'customize_controls_print_scripts' );
 
 			<div id="customize-sidebar-outer-content">
 				<div id="customize-outer-theme-controls">
-					<ul class="customize-outer-pane-parent"><?php // Outer panel and sections are not implemented, but its here as a placeholder to avoid any side-effect in api.Section. ?></ul>
+					<ul class="customize-outer-pane-parent">
+						<?php
+						/**
+						 * Outer panel and sections are not implemented
+						 * but it's here as a placeholder to avoid any
+						 * side-effect in api.Section.
+						 */ ?>
+					</ul>
 				</div>
 			</div>
 
@@ -229,7 +236,9 @@ do_action( 'customize_controls_print_scripts' );
 					</div>
 
 					<div id="customize-theme-controls">
-						<ul class="customize-pane-parent"><?php // Panels and sections are managed here via JavaScript ?></ul>
+						<ul class="customize-pane-parent">
+							<?php // Panels and sections are managed here via JavaScript. ?>
+						</ul>
 					</div>
 				</div>
 			</div>
