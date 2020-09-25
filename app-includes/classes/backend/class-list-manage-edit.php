@@ -1,9 +1,11 @@
 <?php
 /**
- * List manage screen class
+ * Post types manage screen class
  *
- * Bootstrap for list management pages such as
- * post types, users, plugins, themes, media, etc.
+ * For list management pages of posts,
+ * pages, and custom post types.
+ *
+ * @see APP_ADMIN/edit.php
  *
  * @package App_Package
  * @subpackage Classes/Backend
