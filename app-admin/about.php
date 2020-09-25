@@ -1,6 +1,10 @@
 <?php
 /**
- * About This Version administration panel.
+ * About page
+ *
+ * User information about the website management system.
+ * This is intentionally incomplete, designed for you to
+ * develop for your unique version of this app.
  *
  * @package App_Package
  * @subpackage Administration
