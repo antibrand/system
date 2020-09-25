@@ -6,30 +6,30 @@
  * @subpackage Administration
  */
 
-// Alias namespaces.
-use \AppNamespace\Backend as Backend;
-
 // Get the system environment constants from the root directory.
 require_once( dirname( dirname( __FILE__ ) ) . '/app-environment.php' );
 
 // Load the administration environment.
 require_once( APP_INC_PATH . '/backend/app-admin.php' );
 
-// Instance of the page class.
-$page = Backend\List_Manage_Edit_Discussion :: instance();
-
-// Stop if not allowed.
-$page->die();
+if ( ! current_user_can( 'edit_posts' ) ) {
+	wp_die(
+		'<h1>' . __( 'You need a higher level of permission.' ) . '</h1>' .
+		'<p>' . __( 'Sorry, you are not allowed to edit comments.' ) . '</p>',
+		403
+	);
+}
 
 $wp_list_table = _get_list_table( 'AppNamespace\Backend\Comments_List_Table' );
 $pagenum       = $wp_list_table->get_pagenum();
-$doaction      = $wp_list_table->current_action();
+
+$doaction = $wp_list_table->current_action();
 
 if ( $doaction ) {
 
 	check_admin_referer( 'bulk-comments' );
 
-	if ( 'delete_all' == $doaction && ! empty( $_REQUEST['pagegen_timestamp'] ) ) {
+	if ( 'delete_all' == $doaction && !empty( $_REQUEST['pagegen_timestamp'] ) ) {
 
 		$comment_status = wp_unslash( $_REQUEST['comment_status'] );
 		$delete_time    = wp_unslash( $_REQUEST['pagegen_timestamp'] );
@@ -183,6 +183,9 @@ if ( $doaction ) {
 
 $wp_list_table->prepare_items();
 
+wp_enqueue_script( 'admin-comments' );
+enqueue_comment_hotkeys_js();
+
 if ( $post_id ) {
 
 	$comments_count      = wp_count_comments( $post_id );
@@ -201,7 +204,6 @@ if ( $post_id ) {
 			$draft_or_post_title
 		);
 	}
-
 } else {
 
 	$comments_count = wp_count_comments();
@@ -218,6 +220,80 @@ if ( $post_id ) {
 		$title = __( 'Comments' );
 	}
 }
+
+add_screen_option( 'per_page' );
+
+$help_overview = sprintf(
+	'<h3>%1s</h3>',
+	__( 'Overview' )
+);
+
+$help_overview .= sprintf(
+	'<p>%1s</p>',
+	__( 'You can manage comments made on your site similar to the way you manage posts and other content. This screen is customizable in the same ways as other management screens, and you can act on comments using the on-hover action links or the Bulk Actions.' )
+);
+
+$help_overview = apply_filters( 'help_adding_terms', $help_overview );
+
+get_current_screen()->add_help_tab( [
+	'id'      => 'overview',
+	'title'   => __( 'Overview' ),
+	'content' => $help_overview
+] );
+
+$help_moderating = sprintf(
+	'<h3>%1s</h3>',
+	__( 'Moderating Comments' )
+);
+
+$help_moderating .= sprintf(
+	'<p>%1s</p>',
+	__( 'A red bar on the left means the comment is waiting for you to moderate it.' )
+);
+
+$help_moderating .= sprintf(
+	'<p>%1s</p>',
+	__( 'In the <strong>Author</strong> column, in addition to the author&#8217;s name, email address, and blog URL, the commenter&#8217;s IP address is shown. Clicking on this link will show you all the comments made from this IP address.' )
+);
+
+$help_moderating .= sprintf(
+	'<p>%1s</p>',
+	__( 'In the <strong>Comment</strong> column, hovering over any comment gives you options to approve, reply (and approve), quick edit, edit, spam mark, or trash that comment.' )
+);
+
+$help_moderating .= sprintf(
+	'<p>%1s</p>',
+	__( 'In the <strong>In Response To</strong> column, there are three elements. The text is the name of the post that inspired the comment, and links to the post editor for that entry. The View Post link leads to that post on your live site. The small bubble with the number in it shows the number of approved comments that post has received. If there are pending comments, a red notification circle with the number of pending comments is displayed. Clicking the notification circle will filter the comments screen to show only pending comments on that post.' )
+);
+
+$help_moderating .= sprintf(
+	'<p>%1s</p>',
+	__( 'In the <strong>Submitted On</strong> column, the date and time the comment was left on your site appears. Clicking on the date/time link will take you to that comment on your live site.' )
+);
+
+$help_moderating .= sprintf(
+	'<p>%1s</p>',
+	__( 'Many people take advantage of keyboard shortcuts to moderate their comments more quickly. Use the link to the side to learn more.' )
+);
+
+$help_moderating = apply_filters( 'help_moderating_comments', $help_moderating );
+
+get_current_screen()->add_help_tab( [
+	'id'      => 'moderating-comments',
+	'title'   => __( 'Moderating Comments' ),
+	'content' => $help_moderating
+] );
+
+/**
+ * Help sidebar content
+ *
+ * This system adds no content to the help sidebar
+ * but there is a filter applied for adding content.
+ *
+ * @since 1.0.0
+ */
+$set_help_sidebar = apply_filters( 'set_help_sidebar_edit_comments', '' );
+get_current_screen()->set_help_sidebar( $set_help_sidebar );
 
 get_current_screen()->set_screen_reader_content( [
 	'heading_views'      => __( 'Filter comments list' ),

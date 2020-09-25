@@ -48,7 +48,7 @@ $action = $list_manage->current_action();
 
 if ( $action ) {
 
-	check_admin_referer('bulk-posts');
+	check_admin_referer( 'bulk-posts' );
 
 	$sendback = remove_query_arg( [ 'trashed', 'untrashed', 'deleted', 'locked', 'ids' ], wp_get_referer() );
 
@@ -213,8 +213,6 @@ $title = sprintf(
 	$post_type_object->labels->name
 );
 
-
-
 get_current_screen()->set_screen_reader_content( [
 	'heading_views'      => $post_type_object->labels->filter_items_list,
 	'heading_pagination' => $post_type_object->labels->items_list_navigation,
@@ -222,8 +220,6 @@ get_current_screen()->set_screen_reader_content( [
 ] );
 
 add_screen_option( 'per_page', [ 'default' => 20, 'option' => 'edit_' . $post_type . '_per_page' ] );
-
-
 
 // Get the admin page header.
 include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
