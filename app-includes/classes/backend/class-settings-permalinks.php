@@ -80,6 +80,7 @@ class Settings_Permalinks extends Settings_Screen {
 	 */
 	protected function __construct() {
 
+		// Run the parent constructor method.
 		parent :: __construct();
 	}
 

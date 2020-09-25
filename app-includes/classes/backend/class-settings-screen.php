@@ -72,6 +72,7 @@ class Settings_Screen extends Admin_Screen {
 	 */
 	protected function __construct() {
 
+		// Run the parent constructor method.
 		parent :: __construct();
 
 		// Allow hashtags for content tabs.

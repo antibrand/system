@@ -34,6 +34,7 @@ class List_Manage_Screen extends Admin_Screen {
 	 */
 	protected function __construct() {
 
+		// Run the parent constructor method.
 		parent :: __construct();
 
 		// Edit capabilities.

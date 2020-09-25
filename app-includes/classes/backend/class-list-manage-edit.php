@@ -58,6 +58,7 @@ class List_Manage_Edit extends List_Manage_Screen {
 	 */
 	protected function __construct() {
 
+		// Run the parent constructor method.
 		parent :: __construct();
 	}
 
