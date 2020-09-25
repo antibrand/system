@@ -203,7 +203,8 @@ switch( $action ) {
 				<th scope="row"><?php _e( 'Submitted on' ); ?></th>
 				<td>
 				<?php
-					$submitted = sprintf( __( '%1$s at %2$s' ),
+					$submitted = sprintf(
+						__( '%1$s at %2$s' ),
 						get_comment_date( __( 'Y/m/d' ), $comment ),
 						get_comment_date( __( 'g:i a' ), $comment )
 					);
