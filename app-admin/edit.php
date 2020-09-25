@@ -1,6 +1,6 @@
 <?php
 /**
- * Edit Posts Administration Screen.
+ * Edit post types pages
  *
  * @package App_Package
  * @subpackage Administration
