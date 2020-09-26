@@ -16,7 +16,7 @@ require_once( dirname( dirname( __FILE__ ) ) . '/app-environment.php' );
 require_once( APP_INC_PATH . '/backend/app-admin.php' );
 
 // Instance of the page class.
-$page = Backend\List_Manage_Edit_Discussion :: instance();
+$page = Backend\List_Manage_Discussion :: instance();
 
 // Stop if not allowed.
 $page->die();

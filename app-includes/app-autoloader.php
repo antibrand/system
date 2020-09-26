@@ -86,9 +86,10 @@ const APP_CLASSES = [
 	'AppNamespace\Backend\Admin_About'  => __DIR__ . '/classes/backend/class-admin-about.php',
 
 	// List management screens.
-	'AppNamespace\Backend\List_Manage_Screen' => __DIR__ . '/classes/backend/class-list-manage-screen.php',
-	'AppNamespace\Backend\List_Manage_Edit'   => __DIR__ . '/classes/backend/class-list-manage-edit.php',
-	'AppNamespace\Backend\List_Manage_Edit_Discussion' => __DIR__ . '/classes/backend/class-list-manage-edit-discussion.php',
+	'AppNamespace\Backend\List_Manage_Screen'     => __DIR__ . '/classes/backend/class-list-manage-screen.php',
+	'AppNamespace\Backend\List_Manage_Edit'       => __DIR__ . '/classes/backend/class-list-manage-edit.php',
+	'AppNamespace\Backend\List_Manage_Discussion' => __DIR__ . '/classes/backend/class-list-manage-discussion.php',
+	'AppNamespace\Backend\List_Manage_Users'      => __DIR__ . '/classes/backend/class-list-manage-users.php',
 	// Edit screens.
 	'AppNamespace\Backend\Edit_Screen' => __DIR__ . '/classes/backend/class-edit-screen.php',
 	'AppNamespace\Backend\Admin_Comment' => __DIR__ . '/classes/backend/class-admin-comment.php',

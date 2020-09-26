@@ -1,9 +1,6 @@
 <?php
 /**
- * List manage screen class
- *
- * Bootstrap for list management pages such as
- * post types, users, plugins, themes, media, etc.
+ * List manage discussion class
  *
  * @package App_Package
  * @subpackage Classes/Backend
@@ -18,12 +15,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * List manage screen class
+ * List manage discussion class
  *
  * @since  1.0.0
  * @access public
  */
-class List_Manage_Edit_Discussion extends List_Manage_Screen {
+class List_Manage_Discussion extends List_Manage_Screen {
 
 	/**
 	 * Instance of the class

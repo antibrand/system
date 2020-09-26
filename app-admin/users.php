@@ -7,137 +7,22 @@
  * @since 1.0.0
  */
 
+// Alias namespaces.
+use \AppNamespace\Backend as Backend;
+
 // Get the system environment constants from the root directory.
 require_once( dirname( dirname( __FILE__ ) ) . '/app-environment.php' );
 
 // Load the administration environment.
 require_once( APP_INC_PATH . '/backend/app-admin.php' );
 
-if ( ! current_user_can( 'list_users' ) ) {
-	wp_die(
-		'<h1>' . __( 'You need a higher level of permission.' ) . '</h1>' .
-		'<p>' . __( 'Sorry, you are not allowed to list users.' ) . '</p>',
-		403
-	);
-}
+// Instance of the page class.
+$page = Backend\List_Manage_Users :: instance();
 
 $wp_list_table = _get_list_table( 'AppNamespace\Backend\Users_List_Table' );
 $pagenum       = $wp_list_table->get_pagenum();
-$title         = __( 'User Accounts' );
-$parent_file   = 'users.php';
-
-add_screen_option( 'per_page' );
-
-$help_overview = sprintf(
-	'<h3>%1s</h3>',
-	__( 'Overview' )
-);
-
-$help_overview .= sprintf(
-	'<p>%1s</p>',
-	__( 'This screen lists all the existing users for your site. Each user has one of five defined roles as set by the site admin: Site Administrator, Editor, Author, Contributor, or Subscriber. Users with roles other than Administrator will see fewer options in the dashboard navigation when they are logged in, based on their role.' )
-);
-
-
-$help_overview .= sprintf(
-	'<p>%1s</p>',
-	__( 'To add a new user for your site, click the Add New button at the top of the screen or Add New in the Users menu section.' )
-);
-
-$help_overview = apply_filters( 'help_users_overview', $help_overview );
-
-get_current_screen()->add_help_tab( [
-	'id'      => 'overview',
-	'title'   => __( 'Overview' ),
-	'content' => $help_overview
-] ) ;
-
-$screen_content = sprintf(
-	'<h3>%1s</h3>',
-	__( 'Screen Content' )
-);
-
-$screen_content .= sprintf(
-	'<p>%1s</p>',
-	__( 'You can customize the display of this screen in a number of ways:' )
-);
-
-$screen_content .= '<ul>';
-
-$screen_content .= sprintf(
-	'<li>%1s</li>',
-	__( 'You can hide/display columns based on your needs and decide how many users to list per screen using the Screen Options tab.' )
-);
-
-$screen_content .= sprintf(
-	'<li>%1s</li>',
-	__( 'You can filter the list of users by User Role using the text links above the users list to show All, Administrator, Editor, Author, Contributor, or Subscriber. The default view is to show all users. Unused User Roles are not listed.' )
-);
-
-$screen_content .= sprintf(
-	'<li>%1s</li>',
-	__( 'You can view all posts made by a user by clicking on the number under the Posts column.' )
-);
-
-$screen_content .= '</ul>';
-
-$screen_content = apply_filters( 'help_users_screen_content', $screen_content );
-
-get_current_screen()->add_help_tab( [
-	'id'      => 'screen-content',
-	'title'   => __( 'Screen Content' ),
-	'content' => $screen_content
-] );
-
-$action_links = sprintf(
-	'<h3>%1s</h3>',
-	__( 'Available Actions' )
-);
-
-$action_links .= sprintf(
-	'<p>%1s</p>',
-	__( 'Hovering over a row in the users list will display action links that allow you to manage users. You can perform the following actions:' )
-);
-
-$action_links .= '<ul>';
-
-$action_links .= sprintf(
-	'<li>%1s</li>',
-	__( '<strong>Edit</strong> takes you to the editable profile screen for that user. You can also reach that screen by clicking on the username.' )
-);
-
-if ( is_network() ) {
-	$action_links .= sprintf(
-		'<li>%1s</li>',
-		__( '<strong>Remove</strong> allows you to remove a user from your site. It does not delete their content. You can also remove multiple users at once by using Bulk Actions.' )
-	);
-} else {
-	$action_links .= sprintf(
-		'<li>%1s</li>',
-		__( '<strong>Delete</strong> brings you to the Delete Users screen for confirmation, where you can permanently remove a user from your site and delete their content. You can also delete multiple users at once by using Bulk Actions.' )
-	);
-}
-
-$action_links .= '</ul>';
-
-$action_links = apply_filters( 'help_users_action_links', $action_links );
-
-get_current_screen()->add_help_tab( [
-	'id'      => 'action-links',
-	'title'   => __( 'Available Actions' ),
-	'content' => $action_links,
-] );
-
-/**
- * Help sidebar content
- *
- * This system adds no content to the help sidebar
- * but there is a filter applied for adding content.
- *
- * @since 1.0.0
- */
-$set_help_sidebar = apply_filters( 'set_help_sidebar_users', '' );
-get_current_screen()->set_help_sidebar( $set_help_sidebar );
+$title         = $page->title();
+$parent_file   = $page->parent;
 
 get_current_screen()->set_screen_reader_content( [
 	'heading_views'      => __( 'Filter users list' ),
