@@ -90,9 +90,11 @@ const APP_CLASSES = [
 	'AppNamespace\Backend\List_Manage_Edit'       => __DIR__ . '/classes/backend/class-list-manage-edit.php',
 	'AppNamespace\Backend\List_Manage_Discussion' => __DIR__ . '/classes/backend/class-list-manage-discussion.php',
 	'AppNamespace\Backend\List_Manage_Users'      => __DIR__ . '/classes/backend/class-list-manage-users.php',
+
 	// Edit screens.
-	'AppNamespace\Backend\Edit_Screen' => __DIR__ . '/classes/backend/class-edit-screen.php',
-	'AppNamespace\Backend\Admin_Comment' => __DIR__ . '/classes/backend/class-admin-comment.php',
+	'AppNamespace\Backend\Edit_Screen'       => __DIR__ . '/classes/backend/class-edit-screen.php',
+	'AppNamespace\Backend\Admin_Comment'     => __DIR__ . '/classes/backend/class-admin-comment.php',
+	'AppNamespace\Backend\Admin_Account_New' => __DIR__ . '/classes/backend/class-admin-account-new.php',
 
 	// Settings screens.
 	'AppNamespace\Backend\Settings_Screen'     => __DIR__ . '/classes/backend/class-settings-screen.php',

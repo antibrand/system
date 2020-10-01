@@ -6,27 +6,23 @@
  * @subpackage Administration
  */
 
+// Alias namespaces.
+use \AppNamespace\Backend as Backend;
+
 // Get the system environment constants from the root directory.
 require_once( dirname( dirname( __FILE__ ) ) . '/app-environment.php' );
 
 // Load the administration environment.
 require_once( APP_INC_PATH . '/backend/app-admin.php' );
 
-if ( is_network() ) {
-	if ( ! current_user_can( 'create_users' ) && ! current_user_can( 'promote_users' ) ) {
-		wp_die(
-			'<h1>' . __( 'You need a higher level of permission.' ) . '</h1>' .
-			'<p>' . __( 'Sorry, you are not allowed to add users to this network.' ) . '</p>',
-			403
-		);
-	}
-} elseif ( ! current_user_can( 'create_users' ) ) {
-	wp_die(
-		'<h1>' . __( 'You need a higher level of permission.' ) . '</h1>' .
-		'<p>' . __( 'Sorry, you are not allowed to create users.' ) . '</p>',
-		403
-	);
-}
+// Instance of the page class.
+$page = Backend\Admin_Account_New :: instance();
+
+// Page identification.
+$parent_file = $page->parent;
+$screen      = $page->screen();
+$title       = $page->title();
+$description = $page->description();
 
 if ( is_network() ) {
 	add_filter( 'wpmu_signup_user_notification_email', 'admin_created_user_email' );
@@ -104,7 +100,6 @@ if ( isset( $_REQUEST['action'] ) && 'adduser' == $_REQUEST['action'] ) {
 
 			$switched_locale = switch_to_locale( get_user_locale( $user_details ) );
 
-			// Translators: 1: Site name, 2: site URL, 3: role, 4: activation URL.
 			$message = __( 'Hi,
 
 You\'ve been invited to join \'%1$s\' at
@@ -152,7 +147,7 @@ Please click the following link to confirm the invite:
 			} else {
 				$redirect = add_query_arg( 'update', 'add', 'user-new.php' );
 			}
-				
+
 			wp_redirect( $redirect );
 
 			die();
@@ -210,123 +205,11 @@ Please click the following link to confirm the invite:
 	}
 }
 
-$title       = __( 'Add New User' );
-$parent_file = 'users.php';
-
 $do_both = false;
 
 if ( is_network() && current_user_can( 'promote_users' ) && current_user_can( 'create_users' ) ) {
 	$do_both = true;
 }
-
-$help_overview = sprintf(
-	'<h3>%1s</h3>',
-	__( 'Overview' )
-);
-
-$help_overview .= sprintf(
-	'<p>%1s</p>',
-	__( 'To add a new user to your site, fill in the form on this screen and click the Add New User button at the bottom.' )
-);
-
-if ( is_network() ) {
-
-	$help_overview .= sprintf(
-		'<p>%1s</p>',
-		__( 'Because this is a network installation, you may add accounts that already exist on the Network by specifying a username or email, and defining a role. For more options, such as specifying a password, you have to be a Network Administrator and use the hover link under an existing user&#8217;s name to Edit the user profile under Network Admin > All Users.' )
-	);
-
-	$help_overview .= sprintf(
-		'<p>%1s</p>',
-		__( 'New users will receive an email letting them know they&#8217;ve been added as a user for your site. This email will also contain their password. Check the box if you don&#8217;t want the user to receive a welcome email.' )
-	);
-
-} else {
-
-	$help_overview .= sprintf(
-		'<p>%1s</p>',
-		__( 'New users are automatically assigned a password, which they can change after logging in. You can view or edit the assigned password by clicking the Show Password button. The username cannot be changed once the user has been added.' )
-	);
-
-	$help_overview .= sprintf(
-		'<p>%1s</p>',
-		__( 'By default, new users will receive an email letting them know they&#8217;ve been added as a user for your site. This email will also contain a password reset link. Uncheck the box if you don&#8217;t want to send the new user a welcome email.' )
-	);
-}
-
-$help_overview .= sprintf(
-	'<p>%1s</p>',
-	__( 'Remember to click the Add New User button at the bottom of this screen when you are finished.' )
-);
-
-$help_overview = apply_filters( 'help_user_new_overview', $help_overview );
-
-get_current_screen()->add_help_tab( [
-	'id'      => 'overview',
-	'title'   => __( 'Overview' ),
-	'content' => $help_overview,
-] );
-
-$help_user_roles = sprintf(
-	'<h3>%1s</h3>',
-	__( 'User Roles' )
-);
-
-$help_user_roles .= sprintf(
-	'<p>%1s</p>',
-	__( 'Here is a basic overview of the different user roles and the permissions associated with each one:' )
-);
-
-$help_user_roles .= '<ul>';
-
-$help_user_roles .= sprintf(
-	'<li>%1s</li>',
-	__( 'Subscribers can read comments/comment/receive newsletters, etc. but cannot create regular site content.' )
-);
-
-$help_user_roles .= sprintf(
-	'<li>%1s</li>',
-	__( 'Contributors can write and manage their posts but not publish posts or upload media files.' )
-);
-
-$help_user_roles .= sprintf(
-	'<li>%1s</li>',
-	__( 'Authors can publish and manage their own posts, and are able to upload files.' )
-);
-
-$help_user_roles .= sprintf(
-	'<li>%1s</li>',
-	__( 'Editors can publish posts, manage posts as well as manage other people&#8217;s posts, etc.' )
-);
-
-$help_user_roles .= sprintf(
-	'<li>%1s</li>',
-	__( 'Administrators have access to all the administration features.' )
-);
-
-$help_user_roles .= '</ul>';
-
-$help_user_roles = apply_filters( 'help_user_roles', $help_user_roles );
-
-get_current_screen()->add_help_tab( [
-	'id'      => 'user-roles',
-	'title'   => __( 'User Roles' ),
-	'content' => $help_user_roles
-] );
-
-/**
- * Help sidebar content
- *
- * This system adds no content to the help sidebar
- * but there is a filter applied for adding content.
- *
- * @since 1.0.0
- */
-$set_help_sidebar = apply_filters( 'set_help_sidebar_user_new', '' );
-get_current_screen()->set_help_sidebar( $set_help_sidebar );
-
-wp_enqueue_script( 'wp-ajax-response' );
-wp_enqueue_script( 'user-profile' );
 
 /**
  * Filters whether to enable user auto-complete for non-super admins in network.
@@ -345,7 +228,7 @@ include( APP_VIEWS_PATH . '/backend/header/admin-header.php' );
 
 if ( isset( $_GET['update'] ) ) {
 
-	$messages = array();
+	$messages = [];
 
 	if ( is_network() ) {
 
@@ -363,10 +246,10 @@ if ( isset( $_GET['update'] ) ) {
 		switch ( $_GET['update'] ) {
 
 			case "newuserconfirmation":
-				$messages[] = __('Invitation email sent to new user. A confirmation link must be clicked before their account is created.');
+				$messages[] = __( 'Invitation email sent to new user. A confirmation link must be clicked before their account is created.' );
 				break;
 			case "add":
-				$messages[] = __('Invitation email sent to user. A confirmation link must be clicked for them to be added to your site.');
+				$messages[] = __( 'Invitation email sent to user. A confirmation link must be clicked for them to be added to your site.' );
 				break;
 			case "addnoconfirmation":
 				if ( empty( $edit_link ) ) {
@@ -377,7 +260,7 @@ if ( isset( $_GET['update'] ) ) {
 				}
 				break;
 			case "addexisting":
-				$messages[] = __('That user is already a member of this site.');
+				$messages[] = __( 'That user is already a member of this site.' );
 				break;
 			case "could_not_add":
 				$add_user_errors = new WP_Error( 'could_not_add', __( 'That user could not be added to this site.' ) );
@@ -394,20 +277,16 @@ if ( isset( $_GET['update'] ) ) {
 		}
 	} else {
 		if ( 'add' == $_GET['update'] )
-			$messages[] = __('User added.');
+			$messages[] = __( 'User added.' );
 	}
 }
 ?>
 <div class="wrap">
-<h1 id="add-new-user"><?php
-if ( current_user_can( 'create_users' ) ) {
-	_e( 'Add New User' );
-} elseif ( current_user_can( 'promote_users' ) ) {
-	_e( 'Add Existing User' );
-} ?>
-</h1>
 
-<?php if ( isset($errors) && is_wp_error( $errors ) ) : ?>
+	<h1><?php echo esc_html( $title ); ?></h1>
+	<?php echo $description; ?>
+
+<?php if ( isset( $errors ) && is_wp_error( $errors ) ) : ?>
 	<div class="error">
 		<ul>
 		<?php
@@ -419,18 +298,20 @@ if ( current_user_can( 'create_users' ) ) {
 <?php endif;
 
 if ( ! empty( $messages ) ) {
-	foreach ( $messages as $msg )
+	foreach ( $messages as $msg ) {
 		echo '<div id="message" class="updated notice is-dismissible"><p>' . $msg . '</p></div>';
+	}
 } ?>
 
-<?php if ( isset($add_user_errors) && is_wp_error( $add_user_errors ) ) : ?>
+<?php if ( isset( $add_user_errors ) && is_wp_error( $add_user_errors ) ) { ?>
 	<div class="error">
 		<?php
-			foreach ( $add_user_errors->get_error_messages() as $message )
+			foreach ( $add_user_errors->get_error_messages() as $message ) {
 				echo "<p>$message</p>";
+			}
 		?>
 	</div>
-<?php endif; ?>
+<?php } ?>
 <div id="ajax-response"></div>
 
 <?php
@@ -439,121 +320,148 @@ if ( is_network() && current_user_can( 'promote_users' ) ) {
 		echo '<h2 id="add-existing-user">' . __( 'Add Existing User' ) . '</h2>';
 	if ( ! current_user_can( 'manage_network_users' ) ) {
 		echo '<p>' . __( 'Enter the email address of an existing user on this network to invite them to this site. That person will be sent an email asking them to confirm the invite.' ) . '</p>';
-		$label = __('Email');
+		$label = __( 'Email' );
 		$type  = 'email';
 	} else {
 		echo '<p>' . __( 'Enter the email address or username of an existing user on this network to invite them to this site. That person will be sent an email asking them to confirm the invite.' ) . '</p>';
-		$label = __('Email or Username');
+		$label = __( 'Email or Username' );
 		$type  = 'text';
 	}
 ?>
-<form method="post" name="adduser" id="adduser" class="validate" novalidate="novalidate"<?php
-	/**
-	 * Fires inside the adduser form tag.
-	 *
-	 * @since 3.0.0
-	 */
-	do_action( 'user_new_form_tag' );
-?>>
-<input name="action" type="hidden" value="adduser" />
-<?php wp_nonce_field( 'add-user', '_wpnonce_add-user' ) ?>
+<form method="post" name="adduser" id="adduser" class="validate" novalidate="novalidate" <?php do_action( 'user_new_form_tag' ); ?>>
 
-<table class="form-table">
-	<tr class="form-field form-required">
-		<th scope="row"><label for="adduser-email"><?php echo $label; ?></label></th>
-		<td><input name="email" type="<?php echo $type; ?>" id="adduser-email" class="wp-suggest-user" value="" /></td>
-	</tr>
-	<tr class="form-field">
-		<th scope="row"><label for="adduser-role"><?php _e('Role'); ?></label></th>
-		<td><select name="role" id="adduser-role">
-			<?php wp_dropdown_roles( get_option('default_role') ); ?>
-			</select>
-		</td>
-	</tr>
-<?php if ( current_user_can( 'manage_network_users' ) ) { ?>
-	<tr>
-		<th scope="row"><?php _e( 'Skip Confirmation Email' ); ?></th>
-		<td>
-			<input type="checkbox" name="noconfirmation" id="adduser-noconfirmation" value="1" />
-			<label for="adduser-noconfirmation"><?php _e( 'Add the user without sending an email that requires their confirmation.' ); ?></label>
-		</td>
-	</tr>
-<?php } ?>
-</table>
-<?php
-/**
- * Fires at the end of the new user form.
- *
- * Passes a contextual string to make both types of new user forms
- * uniquely targetable. Contexts are 'add-existing-user' (network),
- * and 'add-new-user' (single site and network admin).
- *
- * @since 3.7.0
- *
- * @param string $type A contextual string specifying which type of new user form the hook follows.
- */
-do_action( 'user_new_form', 'add-existing-user' );
-?>
-<?php submit_button( __( 'Add Existing User' ), 'primary', 'adduser', true, array( 'id' => 'addusersub' ) ); ?>
+	<input name="action" type="hidden" value="adduser" />
+	<?php wp_nonce_field( 'add-user', '_wpnonce_add-user' ) ?>
+
+	<p class="form-field form-required"><label for="adduser-email"><?php echo $label; ?></label>
+	<br /><input name="email" type="<?php echo $type; ?>" id="adduser-email" class="wp-suggest-user" value="" /></p>
+
+	<p class="form-field"><label for="adduser-role"><?php _e( 'Role' ); ?></label>
+	<br /><select name="role" id="adduser-role">
+		<?php wp_dropdown_roles( get_option( 'default_role' ) ); ?>
+	</select></p>
+
+	<?php if ( current_user_can( 'manage_network_users' ) ) { ?>
+
+	<h3><?php _e( 'Skip Confirmation Email' ); ?></h3>
+
+	<p>
+		<label for="adduser-noconfirmation"><input type="checkbox" name="noconfirmation" id="adduser-noconfirmation" value="1" />
+			<?php _e( 'Add the user without sending an email that requires their confirmation.' ); ?>
+		</label>
+	</p>
+
+	<?php }
+
+	/**
+	 * Fires at the end of the new user form.
+	 *
+	 * Passes a contextual string to make both types of new user forms
+	 * uniquely targetable. Contexts are 'add-existing-user' (network),
+	 * and 'add-new-user' (single site and network admin).
+	 *
+	 * @since Previous 3.7.0
+	 *
+	 * @param string $type A contextual string specifying which type of new user form the hook follows.
+	 */
+	do_action( 'user_new_form', 'add-existing-user' );
+
+	submit_button( __( 'Add Existing User' ), 'primary', 'adduser', true, [ 'id' => 'addusersub' ] ); ?>
 </form>
 <?php
 } // is_network()
 
-if ( current_user_can( 'create_users') ) {
-	if ( $do_both )
+if ( current_user_can( 'create_users' ) ) {
+
+	if ( $do_both ) {
 		echo '<h2 id="create-new-user">' . __( 'Add New User' ) . '</h2>';
+	}
 ?>
-<p><?php _e('Create a brand new user and add them to this site.'); ?></p>
-<form method="post" name="createuser" id="createuser" class="validate" novalidate="novalidate"<?php
-	/** This action is documented in APP_ADMIN_DIR/user-new.php */
-	do_action( 'user_new_form_tag' );
-?>>
-<input name="action" type="hidden" value="createuser" />
-<?php wp_nonce_field( 'create-user', '_wpnonce_create-user' ); ?>
-<?php
+<form method="post" name="createuser" id="createuser" class="validate" novalidate="novalidate"<?php do_action( 'user_new_form_tag' ); ?>>
+
+	<input name="action" type="hidden" value="createuser" />
+	<?php wp_nonce_field( 'create-user', '_wpnonce_create-user' );
+
 // Load up the passed data, else set to a default.
 $creating = isset( $_POST['createuser'] );
 
-$new_user_login = $creating && isset( $_POST['user_login'] ) ? wp_unslash( $_POST['user_login'] ) : '';
-$new_user_firstname = $creating && isset( $_POST['first_name'] ) ? wp_unslash( $_POST['first_name'] ) : '';
-$new_user_lastname = $creating && isset( $_POST['last_name'] ) ? wp_unslash( $_POST['last_name'] ) : '';
-$new_user_email = $creating && isset( $_POST['email'] ) ? wp_unslash( $_POST['email'] ) : '';
-$new_user_uri = $creating && isset( $_POST['url'] ) ? wp_unslash( $_POST['url'] ) : '';
-$new_user_role = $creating && isset( $_POST['role'] ) ? wp_unslash( $_POST['role'] ) : '';
-$new_user_send_notification = $creating && ! isset( $_POST['send_user_notification'] ) ? false : true;
-$new_user_ignore_pass = $creating && isset( $_POST['noconfirmation'] ) ? wp_unslash( $_POST['noconfirmation'] ) : '';
+if ( $creating && isset( $_POST['user_login'] ) ) {
+	$new_user_login = wp_unslash( $_POST['user_login'] );
+} else {
+	$new_user_login = '';
+}
+
+if ( $creating && isset( $_POST['first_name'] ) ) {
+	$new_user_firstname = wp_unslash( $_POST['first_name'] );
+} else {
+	$new_user_firstname = '';
+}
+
+if ( $creating && isset( $_POST['last_name'] ) ) {
+	$new_user_lastname = wp_unslash( $_POST['last_name'] );
+} else {
+	$new_user_lastname = '';
+}
+
+if ( $creating && isset( $_POST['email'] ) ) {
+	$new_user_email = wp_unslash( $_POST['email'] );
+} else {
+	$new_user_email = '';
+}
+
+if ( $creating && isset( $_POST['url'] ) ) {
+	$new_user_uri = wp_unslash( $_POST['url'] );
+} else {
+	$new_user_uri = '';
+}
+
+if ( $creating && isset( $_POST['role'] ) ) {
+	$new_user_role = wp_unslash( $_POST['role'] );
+} else {
+	$new_user_role = '';
+}
+
+if ( $creating && ! isset( $_POST['send_user_notification'] ) ) {
+	$new_user_send_notification = false;
+} else {
+	$new_user_send_notification = true;
+}
+
+if ( $creating && isset( $_POST['noconfirmation'] ) ) {
+	$new_user_ignore_pass = wp_unslash( $_POST['noconfirmation'] );
+} else {
+	$new_user_ignore_pass = '';
+}
 
 ?>
-<table class="form-table">
-	<tr class="form-field form-required">
-		<th scope="row"><label for="user_login"><?php _e('Username'); ?> <span class="description"><?php _e('(required)'); ?></span></label></th>
-		<td><input name="user_login" type="text" id="user_login" value="<?php echo esc_attr( $new_user_login ); ?>" aria-required="true" autocapitalize="none" autocorrect="off" maxlength="60" /></td>
-	</tr>
-	<tr class="form-field form-required">
-		<th scope="row"><label for="email"><?php _e('Email'); ?> <span class="description"><?php _e('(required)'); ?></span></label></th>
-		<td><input name="email" type="email" id="email" value="<?php echo esc_attr( $new_user_email ); ?>" /></td>
-	</tr>
-<?php if ( !is_network() ) { ?>
-	<tr class="form-field">
-		<th scope="row"><label for="first_name"><?php _e('First Name') ?> </label></th>
-		<td><input name="first_name" type="text" id="first_name" value="<?php echo esc_attr($new_user_firstname); ?>" /></td>
-	</tr>
-	<tr class="form-field">
-		<th scope="row"><label for="last_name"><?php _e('Last Name') ?> </label></th>
-		<td><input name="last_name" type="text" id="last_name" value="<?php echo esc_attr($new_user_lastname); ?>" /></td>
-	</tr>
-	<tr class="form-field">
-		<th scope="row"><label for="url"><?php _e('Website') ?></label></th>
-		<td><input name="url" type="url" id="url" class="code" value="<?php echo esc_attr( $new_user_uri ); ?>" /></td>
-	</tr>
-	<tr class="form-field form-required user-pass1-wrap">
-		<th scope="row">
-			<label for="pass1">
-				<?php _e( 'Password' ); ?>
-				<span class="description hide-if-js"><?php _e( '(required)' ); ?></span>
-			</label>
-		</th>
-		<td>
+	<fieldset id="new-account-login-info">
+
+		<legend class="screen-reader-text"><?php _e( 'Login Information' ); ?></legend>
+
+		<p class="form-field form-required"><label for="user_login"><?php _e( 'Username' ); ?> <span class="description"><?php _e( '(required)' ); ?></span></label>
+		<br /><input name="user_login" type="text" id="user_login" value="<?php echo esc_attr( $new_user_login ); ?>" aria-required="true" autocapitalize="none" autocorrect="off" maxlength="60" /></p>
+
+		<p class="form-field form-required"><label for="email"><?php _e( 'Email' ); ?> <span class="description"><?php _e( '(required)' ); ?></span></label>
+		<br /><input name="email" type="email" id="email" value="<?php echo esc_attr( $new_user_email ); ?>" /></p>
+	</fieldset>
+
+	<?php if ( ! is_network() ) { ?>
+	<fieldset id="new-account-login-info">
+
+		<legend class="screen-reader-text"><?php _e( 'User Information' ); ?></legend>
+
+		<p class="form-field"><label for="first_name"><?php _e( 'First Name' ); ?> </label>
+		<br /><input name="first_name" type="text" id="first_name" value="<?php echo esc_attr( $new_user_firstname ); ?>" /></p>
+
+		<p class="form-field"><label for="last_name"><?php _e( 'Last Name' ); ?> </label>
+		<br /><input name="last_name" type="text" id="last_name" value="<?php echo esc_attr( $new_user_lastname ); ?>" /></p>
+
+		<p class="form-field"><label for="url"><?php _e( 'Website' ); ?></label>
+		<br /><input name="url" type="url" id="url" class="code" value="<?php echo esc_attr( $new_user_uri ); ?>" /></p>
+
+		<p class="form-field form-required user-pass1-wrap"><label for="pass1"><?php _e( 'Password' ); ?> <span class="description hide-if-js"><?php _e( '(required)' ); ?></span></label></p>
+
+		<div class="form-field form-required user-pass1-wrap">
 			<input class="hidden" value=" " /><!-- #24364 workaround -->
 			<button type="button" class="button wp-generate-pw hide-if-no-js"><?php _e( 'Show password' ); ?></button>
 			<div class="wp-pwd hide-if-js">
@@ -570,62 +478,47 @@ $new_user_ignore_pass = $creating && isset( $_POST['noconfirmation'] ) ? wp_unsl
 				</button>
 				<div style="display:none" id="pass-strength-result" aria-live="polite"></div>
 			</div>
-		</td>
-	</tr>
-	<tr class="form-field form-required user-pass2-wrap hide-if-js">
-		<th scope="row"><label for="pass2"><?php _e( 'Repeat Password' ); ?> <span class="description"><?php _e( '(required)' ); ?></span></label></th>
-		<td>
-		<input name="pass2" type="password" id="pass2" autocomplete="off" />
-		</td>
-	</tr>
-	<tr class="password-weak">
-		<th><?php _e( 'Confirm Password' ); ?></th>
-		<td>
-			<label>
-				<input type="checkbox" name="pw_weak" class="pw-checkbox" />
-				<?php _e( 'Confirm use of weak password' ); ?>
-			</label>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row"><?php _e( 'Send User Notification' ) ?></th>
-		<td>
-			<input type="checkbox" name="send_user_notification" id="send_user_notification" value="1" <?php checked( $new_user_send_notification ); ?> />
-			<label for="send_user_notification"><?php _e( 'Send the new user an email about their account.' ); ?></label>
-		</td>
-	</tr>
-<?php } // !is_network ?>
-	<tr class="form-field">
-		<th scope="row"><label for="role"><?php _e('Role'); ?></label></th>
-		<td><select name="role" id="role">
-			<?php
-			if ( !$new_user_role )
-				$new_user_role = !empty($current_role) ? $current_role : get_option('default_role');
-			wp_dropdown_roles($new_user_role);
-			?>
+		</div>
+
+		<p class="form-field form-required user-pass2-wrap hide-if-js"><label for="pass2"><?php _e( 'Repeat Password' ); ?> <span class="description"><?php _e( '(required)' ); ?></span></label>
+		<br /><input name="pass2" type="password" id="pass2" autocomplete="off" /></p>
+
+		<p class="password-weak"><label for="pw_weak"><?php _e( 'Confirm Password' ); ?></label>
+		<br /><input type="checkbox" name="pw_weak" class="pw-checkbox" /> <?php _e( 'Confirm the use of this password' ); ?></p>
+
+		<p><label for="send_user_notification"><?php _e( 'Send User Notification' ); ?></label>
+		<br /><input type="checkbox" name="send_user_notification" id="send_user_notification" value="1" <?php checked( $new_user_send_notification ); ?> /> <?php _e( 'Send the new user an email about their account.' ); ?></p>
+
+		<p><label for="role"><?php _e( 'Role' ); ?></label>
+			<br />
+			<select name="role" id="role">
+				<?php
+				if ( ! $new_user_role ) {
+					$new_user_role = ! empty( $current_role ) ? $current_role : get_option( 'default_role' );
+				}
+				wp_dropdown_roles( $new_user_role );
+				?>
 			</select>
-		</td>
-	</tr>
+		</p>
+
+	<?php } // ! is_network ?>
 	<?php if ( is_network() && current_user_can( 'manage_network_users' ) ) { ?>
-	<tr>
-		<th scope="row"><?php _e( 'Skip Confirmation Email' ); ?></th>
-		<td>
-			<input type="checkbox" name="noconfirmation" id="noconfirmation" value="1" <?php checked( $new_user_ignore_pass ); ?> />
-			<label for="noconfirmation"><?php _e( 'Add the user without sending an email that requires their confirmation.' ); ?></label>
-		</td>
-	</tr>
+
+		<p><label for="noconfirmation"><?php _e( 'Skip Confirmation Email' ); ?></label>
+		<br /><input type="checkbox" name="noconfirmation" id="noconfirmation" value="1" <?php checked( $new_user_ignore_pass ); ?> /> <?php _e( 'Add the user without sending an email that requires their confirmation.' ); ?></p>
 	<?php } ?>
-</table>
+
+	</fieldset>
 
 <?php
 /** This action is documented in APP_ADMIN_DIR/user-new.php */
 do_action( 'user_new_form', 'add-new-user' );
 ?>
 
-<?php submit_button( __( 'Add New User' ), 'primary', 'createuser', true, array( 'id' => 'createusersub' ) ); ?>
+<?php submit_button( __( 'Add New User' ), 'primary', 'createuser', true, [ 'id' => 'createusersub' ] ); ?>
 
 </form>
-<?php } // current_user_can('create_users') ?>
+<?php } // current_user_can( 'create_users' ) ?>
 </div>
 <?php
 

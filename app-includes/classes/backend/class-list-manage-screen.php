@@ -36,9 +36,6 @@ class List_Manage_Screen extends Admin_Screen {
 
 		// Run the parent constructor method.
 		parent :: __construct();
-
-		// Edit capabilities.
-		$this->die();
 	}
 
 	/**
@@ -63,21 +60,6 @@ class List_Manage_Screen extends Admin_Screen {
 
 		// Inline ("Quick") edit.
 		wp_enqueue_script( 'inline-edit-post' );
-	}
-
-	/**
-	 * Edit capabilities
-	 *
-	 * Messages if the edit request cannot
-	 * be fulfilled.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return string Returns the die() message.
-	 */
-	public function die() {
-
-		// wp_die( $message )
 	}
 
 	/**

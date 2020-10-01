@@ -77,6 +77,9 @@ class Admin_Screen {
 		// Get the current screen.
 		$this->screen();
 
+		// Page capabilities.
+		$this->die();
+
 		// Enqueue page parent scripts.
 		add_action( 'admin_enqueue_scripts', [ $this, 'parent_enqueue_scripts' ] );
 
@@ -128,6 +131,21 @@ class Admin_Screen {
 
 		// Get the current scrren.
 		return get_current_screen()->id;
+	}
+
+	/**
+	 * Page capabilities
+	 *
+	 * Messages if the page request cannot
+	 * be fulfilled.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the die() message.
+	 */
+	public function die() {
+
+		// wp_die( $message )
 	}
 
 	/**
